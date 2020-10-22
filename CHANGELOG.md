@@ -1,0 +1,63 @@
+## [20.9] - Aspose Words Cloud for Dart 20.9 Release Notes
+
+- Added Batch API feature
+
+
+## [20.8] - Aspose Words Cloud for Dart 20.8 Release Notes
+
+- Added new api method (PUT '/words/{name}/compatibility/optimize') which is allows to optimize the document contents as well as default Aspose.Words behavior to a particular versions of MS Word
+- Added 'ApplyBaseDocumentHeadersAndFootersToAppendingDocuments' option to 'DocumentEntryList' for AppendDocument API
+- WithoutNodePath methods have been removed, pass null values instead
+
+
+## [20.7] - Aspose Words Cloud for Dart 20.7 Release Notes
+
+- Added 'Markdown' save format
+- Added endpoint to update paragraph format without node path (PUT '/words/{name}/paragraphs/{index}/format')
+
+
+## [20.6] - Aspose Words Cloud for Dart 20.6 Release Notes
+
+- Added new methods:
+  - DeleteAllParagraphTabStopsWithoutNodePath
+  - DeleteParagraphTabStopWithoutNodePath
+  - GetParagraphTabStopsWithoutNodePath
+  - InsertOrUpdateParagraphTabStopWithoutNodePath
+  - InsertParagraphWithoutNodePath
+  - UpdateParagraphFormatWithoutNodePath
+  - UpdateParagraphListFormatWithoutNodePath
+  - DeleteParagraphListFormatWithoutNodePath
+- DrawingObject related methods have been changed body content. Special request classes are introduced instead of strings.
+- InsertOrUpdateParagraphTabStop, DeleteParagraphTabStop methods have been changed parameter order
+- OoxmlSaveOptionsData.CompressionLevel property has been added
+
+
+## [20.5] - Aspose Words Cloud for Dart 20.5 Release Notes
+
+- Added methods to work with Word document lists
+  - GetLists
+  - GetList
+  - InsertList
+  - UpdateList
+  - UpdateListLevel
+- Added methods to work with styles
+  - GetStyles
+  - UpdateStyle
+  - InsertStyle
+  - CopyStyle
+  - GetStyleFromDocumentElement
+  - ApplyStyleToDocumentElement
+- Added methods to work with paragraph list format
+  - GetParagraphListFormat
+  - GetParagraphListFormatWithoutNodePath
+  - UpdateParagraphListFormat
+  - DeleteParagraphListFormat
+- Added methods to work with paragraph tab stops
+  - GetParagraphTabStops
+  - InsertOrUpdateParagraphTabStop
+  - DeleteAllParagraphTabStops
+  - DeleteParagraphTabStop
+- Added methods to build reports
+  - BuildReport
+  - BuildReportOnline
+- Added Shading property to ParagraphFormat
