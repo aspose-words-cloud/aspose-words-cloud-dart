@@ -42,15 +42,16 @@ class ApiClient {
 
   ApiClient(final Configuration this.configuration);
 
-  void _handleResponse(final http.Response response) {
-    if (response.statusCode != 200) {
-      throw ApiException(response.statusCode, response.body ?? response.reasonPhrase);
-    }
-  }
-
-  void _handleStreamedResponse(final http.StreamedResponse response) async {
-    if (response.statusCode != 200) {
-      throw ApiException(response.statusCode, await response.stream.bytesToString() ?? response.reasonPhrase);
+  void _handleResponse(final int statusCode, final String reasonPhrase, final ByteData body) {
+    if (statusCode != 200) {
+      String printBody = '';
+      try {
+        printBody = utf8.decoder.convert(body.buffer.asUint8List(body.offsetInBytes, body.lengthInBytes));
+      }
+      catch(ex) {
+        printBody = reasonPhrase;
+      }
+      throw ApiException(statusCode, printBody);
     }
   }
 
@@ -67,10 +68,29 @@ class ApiClient {
     final String data = 'grant_type=client_credentials&client_id=${this.configuration.appSid}&client_secret=${this.configuration.appKey}';
     final Map<String, String> headers = {'Content-Type' : 'application/x-www-form-urlencoded'};
     final http.Response response = await http.post(url, headers: headers, body: data);
-    _handleResponse(response);
+    _handleResponse(response.statusCode, response.reasonPhrase, ByteData.view(response.bodyBytes.buffer));
 
     final Map<String, dynamic> json = jsonDecode(response.body);
     _authToken = '${json['token_type']} ${json['access_token']}';
+  }
+
+  String _stringifyBody(ByteData body) {
+    try {
+      return '\t' + utf8.decoder.convert(body.buffer.asUint8List(body.offsetInBytes, body.lengthInBytes));
+    }
+    catch(ex) {
+      String result = '\t';
+      for (int i = 0; i < body.lengthInBytes; i++) {
+        if (i != 0) {
+          result += ', ';
+          if (i % 16 == 0) {
+            result += '\r\n\t';
+          }
+        }
+        result += body.getUint8(body.offsetInBytes + i).toRadixString(16).padLeft(2, '0').toUpperCase();
+      }
+      return result;
+    }
   }
 
   String applyQueryParams(String url, Map<String, String> queryParams) {
@@ -111,7 +131,7 @@ class ApiClient {
     }
   }
 
-  ByteData serializeBody(final dynamic value) {
+  ByteData serializeBody(final dynamic value, {bool isJson = false}) {
     if (value == null) {
       return null;
     }
@@ -123,7 +143,12 @@ class ApiClient {
       return value;
     }
     else if (value is String) {
-      return ByteData.view(utf8.encoder.convert('"' + value + '"').buffer);
+      if (isJson) {
+        return ByteData.view(utf8.encoder.convert('"${value}"').buffer);
+      }
+      else {
+        return ByteData.view(utf8.encoder.convert(value).buffer);
+      }
     }
     else if (value is int) {
       return ByteData.view(utf8.encoder.convert(value.toString()).buffer);
@@ -192,7 +217,7 @@ class ApiClient {
 
   Future<dynamic> call(final RequestBase request) async {
     var requestData = request.createRequestData(this);
-    http.StreamedResponse response = null;
+    ByteData response = null;
     try {
         response = await this._callInternal(requestData);
     }
@@ -209,11 +234,23 @@ class ApiClient {
       return null;
     }
 
-    var responseBytes = await response.stream.toBytes();
-    return request.deserializeResponse(ByteData.view(responseBytes.buffer));
+    return request.deserializeResponse(response);
   }
 
-  Future<http.StreamedResponse> _callInternal(final ApiRequestData requestData) async {
+  Future<ByteData> _callInternal(final ApiRequestData requestData) async {
+    if (this.configuration.debugMode == true) {
+      var debugMessage = 'CALL BEGIN: ${requestData.method} ${requestData.url}\r\n';
+      if (requestData.headers != null && requestData.headers.length > 0) {
+        debugMessage += 'REQUEST HEADERS:\r\n';
+        requestData.headers.forEach((key, value) => debugMessage += '\t${key}: ${value}\r\n');
+      }
+      if (requestData.body != null) {
+        debugMessage += 'REQUEST BODY:\r\n';
+        debugMessage += this._stringifyBody(requestData.body) + '\r\n';
+      }
+      print(debugMessage);
+    }
+
     var httpRequest = new http.Request(requestData.method, Uri.parse(requestData.url));
     httpRequest.headers['x-aspose-client'] = 'dart sdk';
     httpRequest.headers['x-aspose-client-version'] = '20.9';
@@ -227,7 +264,24 @@ class ApiClient {
     }
 
     var response = await httpRequest.send();
-    await _handleStreamedResponse(response);
-    return response;
+    var bytes = await response.stream.toBytes();
+    var responseData = ByteData.view(bytes.buffer);
+
+    if (this.configuration.debugMode == true) {
+      String debugMessage = 'RESPONSE STATUS: ${response.statusCode} ${response.reasonPhrase}\r\n';
+      if (response.headers != null && response.headers.length > 0) {
+        debugMessage += 'RESPONSE HEADERS:\r\n';
+        response.headers.forEach((key, value) => debugMessage += '\t${key}: ${value}\r\n');
+      }
+      if (responseData.lengthInBytes > 0) {
+        debugMessage += 'RESPONSE BODY:\r\n';
+        debugMessage += this._stringifyBody(responseData) + '\r\n';
+      }
+      debugMessage += 'CALL END: ${requestData.method} ${requestData.url}\r\n';
+      print(debugMessage);
+    }
+
+    await _handleResponse(response.statusCode, response.reasonPhrase, responseData);
+    return responseData;
   }
 }

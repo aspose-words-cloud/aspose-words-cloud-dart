@@ -112,7 +112,7 @@ class InsertHeaderFooterRequest implements RequestBase {
     }
 
     if (this.headerFooterType != null) {
-      bodyParts.add(new ApiRequestPart(apiClient.serializeBody(this.headerFooterType), 'application/json'));
+      bodyParts.add(new ApiRequestPart(apiClient.serializeBody(this.headerFooterType, isJson: true), 'application/json'));
     }
     else {
       throw new ApiException(400, 'Parameter headerFooterType is required.');

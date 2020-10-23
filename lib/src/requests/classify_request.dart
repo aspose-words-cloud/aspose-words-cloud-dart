@@ -55,7 +55,7 @@ class ClassifyRequest implements RequestBase {
     }
 
     if (this.text != null) {
-      bodyParts.add(new ApiRequestPart(apiClient.serializeBody(this.text), 'application/json'));
+      bodyParts.add(new ApiRequestPart(apiClient.serializeBody(this.text, isJson: true), 'application/json'));
     }
     else {
       throw new ApiException(400, 'Parameter text is required.');
