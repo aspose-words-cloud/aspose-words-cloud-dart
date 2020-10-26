@@ -1,4 +1,4 @@
-# Aspose.Words Cloud SDK for Dart
+# Aspose.Words Cloud SDK for Dart (Compatible with [Flutter](https://flutter.dev/))
 This repository contains Aspose.Words Cloud SDK for Dart source code. This SDK allows you to work with Aspose.Words Cloud REST APIs in your Dart applications quickly and easily, with zero initial cost.
 
 [Aspose.Words Cloud](https://products.aspose.cloud/words/family "Aspose.Words Cloud")  
@@ -79,43 +79,48 @@ This repository contains Aspose.Words Cloud SDK for Dart source code. This SDK a
 
 
 ## How to use the SDK?
-The complete source code is available in this repository folder. You can either directly use it in your project via source code or get [Maven](https://repository.aspose.cloud/webapp/#/artifacts/browse/tree/General/repo/com/aspose/aspose-words-cloud) (recommended). For more details, please visit our [documentation website](https://docs.aspose.cloud/display/wordscloud/Available+SDKs).
+
+The complete source code is available in this repository folder. You can either directly use it in your project via source code or add this project as dart package (recommended). For more details, please visit our [documentation website](https://docs.aspose.cloud/display/wordscloud/Available+SDKs).
 
 ### Prerequisites
 
 To use Aspose Words for Cloud Dart SDK you need to register an account with [Aspose Cloud](https://www.aspose.cloud/) and lookup/create App Key and SID at [Cloud Dashboard](https://dashboard.aspose.cloud/#/apps). There is free quota available. For more details, see [Aspose Cloud Pricing](https://purchase.aspose.cloud/pricing).
 
 ## Installation & Usage
-Add this dependency to your project's POM:
+Add this dependency to your *pubspec.yaml*:
 
-```xml
-<repositories>
-    <repository>
-        <id>aspose-cloud</id>
-        <name>artifact.aspose-cloud-releases</name>
-        <url>http://artifact.aspose.cloud/repo</url>
-    </repository>
-</repositories>
-
-<dependencies>
-    <dependency>
-        <groupId>com.aspose</groupId>
-        <artifactId>aspose-words-cloud</artifactId>
-        <version>20.9.0</version>
-    </dependency>
-</dependencies>
+```yaml
+dependencies:
+  aspose_words_cloud: 20.9.0
 ```
 
 ## Getting Started
 
 ```dart
-        // Start README example
+import 'dart:io';
+import 'dart:typed_data';
+import 'package:aspose_words_cloud/aspose_words_cloud.dart' as aspose_words_cloud;
 
+void main() async {
+  // Configure words api client
+  var configuration = new aspose_words_cloud.Configuration('AppKey', 'AppSid');
+  var wordsApi = new aspose_words_cloud.WordsApi(configuration);
 
-        // End README example
+  // Upload file to cloud
+  var localFileContent = await (new File('fileStoredLocal.docx').readAsBytes());
+  var uploadRequest = new aspose_words_cloud.UploadFileRequest(ByteData.view(localFileContent.buffer), 'fileStoredInCloud.docx');
+  await wordsApi.uploadFile(uploadRequest);
+
+  // Save file as pdf in cloud
+  var saveOptionsData = new aspose_words_cloud.SaveOptionsData()
+    ..saveFormat = "pdf"
+    ..fileName = "destStoredInCloud.pdf";
+  var saveAsRequest = new aspose_words_cloud.SaveAsRequest("fileStoredInCloud.docx", saveOptionsData);
+  wordsApi.saveAs(saveAsRequest);
+}
 ```
 
-[Test](src/test/dart/com/aspose/words/cloud) contain various examples of using the SDK.
+[Test](test) contain various examples of using the SDK.
 
 ## Dependencies
 - referenced packages (see [here](pubspec.yaml) for more details)

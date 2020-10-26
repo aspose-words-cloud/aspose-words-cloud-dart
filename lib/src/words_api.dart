@@ -827,4 +827,9 @@ class WordsApi {
   Future< FilesUploadResult > uploadFile(UploadFileRequest request) async {
     return await this._apiClient.call(request);
   }
+
+  // Batch request
+  Future< List<dynamic> > batch(final List<RequestBase> requests) async {
+    return await this._apiClient.callBatch(requests);
+  }
 }

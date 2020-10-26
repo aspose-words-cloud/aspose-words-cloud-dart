@@ -30,6 +30,7 @@ import 'test_context.dart';
 import 'dart:convert';
 import 'dart:io';
 
+import './batch_tests.dart';
 import './bookmark/bookmark_tests.dart';
 import './compatibility/compatibility_tests.dart';
 import './document/append_document_tests.dart';
@@ -83,6 +84,7 @@ void main() async {
   final config = Configuration.fromJson(json);
   final testContext = new TestContext(config);
 
+  await (new BatchTests(testContext)).runAll();
   await (new BookmarkTests(testContext)).runAll();
   await (new CompatibilityTests(testContext)).runAll();
   await (new AppendDocumentTests(testContext)).runAll();
