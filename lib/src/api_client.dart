@@ -370,7 +370,7 @@ class ApiClient {
 
     var httpRequest = new http.Request(requestData.method, Uri.parse(requestData.url));
     httpRequest.headers['x-aspose-client'] = 'dart sdk';
-    httpRequest.headers['x-aspose-client-version'] = '20.9';
+    httpRequest.headers['x-aspose-client-version'] = '20.10';
     httpRequest.headers['Authorization'] = await this._getAuthToken();
     if (requestData.headers != null) {
       httpRequest.headers.addAll(requestData.headers);
