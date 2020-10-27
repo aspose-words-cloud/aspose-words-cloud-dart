@@ -30,6 +30,8 @@
 .pub/
 build/
 **/servercreds.json
+testReport.json
+testReport.xml
 
 # Android related
 **/android/**/gradle-wrapper.jar
