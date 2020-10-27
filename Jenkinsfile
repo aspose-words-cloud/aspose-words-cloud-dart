@@ -42,7 +42,7 @@ node('words-linux') {
                     
                         stage('tests'){
                             try {
-                                sh "pub run test test/aspose_words_cloud_tests.dart --reporter json > testReport.json"
+                                sh "pub run test test/aspose_words_cloud_tests.dart --verbose-trace --reporter json > testReport.json"
                                 sh "pub global run junitreport:tojunit --input testReport.json --output testReport.xml"
                             } finally{
                                 junit 'testReport.xml'
