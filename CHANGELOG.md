@@ -1,22 +1,22 @@
-## [20.9] - Aspose Words Cloud for Dart 20.9 Release Notes
+## [20.9.0] - Aspose Words Cloud for Dart 20.9 Release Notes
 
 - Added Batch API feature
 
 
-## [20.8] - Aspose Words Cloud for Dart 20.8 Release Notes
+## [20.8.0] - Aspose Words Cloud for Dart 20.8 Release Notes
 
 - Added new api method (PUT '/words/{name}/compatibility/optimize') which is allows to optimize the document contents as well as default Aspose.Words behavior to a particular versions of MS Word
 - Added 'ApplyBaseDocumentHeadersAndFootersToAppendingDocuments' option to 'DocumentEntryList' for AppendDocument API
 - WithoutNodePath methods have been removed, pass null values instead
 
 
-## [20.7] - Aspose Words Cloud for Dart 20.7 Release Notes
+## [20.7.0] - Aspose Words Cloud for Dart 20.7 Release Notes
 
 - Added 'Markdown' save format
 - Added endpoint to update paragraph format without node path (PUT '/words/{name}/paragraphs/{index}/format')
 
 
-## [20.6] - Aspose Words Cloud for Dart 20.6 Release Notes
+## [20.6.0] - Aspose Words Cloud for Dart 20.6 Release Notes
 
 - Added new methods:
   - DeleteAllParagraphTabStopsWithoutNodePath
@@ -32,7 +32,7 @@
 - OoxmlSaveOptionsData.CompressionLevel property has been added
 
 
-## [20.5] - Aspose Words Cloud for Dart 20.5 Release Notes
+## [20.5.0] - Aspose Words Cloud for Dart 20.5 Release Notes
 
 - Added methods to work with Word document lists
   - GetLists

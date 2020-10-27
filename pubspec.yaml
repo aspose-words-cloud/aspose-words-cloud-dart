@@ -1,15 +1,14 @@
 name: aspose_words_cloud
 description: Aspose Words Cloud SDK for Dart.
 version: 20.9.0
-author: Ivan Kishchenko
 homepage: https://github.com/aspose-words-cloud/aspose-words-cloud-dart
 
 environment:
-  sdk: ">=2.10.0-2.0.dev <3.0.0"
+  sdk: ">=1.19.0 <3.0.0"
 
 dependencies:
   http: ^0.12.2
-  uuid: 2.2.2
+  uuid: ^2.2.2
 
 dev_dependencies:
   test: ^1.15.4
