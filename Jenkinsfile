@@ -1,18 +1,18 @@
 properties([
-	gitLabConnection('gitlab'),
-	[$class: 'ParametersDefinitionProperty', 
-		parameterDefinitions: [
-			[$class: 'StringParameterDefinition', name: 'branch', defaultValue: 'master', description: 'the branch to build'],
-			[$class: 'StringParameterDefinition', name: 'apiUrl', defaultValue: 'https://api-qa.aspose.cloud', description: 'api url'],
+    gitLabConnection('gitlab'),
+    [$class: 'ParametersDefinitionProperty', 
+        parameterDefinitions: [
+            [$class: 'StringParameterDefinition', name: 'branch', defaultValue: 'master', description: 'the branch to build'],
+            [$class: 'StringParameterDefinition', name: 'apiUrl', defaultValue: 'https://api-qa.aspose.cloud', description: 'api url'],
             [$class: 'BooleanParameterDefinition', name: 'ignoreCiSkip', defaultValue: false, description: 'ignore CI Skip'],
-		]
-	]
+        ]
+    ]
 ])
 
 def needToBuild = false
 
 node('words-linux') {
-	cleanWs()
+    cleanWs()
     if (!params.branch.contains("release")) {
         dir('dart') {
             try {
@@ -42,7 +42,7 @@ node('words-linux') {
                     
                         stage('tests'){
                             try {
-                                sh "pub run test test/aspose_words_cloud_tests.dart --verbose-trace --reporter json > testReport.json"
+                                sh "pub run test test/aspose_words_cloud_tests.dart --reporter json > testReport.json"
                                 sh "pub global run junitreport:tojunit --input testReport.json --output testReport.xml"
                             } finally{
                                 junit 'testReport.xml'
