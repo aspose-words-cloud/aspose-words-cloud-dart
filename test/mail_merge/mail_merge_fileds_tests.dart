@@ -41,11 +41,6 @@ class MailMergeFiledsTests
     mailMergeFolder = 'DocumentActions/MailMerge';
   }
 
-  void runAll() async {
-    await test('MailMergeFileds.GetDocumentFieldNamesOnline', () async => await this.testGetDocumentFieldNamesOnline());
-    await test('MailMergeFileds.GetDocumentFieldNames', () async => await this.testGetDocumentFieldNames());
-  }
-
   /// Test for putting new fields.
   void testGetDocumentFieldNamesOnline() async
   {

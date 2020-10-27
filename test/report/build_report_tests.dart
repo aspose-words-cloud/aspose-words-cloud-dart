@@ -41,11 +41,6 @@ class BuildReportTests
     reportingFolder = 'DocumentActions/Reporting';
   }
 
-  void runAll() async {
-    await test('BuildReport.BuildReportOnline', () async => await this.testBuildReportOnline());
-    await test('BuildReport.BuildReport', () async => await this.testBuildReport());
-  }
-
   /// Test for build report online.
   void testBuildReportOnline() async
   {

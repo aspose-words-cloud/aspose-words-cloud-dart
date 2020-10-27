@@ -41,19 +41,6 @@ class FootnoteTests
     footnoteFolder = 'DocumentElements/Footnotes';
   }
 
-  void runAll() async {
-    await test('Footnote.InsertFootnote', () async => await this.testInsertFootnote());
-    await test('Footnote.InsertFootnoteWithoutNodePath', () async => await this.testInsertFootnoteWithoutNodePath());
-    await test('Footnote.DeleteFootnote', () async => await this.testDeleteFootnote());
-    await test('Footnote.DeleteFootnoteWithoutNodePath', () async => await this.testDeleteFootnoteWithoutNodePath());
-    await test('Footnote.GetFootnotes', () async => await this.testGetFootnotes());
-    await test('Footnote.GetFootnotesWithoutNodePath', () async => await this.testGetFootnotesWithoutNodePath());
-    await test('Footnote.GetFootnote', () async => await this.testGetFootnote());
-    await test('Footnote.GetFootnoteWithoutNodePath', () async => await this.testGetFootnoteWithoutNodePath());
-    await test('Footnote.UpdateFootnote', () async => await this.testUpdateFootnote());
-    await test('Footnote.UpdateFootnoteWithoutNodePath', () async => await this.testUpdateFootnoteWithoutNodePath());
-  }
-
   /// Test for adding footnote.
   void testInsertFootnote() async
   {

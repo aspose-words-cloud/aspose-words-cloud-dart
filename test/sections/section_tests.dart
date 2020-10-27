@@ -41,12 +41,6 @@ class SectionTests
     localFile = 'Common/test_multi_pages.docx';
   }
 
-  void runAll() async {
-    await test('Section.GetSection', () async => await this.testGetSection());
-    await test('Section.GetSections', () async => await this.testGetSections());
-    await test('Section.DeleteSection', () async => await this.testDeleteSection());
-  }
-
   /// Test for getting section by index.
   void testGetSection() async
   {

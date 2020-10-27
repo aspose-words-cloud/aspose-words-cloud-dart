@@ -41,13 +41,6 @@ class ConvertDocumentTests
     localFolder = 'DocumentActions/ConvertDocument';
   }
 
-  void runAll() async {
-    await test('ConvertDocument.SaveAs', () async => await this.testSaveAs());
-    await test('ConvertDocument.SaveAsDocx', () async => await this.testSaveAsDocx());
-    await test('ConvertDocument.SaveAsTiff', () async => await this.testSaveAsTiff());
-    await test('ConvertDocument.ConvertDocument', () async => await this.testConvertDocument());
-  }
-
   /// Test for converting document to one of the available formats.
   void testSaveAs() async
   {

@@ -41,33 +41,6 @@ class TableTests
     localFile = 'DocumentElements/Tables/TablesGet.docx';
   }
 
-  void runAll() async {
-    await test('Table.GetTables', () async => await this.testGetTables());
-    await test('Table.GetTablesWithoutNodePath', () async => await this.testGetTablesWithoutNodePath());
-    await test('Table.GetTable', () async => await this.testGetTable());
-    await test('Table.GetTableWithoutNodePath', () async => await this.testGetTableWithoutNodePath());
-    await test('Table.DeleteTable', () async => await this.testDeleteTable());
-    await test('Table.DeleteTableWithoutNodePath', () async => await this.testDeleteTableWithoutNodePath());
-    await test('Table.InsertTable', () async => await this.testInsertTable());
-    await test('Table.InsertTableWithoutNodePath', () async => await this.testInsertTableWithoutNodePath());
-    await test('Table.GetTableProperties', () async => await this.testGetTableProperties());
-    await test('Table.GetTablePropertiesWithoutNodePath', () async => await this.testGetTablePropertiesWithoutNodePath());
-    await test('Table.UpdateTableProperties', () async => await this.testUpdateTableProperties());
-    await test('Table.UpdateTablePropertiesWithoutNodePath', () async => await this.testUpdateTablePropertiesWithoutNodePath());
-    await test('Table.GetTableRow', () async => await this.testGetTableRow());
-    await test('Table.DeleteTableRow', () async => await this.testDeleteTableRow());
-    await test('Table.InsertTableRow', () async => await this.testInsertTableRow());
-    await test('Table.GetTableRowFormat', () async => await this.testGetTableRowFormat());
-    await test('Table.UpdateTableRowFormat', () async => await this.testUpdateTableRowFormat());
-    await test('Table.GetTableCell', () async => await this.testGetTableCell());
-    await test('Table.DeleteTableCell', () async => await this.testDeleteTableCell());
-    await test('Table.InsertTableCell', () async => await this.testInsertTableCell());
-    await test('Table.GetTableCellFormat', () async => await this.testGetTableCellFormat());
-    await test('Table.UpdateTableCellFormat', () async => await this.testUpdateTableCellFormat());
-    await test('Table.RenderTable', () async => await this.testRenderTable());
-    await test('Table.RenderTableWithoutNodePath', () async => await this.testRenderTableWithoutNodePath());
-  }
-
   /// Test for getting tables.
   void testGetTables() async
   {

@@ -41,11 +41,6 @@ class ExecuteTemplateTests
     mailMergeFolder = 'DocumentActions/MailMerge';
   }
 
-  void runAll() async {
-    await test('ExecuteTemplate.ExecuteTemplate', () async => await this.testExecuteTemplate());
-    await test('ExecuteTemplate.ExecuteTemplateOnline', () async => await this.testExecuteTemplateOnline());
-  }
-
   /// Test for posting execute template.
   void testExecuteTemplate() async
   {

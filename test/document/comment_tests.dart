@@ -41,14 +41,6 @@ class CommentTests
     localFile = 'Common/test_multi_pages.docx';
   }
 
-  void runAll() async {
-    await test('Comment.GetComment', () async => await this.testGetComment());
-    await test('Comment.GetComments', () async => await this.testGetComments());
-    await test('Comment.InsertComment', () async => await this.testInsertComment());
-    await test('Comment.UpdateComment', () async => await this.testUpdateComment());
-    await test('Comment.DeleteComment', () async => await this.testDeleteComment());
-  }
-
   /// Test for getting comment by specified comment's index.
   void testGetComment() async
   {

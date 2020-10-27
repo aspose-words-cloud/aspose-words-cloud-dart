@@ -41,11 +41,6 @@ class DocumentWithFormatTests
     localFile = 'Common/test_multi_pages.docx';
   }
 
-  void runAll() async {
-    await test('DocumentWithFormat.GetDocumentWithFormat', () async => await this.testGetDocumentWithFormat());
-    await test('DocumentWithFormat.GetDocumentWithFormatAndOutPath', () async => await this.testGetDocumentWithFormatAndOutPath());
-  }
-
   /// Test for getting document with specified format.
   void testGetDocumentWithFormat() async
   {

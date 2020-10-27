@@ -41,12 +41,6 @@ class WatermarkTests
     localFile = 'Common/test_multi_pages.docx';
   }
 
-  void runAll() async {
-    await test('Watermark.InsertWatermarkImage', () async => await this.testInsertWatermarkImage());
-    await test('Watermark.InsertWatermarkText', () async => await this.testInsertWatermarkText());
-    await test('Watermark.DeleteWatermark', () async => await this.testDeleteWatermark());
-  }
-
   /// Test for adding watermark image.
   void testInsertWatermarkImage() async
   {

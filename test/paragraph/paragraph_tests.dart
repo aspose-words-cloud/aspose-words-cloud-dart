@@ -45,40 +45,6 @@ class ParagraphTests
     tabStopFolder = 'DocumentElements/Paragraphs';
   }
 
-  void runAll() async {
-    await test('Paragraph.GetDocumentParagraphByIndex', () async => await this.testGetDocumentParagraphByIndex());
-    await test('Paragraph.GetDocumentParagraphByIndexWithoutNodePath', () async => await this.testGetDocumentParagraphByIndexWithoutNodePath());
-    await test('Paragraph.GetDocumentParagraphs', () async => await this.testGetDocumentParagraphs());
-    await test('Paragraph.GetDocumentParagraphsWithoutNodePath', () async => await this.testGetDocumentParagraphsWithoutNodePath());
-    await test('Paragraph.GetDocumentParagraphRun', () async => await this.testGetDocumentParagraphRun());
-    await test('Paragraph.GetDocumentParagraphRunFont', () async => await this.testGetDocumentParagraphRunFont());
-    await test('Paragraph.GetParagraphRuns', () async => await this.testGetParagraphRuns());
-    await test('Paragraph.UpdateRunFont', () async => await this.testUpdateRunFont());
-    await test('Paragraph.InsertParagraph', () async => await this.testInsertParagraph());
-    await test('Paragraph.InsertParagraphWithoutNodePath', () async => await this.testInsertParagraphWithoutNodePath());
-    await test('Paragraph.RenderParagraph', () async => await this.testRenderParagraph());
-    await test('Paragraph.RenderParagraphWithoutNodePath', () async => await this.testRenderParagraphWithoutNodePath());
-    await test('Paragraph.GetParagraphFormat', () async => await this.testGetParagraphFormat());
-    await test('Paragraph.GetParagraphFormatWithoutNodePath', () async => await this.testGetParagraphFormatWithoutNodePath());
-    await test('Paragraph.UpdateParagraphFormat', () async => await this.testUpdateParagraphFormat());
-    await test('Paragraph.DeleteParagraph', () async => await this.testDeleteParagraph());
-    await test('Paragraph.DeleteParagraphWithoutNodePath', () async => await this.testDeleteParagraphWithoutNodePath());
-    await test('Paragraph.GetParagraphListFormat', () async => await this.testGetParagraphListFormat());
-    await test('Paragraph.GetParagraphListFormatWithoutNodePath', () async => await this.testGetParagraphListFormatWithoutNodePath());
-    await test('Paragraph.UpdateParagraphListFormat', () async => await this.testUpdateParagraphListFormat());
-    await test('Paragraph.UpdateParagraphListFormatWithoutNodePath', () async => await this.testUpdateParagraphListFormatWithoutNodePath());
-    await test('Paragraph.DeleteParagraphListFormat', () async => await this.testDeleteParagraphListFormat());
-    await test('Paragraph.DeleteParagraphListFormatWithoutNodePath', () async => await this.testDeleteParagraphListFormatWithoutNodePath());
-    await test('Paragraph.GetParagraphTabStops', () async => await this.testGetParagraphTabStops());
-    await test('Paragraph.GetParagraphTabStopsWithoutNodePath', () async => await this.testGetParagraphTabStopsWithoutNodePath());
-    await test('Paragraph.InsertParagraphTabStops', () async => await this.testInsertParagraphTabStops());
-    await test('Paragraph.InsertParagraphTabStopsWithoutNodePath', () async => await this.testInsertParagraphTabStopsWithoutNodePath());
-    await test('Paragraph.DeleteAllParagraphTabStops', () async => await this.testDeleteAllParagraphTabStops());
-    await test('Paragraph.DeleteAllParagraphTabStopsWithoutNodePath', () async => await this.testDeleteAllParagraphTabStopsWithoutNodePath());
-    await test('Paragraph.DeleteParagraphTabStop', () async => await this.testDeleteParagraphTabStop());
-    await test('Paragraph.DeleteParagraphTabStopWithoutNodePath', () async => await this.testDeleteParagraphTabStopWithoutNodePath());
-  }
-
   /// Test for getting paragraph.
   void testGetDocumentParagraphByIndex() async
   {

@@ -41,14 +41,6 @@ class FolderTests
     localFile = 'Common/test_multi_pages.docx';
   }
 
-  void runAll() async {
-    await test('Folder.CreateFolder', () async => await this.testCreateFolder());
-    await test('Folder.DeleteFolder', () async => await this.testDeleteFolder());
-    await test('Folder.GetFilesList', () async => await this.testGetFilesList());
-    await test('Folder.CopyFolder', () async => await this.testCopyFolder());
-    await test('Folder.MoveFolder', () async => await this.testMoveFolder());
-  }
-
   /// Test for create folder.
   void testCreateFolder() async
   {

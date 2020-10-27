@@ -41,14 +41,6 @@ class ListsTests
     localFile = 'DocumentElements/Lists/ListsGet.doc';
   }
 
-  void runAll() async {
-    await test('Lists.GetLists', () async => await this.testGetLists());
-    await test('Lists.GetList', () async => await this.testGetList());
-    await test('Lists.UpdateList', () async => await this.testUpdateList());
-    await test('Lists.UpdateListLevel', () async => await this.testUpdateListLevel());
-    await test('Lists.InsertList', () async => await this.testInsertList());
-  }
-
   /// Test for getting lists from document.
   void testGetLists() async
   {

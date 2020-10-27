@@ -41,13 +41,6 @@ class DocumentPropertiesTests
     localFile = 'Common/test_multi_pages.docx';
   }
 
-  void runAll() async {
-    await test('DocumentProperties.GetDocumentProperties', () async => await this.testGetDocumentProperties());
-    await test('DocumentProperties.GetDocumentProperty', () async => await this.testGetDocumentProperty());
-    await test('DocumentProperties.DeleteDocumentProperty', () async => await this.testDeleteDocumentProperty());
-    await test('DocumentProperties.UpdateDocumentProperty', () async => await this.testUpdateDocumentProperty());
-  }
-
   /// Test for getting document properties.
   void testGetDocumentProperties() async
   {

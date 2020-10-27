@@ -41,11 +41,6 @@ class HyperlinkTests
     localFile = 'Common/test_doc.docx';
   }
 
-  void runAll() async {
-    await test('Hyperlink.GetDocumentHyperlinkByIndex', () async => await this.testGetDocumentHyperlinkByIndex());
-    await test('Hyperlink.GetDocumentHyperlinks', () async => await this.testGetDocumentHyperlinks());
-  }
-
   /// Test for getting hyperlink by specified index.
   void testGetDocumentHyperlinkByIndex() async
   {

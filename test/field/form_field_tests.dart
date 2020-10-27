@@ -41,19 +41,6 @@ class FormFieldTests
     fieldFolder = 'DocumentElements/FormFields';
   }
 
-  void runAll() async {
-    await test('FormField.UpdateFormField', () async => await this.testUpdateFormField());
-    await test('FormField.UpdateFormFieldWithoutNodePath', () async => await this.testUpdateFormFieldWithoutNodePath());
-    await test('FormField.GetFormField', () async => await this.testGetFormField());
-    await test('FormField.GetFormFieldWithoutNodePath', () async => await this.testGetFormFieldWithoutNodePath());
-    await test('FormField.GetFormFields', () async => await this.testGetFormFields());
-    await test('FormField.GetFormFieldsWithoutNodePath', () async => await this.testGetFormFieldsWithoutNodePath());
-    await test('FormField.InsertFormField', () async => await this.testInsertFormField());
-    await test('FormField.InsertFormFieldWithoutNodePath', () async => await this.testInsertFormFieldWithoutNodePath());
-    await test('FormField.DeleteFormField', () async => await this.testDeleteFormField());
-    await test('FormField.DeleteFormFieldWithoutNodePath', () async => await this.testDeleteFormFieldWithoutNodePath());
-  }
-
   /// Test for posting form field.
   void testUpdateFormField() async
   {

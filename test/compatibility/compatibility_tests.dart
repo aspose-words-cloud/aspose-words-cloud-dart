@@ -41,10 +41,6 @@ class CompatibilityTests
     localFile = 'Common/test_multi_pages.docx';
   }
 
-  void runAll() async {
-    await test('Compatibility.OptimizeDocument', () async => await this.testOptimizeDocument());
-  }
-
   /// Test for optimize document to specific MS Word version.
   void testOptimizeDocument() async
   {

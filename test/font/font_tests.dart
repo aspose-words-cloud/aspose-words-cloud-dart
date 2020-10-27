@@ -37,11 +37,6 @@ class FontTests
   FontTests(final TestContext this.context) {
   }
 
-  void runAll() async {
-    await test('Font.ResetCache', () async => await this.testResetCache());
-    await test('Font.GetAvailableFonts', () async => await this.testGetAvailableFonts());
-  }
-
   /// Test for reseting cache.
   void testResetCache() async
   {

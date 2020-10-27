@@ -41,10 +41,6 @@ class MacrosTests
     localFile = 'Common/test_multi_pages.docx';
   }
 
-  void runAll() async {
-    await test('Macros.DeleteMacros', () async => await this.testDeleteMacros());
-  }
-
   /// Test for deleting macros.
   void testDeleteMacros() async
   {

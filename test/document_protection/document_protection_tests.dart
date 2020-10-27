@@ -41,13 +41,6 @@ class DocumentProtectionTests
     localFile = 'Common/test_multi_pages.docx';
   }
 
-  void runAll() async {
-    await test('DocumentProtection.ProtectDocument', () async => await this.testProtectDocument());
-    await test('DocumentProtection.GetDocumentProtection', () async => await this.testGetDocumentProtection());
-    await test('DocumentProtection.ChangeDocumentProtection', () async => await this.testChangeDocumentProtection());
-    await test('DocumentProtection.DeleteUnprotectDocument', () async => await this.testDeleteUnprotectDocument());
-  }
-
   /// Test for setting document protection.
   void testProtectDocument() async
   {

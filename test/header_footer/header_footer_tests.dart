@@ -41,15 +41,6 @@ class HeaderFooterTests
     localFile = 'DocumentElements/HeaderFooters/HeadersFooters.doc';
   }
 
-  void runAll() async {
-    await test('HeaderFooter.GetHeaderFooters', () async => await this.testGetHeaderFooters());
-    await test('HeaderFooter.GetHeaderFooter', () async => await this.testGetHeaderFooter());
-    await test('HeaderFooter.GetHeaderFooterOfSection', () async => await this.testGetHeaderFooterOfSection());
-    await test('HeaderFooter.DeleteHeaderFooter', () async => await this.testDeleteHeaderFooter());
-    await test('HeaderFooter.DeleteHeadersFooters', () async => await this.testDeleteHeadersFooters());
-    await test('HeaderFooter.InsertHeaderFooter', () async => await this.testInsertHeaderFooter());
-  }
-
   /// Test for getting headers and footers.
   void testGetHeaderFooters() async
   {

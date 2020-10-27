@@ -43,12 +43,6 @@ class PageSetupTests
     localTextFile = 'DocumentElements/Text/SampleWordDocument.docx';
   }
 
-  void runAll() async {
-    await test('PageSetup.GetSectionPageSetup', () async => await this.testGetSectionPageSetup());
-    await test('PageSetup.UpdateSectionPageSetup', () async => await this.testUpdateSectionPageSetup());
-    await test('PageSetup.GetRenderPage', () async => await this.testGetRenderPage());
-  }
-
   /// Test for getting page settings.
   void testGetSectionPageSetup() async
   {

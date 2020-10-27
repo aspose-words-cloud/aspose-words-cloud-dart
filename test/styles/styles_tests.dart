@@ -41,16 +41,6 @@ class StylesTests
     localFile = 'DocumentElements/Styles/GetStyles.docx';
   }
 
-  void runAll() async {
-    await test('Styles.GetStyles', () async => await this.testGetStyles());
-    await test('Styles.GetStyle', () async => await this.testGetStyle());
-    await test('Styles.UpdateStyle', () async => await this.testUpdateStyle());
-    await test('Styles.InsertStyle', () async => await this.testInsertStyle());
-    await test('Styles.CopyStyle', () async => await this.testCopyStyle());
-    await test('Styles.GetStyleFromDocumentElement', () async => await this.testGetStyleFromDocumentElement());
-    await test('Styles.ApplyStyleToDocumentElement', () async => await this.testApplyStyleToDocumentElement());
-  }
-
   /// Test for getting styles from document.
   void testGetStyles() async
   {

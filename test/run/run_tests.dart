@@ -41,12 +41,6 @@ class RunTests
     localFile = 'DocumentElements/Runs/Run.doc';
   }
 
-  void runAll() async {
-    await test('Run.UpdateRun', () async => await this.testUpdateRun());
-    await test('Run.InsertRun', () async => await this.testInsertRun());
-    await test('Run.DeleteRun', () async => await this.testDeleteRun());
-  }
-
   /// Test for updating run.
   void testUpdateRun() async
   {

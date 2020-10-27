@@ -43,25 +43,6 @@ class DrawingObjectsTests
     localDrawingFile = 'DocumentElements/DrawingObjects/sample_EmbeddedOLE.docx';
   }
 
-  void runAll() async {
-    await test('DrawingObjects.GetDocumentDrawingObjects', () async => await this.testGetDocumentDrawingObjects());
-    await test('DrawingObjects.GetDocumentDrawingObjectsWithoutNodePath', () async => await this.testGetDocumentDrawingObjectsWithoutNodePath());
-    await test('DrawingObjects.GetDocumentDrawingObjectByIndex', () async => await this.testGetDocumentDrawingObjectByIndex());
-    await test('DrawingObjects.GetDocumentDrawingObjectByIndexWithoutNodePath', () async => await this.testGetDocumentDrawingObjectByIndexWithoutNodePath());
-    await test('DrawingObjects.RenderDrawingObject', () async => await this.testRenderDrawingObject());
-    await test('DrawingObjects.RenderDrawingObjectWithoutNodePath', () async => await this.testRenderDrawingObjectWithoutNodePath());
-    await test('DrawingObjects.GetDocumentDrawingObjectImageData', () async => await this.testGetDocumentDrawingObjectImageData());
-    await test('DrawingObjects.GetDocumentDrawingObjectImageDataWithoutNodePath', () async => await this.testGetDocumentDrawingObjectImageDataWithoutNodePath());
-    await test('DrawingObjects.GetDocumentDrawingObjectOleData', () async => await this.testGetDocumentDrawingObjectOleData());
-    await test('DrawingObjects.GetDocumentDrawingObjectOleDataWithoutNodePath', () async => await this.testGetDocumentDrawingObjectOleDataWithoutNodePath());
-    await test('DrawingObjects.InsertDrawingObject', () async => await this.testInsertDrawingObject());
-    await test('DrawingObjects.InsertDrawingObjectWithoutNodePath', () async => await this.testInsertDrawingObjectWithoutNodePath());
-    await test('DrawingObjects.DeleteDrawingObject', () async => await this.testDeleteDrawingObject());
-    await test('DrawingObjects.DeleteDrawingObjectWithoutNodePath', () async => await this.testDeleteDrawingObjectWithoutNodePath());
-    await test('DrawingObjects.UpdateDrawingObject', () async => await this.testUpdateDrawingObject());
-    await test('DrawingObjects.UpdateDrawingObjectWithoutNodePath', () async => await this.testUpdateDrawingObjectWithoutNodePath());
-  }
-
   /// Test for getting drawing objects from document.
   void testGetDocumentDrawingObjects() async
   {

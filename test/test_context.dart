@@ -33,6 +33,9 @@ import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 class TestContext {
   WordsApi _wordsApi;
 
+  /// Configuration
+  final Configuration configuration;
+
   /// Base path to test data
   final String remoteBaseTestDataFolder = "Temp/SdkTests/Dart/TestData";
 
@@ -42,7 +45,7 @@ class TestContext {
   /// Base local test data folder
   final String localTestDataFolder = Directory.current.path + '/test_data';
 
-  TestContext(Configuration configuration) {
+  TestContext(final Configuration this.configuration) {
     _wordsApi = new WordsApi(configuration);
   }
 

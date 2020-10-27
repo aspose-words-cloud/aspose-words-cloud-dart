@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="load_web_document_tests.dart">
+ * <copyright company="Aspose" file="encoding_tests.dart">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -25,37 +25,35 @@
  * --------------------------------------------------------------------------------
  */
 
+import 'dart:typed_data';
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
-import '../test_context.dart';
+import 'test_context.dart';
 import 'package:test/test.dart';
 
-/// Example of how to load web document.
-class LoadWebDocumentTests
+/// Example of how to use batch requests.
+class EncodingTests
 {
   final TestContext context;
+  String dataFolder;
 
-  LoadWebDocumentTests(final TestContext this.context) {
+  EncodingTests(final TestContext this.context) {
+    dataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Section';
   }
 
-  /// Test for loading web document.
-  void testLoadWebDocument() async
+  /// Test for url encoding.
+  void testEncoding1() async
   {
-    var requestDataSaveOptions = new SaveOptionsData();
-    requestDataSaveOptions.fileName = 'google.doc';
-    requestDataSaveOptions.saveFormat = 'doc';
-    requestDataSaveOptions.dmlEffectsRenderingMode = '1';
-    requestDataSaveOptions.dmlRenderingMode = '1';
-    requestDataSaveOptions.updateSdtContent = false;
-    requestDataSaveOptions.zipOutput = false;
+    var localName = 'test_multi_pages.docx';
+    var remoteName = '[“Test_Two,_Inc.”]-_83(b)Election([“Bill_Gates”]).docx';
+    var fullName = '${this.dataFolder}/${remoteName}';
+    var sectionIndex = 0;
 
-    var requestData = new LoadWebDocumentData();
-    requestData.loadingDocumentUrl = 'http://google.com';
-    requestData.saveOptions = requestDataSaveOptions;
-
-    final request = new LoadWebDocumentRequest(
-      requestData
+    await this.context.uploadFile(
+        'Common/' + localName,
+        fullName
     );
 
-    var result = await this.context.getApi().loadWebDocument(request);
+    var request = new GetSectionRequest(remoteName, sectionIndex, folder: this.dataFolder);
+    var actual = await this.context.getApi().getSection(request);
   }
 }

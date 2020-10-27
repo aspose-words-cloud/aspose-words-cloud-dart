@@ -97,27 +97,21 @@ dependencies:
 ## Getting Started
 
 ```dart
-import 'dart:io';
-import 'dart:typed_data';
-import 'package:aspose_words_cloud/aspose_words_cloud.dart' as aspose_words_cloud;
+// Configure words api client
+var configuration = new Configuration('AppKey', 'AppSid');
+var wordsApi = new WordsApi(configuration);
 
-void main() async {
-  // Configure words api client
-  var configuration = new aspose_words_cloud.Configuration('AppKey', 'AppSid');
-  var wordsApi = new aspose_words_cloud.WordsApi(configuration);
+// Upload file to cloud
+var localFileContent = await (new File('./test_data/Common/test_doc.docx').readAsBytes());
+var uploadRequest = new UploadFileRequest(ByteData.view(localFileContent.buffer), 'fileStoredInCloud.docx');
+await wordsApi.uploadFile(uploadRequest);
 
-  // Upload file to cloud
-  var localFileContent = await (new File('fileStoredLocal.docx').readAsBytes());
-  var uploadRequest = new aspose_words_cloud.UploadFileRequest(ByteData.view(localFileContent.buffer), 'fileStoredInCloud.docx');
-  await wordsApi.uploadFile(uploadRequest);
-
-  // Save file as pdf in cloud
-  var saveOptionsData = new aspose_words_cloud.SaveOptionsData()
-    ..saveFormat = "pdf"
-    ..fileName = "destStoredInCloud.pdf";
-  var saveAsRequest = new aspose_words_cloud.SaveAsRequest("fileStoredInCloud.docx", saveOptionsData);
-  wordsApi.saveAs(saveAsRequest);
-}
+// Save file as pdf in cloud
+var saveOptionsData = new SaveOptionsData()
+  ..saveFormat = "pdf"
+  ..fileName = "destStoredInCloud.pdf";
+var saveAsRequest = new SaveAsRequest("fileStoredInCloud.docx", saveOptionsData);
+await wordsApi.saveAs(saveAsRequest);
 ```
 
 [Test](test) contain various examples of using the SDK.

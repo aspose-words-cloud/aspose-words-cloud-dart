@@ -41,10 +41,6 @@ class SplitDocumentToFormatTests
     localFile = 'Common/test_multi_pages.docx';
   }
 
-  void runAll() async {
-    await test('SplitDocumentToFormat.SplitDocument', () async => await this.testSplitDocument());
-  }
-
   /// Test for document splitting.
   void testSplitDocument() async
   {

@@ -41,14 +41,6 @@ class TableBorderTests
     localFile = 'DocumentElements/Tables/TablesGet.docx';
   }
 
-  void runAll() async {
-    await test('TableBorder.GetBorders', () async => await this.testGetBorders());
-    await test('TableBorder.GetBorder', () async => await this.testGetBorder());
-    await test('TableBorder.DeleteBorders', () async => await this.testDeleteBorders());
-    await test('TableBorder.DeleteBorder', () async => await this.testDeleteBorder());
-    await test('TableBorder.UpdateBorder', () async => await this.testUpdateBorder());
-  }
-
   /// Test for getting borders.
   void testGetBorders() async
   {

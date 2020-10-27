@@ -41,17 +41,6 @@ class MathObjectTests
     localFile = 'DocumentElements/MathObjects/MathObjects.docx';
   }
 
-  void runAll() async {
-    await test('MathObject.GetOfficeMathObjects', () async => await this.testGetOfficeMathObjects());
-    await test('MathObject.GetOfficeMathObjectsWithoutNodePath', () async => await this.testGetOfficeMathObjectsWithoutNodePath());
-    await test('MathObject.GetOfficeMathObject', () async => await this.testGetOfficeMathObject());
-    await test('MathObject.GetOfficeMathObjectWithoutNodePath', () async => await this.testGetOfficeMathObjectWithoutNodePath());
-    await test('MathObject.RenderMathObject', () async => await this.testRenderMathObject());
-    await test('MathObject.RenderMathObjectWithoutNodePath', () async => await this.testRenderMathObjectWithoutNodePath());
-    await test('MathObject.DeleteOfficeMathObject', () async => await this.testDeleteOfficeMathObject());
-    await test('MathObject.DeleteOfficeMathObjectWithoutNodePath', () async => await this.testDeleteOfficeMathObjectWithoutNodePath());
-  }
-
   /// Test for getting mathObjects.
   void testGetOfficeMathObjects() async
   {

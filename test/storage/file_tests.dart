@@ -41,14 +41,6 @@ class FileTests
     localFile = 'Common/test_multi_pages.docx';
   }
 
-  void runAll() async {
-    await test('File.UploadFile', () async => await this.testUploadFile());
-    await test('File.CopyFile', () async => await this.testCopyFile());
-    await test('File.MoveFile', () async => await this.testMoveFile());
-    await test('File.DeleteFile', () async => await this.testDeleteFile());
-    await test('File.DownloadFile', () async => await this.testDownloadFile());
-  }
-
   /// Test for uploading file.
   void testUploadFile() async
   {

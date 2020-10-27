@@ -41,11 +41,6 @@ class ClassificationTests
     localFile = 'Common/test_multi_pages.docx';
   }
 
-  void runAll() async {
-    await test('Classification.Classify', () async => await this.testClassify());
-    await test('Classification.ClassifyDocument', () async => await this.testClassifyDocument());
-  }
-
   /// Test for raw text classification.
   void testClassify() async
   {

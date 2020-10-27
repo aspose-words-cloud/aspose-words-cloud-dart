@@ -41,10 +41,6 @@ class CompareDocumentTests
     localFolder = 'DocumentActions/CompareDocument';
   }
 
-  void runAll() async {
-    await test('CompareDocument.CompareDocument', () async => await this.testCompareDocument());
-  }
-
   /// Test for document comparison.
   void testCompareDocument() async
   {

@@ -41,11 +41,6 @@ class ExecuteMailMergeTests
     mailMergeFolder = 'DocumentActions/MailMerge';
   }
 
-  void runAll() async {
-    await test('ExecuteMailMerge.ExecuteMailMergeOnline', () async => await this.testExecuteMailMergeOnline());
-    await test('ExecuteMailMerge.ExecuteMailMerge', () async => await this.testExecuteMailMerge());
-  }
-
   /// Test for executing mail merge online.
   void testExecuteMailMergeOnline() async
   {

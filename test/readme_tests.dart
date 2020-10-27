@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="load_web_document_tests.dart">
+ * <copyright company="Aspose" file="readme_tests.dart">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -25,37 +25,35 @@
  * --------------------------------------------------------------------------------
  */
 
+import 'dart:io';
+import 'dart:typed_data';
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
-import '../test_context.dart';
-import 'package:test/test.dart';
+import 'test_context.dart';
 
-/// Example of how to load web document.
-class LoadWebDocumentTests
+/// Example of how to use batch requests.
+class ReadmeTests
 {
   final TestContext context;
 
-  LoadWebDocumentTests(final TestContext this.context) {
-  }
+  ReadmeTests(final TestContext this.context);
 
-  /// Test for loading web document.
-  void testLoadWebDocument() async
+  /// Checking example from readme.
+  void testReadme1() async
   {
-    var requestDataSaveOptions = new SaveOptionsData();
-    requestDataSaveOptions.fileName = 'google.doc';
-    requestDataSaveOptions.saveFormat = 'doc';
-    requestDataSaveOptions.dmlEffectsRenderingMode = '1';
-    requestDataSaveOptions.dmlRenderingMode = '1';
-    requestDataSaveOptions.updateSdtContent = false;
-    requestDataSaveOptions.zipOutput = false;
+    // Configure words api client
+    var configuration = new Configuration(this.context.configuration.appKey, this.context.configuration.appSid, baseUrl: this.context.configuration.baseUrl);
+    var wordsApi = new WordsApi(configuration);
 
-    var requestData = new LoadWebDocumentData();
-    requestData.loadingDocumentUrl = 'http://google.com';
-    requestData.saveOptions = requestDataSaveOptions;
+    // Upload file to cloud
+    var localFileContent = await (new File('./test_data/Common/test_doc.docx').readAsBytes());
+    var uploadRequest = new UploadFileRequest(ByteData.view(localFileContent.buffer), 'fileStoredInCloud.docx');
+    await wordsApi.uploadFile(uploadRequest);
 
-    final request = new LoadWebDocumentRequest(
-      requestData
-    );
-
-    var result = await this.context.getApi().loadWebDocument(request);
+    // Save file as pdf in cloud
+    var saveOptionsData = new SaveOptionsData()
+      ..saveFormat = "pdf"
+      ..fileName = "destStoredInCloud.pdf";
+    var saveAsRequest = new SaveAsRequest("fileStoredInCloud.docx", saveOptionsData);
+    await wordsApi.saveAs(saveAsRequest);
   }
 }

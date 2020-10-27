@@ -41,11 +41,6 @@ class DocumentTests
     localFile = 'Common/test_multi_pages.docx';
   }
 
-  void runAll() async {
-    await test('Document.GetDocument', () async => await this.testGetDocument());
-    await test('Document.CreateDocument', () async => await this.testCreateDocument());
-  }
-
   /// Test for getting document.
   void testGetDocument() async
   {

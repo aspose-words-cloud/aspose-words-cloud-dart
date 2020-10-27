@@ -41,10 +41,6 @@ class DocumentStatisticsTests
     localFile = 'Common/test_multi_pages.docx';
   }
 
-  void runAll() async {
-    await test('DocumentStatistics.GetDocumentStatistics', () async => await this.testGetDocumentStatistics());
-  }
-
   /// Test for document classification.
   void testGetDocumentStatistics() async
   {

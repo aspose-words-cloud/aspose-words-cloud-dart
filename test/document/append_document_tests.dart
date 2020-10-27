@@ -41,10 +41,6 @@ class AppendDocumentTests
     localFile = 'Common/test_multi_pages.docx';
   }
 
-  void runAll() async {
-    await test('AppendDocument.AppendDocument', () async => await this.testAppendDocument());
-  }
-
   /// Test for appending document.
   void testAppendDocument() async
   {

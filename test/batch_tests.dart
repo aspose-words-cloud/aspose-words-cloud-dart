@@ -44,16 +44,12 @@ class BatchTests
     reportingFolder = 'DocumentActions/Reporting';
   }
 
-  void runAll() async {
-    await test('BatchTests.TestBatch1', () async => await this.testBatch1());
-  }
-
   /// Test for batch request.
   void testBatch1() async
   {
     var remoteFileName = "TestBatchDocument.docx";
 
-    this.context.uploadFile(
+    await this.context.uploadFile(
         localFile,
         remoteDataFolder + "/" + remoteFileName
     );

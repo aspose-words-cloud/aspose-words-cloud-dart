@@ -41,12 +41,6 @@ class BookmarkTests
     localFile = 'Common/test_multi_pages.docx';
   }
 
-  void runAll() async {
-    await test('Bookmark.GetBookmarks', () async => await this.testGetBookmarks());
-    await test('Bookmark.GetBookmarkByName', () async => await this.testGetBookmarkByName());
-    await test('Bookmark.UpdateBookmark', () async => await this.testUpdateBookmark());
-  }
-
   /// Test for getting bookmarks from document.
   void testGetBookmarks() async
   {
@@ -59,9 +53,9 @@ class BookmarkTests
     );
 
     var result = await this.context.getApi().getBookmarks(request);
-    assert(null != result.bookmarks);
-    assert(3 == result.bookmarks.bookmarkList.length);
-    assert('aspose' == result.bookmarks.bookmarkList[1].name);
+    expect(result.bookmarks, isNotNull);
+    expect(result.bookmarks.bookmarkList.length, 3);
+    expect(result.bookmarks.bookmarkList[1].name, 'aspose');
   }
 
   /// Test for getting bookmark by specified name.
@@ -78,8 +72,8 @@ class BookmarkTests
     );
 
     var result = await this.context.getApi().getBookmarkByName(request);
-    assert(null != result.bookmark);
-    assert(bookmarkName == result.bookmark.name);
+    expect(result.bookmark, isNotNull);
+    expect(result.bookmark.name, bookmarkName);
   }
 
   /// Test for updating existed bookmark.
@@ -102,8 +96,8 @@ class BookmarkTests
     );
 
     var result = await this.context.getApi().updateBookmark(request);
-    assert(null != result.bookmark);
-    assert(bookmarkName == result.bookmark.name);
-    assert(bookmarkText == result.bookmark.text);
+    expect(result.bookmark, isNotNull);
+    expect(result.bookmark.name, bookmarkName);
+    expect(result.bookmark.text, bookmarkText);
   }
 }

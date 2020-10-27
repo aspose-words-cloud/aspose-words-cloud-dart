@@ -39,11 +39,6 @@ class TextTests
     remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Text';
   }
 
-  void runAll() async {
-    await test('Text.ReplaceText', () async => await this.testReplaceText());
-    await test('Text.Search', () async => await this.testSearch());
-  }
-
   /// Test for replacing text.
   void testReplaceText() async
   {

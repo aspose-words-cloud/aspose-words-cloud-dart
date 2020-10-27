@@ -41,11 +41,6 @@ class RevisionsTests
     localFile = 'Common/test_multi_pages.docx';
   }
 
-  void runAll() async {
-    await test('Revisions.AcceptAllRevisions', () async => await this.testAcceptAllRevisions());
-    await test('Revisions.RejectAllRevisions', () async => await this.testRejectAllRevisions());
-  }
-
   /// Test for accepting revisions in document.
   void testAcceptAllRevisions() async
   {

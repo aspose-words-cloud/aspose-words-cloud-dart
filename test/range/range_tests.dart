@@ -41,13 +41,6 @@ class RangeTests
     localFile = 'DocumentElements/Range/RangeGet.doc';
   }
 
-  void runAll() async {
-    await test('Range.GetRangeText', () async => await this.testGetRangeText());
-    await test('Range.RemoveRange', () async => await this.testRemoveRange());
-    await test('Range.SaveAsRange', () async => await this.testSaveAsRange());
-    await test('Range.ReplaceWithText', () async => await this.testReplaceWithText());
-  }
-
   /// Test for getting the text from range.
   void testGetRangeText() async
   {

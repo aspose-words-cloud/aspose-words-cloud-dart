@@ -43,26 +43,6 @@ class FieldTests
     fieldFolder = 'DocumentElements/Fields';
   }
 
-  void runAll() async {
-    await test('Field.GetFields', () async => await this.testGetFields());
-    await test('Field.GetFieldsWithoutNodePath', () async => await this.testGetFieldsWithoutNodePath());
-    await test('Field.GetField', () async => await this.testGetField());
-    await test('Field.GetFieldWithoutNodePath', () async => await this.testGetFieldWithoutNodePath());
-    await test('Field.InsertField', () async => await this.testInsertField());
-    await test('Field.InsertFieldWithoutNodePath', () async => await this.testInsertFieldWithoutNodePath());
-    await test('Field.UpdateField', () async => await this.testUpdateField());
-    await test('Field.InsertPageNumbers', () async => await this.testInsertPageNumbers());
-    await test('Field.DeleteField', () async => await this.testDeleteField());
-    await test('Field.DeleteFieldWithoutNodePath', () async => await this.testDeleteFieldWithoutNodePath());
-    await test('Field.DeleteParagraphFields', () async => await this.testDeleteParagraphFields());
-    await test('Field.DeleteParagraphFieldsWithoutNodePath', () async => await this.testDeleteParagraphFieldsWithoutNodePath());
-    await test('Field.DeleteSectionFields', () async => await this.testDeleteSectionFields());
-    await test('Field.DeleteSectionFieldsWithoutNodePath', () async => await this.testDeleteSectionFieldsWithoutNodePath());
-    await test('Field.DeleteSectionParagraphFields', () async => await this.testDeleteSectionParagraphFields());
-    await test('Field.DeleteDocumentFields', () async => await this.testDeleteDocumentFields());
-    await test('Field.UpdateDocumentFields', () async => await this.testUpdateDocumentFields());
-  }
-
   /// Test for getting fields.
   void testGetFields() async
   {
