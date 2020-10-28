@@ -43,7 +43,7 @@ class GetAvailableFontsRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String url = apiClient.configuration.getApiRootUrl() + '/words/fonts/available';
+    String path = '/words/fonts/available';
     Map<String, String> queryParams = new Map<String, String>();
     Map<String, String> headers = new Map<String, String>();
     List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
@@ -51,7 +51,7 @@ class GetAvailableFontsRequest implements RequestBase {
       queryParams['fontsLocation'] = apiClient.serializeToString(this.fontsLocation);
     }
 
-    url = apiClient.applyQueryParams(url, queryParams);
+    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
     ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
     return new ApiRequestData('GET', url, headers, body);
   }

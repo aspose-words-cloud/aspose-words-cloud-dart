@@ -55,14 +55,14 @@ class GetDocumentRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String url = apiClient.configuration.getApiRootUrl() + '/words/{documentName}';
+    String path = '/words/{documentName}';
     Map<String, String> queryParams = new Map<String, String>();
     Map<String, String> headers = new Map<String, String>();
     List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
     if (this.documentName == null) {
       throw new ApiException(400, 'Parameter documentName is required.');
     }
-    url = url.replaceAll('{documentName}', apiClient.serializeToString(this.documentName));
+    path = path.replaceAll('{documentName}', apiClient.serializeToString(this.documentName));
     if (this.folder != null) {
       queryParams['folder'] = apiClient.serializeToString(this.folder);
     }
@@ -79,7 +79,7 @@ class GetDocumentRequest implements RequestBase {
       queryParams['password'] = apiClient.serializeToString(this.password);
     }
 
-    url = apiClient.applyQueryParams(url, queryParams);
+    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
     ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
     return new ApiRequestData('GET', url, headers, body);
   }

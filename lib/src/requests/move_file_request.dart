@@ -55,14 +55,14 @@ class MoveFileRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String url = apiClient.configuration.getApiRootUrl() + '/words/storage/file/move/{srcPath}';
+    String path = '/words/storage/file/move/{srcPath}';
     Map<String, String> queryParams = new Map<String, String>();
     Map<String, String> headers = new Map<String, String>();
     List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
     if (this.srcPath == null) {
       throw new ApiException(400, 'Parameter srcPath is required.');
     }
-    url = url.replaceAll('{srcPath}', apiClient.serializeToString(this.srcPath));
+    path = path.replaceAll('{srcPath}', apiClient.serializeToString(this.srcPath));
     if (this.destPath != null) {
       queryParams['destPath'] = apiClient.serializeToString(this.destPath);
     }
@@ -82,7 +82,7 @@ class MoveFileRequest implements RequestBase {
       queryParams['versionId'] = apiClient.serializeToString(this.versionId);
     }
 
-    url = apiClient.applyQueryParams(url, queryParams);
+    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
     ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
     return new ApiRequestData('PUT', url, headers, body);
   }

@@ -46,7 +46,7 @@ class GetDocumentFieldNamesOnlineRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String url = apiClient.configuration.getApiRootUrl() + '/words/mailMerge/FieldNames';
+    String path = '/words/mailMerge/FieldNames';
     Map<String, String> queryParams = new Map<String, String>();
     Map<String, String> headers = new Map<String, String>();
     List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
@@ -61,7 +61,7 @@ class GetDocumentFieldNamesOnlineRequest implements RequestBase {
       throw new ApiException(400, 'Parameter template is required.');
     }
 
-    url = apiClient.applyQueryParams(url, queryParams);
+    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
     ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
     return new ApiRequestData('PUT', url, headers, body);
   }

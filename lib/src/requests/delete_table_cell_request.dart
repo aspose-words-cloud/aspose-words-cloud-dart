@@ -70,24 +70,24 @@ class DeleteTableCellRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String url = apiClient.configuration.getApiRootUrl() + '/words/{name}/{tableRowPath}/cells/{index}';
+    String path = '/words/{name}/{tableRowPath}/cells/{index}';
     Map<String, String> queryParams = new Map<String, String>();
     Map<String, String> headers = new Map<String, String>();
     List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
     if (this.name == null) {
       throw new ApiException(400, 'Parameter name is required.');
     }
-    url = url.replaceAll('{name}', apiClient.serializeToString(this.name));
+    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
 
     if (this.tableRowPath == null) {
       throw new ApiException(400, 'Parameter tableRowPath is required.');
     }
-    url = url.replaceAll('{tableRowPath}', apiClient.serializeToString(this.tableRowPath));
+    path = path.replaceAll('{tableRowPath}', apiClient.serializeToString(this.tableRowPath));
 
     if (this.index == null) {
       throw new ApiException(400, 'Parameter index is required.');
     }
-    url = url.replaceAll('{index}', apiClient.serializeToString(this.index));
+    path = path.replaceAll('{index}', apiClient.serializeToString(this.index));
     if (this.folder != null) {
       queryParams['folder'] = apiClient.serializeToString(this.folder);
     }
@@ -116,7 +116,7 @@ class DeleteTableCellRequest implements RequestBase {
       queryParams['revisionDateTime'] = apiClient.serializeToString(this.revisionDateTime);
     }
 
-    url = apiClient.applyQueryParams(url, queryParams);
+    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
     ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
     return new ApiRequestData('DELETE', url, headers, body);
   }

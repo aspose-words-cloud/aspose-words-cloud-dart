@@ -64,24 +64,24 @@ class GetHeaderFooterOfSectionRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String url = apiClient.configuration.getApiRootUrl() + '/words/{name}/sections/{sectionIndex}/headersfooters/{headerFooterIndex}';
+    String path = '/words/{name}/sections/{sectionIndex}/headersfooters/{headerFooterIndex}';
     Map<String, String> queryParams = new Map<String, String>();
     Map<String, String> headers = new Map<String, String>();
     List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
     if (this.name == null) {
       throw new ApiException(400, 'Parameter name is required.');
     }
-    url = url.replaceAll('{name}', apiClient.serializeToString(this.name));
+    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
 
     if (this.headerFooterIndex == null) {
       throw new ApiException(400, 'Parameter headerFooterIndex is required.');
     }
-    url = url.replaceAll('{headerFooterIndex}', apiClient.serializeToString(this.headerFooterIndex));
+    path = path.replaceAll('{headerFooterIndex}', apiClient.serializeToString(this.headerFooterIndex));
 
     if (this.sectionIndex == null) {
       throw new ApiException(400, 'Parameter sectionIndex is required.');
     }
-    url = url.replaceAll('{sectionIndex}', apiClient.serializeToString(this.sectionIndex));
+    path = path.replaceAll('{sectionIndex}', apiClient.serializeToString(this.sectionIndex));
     if (this.folder != null) {
       queryParams['folder'] = apiClient.serializeToString(this.folder);
     }
@@ -102,7 +102,7 @@ class GetHeaderFooterOfSectionRequest implements RequestBase {
       queryParams['filterByType'] = apiClient.serializeToString(this.filterByType);
     }
 
-    url = apiClient.applyQueryParams(url, queryParams);
+    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
     ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
     return new ApiRequestData('GET', url, headers, body);
   }

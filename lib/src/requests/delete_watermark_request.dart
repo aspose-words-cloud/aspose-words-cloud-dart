@@ -64,14 +64,14 @@ class DeleteWatermarkRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String url = apiClient.configuration.getApiRootUrl() + '/words/{name}/watermarks/deleteLast';
+    String path = '/words/{name}/watermarks/deleteLast';
     Map<String, String> queryParams = new Map<String, String>();
     Map<String, String> headers = new Map<String, String>();
     List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
     if (this.name == null) {
       throw new ApiException(400, 'Parameter name is required.');
     }
-    url = url.replaceAll('{name}', apiClient.serializeToString(this.name));
+    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
     if (this.folder != null) {
       queryParams['folder'] = apiClient.serializeToString(this.folder);
     }
@@ -100,7 +100,7 @@ class DeleteWatermarkRequest implements RequestBase {
       queryParams['revisionDateTime'] = apiClient.serializeToString(this.revisionDateTime);
     }
 
-    url = apiClient.applyQueryParams(url, queryParams);
+    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
     ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
     return new ApiRequestData('POST', url, headers, body);
   }

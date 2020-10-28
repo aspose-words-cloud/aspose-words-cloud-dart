@@ -64,14 +64,14 @@ class GetDocumentStatisticsRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String url = apiClient.configuration.getApiRootUrl() + '/words/{name}/statistics';
+    String path = '/words/{name}/statistics';
     Map<String, String> queryParams = new Map<String, String>();
     Map<String, String> headers = new Map<String, String>();
     List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
     if (this.name == null) {
       throw new ApiException(400, 'Parameter name is required.');
     }
-    url = url.replaceAll('{name}', apiClient.serializeToString(this.name));
+    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
     if (this.folder != null) {
       queryParams['folder'] = apiClient.serializeToString(this.folder);
     }
@@ -100,7 +100,7 @@ class GetDocumentStatisticsRequest implements RequestBase {
       queryParams['includeTextInShapes'] = apiClient.serializeToString(this.includeTextInShapes);
     }
 
-    url = apiClient.applyQueryParams(url, queryParams);
+    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
     ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
     return new ApiRequestData('GET', url, headers, body);
   }

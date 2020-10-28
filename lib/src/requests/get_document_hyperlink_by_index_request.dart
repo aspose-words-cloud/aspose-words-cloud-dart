@@ -58,19 +58,19 @@ class GetDocumentHyperlinkByIndexRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String url = apiClient.configuration.getApiRootUrl() + '/words/{name}/hyperlinks/{hyperlinkIndex}';
+    String path = '/words/{name}/hyperlinks/{hyperlinkIndex}';
     Map<String, String> queryParams = new Map<String, String>();
     Map<String, String> headers = new Map<String, String>();
     List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
     if (this.name == null) {
       throw new ApiException(400, 'Parameter name is required.');
     }
-    url = url.replaceAll('{name}', apiClient.serializeToString(this.name));
+    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
 
     if (this.hyperlinkIndex == null) {
       throw new ApiException(400, 'Parameter hyperlinkIndex is required.');
     }
-    url = url.replaceAll('{hyperlinkIndex}', apiClient.serializeToString(this.hyperlinkIndex));
+    path = path.replaceAll('{hyperlinkIndex}', apiClient.serializeToString(this.hyperlinkIndex));
     if (this.folder != null) {
       queryParams['folder'] = apiClient.serializeToString(this.folder);
     }
@@ -87,7 +87,7 @@ class GetDocumentHyperlinkByIndexRequest implements RequestBase {
       queryParams['password'] = apiClient.serializeToString(this.password);
     }
 
-    url = apiClient.applyQueryParams(url, queryParams);
+    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
     ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
     return new ApiRequestData('GET', url, headers, body);
   }

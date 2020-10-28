@@ -52,14 +52,14 @@ class MoveFolderRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String url = apiClient.configuration.getApiRootUrl() + '/words/storage/folder/move/{srcPath}';
+    String path = '/words/storage/folder/move/{srcPath}';
     Map<String, String> queryParams = new Map<String, String>();
     Map<String, String> headers = new Map<String, String>();
     List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
     if (this.srcPath == null) {
       throw new ApiException(400, 'Parameter srcPath is required.');
     }
-    url = url.replaceAll('{srcPath}', apiClient.serializeToString(this.srcPath));
+    path = path.replaceAll('{srcPath}', apiClient.serializeToString(this.srcPath));
     if (this.destPath != null) {
       queryParams['destPath'] = apiClient.serializeToString(this.destPath);
     }
@@ -75,7 +75,7 @@ class MoveFolderRequest implements RequestBase {
       queryParams['destStorageName'] = apiClient.serializeToString(this.destStorageName);
     }
 
-    url = apiClient.applyQueryParams(url, queryParams);
+    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
     ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
     return new ApiRequestData('PUT', url, headers, body);
   }

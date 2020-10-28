@@ -58,19 +58,19 @@ class GetStyleFromDocumentElementRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String url = apiClient.configuration.getApiRootUrl() + '/words/{name}/{styledNodePath}/style';
+    String path = '/words/{name}/{styledNodePath}/style';
     Map<String, String> queryParams = new Map<String, String>();
     Map<String, String> headers = new Map<String, String>();
     List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
     if (this.name == null) {
       throw new ApiException(400, 'Parameter name is required.');
     }
-    url = url.replaceAll('{name}', apiClient.serializeToString(this.name));
+    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
 
     if (this.styledNodePath == null) {
       throw new ApiException(400, 'Parameter styledNodePath is required.');
     }
-    url = url.replaceAll('{styledNodePath}', apiClient.serializeToString(this.styledNodePath));
+    path = path.replaceAll('{styledNodePath}', apiClient.serializeToString(this.styledNodePath));
     if (this.folder != null) {
       queryParams['folder'] = apiClient.serializeToString(this.folder);
     }
@@ -87,7 +87,7 @@ class GetStyleFromDocumentElementRequest implements RequestBase {
       queryParams['password'] = apiClient.serializeToString(this.password);
     }
 
-    url = apiClient.applyQueryParams(url, queryParams);
+    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
     ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
     return new ApiRequestData('GET', url, headers, body);
   }

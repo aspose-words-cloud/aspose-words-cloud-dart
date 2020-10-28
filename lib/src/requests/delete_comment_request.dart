@@ -67,19 +67,19 @@ class DeleteCommentRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String url = apiClient.configuration.getApiRootUrl() + '/words/{name}/comments/{commentIndex}';
+    String path = '/words/{name}/comments/{commentIndex}';
     Map<String, String> queryParams = new Map<String, String>();
     Map<String, String> headers = new Map<String, String>();
     List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
     if (this.name == null) {
       throw new ApiException(400, 'Parameter name is required.');
     }
-    url = url.replaceAll('{name}', apiClient.serializeToString(this.name));
+    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
 
     if (this.commentIndex == null) {
       throw new ApiException(400, 'Parameter commentIndex is required.');
     }
-    url = url.replaceAll('{commentIndex}', apiClient.serializeToString(this.commentIndex));
+    path = path.replaceAll('{commentIndex}', apiClient.serializeToString(this.commentIndex));
     if (this.folder != null) {
       queryParams['folder'] = apiClient.serializeToString(this.folder);
     }
@@ -108,7 +108,7 @@ class DeleteCommentRequest implements RequestBase {
       queryParams['revisionDateTime'] = apiClient.serializeToString(this.revisionDateTime);
     }
 
-    url = apiClient.applyQueryParams(url, queryParams);
+    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
     ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
     return new ApiRequestData('DELETE', url, headers, body);
   }

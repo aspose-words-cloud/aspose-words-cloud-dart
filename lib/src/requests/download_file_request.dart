@@ -49,14 +49,14 @@ class DownloadFileRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String url = apiClient.configuration.getApiRootUrl() + '/words/storage/file/{path}';
+    String path = '/words/storage/file/{path}';
     Map<String, String> queryParams = new Map<String, String>();
     Map<String, String> headers = new Map<String, String>();
     List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
     if (this.path == null) {
       throw new ApiException(400, 'Parameter path is required.');
     }
-    url = url.replaceAll('{path}', apiClient.serializeToString(this.path));
+    path = path.replaceAll('{path}', apiClient.serializeToString(this.path));
     if (this.storageName != null) {
       queryParams['storageName'] = apiClient.serializeToString(this.storageName);
     }
@@ -65,7 +65,7 @@ class DownloadFileRequest implements RequestBase {
       queryParams['versionId'] = apiClient.serializeToString(this.versionId);
     }
 
-    url = apiClient.applyQueryParams(url, queryParams);
+    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
     ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
     return new ApiRequestData('GET', url, headers, body);
   }

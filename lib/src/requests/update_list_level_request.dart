@@ -73,24 +73,24 @@ class UpdateListLevelRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String url = apiClient.configuration.getApiRootUrl() + '/words/{name}/lists/{listId}/listLevels/{listLevel}';
+    String path = '/words/{name}/lists/{listId}/listLevels/{listLevel}';
     Map<String, String> queryParams = new Map<String, String>();
     Map<String, String> headers = new Map<String, String>();
     List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
     if (this.name == null) {
       throw new ApiException(400, 'Parameter name is required.');
     }
-    url = url.replaceAll('{name}', apiClient.serializeToString(this.name));
+    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
 
     if (this.listId == null) {
       throw new ApiException(400, 'Parameter listId is required.');
     }
-    url = url.replaceAll('{listId}', apiClient.serializeToString(this.listId));
+    path = path.replaceAll('{listId}', apiClient.serializeToString(this.listId));
 
     if (this.listLevel == null) {
       throw new ApiException(400, 'Parameter listLevel is required.');
     }
-    url = url.replaceAll('{listLevel}', apiClient.serializeToString(this.listLevel));
+    path = path.replaceAll('{listLevel}', apiClient.serializeToString(this.listLevel));
     if (this.folder != null) {
       queryParams['folder'] = apiClient.serializeToString(this.folder);
     }
@@ -126,7 +126,7 @@ class UpdateListLevelRequest implements RequestBase {
       throw new ApiException(400, 'Parameter listUpdate is required.');
     }
 
-    url = apiClient.applyQueryParams(url, queryParams);
+    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
     ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
     return new ApiRequestData('PUT', url, headers, body);
   }

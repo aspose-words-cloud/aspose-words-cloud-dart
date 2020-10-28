@@ -66,20 +66,20 @@ class SaveAsRangeRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String url = apiClient.configuration.getApiRootUrl() + '/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}/SaveAs';
+    String path = '/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}/SaveAs';
     Map<String, String> queryParams = new Map<String, String>();
     Map<String, String> headers = new Map<String, String>();
     List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
     if (this.name == null) {
       throw new ApiException(400, 'Parameter name is required.');
     }
-    url = url.replaceAll('{name}', apiClient.serializeToString(this.name));
+    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
 
     if (this.rangeStartIdentifier == null) {
       throw new ApiException(400, 'Parameter rangeStartIdentifier is required.');
     }
-    url = url.replaceAll('{rangeStartIdentifier}', apiClient.serializeToString(this.rangeStartIdentifier));
-    url = url.replaceAll('{rangeEndIdentifier}', apiClient.serializeToString(this.rangeEndIdentifier) ?? '');
+    path = path.replaceAll('{rangeStartIdentifier}', apiClient.serializeToString(this.rangeStartIdentifier));
+    path = path.replaceAll('{rangeEndIdentifier}', apiClient.serializeToString(this.rangeEndIdentifier) ?? '');
     if (this.folder != null) {
       queryParams['folder'] = apiClient.serializeToString(this.folder);
     }
@@ -103,7 +103,7 @@ class SaveAsRangeRequest implements RequestBase {
       throw new ApiException(400, 'Parameter documentParameters is required.');
     }
 
-    url = apiClient.applyQueryParams(url, queryParams);
+    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
     ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
     return new ApiRequestData('POST', url, headers, body);
   }

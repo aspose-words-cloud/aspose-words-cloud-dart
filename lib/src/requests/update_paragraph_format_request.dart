@@ -73,20 +73,20 @@ class UpdateParagraphFormatRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String url = apiClient.configuration.getApiRootUrl() + '/words/{name}/{nodePath}/paragraphs/{index}/format';
+    String path = '/words/{name}/{nodePath}/paragraphs/{index}/format';
     Map<String, String> queryParams = new Map<String, String>();
     Map<String, String> headers = new Map<String, String>();
     List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
     if (this.name == null) {
       throw new ApiException(400, 'Parameter name is required.');
     }
-    url = url.replaceAll('{name}', apiClient.serializeToString(this.name));
+    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
 
     if (this.index == null) {
       throw new ApiException(400, 'Parameter index is required.');
     }
-    url = url.replaceAll('{index}', apiClient.serializeToString(this.index));
-    url = url.replaceAll('{nodePath}', apiClient.serializeToString(this.nodePath) ?? '');
+    path = path.replaceAll('{index}', apiClient.serializeToString(this.index));
+    path = path.replaceAll('{nodePath}', apiClient.serializeToString(this.nodePath) ?? '');
     if (this.folder != null) {
       queryParams['folder'] = apiClient.serializeToString(this.folder);
     }
@@ -122,7 +122,7 @@ class UpdateParagraphFormatRequest implements RequestBase {
       throw new ApiException(400, 'Parameter dto is required.');
     }
 
-    url = apiClient.applyQueryParams(url, queryParams);
+    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
     ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
     return new ApiRequestData('PUT', url, headers, body);
   }

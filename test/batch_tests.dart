@@ -98,7 +98,7 @@ class BatchTests
     expect(actual[0] is ParagraphLinkCollectionResponse, isTrue); // GetParagraphs
     expect(actual[1] is ParagraphResponse, isTrue); // GetParagraph
     expect(actual[2] is ParagraphResponse, isTrue); // InsertParagraph
-    expect(actual[3], isNull, reason: 'actual[3] is ${actual[3].runtimeType}'); // DeleteParagraph
+    expect(actual[3], isNull); // DeleteParagraph
     expect(actual[4] is ByteData, isTrue); // BuildReportOnline
   }
 }

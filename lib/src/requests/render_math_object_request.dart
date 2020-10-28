@@ -67,20 +67,20 @@ class RenderMathObjectRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String url = apiClient.configuration.getApiRootUrl() + '/words/{name}/{nodePath}/OfficeMathObjects/{index}/render';
+    String path = '/words/{name}/{nodePath}/OfficeMathObjects/{index}/render';
     Map<String, String> queryParams = new Map<String, String>();
     Map<String, String> headers = new Map<String, String>();
     List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
     if (this.name == null) {
       throw new ApiException(400, 'Parameter name is required.');
     }
-    url = url.replaceAll('{name}', apiClient.serializeToString(this.name));
+    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
 
     if (this.index == null) {
       throw new ApiException(400, 'Parameter index is required.');
     }
-    url = url.replaceAll('{index}', apiClient.serializeToString(this.index));
-    url = url.replaceAll('{nodePath}', apiClient.serializeToString(this.nodePath) ?? '');
+    path = path.replaceAll('{index}', apiClient.serializeToString(this.index));
+    path = path.replaceAll('{nodePath}', apiClient.serializeToString(this.nodePath) ?? '');
     if (this.format != null) {
       queryParams['format'] = apiClient.serializeToString(this.format);
     }
@@ -108,7 +108,7 @@ class RenderMathObjectRequest implements RequestBase {
       queryParams['fontsLocation'] = apiClient.serializeToString(this.fontsLocation);
     }
 
-    url = apiClient.applyQueryParams(url, queryParams);
+    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
     ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
     return new ApiRequestData('GET', url, headers, body);
   }

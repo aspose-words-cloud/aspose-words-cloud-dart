@@ -62,7 +62,7 @@ class ApiClient {
 
   Future<String> _getAuthToken() async {
     if (_authToken == null) {
-      _updateAuthToken();
+      await _updateAuthToken();
     }
 
     return _authToken;
