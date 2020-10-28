@@ -29,6 +29,7 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'package:uuid/uuid.dart';
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 class TestContext {
   WordsApi _wordsApi;
@@ -57,8 +58,8 @@ class TestContext {
     final content = await this.loadBinaryFile(localPath);
     final request = new UploadFileRequest(content, remotePath);
     final result = await this.getApi().uploadFile(request);
-    assert(result.errors.length == 0);
-    assert(result.uploaded.length == 1);
+    expect(result.errors.length, 0);
+    expect(result.uploaded.length, 1);
   }
 
   String createRandomGuid() {

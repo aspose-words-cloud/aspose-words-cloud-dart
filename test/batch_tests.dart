@@ -94,11 +94,11 @@ class BatchTests
     );
 
     var actual = await this.context.getApi().batch([request1, request2, request3, request4, request5]);
-    assert(actual.length == 5);
-    assert(actual[0] is ParagraphLinkCollectionResponse); // GetParagraphs
-    assert(actual[1] is ParagraphResponse); // GetParagraph
-    assert(actual[2] is ParagraphResponse); // InsertParagraph
-    assert(actual[3]  == null); // DeleteParagraph
-    assert(actual[4] is ByteData); // BuildReportOnline
+    expect(actual.length, 5);
+    expect(actual[0] is ParagraphLinkCollectionResponse, isTrue); // GetParagraphs
+    expect(actual[1] is ParagraphResponse, isTrue); // GetParagraph
+    expect(actual[2] is ParagraphResponse, isTrue); // InsertParagraph
+    expect(actual[3], isNull, reason: 'actual[3] is ${actual[3].runtimeType}'); // DeleteParagraph
+    expect(actual[4] is ByteData, isTrue); // BuildReportOnline
   }
 }

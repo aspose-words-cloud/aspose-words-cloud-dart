@@ -25,6 +25,8 @@
  * --------------------------------------------------------------------------------
  */
 
+@Timeout(const Duration(minutes: 5))
+
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import 'package:test/test.dart';
 import 'test_context.dart';
@@ -76,407 +78,455 @@ import './table/table_border_tests.dart';
 import './text/text_tests.dart';
 import './watermark/watermark_tests.dart';
 
-void main() async {
-  final file = new File(Directory.current.path + '/settings/servercreds.json');
-  if (await file.exists() == false) {
-     throw new Exception('Please put AppKey and AppSid credentials to "SDK_ROOT/settings/servercreds.json".');
-  }
+ReadmeTests readmeTests;
+EncodingTests encodingTests;
+BatchTests batchTests;
+BookmarkTests bookmarkName;
+CompatibilityTests compatibilityName;
+AppendDocumentTests appendDocumentName;
+ClassificationTests classificationName;
+CommentTests commentName;
+CompareDocumentTests compareDocumentName;
+ConvertDocumentTests convertDocumentName;
+DocumentTests documentName;
+DocumentStatisticsTests documentStatisticsName;
+DocumentWithFormatTests documentWithFormatName;
+LoadWebDocumentTests loadWebDocumentName;
+RevisionsTests revisionsName;
+SplitDocumentToFormatTests splitDocumentToFormatName;
+DocumentPropertiesTests documentPropertiesName;
+DocumentProtectionTests documentProtectionName;
+DrawingObjectsTests drawingObjectsName;
+FieldTests fieldName;
+FormFieldTests formFieldName;
+FontTests fontName;
+FootnoteTests footnoteName;
+HeaderFooterTests headerFooterName;
+HyperlinkTests hyperlinkName;
+ListsTests listsName;
+MacrosTests macrosName;
+ExecuteMailMergeTests executeMailMergeName;
+ExecuteTemplateTests executeTemplateName;
+MailMergeFiledsTests mailMergeFiledsName;
+MathObjectTests mathObjectName;
+PageSetupTests pageSetupName;
+ParagraphTests paragraphName;
+RangeTests rangeName;
+BuildReportTests buildReportName;
+RunTests runName;
+SectionTests sectionName;
+FileTests fileName;
+FolderTests folderName;
+StylesTests stylesName;
+TableTests tableName;
+TableBorderTests tableBorderName;
+TextTests textName;
+WatermarkTests watermarkName;
 
-  final jsonString = await file.readAsString();
-  final Map json = jsonDecode(jsonString);
-  final config = Configuration.fromJson(json);
-  final testContext = new TestContext(config);
+void main() {
+  setUpAll(() async {
+    final file = new File(Directory.current.path + '/settings/servercreds.json');
+    if (await file.exists() == false) {
+      throw new Exception('Please put AppKey and AppSid credentials to "SDK_ROOT/settings/servercreds.json".');
+    }
+
+    final jsonString = await file.readAsString();
+    final Map json = jsonDecode(jsonString);
+    final config = Configuration.fromJson(json);
+    final testContext = new TestContext(config);
+
+    readmeTests = new ReadmeTests(testContext);
+    encodingTests = new EncodingTests(testContext);
+    batchTests = new BatchTests(testContext);
+    bookmarkName = new BookmarkTests(testContext);
+    compatibilityName = new CompatibilityTests(testContext);
+    appendDocumentName = new AppendDocumentTests(testContext);
+    classificationName = new ClassificationTests(testContext);
+    commentName = new CommentTests(testContext);
+    compareDocumentName = new CompareDocumentTests(testContext);
+    convertDocumentName = new ConvertDocumentTests(testContext);
+    documentName = new DocumentTests(testContext);
+    documentStatisticsName = new DocumentStatisticsTests(testContext);
+    documentWithFormatName = new DocumentWithFormatTests(testContext);
+    loadWebDocumentName = new LoadWebDocumentTests(testContext);
+    revisionsName = new RevisionsTests(testContext);
+    splitDocumentToFormatName = new SplitDocumentToFormatTests(testContext);
+    documentPropertiesName = new DocumentPropertiesTests(testContext);
+    documentProtectionName = new DocumentProtectionTests(testContext);
+    drawingObjectsName = new DrawingObjectsTests(testContext);
+    fieldName = new FieldTests(testContext);
+    formFieldName = new FormFieldTests(testContext);
+    fontName = new FontTests(testContext);
+    footnoteName = new FootnoteTests(testContext);
+    headerFooterName = new HeaderFooterTests(testContext);
+    hyperlinkName = new HyperlinkTests(testContext);
+    listsName = new ListsTests(testContext);
+    macrosName = new MacrosTests(testContext);
+    executeMailMergeName = new ExecuteMailMergeTests(testContext);
+    executeTemplateName = new ExecuteTemplateTests(testContext);
+    mailMergeFiledsName = new MailMergeFiledsTests(testContext);
+    mathObjectName = new MathObjectTests(testContext);
+    pageSetupName = new PageSetupTests(testContext);
+    paragraphName = new ParagraphTests(testContext);
+    rangeName = new RangeTests(testContext);
+    buildReportName = new BuildReportTests(testContext);
+    runName = new RunTests(testContext);
+    sectionName = new SectionTests(testContext);
+    fileName = new FileTests(testContext);
+    folderName = new FolderTests(testContext);
+    stylesName = new StylesTests(testContext);
+    tableName = new TableTests(testContext);
+    tableBorderName = new TableBorderTests(testContext);
+    textName = new TextTests(testContext);
+    watermarkName = new WatermarkTests(testContext);
+  });
 
   group('Readme', () {
-    final _testGroup = new ReadmeTests(testContext);
-    test('TestReadme1', _testGroup.testReadme1);
+    test('TestReadme1', () async => await readmeTests.testReadme1());
   });
 
   group('Encoding', () {
-    final _testGroup = new EncodingTests(testContext);
-    test('TestEncoding1', _testGroup.testEncoding1);
+    test('TestEncoding1', () async => await encodingTests.testEncoding1());
   });
 
   group('Batch', () {
-    final _testGroup = new BatchTests(testContext);
-    test('TestBatch1', _testGroup.testBatch1);
+    test('TestBatch1', () async => await batchTests.testBatch1());
   });
 
   group('Bookmark', () {
-    final _testGroup = new BookmarkTests(testContext);
-    test('GetBookmarks', _testGroup.testGetBookmarks);
-    test('GetBookmarkByName', _testGroup.testGetBookmarkByName);
-    test('UpdateBookmark', _testGroup.testUpdateBookmark);
+    test('GetBookmarks', () async => await bookmarkName.testGetBookmarks());
+    test('GetBookmarkByName', () async => await bookmarkName.testGetBookmarkByName());
+    test('UpdateBookmark', () async => await bookmarkName.testUpdateBookmark());
   });
 
   group('Compatibility', () {
-    final _testGroup = new CompatibilityTests(testContext);
-    test('OptimizeDocument', _testGroup.testOptimizeDocument);
+    test('OptimizeDocument', () async => await compatibilityName.testOptimizeDocument());
   });
 
   group('AppendDocument', () {
-    final _testGroup = new AppendDocumentTests(testContext);
-    test('AppendDocument', _testGroup.testAppendDocument);
+    test('AppendDocument', () async => await appendDocumentName.testAppendDocument());
   });
 
   group('Classification', () {
-    final _testGroup = new ClassificationTests(testContext);
-    test('Classify', _testGroup.testClassify);
-    test('ClassifyDocument', _testGroup.testClassifyDocument);
+    test('Classify', () async => await classificationName.testClassify());
+    test('ClassifyDocument', () async => await classificationName.testClassifyDocument());
   });
 
   group('Comment', () {
-    final _testGroup = new CommentTests(testContext);
-    test('GetComment', _testGroup.testGetComment);
-    test('GetComments', _testGroup.testGetComments);
-    test('InsertComment', _testGroup.testInsertComment);
-    test('UpdateComment', _testGroup.testUpdateComment);
-    test('DeleteComment', _testGroup.testDeleteComment);
+    test('GetComment', () async => await commentName.testGetComment());
+    test('GetComments', () async => await commentName.testGetComments());
+    test('InsertComment', () async => await commentName.testInsertComment());
+    test('UpdateComment', () async => await commentName.testUpdateComment());
+    test('DeleteComment', () async => await commentName.testDeleteComment());
   });
 
   group('CompareDocument', () {
-    final _testGroup = new CompareDocumentTests(testContext);
-    test('CompareDocument', _testGroup.testCompareDocument);
+    test('CompareDocument', () async => await compareDocumentName.testCompareDocument());
   });
 
   group('ConvertDocument', () {
-    final _testGroup = new ConvertDocumentTests(testContext);
-    test('SaveAs', _testGroup.testSaveAs);
-    test('SaveAsDocx', _testGroup.testSaveAsDocx);
-    test('SaveAsTiff', _testGroup.testSaveAsTiff);
-    test('ConvertDocument', _testGroup.testConvertDocument);
+    test('SaveAs', () async => await convertDocumentName.testSaveAs());
+    test('SaveAsDocx', () async => await convertDocumentName.testSaveAsDocx());
+    test('SaveAsTiff', () async => await convertDocumentName.testSaveAsTiff());
+    test('ConvertDocument', () async => await convertDocumentName.testConvertDocument());
   });
 
   group('Document', () {
-    final _testGroup = new DocumentTests(testContext);
-    test('GetDocument', _testGroup.testGetDocument);
-    test('CreateDocument', _testGroup.testCreateDocument);
+    test('GetDocument', () async => await documentName.testGetDocument());
+    test('CreateDocument', () async => await documentName.testCreateDocument());
   });
 
   group('DocumentStatistics', () {
-    final _testGroup = new DocumentStatisticsTests(testContext);
-    test('GetDocumentStatistics', _testGroup.testGetDocumentStatistics);
+    test('GetDocumentStatistics', () async => await documentStatisticsName.testGetDocumentStatistics());
   });
 
   group('DocumentWithFormat', () {
-    final _testGroup = new DocumentWithFormatTests(testContext);
-    test('GetDocumentWithFormat', _testGroup.testGetDocumentWithFormat);
-    test('GetDocumentWithFormatAndOutPath', _testGroup.testGetDocumentWithFormatAndOutPath);
+    test('GetDocumentWithFormat', () async => await documentWithFormatName.testGetDocumentWithFormat());
+    test('GetDocumentWithFormatAndOutPath', () async => await documentWithFormatName.testGetDocumentWithFormatAndOutPath());
   });
 
   group('LoadWebDocument', () {
-    final _testGroup = new LoadWebDocumentTests(testContext);
-    test('LoadWebDocument', _testGroup.testLoadWebDocument);
+    test('LoadWebDocument', () async => await loadWebDocumentName.testLoadWebDocument());
   });
 
   group('Revisions', () {
-    final _testGroup = new RevisionsTests(testContext);
-    test('AcceptAllRevisions', _testGroup.testAcceptAllRevisions);
-    test('RejectAllRevisions', _testGroup.testRejectAllRevisions);
+    test('AcceptAllRevisions', () async => await revisionsName.testAcceptAllRevisions());
+    test('RejectAllRevisions', () async => await revisionsName.testRejectAllRevisions());
   });
 
   group('SplitDocumentToFormat', () {
-    final _testGroup = new SplitDocumentToFormatTests(testContext);
-    test('SplitDocument', _testGroup.testSplitDocument);
+    test('SplitDocument', () async => await splitDocumentToFormatName.testSplitDocument());
   });
 
   group('DocumentProperties', () {
-    final _testGroup = new DocumentPropertiesTests(testContext);
-    test('GetDocumentProperties', _testGroup.testGetDocumentProperties);
-    test('GetDocumentProperty', _testGroup.testGetDocumentProperty);
-    test('DeleteDocumentProperty', _testGroup.testDeleteDocumentProperty);
-    test('UpdateDocumentProperty', _testGroup.testUpdateDocumentProperty);
+    test('GetDocumentProperties', () async => await documentPropertiesName.testGetDocumentProperties());
+    test('GetDocumentProperty', () async => await documentPropertiesName.testGetDocumentProperty());
+    test('DeleteDocumentProperty', () async => await documentPropertiesName.testDeleteDocumentProperty());
+    test('UpdateDocumentProperty', () async => await documentPropertiesName.testUpdateDocumentProperty());
   });
 
   group('DocumentProtection', () {
-    final _testGroup = new DocumentProtectionTests(testContext);
-    test('ProtectDocument', _testGroup.testProtectDocument);
-    test('GetDocumentProtection', _testGroup.testGetDocumentProtection);
-    test('ChangeDocumentProtection', _testGroup.testChangeDocumentProtection);
-    test('DeleteUnprotectDocument', _testGroup.testDeleteUnprotectDocument);
+    test('ProtectDocument', () async => await documentProtectionName.testProtectDocument());
+    test('GetDocumentProtection', () async => await documentProtectionName.testGetDocumentProtection());
+    test('ChangeDocumentProtection', () async => await documentProtectionName.testChangeDocumentProtection());
+    test('DeleteUnprotectDocument', () async => await documentProtectionName.testDeleteUnprotectDocument());
   });
 
   group('DrawingObjects', () {
-    final _testGroup = new DrawingObjectsTests(testContext);
-    test('GetDocumentDrawingObjects', _testGroup.testGetDocumentDrawingObjects);
-    test('GetDocumentDrawingObjectsWithoutNodePath', _testGroup.testGetDocumentDrawingObjectsWithoutNodePath);
-    test('GetDocumentDrawingObjectByIndex', _testGroup.testGetDocumentDrawingObjectByIndex);
-    test('GetDocumentDrawingObjectByIndexWithoutNodePath', _testGroup.testGetDocumentDrawingObjectByIndexWithoutNodePath);
-    test('RenderDrawingObject', _testGroup.testRenderDrawingObject);
-    test('RenderDrawingObjectWithoutNodePath', _testGroup.testRenderDrawingObjectWithoutNodePath);
-    test('GetDocumentDrawingObjectImageData', _testGroup.testGetDocumentDrawingObjectImageData);
-    test('GetDocumentDrawingObjectImageDataWithoutNodePath', _testGroup.testGetDocumentDrawingObjectImageDataWithoutNodePath);
-    test('GetDocumentDrawingObjectOleData', _testGroup.testGetDocumentDrawingObjectOleData);
-    test('GetDocumentDrawingObjectOleDataWithoutNodePath', _testGroup.testGetDocumentDrawingObjectOleDataWithoutNodePath);
-    test('InsertDrawingObject', _testGroup.testInsertDrawingObject);
-    test('InsertDrawingObjectWithoutNodePath', _testGroup.testInsertDrawingObjectWithoutNodePath);
-    test('DeleteDrawingObject', _testGroup.testDeleteDrawingObject);
-    test('DeleteDrawingObjectWithoutNodePath', _testGroup.testDeleteDrawingObjectWithoutNodePath);
-    test('UpdateDrawingObject', _testGroup.testUpdateDrawingObject);
-    test('UpdateDrawingObjectWithoutNodePath', _testGroup.testUpdateDrawingObjectWithoutNodePath);
+    test('GetDocumentDrawingObjects', () async => await drawingObjectsName.testGetDocumentDrawingObjects());
+    test('GetDocumentDrawingObjectsWithoutNodePath', () async => await drawingObjectsName.testGetDocumentDrawingObjectsWithoutNodePath());
+    test('GetDocumentDrawingObjectByIndex', () async => await drawingObjectsName.testGetDocumentDrawingObjectByIndex());
+    test('GetDocumentDrawingObjectByIndexWithoutNodePath', () async => await drawingObjectsName.testGetDocumentDrawingObjectByIndexWithoutNodePath());
+    test('RenderDrawingObject', () async => await drawingObjectsName.testRenderDrawingObject());
+    test('RenderDrawingObjectWithoutNodePath', () async => await drawingObjectsName.testRenderDrawingObjectWithoutNodePath());
+    test('GetDocumentDrawingObjectImageData', () async => await drawingObjectsName.testGetDocumentDrawingObjectImageData());
+    test('GetDocumentDrawingObjectImageDataWithoutNodePath', () async => await drawingObjectsName.testGetDocumentDrawingObjectImageDataWithoutNodePath());
+    test('GetDocumentDrawingObjectOleData', () async => await drawingObjectsName.testGetDocumentDrawingObjectOleData());
+    test('GetDocumentDrawingObjectOleDataWithoutNodePath', () async => await drawingObjectsName.testGetDocumentDrawingObjectOleDataWithoutNodePath());
+    test('InsertDrawingObject', () async => await drawingObjectsName.testInsertDrawingObject());
+    test('InsertDrawingObjectWithoutNodePath', () async => await drawingObjectsName.testInsertDrawingObjectWithoutNodePath());
+    test('DeleteDrawingObject', () async => await drawingObjectsName.testDeleteDrawingObject());
+    test('DeleteDrawingObjectWithoutNodePath', () async => await drawingObjectsName.testDeleteDrawingObjectWithoutNodePath());
+    test('UpdateDrawingObject', () async => await drawingObjectsName.testUpdateDrawingObject());
+    test('UpdateDrawingObjectWithoutNodePath', () async => await drawingObjectsName.testUpdateDrawingObjectWithoutNodePath());
   });
 
   group('Field', () {
-    final _testGroup = new FieldTests(testContext);
-    test('GetFields', _testGroup.testGetFields);
-    test('GetFieldsWithoutNodePath', _testGroup.testGetFieldsWithoutNodePath);
-    test('GetField', _testGroup.testGetField);
-    test('GetFieldWithoutNodePath', _testGroup.testGetFieldWithoutNodePath);
-    test('InsertField', _testGroup.testInsertField);
-    test('InsertFieldWithoutNodePath', _testGroup.testInsertFieldWithoutNodePath);
-    test('UpdateField', _testGroup.testUpdateField);
-    test('InsertPageNumbers', _testGroup.testInsertPageNumbers);
-    test('DeleteField', _testGroup.testDeleteField);
-    test('DeleteFieldWithoutNodePath', _testGroup.testDeleteFieldWithoutNodePath);
-    test('DeleteParagraphFields', _testGroup.testDeleteParagraphFields);
-    test('DeleteParagraphFieldsWithoutNodePath', _testGroup.testDeleteParagraphFieldsWithoutNodePath);
-    test('DeleteSectionFields', _testGroup.testDeleteSectionFields);
-    test('DeleteSectionFieldsWithoutNodePath', _testGroup.testDeleteSectionFieldsWithoutNodePath);
-    test('DeleteSectionParagraphFields', _testGroup.testDeleteSectionParagraphFields);
-    test('DeleteDocumentFields', _testGroup.testDeleteDocumentFields);
-    test('UpdateDocumentFields', _testGroup.testUpdateDocumentFields);
+    test('GetFields', () async => await fieldName.testGetFields());
+    test('GetFieldsWithoutNodePath', () async => await fieldName.testGetFieldsWithoutNodePath());
+    test('GetField', () async => await fieldName.testGetField());
+    test('GetFieldWithoutNodePath', () async => await fieldName.testGetFieldWithoutNodePath());
+    test('InsertField', () async => await fieldName.testInsertField());
+    test('InsertFieldWithoutNodePath', () async => await fieldName.testInsertFieldWithoutNodePath());
+    test('UpdateField', () async => await fieldName.testUpdateField());
+    test('InsertPageNumbers', () async => await fieldName.testInsertPageNumbers());
+    test('DeleteField', () async => await fieldName.testDeleteField());
+    test('DeleteFieldWithoutNodePath', () async => await fieldName.testDeleteFieldWithoutNodePath());
+    test('DeleteParagraphFields', () async => await fieldName.testDeleteParagraphFields());
+    test('DeleteParagraphFieldsWithoutNodePath', () async => await fieldName.testDeleteParagraphFieldsWithoutNodePath());
+    test('DeleteSectionFields', () async => await fieldName.testDeleteSectionFields());
+    test('DeleteSectionFieldsWithoutNodePath', () async => await fieldName.testDeleteSectionFieldsWithoutNodePath());
+    test('DeleteSectionParagraphFields', () async => await fieldName.testDeleteSectionParagraphFields());
+    test('DeleteDocumentFields', () async => await fieldName.testDeleteDocumentFields());
+    test('UpdateDocumentFields', () async => await fieldName.testUpdateDocumentFields());
   });
 
   group('FormField', () {
-    final _testGroup = new FormFieldTests(testContext);
-    test('UpdateFormField', _testGroup.testUpdateFormField);
-    test('UpdateFormFieldWithoutNodePath', _testGroup.testUpdateFormFieldWithoutNodePath);
-    test('GetFormField', _testGroup.testGetFormField);
-    test('GetFormFieldWithoutNodePath', _testGroup.testGetFormFieldWithoutNodePath);
-    test('GetFormFields', _testGroup.testGetFormFields);
-    test('GetFormFieldsWithoutNodePath', _testGroup.testGetFormFieldsWithoutNodePath);
-    test('InsertFormField', _testGroup.testInsertFormField);
-    test('InsertFormFieldWithoutNodePath', _testGroup.testInsertFormFieldWithoutNodePath);
-    test('DeleteFormField', _testGroup.testDeleteFormField);
-    test('DeleteFormFieldWithoutNodePath', _testGroup.testDeleteFormFieldWithoutNodePath);
+    test('UpdateFormField', () async => await formFieldName.testUpdateFormField());
+    test('UpdateFormFieldWithoutNodePath', () async => await formFieldName.testUpdateFormFieldWithoutNodePath());
+    test('GetFormField', () async => await formFieldName.testGetFormField());
+    test('GetFormFieldWithoutNodePath', () async => await formFieldName.testGetFormFieldWithoutNodePath());
+    test('GetFormFields', () async => await formFieldName.testGetFormFields());
+    test('GetFormFieldsWithoutNodePath', () async => await formFieldName.testGetFormFieldsWithoutNodePath());
+    test('InsertFormField', () async => await formFieldName.testInsertFormField());
+    test('InsertFormFieldWithoutNodePath', () async => await formFieldName.testInsertFormFieldWithoutNodePath());
+    test('DeleteFormField', () async => await formFieldName.testDeleteFormField());
+    test('DeleteFormFieldWithoutNodePath', () async => await formFieldName.testDeleteFormFieldWithoutNodePath());
   });
 
   group('Font', () {
-    final _testGroup = new FontTests(testContext);
-    test('ResetCache', _testGroup.testResetCache);
-    test('GetAvailableFonts', _testGroup.testGetAvailableFonts);
+    test('ResetCache', () async => await fontName.testResetCache());
+    test('GetAvailableFonts', () async => await fontName.testGetAvailableFonts());
   });
 
   group('Footnote', () {
-    final _testGroup = new FootnoteTests(testContext);
-    test('InsertFootnote', _testGroup.testInsertFootnote);
-    test('InsertFootnoteWithoutNodePath', _testGroup.testInsertFootnoteWithoutNodePath);
-    test('DeleteFootnote', _testGroup.testDeleteFootnote);
-    test('DeleteFootnoteWithoutNodePath', _testGroup.testDeleteFootnoteWithoutNodePath);
-    test('GetFootnotes', _testGroup.testGetFootnotes);
-    test('GetFootnotesWithoutNodePath', _testGroup.testGetFootnotesWithoutNodePath);
-    test('GetFootnote', _testGroup.testGetFootnote);
-    test('GetFootnoteWithoutNodePath', _testGroup.testGetFootnoteWithoutNodePath);
-    test('UpdateFootnote', _testGroup.testUpdateFootnote);
-    test('UpdateFootnoteWithoutNodePath', _testGroup.testUpdateFootnoteWithoutNodePath);
+    test('InsertFootnote', () async => await footnoteName.testInsertFootnote());
+    test('InsertFootnoteWithoutNodePath', () async => await footnoteName.testInsertFootnoteWithoutNodePath());
+    test('DeleteFootnote', () async => await footnoteName.testDeleteFootnote());
+    test('DeleteFootnoteWithoutNodePath', () async => await footnoteName.testDeleteFootnoteWithoutNodePath());
+    test('GetFootnotes', () async => await footnoteName.testGetFootnotes());
+    test('GetFootnotesWithoutNodePath', () async => await footnoteName.testGetFootnotesWithoutNodePath());
+    test('GetFootnote', () async => await footnoteName.testGetFootnote());
+    test('GetFootnoteWithoutNodePath', () async => await footnoteName.testGetFootnoteWithoutNodePath());
+    test('UpdateFootnote', () async => await footnoteName.testUpdateFootnote());
+    test('UpdateFootnoteWithoutNodePath', () async => await footnoteName.testUpdateFootnoteWithoutNodePath());
   });
 
   group('HeaderFooter', () {
-    final _testGroup = new HeaderFooterTests(testContext);
-    test('GetHeaderFooters', _testGroup.testGetHeaderFooters);
-    test('GetHeaderFooter', _testGroup.testGetHeaderFooter);
-    test('GetHeaderFooterOfSection', _testGroup.testGetHeaderFooterOfSection);
-    test('DeleteHeaderFooter', _testGroup.testDeleteHeaderFooter);
-    test('DeleteHeadersFooters', _testGroup.testDeleteHeadersFooters);
-    test('InsertHeaderFooter', _testGroup.testInsertHeaderFooter);
+    test('GetHeaderFooters', () async => await headerFooterName.testGetHeaderFooters());
+    test('GetHeaderFooter', () async => await headerFooterName.testGetHeaderFooter());
+    test('GetHeaderFooterOfSection', () async => await headerFooterName.testGetHeaderFooterOfSection());
+    test('DeleteHeaderFooter', () async => await headerFooterName.testDeleteHeaderFooter());
+    test('DeleteHeadersFooters', () async => await headerFooterName.testDeleteHeadersFooters());
+    test('InsertHeaderFooter', () async => await headerFooterName.testInsertHeaderFooter());
   });
 
   group('Hyperlink', () {
-    final _testGroup = new HyperlinkTests(testContext);
-    test('GetDocumentHyperlinkByIndex', _testGroup.testGetDocumentHyperlinkByIndex);
-    test('GetDocumentHyperlinks', _testGroup.testGetDocumentHyperlinks);
+    test('GetDocumentHyperlinkByIndex', () async => await hyperlinkName.testGetDocumentHyperlinkByIndex());
+    test('GetDocumentHyperlinks', () async => await hyperlinkName.testGetDocumentHyperlinks());
   });
 
   group('Lists', () {
-    final _testGroup = new ListsTests(testContext);
-    test('GetLists', _testGroup.testGetLists);
-    test('GetList', _testGroup.testGetList);
-    test('UpdateList', _testGroup.testUpdateList);
-    test('UpdateListLevel', _testGroup.testUpdateListLevel);
-    test('InsertList', _testGroup.testInsertList);
+    test('GetLists', () async => await listsName.testGetLists());
+    test('GetList', () async => await listsName.testGetList());
+    test('UpdateList', () async => await listsName.testUpdateList());
+    test('UpdateListLevel', () async => await listsName.testUpdateListLevel());
+    test('InsertList', () async => await listsName.testInsertList());
   });
 
   group('Macros', () {
-    final _testGroup = new MacrosTests(testContext);
-    test('DeleteMacros', _testGroup.testDeleteMacros);
+    test('DeleteMacros', () async => await macrosName.testDeleteMacros());
   });
 
   group('ExecuteMailMerge', () {
-    final _testGroup = new ExecuteMailMergeTests(testContext);
-    test('ExecuteMailMergeOnline', _testGroup.testExecuteMailMergeOnline);
-    test('ExecuteMailMerge', _testGroup.testExecuteMailMerge);
+    test('ExecuteMailMergeOnline', () async => await executeMailMergeName.testExecuteMailMergeOnline());
+    test('ExecuteMailMerge', () async => await executeMailMergeName.testExecuteMailMerge());
   });
 
   group('ExecuteTemplate', () {
-    final _testGroup = new ExecuteTemplateTests(testContext);
-    test('ExecuteTemplate', _testGroup.testExecuteTemplate);
-    test('ExecuteTemplateOnline', _testGroup.testExecuteTemplateOnline);
+    test('ExecuteTemplate', () async => await executeTemplateName.testExecuteTemplate());
+    test('ExecuteTemplateOnline', () async => await executeTemplateName.testExecuteTemplateOnline());
   });
 
   group('MailMergeFileds', () {
-    final _testGroup = new MailMergeFiledsTests(testContext);
-    test('GetDocumentFieldNamesOnline', _testGroup.testGetDocumentFieldNamesOnline);
-    test('GetDocumentFieldNames', _testGroup.testGetDocumentFieldNames);
+    test('GetDocumentFieldNamesOnline', () async => await mailMergeFiledsName.testGetDocumentFieldNamesOnline());
+    test('GetDocumentFieldNames', () async => await mailMergeFiledsName.testGetDocumentFieldNames());
   });
 
   group('MathObject', () {
-    final _testGroup = new MathObjectTests(testContext);
-    test('GetOfficeMathObjects', _testGroup.testGetOfficeMathObjects);
-    test('GetOfficeMathObjectsWithoutNodePath', _testGroup.testGetOfficeMathObjectsWithoutNodePath);
-    test('GetOfficeMathObject', _testGroup.testGetOfficeMathObject);
-    test('GetOfficeMathObjectWithoutNodePath', _testGroup.testGetOfficeMathObjectWithoutNodePath);
-    test('RenderMathObject', _testGroup.testRenderMathObject);
-    test('RenderMathObjectWithoutNodePath', _testGroup.testRenderMathObjectWithoutNodePath);
-    test('DeleteOfficeMathObject', _testGroup.testDeleteOfficeMathObject);
-    test('DeleteOfficeMathObjectWithoutNodePath', _testGroup.testDeleteOfficeMathObjectWithoutNodePath);
+    test('GetOfficeMathObjects', () async => await mathObjectName.testGetOfficeMathObjects());
+    test('GetOfficeMathObjectsWithoutNodePath', () async => await mathObjectName.testGetOfficeMathObjectsWithoutNodePath());
+    test('GetOfficeMathObject', () async => await mathObjectName.testGetOfficeMathObject());
+    test('GetOfficeMathObjectWithoutNodePath', () async => await mathObjectName.testGetOfficeMathObjectWithoutNodePath());
+    test('RenderMathObject', () async => await mathObjectName.testRenderMathObject());
+    test('RenderMathObjectWithoutNodePath', () async => await mathObjectName.testRenderMathObjectWithoutNodePath());
+    test('DeleteOfficeMathObject', () async => await mathObjectName.testDeleteOfficeMathObject());
+    test('DeleteOfficeMathObjectWithoutNodePath', () async => await mathObjectName.testDeleteOfficeMathObjectWithoutNodePath());
   });
 
   group('PageSetup', () {
-    final _testGroup = new PageSetupTests(testContext);
-    test('GetSectionPageSetup', _testGroup.testGetSectionPageSetup);
-    test('UpdateSectionPageSetup', _testGroup.testUpdateSectionPageSetup);
-    test('GetRenderPage', _testGroup.testGetRenderPage);
+    test('GetSectionPageSetup', () async => await pageSetupName.testGetSectionPageSetup());
+    test('UpdateSectionPageSetup', () async => await pageSetupName.testUpdateSectionPageSetup());
+    test('GetRenderPage', () async => await pageSetupName.testGetRenderPage());
   });
 
   group('Paragraph', () {
-    final _testGroup = new ParagraphTests(testContext);
-    test('GetDocumentParagraphByIndex', _testGroup.testGetDocumentParagraphByIndex);
-    test('GetDocumentParagraphByIndexWithoutNodePath', _testGroup.testGetDocumentParagraphByIndexWithoutNodePath);
-    test('GetDocumentParagraphs', _testGroup.testGetDocumentParagraphs);
-    test('GetDocumentParagraphsWithoutNodePath', _testGroup.testGetDocumentParagraphsWithoutNodePath);
-    test('GetDocumentParagraphRun', _testGroup.testGetDocumentParagraphRun);
-    test('GetDocumentParagraphRunFont', _testGroup.testGetDocumentParagraphRunFont);
-    test('GetParagraphRuns', _testGroup.testGetParagraphRuns);
-    test('UpdateRunFont', _testGroup.testUpdateRunFont);
-    test('InsertParagraph', _testGroup.testInsertParagraph);
-    test('InsertParagraphWithoutNodePath', _testGroup.testInsertParagraphWithoutNodePath);
-    test('RenderParagraph', _testGroup.testRenderParagraph);
-    test('RenderParagraphWithoutNodePath', _testGroup.testRenderParagraphWithoutNodePath);
-    test('GetParagraphFormat', _testGroup.testGetParagraphFormat);
-    test('GetParagraphFormatWithoutNodePath', _testGroup.testGetParagraphFormatWithoutNodePath);
-    test('UpdateParagraphFormat', _testGroup.testUpdateParagraphFormat);
-    test('DeleteParagraph', _testGroup.testDeleteParagraph);
-    test('DeleteParagraphWithoutNodePath', _testGroup.testDeleteParagraphWithoutNodePath);
-    test('GetParagraphListFormat', _testGroup.testGetParagraphListFormat);
-    test('GetParagraphListFormatWithoutNodePath', _testGroup.testGetParagraphListFormatWithoutNodePath);
-    test('UpdateParagraphListFormat', _testGroup.testUpdateParagraphListFormat);
-    test('UpdateParagraphListFormatWithoutNodePath', _testGroup.testUpdateParagraphListFormatWithoutNodePath);
-    test('DeleteParagraphListFormat', _testGroup.testDeleteParagraphListFormat);
-    test('DeleteParagraphListFormatWithoutNodePath', _testGroup.testDeleteParagraphListFormatWithoutNodePath);
-    test('GetParagraphTabStops', _testGroup.testGetParagraphTabStops);
-    test('GetParagraphTabStopsWithoutNodePath', _testGroup.testGetParagraphTabStopsWithoutNodePath);
-    test('InsertParagraphTabStops', _testGroup.testInsertParagraphTabStops);
-    test('InsertParagraphTabStopsWithoutNodePath', _testGroup.testInsertParagraphTabStopsWithoutNodePath);
-    test('DeleteAllParagraphTabStops', _testGroup.testDeleteAllParagraphTabStops);
-    test('DeleteAllParagraphTabStopsWithoutNodePath', _testGroup.testDeleteAllParagraphTabStopsWithoutNodePath);
-    test('DeleteParagraphTabStop', _testGroup.testDeleteParagraphTabStop);
-    test('DeleteParagraphTabStopWithoutNodePath', _testGroup.testDeleteParagraphTabStopWithoutNodePath);
+    test('GetDocumentParagraphByIndex', () async => await paragraphName.testGetDocumentParagraphByIndex());
+    test('GetDocumentParagraphByIndexWithoutNodePath', () async => await paragraphName.testGetDocumentParagraphByIndexWithoutNodePath());
+    test('GetDocumentParagraphs', () async => await paragraphName.testGetDocumentParagraphs());
+    test('GetDocumentParagraphsWithoutNodePath', () async => await paragraphName.testGetDocumentParagraphsWithoutNodePath());
+    test('GetDocumentParagraphRun', () async => await paragraphName.testGetDocumentParagraphRun());
+    test('GetDocumentParagraphRunFont', () async => await paragraphName.testGetDocumentParagraphRunFont());
+    test('GetParagraphRuns', () async => await paragraphName.testGetParagraphRuns());
+    test('UpdateRunFont', () async => await paragraphName.testUpdateRunFont());
+    test('InsertParagraph', () async => await paragraphName.testInsertParagraph());
+    test('InsertParagraphWithoutNodePath', () async => await paragraphName.testInsertParagraphWithoutNodePath());
+    test('RenderParagraph', () async => await paragraphName.testRenderParagraph());
+    test('RenderParagraphWithoutNodePath', () async => await paragraphName.testRenderParagraphWithoutNodePath());
+    test('GetParagraphFormat', () async => await paragraphName.testGetParagraphFormat());
+    test('GetParagraphFormatWithoutNodePath', () async => await paragraphName.testGetParagraphFormatWithoutNodePath());
+    test('UpdateParagraphFormat', () async => await paragraphName.testUpdateParagraphFormat());
+    test('DeleteParagraph', () async => await paragraphName.testDeleteParagraph());
+    test('DeleteParagraphWithoutNodePath', () async => await paragraphName.testDeleteParagraphWithoutNodePath());
+    test('GetParagraphListFormat', () async => await paragraphName.testGetParagraphListFormat());
+    test('GetParagraphListFormatWithoutNodePath', () async => await paragraphName.testGetParagraphListFormatWithoutNodePath());
+    test('UpdateParagraphListFormat', () async => await paragraphName.testUpdateParagraphListFormat());
+    test('UpdateParagraphListFormatWithoutNodePath', () async => await paragraphName.testUpdateParagraphListFormatWithoutNodePath());
+    test('DeleteParagraphListFormat', () async => await paragraphName.testDeleteParagraphListFormat());
+    test('DeleteParagraphListFormatWithoutNodePath', () async => await paragraphName.testDeleteParagraphListFormatWithoutNodePath());
+    test('GetParagraphTabStops', () async => await paragraphName.testGetParagraphTabStops());
+    test('GetParagraphTabStopsWithoutNodePath', () async => await paragraphName.testGetParagraphTabStopsWithoutNodePath());
+    test('InsertParagraphTabStops', () async => await paragraphName.testInsertParagraphTabStops());
+    test('InsertParagraphTabStopsWithoutNodePath', () async => await paragraphName.testInsertParagraphTabStopsWithoutNodePath());
+    test('DeleteAllParagraphTabStops', () async => await paragraphName.testDeleteAllParagraphTabStops());
+    test('DeleteAllParagraphTabStopsWithoutNodePath', () async => await paragraphName.testDeleteAllParagraphTabStopsWithoutNodePath());
+    test('DeleteParagraphTabStop', () async => await paragraphName.testDeleteParagraphTabStop());
+    test('DeleteParagraphTabStopWithoutNodePath', () async => await paragraphName.testDeleteParagraphTabStopWithoutNodePath());
   });
 
   group('Range', () {
-    final _testGroup = new RangeTests(testContext);
-    test('GetRangeText', _testGroup.testGetRangeText);
-    test('RemoveRange', _testGroup.testRemoveRange);
-    test('SaveAsRange', _testGroup.testSaveAsRange);
-    test('ReplaceWithText', _testGroup.testReplaceWithText);
+    test('GetRangeText', () async => await rangeName.testGetRangeText());
+    test('RemoveRange', () async => await rangeName.testRemoveRange());
+    test('SaveAsRange', () async => await rangeName.testSaveAsRange());
+    test('ReplaceWithText', () async => await rangeName.testReplaceWithText());
   });
 
   group('BuildReport', () {
-    final _testGroup = new BuildReportTests(testContext);
-    test('BuildReportOnline', _testGroup.testBuildReportOnline);
-    test('BuildReport', _testGroup.testBuildReport);
+    test('BuildReportOnline', () async => await buildReportName.testBuildReportOnline());
+    test('BuildReport', () async => await buildReportName.testBuildReport());
   });
 
   group('Run', () {
-    final _testGroup = new RunTests(testContext);
-    test('UpdateRun', _testGroup.testUpdateRun);
-    test('InsertRun', _testGroup.testInsertRun);
-    test('DeleteRun', _testGroup.testDeleteRun);
+    test('UpdateRun', () async => await runName.testUpdateRun());
+    test('InsertRun', () async => await runName.testInsertRun());
+    test('DeleteRun', () async => await runName.testDeleteRun());
   });
 
   group('Section', () {
-    final _testGroup = new SectionTests(testContext);
-    test('GetSection', _testGroup.testGetSection);
-    test('GetSections', _testGroup.testGetSections);
-    test('DeleteSection', _testGroup.testDeleteSection);
+    test('GetSection', () async => await sectionName.testGetSection());
+    test('GetSections', () async => await sectionName.testGetSections());
+    test('DeleteSection', () async => await sectionName.testDeleteSection());
   });
 
   group('File', () {
-    final _testGroup = new FileTests(testContext);
-    test('UploadFile', _testGroup.testUploadFile);
-    test('CopyFile', _testGroup.testCopyFile);
-    test('MoveFile', _testGroup.testMoveFile);
-    test('DeleteFile', _testGroup.testDeleteFile);
-    test('DownloadFile', _testGroup.testDownloadFile);
+    test('UploadFile', () async => await fileName.testUploadFile());
+    test('CopyFile', () async => await fileName.testCopyFile());
+    test('MoveFile', () async => await fileName.testMoveFile());
+    test('DeleteFile', () async => await fileName.testDeleteFile());
+    test('DownloadFile', () async => await fileName.testDownloadFile());
   });
 
   group('Folder', () {
-    final _testGroup = new FolderTests(testContext);
-    test('CreateFolder', _testGroup.testCreateFolder);
-    test('DeleteFolder', _testGroup.testDeleteFolder);
-    test('GetFilesList', _testGroup.testGetFilesList);
-    test('CopyFolder', _testGroup.testCopyFolder);
-    test('MoveFolder', _testGroup.testMoveFolder);
+    test('CreateFolder', () async => await folderName.testCreateFolder());
+    test('DeleteFolder', () async => await folderName.testDeleteFolder());
+    test('GetFilesList', () async => await folderName.testGetFilesList());
+    test('CopyFolder', () async => await folderName.testCopyFolder());
+    test('MoveFolder', () async => await folderName.testMoveFolder());
   });
 
   group('Styles', () {
-    final _testGroup = new StylesTests(testContext);
-    test('GetStyles', _testGroup.testGetStyles);
-    test('GetStyle', _testGroup.testGetStyle);
-    test('UpdateStyle', _testGroup.testUpdateStyle);
-    test('InsertStyle', _testGroup.testInsertStyle);
-    test('CopyStyle', _testGroup.testCopyStyle);
-    test('GetStyleFromDocumentElement', _testGroup.testGetStyleFromDocumentElement);
-    test('ApplyStyleToDocumentElement', _testGroup.testApplyStyleToDocumentElement);
+    test('GetStyles', () async => await stylesName.testGetStyles());
+    test('GetStyle', () async => await stylesName.testGetStyle());
+    test('UpdateStyle', () async => await stylesName.testUpdateStyle());
+    test('InsertStyle', () async => await stylesName.testInsertStyle());
+    test('CopyStyle', () async => await stylesName.testCopyStyle());
+    test('GetStyleFromDocumentElement', () async => await stylesName.testGetStyleFromDocumentElement());
+    test('ApplyStyleToDocumentElement', () async => await stylesName.testApplyStyleToDocumentElement());
   });
 
   group('Table', () {
-    final _testGroup = new TableTests(testContext);
-    test('GetTables', _testGroup.testGetTables);
-    test('GetTablesWithoutNodePath', _testGroup.testGetTablesWithoutNodePath);
-    test('GetTable', _testGroup.testGetTable);
-    test('GetTableWithoutNodePath', _testGroup.testGetTableWithoutNodePath);
-    test('DeleteTable', _testGroup.testDeleteTable);
-    test('DeleteTableWithoutNodePath', _testGroup.testDeleteTableWithoutNodePath);
-    test('InsertTable', _testGroup.testInsertTable);
-    test('InsertTableWithoutNodePath', _testGroup.testInsertTableWithoutNodePath);
-    test('GetTableProperties', _testGroup.testGetTableProperties);
-    test('GetTablePropertiesWithoutNodePath', _testGroup.testGetTablePropertiesWithoutNodePath);
-    test('UpdateTableProperties', _testGroup.testUpdateTableProperties);
-    test('UpdateTablePropertiesWithoutNodePath', _testGroup.testUpdateTablePropertiesWithoutNodePath);
-    test('GetTableRow', _testGroup.testGetTableRow);
-    test('DeleteTableRow', _testGroup.testDeleteTableRow);
-    test('InsertTableRow', _testGroup.testInsertTableRow);
-    test('GetTableRowFormat', _testGroup.testGetTableRowFormat);
-    test('UpdateTableRowFormat', _testGroup.testUpdateTableRowFormat);
-    test('GetTableCell', _testGroup.testGetTableCell);
-    test('DeleteTableCell', _testGroup.testDeleteTableCell);
-    test('InsertTableCell', _testGroup.testInsertTableCell);
-    test('GetTableCellFormat', _testGroup.testGetTableCellFormat);
-    test('UpdateTableCellFormat', _testGroup.testUpdateTableCellFormat);
-    test('RenderTable', _testGroup.testRenderTable);
-    test('RenderTableWithoutNodePath', _testGroup.testRenderTableWithoutNodePath);
+    test('GetTables', () async => await tableName.testGetTables());
+    test('GetTablesWithoutNodePath', () async => await tableName.testGetTablesWithoutNodePath());
+    test('GetTable', () async => await tableName.testGetTable());
+    test('GetTableWithoutNodePath', () async => await tableName.testGetTableWithoutNodePath());
+    test('DeleteTable', () async => await tableName.testDeleteTable());
+    test('DeleteTableWithoutNodePath', () async => await tableName.testDeleteTableWithoutNodePath());
+    test('InsertTable', () async => await tableName.testInsertTable());
+    test('InsertTableWithoutNodePath', () async => await tableName.testInsertTableWithoutNodePath());
+    test('GetTableProperties', () async => await tableName.testGetTableProperties());
+    test('GetTablePropertiesWithoutNodePath', () async => await tableName.testGetTablePropertiesWithoutNodePath());
+    test('UpdateTableProperties', () async => await tableName.testUpdateTableProperties());
+    test('UpdateTablePropertiesWithoutNodePath', () async => await tableName.testUpdateTablePropertiesWithoutNodePath());
+    test('GetTableRow', () async => await tableName.testGetTableRow());
+    test('DeleteTableRow', () async => await tableName.testDeleteTableRow());
+    test('InsertTableRow', () async => await tableName.testInsertTableRow());
+    test('GetTableRowFormat', () async => await tableName.testGetTableRowFormat());
+    test('UpdateTableRowFormat', () async => await tableName.testUpdateTableRowFormat());
+    test('GetTableCell', () async => await tableName.testGetTableCell());
+    test('DeleteTableCell', () async => await tableName.testDeleteTableCell());
+    test('InsertTableCell', () async => await tableName.testInsertTableCell());
+    test('GetTableCellFormat', () async => await tableName.testGetTableCellFormat());
+    test('UpdateTableCellFormat', () async => await tableName.testUpdateTableCellFormat());
+    test('RenderTable', () async => await tableName.testRenderTable());
+    test('RenderTableWithoutNodePath', () async => await tableName.testRenderTableWithoutNodePath());
   });
 
   group('TableBorder', () {
-    final _testGroup = new TableBorderTests(testContext);
-    test('GetBorders', _testGroup.testGetBorders);
-    test('GetBorder', _testGroup.testGetBorder);
-    test('DeleteBorders', _testGroup.testDeleteBorders);
-    test('DeleteBorder', _testGroup.testDeleteBorder);
-    test('UpdateBorder', _testGroup.testUpdateBorder);
+    test('GetBorders', () async => await tableBorderName.testGetBorders());
+    test('GetBorder', () async => await tableBorderName.testGetBorder());
+    test('DeleteBorders', () async => await tableBorderName.testDeleteBorders());
+    test('DeleteBorder', () async => await tableBorderName.testDeleteBorder());
+    test('UpdateBorder', () async => await tableBorderName.testUpdateBorder());
   });
 
   group('Text', () {
-    final _testGroup = new TextTests(testContext);
-    test('ReplaceText', _testGroup.testReplaceText);
-    test('Search', _testGroup.testSearch);
+    test('ReplaceText', () async => await textName.testReplaceText());
+    test('Search', () async => await textName.testSearch());
   });
 
   group('Watermark', () {
-    final _testGroup = new WatermarkTests(testContext);
-    test('InsertWatermarkImage', _testGroup.testInsertWatermarkImage);
-    test('InsertWatermarkText', _testGroup.testInsertWatermarkText);
-    test('DeleteWatermark', _testGroup.testDeleteWatermark);
+    test('InsertWatermarkImage', () async => await watermarkName.testInsertWatermarkImage());
+    test('InsertWatermarkText', () async => await watermarkName.testInsertWatermarkText());
+    test('DeleteWatermark', () async => await watermarkName.testDeleteWatermark());
   });
 }
