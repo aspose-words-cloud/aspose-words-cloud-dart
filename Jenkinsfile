@@ -28,7 +28,7 @@ node('words-linux') {
                     if (needToBuild) {
                         withCredentials([usernamePassword(credentialsId: '6839cbe8-39fa-40c0-86ce-90706f0bae5d', passwordVariable: 'AppKey', usernameVariable: 'AppSid')]) {
                             sh 'mkdir -p settings'
-                            sh 'echo "{\\"AppSid\\": \\"$AppSid\\",\\"AppKey\\": \\"$AppKey\\", \\"BaseUrl\\": \\"$apiUrl\\"}" > settings/servercreds.json'
+                            sh 'echo "{\\"AppSid\\": \\"$AppSid\\",\\"AppKey\\": \\"$AppKey\\", \\"BaseUrl\\": \\"$apiUrl\\", \\"DebugMode\\": true}" > settings/servercreds.json'
                         }
                     }
                 }
