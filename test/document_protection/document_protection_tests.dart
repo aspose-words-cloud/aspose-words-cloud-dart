@@ -42,7 +42,7 @@ class DocumentProtectionTests
   }
 
   /// Test for setting document protection.
-  void testProtectDocument() async
+  Future<void> testProtectDocument() async
   {
     final String remoteFileName = 'TestProtectDocument.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -60,7 +60,7 @@ class DocumentProtectionTests
   }
 
   /// Test for getting document protection.
-  void testGetDocumentProtection() async
+  Future<void> testGetDocumentProtection() async
   {
     final String remoteFileName = 'TestGetDocumentProtection.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -74,7 +74,7 @@ class DocumentProtectionTests
   }
 
   /// Test for changing document protection.
-  void testChangeDocumentProtection() async
+  Future<void> testChangeDocumentProtection() async
   {
     final String remoteFileName = 'TestChangeDocumentProtection.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -91,7 +91,7 @@ class DocumentProtectionTests
   }
 
   /// Test for deleting unprotect document.
-  void testDeleteUnprotectDocument() async
+  Future<void> testDeleteUnprotectDocument() async
   {
     final String localFilePath = 'DocumentActions/DocumentProtection/SampleProtectedBlankWordDocument.docx';
     final String remoteFileName = 'TestDeleteUnprotectDocument.docx';

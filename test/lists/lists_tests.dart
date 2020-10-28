@@ -42,7 +42,7 @@ class ListsTests
   }
 
   /// Test for getting lists from document.
-  void testGetLists() async
+  Future<void> testGetLists() async
   {
     final String remoteFileName = 'TestGetLists.doc';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -56,7 +56,7 @@ class ListsTests
   }
 
   /// Test for getting list from document.
-  void testGetList() async
+  Future<void> testGetList() async
   {
     final String remoteFileName = 'TestGetList.doc';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -71,7 +71,7 @@ class ListsTests
   }
 
   /// Test for updating list from document.
-  void testUpdateList() async
+  Future<void> testUpdateList() async
   {
     final String remoteFileName = 'TestUpdateList.doc';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -89,7 +89,7 @@ class ListsTests
   }
 
   /// Test for updating list level from document.
-  void testUpdateListLevel() async
+  Future<void> testUpdateListLevel() async
   {
     final String remoteFileName = 'TestUpdateListLevel.doc';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -108,7 +108,7 @@ class ListsTests
   }
 
   /// Test for inserting list from document.
-  void testInsertList() async
+  Future<void> testInsertList() async
   {
     final String remoteFileName = 'TestInsertList.doc';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);

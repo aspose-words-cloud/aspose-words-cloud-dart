@@ -32,6 +32,11 @@ dependencies:
 ## Getting Started
 
 ```dart
+// Import dependencies
+import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'dart:convert';
+import 'dart:io';
+
 // Configure words api client
 var configuration = new Configuration('AppKey', 'AppSid');
 var wordsApi = new WordsApi(configuration);

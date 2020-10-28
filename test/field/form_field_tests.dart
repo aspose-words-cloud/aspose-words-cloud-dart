@@ -42,7 +42,7 @@ class FormFieldTests
   }
 
   /// Test for posting form field.
-  void testUpdateFormField() async
+  Future<void> testUpdateFormField() async
   {
     final String remoteFileName = 'TestUpdateFormField.docx';
     await this.context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
@@ -67,7 +67,7 @@ class FormFieldTests
   }
 
   /// Test for posting form field without node path.
-  void testUpdateFormFieldWithoutNodePath() async
+  Future<void> testUpdateFormFieldWithoutNodePath() async
   {
     final String remoteFileName = 'TestUpdateFormFieldWithoutNodePath.docx';
     await this.context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
@@ -91,7 +91,7 @@ class FormFieldTests
   }
 
   /// Test for getting form field.
-  void testGetFormField() async
+  Future<void> testGetFormField() async
   {
     final String remoteFileName = 'TestGetFormField.docx';
     await this.context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
@@ -107,7 +107,7 @@ class FormFieldTests
   }
 
   /// Test for getting form field without node path.
-  void testGetFormFieldWithoutNodePath() async
+  Future<void> testGetFormFieldWithoutNodePath() async
   {
     final String remoteFileName = 'TestGetFormFieldWithoutNodePath.docx';
     await this.context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
@@ -122,7 +122,7 @@ class FormFieldTests
   }
 
   /// Test for getting form fields.
-  void testGetFormFields() async
+  Future<void> testGetFormFields() async
   {
     final String remoteFileName = 'TestGetFormFields.docx';
     await this.context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
@@ -137,7 +137,7 @@ class FormFieldTests
   }
 
   /// Test for getting form fields without node path.
-  void testGetFormFieldsWithoutNodePath() async
+  Future<void> testGetFormFieldsWithoutNodePath() async
   {
     final String remoteFileName = 'TestGetFormFieldsWithoutNodePath.docx';
     await this.context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
@@ -151,7 +151,7 @@ class FormFieldTests
   }
 
   /// Test for insert form field without node path.
-  void testInsertFormField() async
+  Future<void> testInsertFormField() async
   {
     final String remoteFileName = 'TestInsertFormField.docx';
     await this.context.uploadFile('Common/test_multi_pages.docx', remoteDataFolder + '/' + remoteFileName);
@@ -176,7 +176,7 @@ class FormFieldTests
   }
 
   /// Test for insert form field without node path.
-  void testInsertFormFieldWithoutNodePath() async
+  Future<void> testInsertFormFieldWithoutNodePath() async
   {
     final String remoteFileName = 'TestInsertFormFieldWithoutNodePath.docx';
     await this.context.uploadFile('Common/test_multi_pages.docx', remoteDataFolder + '/' + remoteFileName);
@@ -200,7 +200,7 @@ class FormFieldTests
   }
 
   /// Test for deleting form field.
-  void testDeleteFormField() async
+  Future<void> testDeleteFormField() async
   {
     final String remoteFileName = 'TestDeleteFormField.docx';
     await this.context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
@@ -217,7 +217,7 @@ class FormFieldTests
   }
 
   /// Test for deleting form field without node path.
-  void testDeleteFormFieldWithoutNodePath() async
+  Future<void> testDeleteFormFieldWithoutNodePath() async
   {
     final String remoteFileName = 'TestDeleteFormFieldWithoutNodePath.docx';
     await this.context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);

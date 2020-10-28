@@ -42,7 +42,7 @@ class HeaderFooterTests
   }
 
   /// Test for getting headers and footers.
-  void testGetHeaderFooters() async
+  Future<void> testGetHeaderFooters() async
   {
     final String remoteFileName = 'TestGetHeadersFooters.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -57,7 +57,7 @@ class HeaderFooterTests
   }
 
   /// Test for getting headerfooter.
-  void testGetHeaderFooter() async
+  Future<void> testGetHeaderFooter() async
   {
     final String remoteFileName = 'TestGetHeaderFooter.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -72,7 +72,7 @@ class HeaderFooterTests
   }
 
   /// Test for getting headerfooter of section.
-  void testGetHeaderFooterOfSection() async
+  Future<void> testGetHeaderFooterOfSection() async
   {
     final String remoteFileName = 'TestGetHeaderFooterOfSection.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -88,7 +88,7 @@ class HeaderFooterTests
   }
 
   /// Test for deleting headerfooter.
-  void testDeleteHeaderFooter() async
+  Future<void> testDeleteHeaderFooter() async
   {
     final String remoteFileName = 'TestDeleteHeaderFooter.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -104,7 +104,7 @@ class HeaderFooterTests
   }
 
   /// Test for deleting headerfooters.
-  void testDeleteHeadersFooters() async
+  Future<void> testDeleteHeadersFooters() async
   {
     final String remoteFileName = 'TestDeleteHeadersFooters.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -119,7 +119,7 @@ class HeaderFooterTests
   }
 
   /// Test for adding headerfooters.
-  void testInsertHeaderFooter() async
+  Future<void> testInsertHeaderFooter() async
   {
     final String remoteFileName = 'TestInsertHeaderFooter.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);

@@ -42,7 +42,7 @@ class SectionTests
   }
 
   /// Test for getting section by index.
-  void testGetSection() async
+  Future<void> testGetSection() async
   {
     final String remoteFileName = 'TestGetSection.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -57,7 +57,7 @@ class SectionTests
   }
 
   /// Test for getting sections.
-  void testGetSections() async
+  Future<void> testGetSections() async
   {
     final String remoteFileName = 'TestGetSections.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -71,7 +71,7 @@ class SectionTests
   }
 
   /// Test for delete a section.
-  void testDeleteSection() async
+  Future<void> testDeleteSection() async
   {
     final String remoteFileName = 'TestDeleteSection.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);

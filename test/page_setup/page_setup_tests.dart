@@ -44,7 +44,7 @@ class PageSetupTests
   }
 
   /// Test for getting page settings.
-  void testGetSectionPageSetup() async
+  Future<void> testGetSectionPageSetup() async
   {
     final String remoteFileName = 'TestGetSectionPageSetup.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -59,7 +59,7 @@ class PageSetupTests
   }
 
   /// Test for updating page settings.
-  void testUpdateSectionPageSetup() async
+  Future<void> testUpdateSectionPageSetup() async
   {
     final String remoteFileName = 'TestUpdateSectionPageSetup.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -80,7 +80,7 @@ class PageSetupTests
   }
 
   /// Test for page rendering.
-  void testGetRenderPage() async
+  Future<void> testGetRenderPage() async
   {
     final String remoteFileName = 'TestGetRenderPage.docx';
     await this.context.uploadFile(localTextFile, remoteDataFolder + '/' + remoteFileName);

@@ -42,7 +42,7 @@ class BookmarkTests
   }
 
   /// Test for getting bookmarks from document.
-  void testGetBookmarks() async
+  Future<void> testGetBookmarks() async
   {
     final String remoteFileName = 'TestGetDocumentBookmarks.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -59,7 +59,7 @@ class BookmarkTests
   }
 
   /// Test for getting bookmark by specified name.
-  void testGetBookmarkByName() async
+  Future<void> testGetBookmarkByName() async
   {
     final String remoteFileName = 'TestGetDocumentBookmarkByName.docx';
     final String bookmarkName = 'aspose';
@@ -77,7 +77,7 @@ class BookmarkTests
   }
 
   /// Test for updating existed bookmark.
-  void testUpdateBookmark() async
+  Future<void> testUpdateBookmark() async
   {
     final String remoteFileName = 'TestUpdateDocumentBookmark.docx';
     final String bookmarkName = 'aspose';

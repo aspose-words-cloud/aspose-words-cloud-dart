@@ -42,7 +42,7 @@ class MailMergeFiledsTests
   }
 
   /// Test for putting new fields.
-  void testGetDocumentFieldNamesOnline() async
+  Future<void> testGetDocumentFieldNamesOnline() async
   {
     final String localDocumentFile = 'SampleExecuteTemplate.docx';
 
@@ -55,7 +55,7 @@ class MailMergeFiledsTests
   }
 
   /// Test for getting mailmerge fields.
-  void testGetDocumentFieldNames() async
+  Future<void> testGetDocumentFieldNames() async
   {
     final String remoteFileName = 'TestGetDocumentFieldNames.docx';
     await this.context.uploadFile('Common/test_multi_pages.docx', remoteDataFolder + '/' + remoteFileName);

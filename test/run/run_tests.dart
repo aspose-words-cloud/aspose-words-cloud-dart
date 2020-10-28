@@ -42,7 +42,7 @@ class RunTests
   }
 
   /// Test for updating run.
-  void testUpdateRun() async
+  Future<void> testUpdateRun() async
   {
     final String remoteFileName = 'TestUpdateRun.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -61,7 +61,7 @@ class RunTests
   }
 
   /// Test for adding run.
-  void testInsertRun() async
+  Future<void> testInsertRun() async
   {
     final String remoteFileName = 'TestInsertRun.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -79,7 +79,7 @@ class RunTests
   }
 
   /// Test for deleting run.
-  void testDeleteRun() async
+  Future<void> testDeleteRun() async
   {
     final String remoteFileName = 'TestDeleteRun.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);

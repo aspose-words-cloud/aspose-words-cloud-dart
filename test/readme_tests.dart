@@ -38,7 +38,7 @@ class ReadmeTests
   ReadmeTests(final TestContext this.context);
 
   /// Checking example from readme.
-  void testReadme1() async
+  Future<void> testReadme1() async
   {
     // Configure words api client
     var configuration = new Configuration(this.context.configuration.appKey, this.context.configuration.appSid, baseUrl: this.context.configuration.baseUrl);

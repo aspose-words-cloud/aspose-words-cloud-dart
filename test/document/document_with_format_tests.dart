@@ -42,7 +42,7 @@ class DocumentWithFormatTests
   }
 
   /// Test for getting document with specified format.
-  void testGetDocumentWithFormat() async
+  Future<void> testGetDocumentWithFormat() async
   {
     final String remoteFileName = 'TestGetDocumentWithFormat.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -57,7 +57,7 @@ class DocumentWithFormatTests
   }
 
   /// Test for getting document with specified format.
-  void testGetDocumentWithFormatAndOutPath() async
+  Future<void> testGetDocumentWithFormatAndOutPath() async
   {
     final String remoteFileName = 'TestGetDocumentWithFormat.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);

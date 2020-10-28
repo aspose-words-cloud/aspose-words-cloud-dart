@@ -42,7 +42,7 @@ class DocumentStatisticsTests
   }
 
   /// Test for document classification.
-  void testGetDocumentStatistics() async
+  Future<void> testGetDocumentStatistics() async
   {
     final String remoteFileName = 'TestGetDocumentStatistics.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);

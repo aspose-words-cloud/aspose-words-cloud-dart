@@ -42,7 +42,7 @@ class AppendDocumentTests
   }
 
   /// Test for appending document.
-  void testAppendDocument() async
+  Future<void> testAppendDocument() async
   {
     final String remoteFileName = 'TestAppendDocument.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);

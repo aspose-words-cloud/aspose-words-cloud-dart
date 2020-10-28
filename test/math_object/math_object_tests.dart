@@ -42,7 +42,7 @@ class MathObjectTests
   }
 
   /// Test for getting mathObjects.
-  void testGetOfficeMathObjects() async
+  Future<void> testGetOfficeMathObjects() async
   {
     final String remoteFileName = 'TestGetOfficeMathObjects.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -57,7 +57,7 @@ class MathObjectTests
   }
 
   /// Test for getting mathObjects without node path.
-  void testGetOfficeMathObjectsWithoutNodePath() async
+  Future<void> testGetOfficeMathObjectsWithoutNodePath() async
   {
     final String remoteFileName = 'TestGetOfficeMathObjectsWithoutNodePath.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -71,7 +71,7 @@ class MathObjectTests
   }
 
   /// Test for getting mathObject.
-  void testGetOfficeMathObject() async
+  Future<void> testGetOfficeMathObject() async
   {
     final String remoteFileName = 'TestGetOfficeMathObject.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -87,7 +87,7 @@ class MathObjectTests
   }
 
   /// Test for getting mathObject without node path.
-  void testGetOfficeMathObjectWithoutNodePath() async
+  Future<void> testGetOfficeMathObjectWithoutNodePath() async
   {
     final String remoteFileName = 'TestGetOfficeMathObjectWithoutNodePath.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -102,7 +102,7 @@ class MathObjectTests
   }
 
   /// Test for rendering mathObject.
-  void testRenderMathObject() async
+  Future<void> testRenderMathObject() async
   {
     final String remoteFileName = 'TestRenderMathObject.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -119,7 +119,7 @@ class MathObjectTests
   }
 
   /// Test for rendering mathObject without node path.
-  void testRenderMathObjectWithoutNodePath() async
+  Future<void> testRenderMathObjectWithoutNodePath() async
   {
     final String remoteFileName = 'TestRenderMathObjectWithoutNodePath.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -135,7 +135,7 @@ class MathObjectTests
   }
 
   /// Test for deleting mathObject.
-  void testDeleteOfficeMathObject() async
+  Future<void> testDeleteOfficeMathObject() async
   {
     final String remoteFileName = 'TestDeleteOfficeMathObject.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -151,7 +151,7 @@ class MathObjectTests
   }
 
   /// Test for deleting mathObject without node path.
-  void testDeleteOfficeMathObjectWithoutNodePath() async
+  Future<void> testDeleteOfficeMathObjectWithoutNodePath() async
   {
     final String remoteFileName = 'TestDeleteOfficeMathObjectWithoutNodePath.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);

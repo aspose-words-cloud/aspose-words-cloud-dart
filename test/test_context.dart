@@ -54,7 +54,7 @@ class TestContext {
      return _wordsApi;
   }
 
-  void uploadFile(String localPath, String remotePath) async {
+  Future<void> uploadFile(String localPath, String remotePath) async {
     final content = await this.loadBinaryFile(localPath);
     final request = new UploadFileRequest(content, remotePath);
     final result = await this.getApi().uploadFile(request);

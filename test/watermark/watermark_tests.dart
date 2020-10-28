@@ -42,7 +42,7 @@ class WatermarkTests
   }
 
   /// Test for adding watermark image.
-  void testInsertWatermarkImage() async
+  Future<void> testInsertWatermarkImage() async
   {
     final String remoteFileName = 'TestInsertWatermarkImage.docx';
     final String remoteImagePath = remoteDataFolder + '/TestInsertWatermarkImage.png';
@@ -62,7 +62,7 @@ class WatermarkTests
   }
 
   /// Test for adding watermark text.
-  void testInsertWatermarkText() async
+  Future<void> testInsertWatermarkText() async
   {
     final String remoteFileName = 'TestInsertWatermarkText.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -81,7 +81,7 @@ class WatermarkTests
   }
 
   /// Test for deleting watermark.
-  void testDeleteWatermark() async
+  Future<void> testDeleteWatermark() async
   {
     final String remoteFileName = 'TestDeleteWatermark.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);

@@ -42,7 +42,7 @@ class RangeTests
   }
 
   /// Test for getting the text from range.
-  void testGetRangeText() async
+  Future<void> testGetRangeText() async
   {
     final String remoteFileName = 'TestGetRangeText.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -58,7 +58,7 @@ class RangeTests
   }
 
   /// Test for removing the text for range.
-  void testRemoveRange() async
+  Future<void> testRemoveRange() async
   {
     final String remoteFileName = 'TestRemoveRange.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -74,7 +74,7 @@ class RangeTests
   }
 
   /// Test for saving a range as a new document.
-  void testSaveAsRange() async
+  Future<void> testSaveAsRange() async
   {
     final String remoteFileName = 'TestSaveAsRange.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -93,7 +93,7 @@ class RangeTests
   }
 
   /// Test for replacing text in range.
-  void testReplaceWithText() async
+  Future<void> testReplaceWithText() async
   {
     final String remoteFileName = 'TestReplaceWithText.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);

@@ -45,7 +45,7 @@ class BatchTests
   }
 
   /// Test for batch request.
-  void testBatch1() async
+  Future<void> testBatch1() async
   {
     var remoteFileName = "TestBatchDocument.docx";
 

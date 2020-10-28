@@ -42,7 +42,7 @@ class FileTests
   }
 
   /// Test for uploading file.
-  void testUploadFile() async
+  Future<void> testUploadFile() async
   {
     final String remoteFileName = 'TestUploadFile.docx';
 
@@ -55,7 +55,7 @@ class FileTests
   }
 
   /// Test for copy file.
-  void testCopyFile() async
+  Future<void> testCopyFile() async
   {
     final String remoteFileName = 'TestCopyFileSrc.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -69,7 +69,7 @@ class FileTests
   }
 
   /// Test for move file.
-  void testMoveFile() async
+  Future<void> testMoveFile() async
   {
     final String remoteFileName = 'TestMoveFileSrc.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -83,7 +83,7 @@ class FileTests
   }
 
   /// Test for delete file.
-  void testDeleteFile() async
+  Future<void> testDeleteFile() async
   {
     final String remoteFileName = 'TestDeleteFile.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -96,7 +96,7 @@ class FileTests
   }
 
   /// Test for download file.
-  void testDownloadFile() async
+  Future<void> testDownloadFile() async
   {
     final String remoteFileName = 'TestDownloadFile.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);

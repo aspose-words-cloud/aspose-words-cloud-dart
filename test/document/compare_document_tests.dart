@@ -42,7 +42,7 @@ class CompareDocumentTests
   }
 
   /// Test for document comparison.
-  void testCompareDocument() async
+  Future<void> testCompareDocument() async
   {
     final String localName1 = 'compareTestDoc1.doc';
     final String localName2 = 'compareTestDoc2.doc';

@@ -42,7 +42,7 @@ class ConvertDocumentTests
   }
 
   /// Test for converting document to one of the available formats.
-  void testSaveAs() async
+  Future<void> testSaveAs() async
   {
     final String localName = 'test_multi_pages.docx';
     final String remoteName = 'TestSaveAs.docx';
@@ -61,7 +61,7 @@ class ConvertDocumentTests
   }
 
   /// Test for converting document to one of the available formats.
-  void testSaveAsDocx() async
+  Future<void> testSaveAsDocx() async
   {
     final String localName = '45.pdf';
     final String remoteName = 'TestSaveAsFromPdfToDoc.pdf';
@@ -80,7 +80,7 @@ class ConvertDocumentTests
   }
 
   /// Test for converting document to one of the available formats.
-  void testSaveAsTiff() async
+  Future<void> testSaveAsTiff() async
   {
     final String localName = 'test_multi_pages.docx';
     final String remoteName = 'TestSaveAsTiff.pdf';
@@ -99,7 +99,7 @@ class ConvertDocumentTests
   }
 
   /// A test for ConvertDocument.
-  void testConvertDocument() async
+  Future<void> testConvertDocument() async
   {
 
     final request = new ConvertDocumentRequest(

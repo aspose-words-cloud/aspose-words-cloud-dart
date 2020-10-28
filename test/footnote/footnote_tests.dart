@@ -42,7 +42,7 @@ class FootnoteTests
   }
 
   /// Test for adding footnote.
-  void testInsertFootnote() async
+  Future<void> testInsertFootnote() async
   {
     final String remoteFileName = 'TestInsertFootnote.docx';
     await this.context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
@@ -61,7 +61,7 @@ class FootnoteTests
   }
 
   /// Test for adding footnote without node path.
-  void testInsertFootnoteWithoutNodePath() async
+  Future<void> testInsertFootnoteWithoutNodePath() async
   {
     final String remoteFileName = 'TestInsertFootnoteWithoutNodePath.docx';
     await this.context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
@@ -79,7 +79,7 @@ class FootnoteTests
   }
 
   /// Test for deleting footnote.
-  void testDeleteFootnote() async
+  Future<void> testDeleteFootnote() async
   {
     final String remoteFileName = 'TestDeleteFootnote.docx';
     await this.context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
@@ -95,7 +95,7 @@ class FootnoteTests
   }
 
   /// Test for deleting footnote without node path.
-  void testDeleteFootnoteWithoutNodePath() async
+  Future<void> testDeleteFootnoteWithoutNodePath() async
   {
     final String remoteFileName = 'TestDeleteFootnoteWithoutNodePath.docx';
     await this.context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
@@ -110,7 +110,7 @@ class FootnoteTests
   }
 
   /// Test for getting footnotes.
-  void testGetFootnotes() async
+  Future<void> testGetFootnotes() async
   {
     final String remoteFileName = 'TestGetFootnotes.docx';
     await this.context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
@@ -125,7 +125,7 @@ class FootnoteTests
   }
 
   /// Test for getting footnotes without node path.
-  void testGetFootnotesWithoutNodePath() async
+  Future<void> testGetFootnotesWithoutNodePath() async
   {
     final String remoteFileName = 'TestGetFootnotesWithoutNodePath.docx';
     await this.context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
@@ -139,7 +139,7 @@ class FootnoteTests
   }
 
   /// Test for getting footnote.
-  void testGetFootnote() async
+  Future<void> testGetFootnote() async
   {
     final String remoteFileName = 'TestGetFootnote.docx';
     await this.context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
@@ -155,7 +155,7 @@ class FootnoteTests
   }
 
   /// Test for getting footnote without node path.
-  void testGetFootnoteWithoutNodePath() async
+  Future<void> testGetFootnoteWithoutNodePath() async
   {
     final String remoteFileName = 'TestGetFootnoteWithoutNodePath.docx';
     await this.context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
@@ -170,7 +170,7 @@ class FootnoteTests
   }
 
   /// Test for updating footnote.
-  void testUpdateFootnote() async
+  Future<void> testUpdateFootnote() async
   {
     final String remoteFileName = 'TestUpdateFootnote.docx';
     await this.context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
@@ -189,7 +189,7 @@ class FootnoteTests
   }
 
   /// Test for updating footnote without node path.
-  void testUpdateFootnoteWithoutNodePath() async
+  Future<void> testUpdateFootnoteWithoutNodePath() async
   {
     final String remoteFileName = 'TestUpdateFootnoteWithoutNodePath.docx';
     await this.context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);

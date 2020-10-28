@@ -44,7 +44,7 @@ class DrawingObjectsTests
   }
 
   /// Test for getting drawing objects from document.
-  void testGetDocumentDrawingObjects() async
+  Future<void> testGetDocumentDrawingObjects() async
   {
     final String remoteFileName = 'TestGetDocumentDrawingObjects.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -59,7 +59,7 @@ class DrawingObjectsTests
   }
 
   /// Test for getting drawing objects from document without node path.
-  void testGetDocumentDrawingObjectsWithoutNodePath() async
+  Future<void> testGetDocumentDrawingObjectsWithoutNodePath() async
   {
     final String remoteFileName = 'TestGetDocumentDrawingObjectsWithoutNodePath.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -73,7 +73,7 @@ class DrawingObjectsTests
   }
 
   /// Test for getting drawing object by specified index.
-  void testGetDocumentDrawingObjectByIndex() async
+  Future<void> testGetDocumentDrawingObjectByIndex() async
   {
     final String remoteFileName = 'TestGetDocumentDrawingObjectByIndex.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -89,7 +89,7 @@ class DrawingObjectsTests
   }
 
   /// Test for getting drawing object by specified index without node path.
-  void testGetDocumentDrawingObjectByIndexWithoutNodePath() async
+  Future<void> testGetDocumentDrawingObjectByIndexWithoutNodePath() async
   {
     final String remoteFileName = 'TestGetDocumentDrawingObjectByIndexWithoutNodePath.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -104,7 +104,7 @@ class DrawingObjectsTests
   }
 
   /// Test for getting drawing object by specified index and format.
-  void testRenderDrawingObject() async
+  Future<void> testRenderDrawingObject() async
   {
     final String remoteFileName = 'TestGetDocumentDrawingObjectByIndexWithFormat.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -121,7 +121,7 @@ class DrawingObjectsTests
   }
 
   /// Test for getting drawing object by specified index and format without node path.
-  void testRenderDrawingObjectWithoutNodePath() async
+  Future<void> testRenderDrawingObjectWithoutNodePath() async
   {
     final String remoteFileName = 'TestGetDocumentDrawingObjectByIndexWithFormatWithoutNodePath.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -137,7 +137,7 @@ class DrawingObjectsTests
   }
 
   /// Test for reading drawing object's image data.
-  void testGetDocumentDrawingObjectImageData() async
+  Future<void> testGetDocumentDrawingObjectImageData() async
   {
     final String remoteFileName = 'TestGetDocumentDrawingObjectImageData.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -153,7 +153,7 @@ class DrawingObjectsTests
   }
 
   /// Test for reading drawing object's image data without node path.
-  void testGetDocumentDrawingObjectImageDataWithoutNodePath() async
+  Future<void> testGetDocumentDrawingObjectImageDataWithoutNodePath() async
   {
     final String remoteFileName = 'TestGetDocumentDrawingObjectImageDataWithoutNodePath.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -168,7 +168,7 @@ class DrawingObjectsTests
   }
 
   /// Test for getting drawing object OLE data.
-  void testGetDocumentDrawingObjectOleData() async
+  Future<void> testGetDocumentDrawingObjectOleData() async
   {
     final String remoteFileName = 'TestGetDocumentDrawingObjectOleData.docx';
     await this.context.uploadFile(localDrawingFile, remoteDataFolder + '/' + remoteFileName);
@@ -184,7 +184,7 @@ class DrawingObjectsTests
   }
 
   /// Test for getting drawing object OLE data without node path.
-  void testGetDocumentDrawingObjectOleDataWithoutNodePath() async
+  Future<void> testGetDocumentDrawingObjectOleDataWithoutNodePath() async
   {
     final String remoteFileName = 'TestGetDocumentDrawingObjectOleDataWithoutNodePath.docx';
     await this.context.uploadFile(localDrawingFile, remoteDataFolder + '/' + remoteFileName);
@@ -199,7 +199,7 @@ class DrawingObjectsTests
   }
 
   /// Test for adding drawing object.
-  void testInsertDrawingObject() async
+  Future<void> testInsertDrawingObject() async
   {
     final String remoteFileName = 'TestInsetDrawingObject.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -224,7 +224,7 @@ class DrawingObjectsTests
   }
 
   /// Test for adding drawing object without node path.
-  void testInsertDrawingObjectWithoutNodePath() async
+  Future<void> testInsertDrawingObjectWithoutNodePath() async
   {
     final String remoteFileName = 'TestInsetDrawingObjectWithoutNodePath.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -248,7 +248,7 @@ class DrawingObjectsTests
   }
 
   /// Test for deleting drawing object.
-  void testDeleteDrawingObject() async
+  Future<void> testDeleteDrawingObject() async
   {
     final String remoteFileName = 'TestDeleteDrawingObject.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -264,7 +264,7 @@ class DrawingObjectsTests
   }
 
   /// Test for deleting drawing object without node path.
-  void testDeleteDrawingObjectWithoutNodePath() async
+  Future<void> testDeleteDrawingObjectWithoutNodePath() async
   {
     final String remoteFileName = 'TestDeleteDrawingObjectWithoutNodePath.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -279,7 +279,7 @@ class DrawingObjectsTests
   }
 
   /// Test for updating drawing object.
-  void testUpdateDrawingObject() async
+  Future<void> testUpdateDrawingObject() async
   {
     final String remoteFileName = 'TestUpdateDrawingObject.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -299,7 +299,7 @@ class DrawingObjectsTests
   }
 
   /// Test for updating drawing object without node path.
-  void testUpdateDrawingObjectWithoutNodePath() async
+  Future<void> testUpdateDrawingObjectWithoutNodePath() async
   {
     final String remoteFileName = 'TestUpdateDrawingObjectWithoutNodePath.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);

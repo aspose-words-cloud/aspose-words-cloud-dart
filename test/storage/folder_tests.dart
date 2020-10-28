@@ -42,7 +42,7 @@ class FolderTests
   }
 
   /// Test for create folder.
-  void testCreateFolder() async
+  Future<void> testCreateFolder() async
   {
 
     final request = new CreateFolderRequest(
@@ -53,7 +53,7 @@ class FolderTests
   }
 
   /// Test for delete folder.
-  void testDeleteFolder() async
+  Future<void> testDeleteFolder() async
   {
     final String testDeleteFolder = remoteDataFolder + '/TestDeleteFolder';
     await this.context.uploadFile(localFile, testDeleteFolder + '/TestDeleteFolder.docx');
@@ -66,7 +66,7 @@ class FolderTests
   }
 
   /// Test for get file list of folder.
-  void testGetFilesList() async
+  Future<void> testGetFilesList() async
   {
 
     final request = new GetFilesListRequest(
@@ -77,7 +77,7 @@ class FolderTests
   }
 
   /// Test for copy folder.
-  void testCopyFolder() async
+  Future<void> testCopyFolder() async
   {
     final String folderToCopy = remoteDataFolder + '/TestCopyFolder';
     await this.context.uploadFile(localFile, folderToCopy + 'Src/TestCopyFolderSrc.docx');
@@ -91,7 +91,7 @@ class FolderTests
   }
 
   /// Test for move folder.
-  void testMoveFolder() async
+  Future<void> testMoveFolder() async
   {
     await this.context.uploadFile(localFile, remoteDataFolder + '/TestMoveFolderSrc/TestMoveFolderSrc.docx');
 

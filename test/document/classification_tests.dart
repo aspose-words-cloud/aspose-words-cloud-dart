@@ -42,7 +42,7 @@ class ClassificationTests
   }
 
   /// Test for raw text classification.
-  void testClassify() async
+  Future<void> testClassify() async
   {
 
     final request = new ClassifyRequest(
@@ -54,7 +54,7 @@ class ClassificationTests
   }
 
   /// Test for document classification.
-  void testClassifyDocument() async
+  Future<void> testClassifyDocument() async
   {
     final String remoteFileName = 'TestClassifyDocument.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);

@@ -42,7 +42,7 @@ class ExecuteTemplateTests
   }
 
   /// Test for posting execute template.
-  void testExecuteTemplate() async
+  Future<void> testExecuteTemplate() async
   {
     final String localDocumentFile = 'TestExecuteTemplate.doc';
     final String remoteFileName = 'TestExecuteTemplate.docx';
@@ -60,7 +60,7 @@ class ExecuteTemplateTests
   }
 
   /// Test for execute template online.
-  void testExecuteTemplateOnline() async
+  Future<void> testExecuteTemplateOnline() async
   {
     final String localDocumentFile = 'SampleMailMergeTemplate.docx';
     final String localDataFile = 'SampleExecuteTemplateData.txt';

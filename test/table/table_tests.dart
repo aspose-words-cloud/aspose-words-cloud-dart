@@ -42,7 +42,7 @@ class TableTests
   }
 
   /// Test for getting tables.
-  void testGetTables() async
+  Future<void> testGetTables() async
   {
     final String remoteFileName = 'TestGetTables.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -57,7 +57,7 @@ class TableTests
   }
 
   /// Test for getting tables without node path.
-  void testGetTablesWithoutNodePath() async
+  Future<void> testGetTablesWithoutNodePath() async
   {
     final String remoteFileName = 'TestGetTablesWithoutNodePath.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -71,7 +71,7 @@ class TableTests
   }
 
   /// Test for getting table.
-  void testGetTable() async
+  Future<void> testGetTable() async
   {
     final String remoteFileName = 'TestGetTable.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -87,7 +87,7 @@ class TableTests
   }
 
   /// Test for getting table without node path.
-  void testGetTableWithoutNodePath() async
+  Future<void> testGetTableWithoutNodePath() async
   {
     final String remoteFileName = 'TestGetTableWithoutNodePath.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -102,7 +102,7 @@ class TableTests
   }
 
   /// Test for deleting table.
-  void testDeleteTable() async
+  Future<void> testDeleteTable() async
   {
     final String remoteFileName = 'TestDeleteTable.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -118,7 +118,7 @@ class TableTests
   }
 
   /// Test for deleting table without node path.
-  void testDeleteTableWithoutNodePath() async
+  Future<void> testDeleteTableWithoutNodePath() async
   {
     final String remoteFileName = 'TestDeleteTableWithoutNodePath.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -133,7 +133,7 @@ class TableTests
   }
 
   /// Test for adding table.
-  void testInsertTable() async
+  Future<void> testInsertTable() async
   {
     final String remoteFileName = 'TestInsertTable.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -152,7 +152,7 @@ class TableTests
   }
 
   /// Test for adding table without node path.
-  void testInsertTableWithoutNodePath() async
+  Future<void> testInsertTableWithoutNodePath() async
   {
     final String remoteFileName = 'TestInsertTableWithoutNodePath.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -170,7 +170,7 @@ class TableTests
   }
 
   /// Test for getting document properties.
-  void testGetTableProperties() async
+  Future<void> testGetTableProperties() async
   {
     final String remoteFileName = 'TestGetTableProperties.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -186,7 +186,7 @@ class TableTests
   }
 
   /// Test for getting document properties without node path.
-  void testGetTablePropertiesWithoutNodePath() async
+  Future<void> testGetTablePropertiesWithoutNodePath() async
   {
     final String remoteFileName = 'TestGetTablePropertiesWithoutNodePath.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -201,7 +201,7 @@ class TableTests
   }
 
   /// Test for updating table properties.
-  void testUpdateTableProperties() async
+  Future<void> testUpdateTableProperties() async
   {
     final String remoteFileName = 'TestUpdateTableProperties.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -225,7 +225,7 @@ class TableTests
   }
 
   /// Test for updating table properties without node path.
-  void testUpdateTablePropertiesWithoutNodePath() async
+  Future<void> testUpdateTablePropertiesWithoutNodePath() async
   {
     final String remoteFileName = 'TestUpdateTablePropertiesWithoutNodePath.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -248,7 +248,7 @@ class TableTests
   }
 
   /// Test for getting table row.
-  void testGetTableRow() async
+  Future<void> testGetTableRow() async
   {
     final String remoteFileName = 'TestGetTableRow.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -264,7 +264,7 @@ class TableTests
   }
 
   /// Test for deleting table row.
-  void testDeleteTableRow() async
+  Future<void> testDeleteTableRow() async
   {
     final String remoteFileName = 'TestDeleteTableRow.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -280,7 +280,7 @@ class TableTests
   }
 
   /// Test for adding row.
-  void testInsertTableRow() async
+  Future<void> testInsertTableRow() async
   {
     final String remoteFileName = 'TestInsertTableRow.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -298,7 +298,7 @@ class TableTests
   }
 
   /// Test for getting row format.
-  void testGetTableRowFormat() async
+  Future<void> testGetTableRowFormat() async
   {
     final String remoteFileName = 'TestGetTableRowFormat.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -314,7 +314,7 @@ class TableTests
   }
 
   /// Test updating row format.
-  void testUpdateTableRowFormat() async
+  Future<void> testUpdateTableRowFormat() async
   {
     final String remoteFileName = 'TestUpdateTableRowFormat.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -336,7 +336,7 @@ class TableTests
   }
 
   /// Test for getting table cell.
-  void testGetTableCell() async
+  Future<void> testGetTableCell() async
   {
     final String remoteFileName = 'TestGetTableCell.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -352,7 +352,7 @@ class TableTests
   }
 
   /// Test for deleting cell.
-  void testDeleteTableCell() async
+  Future<void> testDeleteTableCell() async
   {
     final String remoteFileName = 'TestDeleteTableCell.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -368,7 +368,7 @@ class TableTests
   }
 
   /// Test for adding cell.
-  void testInsertTableCell() async
+  Future<void> testInsertTableCell() async
   {
     final String remoteFileName = 'TestInsertTableCell.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -386,7 +386,7 @@ class TableTests
   }
 
   /// Test for getting cell format.
-  void testGetTableCellFormat() async
+  Future<void> testGetTableCellFormat() async
   {
     final String remoteFileName = 'TestGetTableCellFormat.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -402,7 +402,7 @@ class TableTests
   }
 
   /// Test for updating cell format.
-  void testUpdateTableCellFormat() async
+  Future<void> testUpdateTableCellFormat() async
   {
     final String remoteFileName = 'TestUpdateTableCellFormat.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -424,7 +424,7 @@ class TableTests
   }
 
   /// Test for table rendering.
-  void testRenderTable() async
+  Future<void> testRenderTable() async
   {
     final String remoteFileName = 'TestRenderTable.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -441,7 +441,7 @@ class TableTests
   }
 
   /// Test for table rendering without node path.
-  void testRenderTableWithoutNodePath() async
+  Future<void> testRenderTableWithoutNodePath() async
   {
     final String remoteFileName = 'TestRenderTableWithoutNodePath.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);

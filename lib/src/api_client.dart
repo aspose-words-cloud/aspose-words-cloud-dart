@@ -67,7 +67,7 @@ class ApiClient {
     return _authToken;
   }
 
-  void _updateAuthToken() async {
+  Future<void> _updateAuthToken() async {
     final String url = this.configuration.baseUrl + '/connect/token';
     final String data = 'grant_type=client_credentials&client_id=${this.configuration.appSid}&client_secret=${this.configuration.appKey}';
     final Map<String, String> headers = {'Content-Type' : 'application/x-www-form-urlencoded'};

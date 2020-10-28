@@ -42,7 +42,7 @@ class DocumentPropertiesTests
   }
 
   /// Test for getting document properties.
-  void testGetDocumentProperties() async
+  Future<void> testGetDocumentProperties() async
   {
     final String remoteFileName = 'TestGetDocumentProperties.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -56,7 +56,7 @@ class DocumentPropertiesTests
   }
 
   /// A test for GetDocumentProperty.
-  void testGetDocumentProperty() async
+  Future<void> testGetDocumentProperty() async
   {
     final String remoteFileName = 'TestGetDocumentProperty.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -71,7 +71,7 @@ class DocumentPropertiesTests
   }
 
   /// Test for deleting document property.
-  void testDeleteDocumentProperty() async
+  Future<void> testDeleteDocumentProperty() async
   {
     final String remoteFileName = 'TestDeleteDocumentProperty.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -87,7 +87,7 @@ class DocumentPropertiesTests
   }
 
   /// Test for updating document property.
-  void testUpdateDocumentProperty() async
+  Future<void> testUpdateDocumentProperty() async
   {
     final String remoteFileName = 'TestUpdateDocumentProperty.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);

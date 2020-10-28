@@ -42,7 +42,7 @@ class CommentTests
   }
 
   /// Test for getting comment by specified comment's index.
-  void testGetComment() async
+  Future<void> testGetComment() async
   {
     final String remoteFileName = 'TestGetComment.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -57,7 +57,7 @@ class CommentTests
   }
 
   /// Test for getting all comments from document.
-  void testGetComments() async
+  Future<void> testGetComments() async
   {
     final String remoteFileName = 'TestGetComments.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -71,7 +71,7 @@ class CommentTests
   }
 
   /// Test for adding comment.
-  void testInsertComment() async
+  Future<void> testInsertComment() async
   {
     final String remoteFileName = 'TestInsertComment.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -106,7 +106,7 @@ class CommentTests
   }
 
   /// Test for updating comment.
-  void testUpdateComment() async
+  Future<void> testUpdateComment() async
   {
     final String remoteFileName = 'TestUpdateComment.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -142,7 +142,7 @@ class CommentTests
   }
 
   /// A test for DeleteComment.
-  void testDeleteComment() async
+  Future<void> testDeleteComment() async
   {
     final String remoteFileName = 'TestDeleteComment.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);

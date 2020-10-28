@@ -42,7 +42,7 @@ class RevisionsTests
   }
 
   /// Test for accepting revisions in document.
-  void testAcceptAllRevisions() async
+  Future<void> testAcceptAllRevisions() async
   {
     final String remoteFileName = 'TestAcceptAllRevisions.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -57,7 +57,7 @@ class RevisionsTests
   }
 
   /// Test for rejecting revisions in document.
-  void testRejectAllRevisions() async
+  Future<void> testRejectAllRevisions() async
   {
     final String remoteFileName = 'TestRejectAllRevisions.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);

@@ -42,7 +42,7 @@ class DocumentTests
   }
 
   /// Test for getting document.
-  void testGetDocument() async
+  Future<void> testGetDocument() async
   {
     final String remoteFileName = 'TestGetDocument.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -56,7 +56,7 @@ class DocumentTests
   }
 
   /// Test for creating word document.
-  void testCreateDocument() async
+  Future<void> testCreateDocument() async
   {
     final String remoteFileName = 'TestCreateDocument.doc';
 

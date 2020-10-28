@@ -42,7 +42,7 @@ class MacrosTests
   }
 
   /// Test for deleting macros.
-  void testDeleteMacros() async
+  Future<void> testDeleteMacros() async
   {
     final String remoteFileName = 'TestDeleteDocumentMacros.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);

@@ -38,7 +38,7 @@ class LoadWebDocumentTests
   }
 
   /// Test for loading web document.
-  void testLoadWebDocument() async
+  Future<void> testLoadWebDocument() async
   {
     var requestDataSaveOptions = new SaveOptionsData();
     requestDataSaveOptions.fileName = 'google.doc';

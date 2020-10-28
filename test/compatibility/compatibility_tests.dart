@@ -42,7 +42,7 @@ class CompatibilityTests
   }
 
   /// Test for optimize document to specific MS Word version.
-  void testOptimizeDocument() async
+  Future<void> testOptimizeDocument() async
   {
     final String remoteFileName = 'TestOptimizeDocument.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);

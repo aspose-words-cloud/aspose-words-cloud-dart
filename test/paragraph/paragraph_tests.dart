@@ -46,7 +46,7 @@ class ParagraphTests
   }
 
   /// Test for getting paragraph.
-  void testGetDocumentParagraphByIndex() async
+  Future<void> testGetDocumentParagraphByIndex() async
   {
     final String remoteFileName = 'TestGetDocumentParagraphByIndex.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -62,7 +62,7 @@ class ParagraphTests
   }
 
   /// Test for getting paragraph without node path.
-  void testGetDocumentParagraphByIndexWithoutNodePath() async
+  Future<void> testGetDocumentParagraphByIndexWithoutNodePath() async
   {
     final String remoteFileName = 'TestGetDocumentParagraphByIndexWithoutNodePath.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -77,7 +77,7 @@ class ParagraphTests
   }
 
   /// Test for getting all paragraphs.
-  void testGetDocumentParagraphs() async
+  Future<void> testGetDocumentParagraphs() async
   {
     final String remoteFileName = 'TestGetDocumentParagraphs.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -92,7 +92,7 @@ class ParagraphTests
   }
 
   /// Test for getting all paragraphs without node path.
-  void testGetDocumentParagraphsWithoutNodePath() async
+  Future<void> testGetDocumentParagraphsWithoutNodePath() async
   {
     final String remoteFileName = 'TestGetDocumentParagraphsWithoutNodePath.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -106,7 +106,7 @@ class ParagraphTests
   }
 
   /// Test for getting paragraph run.
-  void testGetDocumentParagraphRun() async
+  Future<void> testGetDocumentParagraphRun() async
   {
     final String remoteFileName = 'TestGetDocumentParagraphRun.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -122,7 +122,7 @@ class ParagraphTests
   }
 
   /// Test for getting paragraph run font.
-  void testGetDocumentParagraphRunFont() async
+  Future<void> testGetDocumentParagraphRunFont() async
   {
     final String remoteFileName = 'TestGetDocumentParagraphRunFont.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -138,7 +138,7 @@ class ParagraphTests
   }
 
   /// Test for getting paragraph runs.
-  void testGetParagraphRuns() async
+  Future<void> testGetParagraphRuns() async
   {
     final String remoteFileName = 'TestGetParagraphRuns.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -153,7 +153,7 @@ class ParagraphTests
   }
 
   /// Test for updating paragraph run font.
-  void testUpdateRunFont() async
+  Future<void> testUpdateRunFont() async
   {
     final String remoteFileName = 'TestUpdateRunFont.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -173,7 +173,7 @@ class ParagraphTests
   }
 
   /// Test for adding paragraph.
-  void testInsertParagraph() async
+  Future<void> testInsertParagraph() async
   {
     final String remoteFileName = 'TestInsertParagraph.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -191,7 +191,7 @@ class ParagraphTests
   }
 
   /// Test for adding paragraph without node path.
-  void testInsertParagraphWithoutNodePath() async
+  Future<void> testInsertParagraphWithoutNodePath() async
   {
     final String remoteFileName = 'TestInsertParagraphWithoutNodePath.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -208,7 +208,7 @@ class ParagraphTests
   }
 
   /// Test for paragraph rendering.
-  void testRenderParagraph() async
+  Future<void> testRenderParagraph() async
   {
     final String remoteFileName = 'TestRenderParagraph.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -225,7 +225,7 @@ class ParagraphTests
   }
 
   /// Test for paragraph rendering without node path.
-  void testRenderParagraphWithoutNodePath() async
+  Future<void> testRenderParagraphWithoutNodePath() async
   {
     final String remoteFileName = 'TestRenderParagraphWithoutNodePath.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -241,7 +241,7 @@ class ParagraphTests
   }
 
   /// Test for getting paragraph format settings.
-  void testGetParagraphFormat() async
+  Future<void> testGetParagraphFormat() async
   {
     final String remoteFileName = 'TestGetDocumentParagraphs.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -257,7 +257,7 @@ class ParagraphTests
   }
 
   /// Test for getting paragraph format settings without node path.
-  void testGetParagraphFormatWithoutNodePath() async
+  Future<void> testGetParagraphFormatWithoutNodePath() async
   {
     final String remoteFileName = 'TestGetDocumentParagraphsWithoutNodePath.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -272,7 +272,7 @@ class ParagraphTests
   }
 
   /// Test for updating  paragraph format settings.
-  void testUpdateParagraphFormat() async
+  Future<void> testUpdateParagraphFormat() async
   {
     final String remoteFileName = 'TestGetDocumentParagraphs.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -291,7 +291,7 @@ class ParagraphTests
   }
 
   /// Test for deleting  a paragraph.
-  void testDeleteParagraph() async
+  Future<void> testDeleteParagraph() async
   {
     final String remoteFileName = 'TestDeleteParagraph.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -307,7 +307,7 @@ class ParagraphTests
   }
 
   /// Test for deleting  a paragraph without node path.
-  void testDeleteParagraphWithoutNodePath() async
+  Future<void> testDeleteParagraphWithoutNodePath() async
   {
     final String remoteFileName = 'TestDeleteParagraphWithoutNodePath.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -322,7 +322,7 @@ class ParagraphTests
   }
 
   /// Test for getting paragraph list format.
-  void testGetParagraphListFormat() async
+  Future<void> testGetParagraphListFormat() async
   {
     final String remoteFileName = 'TestParagraphGetListFormat.docx';
     await this.context.uploadFile(listFolder + '/ParagraphGetListFormat.doc', remoteDataFolder + '/' + remoteFileName);
@@ -338,7 +338,7 @@ class ParagraphTests
   }
 
   /// Test for getting paragraph list format without node path.
-  void testGetParagraphListFormatWithoutNodePath() async
+  Future<void> testGetParagraphListFormatWithoutNodePath() async
   {
     final String remoteFileName = 'TestParagraphGetListFormatWithoutNodePath.docx';
     await this.context.uploadFile(listFolder + '/ParagraphGetListFormat.doc', remoteDataFolder + '/' + remoteFileName);
@@ -353,7 +353,7 @@ class ParagraphTests
   }
 
   /// Test for updating paragraph list format.
-  void testUpdateParagraphListFormat() async
+  Future<void> testUpdateParagraphListFormat() async
   {
     final String remoteFileName = 'TestUpdateParagraphListFormat.docx';
     await this.context.uploadFile(listFolder + '/ParagraphUpdateListFormat.doc', remoteDataFolder + '/' + remoteFileName);
@@ -372,7 +372,7 @@ class ParagraphTests
   }
 
   /// Test for updating paragraph list format without node path.
-  void testUpdateParagraphListFormatWithoutNodePath() async
+  Future<void> testUpdateParagraphListFormatWithoutNodePath() async
   {
     final String remoteFileName = 'TestUpdateParagraphListFormatWithoutNodePath.docx';
     await this.context.uploadFile(listFolder + '/ParagraphUpdateListFormat.doc', remoteDataFolder + '/' + remoteFileName);
@@ -390,7 +390,7 @@ class ParagraphTests
   }
 
   /// Test for deleting paragraph list format.
-  void testDeleteParagraphListFormat() async
+  Future<void> testDeleteParagraphListFormat() async
   {
     final String remoteFileName = 'TestDeleteParagraphListFormat.docx';
     await this.context.uploadFile(listFolder + '/ParagraphDeleteListFormat.doc', remoteDataFolder + '/' + remoteFileName);
@@ -406,7 +406,7 @@ class ParagraphTests
   }
 
   /// Test for deleting paragraph list format without node path.
-  void testDeleteParagraphListFormatWithoutNodePath() async
+  Future<void> testDeleteParagraphListFormatWithoutNodePath() async
   {
     final String remoteFileName = 'TestDeleteParagraphListFormatWithoutNodePath.docx';
     await this.context.uploadFile(listFolder + '/ParagraphDeleteListFormat.doc', remoteDataFolder + '/' + remoteFileName);
@@ -421,7 +421,7 @@ class ParagraphTests
   }
 
   /// Test for getting paragraph tab stops.
-  void testGetParagraphTabStops() async
+  Future<void> testGetParagraphTabStops() async
   {
     final String remoteFileName = 'TestGetParagraphTabStops.docx';
     await this.context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
@@ -437,7 +437,7 @@ class ParagraphTests
   }
 
   /// Test for getting paragraph tab stops without node path.
-  void testGetParagraphTabStopsWithoutNodePath() async
+  Future<void> testGetParagraphTabStopsWithoutNodePath() async
   {
     final String remoteFileName = 'TestGetParagraphTabStopsWithoutNodePath.docx';
     await this.context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
@@ -452,7 +452,7 @@ class ParagraphTests
   }
 
   /// Test for inserting paragraph tab stop.
-  void testInsertParagraphTabStops() async
+  Future<void> testInsertParagraphTabStops() async
   {
     final String remoteFileName = 'TestInsertOrUpdateParagraphTabStop.docx';
     await this.context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
@@ -473,7 +473,7 @@ class ParagraphTests
   }
 
   /// Test for inserting paragraph tab stop without node path.
-  void testInsertParagraphTabStopsWithoutNodePath() async
+  Future<void> testInsertParagraphTabStopsWithoutNodePath() async
   {
     final String remoteFileName = 'TestInsertOrUpdateParagraphTabStopWithoutNodePath.docx';
     await this.context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
@@ -493,7 +493,7 @@ class ParagraphTests
   }
 
   /// Test for deleting all paragraph tab stops.
-  void testDeleteAllParagraphTabStops() async
+  Future<void> testDeleteAllParagraphTabStops() async
   {
     final String remoteFileName = 'TestDeleteAllParagraphTabStops.docx';
     await this.context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
@@ -509,7 +509,7 @@ class ParagraphTests
   }
 
   /// Test for deleting all paragraph tab stops without node path.
-  void testDeleteAllParagraphTabStopsWithoutNodePath() async
+  Future<void> testDeleteAllParagraphTabStopsWithoutNodePath() async
   {
     final String remoteFileName = 'TestDeleteAllParagraphTabStopsWithoutNodePath.docx';
     await this.context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
@@ -524,7 +524,7 @@ class ParagraphTests
   }
 
   /// Test for deleting a tab stops.
-  void testDeleteParagraphTabStop() async
+  Future<void> testDeleteParagraphTabStop() async
   {
     final String remoteFileName = 'TestDeleteParagraphTabStop.docx';
     await this.context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
@@ -541,7 +541,7 @@ class ParagraphTests
   }
 
   /// Test for deleting a tab stops without node path.
-  void testDeleteParagraphTabStopWithoutNodePath() async
+  Future<void> testDeleteParagraphTabStopWithoutNodePath() async
   {
     final String remoteFileName = 'TestDeleteParagraphTabStopWithoutNodePath.docx';
     await this.context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);

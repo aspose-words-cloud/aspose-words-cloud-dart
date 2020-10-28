@@ -42,7 +42,7 @@ class BuildReportTests
   }
 
   /// Test for build report online.
-  void testBuildReportOnline() async
+  Future<void> testBuildReportOnline() async
   {
     final String localDocumentFile = 'ReportTemplate.docx';
     final String localDataFile = await this.context.loadTextFile(reportingFolder + '/ReportData.json');
@@ -60,7 +60,7 @@ class BuildReportTests
   }
 
   /// Test for build report.
-  void testBuildReport() async
+  Future<void> testBuildReport() async
   {
     final String localDocumentFile = 'ReportTemplate.docx';
     final String remoteFileName = 'TestBuildReport.docx';

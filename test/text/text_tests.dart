@@ -40,7 +40,7 @@ class TextTests
   }
 
   /// Test for replacing text.
-  void testReplaceText() async
+  Future<void> testReplaceText() async
   {
     final String remoteFileName = 'TestReplaceText.docx';
     final String localFile = 'Common/test_multi_pages.docx';
@@ -60,7 +60,7 @@ class TextTests
   }
 
   /// Test for searching.
-  void testSearch() async
+  Future<void> testSearch() async
   {
     final String remoteFileName = 'TestSearch.docx';
     final String localFile = 'DocumentElements/Text/SampleWordDocument.docx';

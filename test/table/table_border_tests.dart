@@ -42,7 +42,7 @@ class TableBorderTests
   }
 
   /// Test for getting borders.
-  void testGetBorders() async
+  Future<void> testGetBorders() async
   {
     final String remoteFileName = 'TestGetBorders.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -57,7 +57,7 @@ class TableBorderTests
   }
 
   /// Test for getting border.
-  void testGetBorder() async
+  Future<void> testGetBorder() async
   {
     final String remoteFileName = 'TestGetBorder.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -73,7 +73,7 @@ class TableBorderTests
   }
 
   /// Test for deleting borders.
-  void testDeleteBorders() async
+  Future<void> testDeleteBorders() async
   {
     final String remoteFileName = 'TestDeleteBorders.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -88,7 +88,7 @@ class TableBorderTests
   }
 
   /// Test for deleting border.
-  void testDeleteBorder() async
+  Future<void> testDeleteBorder() async
   {
     final String remoteFileName = 'TestDeleteBorder.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -104,7 +104,7 @@ class TableBorderTests
   }
 
   /// Test for updating border.
-  void testUpdateBorder() async
+  Future<void> testUpdateBorder() async
   {
     final String remoteFileName = 'TestUpdateBorder.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);

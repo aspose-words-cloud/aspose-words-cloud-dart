@@ -42,7 +42,7 @@ class StylesTests
   }
 
   /// Test for getting styles from document.
-  void testGetStyles() async
+  Future<void> testGetStyles() async
   {
     final String remoteFileName = 'TestGetStyles.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -56,7 +56,7 @@ class StylesTests
   }
 
   /// Test for getting style from document.
-  void testGetStyle() async
+  Future<void> testGetStyle() async
   {
     final String remoteFileName = 'TestGetStyle.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -71,7 +71,7 @@ class StylesTests
   }
 
   /// Test for updating style from document.
-  void testUpdateStyle() async
+  Future<void> testUpdateStyle() async
   {
     final String remoteFileName = 'TestUpdateStyle.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -89,7 +89,7 @@ class StylesTests
   }
 
   /// Test for inserting style from document.
-  void testInsertStyle() async
+  Future<void> testInsertStyle() async
   {
     final String remoteFileName = 'TestInsertStyle.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -107,7 +107,7 @@ class StylesTests
   }
 
   /// Test for coping style from document.
-  void testCopyStyle() async
+  Future<void> testCopyStyle() async
   {
     final String remoteFileName = 'TestCopyStyle.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -124,7 +124,7 @@ class StylesTests
   }
 
   /// Test for getting style from document element.
-  void testGetStyleFromDocumentElement() async
+  Future<void> testGetStyleFromDocumentElement() async
   {
     final String remoteFileName = 'TestGetStyleFromDocumentElement.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -139,7 +139,7 @@ class StylesTests
   }
 
   /// Test for applying style to document element.
-  void testApplyStyleToDocumentElement() async
+  Future<void> testApplyStyleToDocumentElement() async
   {
     final String remoteFileName = 'TestApplyStyleToDocumentElement.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);

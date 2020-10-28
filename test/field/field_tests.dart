@@ -44,7 +44,7 @@ class FieldTests
   }
 
   /// Test for getting fields.
-  void testGetFields() async
+  Future<void> testGetFields() async
   {
     final String localFileName = 'GetField.docx';
     final String remoteFileName = 'TestGetFields.docx';
@@ -60,7 +60,7 @@ class FieldTests
   }
 
   /// Test for getting fields without node path.
-  void testGetFieldsWithoutNodePath() async
+  Future<void> testGetFieldsWithoutNodePath() async
   {
     final String localFileName = 'GetField.docx';
     final String remoteFileName = 'TestGetFieldsWithoutNodePath.docx';
@@ -75,7 +75,7 @@ class FieldTests
   }
 
   /// Test for getting field by index.
-  void testGetField() async
+  Future<void> testGetField() async
   {
     final String localFileName = 'GetField.docx';
     final String remoteFileName = 'TestGetField.docx';
@@ -92,7 +92,7 @@ class FieldTests
   }
 
   /// Test for getting field by index without node path.
-  void testGetFieldWithoutNodePath() async
+  Future<void> testGetFieldWithoutNodePath() async
   {
     final String localFileName = 'GetField.docx';
     final String remoteFileName = 'TestGetFieldWithoutNodePath.docx';
@@ -108,7 +108,7 @@ class FieldTests
   }
 
   /// Test for putting field.
-  void testInsertField() async
+  Future<void> testInsertField() async
   {
     final String localFileName = 'SampleWordDocument.docx';
     final String remoteFileName = 'TestInsertField.docx';
@@ -127,7 +127,7 @@ class FieldTests
   }
 
   /// Test for putting field without node path.
-  void testInsertFieldWithoutNodePath() async
+  Future<void> testInsertFieldWithoutNodePath() async
   {
     final String localFileName = 'SampleWordDocument.docx';
     final String remoteFileName = 'TestInsertFieldWithoutNodePath.docx';
@@ -145,7 +145,7 @@ class FieldTests
   }
 
   /// Test for posting field.
-  void testUpdateField() async
+  Future<void> testUpdateField() async
   {
     final String localFileName = 'GetField.docx';
     final String remoteFileName = 'TestUpdateField.docx';
@@ -165,7 +165,7 @@ class FieldTests
   }
 
   /// Test for inserting page numbers field.
-  void testInsertPageNumbers() async
+  Future<void> testInsertPageNumbers() async
   {
     final String localFileName = 'test_multi_pages.docx';
     final String remoteFileName = 'TestInsertPageNumbers.docx';
@@ -185,7 +185,7 @@ class FieldTests
   }
 
   /// Test for deleting field.
-  void testDeleteField() async
+  Future<void> testDeleteField() async
   {
     final String localFileName = 'GetField.docx';
     final String remoteFileName = 'TestDeleteField.docx';
@@ -202,7 +202,7 @@ class FieldTests
   }
 
   /// Test for deleting field without node path.
-  void testDeleteFieldWithoutNodePath() async
+  Future<void> testDeleteFieldWithoutNodePath() async
   {
     final String localFileName = 'GetField.docx';
     final String remoteFileName = 'TestDeleteFieldWithoutNodePath.docx';
@@ -218,7 +218,7 @@ class FieldTests
   }
 
   /// Test for deleting paragraph fields.
-  void testDeleteParagraphFields() async
+  Future<void> testDeleteParagraphFields() async
   {
     final String localFileName = 'test_multi_pages.docx';
     final String remoteFileName = 'TestDeleteParagraphFields.docx';
@@ -234,7 +234,7 @@ class FieldTests
   }
 
   /// Test for deleting paragraph fields without node path.
-  void testDeleteParagraphFieldsWithoutNodePath() async
+  Future<void> testDeleteParagraphFieldsWithoutNodePath() async
   {
     final String localFileName = 'test_multi_pages.docx';
     final String remoteFileName = 'TestDeleteParagraphFieldsWithoutNodePath.docx';
@@ -249,7 +249,7 @@ class FieldTests
   }
 
   /// Test for deleting section fields.
-  void testDeleteSectionFields() async
+  Future<void> testDeleteSectionFields() async
   {
     final String localFileName = 'test_multi_pages.docx';
     final String remoteFileName = 'TestDeleteSectionFields.docx';
@@ -265,7 +265,7 @@ class FieldTests
   }
 
   /// Test for deleting section fields without node path.
-  void testDeleteSectionFieldsWithoutNodePath() async
+  Future<void> testDeleteSectionFieldsWithoutNodePath() async
   {
     final String localFileName = 'test_multi_pages.docx';
     final String remoteFileName = 'TestDeleteSectionFieldsWithoutNodePath.docx';
@@ -280,7 +280,7 @@ class FieldTests
   }
 
   /// Test for deleting paragraph fields in section.
-  void testDeleteSectionParagraphFields() async
+  Future<void> testDeleteSectionParagraphFields() async
   {
     final String localFileName = 'test_multi_pages.docx';
     final String remoteFileName = 'TestDeleteSectionParagraphFields.docx';
@@ -296,7 +296,7 @@ class FieldTests
   }
 
   /// Test for deleting fields.
-  void testDeleteDocumentFields() async
+  Future<void> testDeleteDocumentFields() async
   {
     final String localFileName = 'test_multi_pages.docx';
     final String remoteFileName = 'TestDeleteSectionParagraphFields.docx';
@@ -312,7 +312,7 @@ class FieldTests
   }
 
   /// Test for posting updated fields.
-  void testUpdateDocumentFields() async
+  Future<void> testUpdateDocumentFields() async
   {
     final String localFileName = 'test_multi_pages.docx';
     final String remoteFileName = 'TestUpdateDocumentFields.docx';

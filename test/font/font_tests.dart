@@ -38,7 +38,7 @@ class FontTests
   }
 
   /// Test for reseting cache.
-  void testResetCache() async
+  Future<void> testResetCache() async
   {
 
     final request = new ResetCacheRequest(
@@ -48,7 +48,7 @@ class FontTests
   }
 
   /// Test for GetAvailableFonts resource.
-  void testGetAvailableFonts() async
+  Future<void> testGetAvailableFonts() async
   {
 
     final request = new GetAvailableFontsRequest(

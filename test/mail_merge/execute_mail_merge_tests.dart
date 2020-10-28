@@ -42,7 +42,7 @@ class ExecuteMailMergeTests
   }
 
   /// Test for executing mail merge online.
-  void testExecuteMailMergeOnline() async
+  Future<void> testExecuteMailMergeOnline() async
   {
     final String localDocumentFile = 'SampleExecuteTemplate.docx';
     final String localDataFile = 'SampleExecuteTemplateData.txt';
@@ -56,7 +56,7 @@ class ExecuteMailMergeTests
   }
 
   /// Test for executing mail merge.
-  void testExecuteMailMerge() async
+  Future<void> testExecuteMailMerge() async
   {
     final String localDocumentFile = 'SampleExecuteTemplate.docx';
     final String remoteFileName = 'TestExecuteMailMerge.docx';

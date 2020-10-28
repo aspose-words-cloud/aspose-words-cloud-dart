@@ -41,7 +41,7 @@ class EncodingTests
   }
 
   /// Test for url encoding.
-  void testEncoding1() async
+  Future<void> testEncoding1() async
   {
     var localName = 'test_multi_pages.docx';
     var remoteName = '[“Test_Two,_Inc.”]-_83(b)Election([“Bill_Gates”]).docx';
