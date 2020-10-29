@@ -35,82 +35,82 @@ class TableBorderTests
   String remoteDataFolder;
   String localFile;
 
-  TableBorderTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Tables';
+  TableBorderTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Tables';
     localFile = 'DocumentElements/Tables/TablesGet.docx';
   }
 
   /// Test for getting borders.
   Future<void> testGetBorders() async
   {
-    final String remoteFileName = 'TestGetBorders.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetBorders.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetBordersRequest(
+    final request = GetBordersRequest(
       remoteFileName,
       nodePath: 'tables/1/rows/0/cells/0',
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().getBorders(request);
+    await context.getApi().getBorders(request);
   }
 
   /// Test for getting border.
   Future<void> testGetBorder() async
   {
-    final String remoteFileName = 'TestGetBorder.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetBorder.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetBorderRequest(
+    final request = GetBorderRequest(
       remoteFileName,
       'left',
       nodePath: 'tables/1/rows/0/cells/0',
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().getBorder(request);
+    await context.getApi().getBorder(request);
   }
 
   /// Test for deleting borders.
   Future<void> testDeleteBorders() async
   {
-    final String remoteFileName = 'TestDeleteBorders.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestDeleteBorders.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new DeleteBordersRequest(
+    final request = DeleteBordersRequest(
       remoteFileName,
       nodePath: 'tables/1/rows/0/cells/0',
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().deleteBorders(request);
+    await context.getApi().deleteBorders(request);
   }
 
   /// Test for deleting border.
   Future<void> testDeleteBorder() async
   {
-    final String remoteFileName = 'TestDeleteBorder.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestDeleteBorder.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new DeleteBorderRequest(
+    final request = DeleteBorderRequest(
       remoteFileName,
       'left',
       nodePath: 'tables/1/rows/0/cells/0',
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().deleteBorder(request);
+    await context.getApi().deleteBorder(request);
   }
 
   /// Test for updating border.
   Future<void> testUpdateBorder() async
   {
-    final String remoteFileName = 'TestUpdateBorder.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestBorderPropertiesColor = new XmlColor();
+    final remoteFileName = 'TestUpdateBorder.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestBorderPropertiesColor = XmlColor();
     requestBorderPropertiesColor.alpha = 2;
 
-    var requestBorderProperties = new Border();
+    var requestBorderProperties = Border();
     requestBorderProperties.borderType = Border_BorderTypeEnum.left;
     requestBorderProperties.color = requestBorderPropertiesColor;
     requestBorderProperties.distanceFromText = 6;
@@ -118,7 +118,7 @@ class TableBorderTests
     requestBorderProperties.lineWidth = 2;
     requestBorderProperties.shadow = true;
 
-    final request = new UpdateBorderRequest(
+    final request = UpdateBorderRequest(
       remoteFileName,
       requestBorderProperties,
       'left',
@@ -126,6 +126,6 @@ class TableBorderTests
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().updateBorder(request);
+    await context.getApi().updateBorder(request);
   }
 }

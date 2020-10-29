@@ -38,40 +38,40 @@ class ListInsert implements ModelBase {
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('Template')) {
       switch (json['Template']) {
-        case 'BulletDefault': this.template = ListInsert_TemplateEnum.bulletDefault; break;
-        case 'BulletDisk': this.template = ListInsert_TemplateEnum.bulletDisk; break;
-        case 'BulletCircle': this.template = ListInsert_TemplateEnum.bulletCircle; break;
-        case 'BulletSquare': this.template = ListInsert_TemplateEnum.bulletSquare; break;
-        case 'BulletDiamonds': this.template = ListInsert_TemplateEnum.bulletDiamonds; break;
-        case 'BulletArrowHead': this.template = ListInsert_TemplateEnum.bulletArrowHead; break;
-        case 'BulletTick': this.template = ListInsert_TemplateEnum.bulletTick; break;
-        case 'NumberDefault': this.template = ListInsert_TemplateEnum.numberDefault; break;
-        case 'NumberArabicDot': this.template = ListInsert_TemplateEnum.numberArabicDot; break;
-        case 'NumberArabicParenthesis': this.template = ListInsert_TemplateEnum.numberArabicParenthesis; break;
-        case 'NumberUppercaseRomanDot': this.template = ListInsert_TemplateEnum.numberUppercaseRomanDot; break;
-        case 'NumberUppercaseLetterDot': this.template = ListInsert_TemplateEnum.numberUppercaseLetterDot; break;
-        case 'NumberLowercaseLetterParenthesis': this.template = ListInsert_TemplateEnum.numberLowercaseLetterParenthesis; break;
-        case 'NumberLowercaseLetterDot': this.template = ListInsert_TemplateEnum.numberLowercaseLetterDot; break;
-        case 'NumberLowercaseRomanDot': this.template = ListInsert_TemplateEnum.numberLowercaseRomanDot; break;
-        case 'OutlineNumbers': this.template = ListInsert_TemplateEnum.outlineNumbers; break;
-        case 'OutlineLegal': this.template = ListInsert_TemplateEnum.outlineLegal; break;
-        case 'OutlineBullets': this.template = ListInsert_TemplateEnum.outlineBullets; break;
-        case 'OutlineHeadingsArticleSection': this.template = ListInsert_TemplateEnum.outlineHeadingsArticleSection; break;
-        case 'OutlineHeadingsLegal': this.template = ListInsert_TemplateEnum.outlineHeadingsLegal; break;
-        case 'OutlineHeadingsNumbers': this.template = ListInsert_TemplateEnum.outlineHeadingsNumbers; break;
-        case 'OutlineHeadingsChapter': this.template = ListInsert_TemplateEnum.outlineHeadingsChapter; break;
-        default: this.template = null; break;
+        case 'BulletDefault': template = ListInsert_TemplateEnum.bulletDefault; break;
+        case 'BulletDisk': template = ListInsert_TemplateEnum.bulletDisk; break;
+        case 'BulletCircle': template = ListInsert_TemplateEnum.bulletCircle; break;
+        case 'BulletSquare': template = ListInsert_TemplateEnum.bulletSquare; break;
+        case 'BulletDiamonds': template = ListInsert_TemplateEnum.bulletDiamonds; break;
+        case 'BulletArrowHead': template = ListInsert_TemplateEnum.bulletArrowHead; break;
+        case 'BulletTick': template = ListInsert_TemplateEnum.bulletTick; break;
+        case 'NumberDefault': template = ListInsert_TemplateEnum.numberDefault; break;
+        case 'NumberArabicDot': template = ListInsert_TemplateEnum.numberArabicDot; break;
+        case 'NumberArabicParenthesis': template = ListInsert_TemplateEnum.numberArabicParenthesis; break;
+        case 'NumberUppercaseRomanDot': template = ListInsert_TemplateEnum.numberUppercaseRomanDot; break;
+        case 'NumberUppercaseLetterDot': template = ListInsert_TemplateEnum.numberUppercaseLetterDot; break;
+        case 'NumberLowercaseLetterParenthesis': template = ListInsert_TemplateEnum.numberLowercaseLetterParenthesis; break;
+        case 'NumberLowercaseLetterDot': template = ListInsert_TemplateEnum.numberLowercaseLetterDot; break;
+        case 'NumberLowercaseRomanDot': template = ListInsert_TemplateEnum.numberLowercaseRomanDot; break;
+        case 'OutlineNumbers': template = ListInsert_TemplateEnum.outlineNumbers; break;
+        case 'OutlineLegal': template = ListInsert_TemplateEnum.outlineLegal; break;
+        case 'OutlineBullets': template = ListInsert_TemplateEnum.outlineBullets; break;
+        case 'OutlineHeadingsArticleSection': template = ListInsert_TemplateEnum.outlineHeadingsArticleSection; break;
+        case 'OutlineHeadingsLegal': template = ListInsert_TemplateEnum.outlineHeadingsLegal; break;
+        case 'OutlineHeadingsNumbers': template = ListInsert_TemplateEnum.outlineHeadingsNumbers; break;
+        case 'OutlineHeadingsChapter': template = ListInsert_TemplateEnum.outlineHeadingsChapter; break;
+        default: template = null; break;
       }
     } else {
-      this.template = null;
+      template = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.template != null) {
-      switch (this.template) {
+    var _result = <String, dynamic>{};
+    if (template != null) {
+      switch (template) {
         case ListInsert_TemplateEnum.bulletDefault: _result['Template'] = 'BulletDefault'; break;
         case ListInsert_TemplateEnum.bulletDisk: _result['Template'] = 'BulletDisk'; break;
         case ListInsert_TemplateEnum.bulletCircle: _result['Template'] = 'BulletCircle'; break;

@@ -40,27 +40,27 @@ class FieldBase implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('FieldCode')) {
-      this.fieldCode = json['FieldCode'];
+      fieldCode = json['FieldCode'];
     } else {
-      this.fieldCode = null;
+      fieldCode = null;
     }
 
     if (json.containsKey('LocaleId')) {
-      this.localeId = json['LocaleId'];
+      localeId = json['LocaleId'];
     } else {
-      this.localeId = null;
+      localeId = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.fieldCode != null) {
-      _result['FieldCode'] = this.fieldCode;
+    var _result = <String, dynamic>{};
+    if (fieldCode != null) {
+      _result['FieldCode'] = fieldCode;
     }
 
-    if (this.localeId != null) {
-      _result['LocaleId'] = this.localeId;
+    if (localeId != null) {
+      _result['LocaleId'] = localeId;
     }
     return _result;
   }

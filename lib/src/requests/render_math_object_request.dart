@@ -62,54 +62,54 @@ class RenderMathObjectRequest implements RequestBase {
   /// Folder in filestorage with custom fonts.
   final String fontsLocation;
 
-  RenderMathObjectRequest(final String this.name, final String this.format, final int this.index, {final String this.nodePath = null, final String this.folder = null, final String this.storage = null, final String this.loadEncoding = null, final String this.password = null, final String this.fontsLocation = null});
+  RenderMathObjectRequest(final this.name, final this.format, final this.index, {final this.nodePath, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.fontsLocation});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/{name}/{nodePath}/OfficeMathObjects/{index}/render';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.name == null) {
-      throw new ApiException(400, 'Parameter name is required.');
+    var path = '/words/{name}/{nodePath}/OfficeMathObjects/{index}/render';
+    var queryParams = <String, String>{};
+    var headers = <String, String>{};
+    var bodyParts = <ApiRequestPart>[];
+    if (name == null) {
+      throw ApiException(400, 'Parameter name is required.');
     }
-    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
+    path = path.replaceAll('{name}', apiClient.serializeToString(name));
 
-    if (this.index == null) {
-      throw new ApiException(400, 'Parameter index is required.');
+    if (index == null) {
+      throw ApiException(400, 'Parameter index is required.');
     }
-    path = path.replaceAll('{index}', apiClient.serializeToString(this.index));
-    path = path.replaceAll('{nodePath}', apiClient.serializeToString(this.nodePath) ?? '');
-    if (this.format != null) {
-      queryParams['format'] = apiClient.serializeToString(this.format);
+    path = path.replaceAll('{index}', apiClient.serializeToString(index));
+    path = path.replaceAll('{nodePath}', apiClient.serializeToString(nodePath) ?? '');
+    if (format != null) {
+      queryParams['format'] = apiClient.serializeToString(format);
     }
     else {
-      throw new ApiException(400, 'Parameter format is required.');
+      throw ApiException(400, 'Parameter format is required.');
     }
 
-    if (this.folder != null) {
-      queryParams['folder'] = apiClient.serializeToString(this.folder);
+    if (folder != null) {
+      queryParams['folder'] = apiClient.serializeToString(folder);
     }
 
-    if (this.storage != null) {
-      queryParams['storage'] = apiClient.serializeToString(this.storage);
+    if (storage != null) {
+      queryParams['storage'] = apiClient.serializeToString(storage);
     }
 
-    if (this.loadEncoding != null) {
-      queryParams['loadEncoding'] = apiClient.serializeToString(this.loadEncoding);
+    if (loadEncoding != null) {
+      queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
     }
 
-    if (this.password != null) {
-      queryParams['password'] = apiClient.serializeToString(this.password);
+    if (password != null) {
+      queryParams['password'] = apiClient.serializeToString(password);
     }
 
-    if (this.fontsLocation != null) {
-      queryParams['fontsLocation'] = apiClient.serializeToString(this.fontsLocation);
+    if (fontsLocation != null) {
+      queryParams['fontsLocation'] = apiClient.serializeToString(fontsLocation);
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('GET', url, headers, body);
+    var url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
+    var body = apiClient.serializeBodyParts(bodyParts, headers);
+    return ApiRequestData('GET', url, headers, body);
   }
 
   @override

@@ -46,47 +46,47 @@ class PageNumber implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('Alignment')) {
-      this.alignment = json['Alignment'];
+      alignment = json['Alignment'];
     } else {
-      this.alignment = null;
+      alignment = null;
     }
 
     if (json.containsKey('Format')) {
-      this.format = json['Format'];
+      format = json['Format'];
     } else {
-      this.format = null;
+      format = null;
     }
 
     if (json.containsKey('IsTop')) {
-      this.isTop = json['IsTop'];
+      isTop = json['IsTop'];
     } else {
-      this.isTop = null;
+      isTop = null;
     }
 
     if (json.containsKey('SetPageNumberOnFirstPage')) {
-      this.setPageNumberOnFirstPage = json['SetPageNumberOnFirstPage'];
+      setPageNumberOnFirstPage = json['SetPageNumberOnFirstPage'];
     } else {
-      this.setPageNumberOnFirstPage = null;
+      setPageNumberOnFirstPage = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.alignment != null) {
-      _result['Alignment'] = this.alignment;
+    var _result = <String, dynamic>{};
+    if (alignment != null) {
+      _result['Alignment'] = alignment;
     }
 
-    if (this.format != null) {
-      _result['Format'] = this.format;
+    if (format != null) {
+      _result['Format'] = format;
     }
 
-    if (this.isTop != null) {
-      _result['IsTop'] = this.isTop;
+    if (isTop != null) {
+      _result['IsTop'] = isTop;
     }
 
-    if (this.setPageNumberOnFirstPage != null) {
-      _result['SetPageNumberOnFirstPage'] = this.setPageNumberOnFirstPage;
+    if (setPageNumberOnFirstPage != null) {
+      _result['SetPageNumberOnFirstPage'] = setPageNumberOnFirstPage;
     }
     return _result;
   }

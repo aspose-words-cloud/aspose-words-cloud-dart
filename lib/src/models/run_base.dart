@@ -37,17 +37,17 @@ class RunBase implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('Text')) {
-      this.text = json['Text'];
+      text = json['Text'];
     } else {
-      this.text = null;
+      text = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.text != null) {
-      _result['Text'] = this.text;
+    var _result = <String, dynamic>{};
+    if (text != null) {
+      _result['Text'] = text;
     }
     return _result;
   }

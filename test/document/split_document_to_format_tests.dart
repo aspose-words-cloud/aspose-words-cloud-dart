@@ -35,26 +35,26 @@ class SplitDocumentToFormatTests
   String remoteDataFolder;
   String localFile;
 
-  SplitDocumentToFormatTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/SplitDocument';
+  SplitDocumentToFormatTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/SplitDocument';
     localFile = 'Common/test_multi_pages.docx';
   }
 
   /// Test for document splitting.
   Future<void> testSplitDocument() async
   {
-    final String remoteFileName = 'TestSplitDocument.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestSplitDocument.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new SplitDocumentRequest(
+    final request = SplitDocumentRequest(
       remoteFileName,
       'text',
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/TestSplitDocument.text',
+      destFileName: context.baseTestOutPath + '/TestSplitDocument.text',
       from: 1,
       to: 2
     );
 
-    await this.context.getApi().splitDocument(request);
+    await context.getApi().splitDocument(request);
   }
 }

@@ -39,26 +39,26 @@ class GetAvailableFontsRequest implements RequestBase {
   /// Folder in filestorage with custom fonts.
   final String fontsLocation;
 
-  GetAvailableFontsRequest({final String this.fontsLocation = null});
+  GetAvailableFontsRequest({final this.fontsLocation});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/fonts/available';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.fontsLocation != null) {
-      queryParams['fontsLocation'] = apiClient.serializeToString(this.fontsLocation);
+    var path = '/words/fonts/available';
+    var queryParams = <String, String>{};
+    var headers = <String, String>{};
+    var bodyParts = <ApiRequestPart>[];
+    if (fontsLocation != null) {
+      queryParams['fontsLocation'] = apiClient.serializeToString(fontsLocation);
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('GET', url, headers, body);
+    var url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
+    var body = apiClient.serializeBodyParts(bodyParts, headers);
+    return ApiRequestData('GET', url, headers, body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = new AvailableFontsResponse();
+    var _result = AvailableFontsResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
     _result.deserialize(_json);

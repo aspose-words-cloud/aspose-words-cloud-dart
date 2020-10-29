@@ -80,139 +80,139 @@ class ImageSaveOptionsData extends FixedPageSaveOptionsData {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('GraphicsQualityOptions')) {
-      this.graphicsQualityOptions = new GraphicsQualityOptionsData();
-      this.graphicsQualityOptions.deserialize(json['GraphicsQualityOptions']);
+      graphicsQualityOptions = GraphicsQualityOptionsData();
+      graphicsQualityOptions.deserialize(json['GraphicsQualityOptions']);
     } else {
-      this.graphicsQualityOptions = null;
+      graphicsQualityOptions = null;
     }
 
     if (json.containsKey('HorizontalResolution')) {
-      this.horizontalResolution = json['HorizontalResolution'];
+      horizontalResolution = json['HorizontalResolution'];
     } else {
-      this.horizontalResolution = null;
+      horizontalResolution = null;
     }
 
     if (json.containsKey('ImageBrightness')) {
-      this.imageBrightness = json['ImageBrightness'];
+      imageBrightness = json['ImageBrightness'];
     } else {
-      this.imageBrightness = null;
+      imageBrightness = null;
     }
 
     if (json.containsKey('ImageColorMode')) {
-      this.imageColorMode = json['ImageColorMode'];
+      imageColorMode = json['ImageColorMode'];
     } else {
-      this.imageColorMode = null;
+      imageColorMode = null;
     }
 
     if (json.containsKey('ImageContrast')) {
-      this.imageContrast = json['ImageContrast'];
+      imageContrast = json['ImageContrast'];
     } else {
-      this.imageContrast = null;
+      imageContrast = null;
     }
 
     if (json.containsKey('PaperColor')) {
-      this.paperColor = json['PaperColor'];
+      paperColor = json['PaperColor'];
     } else {
-      this.paperColor = null;
+      paperColor = null;
     }
 
     if (json.containsKey('PixelFormat')) {
-      this.pixelFormat = json['PixelFormat'];
+      pixelFormat = json['PixelFormat'];
     } else {
-      this.pixelFormat = null;
+      pixelFormat = null;
     }
 
     if (json.containsKey('Resolution')) {
-      this.resolution = json['Resolution'];
+      resolution = json['Resolution'];
     } else {
-      this.resolution = null;
+      resolution = null;
     }
 
     if (json.containsKey('Scale')) {
-      this.scale = json['Scale'];
+      scale = json['Scale'];
     } else {
-      this.scale = null;
+      scale = null;
     }
 
     if (json.containsKey('UseAntiAliasing')) {
-      this.useAntiAliasing = json['UseAntiAliasing'];
+      useAntiAliasing = json['UseAntiAliasing'];
     } else {
-      this.useAntiAliasing = null;
+      useAntiAliasing = null;
     }
 
     if (json.containsKey('UseGdiEmfRenderer')) {
-      this.useGdiEmfRenderer = json['UseGdiEmfRenderer'];
+      useGdiEmfRenderer = json['UseGdiEmfRenderer'];
     } else {
-      this.useGdiEmfRenderer = null;
+      useGdiEmfRenderer = null;
     }
 
     if (json.containsKey('UseHighQualityRendering')) {
-      this.useHighQualityRendering = json['UseHighQualityRendering'];
+      useHighQualityRendering = json['UseHighQualityRendering'];
     } else {
-      this.useHighQualityRendering = null;
+      useHighQualityRendering = null;
     }
 
     if (json.containsKey('VerticalResolution')) {
-      this.verticalResolution = json['VerticalResolution'];
+      verticalResolution = json['VerticalResolution'];
     } else {
-      this.verticalResolution = null;
+      verticalResolution = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.graphicsQualityOptions != null) {
-      _result['GraphicsQualityOptions'] = this.graphicsQualityOptions.serialize();
+    if (graphicsQualityOptions != null) {
+      _result['GraphicsQualityOptions'] = graphicsQualityOptions.serialize();
     }
 
-    if (this.horizontalResolution != null) {
-      _result['HorizontalResolution'] = this.horizontalResolution;
+    if (horizontalResolution != null) {
+      _result['HorizontalResolution'] = horizontalResolution;
     }
 
-    if (this.imageBrightness != null) {
-      _result['ImageBrightness'] = this.imageBrightness;
+    if (imageBrightness != null) {
+      _result['ImageBrightness'] = imageBrightness;
     }
 
-    if (this.imageColorMode != null) {
-      _result['ImageColorMode'] = this.imageColorMode;
+    if (imageColorMode != null) {
+      _result['ImageColorMode'] = imageColorMode;
     }
 
-    if (this.imageContrast != null) {
-      _result['ImageContrast'] = this.imageContrast;
+    if (imageContrast != null) {
+      _result['ImageContrast'] = imageContrast;
     }
 
-    if (this.paperColor != null) {
-      _result['PaperColor'] = this.paperColor;
+    if (paperColor != null) {
+      _result['PaperColor'] = paperColor;
     }
 
-    if (this.pixelFormat != null) {
-      _result['PixelFormat'] = this.pixelFormat;
+    if (pixelFormat != null) {
+      _result['PixelFormat'] = pixelFormat;
     }
 
-    if (this.resolution != null) {
-      _result['Resolution'] = this.resolution;
+    if (resolution != null) {
+      _result['Resolution'] = resolution;
     }
 
-    if (this.scale != null) {
-      _result['Scale'] = this.scale;
+    if (scale != null) {
+      _result['Scale'] = scale;
     }
 
-    if (this.useAntiAliasing != null) {
-      _result['UseAntiAliasing'] = this.useAntiAliasing;
+    if (useAntiAliasing != null) {
+      _result['UseAntiAliasing'] = useAntiAliasing;
     }
 
-    if (this.useGdiEmfRenderer != null) {
-      _result['UseGdiEmfRenderer'] = this.useGdiEmfRenderer;
+    if (useGdiEmfRenderer != null) {
+      _result['UseGdiEmfRenderer'] = useGdiEmfRenderer;
     }
 
-    if (this.useHighQualityRendering != null) {
-      _result['UseHighQualityRendering'] = this.useHighQualityRendering;
+    if (useHighQualityRendering != null) {
+      _result['UseHighQualityRendering'] = useHighQualityRendering;
     }
 
-    if (this.verticalResolution != null) {
-      _result['VerticalResolution'] = this.verticalResolution;
+    if (verticalResolution != null) {
+      _result['VerticalResolution'] = verticalResolution;
     }
     return _result;
   }

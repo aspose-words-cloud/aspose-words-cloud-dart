@@ -39,19 +39,19 @@ class ParagraphLinkCollectionResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('Paragraphs')) {
-      this.paragraphs = new ParagraphLinkCollection();
-      this.paragraphs.deserialize(json['Paragraphs']);
+      paragraphs = ParagraphLinkCollection();
+      paragraphs.deserialize(json['Paragraphs']);
     } else {
-      this.paragraphs = null;
+      paragraphs = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.paragraphs != null) {
-      _result['Paragraphs'] = this.paragraphs.serialize();
+    if (paragraphs != null) {
+      _result['Paragraphs'] = paragraphs.serialize();
     }
     return _result;
   }

@@ -40,27 +40,27 @@ class WatermarkText implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('RotationAngle')) {
-      this.rotationAngle = json['RotationAngle'];
+      rotationAngle = json['RotationAngle'];
     } else {
-      this.rotationAngle = null;
+      rotationAngle = null;
     }
 
     if (json.containsKey('Text')) {
-      this.text = json['Text'];
+      text = json['Text'];
     } else {
-      this.text = null;
+      text = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.rotationAngle != null) {
-      _result['RotationAngle'] = this.rotationAngle;
+    var _result = <String, dynamic>{};
+    if (rotationAngle != null) {
+      _result['RotationAngle'] = rotationAngle;
     }
 
-    if (this.text != null) {
-      _result['Text'] = this.text;
+    if (text != null) {
+      _result['Text'] = text;
     }
     return _result;
   }

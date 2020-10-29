@@ -35,37 +35,37 @@ class HyperlinkTests
   String remoteDataFolder;
   String localFile;
 
-  HyperlinkTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Hyperlink';
+  HyperlinkTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Hyperlink';
     localFile = 'Common/test_doc.docx';
   }
 
   /// Test for getting hyperlink by specified index.
   Future<void> testGetDocumentHyperlinkByIndex() async
   {
-    final String remoteFileName = 'TestGetDocumentHyperlinkByIndex.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetDocumentHyperlinkByIndex.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetDocumentHyperlinkByIndexRequest(
+    final request = GetDocumentHyperlinkByIndexRequest(
       remoteFileName,
       0,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().getDocumentHyperlinkByIndex(request);
+    await context.getApi().getDocumentHyperlinkByIndex(request);
   }
 
   /// Test for getting hyperlinks.
   Future<void> testGetDocumentHyperlinks() async
   {
-    final String remoteFileName = 'TestGetDocumentHyperlinks.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetDocumentHyperlinks.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetDocumentHyperlinksRequest(
+    final request = GetDocumentHyperlinksRequest(
       remoteFileName,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().getDocumentHyperlinks(request);
+    await context.getApi().getDocumentHyperlinks(request);
   }
 }

@@ -40,23 +40,23 @@ class MarkdownSaveOptionsData extends TxtSaveOptionsBaseData {
     super.deserialize(json);
     if (json.containsKey('TableContentAlignment')) {
       switch (json['TableContentAlignment']) {
-        case 'Auto': this.tableContentAlignment = MarkdownSaveOptionsData_TableContentAlignmentEnum.auto; break;
-        case 'Left': this.tableContentAlignment = MarkdownSaveOptionsData_TableContentAlignmentEnum.left; break;
-        case 'Center': this.tableContentAlignment = MarkdownSaveOptionsData_TableContentAlignmentEnum.center; break;
-        case 'Right': this.tableContentAlignment = MarkdownSaveOptionsData_TableContentAlignmentEnum.right; break;
-        default: this.tableContentAlignment = null; break;
+        case 'Auto': tableContentAlignment = MarkdownSaveOptionsData_TableContentAlignmentEnum.auto; break;
+        case 'Left': tableContentAlignment = MarkdownSaveOptionsData_TableContentAlignmentEnum.left; break;
+        case 'Center': tableContentAlignment = MarkdownSaveOptionsData_TableContentAlignmentEnum.center; break;
+        case 'Right': tableContentAlignment = MarkdownSaveOptionsData_TableContentAlignmentEnum.right; break;
+        default: tableContentAlignment = null; break;
       }
     } else {
-      this.tableContentAlignment = null;
+      tableContentAlignment = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.tableContentAlignment != null) {
-      switch (this.tableContentAlignment) {
+    if (tableContentAlignment != null) {
+      switch (tableContentAlignment) {
         case MarkdownSaveOptionsData_TableContentAlignmentEnum.auto: _result['TableContentAlignment'] = 'Auto'; break;
         case MarkdownSaveOptionsData_TableContentAlignmentEnum.left: _result['TableContentAlignment'] = 'Left'; break;
         case MarkdownSaveOptionsData_TableContentAlignmentEnum.center: _result['TableContentAlignment'] = 'Center'; break;

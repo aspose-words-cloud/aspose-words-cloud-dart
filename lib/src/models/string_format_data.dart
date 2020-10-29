@@ -50,74 +50,74 @@ class StringFormatData implements ModelBase {
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('Alignment')) {
       switch (json['Alignment']) {
-        case 'Near': this.alignment = StringFormatData_AlignmentEnum.near; break;
-        case 'Center': this.alignment = StringFormatData_AlignmentEnum.center; break;
-        case 'Far': this.alignment = StringFormatData_AlignmentEnum.far; break;
-        default: this.alignment = null; break;
+        case 'Near': alignment = StringFormatData_AlignmentEnum.near; break;
+        case 'Center': alignment = StringFormatData_AlignmentEnum.center; break;
+        case 'Far': alignment = StringFormatData_AlignmentEnum.far; break;
+        default: alignment = null; break;
       }
     } else {
-      this.alignment = null;
+      alignment = null;
     }
 
     if (json.containsKey('FormatFlags')) {
       switch (json['FormatFlags']) {
-        case 'DirectionRightToLeft': this.formatFlags = StringFormatData_FormatFlagsEnum.directionRightToLeft; break;
-        case 'DirectionVertical': this.formatFlags = StringFormatData_FormatFlagsEnum.directionVertical; break;
-        case 'FitBlackBox': this.formatFlags = StringFormatData_FormatFlagsEnum.fitBlackBox; break;
-        case 'DisplayFormatControl': this.formatFlags = StringFormatData_FormatFlagsEnum.displayFormatControl; break;
-        case 'NoFontFallback': this.formatFlags = StringFormatData_FormatFlagsEnum.noFontFallback; break;
-        case 'MeasureTrailingSpaces': this.formatFlags = StringFormatData_FormatFlagsEnum.measureTrailingSpaces; break;
-        case 'NoWrap': this.formatFlags = StringFormatData_FormatFlagsEnum.noWrap; break;
-        case 'LineLimit': this.formatFlags = StringFormatData_FormatFlagsEnum.lineLimit; break;
-        case 'NoClip': this.formatFlags = StringFormatData_FormatFlagsEnum.noClip; break;
-        default: this.formatFlags = null; break;
+        case 'DirectionRightToLeft': formatFlags = StringFormatData_FormatFlagsEnum.directionRightToLeft; break;
+        case 'DirectionVertical': formatFlags = StringFormatData_FormatFlagsEnum.directionVertical; break;
+        case 'FitBlackBox': formatFlags = StringFormatData_FormatFlagsEnum.fitBlackBox; break;
+        case 'DisplayFormatControl': formatFlags = StringFormatData_FormatFlagsEnum.displayFormatControl; break;
+        case 'NoFontFallback': formatFlags = StringFormatData_FormatFlagsEnum.noFontFallback; break;
+        case 'MeasureTrailingSpaces': formatFlags = StringFormatData_FormatFlagsEnum.measureTrailingSpaces; break;
+        case 'NoWrap': formatFlags = StringFormatData_FormatFlagsEnum.noWrap; break;
+        case 'LineLimit': formatFlags = StringFormatData_FormatFlagsEnum.lineLimit; break;
+        case 'NoClip': formatFlags = StringFormatData_FormatFlagsEnum.noClip; break;
+        default: formatFlags = null; break;
       }
     } else {
-      this.formatFlags = null;
+      formatFlags = null;
     }
 
     if (json.containsKey('HotkeyPrefix')) {
       switch (json['HotkeyPrefix']) {
-        case 'None': this.hotkeyPrefix = StringFormatData_HotkeyPrefixEnum.none; break;
-        case 'Show': this.hotkeyPrefix = StringFormatData_HotkeyPrefixEnum.show; break;
-        case 'Hide': this.hotkeyPrefix = StringFormatData_HotkeyPrefixEnum.hide; break;
-        default: this.hotkeyPrefix = null; break;
+        case 'None': hotkeyPrefix = StringFormatData_HotkeyPrefixEnum.none; break;
+        case 'Show': hotkeyPrefix = StringFormatData_HotkeyPrefixEnum.show; break;
+        case 'Hide': hotkeyPrefix = StringFormatData_HotkeyPrefixEnum.hide; break;
+        default: hotkeyPrefix = null; break;
       }
     } else {
-      this.hotkeyPrefix = null;
+      hotkeyPrefix = null;
     }
 
     if (json.containsKey('LineAlignment')) {
       switch (json['LineAlignment']) {
-        case 'Near': this.lineAlignment = StringFormatData_LineAlignmentEnum.near; break;
-        case 'Center': this.lineAlignment = StringFormatData_LineAlignmentEnum.center; break;
-        case 'Far': this.lineAlignment = StringFormatData_LineAlignmentEnum.far; break;
-        default: this.lineAlignment = null; break;
+        case 'Near': lineAlignment = StringFormatData_LineAlignmentEnum.near; break;
+        case 'Center': lineAlignment = StringFormatData_LineAlignmentEnum.center; break;
+        case 'Far': lineAlignment = StringFormatData_LineAlignmentEnum.far; break;
+        default: lineAlignment = null; break;
       }
     } else {
-      this.lineAlignment = null;
+      lineAlignment = null;
     }
 
     if (json.containsKey('Trimming')) {
       switch (json['Trimming']) {
-        case 'None': this.trimming = StringFormatData_TrimmingEnum.none; break;
-        case 'Character': this.trimming = StringFormatData_TrimmingEnum.character; break;
-        case 'Word': this.trimming = StringFormatData_TrimmingEnum.word; break;
-        case 'EllipsisCharacter': this.trimming = StringFormatData_TrimmingEnum.ellipsisCharacter; break;
-        case 'EllipsisWord': this.trimming = StringFormatData_TrimmingEnum.ellipsisWord; break;
-        case 'EllipsisPath': this.trimming = StringFormatData_TrimmingEnum.ellipsisPath; break;
-        default: this.trimming = null; break;
+        case 'None': trimming = StringFormatData_TrimmingEnum.none; break;
+        case 'Character': trimming = StringFormatData_TrimmingEnum.character; break;
+        case 'Word': trimming = StringFormatData_TrimmingEnum.word; break;
+        case 'EllipsisCharacter': trimming = StringFormatData_TrimmingEnum.ellipsisCharacter; break;
+        case 'EllipsisWord': trimming = StringFormatData_TrimmingEnum.ellipsisWord; break;
+        case 'EllipsisPath': trimming = StringFormatData_TrimmingEnum.ellipsisPath; break;
+        default: trimming = null; break;
       }
     } else {
-      this.trimming = null;
+      trimming = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.alignment != null) {
-      switch (this.alignment) {
+    var _result = <String, dynamic>{};
+    if (alignment != null) {
+      switch (alignment) {
         case StringFormatData_AlignmentEnum.near: _result['Alignment'] = 'Near'; break;
         case StringFormatData_AlignmentEnum.center: _result['Alignment'] = 'Center'; break;
         case StringFormatData_AlignmentEnum.far: _result['Alignment'] = 'Far'; break;
@@ -125,8 +125,8 @@ class StringFormatData implements ModelBase {
       }
     }
 
-    if (this.formatFlags != null) {
-      switch (this.formatFlags) {
+    if (formatFlags != null) {
+      switch (formatFlags) {
         case StringFormatData_FormatFlagsEnum.directionRightToLeft: _result['FormatFlags'] = 'DirectionRightToLeft'; break;
         case StringFormatData_FormatFlagsEnum.directionVertical: _result['FormatFlags'] = 'DirectionVertical'; break;
         case StringFormatData_FormatFlagsEnum.fitBlackBox: _result['FormatFlags'] = 'FitBlackBox'; break;
@@ -140,8 +140,8 @@ class StringFormatData implements ModelBase {
       }
     }
 
-    if (this.hotkeyPrefix != null) {
-      switch (this.hotkeyPrefix) {
+    if (hotkeyPrefix != null) {
+      switch (hotkeyPrefix) {
         case StringFormatData_HotkeyPrefixEnum.none: _result['HotkeyPrefix'] = 'None'; break;
         case StringFormatData_HotkeyPrefixEnum.show: _result['HotkeyPrefix'] = 'Show'; break;
         case StringFormatData_HotkeyPrefixEnum.hide: _result['HotkeyPrefix'] = 'Hide'; break;
@@ -149,8 +149,8 @@ class StringFormatData implements ModelBase {
       }
     }
 
-    if (this.lineAlignment != null) {
-      switch (this.lineAlignment) {
+    if (lineAlignment != null) {
+      switch (lineAlignment) {
         case StringFormatData_LineAlignmentEnum.near: _result['LineAlignment'] = 'Near'; break;
         case StringFormatData_LineAlignmentEnum.center: _result['LineAlignment'] = 'Center'; break;
         case StringFormatData_LineAlignmentEnum.far: _result['LineAlignment'] = 'Far'; break;
@@ -158,8 +158,8 @@ class StringFormatData implements ModelBase {
       }
     }
 
-    if (this.trimming != null) {
-      switch (this.trimming) {
+    if (trimming != null) {
+      switch (trimming) {
         case StringFormatData_TrimmingEnum.none: _result['Trimming'] = 'None'; break;
         case StringFormatData_TrimmingEnum.character: _result['Trimming'] = 'Character'; break;
         case StringFormatData_TrimmingEnum.word: _result['Trimming'] = 'Word'; break;

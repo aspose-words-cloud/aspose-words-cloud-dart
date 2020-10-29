@@ -35,38 +35,38 @@ class RevisionsTests
   String remoteDataFolder;
   String localFile;
 
-  RevisionsTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/Revisions';
+  RevisionsTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/Revisions';
     localFile = 'Common/test_multi_pages.docx';
   }
 
   /// Test for accepting revisions in document.
   Future<void> testAcceptAllRevisions() async
   {
-    final String remoteFileName = 'TestAcceptAllRevisions.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestAcceptAllRevisions.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new AcceptAllRevisionsRequest(
+    final request = AcceptAllRevisionsRequest(
       remoteFileName,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    await this.context.getApi().acceptAllRevisions(request);
+    await context.getApi().acceptAllRevisions(request);
   }
 
   /// Test for rejecting revisions in document.
   Future<void> testRejectAllRevisions() async
   {
-    final String remoteFileName = 'TestRejectAllRevisions.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestRejectAllRevisions.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new RejectAllRevisionsRequest(
+    final request = RejectAllRevisionsRequest(
       remoteFileName,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    await this.context.getApi().rejectAllRevisions(request);
+    await context.getApi().rejectAllRevisions(request);
   }
 }

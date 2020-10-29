@@ -38,18 +38,18 @@ class PsSaveOptionsData extends FixedPageSaveOptionsData {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('UseBookFoldPrintingSettings')) {
-      this.useBookFoldPrintingSettings = json['UseBookFoldPrintingSettings'];
+      useBookFoldPrintingSettings = json['UseBookFoldPrintingSettings'];
     } else {
-      this.useBookFoldPrintingSettings = null;
+      useBookFoldPrintingSettings = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.useBookFoldPrintingSettings != null) {
-      _result['UseBookFoldPrintingSettings'] = this.useBookFoldPrintingSettings;
+    if (useBookFoldPrintingSettings != null) {
+      _result['UseBookFoldPrintingSettings'] = useBookFoldPrintingSettings;
     }
     return _result;
   }

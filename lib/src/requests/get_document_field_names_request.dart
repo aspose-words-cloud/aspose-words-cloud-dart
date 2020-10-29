@@ -54,46 +54,46 @@ class GetDocumentFieldNamesRequest implements RequestBase {
   /// If true, result includes "mustache" field names.
   final bool useNonMergeFields;
 
-  GetDocumentFieldNamesRequest(final String this.name, {final String this.folder = null, final String this.storage = null, final String this.loadEncoding = null, final String this.password = null, final bool this.useNonMergeFields = null});
+  GetDocumentFieldNamesRequest(final this.name, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.useNonMergeFields});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/{name}/mailMerge/FieldNames';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.name == null) {
-      throw new ApiException(400, 'Parameter name is required.');
+    var path = '/words/{name}/mailMerge/FieldNames';
+    var queryParams = <String, String>{};
+    var headers = <String, String>{};
+    var bodyParts = <ApiRequestPart>[];
+    if (name == null) {
+      throw ApiException(400, 'Parameter name is required.');
     }
-    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
-    if (this.folder != null) {
-      queryParams['folder'] = apiClient.serializeToString(this.folder);
-    }
-
-    if (this.storage != null) {
-      queryParams['storage'] = apiClient.serializeToString(this.storage);
+    path = path.replaceAll('{name}', apiClient.serializeToString(name));
+    if (folder != null) {
+      queryParams['folder'] = apiClient.serializeToString(folder);
     }
 
-    if (this.loadEncoding != null) {
-      queryParams['loadEncoding'] = apiClient.serializeToString(this.loadEncoding);
+    if (storage != null) {
+      queryParams['storage'] = apiClient.serializeToString(storage);
     }
 
-    if (this.password != null) {
-      queryParams['password'] = apiClient.serializeToString(this.password);
+    if (loadEncoding != null) {
+      queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
     }
 
-    if (this.useNonMergeFields != null) {
-      queryParams['useNonMergeFields'] = apiClient.serializeToString(this.useNonMergeFields);
+    if (password != null) {
+      queryParams['password'] = apiClient.serializeToString(password);
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('GET', url, headers, body);
+    if (useNonMergeFields != null) {
+      queryParams['useNonMergeFields'] = apiClient.serializeToString(useNonMergeFields);
+    }
+
+    var url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
+    var body = apiClient.serializeBodyParts(bodyParts, headers);
+    return ApiRequestData('GET', url, headers, body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = new FieldNamesResponse();
+    var _result = FieldNamesResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
     _result.deserialize(_json);

@@ -39,23 +39,23 @@ class TableCell extends NodeLink {
     super.deserialize(json);
     if (json.containsKey('ChildNodes')) {
       // Array processing
-      this.childNodes = new List<NodeLink>();
+      childNodes = <NodeLink>[];
       for(final _element in json['ChildNodes']) {
-        var _elementValue = new NodeLink();
+        var _elementValue = NodeLink();
         _elementValue.deserialize(_element);
-        this.childNodes.add(_elementValue);
+        childNodes.add(_elementValue);
       }
     } else {
-      this.childNodes = null;
+      childNodes = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.childNodes != null) {
-      _result['ChildNodes'] = this.childNodes.map((_element) => _element.serialize()).toList();
+    if (childNodes != null) {
+      _result['ChildNodes'] = childNodes.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

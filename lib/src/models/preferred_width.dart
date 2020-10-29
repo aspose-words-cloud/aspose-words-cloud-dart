@@ -41,27 +41,27 @@ class PreferredWidth implements ModelBase {
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('Type')) {
       switch (json['Type']) {
-        case 'Auto': this.type = PreferredWidth_TypeEnum.auto; break;
-        case 'Percent': this.type = PreferredWidth_TypeEnum.percent; break;
-        case 'Points': this.type = PreferredWidth_TypeEnum.points; break;
-        default: this.type = null; break;
+        case 'Auto': type = PreferredWidth_TypeEnum.auto; break;
+        case 'Percent': type = PreferredWidth_TypeEnum.percent; break;
+        case 'Points': type = PreferredWidth_TypeEnum.points; break;
+        default: type = null; break;
       }
     } else {
-      this.type = null;
+      type = null;
     }
 
     if (json.containsKey('Value')) {
-      this.value = json['Value'];
+      value = json['Value'];
     } else {
-      this.value = null;
+      value = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.type != null) {
-      switch (this.type) {
+    var _result = <String, dynamic>{};
+    if (type != null) {
+      switch (type) {
         case PreferredWidth_TypeEnum.auto: _result['Type'] = 'Auto'; break;
         case PreferredWidth_TypeEnum.percent: _result['Type'] = 'Percent'; break;
         case PreferredWidth_TypeEnum.points: _result['Type'] = 'Points'; break;
@@ -69,8 +69,8 @@ class PreferredWidth implements ModelBase {
       }
     }
 
-    if (this.value != null) {
-      _result['Value'] = this.value;
+    if (value != null) {
+      _result['Value'] = value;
     }
     return _result;
   }

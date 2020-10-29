@@ -56,80 +56,80 @@ class ListInfo extends LinkElement {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('IsListStyleDefinition')) {
-      this.isListStyleDefinition = json['IsListStyleDefinition'];
+      isListStyleDefinition = json['IsListStyleDefinition'];
     } else {
-      this.isListStyleDefinition = null;
+      isListStyleDefinition = null;
     }
 
     if (json.containsKey('IsListStyleReference')) {
-      this.isListStyleReference = json['IsListStyleReference'];
+      isListStyleReference = json['IsListStyleReference'];
     } else {
-      this.isListStyleReference = null;
+      isListStyleReference = null;
     }
 
     if (json.containsKey('IsMultiLevel')) {
-      this.isMultiLevel = json['IsMultiLevel'];
+      isMultiLevel = json['IsMultiLevel'];
     } else {
-      this.isMultiLevel = null;
+      isMultiLevel = null;
     }
 
     if (json.containsKey('IsRestartAtEachSection')) {
-      this.isRestartAtEachSection = json['IsRestartAtEachSection'];
+      isRestartAtEachSection = json['IsRestartAtEachSection'];
     } else {
-      this.isRestartAtEachSection = null;
+      isRestartAtEachSection = null;
     }
 
     if (json.containsKey('ListId')) {
-      this.listId = json['ListId'];
+      listId = json['ListId'];
     } else {
-      this.listId = null;
+      listId = null;
     }
 
     if (json.containsKey('ListLevels')) {
-      this.listLevels = new ListLevels();
-      this.listLevels.deserialize(json['ListLevels']);
+      listLevels = ListLevels();
+      listLevels.deserialize(json['ListLevels']);
     } else {
-      this.listLevels = null;
+      listLevels = null;
     }
 
     if (json.containsKey('Style')) {
-      this.style = new Style();
-      this.style.deserialize(json['Style']);
+      style = Style();
+      style.deserialize(json['Style']);
     } else {
-      this.style = null;
+      style = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.isListStyleDefinition != null) {
-      _result['IsListStyleDefinition'] = this.isListStyleDefinition;
+    if (isListStyleDefinition != null) {
+      _result['IsListStyleDefinition'] = isListStyleDefinition;
     }
 
-    if (this.isListStyleReference != null) {
-      _result['IsListStyleReference'] = this.isListStyleReference;
+    if (isListStyleReference != null) {
+      _result['IsListStyleReference'] = isListStyleReference;
     }
 
-    if (this.isMultiLevel != null) {
-      _result['IsMultiLevel'] = this.isMultiLevel;
+    if (isMultiLevel != null) {
+      _result['IsMultiLevel'] = isMultiLevel;
     }
 
-    if (this.isRestartAtEachSection != null) {
-      _result['IsRestartAtEachSection'] = this.isRestartAtEachSection;
+    if (isRestartAtEachSection != null) {
+      _result['IsRestartAtEachSection'] = isRestartAtEachSection;
     }
 
-    if (this.listId != null) {
-      _result['ListId'] = this.listId;
+    if (listId != null) {
+      _result['ListId'] = listId;
     }
 
-    if (this.listLevels != null) {
-      _result['ListLevels'] = this.listLevels.serialize();
+    if (listLevels != null) {
+      _result['ListLevels'] = listLevels.serialize();
     }
 
-    if (this.style != null) {
-      _result['Style'] = this.style.serialize();
+    if (style != null) {
+      _result['Style'] = style.serialize();
     }
     return _result;
   }

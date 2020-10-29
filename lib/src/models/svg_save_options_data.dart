@@ -53,68 +53,68 @@ class SvgSaveOptionsData extends FixedPageSaveOptionsData {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('ExportEmbeddedImages')) {
-      this.exportEmbeddedImages = json['ExportEmbeddedImages'];
+      exportEmbeddedImages = json['ExportEmbeddedImages'];
     } else {
-      this.exportEmbeddedImages = null;
+      exportEmbeddedImages = null;
     }
 
     if (json.containsKey('FitToViewPort')) {
-      this.fitToViewPort = json['FitToViewPort'];
+      fitToViewPort = json['FitToViewPort'];
     } else {
-      this.fitToViewPort = null;
+      fitToViewPort = null;
     }
 
     if (json.containsKey('ResourcesFolder')) {
-      this.resourcesFolder = json['ResourcesFolder'];
+      resourcesFolder = json['ResourcesFolder'];
     } else {
-      this.resourcesFolder = null;
+      resourcesFolder = null;
     }
 
     if (json.containsKey('ResourcesFolderAlias')) {
-      this.resourcesFolderAlias = json['ResourcesFolderAlias'];
+      resourcesFolderAlias = json['ResourcesFolderAlias'];
     } else {
-      this.resourcesFolderAlias = null;
+      resourcesFolderAlias = null;
     }
 
     if (json.containsKey('ShowPageBorder')) {
-      this.showPageBorder = json['ShowPageBorder'];
+      showPageBorder = json['ShowPageBorder'];
     } else {
-      this.showPageBorder = null;
+      showPageBorder = null;
     }
 
     if (json.containsKey('TextOutputMode')) {
-      this.textOutputMode = json['TextOutputMode'];
+      textOutputMode = json['TextOutputMode'];
     } else {
-      this.textOutputMode = null;
+      textOutputMode = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.exportEmbeddedImages != null) {
-      _result['ExportEmbeddedImages'] = this.exportEmbeddedImages;
+    if (exportEmbeddedImages != null) {
+      _result['ExportEmbeddedImages'] = exportEmbeddedImages;
     }
 
-    if (this.fitToViewPort != null) {
-      _result['FitToViewPort'] = this.fitToViewPort;
+    if (fitToViewPort != null) {
+      _result['FitToViewPort'] = fitToViewPort;
     }
 
-    if (this.resourcesFolder != null) {
-      _result['ResourcesFolder'] = this.resourcesFolder;
+    if (resourcesFolder != null) {
+      _result['ResourcesFolder'] = resourcesFolder;
     }
 
-    if (this.resourcesFolderAlias != null) {
-      _result['ResourcesFolderAlias'] = this.resourcesFolderAlias;
+    if (resourcesFolderAlias != null) {
+      _result['ResourcesFolderAlias'] = resourcesFolderAlias;
     }
 
-    if (this.showPageBorder != null) {
-      _result['ShowPageBorder'] = this.showPageBorder;
+    if (showPageBorder != null) {
+      _result['ShowPageBorder'] = showPageBorder;
     }
 
-    if (this.textOutputMode != null) {
-      _result['TextOutputMode'] = this.textOutputMode;
+    if (textOutputMode != null) {
+      _result['TextOutputMode'] = textOutputMode;
     }
     return _result;
   }

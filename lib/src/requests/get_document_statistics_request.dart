@@ -60,54 +60,54 @@ class GetDocumentStatisticsRequest implements RequestBase {
   /// Support including/excluding shape's text from the WordCount. Default value is "false".
   final bool includeTextInShapes;
 
-  GetDocumentStatisticsRequest(final String this.name, {final String this.folder = null, final String this.storage = null, final String this.loadEncoding = null, final String this.password = null, final bool this.includeComments = null, final bool this.includeFootnotes = null, final bool this.includeTextInShapes = null});
+  GetDocumentStatisticsRequest(final this.name, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.includeComments, final this.includeFootnotes, final this.includeTextInShapes});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/{name}/statistics';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.name == null) {
-      throw new ApiException(400, 'Parameter name is required.');
+    var path = '/words/{name}/statistics';
+    var queryParams = <String, String>{};
+    var headers = <String, String>{};
+    var bodyParts = <ApiRequestPart>[];
+    if (name == null) {
+      throw ApiException(400, 'Parameter name is required.');
     }
-    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
-    if (this.folder != null) {
-      queryParams['folder'] = apiClient.serializeToString(this.folder);
-    }
-
-    if (this.storage != null) {
-      queryParams['storage'] = apiClient.serializeToString(this.storage);
+    path = path.replaceAll('{name}', apiClient.serializeToString(name));
+    if (folder != null) {
+      queryParams['folder'] = apiClient.serializeToString(folder);
     }
 
-    if (this.loadEncoding != null) {
-      queryParams['loadEncoding'] = apiClient.serializeToString(this.loadEncoding);
+    if (storage != null) {
+      queryParams['storage'] = apiClient.serializeToString(storage);
     }
 
-    if (this.password != null) {
-      queryParams['password'] = apiClient.serializeToString(this.password);
+    if (loadEncoding != null) {
+      queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
     }
 
-    if (this.includeComments != null) {
-      queryParams['includeComments'] = apiClient.serializeToString(this.includeComments);
+    if (password != null) {
+      queryParams['password'] = apiClient.serializeToString(password);
     }
 
-    if (this.includeFootnotes != null) {
-      queryParams['includeFootnotes'] = apiClient.serializeToString(this.includeFootnotes);
+    if (includeComments != null) {
+      queryParams['includeComments'] = apiClient.serializeToString(includeComments);
     }
 
-    if (this.includeTextInShapes != null) {
-      queryParams['includeTextInShapes'] = apiClient.serializeToString(this.includeTextInShapes);
+    if (includeFootnotes != null) {
+      queryParams['includeFootnotes'] = apiClient.serializeToString(includeFootnotes);
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('GET', url, headers, body);
+    if (includeTextInShapes != null) {
+      queryParams['includeTextInShapes'] = apiClient.serializeToString(includeTextInShapes);
+    }
+
+    var url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
+    var body = apiClient.serializeBodyParts(bodyParts, headers);
+    return ApiRequestData('GET', url, headers, body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = new StatDataResponse();
+    var _result = StatDataResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
     _result.deserialize(_json);

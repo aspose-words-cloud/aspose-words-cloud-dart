@@ -39,23 +39,23 @@ class ParagraphLinkCollection extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('ParagraphLinkList')) {
       // Array processing
-      this.paragraphLinkList = new List<ParagraphLink>();
+      paragraphLinkList = <ParagraphLink>[];
       for(final _element in json['ParagraphLinkList']) {
-        var _elementValue = new ParagraphLink();
+        var _elementValue = ParagraphLink();
         _elementValue.deserialize(_element);
-        this.paragraphLinkList.add(_elementValue);
+        paragraphLinkList.add(_elementValue);
       }
     } else {
-      this.paragraphLinkList = null;
+      paragraphLinkList = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.paragraphLinkList != null) {
-      _result['ParagraphLinkList'] = this.paragraphLinkList.map((_element) => _element.serialize()).toList();
+    if (paragraphLinkList != null) {
+      _result['ParagraphLinkList'] = paragraphLinkList.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

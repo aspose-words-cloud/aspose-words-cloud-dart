@@ -37,17 +37,17 @@ class ListUpdate implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('IsRestartAtEachSection')) {
-      this.isRestartAtEachSection = json['IsRestartAtEachSection'];
+      isRestartAtEachSection = json['IsRestartAtEachSection'];
     } else {
-      this.isRestartAtEachSection = null;
+      isRestartAtEachSection = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.isRestartAtEachSection != null) {
-      _result['IsRestartAtEachSection'] = this.isRestartAtEachSection;
+    var _result = <String, dynamic>{};
+    if (isRestartAtEachSection != null) {
+      _result['IsRestartAtEachSection'] = isRestartAtEachSection;
     }
     return _result;
   }

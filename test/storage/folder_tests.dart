@@ -35,8 +35,8 @@ class FolderTests
   String remoteDataFolder;
   String localFile;
 
-  FolderTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/Storage';
+  FolderTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/Storage';
     localFile = 'Common/test_multi_pages.docx';
   }
 
@@ -44,61 +44,61 @@ class FolderTests
   Future<void> testCreateFolder() async
   {
 
-    final request = new CreateFolderRequest(
+    final request = CreateFolderRequest(
       remoteDataFolder + '/TestCreateFolder'
     );
 
-    await this.context.getApi().createFolder(request);
+    await context.getApi().createFolder(request);
   }
 
   /// Test for delete folder.
   Future<void> testDeleteFolder() async
   {
-    final String testDeleteFolder = remoteDataFolder + '/TestDeleteFolder';
-    await this.context.uploadFile(localFile, testDeleteFolder + '/TestDeleteFolder.docx');
+    final testDeleteFolder = remoteDataFolder + '/TestDeleteFolder';
+    await context.uploadFile(localFile, testDeleteFolder + '/TestDeleteFolder.docx');
 
-    final request = new DeleteFolderRequest(
+    final request = DeleteFolderRequest(
       testDeleteFolder
     );
 
-    await this.context.getApi().deleteFolder(request);
+    await context.getApi().deleteFolder(request);
   }
 
   /// Test for get file list of folder.
   Future<void> testGetFilesList() async
   {
 
-    final request = new GetFilesListRequest(
+    final request = GetFilesListRequest(
       remoteDataFolder
     );
 
-    await this.context.getApi().getFilesList(request);
+    await context.getApi().getFilesList(request);
   }
 
   /// Test for copy folder.
   Future<void> testCopyFolder() async
   {
-    final String folderToCopy = remoteDataFolder + '/TestCopyFolder';
-    await this.context.uploadFile(localFile, folderToCopy + 'Src/TestCopyFolderSrc.docx');
+    final folderToCopy = remoteDataFolder + '/TestCopyFolder';
+    await context.uploadFile(localFile, folderToCopy + 'Src/TestCopyFolderSrc.docx');
 
-    final request = new CopyFolderRequest(
+    final request = CopyFolderRequest(
       folderToCopy + 'Dest',
       folderToCopy + 'Src'
     );
 
-    await this.context.getApi().copyFolder(request);
+    await context.getApi().copyFolder(request);
   }
 
   /// Test for move folder.
   Future<void> testMoveFolder() async
   {
-    await this.context.uploadFile(localFile, remoteDataFolder + '/TestMoveFolderSrc/TestMoveFolderSrc.docx');
+    await context.uploadFile(localFile, remoteDataFolder + '/TestMoveFolderSrc/TestMoveFolderSrc.docx');
 
-    final request = new MoveFolderRequest(
-      this.context.baseTestOutPath + '/TestMoveFolderDest_' + this.context.createRandomGuid(),
+    final request = MoveFolderRequest(
+      context.baseTestOutPath + '/TestMoveFolderDest_' + context.createRandomGuid(),
       remoteDataFolder + '/TestMoveFolderSrc'
     );
 
-    await this.context.getApi().moveFolder(request);
+    await context.getApi().moveFolder(request);
   }
 }

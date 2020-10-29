@@ -46,47 +46,47 @@ class CsvDataLoadOptions implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('CommentChar')) {
-      this.commentChar = json['CommentChar'];
+      commentChar = json['CommentChar'];
     } else {
-      this.commentChar = null;
+      commentChar = null;
     }
 
     if (json.containsKey('Delimiter')) {
-      this.delimiter = json['Delimiter'];
+      delimiter = json['Delimiter'];
     } else {
-      this.delimiter = null;
+      delimiter = null;
     }
 
     if (json.containsKey('HasHeaders')) {
-      this.hasHeaders = json['HasHeaders'];
+      hasHeaders = json['HasHeaders'];
     } else {
-      this.hasHeaders = null;
+      hasHeaders = null;
     }
 
     if (json.containsKey('QuoteChar')) {
-      this.quoteChar = json['QuoteChar'];
+      quoteChar = json['QuoteChar'];
     } else {
-      this.quoteChar = null;
+      quoteChar = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.commentChar != null) {
-      _result['CommentChar'] = this.commentChar;
+    var _result = <String, dynamic>{};
+    if (commentChar != null) {
+      _result['CommentChar'] = commentChar;
     }
 
-    if (this.delimiter != null) {
-      _result['Delimiter'] = this.delimiter;
+    if (delimiter != null) {
+      _result['Delimiter'] = delimiter;
     }
 
-    if (this.hasHeaders != null) {
-      _result['HasHeaders'] = this.hasHeaders;
+    if (hasHeaders != null) {
+      _result['HasHeaders'] = hasHeaders;
     }
 
-    if (this.quoteChar != null) {
-      _result['QuoteChar'] = this.quoteChar;
+    if (quoteChar != null) {
+      _result['QuoteChar'] = quoteChar;
     }
     return _result;
   }

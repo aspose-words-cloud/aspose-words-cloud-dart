@@ -35,33 +35,33 @@ class AppendDocumentTests
   String remoteDataFolder;
   String localFile;
 
-  AppendDocumentTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/AppendDocument';
+  AppendDocumentTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/AppendDocument';
     localFile = 'Common/test_multi_pages.docx';
   }
 
   /// Test for appending document.
   Future<void> testAppendDocument() async
   {
-    final String remoteFileName = 'TestAppendDocument.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestDocumentListDocumentEntries0 = new DocumentEntry();
+    final remoteFileName = 'TestAppendDocument.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestDocumentListDocumentEntries0 = DocumentEntry();
     requestDocumentListDocumentEntries0.href = remoteDataFolder + '/' + remoteFileName;
     requestDocumentListDocumentEntries0.importFormatMode = 'KeepSourceFormatting';
 
     var requestDocumentListDocumentEntries = [
       requestDocumentListDocumentEntries0];
 
-    var requestDocumentList = new DocumentEntryList();
+    var requestDocumentList = DocumentEntryList();
     requestDocumentList.documentEntries = requestDocumentListDocumentEntries;
 
-    final request = new AppendDocumentRequest(
+    final request = AppendDocumentRequest(
       remoteFileName,
       requestDocumentList,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    await this.context.getApi().appendDocument(request);
+    await context.getApi().appendDocument(request);
   }
 }

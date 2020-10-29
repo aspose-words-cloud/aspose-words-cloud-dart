@@ -39,19 +39,19 @@ class FieldsResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('Fields')) {
-      this.fields = new FieldCollection();
-      this.fields.deserialize(json['Fields']);
+      fields = FieldCollection();
+      fields.deserialize(json['Fields']);
     } else {
-      this.fields = null;
+      fields = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.fields != null) {
-      _result['Fields'] = this.fields.serialize();
+    if (fields != null) {
+      _result['Fields'] = fields.serialize();
     }
     return _result;
   }

@@ -39,19 +39,19 @@ class FontResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('Font')) {
-      this.font = new Font();
-      this.font.deserialize(json['Font']);
+      font = Font();
+      font.deserialize(json['Font']);
     } else {
-      this.font = null;
+      font = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.font != null) {
-      _result['Font'] = this.font.serialize();
+    if (font != null) {
+      _result['Font'] = font.serialize();
     }
     return _result;
   }

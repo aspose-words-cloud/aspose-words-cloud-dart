@@ -33,16 +33,16 @@ class Configuration {
   final String baseUrl;
   final bool debugMode;
 
-  Configuration(final String this.appKey, final String this.appSid, {final String this.baseUrl = 'https://api.aspose.cloud', final bool this.debugMode = false});
+  Configuration(final this.appKey, final this.appSid, {final this.baseUrl = 'https://api.aspose.cloud', final this.debugMode = false});
 
   Configuration.fromJson(final Map<String, dynamic> json)
-    : this.appKey = json['AppKey'],
-      this.appSid = json['AppSid'],
-      this.baseUrl = json['BaseUrl'],
-      this.debugMode = json['DebugMode'];
+    : appKey = json['AppKey'],
+      appSid = json['AppSid'],
+      baseUrl = json['BaseUrl'],
+      debugMode = json['DebugMode'];
 
   String getApiRootUrl()
   {
-    return this.baseUrl + "/v4.0";
+    return '${baseUrl}/v4.0';
   }
 }

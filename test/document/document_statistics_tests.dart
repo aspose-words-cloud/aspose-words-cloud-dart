@@ -35,22 +35,22 @@ class DocumentStatisticsTests
   String remoteDataFolder;
   String localFile;
 
-  DocumentStatisticsTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/Statistics';
+  DocumentStatisticsTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/Statistics';
     localFile = 'Common/test_multi_pages.docx';
   }
 
   /// Test for document classification.
   Future<void> testGetDocumentStatistics() async
   {
-    final String remoteFileName = 'TestGetDocumentStatistics.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetDocumentStatistics.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetDocumentStatisticsRequest(
+    final request = GetDocumentStatisticsRequest(
       remoteFileName,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().getDocumentStatistics(request);
+    await context.getApi().getDocumentStatistics(request);
   }
 }

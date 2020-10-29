@@ -35,25 +35,25 @@ class CompatibilityTests
   String remoteDataFolder;
   String localFile;
 
-  CompatibilityTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/Compatibility';
+  CompatibilityTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/Compatibility';
     localFile = 'Common/test_multi_pages.docx';
   }
 
   /// Test for optimize document to specific MS Word version.
   Future<void> testOptimizeDocument() async
   {
-    final String remoteFileName = 'TestOptimizeDocument.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestOptions = new OptimizationOptions();
+    final remoteFileName = 'TestOptimizeDocument.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestOptions = OptimizationOptions();
     requestOptions.msWordVersion = OptimizationOptions_MsWordVersionEnum.word2002;
 
-    final request = new OptimizeDocumentRequest(
+    final request = OptimizeDocumentRequest(
       remoteFileName,
       requestOptions,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().optimizeDocument(request);
+    await context.getApi().optimizeDocument(request);
   }
 }

@@ -35,52 +35,52 @@ class SectionTests
   String remoteDataFolder;
   String localFile;
 
-  SectionTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Section';
+  SectionTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Section';
     localFile = 'Common/test_multi_pages.docx';
   }
 
   /// Test for getting section by index.
   Future<void> testGetSection() async
   {
-    final String remoteFileName = 'TestGetSection.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetSection.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetSectionRequest(
+    final request = GetSectionRequest(
       remoteFileName,
       0,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().getSection(request);
+    await context.getApi().getSection(request);
   }
 
   /// Test for getting sections.
   Future<void> testGetSections() async
   {
-    final String remoteFileName = 'TestGetSections.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetSections.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetSectionsRequest(
+    final request = GetSectionsRequest(
       remoteFileName,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().getSections(request);
+    await context.getApi().getSections(request);
   }
 
   /// Test for delete a section.
   Future<void> testDeleteSection() async
   {
-    final String remoteFileName = 'TestDeleteSection.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestDeleteSection.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new DeleteSectionRequest(
+    final request = DeleteSectionRequest(
       remoteFileName,
       0,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().deleteSection(request);
+    await context.getApi().deleteSection(request);
   }
 }

@@ -39,23 +39,23 @@ class ListLevels extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('ListLevel')) {
       // Array processing
-      this.listLevel = new List<ListLevel>();
+      listLevel = <ListLevel>[];
       for(final _element in json['ListLevel']) {
-        var _elementValue = new ListLevel();
+        var _elementValue = ListLevel();
         _elementValue.deserialize(_element);
-        this.listLevel.add(_elementValue);
+        listLevel.add(_elementValue);
       }
     } else {
-      this.listLevel = null;
+      listLevel = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.listLevel != null) {
-      _result['ListLevel'] = this.listLevel.map((_element) => _element.serialize()).toList();
+    if (listLevel != null) {
+      _result['ListLevel'] = listLevel.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

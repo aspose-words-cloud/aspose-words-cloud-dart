@@ -35,176 +35,176 @@ class TableTests
   String remoteDataFolder;
   String localFile;
 
-  TableTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Tables';
+  TableTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Tables';
     localFile = 'DocumentElements/Tables/TablesGet.docx';
   }
 
   /// Test for getting tables.
   Future<void> testGetTables() async
   {
-    final String remoteFileName = 'TestGetTables.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetTables.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetTablesRequest(
+    final request = GetTablesRequest(
       remoteFileName,
       nodePath: '',
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().getTables(request);
+    await context.getApi().getTables(request);
   }
 
   /// Test for getting tables without node path.
   Future<void> testGetTablesWithoutNodePath() async
   {
-    final String remoteFileName = 'TestGetTablesWithoutNodePath.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetTablesWithoutNodePath.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetTablesRequest(
+    final request = GetTablesRequest(
       remoteFileName,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().getTables(request);
+    await context.getApi().getTables(request);
   }
 
   /// Test for getting table.
   Future<void> testGetTable() async
   {
-    final String remoteFileName = 'TestGetTable.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetTable.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetTableRequest(
+    final request = GetTableRequest(
       remoteFileName,
       1,
       nodePath: '',
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().getTable(request);
+    await context.getApi().getTable(request);
   }
 
   /// Test for getting table without node path.
   Future<void> testGetTableWithoutNodePath() async
   {
-    final String remoteFileName = 'TestGetTableWithoutNodePath.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetTableWithoutNodePath.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetTableRequest(
+    final request = GetTableRequest(
       remoteFileName,
       1,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().getTable(request);
+    await context.getApi().getTable(request);
   }
 
   /// Test for deleting table.
   Future<void> testDeleteTable() async
   {
-    final String remoteFileName = 'TestDeleteTable.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestDeleteTable.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new DeleteTableRequest(
+    final request = DeleteTableRequest(
       remoteFileName,
       1,
       nodePath: '',
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().deleteTable(request);
+    await context.getApi().deleteTable(request);
   }
 
   /// Test for deleting table without node path.
   Future<void> testDeleteTableWithoutNodePath() async
   {
-    final String remoteFileName = 'TestDeleteTableWithoutNodePath.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestDeleteTableWithoutNodePath.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new DeleteTableRequest(
+    final request = DeleteTableRequest(
       remoteFileName,
       1,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().deleteTable(request);
+    await context.getApi().deleteTable(request);
   }
 
   /// Test for adding table.
   Future<void> testInsertTable() async
   {
-    final String remoteFileName = 'TestInsertTable.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestTable = new TableInsert();
+    final remoteFileName = 'TestInsertTable.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestTable = TableInsert();
     requestTable.columnsCount = 5;
     requestTable.rowsCount = 4;
 
-    final request = new InsertTableRequest(
+    final request = InsertTableRequest(
       remoteFileName,
       requestTable,
       nodePath: '',
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().insertTable(request);
+    await context.getApi().insertTable(request);
   }
 
   /// Test for adding table without node path.
   Future<void> testInsertTableWithoutNodePath() async
   {
-    final String remoteFileName = 'TestInsertTableWithoutNodePath.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestTable = new TableInsert();
+    final remoteFileName = 'TestInsertTableWithoutNodePath.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestTable = TableInsert();
     requestTable.columnsCount = 5;
     requestTable.rowsCount = 4;
 
-    final request = new InsertTableRequest(
+    final request = InsertTableRequest(
       remoteFileName,
       requestTable,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().insertTable(request);
+    await context.getApi().insertTable(request);
   }
 
   /// Test for getting document properties.
   Future<void> testGetTableProperties() async
   {
-    final String remoteFileName = 'TestGetTableProperties.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetTableProperties.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetTablePropertiesRequest(
+    final request = GetTablePropertiesRequest(
       remoteFileName,
       1,
       nodePath: '',
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().getTableProperties(request);
+    await context.getApi().getTableProperties(request);
   }
 
   /// Test for getting document properties without node path.
   Future<void> testGetTablePropertiesWithoutNodePath() async
   {
-    final String remoteFileName = 'TestGetTablePropertiesWithoutNodePath.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetTablePropertiesWithoutNodePath.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetTablePropertiesRequest(
+    final request = GetTablePropertiesRequest(
       remoteFileName,
       1,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().getTableProperties(request);
+    await context.getApi().getTableProperties(request);
   }
 
   /// Test for updating table properties.
   Future<void> testUpdateTableProperties() async
   {
-    final String remoteFileName = 'TestUpdateTableProperties.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestProperties = new TableProperties();
+    final remoteFileName = 'TestUpdateTableProperties.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestProperties = TableProperties();
     requestProperties.alignment = TableProperties_AlignmentEnum.right;
     requestProperties.allowAutoFit = false;
     requestProperties.bidi = true;
@@ -212,7 +212,7 @@ class TableTests
     requestProperties.cellSpacing = 2;
     requestProperties.styleOptions = TableProperties_StyleOptionsEnum.columnBands;
 
-    final request = new UpdateTablePropertiesRequest(
+    final request = UpdateTablePropertiesRequest(
       remoteFileName,
       requestProperties,
       1,
@@ -220,15 +220,15 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().updateTableProperties(request);
+    await context.getApi().updateTableProperties(request);
   }
 
   /// Test for updating table properties without node path.
   Future<void> testUpdateTablePropertiesWithoutNodePath() async
   {
-    final String remoteFileName = 'TestUpdateTablePropertiesWithoutNodePath.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestProperties = new TableProperties();
+    final remoteFileName = 'TestUpdateTablePropertiesWithoutNodePath.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestProperties = TableProperties();
     requestProperties.alignment = TableProperties_AlignmentEnum.right;
     requestProperties.allowAutoFit = false;
     requestProperties.bidi = true;
@@ -236,94 +236,94 @@ class TableTests
     requestProperties.cellSpacing = 2;
     requestProperties.styleOptions = TableProperties_StyleOptionsEnum.columnBands;
 
-    final request = new UpdateTablePropertiesRequest(
+    final request = UpdateTablePropertiesRequest(
       remoteFileName,
       requestProperties,
       1,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().updateTableProperties(request);
+    await context.getApi().updateTableProperties(request);
   }
 
   /// Test for getting table row.
   Future<void> testGetTableRow() async
   {
-    final String remoteFileName = 'TestGetTableRow.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetTableRow.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetTableRowRequest(
+    final request = GetTableRowRequest(
       remoteFileName,
       'tables/1',
       0,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().getTableRow(request);
+    await context.getApi().getTableRow(request);
   }
 
   /// Test for deleting table row.
   Future<void> testDeleteTableRow() async
   {
-    final String remoteFileName = 'TestDeleteTableRow.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestDeleteTableRow.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new DeleteTableRowRequest(
+    final request = DeleteTableRowRequest(
       remoteFileName,
       'tables/1',
       0,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().deleteTableRow(request);
+    await context.getApi().deleteTableRow(request);
   }
 
   /// Test for adding row.
   Future<void> testInsertTableRow() async
   {
-    final String remoteFileName = 'TestInsertTableRow.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestRow = new TableRowInsert();
+    final remoteFileName = 'TestInsertTableRow.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestRow = TableRowInsert();
     requestRow.columnsCount = 5;
 
-    final request = new InsertTableRowRequest(
+    final request = InsertTableRowRequest(
       remoteFileName,
       requestRow,
       'sections/0/tables/2',
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().insertTableRow(request);
+    await context.getApi().insertTableRow(request);
   }
 
   /// Test for getting row format.
   Future<void> testGetTableRowFormat() async
   {
-    final String remoteFileName = 'TestGetTableRowFormat.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetTableRowFormat.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetTableRowFormatRequest(
+    final request = GetTableRowFormatRequest(
       remoteFileName,
       'sections/0/tables/2',
       0,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().getTableRowFormat(request);
+    await context.getApi().getTableRowFormat(request);
   }
 
   /// Test updating row format.
   Future<void> testUpdateTableRowFormat() async
   {
-    final String remoteFileName = 'TestUpdateTableRowFormat.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestFormat = new TableRowFormat();
+    final remoteFileName = 'TestUpdateTableRowFormat.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestFormat = TableRowFormat();
     requestFormat.allowBreakAcrossPages = true;
     requestFormat.headingFormat = true;
     requestFormat.height = 10;
     requestFormat.heightRule = TableRowFormat_HeightRuleEnum.auto;
 
-    final request = new UpdateTableRowFormatRequest(
+    final request = UpdateTableRowFormatRequest(
       remoteFileName,
       requestFormat,
       'sections/0/tables/2',
@@ -331,87 +331,87 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().updateTableRowFormat(request);
+    await context.getApi().updateTableRowFormat(request);
   }
 
   /// Test for getting table cell.
   Future<void> testGetTableCell() async
   {
-    final String remoteFileName = 'TestGetTableCell.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetTableCell.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetTableCellRequest(
+    final request = GetTableCellRequest(
       remoteFileName,
       'sections/0/tables/2/rows/0',
       0,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().getTableCell(request);
+    await context.getApi().getTableCell(request);
   }
 
   /// Test for deleting cell.
   Future<void> testDeleteTableCell() async
   {
-    final String remoteFileName = 'TestDeleteTableCell.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestDeleteTableCell.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new DeleteTableCellRequest(
+    final request = DeleteTableCellRequest(
       remoteFileName,
       'sections/0/tables/2/rows/0',
       0,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().deleteTableCell(request);
+    await context.getApi().deleteTableCell(request);
   }
 
   /// Test for adding cell.
   Future<void> testInsertTableCell() async
   {
-    final String remoteFileName = 'TestInsertTableCell.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestCell = new TableCellInsert();
+    final remoteFileName = 'TestInsertTableCell.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestCell = TableCellInsert();
 
 
-    final request = new InsertTableCellRequest(
+    final request = InsertTableCellRequest(
       remoteFileName,
       requestCell,
       'sections/0/tables/2/rows/0',
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().insertTableCell(request);
+    await context.getApi().insertTableCell(request);
   }
 
   /// Test for getting cell format.
   Future<void> testGetTableCellFormat() async
   {
-    final String remoteFileName = 'TestGetTableCellFormat.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetTableCellFormat.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetTableCellFormatRequest(
+    final request = GetTableCellFormatRequest(
       remoteFileName,
       'sections/0/tables/2/rows/0',
       0,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().getTableCellFormat(request);
+    await context.getApi().getTableCellFormat(request);
   }
 
   /// Test for updating cell format.
   Future<void> testUpdateTableCellFormat() async
   {
-    final String remoteFileName = 'TestUpdateTableCellFormat.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestFormat = new TableCellFormat();
+    final remoteFileName = 'TestUpdateTableCellFormat.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestFormat = TableCellFormat();
     requestFormat.bottomPadding = 5;
     requestFormat.fitText = true;
     requestFormat.horizontalMerge = TableCellFormat_HorizontalMergeEnum.first;
     requestFormat.wrapText = true;
 
-    final request = new UpdateTableCellFormatRequest(
+    final request = UpdateTableCellFormatRequest(
       remoteFileName,
       requestFormat,
       'sections/0/tables/2/rows/0',
@@ -419,16 +419,16 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().updateTableCellFormat(request);
+    await context.getApi().updateTableCellFormat(request);
   }
 
   /// Test for table rendering.
   Future<void> testRenderTable() async
   {
-    final String remoteFileName = 'TestRenderTable.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestRenderTable.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new RenderTableRequest(
+    final request = RenderTableRequest(
       remoteFileName,
       'png',
       0,
@@ -436,22 +436,22 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().renderTable(request);
+    await context.getApi().renderTable(request);
   }
 
   /// Test for table rendering without node path.
   Future<void> testRenderTableWithoutNodePath() async
   {
-    final String remoteFileName = 'TestRenderTableWithoutNodePath.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestRenderTableWithoutNodePath.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new RenderTableRequest(
+    final request = RenderTableRequest(
       remoteFileName,
       'png',
       0,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().renderTable(request);
+    await context.getApi().renderTable(request);
   }
 }

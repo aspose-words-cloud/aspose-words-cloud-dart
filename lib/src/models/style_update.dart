@@ -47,47 +47,47 @@ class StyleUpdate implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('BaseStyleName')) {
-      this.baseStyleName = json['BaseStyleName'];
+      baseStyleName = json['BaseStyleName'];
     } else {
-      this.baseStyleName = null;
+      baseStyleName = null;
     }
 
     if (json.containsKey('IsQuickStyle')) {
-      this.isQuickStyle = json['IsQuickStyle'];
+      isQuickStyle = json['IsQuickStyle'];
     } else {
-      this.isQuickStyle = null;
+      isQuickStyle = null;
     }
 
     if (json.containsKey('Name')) {
-      this.name = json['Name'];
+      name = json['Name'];
     } else {
-      this.name = null;
+      name = null;
     }
 
     if (json.containsKey('NextParagraphStyleName')) {
-      this.nextParagraphStyleName = json['NextParagraphStyleName'];
+      nextParagraphStyleName = json['NextParagraphStyleName'];
     } else {
-      this.nextParagraphStyleName = null;
+      nextParagraphStyleName = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.baseStyleName != null) {
-      _result['BaseStyleName'] = this.baseStyleName;
+    var _result = <String, dynamic>{};
+    if (baseStyleName != null) {
+      _result['BaseStyleName'] = baseStyleName;
     }
 
-    if (this.isQuickStyle != null) {
-      _result['IsQuickStyle'] = this.isQuickStyle;
+    if (isQuickStyle != null) {
+      _result['IsQuickStyle'] = isQuickStyle;
     }
 
-    if (this.name != null) {
-      _result['Name'] = this.name;
+    if (name != null) {
+      _result['Name'] = name;
     }
 
-    if (this.nextParagraphStyleName != null) {
-      _result['NextParagraphStyleName'] = this.nextParagraphStyleName;
+    if (nextParagraphStyleName != null) {
+      _result['NextParagraphStyleName'] = nextParagraphStyleName;
     }
     return _result;
   }

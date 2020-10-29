@@ -42,31 +42,31 @@ class FormFieldDropDown extends FormField {
     super.deserialize(json);
     if (json.containsKey('DropDownItems')) {
       // Array processing
-      this.dropDownItems = new List<String>();
+      dropDownItems = <String>[];
       for(final _element in json['DropDownItems']) {
-        this.dropDownItems.add(_element);
+        dropDownItems.add(_element);
       }
     } else {
-      this.dropDownItems = null;
+      dropDownItems = null;
     }
 
     if (json.containsKey('DropDownSelectedIndex')) {
-      this.dropDownSelectedIndex = json['DropDownSelectedIndex'];
+      dropDownSelectedIndex = json['DropDownSelectedIndex'];
     } else {
-      this.dropDownSelectedIndex = null;
+      dropDownSelectedIndex = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.dropDownItems != null) {
-      _result['DropDownItems'] = this.dropDownItems;
+    if (dropDownItems != null) {
+      _result['DropDownItems'] = dropDownItems;
     }
 
-    if (this.dropDownSelectedIndex != null) {
-      _result['DropDownSelectedIndex'] = this.dropDownSelectedIndex;
+    if (dropDownSelectedIndex != null) {
+      _result['DropDownSelectedIndex'] = dropDownSelectedIndex;
     }
     return _result;
   }

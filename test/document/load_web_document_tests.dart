@@ -33,13 +33,12 @@ class LoadWebDocumentTests
 {
   final TestContext context;
 
-  LoadWebDocumentTests(final TestContext this.context) {
-  }
+  LoadWebDocumentTests(final this.context);
 
   /// Test for loading web document.
   Future<void> testLoadWebDocument() async
   {
-    var requestDataSaveOptions = new SaveOptionsData();
+    var requestDataSaveOptions = SaveOptionsData();
     requestDataSaveOptions.fileName = 'google.doc';
     requestDataSaveOptions.saveFormat = 'doc';
     requestDataSaveOptions.dmlEffectsRenderingMode = '1';
@@ -47,14 +46,14 @@ class LoadWebDocumentTests
     requestDataSaveOptions.updateSdtContent = false;
     requestDataSaveOptions.zipOutput = false;
 
-    var requestData = new LoadWebDocumentData();
+    var requestData = LoadWebDocumentData();
     requestData.loadingDocumentUrl = 'http://google.com';
     requestData.saveOptions = requestDataSaveOptions;
 
-    final request = new LoadWebDocumentRequest(
+    final request = LoadWebDocumentRequest(
       requestData
     );
 
-    await this.context.getApi().loadWebDocument(request);
+    await context.getApi().loadWebDocument(request);
   }
 }

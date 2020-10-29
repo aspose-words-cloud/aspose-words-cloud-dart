@@ -47,46 +47,46 @@ class OoxmlSaveOptionsData extends SaveOptionsData {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('Compliance')) {
-      this.compliance = json['Compliance'];
+      compliance = json['Compliance'];
     } else {
-      this.compliance = null;
+      compliance = null;
     }
 
     if (json.containsKey('CompressionLevel')) {
       switch (json['CompressionLevel']) {
-        case 'Normal': this.compressionLevel = OoxmlSaveOptionsData_CompressionLevelEnum.normal; break;
-        case 'Maximum': this.compressionLevel = OoxmlSaveOptionsData_CompressionLevelEnum.maximum; break;
-        case 'Fast': this.compressionLevel = OoxmlSaveOptionsData_CompressionLevelEnum.fast; break;
-        case 'SuperFast': this.compressionLevel = OoxmlSaveOptionsData_CompressionLevelEnum.superFast; break;
-        default: this.compressionLevel = null; break;
+        case 'Normal': compressionLevel = OoxmlSaveOptionsData_CompressionLevelEnum.normal; break;
+        case 'Maximum': compressionLevel = OoxmlSaveOptionsData_CompressionLevelEnum.maximum; break;
+        case 'Fast': compressionLevel = OoxmlSaveOptionsData_CompressionLevelEnum.fast; break;
+        case 'SuperFast': compressionLevel = OoxmlSaveOptionsData_CompressionLevelEnum.superFast; break;
+        default: compressionLevel = null; break;
       }
     } else {
-      this.compressionLevel = null;
+      compressionLevel = null;
     }
 
     if (json.containsKey('Password')) {
-      this.password = json['Password'];
+      password = json['Password'];
     } else {
-      this.password = null;
+      password = null;
     }
 
     if (json.containsKey('PrettyFormat')) {
-      this.prettyFormat = json['PrettyFormat'];
+      prettyFormat = json['PrettyFormat'];
     } else {
-      this.prettyFormat = null;
+      prettyFormat = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.compliance != null) {
-      _result['Compliance'] = this.compliance;
+    if (compliance != null) {
+      _result['Compliance'] = compliance;
     }
 
-    if (this.compressionLevel != null) {
-      switch (this.compressionLevel) {
+    if (compressionLevel != null) {
+      switch (compressionLevel) {
         case OoxmlSaveOptionsData_CompressionLevelEnum.normal: _result['CompressionLevel'] = 'Normal'; break;
         case OoxmlSaveOptionsData_CompressionLevelEnum.maximum: _result['CompressionLevel'] = 'Maximum'; break;
         case OoxmlSaveOptionsData_CompressionLevelEnum.fast: _result['CompressionLevel'] = 'Fast'; break;
@@ -95,12 +95,12 @@ class OoxmlSaveOptionsData extends SaveOptionsData {
       }
     }
 
-    if (this.password != null) {
-      _result['Password'] = this.password;
+    if (password != null) {
+      _result['Password'] = password;
     }
 
-    if (this.prettyFormat != null) {
-      _result['PrettyFormat'] = this.prettyFormat;
+    if (prettyFormat != null) {
+      _result['PrettyFormat'] = prettyFormat;
     }
     return _result;
   }

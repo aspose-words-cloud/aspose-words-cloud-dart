@@ -43,28 +43,28 @@ class XamlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('ResourcesFolder')) {
-      this.resourcesFolder = json['ResourcesFolder'];
+      resourcesFolder = json['ResourcesFolder'];
     } else {
-      this.resourcesFolder = null;
+      resourcesFolder = null;
     }
 
     if (json.containsKey('ResourcesFolderAlias')) {
-      this.resourcesFolderAlias = json['ResourcesFolderAlias'];
+      resourcesFolderAlias = json['ResourcesFolderAlias'];
     } else {
-      this.resourcesFolderAlias = null;
+      resourcesFolderAlias = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.resourcesFolder != null) {
-      _result['ResourcesFolder'] = this.resourcesFolder;
+    if (resourcesFolder != null) {
+      _result['ResourcesFolder'] = resourcesFolder;
     }
 
-    if (this.resourcesFolderAlias != null) {
-      _result['ResourcesFolderAlias'] = this.resourcesFolderAlias;
+    if (resourcesFolderAlias != null) {
+      _result['ResourcesFolderAlias'] = resourcesFolderAlias;
     }
     return _result;
   }

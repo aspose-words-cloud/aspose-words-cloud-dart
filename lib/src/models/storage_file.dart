@@ -49,57 +49,57 @@ class StorageFile implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('IsFolder')) {
-      this.isFolder = json['IsFolder'];
+      isFolder = json['IsFolder'];
     } else {
-      this.isFolder = null;
+      isFolder = null;
     }
 
     if (json.containsKey('ModifiedDate')) {
-      this.modifiedDate = DateTime.parse(json['ModifiedDate']);
+      modifiedDate = DateTime.parse(json['ModifiedDate']);
     } else {
-      this.modifiedDate = null;
+      modifiedDate = null;
     }
 
     if (json.containsKey('Name')) {
-      this.name = json['Name'];
+      name = json['Name'];
     } else {
-      this.name = null;
+      name = null;
     }
 
     if (json.containsKey('Path')) {
-      this.path = json['Path'];
+      path = json['Path'];
     } else {
-      this.path = null;
+      path = null;
     }
 
     if (json.containsKey('Size')) {
-      this.size = json['Size'];
+      size = json['Size'];
     } else {
-      this.size = null;
+      size = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.isFolder != null) {
-      _result['IsFolder'] = this.isFolder;
+    var _result = <String, dynamic>{};
+    if (isFolder != null) {
+      _result['IsFolder'] = isFolder;
     }
 
-    if (this.modifiedDate != null) {
-      _result['ModifiedDate'] = this.modifiedDate.toIso8601String();
+    if (modifiedDate != null) {
+      _result['ModifiedDate'] = modifiedDate.toIso8601String();
     }
 
-    if (this.name != null) {
-      _result['Name'] = this.name;
+    if (name != null) {
+      _result['Name'] = name;
     }
 
-    if (this.path != null) {
-      _result['Path'] = this.path;
+    if (path != null) {
+      _result['Path'] = path;
     }
 
-    if (this.size != null) {
-      _result['Size'] = this.size;
+    if (size != null) {
+      _result['Size'] = size;
     }
     return _result;
   }

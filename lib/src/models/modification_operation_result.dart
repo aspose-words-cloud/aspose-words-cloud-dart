@@ -40,29 +40,29 @@ class ModificationOperationResult implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('Dest')) {
-      this.dest = new FileLink();
-      this.dest.deserialize(json['Dest']);
+      dest = FileLink();
+      dest.deserialize(json['Dest']);
     } else {
-      this.dest = null;
+      dest = null;
     }
 
     if (json.containsKey('Source')) {
-      this.source = new FileLink();
-      this.source.deserialize(json['Source']);
+      source = FileLink();
+      source.deserialize(json['Source']);
     } else {
-      this.source = null;
+      source = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.dest != null) {
-      _result['Dest'] = this.dest.serialize();
+    var _result = <String, dynamic>{};
+    if (dest != null) {
+      _result['Dest'] = dest.serialize();
     }
 
-    if (this.source != null) {
-      _result['Source'] = this.source.serialize();
+    if (source != null) {
+      _result['Source'] = source.serialize();
     }
     return _result;
   }

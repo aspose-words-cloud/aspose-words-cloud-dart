@@ -35,77 +35,77 @@ class ConvertDocumentTests
   String remoteFolder;
   String localFolder;
 
-  ConvertDocumentTests(final TestContext this.context) {
-    remoteFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/ConvertDocument';
+  ConvertDocumentTests(final this.context) {
+    remoteFolder = context.remoteBaseTestDataFolder + '/DocumentActions/ConvertDocument';
     localFolder = 'DocumentActions/ConvertDocument';
   }
 
   /// Test for converting document to one of the available formats.
   Future<void> testSaveAs() async
   {
-    final String localName = 'test_multi_pages.docx';
-    final String remoteName = 'TestSaveAs.docx';
-    await this.context.uploadFile('Common/' + localName, remoteFolder + '/' + remoteName);
-    var requestSaveOptionsData = new SaveOptionsData();
+    final localName = 'test_multi_pages.docx';
+    final remoteName = 'TestSaveAs.docx';
+    await context.uploadFile('Common/' + localName, remoteFolder + '/' + remoteName);
+    var requestSaveOptionsData = SaveOptionsData();
     requestSaveOptionsData.saveFormat = 'pdf';
-    requestSaveOptionsData.fileName = this.context.baseTestOutPath + '/TestSaveAs.pdf';
+    requestSaveOptionsData.fileName = context.baseTestOutPath + '/TestSaveAs.pdf';
 
-    final request = new SaveAsRequest(
+    final request = SaveAsRequest(
       remoteName,
       requestSaveOptionsData,
       folder: remoteFolder
     );
 
-    await this.context.getApi().saveAs(request);
+    await context.getApi().saveAs(request);
   }
 
   /// Test for converting document to one of the available formats.
   Future<void> testSaveAsDocx() async
   {
-    final String localName = '45.pdf';
-    final String remoteName = 'TestSaveAsFromPdfToDoc.pdf';
-    await this.context.uploadFile(localFolder + '/' + localName, remoteFolder + '/' + remoteName);
-    var requestSaveOptionsData = new SaveOptionsData();
+    final localName = '45.pdf';
+    final remoteName = 'TestSaveAsFromPdfToDoc.pdf';
+    await context.uploadFile(localFolder + '/' + localName, remoteFolder + '/' + remoteName);
+    var requestSaveOptionsData = SaveOptionsData();
     requestSaveOptionsData.saveFormat = 'docx';
-    requestSaveOptionsData.fileName = this.context.baseTestOutPath + '/TestSaveAsFromPdfToDoc.docx';
+    requestSaveOptionsData.fileName = context.baseTestOutPath + '/TestSaveAsFromPdfToDoc.docx';
 
-    final request = new SaveAsRequest(
+    final request = SaveAsRequest(
       remoteName,
       requestSaveOptionsData,
       folder: remoteFolder
     );
 
-    await this.context.getApi().saveAs(request);
+    await context.getApi().saveAs(request);
   }
 
   /// Test for converting document to one of the available formats.
   Future<void> testSaveAsTiff() async
   {
-    final String localName = 'test_multi_pages.docx';
-    final String remoteName = 'TestSaveAsTiff.pdf';
-    await this.context.uploadFile('Common/' + localName, remoteFolder + '/' + remoteName);
-    var requestSaveOptions = new TiffSaveOptionsData();
+    final localName = 'test_multi_pages.docx';
+    final remoteName = 'TestSaveAsTiff.pdf';
+    await context.uploadFile('Common/' + localName, remoteFolder + '/' + remoteName);
+    var requestSaveOptions = TiffSaveOptionsData();
     requestSaveOptions.saveFormat = 'tiff';
-    requestSaveOptions.fileName = this.context.baseTestOutPath + '/abc.tiff';
+    requestSaveOptions.fileName = context.baseTestOutPath + '/abc.tiff';
 
-    final request = new SaveAsTiffRequest(
+    final request = SaveAsTiffRequest(
       remoteName,
       requestSaveOptions,
       folder: remoteFolder
     );
 
-    await this.context.getApi().saveAsTiff(request);
+    await context.getApi().saveAsTiff(request);
   }
 
   /// A test for ConvertDocument.
   Future<void> testConvertDocument() async
   {
 
-    final request = new ConvertDocumentRequest(
-      await this.context.loadBinaryFile(localFolder + '/test_uploadfile.docx'),
+    final request = ConvertDocumentRequest(
+      await context.loadBinaryFile(localFolder + '/test_uploadfile.docx'),
       'pdf'
     );
 
-    await this.context.getApi().convertDocument(request);
+    await context.getApi().convertDocument(request);
   }
 }

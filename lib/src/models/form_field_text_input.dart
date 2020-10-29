@@ -47,56 +47,56 @@ class FormFieldTextInput extends FormField {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('MaxLength')) {
-      this.maxLength = json['MaxLength'];
+      maxLength = json['MaxLength'];
     } else {
-      this.maxLength = null;
+      maxLength = null;
     }
 
     if (json.containsKey('TextInputDefault')) {
-      this.textInputDefault = json['TextInputDefault'];
+      textInputDefault = json['TextInputDefault'];
     } else {
-      this.textInputDefault = null;
+      textInputDefault = null;
     }
 
     if (json.containsKey('TextInputFormat')) {
-      this.textInputFormat = json['TextInputFormat'];
+      textInputFormat = json['TextInputFormat'];
     } else {
-      this.textInputFormat = null;
+      textInputFormat = null;
     }
 
     if (json.containsKey('TextInputType')) {
       switch (json['TextInputType']) {
-        case 'Regular': this.textInputType = FormFieldTextInput_TextInputTypeEnum.regular; break;
-        case 'Number': this.textInputType = FormFieldTextInput_TextInputTypeEnum.number; break;
-        case 'Date': this.textInputType = FormFieldTextInput_TextInputTypeEnum.date; break;
-        case 'CurrentDate': this.textInputType = FormFieldTextInput_TextInputTypeEnum.currentDate; break;
-        case 'CurrentTime': this.textInputType = FormFieldTextInput_TextInputTypeEnum.currentTime; break;
-        case 'Calculated': this.textInputType = FormFieldTextInput_TextInputTypeEnum.calculated; break;
-        default: this.textInputType = null; break;
+        case 'Regular': textInputType = FormFieldTextInput_TextInputTypeEnum.regular; break;
+        case 'Number': textInputType = FormFieldTextInput_TextInputTypeEnum.number; break;
+        case 'Date': textInputType = FormFieldTextInput_TextInputTypeEnum.date; break;
+        case 'CurrentDate': textInputType = FormFieldTextInput_TextInputTypeEnum.currentDate; break;
+        case 'CurrentTime': textInputType = FormFieldTextInput_TextInputTypeEnum.currentTime; break;
+        case 'Calculated': textInputType = FormFieldTextInput_TextInputTypeEnum.calculated; break;
+        default: textInputType = null; break;
       }
     } else {
-      this.textInputType = null;
+      textInputType = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.maxLength != null) {
-      _result['MaxLength'] = this.maxLength;
+    if (maxLength != null) {
+      _result['MaxLength'] = maxLength;
     }
 
-    if (this.textInputDefault != null) {
-      _result['TextInputDefault'] = this.textInputDefault;
+    if (textInputDefault != null) {
+      _result['TextInputDefault'] = textInputDefault;
     }
 
-    if (this.textInputFormat != null) {
-      _result['TextInputFormat'] = this.textInputFormat;
+    if (textInputFormat != null) {
+      _result['TextInputFormat'] = textInputFormat;
     }
 
-    if (this.textInputType != null) {
-      switch (this.textInputType) {
+    if (textInputType != null) {
+      switch (textInputType) {
         case FormFieldTextInput_TextInputTypeEnum.regular: _result['TextInputType'] = 'Regular'; break;
         case FormFieldTextInput_TextInputTypeEnum.number: _result['TextInputType'] = 'Number'; break;
         case FormFieldTextInput_TextInputTypeEnum.date: _result['TextInputType'] = 'Date'; break;

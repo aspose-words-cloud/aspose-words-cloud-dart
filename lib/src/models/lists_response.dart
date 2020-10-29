@@ -39,19 +39,19 @@ class ListsResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('Lists')) {
-      this.lists = new Lists();
-      this.lists.deserialize(json['Lists']);
+      lists = Lists();
+      lists.deserialize(json['Lists']);
     } else {
-      this.lists = null;
+      lists = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.lists != null) {
-      _result['Lists'] = this.lists.serialize();
+    if (lists != null) {
+      _result['Lists'] = lists.serialize();
     }
     return _result;
   }

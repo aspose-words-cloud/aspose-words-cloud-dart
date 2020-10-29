@@ -40,27 +40,27 @@ class TableRowInsert implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('ColumnsCount')) {
-      this.columnsCount = json['ColumnsCount'];
+      columnsCount = json['ColumnsCount'];
     } else {
-      this.columnsCount = null;
+      columnsCount = null;
     }
 
     if (json.containsKey('InsertAfter')) {
-      this.insertAfter = json['InsertAfter'];
+      insertAfter = json['InsertAfter'];
     } else {
-      this.insertAfter = null;
+      insertAfter = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.columnsCount != null) {
-      _result['ColumnsCount'] = this.columnsCount;
+    var _result = <String, dynamic>{};
+    if (columnsCount != null) {
+      _result['ColumnsCount'] = columnsCount;
     }
 
-    if (this.insertAfter != null) {
-      _result['InsertAfter'] = this.insertAfter;
+    if (insertAfter != null) {
+      _result['InsertAfter'] = insertAfter;
     }
     return _result;
   }

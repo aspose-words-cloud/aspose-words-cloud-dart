@@ -37,24 +37,25 @@ import 'package:http/http.dart' as http;
 import 'package:uuid/uuid.dart';
 
 class ApiClient {
-  String _authToken = null;
+  String _authToken;
   final _starting = ByteData.view(utf8.encoder.convert('--').buffer);
   final _newline = ByteData.view(utf8.encoder.convert('\r\n').buffer);
   final _2newline = ByteData.view(utf8.encoder.convert('\r\n\r\n').buffer);
 
   final Configuration configuration;
 
-  ApiClient(final Configuration this.configuration);
+  ApiClient(final this.configuration);
 
   void _handleResponse(final int statusCode, final String reasonPhrase, final ByteData body) {
     if (statusCode != 200) {
-      String printBody = '';
+      var printBody = '';
       try {
         printBody = utf8.decoder.convert(body.buffer.asUint8List(body.offsetInBytes, body.lengthInBytes));
       }
-      catch(ex) { }
-      if (printBody.isEmpty) {
-        printBody = reasonPhrase;
+      finally {
+        if (printBody.isEmpty) {
+          printBody = reasonPhrase;
+        }
       }
       throw ApiException(statusCode, printBody);
     }
@@ -69,13 +70,18 @@ class ApiClient {
   }
 
   Future<void> _updateAuthToken() async {
-    final String url = this.configuration.baseUrl + '/connect/token';
-    final String data = 'grant_type=client_credentials&client_id=${this.configuration.appSid}&client_secret=${this.configuration.appKey}';
-    final Map<String, String> headers = {'Content-Type' : 'application/x-www-form-urlencoded'};
-    final http.Response response = await http.post(url, headers: headers, body: data);
-    _handleResponse(response.statusCode, response.reasonPhrase, ByteData.view(response.bodyBytes.buffer));
+    final url = configuration.baseUrl + '/connect/token';
+    final data = 'grant_type=client_credentials&client_id=${configuration.appSid}&client_secret=${configuration.appKey}';
+    final headers = {'Content-Type' : 'application/x-www-form-urlencoded'};
+    final response = await http.post(url, headers: headers, body: data);
+    if (response.statusCode == 400) {
+      throw ApiException(response.statusCode, 'Invalid server credentials. Please check your AppKey and AppSid.');
+    }
+    else {
+      _handleResponse(response.statusCode, response.reasonPhrase, ByteData.view(response.bodyBytes.buffer));
+    }
 
-    final Map<String, dynamic> json = jsonDecode(response.body);
+    final json = jsonDecode(response.body);
     _authToken = '${json['token_type']} ${json['access_token']}';
   }
 
@@ -84,8 +90,8 @@ class ApiClient {
       return '\t' + utf8.decoder.convert(body.buffer.asUint8List(body.offsetInBytes, body.lengthInBytes));
     }
     catch(ex) {
-      String result = '\t';
-      for (int i = 0; i < body.lengthInBytes; i++) {
+      var result = '\t';
+      for (var i = 0; i < body.lengthInBytes; i++) {
         if (i != 0) {
           result += ', ';
           if (i % 16 == 0) {
@@ -103,7 +109,7 @@ class ApiClient {
       return url;
     }
 
-    bool firstAppend = true;
+    var firstAppend = true;
     queryParams.forEach((key, value) {
       url = '${url}${firstAppend ? '?' : '&'}${key}=${Uri.encodeQueryComponent(value)}';
       firstAppend = false;
@@ -132,7 +138,7 @@ class ApiClient {
       return value.toString().replaceFirst(',', '.');
     }
     else {
-      throw new ApiException(400, 'Unable to serialize ${value.runtimeType}.');
+      throw ApiException(400, 'Unable to serialize ${value.runtimeType}.');
     }
   }
 
@@ -165,18 +171,18 @@ class ApiClient {
       return ByteData.view(utf8.encoder.convert(value.toString().replaceFirst(',', '.')).buffer);
     }
     else {
-      throw new ApiException(400, 'Unable to serialize ${value.runtimeType}.');
+      throw ApiException(400, 'Unable to serialize ${value.runtimeType}.');
     }
   }
 
   ByteData serializeBodyParts(final List<ApiRequestPart> bodyParts, Map<String, String> headers) {
-    ByteData body = null;
+    ByteData body;
     if (bodyParts.length == 1) {
       body = bodyParts.first.data;
       headers['Content-Type'] = bodyParts.first.mimeType;
     } else if (bodyParts.length > 1) {
-      String boundary = Uuid().v4();
-      body = this.serializeMultipart(bodyParts, boundary);
+      var boundary = Uuid().v4();
+      body = serializeMultipart(bodyParts, boundary);
       headers['Content-Type'] = 'multipart/form-data; boundary="${boundary}"';
     }
 
@@ -184,8 +190,8 @@ class ApiClient {
   }
 
   ApiRequestPart serializeBatchPart(final ApiRequestData requestData) {
-    var data = new List<Uint8List>();
-    var relativeUrl = requestData.url.substring( (this.configuration.getApiRootUrl() + '/words/').length );
+    var data = <Uint8List>[];
+    var relativeUrl = requestData.url.substring( (configuration.getApiRootUrl() + '/words/').length );
     data.add(utf8.encoder.convert('${requestData.method} ${relativeUrl} \r\n'));
 
     if (requestData.headers != null) {
@@ -199,12 +205,12 @@ class ApiClient {
       data.add(requestData.body.buffer.asUint8List(requestData.body.offsetInBytes, requestData.body.lengthInBytes));
     }
 
-    return new ApiRequestPart(this.toByteData(data), 'application/http; msgtype=request');
+    return ApiRequestPart(toByteData(data), 'application/http; msgtype=request');
   }
 
   ByteData serializeMultipart(final List<ApiRequestPart> bodyParts, String boundary) {
     var needsClrf = false;
-    var formBody = new List<Uint8List>();
+    var formBody = <Uint8List>[];
     for (final formParam in bodyParts) {
       if (needsClrf) {
         formBody.add(utf8.encoder.convert('\r\n'));
@@ -223,27 +229,27 @@ class ApiClient {
       formBody.add(formParam.data.buffer.asUint8List(formParam.data.offsetInBytes, formParam.data.lengthInBytes));
     }
     formBody.add(utf8.encoder.convert('\r\n--${boundary}--\r\n'));
-    return this.toByteData(formBody);
+    return toByteData(formBody);
   }
 
   List<ByteData> deserializeMultipart(final ByteData data) {
     if (!data.compare(_starting, offset: 0)) {
-      throw new ApiException(400, 'Failed to parse multipart response.');
+      throw ApiException(400, 'Failed to parse multipart response.');
     }
 
     var boundaryEndIndex = data.indexOf(_newline);
     if (boundaryEndIndex == null) {
-      throw new ApiException(400, 'Failed to parse multipart response.');
+      throw ApiException(400, 'Failed to parse multipart response.');
     }
 
     var boundaryBytes = ByteData.sublistView(data, 0, boundaryEndIndex);
     var parts = data.split(boundaryBytes);
     if (parts.length < 2) {
-      throw new ApiException(400, 'Failed to parse multipart response.');
+      throw ApiException(400, 'Failed to parse multipart response.');
     }
 
     if (!parts.last.compare(_starting, offset: 0)) {
-      throw new ApiException(400, 'Failed to parse multipart response.');
+      throw ApiException(400, 'Failed to parse multipart response.');
     }
 
     parts.removeLast();
@@ -260,33 +266,33 @@ class ApiClient {
   dynamic deserializeBatchPart(final RequestBase request, final ByteData partData) {
     var statusDataEndIndex = partData.indexOf(_newline);
     if (statusDataEndIndex == null) {
-      throw new ApiException(400, 'Failed to parse batch response part.');
+      throw ApiException(400, 'Failed to parse batch response part.');
     }
 
     var statusData = ByteData.sublistView(partData, 0, statusDataEndIndex);
     var statusStr = utf8.decoder.convert(statusData.buffer.asUint8List(statusData.offsetInBytes, statusData.lengthInBytes));
     var statusStrParts = statusStr.split(' ');
     if (statusStrParts.length < 2) {
-      throw new ApiException(400, 'Failed to parse batch response part.');
+      throw ApiException(400, 'Failed to parse batch response part.');
     }
 
     var statusCode = int.tryParse(statusStrParts[0]);
     if (statusCode == null) {
-      throw new ApiException(400, 'Failed to parse batch response part.');
+      throw ApiException(400, 'Failed to parse batch response part.');
     }
 
-    ByteData body = null;
+    ByteData body;
     var headersEndIndex = partData.indexOf(_2newline);
     if (headersEndIndex != null) {
       body = ByteData.sublistView(partData, headersEndIndex + _2newline.lengthInBytes);
     }
 
     if (statusCode != 200) {
-      String message = null;
+      String message;
       if (body != null) {
         message = utf8.decoder.convert(body.buffer.asUint8List(body.offsetInBytes, body.lengthInBytes));
       }
-      return new ApiException(statusCode, message ?? statusStr);
+      return ApiException(statusCode, message ?? statusStr);
     }
 
     return request.deserializeResponse(body);
@@ -296,7 +302,7 @@ class ApiClient {
     var wholeSize = 0;
     var fillIndex = 0;
     bufferStream.forEach((element) => wholeSize += element.buffer.lengthInBytes);
-    var fullBuffer = new Uint8List(wholeSize);
+    var fullBuffer = Uint8List(wholeSize);
     bufferStream.forEach((element) {
       fullBuffer.setAll(fillIndex, element);
       fillIndex += element.lengthInBytes;
@@ -307,7 +313,7 @@ class ApiClient {
 
   Future<dynamic> call(final RequestBase request) async {
     var requestData = request.createRequestData(this);
-    ByteData response = await this._callWithChecks(requestData);
+    var response = await _callWithChecks(requestData);
     if (response == null) {
       return null;
     }
@@ -318,24 +324,24 @@ class ApiClient {
   Future< List<dynamic> > callBatch(final List<RequestBase> requests) async {
     var bodyParts = requests
         .map((request) => request.createRequestData(this))
-        .map((requestData) => this.serializeBatchPart(requestData))
+        .map((requestData) => serializeBatchPart(requestData))
         .toList();
     var boundary = Uuid().v4();
-    var batchUrl = '${this.configuration.getApiRootUrl()}/words/batch';
-    var batchHeaders = new Map<String, String>();
-    var batchBody = this.serializeMultipart(bodyParts, boundary);
+    var batchUrl = '${configuration.getApiRootUrl()}/words/batch';
+    var batchHeaders = <String, String>{};
+    var batchBody = serializeMultipart(bodyParts, boundary);
     batchHeaders['Content-Type'] = 'multipart/form-data; boundary="${boundary}"';
 
-    var batchRequestData = new ApiRequestData('PUT', batchUrl, batchHeaders, batchBody);
-    var response = await this._callWithChecks(batchRequestData);
-    var responseParts = this.deserializeMultipart(response);
+    var batchRequestData = ApiRequestData('PUT', batchUrl, batchHeaders, batchBody);
+    var response = await _callWithChecks(batchRequestData);
+    var responseParts = deserializeMultipart(response);
     if (responseParts.length != requests.length) {
-      throw new ApiException(400, 'Response and request parts mismatch.');
+      throw ApiException(400, 'Response and request parts mismatch.');
     }
 
     var result = List<dynamic>(requests.length);
-    for (int i = 0; i < requests.length; i++) {
-      result[i] = this.deserializeBatchPart(requests[i], responseParts[i]);
+    for (var i = 0; i < requests.length; i++) {
+      result[i] = deserializeBatchPart(requests[i], responseParts[i]);
     }
 
     return result;
@@ -343,12 +349,12 @@ class ApiClient {
 
   Future<ByteData> _callWithChecks(final ApiRequestData requestData) async {
     try {
-      return await this._callInternal(requestData);
+      return await _callInternal(requestData);
     }
     on ApiException catch(ex) {
       if (ex.status_code == 401) {
-        await this._updateAuthToken();
-        return await this._callInternal(requestData);
+        await _updateAuthToken();
+        return await _callInternal(requestData);
       } else {
         rethrow;
       }
@@ -356,23 +362,23 @@ class ApiClient {
   }
 
   Future<ByteData> _callInternal(final ApiRequestData requestData) async {
-    if (this.configuration.debugMode == true) {
+    if (configuration.debugMode == true) {
       var debugMessage = 'CALL BEGIN: ${requestData.method} ${requestData.url}\r\n';
-      if (requestData.headers != null && requestData.headers.length > 0) {
+      if (requestData.headers != null && requestData.headers.isNotEmpty) {
         debugMessage += 'REQUEST HEADERS:\r\n';
         requestData.headers.forEach((key, value) => debugMessage += '\t${key}: ${value}\r\n');
       }
       if (requestData.body != null) {
         debugMessage += 'REQUEST BODY:\r\n';
-        debugMessage += this._stringifyBody(requestData.body) + '\r\n';
+        debugMessage += _stringifyBody(requestData.body) + '\r\n';
       }
       print(debugMessage);
     }
 
-    var httpRequest = new http.Request(requestData.method, Uri.parse(requestData.url));
+    var httpRequest = http.Request(requestData.method, Uri.parse(requestData.url));
     httpRequest.headers['x-aspose-client'] = 'dart sdk';
     httpRequest.headers['x-aspose-client-version'] = '20.10';
-    httpRequest.headers['Authorization'] = await this._getAuthToken();
+    httpRequest.headers['Authorization'] = await _getAuthToken();
     if (requestData.headers != null) {
       httpRequest.headers.addAll(requestData.headers);
     }
@@ -385,15 +391,15 @@ class ApiClient {
     var bytes = await response.stream.toBytes();
     var responseData = ByteData.view(bytes.buffer);
 
-    if (this.configuration.debugMode == true) {
-      String debugMessage = 'RESPONSE STATUS: ${response.statusCode} ${response.reasonPhrase}\r\n';
-      if (response.headers != null && response.headers.length > 0) {
+    if (configuration.debugMode == true) {
+      var debugMessage = 'RESPONSE STATUS: ${response.statusCode} ${response.reasonPhrase}\r\n';
+      if (response.headers != null && response.headers.isNotEmpty) {
         debugMessage += 'RESPONSE HEADERS:\r\n';
         response.headers.forEach((key, value) => debugMessage += '\t${key}: ${value}\r\n');
       }
       if (responseData.lengthInBytes > 0) {
         debugMessage += 'RESPONSE BODY:\r\n';
-        debugMessage += this._stringifyBody(responseData) + '\r\n';
+        debugMessage += _stringifyBody(responseData) + '\r\n';
       }
       debugMessage += 'CALL END: ${requestData.method} ${requestData.url}\r\n';
       print(debugMessage);

@@ -46,59 +46,59 @@ class ReportEngineSettings implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('CsvDataLoadOptions')) {
-      this.csvDataLoadOptions = new CsvDataLoadOptions();
-      this.csvDataLoadOptions.deserialize(json['CsvDataLoadOptions']);
+      csvDataLoadOptions = CsvDataLoadOptions();
+      csvDataLoadOptions.deserialize(json['CsvDataLoadOptions']);
     } else {
-      this.csvDataLoadOptions = null;
+      csvDataLoadOptions = null;
     }
 
     if (json.containsKey('DataSourceName')) {
-      this.dataSourceName = json['DataSourceName'];
+      dataSourceName = json['DataSourceName'];
     } else {
-      this.dataSourceName = null;
+      dataSourceName = null;
     }
 
     if (json.containsKey('DataSourceType')) {
       switch (json['DataSourceType']) {
-        case 'Xml': this.dataSourceType = ReportEngineSettings_DataSourceTypeEnum.xml; break;
-        case 'Json': this.dataSourceType = ReportEngineSettings_DataSourceTypeEnum.json; break;
-        case 'Csv': this.dataSourceType = ReportEngineSettings_DataSourceTypeEnum.csv; break;
-        default: this.dataSourceType = null; break;
+        case 'Xml': dataSourceType = ReportEngineSettings_DataSourceTypeEnum.xml; break;
+        case 'Json': dataSourceType = ReportEngineSettings_DataSourceTypeEnum.json; break;
+        case 'Csv': dataSourceType = ReportEngineSettings_DataSourceTypeEnum.csv; break;
+        default: dataSourceType = null; break;
       }
     } else {
-      this.dataSourceType = null;
+      dataSourceType = null;
     }
 
     if (json.containsKey('ReportBuildOptions')) {
       // Array processing
-      this.reportBuildOptions = new List<ReportBuildOptionsEnum>();
+      reportBuildOptions = <ReportBuildOptionsEnum>[];
       for(final _element in json['ReportBuildOptions']) {
         switch (_element) {
-          case 'None': this.reportBuildOptions.add(ReportBuildOptionsEnum.none); break;
-          case 'AllowMissingMembers': this.reportBuildOptions.add(ReportBuildOptionsEnum.allowMissingMembers); break;
-          case 'RemoveEmptyParagraphs': this.reportBuildOptions.add(ReportBuildOptionsEnum.removeEmptyParagraphs); break;
-          case 'InlineErrorMessages': this.reportBuildOptions.add(ReportBuildOptionsEnum.inlineErrorMessages); break;
+          case 'None': reportBuildOptions.add(ReportBuildOptionsEnum.none); break;
+          case 'AllowMissingMembers': reportBuildOptions.add(ReportBuildOptionsEnum.allowMissingMembers); break;
+          case 'RemoveEmptyParagraphs': reportBuildOptions.add(ReportBuildOptionsEnum.removeEmptyParagraphs); break;
+          case 'InlineErrorMessages': reportBuildOptions.add(ReportBuildOptionsEnum.inlineErrorMessages); break;
           default: break;
         }
       }
     } else {
-      this.reportBuildOptions = null;
+      reportBuildOptions = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.csvDataLoadOptions != null) {
-      _result['CsvDataLoadOptions'] = this.csvDataLoadOptions.serialize();
+    var _result = <String, dynamic>{};
+    if (csvDataLoadOptions != null) {
+      _result['CsvDataLoadOptions'] = csvDataLoadOptions.serialize();
     }
 
-    if (this.dataSourceName != null) {
-      _result['DataSourceName'] = this.dataSourceName;
+    if (dataSourceName != null) {
+      _result['DataSourceName'] = dataSourceName;
     }
 
-    if (this.dataSourceType != null) {
-      switch (this.dataSourceType) {
+    if (dataSourceType != null) {
+      switch (dataSourceType) {
         case ReportEngineSettings_DataSourceTypeEnum.xml: _result['DataSourceType'] = 'Xml'; break;
         case ReportEngineSettings_DataSourceTypeEnum.json: _result['DataSourceType'] = 'Json'; break;
         case ReportEngineSettings_DataSourceTypeEnum.csv: _result['DataSourceType'] = 'Csv'; break;
@@ -106,8 +106,8 @@ class ReportEngineSettings implements ModelBase {
       }
     }
 
-    if (this.reportBuildOptions != null) {
-      _result['ReportBuildOptions'] = this.reportBuildOptions.map((_element) {
+    if (reportBuildOptions != null) {
+      _result['ReportBuildOptions'] = reportBuildOptions.map((_element) {
         switch (_element) {
             case ReportBuildOptionsEnum.none: return 'None';
             case ReportBuildOptionsEnum.allowMissingMembers: return 'AllowMissingMembers';

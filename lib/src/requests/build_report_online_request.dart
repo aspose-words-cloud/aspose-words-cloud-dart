@@ -47,42 +47,42 @@ class BuildReportOnlineRequest implements RequestBase {
   /// This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
   final String documentFileName;
 
-  BuildReportOnlineRequest(final ByteData this.template, final String this.data, final ReportEngineSettings this.reportEngineSettings, {final String this.documentFileName = null});
+  BuildReportOnlineRequest(final this.template, final this.data, final this.reportEngineSettings, {final this.documentFileName});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/buildReport';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.documentFileName != null) {
-      queryParams['documentFileName'] = apiClient.serializeToString(this.documentFileName);
+    var path = '/words/buildReport';
+    var queryParams = <String, String>{};
+    var headers = <String, String>{};
+    var bodyParts = <ApiRequestPart>[];
+    if (documentFileName != null) {
+      queryParams['documentFileName'] = apiClient.serializeToString(documentFileName);
     }
 
-    if (this.template != null) {
-      bodyParts.add(new ApiRequestPart(apiClient.serializeBody(this.template), 'application/octet-stream', name: 'Template'));
+    if (template != null) {
+      bodyParts.add(ApiRequestPart(apiClient.serializeBody(template), 'application/octet-stream', name: 'Template'));
     }
     else {
-      throw new ApiException(400, 'Parameter template is required.');
+      throw ApiException(400, 'Parameter template is required.');
     }
 
-    if (this.data != null) {
-      bodyParts.add(new ApiRequestPart(apiClient.serializeBody(this.data), 'application/json', name: 'Data'));
+    if (data != null) {
+      bodyParts.add(ApiRequestPart(apiClient.serializeBody(data), 'application/json', name: 'Data'));
     }
     else {
-      throw new ApiException(400, 'Parameter data is required.');
+      throw ApiException(400, 'Parameter data is required.');
     }
 
-    if (this.reportEngineSettings != null) {
-      bodyParts.add(new ApiRequestPart(apiClient.serializeBody(this.reportEngineSettings), 'application/json', name: 'ReportEngineSettings'));
+    if (reportEngineSettings != null) {
+      bodyParts.add(ApiRequestPart(apiClient.serializeBody(reportEngineSettings), 'application/json', name: 'ReportEngineSettings'));
     }
     else {
-      throw new ApiException(400, 'Parameter reportEngineSettings is required.');
+      throw ApiException(400, 'Parameter reportEngineSettings is required.');
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('PUT', url, headers, body);
+    var url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
+    var body = apiClient.serializeBodyParts(bodyParts, headers);
+    return ApiRequestData('PUT', url, headers, body);
   }
 
   @override

@@ -34,43 +34,43 @@ class TextTests
   final TestContext context;
   String remoteDataFolder;
 
-  TextTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Text';
+  TextTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Text';
   }
 
   /// Test for replacing text.
   Future<void> testReplaceText() async
   {
-    final String remoteFileName = 'TestReplaceText.docx';
-    final String localFile = 'Common/test_multi_pages.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestReplaceText = new ReplaceTextParameters();
+    final remoteFileName = 'TestReplaceText.docx';
+    final localFile = 'Common/test_multi_pages.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestReplaceText = ReplaceTextParameters();
     requestReplaceText.oldValue = 'aspose';
     requestReplaceText.newValue = 'aspose new';
 
-    final request = new ReplaceTextRequest(
+    final request = ReplaceTextRequest(
       remoteFileName,
       requestReplaceText,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    await this.context.getApi().replaceText(request);
+    await context.getApi().replaceText(request);
   }
 
   /// Test for searching.
   Future<void> testSearch() async
   {
-    final String remoteFileName = 'TestSearch.docx';
-    final String localFile = 'DocumentElements/Text/SampleWordDocument.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestSearch.docx';
+    final localFile = 'DocumentElements/Text/SampleWordDocument.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new SearchRequest(
+    final request = SearchRequest(
       remoteFileName,
       'aspose',
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().search(request);
+    await context.getApi().search(request);
   }
 }

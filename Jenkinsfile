@@ -39,6 +39,10 @@ node('words-linux') {
                             sh "pub get"
                             sh "pub global activate junitreport"
                         }
+                        
+                        stage('lint'){
+                            sh "dartanalyzer --options analysis_options.yaml ."
+                        }
                     
                         stage('tests'){
                             try {

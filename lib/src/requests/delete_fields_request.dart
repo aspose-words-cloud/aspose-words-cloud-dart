@@ -62,50 +62,50 @@ class DeleteFieldsRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  DeleteFieldsRequest(final String this.name, {final String this.nodePath = null, final String this.folder = null, final String this.storage = null, final String this.loadEncoding = null, final String this.password = null, final String this.destFileName = null, final String this.revisionAuthor = null, final String this.revisionDateTime = null});
+  DeleteFieldsRequest(final this.name, {final this.nodePath, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/{name}/{nodePath}/fields';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.name == null) {
-      throw new ApiException(400, 'Parameter name is required.');
+    var path = '/words/{name}/{nodePath}/fields';
+    var queryParams = <String, String>{};
+    var headers = <String, String>{};
+    var bodyParts = <ApiRequestPart>[];
+    if (name == null) {
+      throw ApiException(400, 'Parameter name is required.');
     }
-    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
-    path = path.replaceAll('{nodePath}', apiClient.serializeToString(this.nodePath) ?? '');
-    if (this.folder != null) {
-      queryParams['folder'] = apiClient.serializeToString(this.folder);
-    }
-
-    if (this.storage != null) {
-      queryParams['storage'] = apiClient.serializeToString(this.storage);
+    path = path.replaceAll('{name}', apiClient.serializeToString(name));
+    path = path.replaceAll('{nodePath}', apiClient.serializeToString(nodePath) ?? '');
+    if (folder != null) {
+      queryParams['folder'] = apiClient.serializeToString(folder);
     }
 
-    if (this.loadEncoding != null) {
-      queryParams['loadEncoding'] = apiClient.serializeToString(this.loadEncoding);
+    if (storage != null) {
+      queryParams['storage'] = apiClient.serializeToString(storage);
     }
 
-    if (this.password != null) {
-      queryParams['password'] = apiClient.serializeToString(this.password);
+    if (loadEncoding != null) {
+      queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
     }
 
-    if (this.destFileName != null) {
-      queryParams['destFileName'] = apiClient.serializeToString(this.destFileName);
+    if (password != null) {
+      queryParams['password'] = apiClient.serializeToString(password);
     }
 
-    if (this.revisionAuthor != null) {
-      queryParams['revisionAuthor'] = apiClient.serializeToString(this.revisionAuthor);
+    if (destFileName != null) {
+      queryParams['destFileName'] = apiClient.serializeToString(destFileName);
     }
 
-    if (this.revisionDateTime != null) {
-      queryParams['revisionDateTime'] = apiClient.serializeToString(this.revisionDateTime);
+    if (revisionAuthor != null) {
+      queryParams['revisionAuthor'] = apiClient.serializeToString(revisionAuthor);
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('DELETE', url, headers, body);
+    if (revisionDateTime != null) {
+      queryParams['revisionDateTime'] = apiClient.serializeToString(revisionDateTime);
+    }
+
+    var url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
+    var body = apiClient.serializeBodyParts(bodyParts, headers);
+    return ApiRequestData('DELETE', url, headers, body);
   }
 
   @override

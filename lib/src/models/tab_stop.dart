@@ -38,18 +38,18 @@ class TabStop extends TabStopBase {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('IsClear')) {
-      this.isClear = json['IsClear'];
+      isClear = json['IsClear'];
     } else {
-      this.isClear = null;
+      isClear = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.isClear != null) {
-      _result['IsClear'] = this.isClear;
+    if (isClear != null) {
+      _result['IsClear'] = isClear;
     }
     return _result;
   }

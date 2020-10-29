@@ -59,53 +59,53 @@ class RenderPageRequest implements RequestBase {
   /// Folder in filestorage with custom fonts.
   final String fontsLocation;
 
-  RenderPageRequest(final String this.name, final int this.pageIndex, final String this.format, {final String this.folder = null, final String this.storage = null, final String this.loadEncoding = null, final String this.password = null, final String this.fontsLocation = null});
+  RenderPageRequest(final this.name, final this.pageIndex, final this.format, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.fontsLocation});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/{name}/pages/{pageIndex}/render';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.name == null) {
-      throw new ApiException(400, 'Parameter name is required.');
+    var path = '/words/{name}/pages/{pageIndex}/render';
+    var queryParams = <String, String>{};
+    var headers = <String, String>{};
+    var bodyParts = <ApiRequestPart>[];
+    if (name == null) {
+      throw ApiException(400, 'Parameter name is required.');
     }
-    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
+    path = path.replaceAll('{name}', apiClient.serializeToString(name));
 
-    if (this.pageIndex == null) {
-      throw new ApiException(400, 'Parameter pageIndex is required.');
+    if (pageIndex == null) {
+      throw ApiException(400, 'Parameter pageIndex is required.');
     }
-    path = path.replaceAll('{pageIndex}', apiClient.serializeToString(this.pageIndex));
-    if (this.format != null) {
-      queryParams['format'] = apiClient.serializeToString(this.format);
+    path = path.replaceAll('{pageIndex}', apiClient.serializeToString(pageIndex));
+    if (format != null) {
+      queryParams['format'] = apiClient.serializeToString(format);
     }
     else {
-      throw new ApiException(400, 'Parameter format is required.');
+      throw ApiException(400, 'Parameter format is required.');
     }
 
-    if (this.folder != null) {
-      queryParams['folder'] = apiClient.serializeToString(this.folder);
+    if (folder != null) {
+      queryParams['folder'] = apiClient.serializeToString(folder);
     }
 
-    if (this.storage != null) {
-      queryParams['storage'] = apiClient.serializeToString(this.storage);
+    if (storage != null) {
+      queryParams['storage'] = apiClient.serializeToString(storage);
     }
 
-    if (this.loadEncoding != null) {
-      queryParams['loadEncoding'] = apiClient.serializeToString(this.loadEncoding);
+    if (loadEncoding != null) {
+      queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
     }
 
-    if (this.password != null) {
-      queryParams['password'] = apiClient.serializeToString(this.password);
+    if (password != null) {
+      queryParams['password'] = apiClient.serializeToString(password);
     }
 
-    if (this.fontsLocation != null) {
-      queryParams['fontsLocation'] = apiClient.serializeToString(this.fontsLocation);
+    if (fontsLocation != null) {
+      queryParams['fontsLocation'] = apiClient.serializeToString(fontsLocation);
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('GET', url, headers, body);
+    var url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
+    var body = apiClient.serializeBodyParts(bodyParts, headers);
+    return ApiRequestData('GET', url, headers, body);
   }
 
   @override

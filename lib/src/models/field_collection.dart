@@ -39,23 +39,23 @@ class FieldCollection extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('List')) {
       // Array processing
-      this.list = new List<Field>();
+      list = <Field>[];
       for(final _element in json['List']) {
-        var _elementValue = new Field();
+        var _elementValue = Field();
         _elementValue.deserialize(_element);
-        this.list.add(_elementValue);
+        list.add(_elementValue);
       }
     } else {
-      this.list = null;
+      list = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.list != null) {
-      _result['List'] = this.list.map((_element) => _element.serialize()).toList();
+    if (list != null) {
+      _result['List'] = list.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

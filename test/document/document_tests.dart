@@ -35,35 +35,35 @@ class DocumentTests
   String remoteDataFolder;
   String localFile;
 
-  DocumentTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/Document';
+  DocumentTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/Document';
     localFile = 'Common/test_multi_pages.docx';
   }
 
   /// Test for getting document.
   Future<void> testGetDocument() async
   {
-    final String remoteFileName = 'TestGetDocument.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetDocument.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetDocumentRequest(
+    final request = GetDocumentRequest(
       remoteFileName,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().getDocument(request);
+    await context.getApi().getDocument(request);
   }
 
   /// Test for creating word document.
   Future<void> testCreateDocument() async
   {
-    final String remoteFileName = 'TestCreateDocument.doc';
+    final remoteFileName = 'TestCreateDocument.doc';
 
-    final request = new CreateDocumentRequest(
+    final request = CreateDocumentRequest(
       fileName: remoteFileName,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().createDocument(request);
+    await context.getApi().createDocument(request);
   }
 }

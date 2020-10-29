@@ -116,215 +116,215 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('Compliance')) {
-      this.compliance = json['Compliance'];
+      compliance = json['Compliance'];
     } else {
-      this.compliance = null;
+      compliance = null;
     }
 
     if (json.containsKey('CreateNoteHyperlinks')) {
-      this.createNoteHyperlinks = json['CreateNoteHyperlinks'];
+      createNoteHyperlinks = json['CreateNoteHyperlinks'];
     } else {
-      this.createNoteHyperlinks = null;
+      createNoteHyperlinks = null;
     }
 
     if (json.containsKey('CustomPropertiesExport')) {
-      this.customPropertiesExport = json['CustomPropertiesExport'];
+      customPropertiesExport = json['CustomPropertiesExport'];
     } else {
-      this.customPropertiesExport = null;
+      customPropertiesExport = null;
     }
 
     if (json.containsKey('DigitalSignatureDetails')) {
-      this.digitalSignatureDetails = new PdfDigitalSignatureDetailsData();
-      this.digitalSignatureDetails.deserialize(json['DigitalSignatureDetails']);
+      digitalSignatureDetails = PdfDigitalSignatureDetailsData();
+      digitalSignatureDetails.deserialize(json['DigitalSignatureDetails']);
     } else {
-      this.digitalSignatureDetails = null;
+      digitalSignatureDetails = null;
     }
 
     if (json.containsKey('DisplayDocTitle')) {
-      this.displayDocTitle = json['DisplayDocTitle'];
+      displayDocTitle = json['DisplayDocTitle'];
     } else {
-      this.displayDocTitle = null;
+      displayDocTitle = null;
     }
 
     if (json.containsKey('DownsampleOptions')) {
-      this.downsampleOptions = new DownsampleOptionsData();
-      this.downsampleOptions.deserialize(json['DownsampleOptions']);
+      downsampleOptions = DownsampleOptionsData();
+      downsampleOptions.deserialize(json['DownsampleOptions']);
     } else {
-      this.downsampleOptions = null;
+      downsampleOptions = null;
     }
 
     if (json.containsKey('EmbedFullFonts')) {
-      this.embedFullFonts = json['EmbedFullFonts'];
+      embedFullFonts = json['EmbedFullFonts'];
     } else {
-      this.embedFullFonts = null;
+      embedFullFonts = null;
     }
 
     if (json.containsKey('EncryptionDetails')) {
-      this.encryptionDetails = new PdfEncryptionDetailsData();
-      this.encryptionDetails.deserialize(json['EncryptionDetails']);
+      encryptionDetails = PdfEncryptionDetailsData();
+      encryptionDetails.deserialize(json['EncryptionDetails']);
     } else {
-      this.encryptionDetails = null;
+      encryptionDetails = null;
     }
 
     if (json.containsKey('EscapeUri')) {
-      this.escapeUri = json['EscapeUri'];
+      escapeUri = json['EscapeUri'];
     } else {
-      this.escapeUri = null;
+      escapeUri = null;
     }
 
     if (json.containsKey('ExportDocumentStructure')) {
-      this.exportDocumentStructure = json['ExportDocumentStructure'];
+      exportDocumentStructure = json['ExportDocumentStructure'];
     } else {
-      this.exportDocumentStructure = null;
+      exportDocumentStructure = null;
     }
 
     if (json.containsKey('FontEmbeddingMode')) {
-      this.fontEmbeddingMode = json['FontEmbeddingMode'];
+      fontEmbeddingMode = json['FontEmbeddingMode'];
     } else {
-      this.fontEmbeddingMode = null;
+      fontEmbeddingMode = null;
     }
 
     if (json.containsKey('HeaderFooterBookmarksExportMode')) {
       switch (json['HeaderFooterBookmarksExportMode']) {
-        case 'None': this.headerFooterBookmarksExportMode = PdfSaveOptionsData_HeaderFooterBookmarksExportModeEnum.none; break;
-        case 'First': this.headerFooterBookmarksExportMode = PdfSaveOptionsData_HeaderFooterBookmarksExportModeEnum.first; break;
-        case 'All': this.headerFooterBookmarksExportMode = PdfSaveOptionsData_HeaderFooterBookmarksExportModeEnum.all; break;
-        default: this.headerFooterBookmarksExportMode = null; break;
+        case 'None': headerFooterBookmarksExportMode = PdfSaveOptionsData_HeaderFooterBookmarksExportModeEnum.none; break;
+        case 'First': headerFooterBookmarksExportMode = PdfSaveOptionsData_HeaderFooterBookmarksExportModeEnum.first; break;
+        case 'All': headerFooterBookmarksExportMode = PdfSaveOptionsData_HeaderFooterBookmarksExportModeEnum.all; break;
+        default: headerFooterBookmarksExportMode = null; break;
       }
     } else {
-      this.headerFooterBookmarksExportMode = null;
+      headerFooterBookmarksExportMode = null;
     }
 
     if (json.containsKey('ImageColorSpaceExportMode')) {
-      this.imageColorSpaceExportMode = json['ImageColorSpaceExportMode'];
+      imageColorSpaceExportMode = json['ImageColorSpaceExportMode'];
     } else {
-      this.imageColorSpaceExportMode = null;
+      imageColorSpaceExportMode = null;
     }
 
     if (json.containsKey('ImageCompression')) {
-      this.imageCompression = json['ImageCompression'];
+      imageCompression = json['ImageCompression'];
     } else {
-      this.imageCompression = null;
+      imageCompression = null;
     }
 
     if (json.containsKey('InterpolateImages')) {
-      this.interpolateImages = json['InterpolateImages'];
+      interpolateImages = json['InterpolateImages'];
     } else {
-      this.interpolateImages = null;
+      interpolateImages = null;
     }
 
     if (json.containsKey('OpenHyperlinksInNewWindow')) {
-      this.openHyperlinksInNewWindow = json['OpenHyperlinksInNewWindow'];
+      openHyperlinksInNewWindow = json['OpenHyperlinksInNewWindow'];
     } else {
-      this.openHyperlinksInNewWindow = null;
+      openHyperlinksInNewWindow = null;
     }
 
     if (json.containsKey('OutlineOptions')) {
-      this.outlineOptions = new OutlineOptionsData();
-      this.outlineOptions.deserialize(json['OutlineOptions']);
+      outlineOptions = OutlineOptionsData();
+      outlineOptions.deserialize(json['OutlineOptions']);
     } else {
-      this.outlineOptions = null;
+      outlineOptions = null;
     }
 
     if (json.containsKey('PageMode')) {
-      this.pageMode = json['PageMode'];
+      pageMode = json['PageMode'];
     } else {
-      this.pageMode = null;
+      pageMode = null;
     }
 
     if (json.containsKey('PreblendImages')) {
-      this.preblendImages = json['PreblendImages'];
+      preblendImages = json['PreblendImages'];
     } else {
-      this.preblendImages = null;
+      preblendImages = null;
     }
 
     if (json.containsKey('PreserveFormFields')) {
-      this.preserveFormFields = json['PreserveFormFields'];
+      preserveFormFields = json['PreserveFormFields'];
     } else {
-      this.preserveFormFields = null;
+      preserveFormFields = null;
     }
 
     if (json.containsKey('TextCompression')) {
-      this.textCompression = json['TextCompression'];
+      textCompression = json['TextCompression'];
     } else {
-      this.textCompression = null;
+      textCompression = null;
     }
 
     if (json.containsKey('UseBookFoldPrintingSettings')) {
-      this.useBookFoldPrintingSettings = json['UseBookFoldPrintingSettings'];
+      useBookFoldPrintingSettings = json['UseBookFoldPrintingSettings'];
     } else {
-      this.useBookFoldPrintingSettings = null;
+      useBookFoldPrintingSettings = null;
     }
 
     if (json.containsKey('UseCoreFonts')) {
-      this.useCoreFonts = json['UseCoreFonts'];
+      useCoreFonts = json['UseCoreFonts'];
     } else {
-      this.useCoreFonts = null;
+      useCoreFonts = null;
     }
 
     if (json.containsKey('ZoomBehavior')) {
-      this.zoomBehavior = json['ZoomBehavior'];
+      zoomBehavior = json['ZoomBehavior'];
     } else {
-      this.zoomBehavior = null;
+      zoomBehavior = null;
     }
 
     if (json.containsKey('ZoomFactor')) {
-      this.zoomFactor = json['ZoomFactor'];
+      zoomFactor = json['ZoomFactor'];
     } else {
-      this.zoomFactor = null;
+      zoomFactor = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.compliance != null) {
-      _result['Compliance'] = this.compliance;
+    if (compliance != null) {
+      _result['Compliance'] = compliance;
     }
 
-    if (this.createNoteHyperlinks != null) {
-      _result['CreateNoteHyperlinks'] = this.createNoteHyperlinks;
+    if (createNoteHyperlinks != null) {
+      _result['CreateNoteHyperlinks'] = createNoteHyperlinks;
     }
 
-    if (this.customPropertiesExport != null) {
-      _result['CustomPropertiesExport'] = this.customPropertiesExport;
+    if (customPropertiesExport != null) {
+      _result['CustomPropertiesExport'] = customPropertiesExport;
     }
 
-    if (this.digitalSignatureDetails != null) {
-      _result['DigitalSignatureDetails'] = this.digitalSignatureDetails.serialize();
+    if (digitalSignatureDetails != null) {
+      _result['DigitalSignatureDetails'] = digitalSignatureDetails.serialize();
     }
 
-    if (this.displayDocTitle != null) {
-      _result['DisplayDocTitle'] = this.displayDocTitle;
+    if (displayDocTitle != null) {
+      _result['DisplayDocTitle'] = displayDocTitle;
     }
 
-    if (this.downsampleOptions != null) {
-      _result['DownsampleOptions'] = this.downsampleOptions.serialize();
+    if (downsampleOptions != null) {
+      _result['DownsampleOptions'] = downsampleOptions.serialize();
     }
 
-    if (this.embedFullFonts != null) {
-      _result['EmbedFullFonts'] = this.embedFullFonts;
+    if (embedFullFonts != null) {
+      _result['EmbedFullFonts'] = embedFullFonts;
     }
 
-    if (this.encryptionDetails != null) {
-      _result['EncryptionDetails'] = this.encryptionDetails.serialize();
+    if (encryptionDetails != null) {
+      _result['EncryptionDetails'] = encryptionDetails.serialize();
     }
 
-    if (this.escapeUri != null) {
-      _result['EscapeUri'] = this.escapeUri;
+    if (escapeUri != null) {
+      _result['EscapeUri'] = escapeUri;
     }
 
-    if (this.exportDocumentStructure != null) {
-      _result['ExportDocumentStructure'] = this.exportDocumentStructure;
+    if (exportDocumentStructure != null) {
+      _result['ExportDocumentStructure'] = exportDocumentStructure;
     }
 
-    if (this.fontEmbeddingMode != null) {
-      _result['FontEmbeddingMode'] = this.fontEmbeddingMode;
+    if (fontEmbeddingMode != null) {
+      _result['FontEmbeddingMode'] = fontEmbeddingMode;
     }
 
-    if (this.headerFooterBookmarksExportMode != null) {
-      switch (this.headerFooterBookmarksExportMode) {
+    if (headerFooterBookmarksExportMode != null) {
+      switch (headerFooterBookmarksExportMode) {
         case PdfSaveOptionsData_HeaderFooterBookmarksExportModeEnum.none: _result['HeaderFooterBookmarksExportMode'] = 'None'; break;
         case PdfSaveOptionsData_HeaderFooterBookmarksExportModeEnum.first: _result['HeaderFooterBookmarksExportMode'] = 'First'; break;
         case PdfSaveOptionsData_HeaderFooterBookmarksExportModeEnum.all: _result['HeaderFooterBookmarksExportMode'] = 'All'; break;
@@ -332,56 +332,56 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
       }
     }
 
-    if (this.imageColorSpaceExportMode != null) {
-      _result['ImageColorSpaceExportMode'] = this.imageColorSpaceExportMode;
+    if (imageColorSpaceExportMode != null) {
+      _result['ImageColorSpaceExportMode'] = imageColorSpaceExportMode;
     }
 
-    if (this.imageCompression != null) {
-      _result['ImageCompression'] = this.imageCompression;
+    if (imageCompression != null) {
+      _result['ImageCompression'] = imageCompression;
     }
 
-    if (this.interpolateImages != null) {
-      _result['InterpolateImages'] = this.interpolateImages;
+    if (interpolateImages != null) {
+      _result['InterpolateImages'] = interpolateImages;
     }
 
-    if (this.openHyperlinksInNewWindow != null) {
-      _result['OpenHyperlinksInNewWindow'] = this.openHyperlinksInNewWindow;
+    if (openHyperlinksInNewWindow != null) {
+      _result['OpenHyperlinksInNewWindow'] = openHyperlinksInNewWindow;
     }
 
-    if (this.outlineOptions != null) {
-      _result['OutlineOptions'] = this.outlineOptions.serialize();
+    if (outlineOptions != null) {
+      _result['OutlineOptions'] = outlineOptions.serialize();
     }
 
-    if (this.pageMode != null) {
-      _result['PageMode'] = this.pageMode;
+    if (pageMode != null) {
+      _result['PageMode'] = pageMode;
     }
 
-    if (this.preblendImages != null) {
-      _result['PreblendImages'] = this.preblendImages;
+    if (preblendImages != null) {
+      _result['PreblendImages'] = preblendImages;
     }
 
-    if (this.preserveFormFields != null) {
-      _result['PreserveFormFields'] = this.preserveFormFields;
+    if (preserveFormFields != null) {
+      _result['PreserveFormFields'] = preserveFormFields;
     }
 
-    if (this.textCompression != null) {
-      _result['TextCompression'] = this.textCompression;
+    if (textCompression != null) {
+      _result['TextCompression'] = textCompression;
     }
 
-    if (this.useBookFoldPrintingSettings != null) {
-      _result['UseBookFoldPrintingSettings'] = this.useBookFoldPrintingSettings;
+    if (useBookFoldPrintingSettings != null) {
+      _result['UseBookFoldPrintingSettings'] = useBookFoldPrintingSettings;
     }
 
-    if (this.useCoreFonts != null) {
-      _result['UseCoreFonts'] = this.useCoreFonts;
+    if (useCoreFonts != null) {
+      _result['UseCoreFonts'] = useCoreFonts;
     }
 
-    if (this.zoomBehavior != null) {
-      _result['ZoomBehavior'] = this.zoomBehavior;
+    if (zoomBehavior != null) {
+      _result['ZoomBehavior'] = zoomBehavior;
     }
 
-    if (this.zoomFactor != null) {
-      _result['ZoomFactor'] = this.zoomFactor;
+    if (zoomFactor != null) {
+      _result['ZoomFactor'] = zoomFactor;
     }
     return _result;
   }

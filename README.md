@@ -39,19 +39,19 @@ import 'dart:convert';
 import 'dart:io';
 
 // Configure words api client
-var configuration = new Configuration('AppKey', 'AppSid');
-var wordsApi = new WordsApi(configuration);
+var configuration = Configuration('AppKey', 'AppSid');
+var wordsApi = WordsApi(configuration);
 
 // Upload file to cloud
-var localFileContent = await (new File('./test_data/Common/test_doc.docx').readAsBytes());
-var uploadRequest = new UploadFileRequest(ByteData.view(localFileContent.buffer), 'fileStoredInCloud.docx');
+var localFileContent = await (File('./test_data/Common/test_doc.docx').readAsBytes());
+var uploadRequest = UploadFileRequest(ByteData.view(localFileContent.buffer), 'fileStoredInCloud.docx');
 await wordsApi.uploadFile(uploadRequest);
 
 // Save file as pdf in cloud
-var saveOptionsData = new SaveOptionsData()
-  ..saveFormat = "pdf"
-  ..fileName = "destStoredInCloud.pdf";
-var saveAsRequest = new SaveAsRequest("fileStoredInCloud.docx", saveOptionsData);
+var saveOptionsData = SaveOptionsData()
+  ..saveFormat = 'pdf'
+  ..fileName = 'destStoredInCloud.pdf';
+var saveAsRequest = SaveAsRequest('fileStoredInCloud.docx', saveOptionsData);
 await wordsApi.saveAs(saveAsRequest);
 ```
 

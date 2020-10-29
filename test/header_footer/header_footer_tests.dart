@@ -35,101 +35,101 @@ class HeaderFooterTests
   String remoteDataFolder;
   String localFile;
 
-  HeaderFooterTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/HeaderFooters';
+  HeaderFooterTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/HeaderFooters';
     localFile = 'DocumentElements/HeaderFooters/HeadersFooters.doc';
   }
 
   /// Test for getting headers and footers.
   Future<void> testGetHeaderFooters() async
   {
-    final String remoteFileName = 'TestGetHeadersFooters.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetHeadersFooters.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetHeaderFootersRequest(
+    final request = GetHeaderFootersRequest(
       remoteFileName,
       '',
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().getHeaderFooters(request);
+    await context.getApi().getHeaderFooters(request);
   }
 
   /// Test for getting headerfooter.
   Future<void> testGetHeaderFooter() async
   {
-    final String remoteFileName = 'TestGetHeaderFooter.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetHeaderFooter.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetHeaderFooterRequest(
+    final request = GetHeaderFooterRequest(
       remoteFileName,
       0,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().getHeaderFooter(request);
+    await context.getApi().getHeaderFooter(request);
   }
 
   /// Test for getting headerfooter of section.
   Future<void> testGetHeaderFooterOfSection() async
   {
-    final String remoteFileName = 'TestGetHeaderFooterOfSection.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetHeaderFooterOfSection.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetHeaderFooterOfSectionRequest(
+    final request = GetHeaderFooterOfSectionRequest(
       remoteFileName,
       0,
       0,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().getHeaderFooterOfSection(request);
+    await context.getApi().getHeaderFooterOfSection(request);
   }
 
   /// Test for deleting headerfooter.
   Future<void> testDeleteHeaderFooter() async
   {
-    final String remoteFileName = 'TestDeleteHeaderFooter.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestDeleteHeaderFooter.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new DeleteHeaderFooterRequest(
+    final request = DeleteHeaderFooterRequest(
       remoteFileName,
       '',
       0,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().deleteHeaderFooter(request);
+    await context.getApi().deleteHeaderFooter(request);
   }
 
   /// Test for deleting headerfooters.
   Future<void> testDeleteHeadersFooters() async
   {
-    final String remoteFileName = 'TestDeleteHeadersFooters.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestDeleteHeadersFooters.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new DeleteHeadersFootersRequest(
+    final request = DeleteHeadersFootersRequest(
       remoteFileName,
       '',
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().deleteHeadersFooters(request);
+    await context.getApi().deleteHeadersFooters(request);
   }
 
   /// Test for adding headerfooters.
   Future<void> testInsertHeaderFooter() async
   {
-    final String remoteFileName = 'TestInsertHeaderFooter.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestInsertHeaderFooter.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new InsertHeaderFooterRequest(
+    final request = InsertHeaderFooterRequest(
       remoteFileName,
       'FooterEven',
       '',
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().insertHeaderFooter(request);
+    await context.getApi().insertHeaderFooter(request);
   }
 }

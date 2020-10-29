@@ -39,19 +39,19 @@ class SectionResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('Section')) {
-      this.section = new Section();
-      this.section.deserialize(json['Section']);
+      section = Section();
+      section.deserialize(json['Section']);
     } else {
-      this.section = null;
+      section = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.section != null) {
-      _result['Section'] = this.section.serialize();
+    if (section != null) {
+      _result['Section'] = section.serialize();
     }
     return _result;
   }

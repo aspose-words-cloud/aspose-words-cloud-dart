@@ -39,19 +39,19 @@ class TableLinkCollectionResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('Tables')) {
-      this.tables = new TableLinkCollection();
-      this.tables.deserialize(json['Tables']);
+      tables = TableLinkCollection();
+      tables.deserialize(json['Tables']);
     } else {
-      this.tables = null;
+      tables = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.tables != null) {
-      _result['Tables'] = this.tables.serialize();
+    if (tables != null) {
+      _result['Tables'] = tables.serialize();
     }
     return _result;
   }

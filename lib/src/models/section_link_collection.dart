@@ -39,23 +39,23 @@ class SectionLinkCollection extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('SectionLinkList')) {
       // Array processing
-      this.sectionLinkList = new List<SectionLink>();
+      sectionLinkList = <SectionLink>[];
       for(final _element in json['SectionLinkList']) {
-        var _elementValue = new SectionLink();
+        var _elementValue = SectionLink();
         _elementValue.deserialize(_element);
-        this.sectionLinkList.add(_elementValue);
+        sectionLinkList.add(_elementValue);
       }
     } else {
-      this.sectionLinkList = null;
+      sectionLinkList = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.sectionLinkList != null) {
-      _result['SectionLinkList'] = this.sectionLinkList.map((_element) => _element.serialize()).toList();
+    if (sectionLinkList != null) {
+      _result['SectionLinkList'] = sectionLinkList.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

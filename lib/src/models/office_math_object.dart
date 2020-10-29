@@ -48,93 +48,93 @@ class OfficeMathObject extends OfficeMathLink {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('Content')) {
-      this.content = new StoryChildNodes();
-      this.content.deserialize(json['Content']);
+      content = StoryChildNodes();
+      content.deserialize(json['Content']);
     } else {
-      this.content = null;
+      content = null;
     }
 
     if (json.containsKey('DisplayType')) {
       switch (json['DisplayType']) {
-        case 'Display': this.displayType = OfficeMathObject_DisplayTypeEnum.display; break;
-        case 'Inline': this.displayType = OfficeMathObject_DisplayTypeEnum.inline; break;
-        default: this.displayType = null; break;
+        case 'Display': displayType = OfficeMathObject_DisplayTypeEnum.display; break;
+        case 'Inline': displayType = OfficeMathObject_DisplayTypeEnum.inline; break;
+        default: displayType = null; break;
       }
     } else {
-      this.displayType = null;
+      displayType = null;
     }
 
     if (json.containsKey('Justification')) {
       switch (json['Justification']) {
-        case 'CenterGroup': this.justification = OfficeMathObject_JustificationEnum.centerGroup; break;
-        case 'Default': this.justification = OfficeMathObject_JustificationEnum.default_; break;
-        case 'Center': this.justification = OfficeMathObject_JustificationEnum.center; break;
-        case 'Left': this.justification = OfficeMathObject_JustificationEnum.left; break;
-        case 'Right': this.justification = OfficeMathObject_JustificationEnum.right; break;
-        case 'Inline': this.justification = OfficeMathObject_JustificationEnum.inline; break;
-        default: this.justification = null; break;
+        case 'CenterGroup': justification = OfficeMathObject_JustificationEnum.centerGroup; break;
+        case 'Default': justification = OfficeMathObject_JustificationEnum.default_; break;
+        case 'Center': justification = OfficeMathObject_JustificationEnum.center; break;
+        case 'Left': justification = OfficeMathObject_JustificationEnum.left; break;
+        case 'Right': justification = OfficeMathObject_JustificationEnum.right; break;
+        case 'Inline': justification = OfficeMathObject_JustificationEnum.inline; break;
+        default: justification = null; break;
       }
     } else {
-      this.justification = null;
+      justification = null;
     }
 
     if (json.containsKey('MathObjectType')) {
       switch (json['MathObjectType']) {
-        case 'OMath': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.oMath; break;
-        case 'OMathPara': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.oMathPara; break;
-        case 'Accent': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.accent; break;
-        case 'Bar': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.bar; break;
-        case 'BorderBox': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.borderBox; break;
-        case 'Box': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.box; break;
-        case 'Delimiter': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.delimiter; break;
-        case 'Degree': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.degree; break;
-        case 'Argument': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.argument; break;
-        case 'Array': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.array; break;
-        case 'Fraction': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.fraction; break;
-        case 'Denominator': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.denominator; break;
-        case 'Numerator': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.numerator; break;
-        case 'Function': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.function; break;
-        case 'FunctionName': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.functionName; break;
-        case 'GroupCharacter': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.groupCharacter; break;
-        case 'Limit': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.limit; break;
-        case 'LowerLimit': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.lowerLimit; break;
-        case 'UpperLimit': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.upperLimit; break;
-        case 'Matrix': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.matrix; break;
-        case 'MatrixRow': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.matrixRow; break;
-        case 'NAry': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.nAry; break;
-        case 'Phantom': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.phantom; break;
-        case 'Radical': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.radical; break;
-        case 'SubscriptPart': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.subscriptPart; break;
-        case 'SuperscriptPart': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.superscriptPart; break;
-        case 'PreSubSuperscript': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.preSubSuperscript; break;
-        case 'Subscript': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.subscript; break;
-        case 'SubSuperscript': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.subSuperscript; break;
-        case 'Supercript': this.mathObjectType = OfficeMathObject_MathObjectTypeEnum.supercript; break;
-        default: this.mathObjectType = null; break;
+        case 'OMath': mathObjectType = OfficeMathObject_MathObjectTypeEnum.oMath; break;
+        case 'OMathPara': mathObjectType = OfficeMathObject_MathObjectTypeEnum.oMathPara; break;
+        case 'Accent': mathObjectType = OfficeMathObject_MathObjectTypeEnum.accent; break;
+        case 'Bar': mathObjectType = OfficeMathObject_MathObjectTypeEnum.bar; break;
+        case 'BorderBox': mathObjectType = OfficeMathObject_MathObjectTypeEnum.borderBox; break;
+        case 'Box': mathObjectType = OfficeMathObject_MathObjectTypeEnum.box; break;
+        case 'Delimiter': mathObjectType = OfficeMathObject_MathObjectTypeEnum.delimiter; break;
+        case 'Degree': mathObjectType = OfficeMathObject_MathObjectTypeEnum.degree; break;
+        case 'Argument': mathObjectType = OfficeMathObject_MathObjectTypeEnum.argument; break;
+        case 'Array': mathObjectType = OfficeMathObject_MathObjectTypeEnum.array; break;
+        case 'Fraction': mathObjectType = OfficeMathObject_MathObjectTypeEnum.fraction; break;
+        case 'Denominator': mathObjectType = OfficeMathObject_MathObjectTypeEnum.denominator; break;
+        case 'Numerator': mathObjectType = OfficeMathObject_MathObjectTypeEnum.numerator; break;
+        case 'Function': mathObjectType = OfficeMathObject_MathObjectTypeEnum.function; break;
+        case 'FunctionName': mathObjectType = OfficeMathObject_MathObjectTypeEnum.functionName; break;
+        case 'GroupCharacter': mathObjectType = OfficeMathObject_MathObjectTypeEnum.groupCharacter; break;
+        case 'Limit': mathObjectType = OfficeMathObject_MathObjectTypeEnum.limit; break;
+        case 'LowerLimit': mathObjectType = OfficeMathObject_MathObjectTypeEnum.lowerLimit; break;
+        case 'UpperLimit': mathObjectType = OfficeMathObject_MathObjectTypeEnum.upperLimit; break;
+        case 'Matrix': mathObjectType = OfficeMathObject_MathObjectTypeEnum.matrix; break;
+        case 'MatrixRow': mathObjectType = OfficeMathObject_MathObjectTypeEnum.matrixRow; break;
+        case 'NAry': mathObjectType = OfficeMathObject_MathObjectTypeEnum.nAry; break;
+        case 'Phantom': mathObjectType = OfficeMathObject_MathObjectTypeEnum.phantom; break;
+        case 'Radical': mathObjectType = OfficeMathObject_MathObjectTypeEnum.radical; break;
+        case 'SubscriptPart': mathObjectType = OfficeMathObject_MathObjectTypeEnum.subscriptPart; break;
+        case 'SuperscriptPart': mathObjectType = OfficeMathObject_MathObjectTypeEnum.superscriptPart; break;
+        case 'PreSubSuperscript': mathObjectType = OfficeMathObject_MathObjectTypeEnum.preSubSuperscript; break;
+        case 'Subscript': mathObjectType = OfficeMathObject_MathObjectTypeEnum.subscript; break;
+        case 'SubSuperscript': mathObjectType = OfficeMathObject_MathObjectTypeEnum.subSuperscript; break;
+        case 'Supercript': mathObjectType = OfficeMathObject_MathObjectTypeEnum.supercript; break;
+        default: mathObjectType = null; break;
       }
     } else {
-      this.mathObjectType = null;
+      mathObjectType = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.content != null) {
-      _result['Content'] = this.content.serialize();
+    if (content != null) {
+      _result['Content'] = content.serialize();
     }
 
-    if (this.displayType != null) {
-      switch (this.displayType) {
+    if (displayType != null) {
+      switch (displayType) {
         case OfficeMathObject_DisplayTypeEnum.display: _result['DisplayType'] = 'Display'; break;
         case OfficeMathObject_DisplayTypeEnum.inline: _result['DisplayType'] = 'Inline'; break;
         default: break;
       }
     }
 
-    if (this.justification != null) {
-      switch (this.justification) {
+    if (justification != null) {
+      switch (justification) {
         case OfficeMathObject_JustificationEnum.centerGroup: _result['Justification'] = 'CenterGroup'; break;
         case OfficeMathObject_JustificationEnum.default_: _result['Justification'] = 'Default'; break;
         case OfficeMathObject_JustificationEnum.center: _result['Justification'] = 'Center'; break;
@@ -145,8 +145,8 @@ class OfficeMathObject extends OfficeMathLink {
       }
     }
 
-    if (this.mathObjectType != null) {
-      switch (this.mathObjectType) {
+    if (mathObjectType != null) {
+      switch (mathObjectType) {
         case OfficeMathObject_MathObjectTypeEnum.oMath: _result['MathObjectType'] = 'OMath'; break;
         case OfficeMathObject_MathObjectTypeEnum.oMathPara: _result['MathObjectType'] = 'OMathPara'; break;
         case OfficeMathObject_MathObjectTypeEnum.accent: _result['MathObjectType'] = 'Accent'; break;

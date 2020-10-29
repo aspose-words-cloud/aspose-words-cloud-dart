@@ -31,12 +31,12 @@ import 'dart:typed_data';
 
 extension ByteDataExtensions on ByteData {
   bool compare(final ByteData part, { int offset = 0 }) {
-    if (part.lengthInBytes > this.lengthInBytes - offset) {
+    if (part.lengthInBytes > lengthInBytes - offset) {
       return false;
     }
 
-    for (int i = 0; i < part.lengthInBytes; i++) {
-      if (part.getUint8(i) != this.getUint8(i + offset)) {
+    for (var i = 0; i < part.lengthInBytes; i++) {
+      if (part.getUint8(i) != getUint8(i + offset)) {
         return false;
       }
     }
@@ -45,16 +45,16 @@ extension ByteDataExtensions on ByteData {
   }
 
   int indexOf(final ByteData part, {int startIndex = 0}) {
-    if (part.lengthInBytes > this.lengthInBytes - startIndex) {
+    if (part.lengthInBytes > lengthInBytes - startIndex) {
       return null;
     }
 
-    int partLength = part.lengthInBytes;
-    int totalLength = this.lengthInBytes - partLength;
-    for (int i = startIndex; i < totalLength; i++) {
-      bool expression = true;
-      for (int q = 0; q < partLength; q++) {
-        if (this.getUint8(i + q) != part.getUint8(q)) {
+    var partLength = part.lengthInBytes;
+    var totalLength = lengthInBytes - partLength;
+    for (var i = startIndex; i < totalLength; i++) {
+      var expression = true;
+      for (var q = 0; q < partLength; q++) {
+        if (getUint8(i + q) != part.getUint8(q)) {
           expression = false;
           break;
         }
@@ -69,12 +69,12 @@ extension ByteDataExtensions on ByteData {
   }
 
   List<ByteData> split(final ByteData separator, {bool skipEmptyParts = true}) {
-    var result = new List<ByteData>();
+    var result = <ByteData>[];
 
-    int offset = 0;
-    int separatorSize = separator.lengthInBytes;
+    var offset = 0;
+    var separatorSize = separator.lengthInBytes;
     while (true) {
-      var newOffset = this.indexOf(separator, startIndex: offset);
+      var newOffset = indexOf(separator, startIndex: offset);
       if (newOffset == null) {
         result.add(ByteData.sublistView(this, offset));
         break;

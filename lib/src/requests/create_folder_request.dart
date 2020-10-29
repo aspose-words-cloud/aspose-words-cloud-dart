@@ -41,25 +41,25 @@ class CreateFolderRequest implements RequestBase {
   /// Storage name.
   final String storageName;
 
-  CreateFolderRequest(final String this.path, {final String this.storageName = null});
+  CreateFolderRequest(final this.path, {final this.storageName});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/storage/folder/{path}';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.path == null) {
-      throw new ApiException(400, 'Parameter path is required.');
+    var path = '/words/storage/folder/{path}';
+    var queryParams = <String, String>{};
+    var headers = <String, String>{};
+    var bodyParts = <ApiRequestPart>[];
+    if (path == null) {
+      throw ApiException(400, 'Parameter path is required.');
     }
-    path = path.replaceAll('{path}', apiClient.serializeToString(this.path));
-    if (this.storageName != null) {
-      queryParams['storageName'] = apiClient.serializeToString(this.storageName);
+    path = path.replaceAll('{path}', apiClient.serializeToString(path));
+    if (storageName != null) {
+      queryParams['storageName'] = apiClient.serializeToString(storageName);
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('PUT', url, headers, body);
+    var url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
+    var body = apiClient.serializeBodyParts(bodyParts, headers);
+    return ApiRequestData('PUT', url, headers, body);
   }
 
   @override

@@ -44,29 +44,29 @@ class DeleteFileRequest implements RequestBase {
   /// File version ID to delete.
   final String versionId;
 
-  DeleteFileRequest(final String this.path, {final String this.storageName = null, final String this.versionId = null});
+  DeleteFileRequest(final this.path, {final this.storageName, final this.versionId});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/storage/file/{path}';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.path == null) {
-      throw new ApiException(400, 'Parameter path is required.');
+    var path = '/words/storage/file/{path}';
+    var queryParams = <String, String>{};
+    var headers = <String, String>{};
+    var bodyParts = <ApiRequestPart>[];
+    if (path == null) {
+      throw ApiException(400, 'Parameter path is required.');
     }
-    path = path.replaceAll('{path}', apiClient.serializeToString(this.path));
-    if (this.storageName != null) {
-      queryParams['storageName'] = apiClient.serializeToString(this.storageName);
-    }
-
-    if (this.versionId != null) {
-      queryParams['versionId'] = apiClient.serializeToString(this.versionId);
+    path = path.replaceAll('{path}', apiClient.serializeToString(path));
+    if (storageName != null) {
+      queryParams['storageName'] = apiClient.serializeToString(storageName);
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('DELETE', url, headers, body);
+    if (versionId != null) {
+      queryParams['versionId'] = apiClient.serializeToString(versionId);
+    }
+
+    var url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
+    var body = apiClient.serializeBodyParts(bodyParts, headers);
+    return ApiRequestData('DELETE', url, headers, body);
   }
 
   @override

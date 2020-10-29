@@ -42,33 +42,33 @@ class LoadWebDocumentRequest implements RequestBase {
   /// Original document storage.
   final String storage;
 
-  LoadWebDocumentRequest(final LoadWebDocumentData this.data, {final String this.storage = null});
+  LoadWebDocumentRequest(final this.data, {final this.storage});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/loadWebDocument';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.storage != null) {
-      queryParams['storage'] = apiClient.serializeToString(this.storage);
+    var path = '/words/loadWebDocument';
+    var queryParams = <String, String>{};
+    var headers = <String, String>{};
+    var bodyParts = <ApiRequestPart>[];
+    if (storage != null) {
+      queryParams['storage'] = apiClient.serializeToString(storage);
     }
 
-    if (this.data != null) {
-      bodyParts.add(new ApiRequestPart(apiClient.serializeBody(this.data), 'application/json'));
+    if (data != null) {
+      bodyParts.add(ApiRequestPart(apiClient.serializeBody(data), 'application/json'));
     }
     else {
-      throw new ApiException(400, 'Parameter data is required.');
+      throw ApiException(400, 'Parameter data is required.');
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('PUT', url, headers, body);
+    var url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
+    var body = apiClient.serializeBodyParts(bodyParts, headers);
+    return ApiRequestData('PUT', url, headers, body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = new SaveResponse();
+    var _result = SaveResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
     _result.deserialize(_json);

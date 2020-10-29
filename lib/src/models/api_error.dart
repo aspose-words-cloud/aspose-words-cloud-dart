@@ -49,58 +49,58 @@ class ApiError implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('Code')) {
-      this.code = json['Code'];
+      code = json['Code'];
     } else {
-      this.code = null;
+      code = null;
     }
 
     if (json.containsKey('DateTime')) {
-      this.dateTime = DateTime.parse(json['DateTime']);
+      dateTime = DateTime.parse(json['DateTime']);
     } else {
-      this.dateTime = null;
+      dateTime = null;
     }
 
     if (json.containsKey('Description')) {
-      this.description = json['Description'];
+      description = json['Description'];
     } else {
-      this.description = null;
+      description = null;
     }
 
     if (json.containsKey('InnerError')) {
-      this.innerError = new ApiError();
-      this.innerError.deserialize(json['InnerError']);
+      innerError = ApiError();
+      innerError.deserialize(json['InnerError']);
     } else {
-      this.innerError = null;
+      innerError = null;
     }
 
     if (json.containsKey('Message')) {
-      this.message = json['Message'];
+      message = json['Message'];
     } else {
-      this.message = null;
+      message = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.code != null) {
-      _result['Code'] = this.code;
+    var _result = <String, dynamic>{};
+    if (code != null) {
+      _result['Code'] = code;
     }
 
-    if (this.dateTime != null) {
-      _result['DateTime'] = this.dateTime.toIso8601String();
+    if (dateTime != null) {
+      _result['DateTime'] = dateTime.toIso8601String();
     }
 
-    if (this.description != null) {
-      _result['Description'] = this.description;
+    if (description != null) {
+      _result['Description'] = description;
     }
 
-    if (this.innerError != null) {
-      _result['InnerError'] = this.innerError.serialize();
+    if (innerError != null) {
+      _result['InnerError'] = innerError.serialize();
     }
 
-    if (this.message != null) {
-      _result['Message'] = this.message;
+    if (message != null) {
+      _result['Message'] = message;
     }
     return _result;
   }

@@ -59,79 +59,79 @@ class FixedPageSaveOptionsData extends SaveOptionsData {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('ColorMode')) {
-      this.colorMode = json['ColorMode'];
+      colorMode = json['ColorMode'];
     } else {
-      this.colorMode = null;
+      colorMode = null;
     }
 
     if (json.containsKey('JpegQuality')) {
-      this.jpegQuality = json['JpegQuality'];
+      jpegQuality = json['JpegQuality'];
     } else {
-      this.jpegQuality = null;
+      jpegQuality = null;
     }
 
     if (json.containsKey('MetafileRenderingOptions')) {
-      this.metafileRenderingOptions = new MetafileRenderingOptionsData();
-      this.metafileRenderingOptions.deserialize(json['MetafileRenderingOptions']);
+      metafileRenderingOptions = MetafileRenderingOptionsData();
+      metafileRenderingOptions.deserialize(json['MetafileRenderingOptions']);
     } else {
-      this.metafileRenderingOptions = null;
+      metafileRenderingOptions = null;
     }
 
     if (json.containsKey('NumeralFormat')) {
-      this.numeralFormat = json['NumeralFormat'];
+      numeralFormat = json['NumeralFormat'];
     } else {
-      this.numeralFormat = null;
+      numeralFormat = null;
     }
 
     if (json.containsKey('OptimizeOutput')) {
-      this.optimizeOutput = json['OptimizeOutput'];
+      optimizeOutput = json['OptimizeOutput'];
     } else {
-      this.optimizeOutput = null;
+      optimizeOutput = null;
     }
 
     if (json.containsKey('PageCount')) {
-      this.pageCount = json['PageCount'];
+      pageCount = json['PageCount'];
     } else {
-      this.pageCount = null;
+      pageCount = null;
     }
 
     if (json.containsKey('PageIndex')) {
-      this.pageIndex = json['PageIndex'];
+      pageIndex = json['PageIndex'];
     } else {
-      this.pageIndex = null;
+      pageIndex = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.colorMode != null) {
-      _result['ColorMode'] = this.colorMode;
+    if (colorMode != null) {
+      _result['ColorMode'] = colorMode;
     }
 
-    if (this.jpegQuality != null) {
-      _result['JpegQuality'] = this.jpegQuality;
+    if (jpegQuality != null) {
+      _result['JpegQuality'] = jpegQuality;
     }
 
-    if (this.metafileRenderingOptions != null) {
-      _result['MetafileRenderingOptions'] = this.metafileRenderingOptions.serialize();
+    if (metafileRenderingOptions != null) {
+      _result['MetafileRenderingOptions'] = metafileRenderingOptions.serialize();
     }
 
-    if (this.numeralFormat != null) {
-      _result['NumeralFormat'] = this.numeralFormat;
+    if (numeralFormat != null) {
+      _result['NumeralFormat'] = numeralFormat;
     }
 
-    if (this.optimizeOutput != null) {
-      _result['OptimizeOutput'] = this.optimizeOutput;
+    if (optimizeOutput != null) {
+      _result['OptimizeOutput'] = optimizeOutput;
     }
 
-    if (this.pageCount != null) {
-      _result['PageCount'] = this.pageCount;
+    if (pageCount != null) {
+      _result['PageCount'] = pageCount;
     }
 
-    if (this.pageIndex != null) {
-      _result['PageIndex'] = this.pageIndex;
+    if (pageIndex != null) {
+      _result['PageIndex'] = pageIndex;
     }
     return _result;
   }

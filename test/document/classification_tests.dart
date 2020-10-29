@@ -35,8 +35,8 @@ class ClassificationTests
   String remoteDataFolder;
   String localFile;
 
-  ClassificationTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/Common';
+  ClassificationTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/Common';
     localFile = 'Common/test_multi_pages.docx';
   }
 
@@ -44,26 +44,26 @@ class ClassificationTests
   Future<void> testClassify() async
   {
 
-    final request = new ClassifyRequest(
+    final request = ClassifyRequest(
       'Try text classification',
       bestClassesCount: '3'
     );
 
-    await this.context.getApi().classify(request);
+    await context.getApi().classify(request);
   }
 
   /// Test for document classification.
   Future<void> testClassifyDocument() async
   {
-    final String remoteFileName = 'TestClassifyDocument.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestClassifyDocument.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new ClassifyDocumentRequest(
+    final request = ClassifyDocumentRequest(
       remoteFileName,
       folder: remoteDataFolder,
       bestClassesCount: '3'
     );
 
-    await this.context.getApi().classifyDocument(request);
+    await context.getApi().classifyDocument(request);
   }
 }

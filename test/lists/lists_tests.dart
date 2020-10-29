@@ -35,67 +35,67 @@ class ListsTests
   String remoteDataFolder;
   String localFile;
 
-  ListsTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Lists';
+  ListsTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Lists';
     localFile = 'DocumentElements/Lists/ListsGet.doc';
   }
 
   /// Test for getting lists from document.
   Future<void> testGetLists() async
   {
-    final String remoteFileName = 'TestGetLists.doc';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetLists.doc';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetListsRequest(
+    final request = GetListsRequest(
       remoteFileName,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().getLists(request);
+    await context.getApi().getLists(request);
   }
 
   /// Test for getting list from document.
   Future<void> testGetList() async
   {
-    final String remoteFileName = 'TestGetList.doc';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetList.doc';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetListRequest(
+    final request = GetListRequest(
       remoteFileName,
       1,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().getList(request);
+    await context.getApi().getList(request);
   }
 
   /// Test for updating list from document.
   Future<void> testUpdateList() async
   {
-    final String remoteFileName = 'TestUpdateList.doc';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestListUpdate = new ListUpdate();
+    final remoteFileName = 'TestUpdateList.doc';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestListUpdate = ListUpdate();
     requestListUpdate.isRestartAtEachSection = true;
 
-    final request = new UpdateListRequest(
+    final request = UpdateListRequest(
       remoteFileName,
       requestListUpdate,
       1,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().updateList(request);
+    await context.getApi().updateList(request);
   }
 
   /// Test for updating list level from document.
   Future<void> testUpdateListLevel() async
   {
-    final String remoteFileName = 'TestUpdateListLevel.doc';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestListUpdate = new ListLevelUpdate();
+    final remoteFileName = 'TestUpdateListLevel.doc';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestListUpdate = ListLevelUpdate();
     requestListUpdate.alignment = ListLevelUpdate_AlignmentEnum.right;
 
-    final request = new UpdateListLevelRequest(
+    final request = UpdateListLevelRequest(
       remoteFileName,
       requestListUpdate,
       1,
@@ -103,23 +103,23 @@ class ListsTests
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().updateListLevel(request);
+    await context.getApi().updateListLevel(request);
   }
 
   /// Test for inserting list from document.
   Future<void> testInsertList() async
   {
-    final String remoteFileName = 'TestInsertList.doc';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestListInsert = new ListInsert();
+    final remoteFileName = 'TestInsertList.doc';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestListInsert = ListInsert();
     requestListInsert.template = ListInsert_TemplateEnum.outlineLegal;
 
-    final request = new InsertListRequest(
+    final request = InsertListRequest(
       remoteFileName,
       requestListInsert,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().insertList(request);
+    await context.getApi().insertList(request);
   }
 }

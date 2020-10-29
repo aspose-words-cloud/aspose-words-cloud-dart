@@ -39,7 +39,7 @@ class CommentLink extends LinkElement {
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     return _result;
   }

@@ -49,57 +49,57 @@ class ReplaceTextParameters implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('IsMatchCase')) {
-      this.isMatchCase = json['IsMatchCase'];
+      isMatchCase = json['IsMatchCase'];
     } else {
-      this.isMatchCase = null;
+      isMatchCase = null;
     }
 
     if (json.containsKey('IsMatchWholeWord')) {
-      this.isMatchWholeWord = json['IsMatchWholeWord'];
+      isMatchWholeWord = json['IsMatchWholeWord'];
     } else {
-      this.isMatchWholeWord = null;
+      isMatchWholeWord = null;
     }
 
     if (json.containsKey('IsOldValueRegex')) {
-      this.isOldValueRegex = json['IsOldValueRegex'];
+      isOldValueRegex = json['IsOldValueRegex'];
     } else {
-      this.isOldValueRegex = null;
+      isOldValueRegex = null;
     }
 
     if (json.containsKey('NewValue')) {
-      this.newValue = json['NewValue'];
+      newValue = json['NewValue'];
     } else {
-      this.newValue = null;
+      newValue = null;
     }
 
     if (json.containsKey('OldValue')) {
-      this.oldValue = json['OldValue'];
+      oldValue = json['OldValue'];
     } else {
-      this.oldValue = null;
+      oldValue = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.isMatchCase != null) {
-      _result['IsMatchCase'] = this.isMatchCase;
+    var _result = <String, dynamic>{};
+    if (isMatchCase != null) {
+      _result['IsMatchCase'] = isMatchCase;
     }
 
-    if (this.isMatchWholeWord != null) {
-      _result['IsMatchWholeWord'] = this.isMatchWholeWord;
+    if (isMatchWholeWord != null) {
+      _result['IsMatchWholeWord'] = isMatchWholeWord;
     }
 
-    if (this.isOldValueRegex != null) {
-      _result['IsOldValueRegex'] = this.isOldValueRegex;
+    if (isOldValueRegex != null) {
+      _result['IsOldValueRegex'] = isOldValueRegex;
     }
 
-    if (this.newValue != null) {
-      _result['NewValue'] = this.newValue;
+    if (newValue != null) {
+      _result['NewValue'] = newValue;
     }
 
-    if (this.oldValue != null) {
-      _result['OldValue'] = this.oldValue;
+    if (oldValue != null) {
+      _result['OldValue'] = oldValue;
     }
     return _result;
   }

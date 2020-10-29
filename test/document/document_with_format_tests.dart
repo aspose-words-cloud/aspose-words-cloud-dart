@@ -35,39 +35,39 @@ class DocumentWithFormatTests
   String remoteDataFolder;
   String localFile;
 
-  DocumentWithFormatTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/DocumentWithFormat';
+  DocumentWithFormatTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/DocumentWithFormat';
     localFile = 'Common/test_multi_pages.docx';
   }
 
   /// Test for getting document with specified format.
   Future<void> testGetDocumentWithFormat() async
   {
-    final String remoteFileName = 'TestGetDocumentWithFormat.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetDocumentWithFormat.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetDocumentWithFormatRequest(
+    final request = GetDocumentWithFormatRequest(
       remoteFileName,
       'text',
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().getDocumentWithFormat(request);
+    await context.getApi().getDocumentWithFormat(request);
   }
 
   /// Test for getting document with specified format.
   Future<void> testGetDocumentWithFormatAndOutPath() async
   {
-    final String remoteFileName = 'TestGetDocumentWithFormat.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetDocumentWithFormat.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetDocumentWithFormatRequest(
+    final request = GetDocumentWithFormatRequest(
       remoteFileName,
       'text',
       folder: remoteDataFolder,
-      outPath: this.context.baseTestOutPath + '/TestGetDocumentWithFormatAndOutPath.text'
+      outPath: context.baseTestOutPath + '/TestGetDocumentWithFormatAndOutPath.text'
     );
 
-    await this.context.getApi().getDocumentWithFormat(request);
+    await context.getApi().getDocumentWithFormat(request);
   }
 }

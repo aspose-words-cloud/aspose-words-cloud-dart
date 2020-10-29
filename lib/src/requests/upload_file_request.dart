@@ -47,37 +47,37 @@ class UploadFileRequest implements RequestBase {
   /// Storage name.
   final String storageName;
 
-  UploadFileRequest(final ByteData this.fileContent, final String this.path, {final String this.storageName = null});
+  UploadFileRequest(final this.fileContent, final this.path, {final this.storageName});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/storage/file/{path}';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.path == null) {
-      throw new ApiException(400, 'Parameter path is required.');
+    var path = '/words/storage/file/{path}';
+    var queryParams = <String, String>{};
+    var headers = <String, String>{};
+    var bodyParts = <ApiRequestPart>[];
+    if (path == null) {
+      throw ApiException(400, 'Parameter path is required.');
     }
-    path = path.replaceAll('{path}', apiClient.serializeToString(this.path));
-    if (this.storageName != null) {
-      queryParams['storageName'] = apiClient.serializeToString(this.storageName);
+    path = path.replaceAll('{path}', apiClient.serializeToString(path));
+    if (storageName != null) {
+      queryParams['storageName'] = apiClient.serializeToString(storageName);
     }
 
-    if (this.fileContent != null) {
-      bodyParts.add(new ApiRequestPart(apiClient.serializeBody(this.fileContent), 'application/octet-stream', name: 'FileContent'));
+    if (fileContent != null) {
+      bodyParts.add(ApiRequestPart(apiClient.serializeBody(fileContent), 'application/octet-stream', name: 'FileContent'));
     }
     else {
-      throw new ApiException(400, 'Parameter fileContent is required.');
+      throw ApiException(400, 'Parameter fileContent is required.');
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('PUT', url, headers, body);
+    var url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
+    var body = apiClient.serializeBodyParts(bodyParts, headers);
+    return ApiRequestData('PUT', url, headers, body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = new FilesUploadResult();
+    var _result = FilesUploadResult();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
     _result.deserialize(_json);

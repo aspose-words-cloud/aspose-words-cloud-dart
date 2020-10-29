@@ -41,28 +41,28 @@ class Field extends FieldLink {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('LocaleId')) {
-      this.localeId = json['LocaleId'];
+      localeId = json['LocaleId'];
     } else {
-      this.localeId = null;
+      localeId = null;
     }
 
     if (json.containsKey('Result')) {
-      this.result = json['Result'];
+      result = json['Result'];
     } else {
-      this.result = null;
+      result = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.localeId != null) {
-      _result['LocaleId'] = this.localeId;
+    if (localeId != null) {
+      _result['LocaleId'] = localeId;
     }
 
-    if (this.result != null) {
-      _result['Result'] = this.result;
+    if (result != null) {
+      _result['Result'] = result;
     }
     return _result;
   }

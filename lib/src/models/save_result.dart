@@ -44,44 +44,44 @@ class SaveResult implements ModelBase {
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('AdditionalItems')) {
       // Array processing
-      this.additionalItems = new List<FileLink>();
+      additionalItems = <FileLink>[];
       for(final _element in json['AdditionalItems']) {
-        var _elementValue = new FileLink();
+        var _elementValue = FileLink();
         _elementValue.deserialize(_element);
-        this.additionalItems.add(_elementValue);
+        additionalItems.add(_elementValue);
       }
     } else {
-      this.additionalItems = null;
+      additionalItems = null;
     }
 
     if (json.containsKey('DestDocument')) {
-      this.destDocument = new FileLink();
-      this.destDocument.deserialize(json['DestDocument']);
+      destDocument = FileLink();
+      destDocument.deserialize(json['DestDocument']);
     } else {
-      this.destDocument = null;
+      destDocument = null;
     }
 
     if (json.containsKey('SourceDocument')) {
-      this.sourceDocument = new FileLink();
-      this.sourceDocument.deserialize(json['SourceDocument']);
+      sourceDocument = FileLink();
+      sourceDocument.deserialize(json['SourceDocument']);
     } else {
-      this.sourceDocument = null;
+      sourceDocument = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.additionalItems != null) {
-      _result['AdditionalItems'] = this.additionalItems.map((_element) => _element.serialize()).toList();
+    var _result = <String, dynamic>{};
+    if (additionalItems != null) {
+      _result['AdditionalItems'] = additionalItems.map((_element) => _element.serialize()).toList();
     }
 
-    if (this.destDocument != null) {
-      _result['DestDocument'] = this.destDocument.serialize();
+    if (destDocument != null) {
+      _result['DestDocument'] = destDocument.serialize();
     }
 
-    if (this.sourceDocument != null) {
-      _result['SourceDocument'] = this.sourceDocument.serialize();
+    if (sourceDocument != null) {
+      _result['SourceDocument'] = sourceDocument.serialize();
     }
     return _result;
   }

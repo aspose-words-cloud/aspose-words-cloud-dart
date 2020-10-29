@@ -39,19 +39,19 @@ class RunsResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('Runs')) {
-      this.runs = new Runs();
-      this.runs.deserialize(json['Runs']);
+      runs = Runs();
+      runs.deserialize(json['Runs']);
     } else {
-      this.runs = null;
+      runs = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.runs != null) {
-      _result['Runs'] = this.runs.serialize();
+    if (runs != null) {
+      _result['Runs'] = runs.serialize();
     }
     return _result;
   }

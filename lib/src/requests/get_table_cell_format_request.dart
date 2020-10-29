@@ -57,52 +57,52 @@ class GetTableCellFormatRequest implements RequestBase {
   /// Password for opening an encrypted document.
   final String password;
 
-  GetTableCellFormatRequest(final String this.name, final String this.tableRowPath, final int this.index, {final String this.folder = null, final String this.storage = null, final String this.loadEncoding = null, final String this.password = null});
+  GetTableCellFormatRequest(final this.name, final this.tableRowPath, final this.index, {final this.folder, final this.storage, final this.loadEncoding, final this.password});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/{name}/{tableRowPath}/cells/{index}/cellformat';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.name == null) {
-      throw new ApiException(400, 'Parameter name is required.');
+    var path = '/words/{name}/{tableRowPath}/cells/{index}/cellformat';
+    var queryParams = <String, String>{};
+    var headers = <String, String>{};
+    var bodyParts = <ApiRequestPart>[];
+    if (name == null) {
+      throw ApiException(400, 'Parameter name is required.');
     }
-    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
+    path = path.replaceAll('{name}', apiClient.serializeToString(name));
 
-    if (this.tableRowPath == null) {
-      throw new ApiException(400, 'Parameter tableRowPath is required.');
+    if (tableRowPath == null) {
+      throw ApiException(400, 'Parameter tableRowPath is required.');
     }
-    path = path.replaceAll('{tableRowPath}', apiClient.serializeToString(this.tableRowPath));
+    path = path.replaceAll('{tableRowPath}', apiClient.serializeToString(tableRowPath));
 
-    if (this.index == null) {
-      throw new ApiException(400, 'Parameter index is required.');
+    if (index == null) {
+      throw ApiException(400, 'Parameter index is required.');
     }
-    path = path.replaceAll('{index}', apiClient.serializeToString(this.index));
-    if (this.folder != null) {
-      queryParams['folder'] = apiClient.serializeToString(this.folder);
-    }
-
-    if (this.storage != null) {
-      queryParams['storage'] = apiClient.serializeToString(this.storage);
+    path = path.replaceAll('{index}', apiClient.serializeToString(index));
+    if (folder != null) {
+      queryParams['folder'] = apiClient.serializeToString(folder);
     }
 
-    if (this.loadEncoding != null) {
-      queryParams['loadEncoding'] = apiClient.serializeToString(this.loadEncoding);
+    if (storage != null) {
+      queryParams['storage'] = apiClient.serializeToString(storage);
     }
 
-    if (this.password != null) {
-      queryParams['password'] = apiClient.serializeToString(this.password);
+    if (loadEncoding != null) {
+      queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('GET', url, headers, body);
+    if (password != null) {
+      queryParams['password'] = apiClient.serializeToString(password);
+    }
+
+    var url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
+    var body = apiClient.serializeBodyParts(bodyParts, headers);
+    return ApiRequestData('GET', url, headers, body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = new TableCellFormatResponse();
+    var _result = TableCellFormatResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
     _result.deserialize(_json);

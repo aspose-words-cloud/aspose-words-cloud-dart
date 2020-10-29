@@ -47,48 +47,48 @@ class RtfSaveOptionsData extends SaveOptionsData {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('ExportCompactSize')) {
-      this.exportCompactSize = json['ExportCompactSize'];
+      exportCompactSize = json['ExportCompactSize'];
     } else {
-      this.exportCompactSize = null;
+      exportCompactSize = null;
     }
 
     if (json.containsKey('ExportImagesForOldReaders')) {
-      this.exportImagesForOldReaders = json['ExportImagesForOldReaders'];
+      exportImagesForOldReaders = json['ExportImagesForOldReaders'];
     } else {
-      this.exportImagesForOldReaders = null;
+      exportImagesForOldReaders = null;
     }
 
     if (json.containsKey('PrettyFormat')) {
-      this.prettyFormat = json['PrettyFormat'];
+      prettyFormat = json['PrettyFormat'];
     } else {
-      this.prettyFormat = null;
+      prettyFormat = null;
     }
 
     if (json.containsKey('SaveImagesAsWmf')) {
-      this.saveImagesAsWmf = json['SaveImagesAsWmf'];
+      saveImagesAsWmf = json['SaveImagesAsWmf'];
     } else {
-      this.saveImagesAsWmf = null;
+      saveImagesAsWmf = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.exportCompactSize != null) {
-      _result['ExportCompactSize'] = this.exportCompactSize;
+    if (exportCompactSize != null) {
+      _result['ExportCompactSize'] = exportCompactSize;
     }
 
-    if (this.exportImagesForOldReaders != null) {
-      _result['ExportImagesForOldReaders'] = this.exportImagesForOldReaders;
+    if (exportImagesForOldReaders != null) {
+      _result['ExportImagesForOldReaders'] = exportImagesForOldReaders;
     }
 
-    if (this.prettyFormat != null) {
-      _result['PrettyFormat'] = this.prettyFormat;
+    if (prettyFormat != null) {
+      _result['PrettyFormat'] = prettyFormat;
     }
 
-    if (this.saveImagesAsWmf != null) {
-      _result['SaveImagesAsWmf'] = this.saveImagesAsWmf;
+    if (saveImagesAsWmf != null) {
+      _result['SaveImagesAsWmf'] = saveImagesAsWmf;
     }
     return _result;
   }

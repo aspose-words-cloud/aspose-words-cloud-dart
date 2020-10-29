@@ -56,81 +56,81 @@ class Comment extends CommentLink {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('Author')) {
-      this.author = json['Author'];
+      author = json['Author'];
     } else {
-      this.author = null;
+      author = null;
     }
 
     if (json.containsKey('Content')) {
-      this.content = new StoryChildNodes();
-      this.content.deserialize(json['Content']);
+      content = StoryChildNodes();
+      content.deserialize(json['Content']);
     } else {
-      this.content = null;
+      content = null;
     }
 
     if (json.containsKey('DateTime')) {
-      this.dateTime = DateTime.parse(json['DateTime']);
+      dateTime = DateTime.parse(json['DateTime']);
     } else {
-      this.dateTime = null;
+      dateTime = null;
     }
 
     if (json.containsKey('Initial')) {
-      this.initial = json['Initial'];
+      initial = json['Initial'];
     } else {
-      this.initial = null;
+      initial = null;
     }
 
     if (json.containsKey('RangeEnd')) {
-      this.rangeEnd = new DocumentPosition();
-      this.rangeEnd.deserialize(json['RangeEnd']);
+      rangeEnd = DocumentPosition();
+      rangeEnd.deserialize(json['RangeEnd']);
     } else {
-      this.rangeEnd = null;
+      rangeEnd = null;
     }
 
     if (json.containsKey('RangeStart')) {
-      this.rangeStart = new DocumentPosition();
-      this.rangeStart.deserialize(json['RangeStart']);
+      rangeStart = DocumentPosition();
+      rangeStart.deserialize(json['RangeStart']);
     } else {
-      this.rangeStart = null;
+      rangeStart = null;
     }
 
     if (json.containsKey('Text')) {
-      this.text = json['Text'];
+      text = json['Text'];
     } else {
-      this.text = null;
+      text = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.author != null) {
-      _result['Author'] = this.author;
+    if (author != null) {
+      _result['Author'] = author;
     }
 
-    if (this.content != null) {
-      _result['Content'] = this.content.serialize();
+    if (content != null) {
+      _result['Content'] = content.serialize();
     }
 
-    if (this.dateTime != null) {
-      _result['DateTime'] = this.dateTime.toIso8601String();
+    if (dateTime != null) {
+      _result['DateTime'] = dateTime.toIso8601String();
     }
 
-    if (this.initial != null) {
-      _result['Initial'] = this.initial;
+    if (initial != null) {
+      _result['Initial'] = initial;
     }
 
-    if (this.rangeEnd != null) {
-      _result['RangeEnd'] = this.rangeEnd.serialize();
+    if (rangeEnd != null) {
+      _result['RangeEnd'] = rangeEnd.serialize();
     }
 
-    if (this.rangeStart != null) {
-      _result['RangeStart'] = this.rangeStart.serialize();
+    if (rangeStart != null) {
+      _result['RangeStart'] = rangeStart.serialize();
     }
 
-    if (this.text != null) {
-      _result['Text'] = this.text;
+    if (text != null) {
+      _result['Text'] = text;
     }
     return _result;
   }

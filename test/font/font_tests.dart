@@ -33,26 +33,25 @@ class FontTests
 {
   final TestContext context;
 
-  FontTests(final TestContext this.context) {
-  }
+  FontTests(final this.context);
 
   /// Test for reseting cache.
   Future<void> testResetCache() async
   {
 
-    final request = new ResetCacheRequest(
+    final request = ResetCacheRequest(
     );
 
-    await this.context.getApi().resetCache(request);
+    await context.getApi().resetCache(request);
   }
 
   /// Test for GetAvailableFonts resource.
   Future<void> testGetAvailableFonts() async
   {
 
-    final request = new GetAvailableFontsRequest(
+    final request = GetAvailableFontsRequest(
     );
 
-    await this.context.getApi().getAvailableFonts(request);
+    await context.getApi().getAvailableFonts(request);
   }
 }

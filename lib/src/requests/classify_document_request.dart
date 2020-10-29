@@ -57,50 +57,50 @@ class ClassifyDocumentRequest implements RequestBase {
   /// Taxonomy to use for classification return.
   final String taxonomy;
 
-  ClassifyDocumentRequest(final String this.documentName, {final String this.folder = null, final String this.storage = null, final String this.loadEncoding = null, final String this.password = null, final String this.bestClassesCount = null, final String this.taxonomy = null});
+  ClassifyDocumentRequest(final this.documentName, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.bestClassesCount, final this.taxonomy});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/{documentName}/classify';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.documentName == null) {
-      throw new ApiException(400, 'Parameter documentName is required.');
+    var path = '/words/{documentName}/classify';
+    var queryParams = <String, String>{};
+    var headers = <String, String>{};
+    var bodyParts = <ApiRequestPart>[];
+    if (documentName == null) {
+      throw ApiException(400, 'Parameter documentName is required.');
     }
-    path = path.replaceAll('{documentName}', apiClient.serializeToString(this.documentName));
-    if (this.folder != null) {
-      queryParams['folder'] = apiClient.serializeToString(this.folder);
-    }
-
-    if (this.storage != null) {
-      queryParams['storage'] = apiClient.serializeToString(this.storage);
+    path = path.replaceAll('{documentName}', apiClient.serializeToString(documentName));
+    if (folder != null) {
+      queryParams['folder'] = apiClient.serializeToString(folder);
     }
 
-    if (this.loadEncoding != null) {
-      queryParams['loadEncoding'] = apiClient.serializeToString(this.loadEncoding);
+    if (storage != null) {
+      queryParams['storage'] = apiClient.serializeToString(storage);
     }
 
-    if (this.password != null) {
-      queryParams['password'] = apiClient.serializeToString(this.password);
+    if (loadEncoding != null) {
+      queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
     }
 
-    if (this.bestClassesCount != null) {
-      queryParams['bestClassesCount'] = apiClient.serializeToString(this.bestClassesCount);
+    if (password != null) {
+      queryParams['password'] = apiClient.serializeToString(password);
     }
 
-    if (this.taxonomy != null) {
-      queryParams['taxonomy'] = apiClient.serializeToString(this.taxonomy);
+    if (bestClassesCount != null) {
+      queryParams['bestClassesCount'] = apiClient.serializeToString(bestClassesCount);
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('GET', url, headers, body);
+    if (taxonomy != null) {
+      queryParams['taxonomy'] = apiClient.serializeToString(taxonomy);
+    }
+
+    var url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
+    var body = apiClient.serializeBodyParts(bodyParts, headers);
+    return ApiRequestData('GET', url, headers, body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = new ClassificationResponse();
+    var _result = ClassificationResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
     _result.deserialize(_json);

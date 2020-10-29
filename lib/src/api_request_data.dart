@@ -34,5 +34,5 @@ class ApiRequestData {
   final String url;
   final Map<String, String> headers;
   final ByteData body;
-  ApiRequestData(final String this.method, final String this.url, final Map<String, String> this.headers, final ByteData this.body);
+  ApiRequestData(final this.method, final this.url, final this.headers, final this.body);
 }

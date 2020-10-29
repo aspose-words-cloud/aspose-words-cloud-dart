@@ -35,72 +35,72 @@ class DocumentPropertiesTests
   String remoteDataFolder;
   String localFile;
 
-  DocumentPropertiesTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/DocumentProperties';
+  DocumentPropertiesTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/DocumentProperties';
     localFile = 'Common/test_multi_pages.docx';
   }
 
   /// Test for getting document properties.
   Future<void> testGetDocumentProperties() async
   {
-    final String remoteFileName = 'TestGetDocumentProperties.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetDocumentProperties.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetDocumentPropertiesRequest(
+    final request = GetDocumentPropertiesRequest(
       remoteFileName,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().getDocumentProperties(request);
+    await context.getApi().getDocumentProperties(request);
   }
 
   /// A test for GetDocumentProperty.
   Future<void> testGetDocumentProperty() async
   {
-    final String remoteFileName = 'TestGetDocumentProperty.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetDocumentProperty.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetDocumentPropertyRequest(
+    final request = GetDocumentPropertyRequest(
       remoteFileName,
       'Author',
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().getDocumentProperty(request);
+    await context.getApi().getDocumentProperty(request);
   }
 
   /// Test for deleting document property.
   Future<void> testDeleteDocumentProperty() async
   {
-    final String remoteFileName = 'TestDeleteDocumentProperty.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestDeleteDocumentProperty.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new DeleteDocumentPropertyRequest(
+    final request = DeleteDocumentPropertyRequest(
       remoteFileName,
       'testProp',
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    await this.context.getApi().deleteDocumentProperty(request);
+    await context.getApi().deleteDocumentProperty(request);
   }
 
   /// Test for updating document property.
   Future<void> testUpdateDocumentProperty() async
   {
-    final String remoteFileName = 'TestUpdateDocumentProperty.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestProperty = new DocumentPropertyCreateOrUpdate();
+    final remoteFileName = 'TestUpdateDocumentProperty.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestProperty = DocumentPropertyCreateOrUpdate();
     requestProperty.value = 'Imran Anwar';
 
-    final request = new CreateOrUpdateDocumentPropertyRequest(
+    final request = CreateOrUpdateDocumentPropertyRequest(
       remoteFileName,
       'AsposeAuthor',
       requestProperty,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    await this.context.getApi().createOrUpdateDocumentProperty(request);
+    await context.getApi().createOrUpdateDocumentProperty(request);
   }
 }

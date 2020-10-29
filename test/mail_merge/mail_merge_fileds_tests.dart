@@ -35,35 +35,35 @@ class MailMergeFiledsTests
   String remoteDataFolder;
   String mailMergeFolder;
 
-  MailMergeFiledsTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/MailMerge';
+  MailMergeFiledsTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/MailMerge';
     mailMergeFolder = 'DocumentActions/MailMerge';
   }
 
   /// Test for putting new fields.
   Future<void> testGetDocumentFieldNamesOnline() async
   {
-    final String localDocumentFile = 'SampleExecuteTemplate.docx';
+    final localDocumentFile = 'SampleExecuteTemplate.docx';
 
-    final request = new GetDocumentFieldNamesOnlineRequest(
-      await this.context.loadBinaryFile(mailMergeFolder + '/' + localDocumentFile),
+    final request = GetDocumentFieldNamesOnlineRequest(
+      await context.loadBinaryFile(mailMergeFolder + '/' + localDocumentFile),
       useNonMergeFields: true
     );
 
-    await this.context.getApi().getDocumentFieldNamesOnline(request);
+    await context.getApi().getDocumentFieldNamesOnline(request);
   }
 
   /// Test for getting mailmerge fields.
   Future<void> testGetDocumentFieldNames() async
   {
-    final String remoteFileName = 'TestGetDocumentFieldNames.docx';
-    await this.context.uploadFile('Common/test_multi_pages.docx', remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetDocumentFieldNames.docx';
+    await context.uploadFile('Common/test_multi_pages.docx', remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetDocumentFieldNamesRequest(
+    final request = GetDocumentFieldNamesRequest(
       remoteFileName,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().getDocumentFieldNames(request);
+    await context.getApi().getDocumentFieldNames(request);
   }
 }

@@ -37,17 +37,17 @@ class RangeDocument implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('DocumentName')) {
-      this.documentName = json['DocumentName'];
+      documentName = json['DocumentName'];
     } else {
-      this.documentName = null;
+      documentName = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.documentName != null) {
-      _result['DocumentName'] = this.documentName;
+    var _result = <String, dynamic>{};
+    if (documentName != null) {
+      _result['DocumentName'] = documentName;
     }
     return _result;
   }

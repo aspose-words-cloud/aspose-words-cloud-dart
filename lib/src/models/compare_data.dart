@@ -46,48 +46,48 @@ class CompareData implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('Author')) {
-      this.author = json['Author'];
+      author = json['Author'];
     } else {
-      this.author = null;
+      author = null;
     }
 
     if (json.containsKey('CompareOptions')) {
-      this.compareOptions = new CompareOptions();
-      this.compareOptions.deserialize(json['CompareOptions']);
+      compareOptions = CompareOptions();
+      compareOptions.deserialize(json['CompareOptions']);
     } else {
-      this.compareOptions = null;
+      compareOptions = null;
     }
 
     if (json.containsKey('ComparingWithDocument')) {
-      this.comparingWithDocument = json['ComparingWithDocument'];
+      comparingWithDocument = json['ComparingWithDocument'];
     } else {
-      this.comparingWithDocument = null;
+      comparingWithDocument = null;
     }
 
     if (json.containsKey('DateTime')) {
-      this.dateTime = DateTime.parse(json['DateTime']);
+      dateTime = DateTime.parse(json['DateTime']);
     } else {
-      this.dateTime = null;
+      dateTime = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.author != null) {
-      _result['Author'] = this.author;
+    var _result = <String, dynamic>{};
+    if (author != null) {
+      _result['Author'] = author;
     }
 
-    if (this.compareOptions != null) {
-      _result['CompareOptions'] = this.compareOptions.serialize();
+    if (compareOptions != null) {
+      _result['CompareOptions'] = compareOptions.serialize();
     }
 
-    if (this.comparingWithDocument != null) {
-      _result['ComparingWithDocument'] = this.comparingWithDocument;
+    if (comparingWithDocument != null) {
+      _result['ComparingWithDocument'] = comparingWithDocument;
     }
 
-    if (this.dateTime != null) {
-      _result['DateTime'] = this.dateTime.toIso8601String();
+    if (dateTime != null) {
+      _result['DateTime'] = dateTime.toIso8601String();
     }
     return _result;
   }

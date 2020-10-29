@@ -43,38 +43,38 @@ class TableInsert implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('ColumnsCount')) {
-      this.columnsCount = json['ColumnsCount'];
+      columnsCount = json['ColumnsCount'];
     } else {
-      this.columnsCount = null;
+      columnsCount = null;
     }
 
     if (json.containsKey('Position')) {
-      this.position = new DocumentPosition();
-      this.position.deserialize(json['Position']);
+      position = DocumentPosition();
+      position.deserialize(json['Position']);
     } else {
-      this.position = null;
+      position = null;
     }
 
     if (json.containsKey('RowsCount')) {
-      this.rowsCount = json['RowsCount'];
+      rowsCount = json['RowsCount'];
     } else {
-      this.rowsCount = null;
+      rowsCount = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.columnsCount != null) {
-      _result['ColumnsCount'] = this.columnsCount;
+    var _result = <String, dynamic>{};
+    if (columnsCount != null) {
+      _result['ColumnsCount'] = columnsCount;
     }
 
-    if (this.position != null) {
-      _result['Position'] = this.position.serialize();
+    if (position != null) {
+      _result['Position'] = position.serialize();
     }
 
-    if (this.rowsCount != null) {
-      _result['RowsCount'] = this.rowsCount;
+    if (rowsCount != null) {
+      _result['RowsCount'] = rowsCount;
     }
     return _result;
   }

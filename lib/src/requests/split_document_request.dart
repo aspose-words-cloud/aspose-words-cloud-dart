@@ -69,69 +69,69 @@ class SplitDocumentRequest implements RequestBase {
   /// Folder in filestorage with custom fonts.
   final String fontsLocation;
 
-  SplitDocumentRequest(final String this.name, final String this.format, {final String this.folder = null, final String this.storage = null, final String this.loadEncoding = null, final String this.password = null, final String this.destFileName = null, final int this.from = null, final int this.to = null, final bool this.zipOutput = null, final String this.fontsLocation = null});
+  SplitDocumentRequest(final this.name, final this.format, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.from, final this.to, final this.zipOutput, final this.fontsLocation});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/{name}/split';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.name == null) {
-      throw new ApiException(400, 'Parameter name is required.');
+    var path = '/words/{name}/split';
+    var queryParams = <String, String>{};
+    var headers = <String, String>{};
+    var bodyParts = <ApiRequestPart>[];
+    if (name == null) {
+      throw ApiException(400, 'Parameter name is required.');
     }
-    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
-    if (this.format != null) {
-      queryParams['format'] = apiClient.serializeToString(this.format);
+    path = path.replaceAll('{name}', apiClient.serializeToString(name));
+    if (format != null) {
+      queryParams['format'] = apiClient.serializeToString(format);
     }
     else {
-      throw new ApiException(400, 'Parameter format is required.');
+      throw ApiException(400, 'Parameter format is required.');
     }
 
-    if (this.folder != null) {
-      queryParams['folder'] = apiClient.serializeToString(this.folder);
+    if (folder != null) {
+      queryParams['folder'] = apiClient.serializeToString(folder);
     }
 
-    if (this.storage != null) {
-      queryParams['storage'] = apiClient.serializeToString(this.storage);
+    if (storage != null) {
+      queryParams['storage'] = apiClient.serializeToString(storage);
     }
 
-    if (this.loadEncoding != null) {
-      queryParams['loadEncoding'] = apiClient.serializeToString(this.loadEncoding);
+    if (loadEncoding != null) {
+      queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
     }
 
-    if (this.password != null) {
-      queryParams['password'] = apiClient.serializeToString(this.password);
+    if (password != null) {
+      queryParams['password'] = apiClient.serializeToString(password);
     }
 
-    if (this.destFileName != null) {
-      queryParams['destFileName'] = apiClient.serializeToString(this.destFileName);
+    if (destFileName != null) {
+      queryParams['destFileName'] = apiClient.serializeToString(destFileName);
     }
 
-    if (this.from != null) {
-      queryParams['from'] = apiClient.serializeToString(this.from);
+    if (from != null) {
+      queryParams['from'] = apiClient.serializeToString(from);
     }
 
-    if (this.to != null) {
-      queryParams['to'] = apiClient.serializeToString(this.to);
+    if (to != null) {
+      queryParams['to'] = apiClient.serializeToString(to);
     }
 
-    if (this.zipOutput != null) {
-      queryParams['zipOutput'] = apiClient.serializeToString(this.zipOutput);
+    if (zipOutput != null) {
+      queryParams['zipOutput'] = apiClient.serializeToString(zipOutput);
     }
 
-    if (this.fontsLocation != null) {
-      queryParams['fontsLocation'] = apiClient.serializeToString(this.fontsLocation);
+    if (fontsLocation != null) {
+      queryParams['fontsLocation'] = apiClient.serializeToString(fontsLocation);
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('PUT', url, headers, body);
+    var url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
+    var body = apiClient.serializeBodyParts(bodyParts, headers);
+    return ApiRequestData('PUT', url, headers, body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = new SplitDocumentResponse();
+    var _result = SplitDocumentResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
     _result.deserialize(_json);

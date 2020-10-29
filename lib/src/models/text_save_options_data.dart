@@ -45,38 +45,38 @@ class TextSaveOptionsData extends TxtSaveOptionsBaseData {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('AddBidiMarks')) {
-      this.addBidiMarks = json['AddBidiMarks'];
+      addBidiMarks = json['AddBidiMarks'];
     } else {
-      this.addBidiMarks = null;
+      addBidiMarks = null;
     }
 
     if (json.containsKey('PreserveTableLayout')) {
-      this.preserveTableLayout = json['PreserveTableLayout'];
+      preserveTableLayout = json['PreserveTableLayout'];
     } else {
-      this.preserveTableLayout = null;
+      preserveTableLayout = null;
     }
 
     if (json.containsKey('SimplifyListLabels')) {
-      this.simplifyListLabels = json['SimplifyListLabels'];
+      simplifyListLabels = json['SimplifyListLabels'];
     } else {
-      this.simplifyListLabels = null;
+      simplifyListLabels = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.addBidiMarks != null) {
-      _result['AddBidiMarks'] = this.addBidiMarks;
+    if (addBidiMarks != null) {
+      _result['AddBidiMarks'] = addBidiMarks;
     }
 
-    if (this.preserveTableLayout != null) {
-      _result['PreserveTableLayout'] = this.preserveTableLayout;
+    if (preserveTableLayout != null) {
+      _result['PreserveTableLayout'] = preserveTableLayout;
     }
 
-    if (this.simplifyListLabels != null) {
-      _result['SimplifyListLabels'] = this.simplifyListLabels;
+    if (simplifyListLabels != null) {
+      _result['SimplifyListLabels'] = simplifyListLabels;
     }
     return _result;
   }

@@ -39,18 +39,18 @@ class MhtmlSaveOptionsData extends HtmlSaveOptionsData {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('ExportCidUrlsForMhtmlResources')) {
-      this.exportCidUrlsForMhtmlResources = json['ExportCidUrlsForMhtmlResources'];
+      exportCidUrlsForMhtmlResources = json['ExportCidUrlsForMhtmlResources'];
     } else {
-      this.exportCidUrlsForMhtmlResources = null;
+      exportCidUrlsForMhtmlResources = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.exportCidUrlsForMhtmlResources != null) {
-      _result['ExportCidUrlsForMhtmlResources'] = this.exportCidUrlsForMhtmlResources;
+    if (exportCidUrlsForMhtmlResources != null) {
+      _result['ExportCidUrlsForMhtmlResources'] = exportCidUrlsForMhtmlResources;
     }
     return _result;
   }

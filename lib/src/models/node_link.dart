@@ -38,18 +38,18 @@ class NodeLink extends LinkElement {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('NodeId')) {
-      this.nodeId = json['NodeId'];
+      nodeId = json['NodeId'];
     } else {
-      this.nodeId = null;
+      nodeId = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.nodeId != null) {
-      _result['NodeId'] = this.nodeId;
+    if (nodeId != null) {
+      _result['NodeId'] = nodeId;
     }
     return _result;
   }

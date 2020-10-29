@@ -49,48 +49,48 @@ class DocSaveOptionsData extends SaveOptionsData {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('AlwaysCompressMetafiles')) {
-      this.alwaysCompressMetafiles = json['AlwaysCompressMetafiles'];
+      alwaysCompressMetafiles = json['AlwaysCompressMetafiles'];
     } else {
-      this.alwaysCompressMetafiles = null;
+      alwaysCompressMetafiles = null;
     }
 
     if (json.containsKey('Password')) {
-      this.password = json['Password'];
+      password = json['Password'];
     } else {
-      this.password = null;
+      password = null;
     }
 
     if (json.containsKey('SavePictureBullet')) {
-      this.savePictureBullet = json['SavePictureBullet'];
+      savePictureBullet = json['SavePictureBullet'];
     } else {
-      this.savePictureBullet = null;
+      savePictureBullet = null;
     }
 
     if (json.containsKey('SaveRoutingSlip')) {
-      this.saveRoutingSlip = json['SaveRoutingSlip'];
+      saveRoutingSlip = json['SaveRoutingSlip'];
     } else {
-      this.saveRoutingSlip = null;
+      saveRoutingSlip = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.alwaysCompressMetafiles != null) {
-      _result['AlwaysCompressMetafiles'] = this.alwaysCompressMetafiles;
+    if (alwaysCompressMetafiles != null) {
+      _result['AlwaysCompressMetafiles'] = alwaysCompressMetafiles;
     }
 
-    if (this.password != null) {
-      _result['Password'] = this.password;
+    if (password != null) {
+      _result['Password'] = password;
     }
 
-    if (this.savePictureBullet != null) {
-      _result['SavePictureBullet'] = this.savePictureBullet;
+    if (savePictureBullet != null) {
+      _result['SavePictureBullet'] = savePictureBullet;
     }
 
-    if (this.saveRoutingSlip != null) {
-      _result['SaveRoutingSlip'] = this.saveRoutingSlip;
+    if (saveRoutingSlip != null) {
+      _result['SaveRoutingSlip'] = saveRoutingSlip;
     }
     return _result;
   }

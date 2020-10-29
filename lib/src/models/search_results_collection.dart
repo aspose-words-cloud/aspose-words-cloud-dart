@@ -39,23 +39,23 @@ class SearchResultsCollection extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('ResultsList')) {
       // Array processing
-      this.resultsList = new List<SearchResult>();
+      resultsList = <SearchResult>[];
       for(final _element in json['ResultsList']) {
-        var _elementValue = new SearchResult();
+        var _elementValue = SearchResult();
         _elementValue.deserialize(_element);
-        this.resultsList.add(_elementValue);
+        resultsList.add(_elementValue);
       }
     } else {
-      this.resultsList = null;
+      resultsList = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.resultsList != null) {
-      _result['ResultsList'] = this.resultsList.map((_element) => _element.serialize()).toList();
+    if (resultsList != null) {
+      _result['ResultsList'] = resultsList.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

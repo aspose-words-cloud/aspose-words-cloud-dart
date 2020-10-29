@@ -37,17 +37,17 @@ class TableCellInsert implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('InsertAfter')) {
-      this.insertAfter = json['InsertAfter'];
+      insertAfter = json['InsertAfter'];
     } else {
-      this.insertAfter = null;
+      insertAfter = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.insertAfter != null) {
-      _result['InsertAfter'] = this.insertAfter;
+    var _result = <String, dynamic>{};
+    if (insertAfter != null) {
+      _result['InsertAfter'] = insertAfter;
     }
     return _result;
   }

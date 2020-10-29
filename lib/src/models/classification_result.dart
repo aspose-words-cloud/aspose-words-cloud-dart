@@ -40,27 +40,27 @@ class ClassificationResult implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('ClassName')) {
-      this.className = json['ClassName'];
+      className = json['ClassName'];
     } else {
-      this.className = null;
+      className = null;
     }
 
     if (json.containsKey('ClassProbability')) {
-      this.classProbability = json['ClassProbability'];
+      classProbability = json['ClassProbability'];
     } else {
-      this.classProbability = null;
+      classProbability = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.className != null) {
-      _result['ClassName'] = this.className;
+    var _result = <String, dynamic>{};
+    if (className != null) {
+      _result['ClassName'] = className;
     }
 
-    if (this.classProbability != null) {
-      _result['ClassProbability'] = this.classProbability;
+    if (classProbability != null) {
+      _result['ClassProbability'] = classProbability;
     }
     return _result;
   }

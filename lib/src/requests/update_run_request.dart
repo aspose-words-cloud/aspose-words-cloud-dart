@@ -69,71 +69,71 @@ class UpdateRunRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  UpdateRunRequest(final String this.name, final RunUpdate this.run, final String this.paragraphPath, final int this.index, {final String this.folder = null, final String this.storage = null, final String this.loadEncoding = null, final String this.password = null, final String this.destFileName = null, final String this.revisionAuthor = null, final String this.revisionDateTime = null});
+  UpdateRunRequest(final this.name, final this.run, final this.paragraphPath, final this.index, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/{name}/{paragraphPath}/runs/{index}';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.name == null) {
-      throw new ApiException(400, 'Parameter name is required.');
+    var path = '/words/{name}/{paragraphPath}/runs/{index}';
+    var queryParams = <String, String>{};
+    var headers = <String, String>{};
+    var bodyParts = <ApiRequestPart>[];
+    if (name == null) {
+      throw ApiException(400, 'Parameter name is required.');
     }
-    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
+    path = path.replaceAll('{name}', apiClient.serializeToString(name));
 
-    if (this.paragraphPath == null) {
-      throw new ApiException(400, 'Parameter paragraphPath is required.');
+    if (paragraphPath == null) {
+      throw ApiException(400, 'Parameter paragraphPath is required.');
     }
-    path = path.replaceAll('{paragraphPath}', apiClient.serializeToString(this.paragraphPath));
+    path = path.replaceAll('{paragraphPath}', apiClient.serializeToString(paragraphPath));
 
-    if (this.index == null) {
-      throw new ApiException(400, 'Parameter index is required.');
+    if (index == null) {
+      throw ApiException(400, 'Parameter index is required.');
     }
-    path = path.replaceAll('{index}', apiClient.serializeToString(this.index));
-    if (this.folder != null) {
-      queryParams['folder'] = apiClient.serializeToString(this.folder);
-    }
-
-    if (this.storage != null) {
-      queryParams['storage'] = apiClient.serializeToString(this.storage);
+    path = path.replaceAll('{index}', apiClient.serializeToString(index));
+    if (folder != null) {
+      queryParams['folder'] = apiClient.serializeToString(folder);
     }
 
-    if (this.loadEncoding != null) {
-      queryParams['loadEncoding'] = apiClient.serializeToString(this.loadEncoding);
+    if (storage != null) {
+      queryParams['storage'] = apiClient.serializeToString(storage);
     }
 
-    if (this.password != null) {
-      queryParams['password'] = apiClient.serializeToString(this.password);
+    if (loadEncoding != null) {
+      queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
     }
 
-    if (this.destFileName != null) {
-      queryParams['destFileName'] = apiClient.serializeToString(this.destFileName);
+    if (password != null) {
+      queryParams['password'] = apiClient.serializeToString(password);
     }
 
-    if (this.revisionAuthor != null) {
-      queryParams['revisionAuthor'] = apiClient.serializeToString(this.revisionAuthor);
+    if (destFileName != null) {
+      queryParams['destFileName'] = apiClient.serializeToString(destFileName);
     }
 
-    if (this.revisionDateTime != null) {
-      queryParams['revisionDateTime'] = apiClient.serializeToString(this.revisionDateTime);
+    if (revisionAuthor != null) {
+      queryParams['revisionAuthor'] = apiClient.serializeToString(revisionAuthor);
     }
 
-    if (this.run != null) {
-      bodyParts.add(new ApiRequestPart(apiClient.serializeBody(this.run), 'application/json'));
+    if (revisionDateTime != null) {
+      queryParams['revisionDateTime'] = apiClient.serializeToString(revisionDateTime);
+    }
+
+    if (run != null) {
+      bodyParts.add(ApiRequestPart(apiClient.serializeBody(run), 'application/json'));
     }
     else {
-      throw new ApiException(400, 'Parameter run is required.');
+      throw ApiException(400, 'Parameter run is required.');
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('PUT', url, headers, body);
+    var url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
+    var body = apiClient.serializeBodyParts(bodyParts, headers);
+    return ApiRequestData('PUT', url, headers, body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = new RunResponse();
+    var _result = RunResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
     _result.deserialize(_json);

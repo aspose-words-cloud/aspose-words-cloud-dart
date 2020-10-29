@@ -50,40 +50,40 @@ class CopyFileRequest implements RequestBase {
   /// File version ID to copy.
   final String versionId;
 
-  CopyFileRequest(final String this.destPath, final String this.srcPath, {final String this.srcStorageName = null, final String this.destStorageName = null, final String this.versionId = null});
+  CopyFileRequest(final this.destPath, final this.srcPath, {final this.srcStorageName, final this.destStorageName, final this.versionId});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/storage/file/copy/{srcPath}';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.srcPath == null) {
-      throw new ApiException(400, 'Parameter srcPath is required.');
+    var path = '/words/storage/file/copy/{srcPath}';
+    var queryParams = <String, String>{};
+    var headers = <String, String>{};
+    var bodyParts = <ApiRequestPart>[];
+    if (srcPath == null) {
+      throw ApiException(400, 'Parameter srcPath is required.');
     }
-    path = path.replaceAll('{srcPath}', apiClient.serializeToString(this.srcPath));
-    if (this.destPath != null) {
-      queryParams['destPath'] = apiClient.serializeToString(this.destPath);
+    path = path.replaceAll('{srcPath}', apiClient.serializeToString(srcPath));
+    if (destPath != null) {
+      queryParams['destPath'] = apiClient.serializeToString(destPath);
     }
     else {
-      throw new ApiException(400, 'Parameter destPath is required.');
+      throw ApiException(400, 'Parameter destPath is required.');
     }
 
-    if (this.srcStorageName != null) {
-      queryParams['srcStorageName'] = apiClient.serializeToString(this.srcStorageName);
+    if (srcStorageName != null) {
+      queryParams['srcStorageName'] = apiClient.serializeToString(srcStorageName);
     }
 
-    if (this.destStorageName != null) {
-      queryParams['destStorageName'] = apiClient.serializeToString(this.destStorageName);
+    if (destStorageName != null) {
+      queryParams['destStorageName'] = apiClient.serializeToString(destStorageName);
     }
 
-    if (this.versionId != null) {
-      queryParams['versionId'] = apiClient.serializeToString(this.versionId);
+    if (versionId != null) {
+      queryParams['versionId'] = apiClient.serializeToString(versionId);
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('PUT', url, headers, body);
+    var url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
+    var body = apiClient.serializeBodyParts(bodyParts, headers);
+    return ApiRequestData('PUT', url, headers, body);
   }
 
   @override

@@ -40,33 +40,33 @@ class StyleInsert implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('StyleName')) {
-      this.styleName = json['StyleName'];
+      styleName = json['StyleName'];
     } else {
-      this.styleName = null;
+      styleName = null;
     }
 
     if (json.containsKey('StyleType')) {
       switch (json['StyleType']) {
-        case 'Paragraph': this.styleType = StyleInsert_StyleTypeEnum.paragraph; break;
-        case 'Character': this.styleType = StyleInsert_StyleTypeEnum.character; break;
-        case 'Table': this.styleType = StyleInsert_StyleTypeEnum.table; break;
-        case 'List': this.styleType = StyleInsert_StyleTypeEnum.list; break;
-        default: this.styleType = null; break;
+        case 'Paragraph': styleType = StyleInsert_StyleTypeEnum.paragraph; break;
+        case 'Character': styleType = StyleInsert_StyleTypeEnum.character; break;
+        case 'Table': styleType = StyleInsert_StyleTypeEnum.table; break;
+        case 'List': styleType = StyleInsert_StyleTypeEnum.list; break;
+        default: styleType = null; break;
       }
     } else {
-      this.styleType = null;
+      styleType = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.styleName != null) {
-      _result['StyleName'] = this.styleName;
+    var _result = <String, dynamic>{};
+    if (styleName != null) {
+      _result['StyleName'] = styleName;
     }
 
-    if (this.styleType != null) {
-      switch (this.styleType) {
+    if (styleType != null) {
+      switch (styleType) {
         case StyleInsert_StyleTypeEnum.paragraph: _result['StyleType'] = 'Paragraph'; break;
         case StyleInsert_StyleTypeEnum.character: _result['StyleType'] = 'Character'; break;
         case StyleInsert_StyleTypeEnum.table: _result['StyleType'] = 'Table'; break;

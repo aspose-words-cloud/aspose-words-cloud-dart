@@ -41,28 +41,28 @@ class XamlFlowSaveOptionsData extends SaveOptionsData {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('ImagesFolder')) {
-      this.imagesFolder = json['ImagesFolder'];
+      imagesFolder = json['ImagesFolder'];
     } else {
-      this.imagesFolder = null;
+      imagesFolder = null;
     }
 
     if (json.containsKey('ImagesFolderAlias')) {
-      this.imagesFolderAlias = json['ImagesFolderAlias'];
+      imagesFolderAlias = json['ImagesFolderAlias'];
     } else {
-      this.imagesFolderAlias = null;
+      imagesFolderAlias = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.imagesFolder != null) {
-      _result['ImagesFolder'] = this.imagesFolder;
+    if (imagesFolder != null) {
+      _result['ImagesFolder'] = imagesFolder;
     }
 
-    if (this.imagesFolderAlias != null) {
-      _result['ImagesFolderAlias'] = this.imagesFolderAlias;
+    if (imagesFolderAlias != null) {
+      _result['ImagesFolderAlias'] = imagesFolderAlias;
     }
     return _result;
   }

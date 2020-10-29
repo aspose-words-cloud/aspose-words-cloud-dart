@@ -39,19 +39,19 @@ class SectionLinkCollectionResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('Sections')) {
-      this.sections = new SectionLinkCollection();
-      this.sections.deserialize(json['Sections']);
+      sections = SectionLinkCollection();
+      sections.deserialize(json['Sections']);
     } else {
-      this.sections = null;
+      sections = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.sections != null) {
-      _result['Sections'] = this.sections.serialize();
+    if (sections != null) {
+      _result['Sections'] = sections.serialize();
     }
     return _result;
   }

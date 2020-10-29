@@ -41,29 +41,29 @@ class ReplaceTextResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('DocumentLink')) {
-      this.documentLink = new FileLink();
-      this.documentLink.deserialize(json['DocumentLink']);
+      documentLink = FileLink();
+      documentLink.deserialize(json['DocumentLink']);
     } else {
-      this.documentLink = null;
+      documentLink = null;
     }
 
     if (json.containsKey('Matches')) {
-      this.matches = json['Matches'];
+      matches = json['Matches'];
     } else {
-      this.matches = null;
+      matches = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.documentLink != null) {
-      _result['DocumentLink'] = this.documentLink.serialize();
+    if (documentLink != null) {
+      _result['DocumentLink'] = documentLink.serialize();
     }
 
-    if (this.matches != null) {
-      _result['Matches'] = this.matches;
+    if (matches != null) {
+      _result['Matches'] = matches;
     }
     return _result;
   }

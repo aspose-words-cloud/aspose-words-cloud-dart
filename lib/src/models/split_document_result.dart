@@ -44,44 +44,44 @@ class SplitDocumentResult implements ModelBase {
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('Pages')) {
       // Array processing
-      this.pages = new List<FileLink>();
+      pages = <FileLink>[];
       for(final _element in json['Pages']) {
-        var _elementValue = new FileLink();
+        var _elementValue = FileLink();
         _elementValue.deserialize(_element);
-        this.pages.add(_elementValue);
+        pages.add(_elementValue);
       }
     } else {
-      this.pages = null;
+      pages = null;
     }
 
     if (json.containsKey('SourceDocument')) {
-      this.sourceDocument = new FileLink();
-      this.sourceDocument.deserialize(json['SourceDocument']);
+      sourceDocument = FileLink();
+      sourceDocument.deserialize(json['SourceDocument']);
     } else {
-      this.sourceDocument = null;
+      sourceDocument = null;
     }
 
     if (json.containsKey('ZippedPages')) {
-      this.zippedPages = new FileLink();
-      this.zippedPages.deserialize(json['ZippedPages']);
+      zippedPages = FileLink();
+      zippedPages.deserialize(json['ZippedPages']);
     } else {
-      this.zippedPages = null;
+      zippedPages = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.pages != null) {
-      _result['Pages'] = this.pages.map((_element) => _element.serialize()).toList();
+    var _result = <String, dynamic>{};
+    if (pages != null) {
+      _result['Pages'] = pages.map((_element) => _element.serialize()).toList();
     }
 
-    if (this.sourceDocument != null) {
-      _result['SourceDocument'] = this.sourceDocument.serialize();
+    if (sourceDocument != null) {
+      _result['SourceDocument'] = sourceDocument.serialize();
     }
 
-    if (this.zippedPages != null) {
-      _result['ZippedPages'] = this.zippedPages.serialize();
+    if (zippedPages != null) {
+      _result['ZippedPages'] = zippedPages.serialize();
     }
     return _result;
   }

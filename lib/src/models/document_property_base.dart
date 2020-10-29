@@ -37,17 +37,17 @@ class DocumentPropertyBase implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('Value')) {
-      this.value = json['Value'];
+      value = json['Value'];
     } else {
-      this.value = null;
+      value = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.value != null) {
-      _result['Value'] = this.value;
+    var _result = <String, dynamic>{};
+    if (value != null) {
+      _result['Value'] = value;
     }
     return _result;
   }
