@@ -48,56 +48,56 @@ class OdtSaveOptionsData extends SaveOptionsData {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('IsStrictSchema11')) {
-      isStrictSchema11 = json['IsStrictSchema11'];
+      this.isStrictSchema11 = json['IsStrictSchema11'];
     } else {
-      isStrictSchema11 = null;
+      this.isStrictSchema11 = null;
     }
 
     if (json.containsKey('MeasureUnit')) {
       switch (json['MeasureUnit']) {
-        case 'Centimeters': measureUnit = OdtSaveOptionsData_MeasureUnitEnum.centimeters; break;
-        case 'Inches': measureUnit = OdtSaveOptionsData_MeasureUnitEnum.inches; break;
-        default: measureUnit = null; break;
+        case 'Centimeters': this.measureUnit = OdtSaveOptionsData_MeasureUnitEnum.centimeters; break;
+        case 'Inches': this.measureUnit = OdtSaveOptionsData_MeasureUnitEnum.inches; break;
+        default: this.measureUnit = null; break;
       }
     } else {
-      measureUnit = null;
+      this.measureUnit = null;
     }
 
     if (json.containsKey('Password')) {
-      password = json['Password'];
+      this.password = json['Password'];
     } else {
-      password = null;
+      this.password = null;
     }
 
     if (json.containsKey('PrettyFormat')) {
-      prettyFormat = json['PrettyFormat'];
+      this.prettyFormat = json['PrettyFormat'];
     } else {
-      prettyFormat = null;
+      this.prettyFormat = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (isStrictSchema11 != null) {
-      _result['IsStrictSchema11'] = isStrictSchema11;
+    if (this.isStrictSchema11 != null) {
+      _result['IsStrictSchema11'] = this.isStrictSchema11;
     }
 
-    if (measureUnit != null) {
-      switch (measureUnit) {
+    if (this.measureUnit != null) {
+      switch (this.measureUnit) {
         case OdtSaveOptionsData_MeasureUnitEnum.centimeters: _result['MeasureUnit'] = 'Centimeters'; break;
         case OdtSaveOptionsData_MeasureUnitEnum.inches: _result['MeasureUnit'] = 'Inches'; break;
         default: break;
       }
     }
 
-    if (password != null) {
-      _result['Password'] = password;
+    if (this.password != null) {
+      _result['Password'] = this.password;
     }
 
-    if (prettyFormat != null) {
-      _result['PrettyFormat'] = prettyFormat;
+    if (this.prettyFormat != null) {
+      _result['PrettyFormat'] = this.prettyFormat;
     }
     return _result;
   }

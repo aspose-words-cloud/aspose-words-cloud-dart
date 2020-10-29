@@ -63,59 +63,59 @@ class DeleteParagraphTabStopRequest implements RequestBase {
   /// Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
   final String destFileName;
 
-  DeleteParagraphTabStopRequest(final this.name, final this.position, final this.index, {final this.nodePath, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName});
+  DeleteParagraphTabStopRequest(final String this.name, final double this.position, final int this.index, {final String this.nodePath = null, final String this.folder = null, final String this.storage = null, final String this.loadEncoding = null, final String this.password = null, final String this.destFileName = null});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var _path = '/words/{name}/{nodePath}/paragraphs/{index}/tabstop';
-    var _queryParams = <String, String>{};
-    var _headers = <String, String>{};
-    var _bodyParts = <ApiRequestPart>[];
-    if (name == null) {
-      throw ApiException(400, 'Parameter name is required.');
+    String path = '/words/{name}/{nodePath}/paragraphs/{index}/tabstop';
+    Map<String, String> queryParams = new Map<String, String>();
+    Map<String, String> headers = new Map<String, String>();
+    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
+    if (this.name == null) {
+      throw new ApiException(400, 'Parameter name is required.');
     }
-    _path = _path.replaceAll('{name}', apiClient.serializeToString(name));
+    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
 
-    if (index == null) {
-      throw ApiException(400, 'Parameter index is required.');
+    if (this.index == null) {
+      throw new ApiException(400, 'Parameter index is required.');
     }
-    _path = _path.replaceAll('{index}', apiClient.serializeToString(index));
-    _path = _path.replaceAll('{nodePath}', apiClient.serializeToString(nodePath) ?? '');
-    if (position != null) {
-      _queryParams['position'] = apiClient.serializeToString(position);
+    path = path.replaceAll('{index}', apiClient.serializeToString(this.index));
+    path = path.replaceAll('{nodePath}', apiClient.serializeToString(this.nodePath) ?? '');
+    if (this.position != null) {
+      queryParams['position'] = apiClient.serializeToString(this.position);
     }
     else {
-      throw ApiException(400, 'Parameter position is required.');
+      throw new ApiException(400, 'Parameter position is required.');
     }
 
-    if (folder != null) {
-      _queryParams['folder'] = apiClient.serializeToString(folder);
+    if (this.folder != null) {
+      queryParams['folder'] = apiClient.serializeToString(this.folder);
     }
 
-    if (storage != null) {
-      _queryParams['storage'] = apiClient.serializeToString(storage);
+    if (this.storage != null) {
+      queryParams['storage'] = apiClient.serializeToString(this.storage);
     }
 
-    if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
+    if (this.loadEncoding != null) {
+      queryParams['loadEncoding'] = apiClient.serializeToString(this.loadEncoding);
     }
 
-    if (password != null) {
-      _queryParams['password'] = apiClient.serializeToString(password);
+    if (this.password != null) {
+      queryParams['password'] = apiClient.serializeToString(this.password);
     }
 
-    if (destFileName != null) {
-      _queryParams['destFileName'] = apiClient.serializeToString(destFileName);
+    if (this.destFileName != null) {
+      queryParams['destFileName'] = apiClient.serializeToString(this.destFileName);
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('DELETE', _url, _headers, _body);
+    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
+    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
+    return new ApiRequestData('DELETE', url, headers, body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = TabStopsResponse();
+    var _result = new TabStopsResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
     _result.deserialize(_json);

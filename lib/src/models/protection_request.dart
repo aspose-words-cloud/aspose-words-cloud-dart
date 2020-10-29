@@ -43,37 +43,37 @@ class ProtectionRequest implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('NewPassword')) {
-      newPassword = json['NewPassword'];
+      this.newPassword = json['NewPassword'];
     } else {
-      newPassword = null;
+      this.newPassword = null;
     }
 
     if (json.containsKey('Password')) {
-      password = json['Password'];
+      this.password = json['Password'];
     } else {
-      password = null;
+      this.password = null;
     }
 
     if (json.containsKey('ProtectionType')) {
-      protectionType = json['ProtectionType'];
+      this.protectionType = json['ProtectionType'];
     } else {
-      protectionType = null;
+      this.protectionType = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (newPassword != null) {
-      _result['NewPassword'] = newPassword;
+    var _result = new Map<String, dynamic>();
+    if (this.newPassword != null) {
+      _result['NewPassword'] = this.newPassword;
     }
 
-    if (password != null) {
-      _result['Password'] = password;
+    if (this.password != null) {
+      _result['Password'] = this.password;
     }
 
-    if (protectionType != null) {
-      _result['ProtectionType'] = protectionType;
+    if (this.protectionType != null) {
+      _result['ProtectionType'] = this.protectionType;
     }
     return _result;
   }

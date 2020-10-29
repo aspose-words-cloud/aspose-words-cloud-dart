@@ -38,18 +38,18 @@ class WordMLSaveOptionsData extends SaveOptionsData {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('PrettyFormat')) {
-      prettyFormat = json['PrettyFormat'];
+      this.prettyFormat = json['PrettyFormat'];
     } else {
-      prettyFormat = null;
+      this.prettyFormat = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (prettyFormat != null) {
-      _result['PrettyFormat'] = prettyFormat;
+    if (this.prettyFormat != null) {
+      _result['PrettyFormat'] = this.prettyFormat;
     }
     return _result;
   }

@@ -45,45 +45,45 @@ class HeaderFooter extends HeaderFooterLink {
     super.deserialize(json);
     if (json.containsKey('ChildNodes')) {
       // Array processing
-      childNodes = <NodeLink>[];
+      this.childNodes = new List<NodeLink>();
       for(final _element in json['ChildNodes']) {
-        var _elementValue = NodeLink();
+        var _elementValue = new NodeLink();
         _elementValue.deserialize(_element);
-        childNodes.add(_elementValue);
+        this.childNodes.add(_elementValue);
       }
     } else {
-      childNodes = null;
+      this.childNodes = null;
     }
 
     if (json.containsKey('DrawingObjects')) {
-      drawingObjects = LinkElement();
-      drawingObjects.deserialize(json['DrawingObjects']);
+      this.drawingObjects = new LinkElement();
+      this.drawingObjects.deserialize(json['DrawingObjects']);
     } else {
-      drawingObjects = null;
+      this.drawingObjects = null;
     }
 
     if (json.containsKey('Paragraphs')) {
-      paragraphs = LinkElement();
-      paragraphs.deserialize(json['Paragraphs']);
+      this.paragraphs = new LinkElement();
+      this.paragraphs.deserialize(json['Paragraphs']);
     } else {
-      paragraphs = null;
+      this.paragraphs = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (childNodes != null) {
-      _result['ChildNodes'] = childNodes.map((_element) => _element.serialize()).toList();
+    if (this.childNodes != null) {
+      _result['ChildNodes'] = this.childNodes.map((_element) => _element.serialize()).toList();
     }
 
-    if (drawingObjects != null) {
-      _result['DrawingObjects'] = drawingObjects.serialize();
+    if (this.drawingObjects != null) {
+      _result['DrawingObjects'] = this.drawingObjects.serialize();
     }
 
-    if (paragraphs != null) {
-      _result['Paragraphs'] = paragraphs.serialize();
+    if (this.paragraphs != null) {
+      _result['Paragraphs'] = this.paragraphs.serialize();
     }
     return _result;
   }

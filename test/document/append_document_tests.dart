@@ -27,6 +27,7 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
+import 'package:test/test.dart';
 
 /// Example of how to append document.
 class AppendDocumentTests
@@ -35,33 +36,35 @@ class AppendDocumentTests
   String remoteDataFolder;
   String localFile;
 
-  AppendDocumentTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/AppendDocument';
+  AppendDocumentTests(final TestContext this.context) {
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/AppendDocument';
     localFile = 'Common/test_multi_pages.docx';
   }
 
   /// Test for appending document.
   Future<void> testAppendDocument() async
   {
-    final remoteFileName = 'TestAppendDocument.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestDocumentListDocumentEntries0 = DocumentEntry();
+    final String remoteFileName = 'TestAppendDocument.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestDocumentListDocumentEntries0 = new DocumentEntry();
     requestDocumentListDocumentEntries0.href = remoteDataFolder + '/' + remoteFileName;
     requestDocumentListDocumentEntries0.importFormatMode = 'KeepSourceFormatting';
 
     var requestDocumentListDocumentEntries = [
       requestDocumentListDocumentEntries0];
 
-    var requestDocumentList = DocumentEntryList();
+    var requestDocumentList = new DocumentEntryList();
     requestDocumentList.documentEntries = requestDocumentListDocumentEntries;
 
-    final request = AppendDocumentRequest(
+    final request = new AppendDocumentRequest(
       remoteFileName,
       requestDocumentList,
       folder: remoteDataFolder,
-      destFileName: context.baseTestOutPath + '/' + remoteFileName
+      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    await context.getApi().appendDocument(request);
+    var result = await this.context.getApi().appendDocument(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'TestAppendDocument.docx');
   }
 }

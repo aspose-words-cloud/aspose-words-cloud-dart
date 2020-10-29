@@ -38,19 +38,19 @@ class WordsApiErrorResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('Error')) {
-      error = ApiError();
-      error.deserialize(json['Error']);
+      this.error = new ApiError();
+      this.error.deserialize(json['Error']);
     } else {
-      error = null;
+      this.error = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (error != null) {
-      _result['Error'] = error.serialize();
+    if (this.error != null) {
+      _result['Error'] = this.error.serialize();
     }
     return _result;
   }

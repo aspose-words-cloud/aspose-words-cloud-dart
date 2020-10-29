@@ -41,35 +41,35 @@ class TableRow extends NodeLink {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('RowFormat')) {
-      rowFormat = TableRowFormat();
-      rowFormat.deserialize(json['RowFormat']);
+      this.rowFormat = new TableRowFormat();
+      this.rowFormat.deserialize(json['RowFormat']);
     } else {
-      rowFormat = null;
+      this.rowFormat = null;
     }
 
     if (json.containsKey('TableCellList')) {
       // Array processing
-      tableCellList = <TableCell>[];
+      this.tableCellList = new List<TableCell>();
       for(final _element in json['TableCellList']) {
-        var _elementValue = TableCell();
+        var _elementValue = new TableCell();
         _elementValue.deserialize(_element);
-        tableCellList.add(_elementValue);
+        this.tableCellList.add(_elementValue);
       }
     } else {
-      tableCellList = null;
+      this.tableCellList = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (rowFormat != null) {
-      _result['RowFormat'] = rowFormat.serialize();
+    if (this.rowFormat != null) {
+      _result['RowFormat'] = this.rowFormat.serialize();
     }
 
-    if (tableCellList != null) {
-      _result['TableCellList'] = tableCellList.map((_element) => _element.serialize()).toList();
+    if (this.tableCellList != null) {
+      _result['TableCellList'] = this.tableCellList.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

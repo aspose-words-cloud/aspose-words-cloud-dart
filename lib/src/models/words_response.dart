@@ -37,17 +37,17 @@ class WordsResponse implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('RequestId')) {
-      requestId = json['RequestId'];
+      this.requestId = json['RequestId'];
     } else {
-      requestId = null;
+      this.requestId = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (requestId != null) {
-      _result['RequestId'] = requestId;
+    var _result = new Map<String, dynamic>();
+    if (this.requestId != null) {
+      _result['RequestId'] = this.requestId;
     }
     return _result;
   }

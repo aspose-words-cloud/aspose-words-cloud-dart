@@ -27,6 +27,7 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
+import 'package:test/test.dart';
 
 /// Example of how to work with hyperlinks.
 class HyperlinkTests
@@ -35,37 +36,43 @@ class HyperlinkTests
   String remoteDataFolder;
   String localFile;
 
-  HyperlinkTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Hyperlink';
+  HyperlinkTests(final TestContext this.context) {
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Hyperlink';
     localFile = 'Common/test_doc.docx';
   }
 
   /// Test for getting hyperlink by specified index.
   Future<void> testGetDocumentHyperlinkByIndex() async
   {
-    final remoteFileName = 'TestGetDocumentHyperlinkByIndex.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetDocumentHyperlinkByIndex.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetDocumentHyperlinkByIndexRequest(
+    final request = new GetDocumentHyperlinkByIndexRequest(
       remoteFileName,
       0,
       folder: remoteDataFolder
     );
 
-    await context.getApi().getDocumentHyperlinkByIndex(request);
+    var result = await this.context.getApi().getDocumentHyperlinkByIndex(request);
+    expect(result.hyperlink, isNotNull);
+    expect(result.hyperlink.displayText, 'Aspose');
   }
 
   /// Test for getting hyperlinks.
   Future<void> testGetDocumentHyperlinks() async
   {
-    final remoteFileName = 'TestGetDocumentHyperlinks.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetDocumentHyperlinks.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetDocumentHyperlinksRequest(
+    final request = new GetDocumentHyperlinksRequest(
       remoteFileName,
       folder: remoteDataFolder
     );
 
-    await context.getApi().getDocumentHyperlinks(request);
+    var result = await this.context.getApi().getDocumentHyperlinks(request);
+    expect(result.hyperlinks, isNotNull);
+    expect(result.hyperlinks.hyperlinkList, isNotNull);
+    expect(result.hyperlinks.hyperlinkList.length, 2);
+    expect(result.hyperlinks.hyperlinkList[0].displayText, 'Aspose');
   }
 }

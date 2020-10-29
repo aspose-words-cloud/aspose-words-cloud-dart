@@ -108,121 +108,121 @@ class SaveAsTiffRequest implements RequestBase {
   /// Folder in filestorage with custom fonts.
   final String fontsLocation;
 
-  SaveAsTiffRequest(final this.name, final this.saveOptions, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.useAntiAliasing, final this.useHighQualityRendering, final this.imageBrightness, final this.imageColorMode, final this.imageContrast, final this.numeralFormat, final this.pageCount, final this.pageIndex, final this.paperColor, final this.pixelFormat, final this.resolution, final this.scale, final this.tiffCompression, final this.dmlRenderingMode, final this.dmlEffectsRenderingMode, final this.tiffBinarizationMethod, final this.zipOutput, final this.fontsLocation});
+  SaveAsTiffRequest(final String this.name, final TiffSaveOptionsData this.saveOptions, {final String this.folder = null, final String this.storage = null, final String this.loadEncoding = null, final String this.password = null, final bool this.useAntiAliasing = null, final bool this.useHighQualityRendering = null, final double this.imageBrightness = null, final String this.imageColorMode = null, final double this.imageContrast = null, final String this.numeralFormat = null, final int this.pageCount = null, final int this.pageIndex = null, final String this.paperColor = null, final String this.pixelFormat = null, final double this.resolution = null, final double this.scale = null, final String this.tiffCompression = null, final String this.dmlRenderingMode = null, final String this.dmlEffectsRenderingMode = null, final String this.tiffBinarizationMethod = null, final bool this.zipOutput = null, final String this.fontsLocation = null});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var _path = '/words/{name}/saveAs/tiff';
-    var _queryParams = <String, String>{};
-    var _headers = <String, String>{};
-    var _bodyParts = <ApiRequestPart>[];
-    if (name == null) {
-      throw ApiException(400, 'Parameter name is required.');
+    String path = '/words/{name}/saveAs/tiff';
+    Map<String, String> queryParams = new Map<String, String>();
+    Map<String, String> headers = new Map<String, String>();
+    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
+    if (this.name == null) {
+      throw new ApiException(400, 'Parameter name is required.');
     }
-    _path = _path.replaceAll('{name}', apiClient.serializeToString(name));
-    if (folder != null) {
-      _queryParams['folder'] = apiClient.serializeToString(folder);
-    }
-
-    if (storage != null) {
-      _queryParams['storage'] = apiClient.serializeToString(storage);
+    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
+    if (this.folder != null) {
+      queryParams['folder'] = apiClient.serializeToString(this.folder);
     }
 
-    if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
+    if (this.storage != null) {
+      queryParams['storage'] = apiClient.serializeToString(this.storage);
     }
 
-    if (password != null) {
-      _queryParams['password'] = apiClient.serializeToString(password);
+    if (this.loadEncoding != null) {
+      queryParams['loadEncoding'] = apiClient.serializeToString(this.loadEncoding);
     }
 
-    if (useAntiAliasing != null) {
-      _queryParams['useAntiAliasing'] = apiClient.serializeToString(useAntiAliasing);
+    if (this.password != null) {
+      queryParams['password'] = apiClient.serializeToString(this.password);
     }
 
-    if (useHighQualityRendering != null) {
-      _queryParams['useHighQualityRendering'] = apiClient.serializeToString(useHighQualityRendering);
+    if (this.useAntiAliasing != null) {
+      queryParams['useAntiAliasing'] = apiClient.serializeToString(this.useAntiAliasing);
     }
 
-    if (imageBrightness != null) {
-      _queryParams['imageBrightness'] = apiClient.serializeToString(imageBrightness);
+    if (this.useHighQualityRendering != null) {
+      queryParams['useHighQualityRendering'] = apiClient.serializeToString(this.useHighQualityRendering);
     }
 
-    if (imageColorMode != null) {
-      _queryParams['imageColorMode'] = apiClient.serializeToString(imageColorMode);
+    if (this.imageBrightness != null) {
+      queryParams['imageBrightness'] = apiClient.serializeToString(this.imageBrightness);
     }
 
-    if (imageContrast != null) {
-      _queryParams['imageContrast'] = apiClient.serializeToString(imageContrast);
+    if (this.imageColorMode != null) {
+      queryParams['imageColorMode'] = apiClient.serializeToString(this.imageColorMode);
     }
 
-    if (numeralFormat != null) {
-      _queryParams['numeralFormat'] = apiClient.serializeToString(numeralFormat);
+    if (this.imageContrast != null) {
+      queryParams['imageContrast'] = apiClient.serializeToString(this.imageContrast);
     }
 
-    if (pageCount != null) {
-      _queryParams['pageCount'] = apiClient.serializeToString(pageCount);
+    if (this.numeralFormat != null) {
+      queryParams['numeralFormat'] = apiClient.serializeToString(this.numeralFormat);
     }
 
-    if (pageIndex != null) {
-      _queryParams['pageIndex'] = apiClient.serializeToString(pageIndex);
+    if (this.pageCount != null) {
+      queryParams['pageCount'] = apiClient.serializeToString(this.pageCount);
     }
 
-    if (paperColor != null) {
-      _queryParams['paperColor'] = apiClient.serializeToString(paperColor);
+    if (this.pageIndex != null) {
+      queryParams['pageIndex'] = apiClient.serializeToString(this.pageIndex);
     }
 
-    if (pixelFormat != null) {
-      _queryParams['pixelFormat'] = apiClient.serializeToString(pixelFormat);
+    if (this.paperColor != null) {
+      queryParams['paperColor'] = apiClient.serializeToString(this.paperColor);
     }
 
-    if (resolution != null) {
-      _queryParams['resolution'] = apiClient.serializeToString(resolution);
+    if (this.pixelFormat != null) {
+      queryParams['pixelFormat'] = apiClient.serializeToString(this.pixelFormat);
     }
 
-    if (scale != null) {
-      _queryParams['scale'] = apiClient.serializeToString(scale);
+    if (this.resolution != null) {
+      queryParams['resolution'] = apiClient.serializeToString(this.resolution);
     }
 
-    if (tiffCompression != null) {
-      _queryParams['tiffCompression'] = apiClient.serializeToString(tiffCompression);
+    if (this.scale != null) {
+      queryParams['scale'] = apiClient.serializeToString(this.scale);
     }
 
-    if (dmlRenderingMode != null) {
-      _queryParams['dmlRenderingMode'] = apiClient.serializeToString(dmlRenderingMode);
+    if (this.tiffCompression != null) {
+      queryParams['tiffCompression'] = apiClient.serializeToString(this.tiffCompression);
     }
 
-    if (dmlEffectsRenderingMode != null) {
-      _queryParams['dmlEffectsRenderingMode'] = apiClient.serializeToString(dmlEffectsRenderingMode);
+    if (this.dmlRenderingMode != null) {
+      queryParams['dmlRenderingMode'] = apiClient.serializeToString(this.dmlRenderingMode);
     }
 
-    if (tiffBinarizationMethod != null) {
-      _queryParams['tiffBinarizationMethod'] = apiClient.serializeToString(tiffBinarizationMethod);
+    if (this.dmlEffectsRenderingMode != null) {
+      queryParams['dmlEffectsRenderingMode'] = apiClient.serializeToString(this.dmlEffectsRenderingMode);
     }
 
-    if (zipOutput != null) {
-      _queryParams['zipOutput'] = apiClient.serializeToString(zipOutput);
+    if (this.tiffBinarizationMethod != null) {
+      queryParams['tiffBinarizationMethod'] = apiClient.serializeToString(this.tiffBinarizationMethod);
     }
 
-    if (fontsLocation != null) {
-      _queryParams['fontsLocation'] = apiClient.serializeToString(fontsLocation);
+    if (this.zipOutput != null) {
+      queryParams['zipOutput'] = apiClient.serializeToString(this.zipOutput);
     }
 
-    if (saveOptions != null) {
-      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(saveOptions), 'application/json'));
+    if (this.fontsLocation != null) {
+      queryParams['fontsLocation'] = apiClient.serializeToString(this.fontsLocation);
+    }
+
+    if (this.saveOptions != null) {
+      bodyParts.add(new ApiRequestPart(apiClient.serializeBody(this.saveOptions), 'application/json'));
     }
     else {
-      throw ApiException(400, 'Parameter saveOptions is required.');
+      throw new ApiException(400, 'Parameter saveOptions is required.');
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('PUT', _url, _headers, _body);
+    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
+    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
+    return new ApiRequestData('PUT', url, headers, body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = SaveResponse();
+    var _result = new SaveResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
     _result.deserialize(_json);

@@ -27,6 +27,7 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
+import 'package:test/test.dart';
 
 /// Example of how to work with paragraph.
 class ParagraphTests
@@ -37,8 +38,8 @@ class ParagraphTests
   String listFolder;
   String tabStopFolder;
 
-  ParagraphTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Paragraphs';
+  ParagraphTests(final TestContext this.context) {
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Paragraphs';
     localFile = 'Common/test_multi_pages.docx';
     listFolder = 'DocumentElements/ParagraphListFormat';
     tabStopFolder = 'DocumentElements/Paragraphs';
@@ -47,172 +48,198 @@ class ParagraphTests
   /// Test for getting paragraph.
   Future<void> testGetDocumentParagraphByIndex() async
   {
-    final remoteFileName = 'TestGetDocumentParagraphByIndex.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetDocumentParagraphByIndex.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetParagraphRequest(
+    final request = new GetParagraphRequest(
       remoteFileName,
       0,
       nodePath: 'sections/0',
       folder: remoteDataFolder
     );
 
-    await context.getApi().getParagraph(request);
+    var result = await this.context.getApi().getParagraph(request);
+    expect(result.paragraph, isNotNull);
+    expect(result.paragraph.nodeId, '0.0.0');
   }
 
   /// Test for getting paragraph without node path.
   Future<void> testGetDocumentParagraphByIndexWithoutNodePath() async
   {
-    final remoteFileName = 'TestGetDocumentParagraphByIndexWithoutNodePath.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetDocumentParagraphByIndexWithoutNodePath.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetParagraphRequest(
+    final request = new GetParagraphRequest(
       remoteFileName,
       0,
       folder: remoteDataFolder
     );
 
-    await context.getApi().getParagraph(request);
+    var result = await this.context.getApi().getParagraph(request);
+    expect(result.paragraph, isNotNull);
+    expect(result.paragraph.nodeId, '0.0.0');
   }
 
   /// Test for getting all paragraphs.
   Future<void> testGetDocumentParagraphs() async
   {
-    final remoteFileName = 'TestGetDocumentParagraphs.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetDocumentParagraphs.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetParagraphsRequest(
+    final request = new GetParagraphsRequest(
       remoteFileName,
       nodePath: 'sections/0',
       folder: remoteDataFolder
     );
 
-    await context.getApi().getParagraphs(request);
+    var result = await this.context.getApi().getParagraphs(request);
+    expect(result.paragraphs, isNotNull);
+    expect(result.paragraphs.paragraphLinkList, isNotNull);
+    expect(result.paragraphs.paragraphLinkList.length, 15);
+    expect(result.paragraphs.paragraphLinkList[0].text, 'Page 1 of 3');
   }
 
   /// Test for getting all paragraphs without node path.
   Future<void> testGetDocumentParagraphsWithoutNodePath() async
   {
-    final remoteFileName = 'TestGetDocumentParagraphsWithoutNodePath.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetDocumentParagraphsWithoutNodePath.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetParagraphsRequest(
+    final request = new GetParagraphsRequest(
       remoteFileName,
       folder: remoteDataFolder
     );
 
-    await context.getApi().getParagraphs(request);
+    var result = await this.context.getApi().getParagraphs(request);
+    expect(result.paragraphs, isNotNull);
+    expect(result.paragraphs.paragraphLinkList, isNotNull);
+    expect(result.paragraphs.paragraphLinkList.length, 15);
+    expect(result.paragraphs.paragraphLinkList[0].text, 'Page 1 of 3');
   }
 
   /// Test for getting paragraph run.
   Future<void> testGetDocumentParagraphRun() async
   {
-    final remoteFileName = 'TestGetDocumentParagraphRun.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetDocumentParagraphRun.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetRunRequest(
+    final request = new GetRunRequest(
       remoteFileName,
       'paragraphs/0',
       0,
       folder: remoteDataFolder
     );
 
-    await context.getApi().getRun(request);
+    var result = await this.context.getApi().getRun(request);
+    expect(result.run, isNotNull);
+    expect(result.run.text, 'Page ');
   }
 
   /// Test for getting paragraph run font.
   Future<void> testGetDocumentParagraphRunFont() async
   {
-    final remoteFileName = 'TestGetDocumentParagraphRunFont.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetDocumentParagraphRunFont.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetRunFontRequest(
+    final request = new GetRunFontRequest(
       remoteFileName,
       'paragraphs/0',
       0,
       folder: remoteDataFolder
     );
 
-    await context.getApi().getRunFont(request);
+    var result = await this.context.getApi().getRunFont(request);
+    expect(result.font, isNotNull);
+    expect(result.font.name, 'Times New Roman');
   }
 
   /// Test for getting paragraph runs.
   Future<void> testGetParagraphRuns() async
   {
-    final remoteFileName = 'TestGetParagraphRuns.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetParagraphRuns.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetRunsRequest(
+    final request = new GetRunsRequest(
       remoteFileName,
       'sections/0/paragraphs/0',
       folder: remoteDataFolder
     );
 
-    await context.getApi().getRuns(request);
+    var result = await this.context.getApi().getRuns(request);
+    expect(result.runs, isNotNull);
+    expect(result.runs.list, isNotNull);
+    expect(result.runs.list.length, 6);
+    expect(result.runs.list[0].text, 'Page ');
   }
 
   /// Test for updating paragraph run font.
   Future<void> testUpdateRunFont() async
   {
-    final remoteFileName = 'TestUpdateRunFont.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestFontDto = Font();
+    final String remoteFileName = 'TestUpdateRunFont.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestFontDto = new Font();
     requestFontDto.bold = true;
 
-    final request = UpdateRunFontRequest(
+    final request = new UpdateRunFontRequest(
       remoteFileName,
       requestFontDto,
       'paragraphs/0',
       0,
       folder: remoteDataFolder,
-      destFileName: context.baseTestOutPath + '/' + remoteFileName
+      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    await context.getApi().updateRunFont(request);
+    var result = await this.context.getApi().updateRunFont(request);
+    expect(result.font, isNotNull);
+    expect(result.font.bold, isTrue);
   }
 
   /// Test for adding paragraph.
   Future<void> testInsertParagraph() async
   {
-    final remoteFileName = 'TestInsertParagraph.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestParagraph = ParagraphInsert();
+    final String remoteFileName = 'TestInsertParagraph.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestParagraph = new ParagraphInsert();
     requestParagraph.text = 'This is a new paragraph for your document';
 
-    final request = InsertParagraphRequest(
+    final request = new InsertParagraphRequest(
       remoteFileName,
       requestParagraph,
       nodePath: 'sections/0',
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertParagraph(request);
+    var result = await this.context.getApi().insertParagraph(request);
+    expect(result.paragraph, isNotNull);
+    expect(result.paragraph.nodeId, '0.3.8');
   }
 
   /// Test for adding paragraph without node path.
   Future<void> testInsertParagraphWithoutNodePath() async
   {
-    final remoteFileName = 'TestInsertParagraphWithoutNodePath.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestParagraph = ParagraphInsert();
+    final String remoteFileName = 'TestInsertParagraphWithoutNodePath.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestParagraph = new ParagraphInsert();
     requestParagraph.text = 'This is a new paragraph for your document';
 
-    final request = InsertParagraphRequest(
+    final request = new InsertParagraphRequest(
       remoteFileName,
       requestParagraph,
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertParagraph(request);
+    var result = await this.context.getApi().insertParagraph(request);
+    expect(result.paragraph, isNotNull);
+    expect(result.paragraph.nodeId, '0.3.8');
   }
 
   /// Test for paragraph rendering.
   Future<void> testRenderParagraph() async
   {
-    final remoteFileName = 'TestRenderParagraph.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestRenderParagraph.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = RenderParagraphRequest(
+    final request = new RenderParagraphRequest(
       remoteFileName,
       'png',
       0,
@@ -220,65 +247,69 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().renderParagraph(request);
+    var result = await this.context.getApi().renderParagraph(request);
   }
 
   /// Test for paragraph rendering without node path.
   Future<void> testRenderParagraphWithoutNodePath() async
   {
-    final remoteFileName = 'TestRenderParagraphWithoutNodePath.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestRenderParagraphWithoutNodePath.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = RenderParagraphRequest(
+    final request = new RenderParagraphRequest(
       remoteFileName,
       'png',
       0,
       folder: remoteDataFolder
     );
 
-    await context.getApi().renderParagraph(request);
+    var result = await this.context.getApi().renderParagraph(request);
   }
 
   /// Test for getting paragraph format settings.
   Future<void> testGetParagraphFormat() async
   {
-    final remoteFileName = 'TestGetDocumentParagraphs.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetDocumentParagraphs.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetParagraphFormatRequest(
+    final request = new GetParagraphFormatRequest(
       remoteFileName,
       0,
       nodePath: '',
       folder: remoteDataFolder
     );
 
-    await context.getApi().getParagraphFormat(request);
+    var result = await this.context.getApi().getParagraphFormat(request);
+    expect(result.paragraphFormat, isNotNull);
+    expect(result.paragraphFormat.styleName, 'Normal');
   }
 
   /// Test for getting paragraph format settings without node path.
   Future<void> testGetParagraphFormatWithoutNodePath() async
   {
-    final remoteFileName = 'TestGetDocumentParagraphsWithoutNodePath.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetDocumentParagraphsWithoutNodePath.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetParagraphFormatRequest(
+    final request = new GetParagraphFormatRequest(
       remoteFileName,
       0,
       folder: remoteDataFolder
     );
 
-    await context.getApi().getParagraphFormat(request);
+    var result = await this.context.getApi().getParagraphFormat(request);
+    expect(result.paragraphFormat, isNotNull);
+    expect(result.paragraphFormat.styleName, 'Normal');
   }
 
   /// Test for updating  paragraph format settings.
   Future<void> testUpdateParagraphFormat() async
   {
-    final remoteFileName = 'TestGetDocumentParagraphs.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestDto = ParagraphFormatUpdate();
+    final String remoteFileName = 'TestGetDocumentParagraphs.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestDto = new ParagraphFormatUpdate();
     requestDto.alignment = ParagraphFormatBase_AlignmentEnum.right;
 
-    final request = UpdateParagraphFormatRequest(
+    final request = new UpdateParagraphFormatRequest(
       remoteFileName,
       requestDto,
       0,
@@ -286,80 +317,86 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateParagraphFormat(request);
+    var result = await this.context.getApi().updateParagraphFormat(request);
+    expect(result.paragraphFormat, isNotNull);
+
   }
 
   /// Test for deleting  a paragraph.
   Future<void> testDeleteParagraph() async
   {
-    final remoteFileName = 'TestDeleteParagraph.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestDeleteParagraph.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = DeleteParagraphRequest(
+    final request = new DeleteParagraphRequest(
       remoteFileName,
       0,
       nodePath: '',
       folder: remoteDataFolder
     );
 
-    await context.getApi().deleteParagraph(request);
+    await this.context.getApi().deleteParagraph(request);
   }
 
   /// Test for deleting  a paragraph without node path.
   Future<void> testDeleteParagraphWithoutNodePath() async
   {
-    final remoteFileName = 'TestDeleteParagraphWithoutNodePath.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestDeleteParagraphWithoutNodePath.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = DeleteParagraphRequest(
+    final request = new DeleteParagraphRequest(
       remoteFileName,
       0,
       folder: remoteDataFolder
     );
 
-    await context.getApi().deleteParagraph(request);
+    await this.context.getApi().deleteParagraph(request);
   }
 
   /// Test for getting paragraph list format.
   Future<void> testGetParagraphListFormat() async
   {
-    final remoteFileName = 'TestParagraphGetListFormat.docx';
-    await context.uploadFile(listFolder + '/ParagraphGetListFormat.doc', remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestParagraphGetListFormat.docx';
+    await this.context.uploadFile(listFolder + '/ParagraphGetListFormat.doc', remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetParagraphListFormatRequest(
+    final request = new GetParagraphListFormatRequest(
       remoteFileName,
       0,
       nodePath: '',
       folder: remoteDataFolder
     );
 
-    await context.getApi().getParagraphListFormat(request);
+    var result = await this.context.getApi().getParagraphListFormat(request);
+    expect(result.listFormat, isNotNull);
+    expect(result.listFormat.listId, 1);
   }
 
   /// Test for getting paragraph list format without node path.
   Future<void> testGetParagraphListFormatWithoutNodePath() async
   {
-    final remoteFileName = 'TestParagraphGetListFormatWithoutNodePath.docx';
-    await context.uploadFile(listFolder + '/ParagraphGetListFormat.doc', remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestParagraphGetListFormatWithoutNodePath.docx';
+    await this.context.uploadFile(listFolder + '/ParagraphGetListFormat.doc', remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetParagraphListFormatRequest(
+    final request = new GetParagraphListFormatRequest(
       remoteFileName,
       0,
       folder: remoteDataFolder
     );
 
-    await context.getApi().getParagraphListFormat(request);
+    var result = await this.context.getApi().getParagraphListFormat(request);
+    expect(result.listFormat, isNotNull);
+    expect(result.listFormat.listId, 1);
   }
 
   /// Test for updating paragraph list format.
   Future<void> testUpdateParagraphListFormat() async
   {
-    final remoteFileName = 'TestUpdateParagraphListFormat.docx';
-    await context.uploadFile(listFolder + '/ParagraphUpdateListFormat.doc', remoteDataFolder + '/' + remoteFileName);
-    var requestDto = ListFormatUpdate();
+    final String remoteFileName = 'TestUpdateParagraphListFormat.docx';
+    await this.context.uploadFile(listFolder + '/ParagraphUpdateListFormat.doc', remoteDataFolder + '/' + remoteFileName);
+    var requestDto = new ListFormatUpdate();
     requestDto.listId = 2;
 
-    final request = UpdateParagraphListFormatRequest(
+    final request = new UpdateParagraphListFormatRequest(
       remoteFileName,
       requestDto,
       0,
@@ -367,100 +404,110 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateParagraphListFormat(request);
+    var result = await this.context.getApi().updateParagraphListFormat(request);
+    expect(result.listFormat, isNotNull);
+    expect(result.listFormat.listId, 2);
   }
 
   /// Test for updating paragraph list format without node path.
   Future<void> testUpdateParagraphListFormatWithoutNodePath() async
   {
-    final remoteFileName = 'TestUpdateParagraphListFormatWithoutNodePath.docx';
-    await context.uploadFile(listFolder + '/ParagraphUpdateListFormat.doc', remoteDataFolder + '/' + remoteFileName);
-    var requestDto = ListFormatUpdate();
+    final String remoteFileName = 'TestUpdateParagraphListFormatWithoutNodePath.docx';
+    await this.context.uploadFile(listFolder + '/ParagraphUpdateListFormat.doc', remoteDataFolder + '/' + remoteFileName);
+    var requestDto = new ListFormatUpdate();
     requestDto.listId = 2;
 
-    final request = UpdateParagraphListFormatRequest(
+    final request = new UpdateParagraphListFormatRequest(
       remoteFileName,
       requestDto,
       0,
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateParagraphListFormat(request);
+    var result = await this.context.getApi().updateParagraphListFormat(request);
+    expect(result.listFormat, isNotNull);
+    expect(result.listFormat.listId, 2);
   }
 
   /// Test for deleting paragraph list format.
   Future<void> testDeleteParagraphListFormat() async
   {
-    final remoteFileName = 'TestDeleteParagraphListFormat.docx';
-    await context.uploadFile(listFolder + '/ParagraphDeleteListFormat.doc', remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestDeleteParagraphListFormat.docx';
+    await this.context.uploadFile(listFolder + '/ParagraphDeleteListFormat.doc', remoteDataFolder + '/' + remoteFileName);
 
-    final request = DeleteParagraphListFormatRequest(
+    final request = new DeleteParagraphListFormatRequest(
       remoteFileName,
       0,
       nodePath: '',
       folder: remoteDataFolder
     );
 
-    await context.getApi().deleteParagraphListFormat(request);
+    var result = await this.context.getApi().deleteParagraphListFormat(request);
   }
 
   /// Test for deleting paragraph list format without node path.
   Future<void> testDeleteParagraphListFormatWithoutNodePath() async
   {
-    final remoteFileName = 'TestDeleteParagraphListFormatWithoutNodePath.docx';
-    await context.uploadFile(listFolder + '/ParagraphDeleteListFormat.doc', remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestDeleteParagraphListFormatWithoutNodePath.docx';
+    await this.context.uploadFile(listFolder + '/ParagraphDeleteListFormat.doc', remoteDataFolder + '/' + remoteFileName);
 
-    final request = DeleteParagraphListFormatRequest(
+    final request = new DeleteParagraphListFormatRequest(
       remoteFileName,
       0,
       folder: remoteDataFolder
     );
 
-    await context.getApi().deleteParagraphListFormat(request);
+    var result = await this.context.getApi().deleteParagraphListFormat(request);
   }
 
   /// Test for getting paragraph tab stops.
   Future<void> testGetParagraphTabStops() async
   {
-    final remoteFileName = 'TestGetParagraphTabStops.docx';
-    await context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetParagraphTabStops.docx';
+    await this.context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetParagraphTabStopsRequest(
+    final request = new GetParagraphTabStopsRequest(
       remoteFileName,
       0,
       nodePath: '',
       folder: remoteDataFolder
     );
 
-    await context.getApi().getParagraphTabStops(request);
+    var result = await this.context.getApi().getParagraphTabStops(request);
+    expect(result.tabStops, isNotNull);
+    expect(result.tabStops.length, 2);
+    expect(result.tabStops[0].position, 72);
   }
 
   /// Test for getting paragraph tab stops without node path.
   Future<void> testGetParagraphTabStopsWithoutNodePath() async
   {
-    final remoteFileName = 'TestGetParagraphTabStopsWithoutNodePath.docx';
-    await context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetParagraphTabStopsWithoutNodePath.docx';
+    await this.context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetParagraphTabStopsRequest(
+    final request = new GetParagraphTabStopsRequest(
       remoteFileName,
       0,
       folder: remoteDataFolder
     );
 
-    await context.getApi().getParagraphTabStops(request);
+    var result = await this.context.getApi().getParagraphTabStops(request);
+    expect(result.tabStops, isNotNull);
+    expect(result.tabStops.length, 2);
+    expect(result.tabStops[0].position, 72);
   }
 
   /// Test for inserting paragraph tab stop.
   Future<void> testInsertParagraphTabStops() async
   {
-    final remoteFileName = 'TestInsertOrUpdateParagraphTabStop.docx';
-    await context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
-    var requestDto = TabStopInsert();
+    final String remoteFileName = 'TestInsertOrUpdateParagraphTabStop.docx';
+    await this.context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
+    var requestDto = new TabStopInsert();
     requestDto.alignment = TabStopBase_AlignmentEnum.left;
     requestDto.leader = TabStopBase_LeaderEnum.none;
-    requestDto.position = 72;
+    requestDto.position = 100;
 
-    final request = InsertOrUpdateParagraphTabStopRequest(
+    final request = new InsertOrUpdateParagraphTabStopRequest(
       remoteFileName,
       requestDto,
       0,
@@ -468,67 +515,81 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertOrUpdateParagraphTabStop(request);
+    var result = await this.context.getApi().insertOrUpdateParagraphTabStop(request);
+    expect(result.tabStops, isNotNull);
+    expect(result.tabStops.length, 3);
+    expect(result.tabStops[1].position, 100);
+
+
   }
 
   /// Test for inserting paragraph tab stop without node path.
   Future<void> testInsertParagraphTabStopsWithoutNodePath() async
   {
-    final remoteFileName = 'TestInsertOrUpdateParagraphTabStopWithoutNodePath.docx';
-    await context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
-    var requestDto = TabStopInsert();
+    final String remoteFileName = 'TestInsertOrUpdateParagraphTabStopWithoutNodePath.docx';
+    await this.context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
+    var requestDto = new TabStopInsert();
     requestDto.alignment = TabStopBase_AlignmentEnum.left;
     requestDto.leader = TabStopBase_LeaderEnum.none;
-    requestDto.position = 72;
+    requestDto.position = 100;
 
-    final request = InsertOrUpdateParagraphTabStopRequest(
+    final request = new InsertOrUpdateParagraphTabStopRequest(
       remoteFileName,
       requestDto,
       0,
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertOrUpdateParagraphTabStop(request);
+    var result = await this.context.getApi().insertOrUpdateParagraphTabStop(request);
+    expect(result.tabStops, isNotNull);
+    expect(result.tabStops.length, 3);
+    expect(result.tabStops[1].position, 100);
+
+
   }
 
   /// Test for deleting all paragraph tab stops.
   Future<void> testDeleteAllParagraphTabStops() async
   {
-    final remoteFileName = 'TestDeleteAllParagraphTabStops.docx';
-    await context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestDeleteAllParagraphTabStops.docx';
+    await this.context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
 
-    final request = DeleteAllParagraphTabStopsRequest(
+    final request = new DeleteAllParagraphTabStopsRequest(
       remoteFileName,
       0,
       nodePath: '',
       folder: remoteDataFolder
     );
 
-    await context.getApi().deleteAllParagraphTabStops(request);
+    var result = await this.context.getApi().deleteAllParagraphTabStops(request);
+    expect(result.tabStops, isNotNull);
+    expect(result.tabStops.length, 0);
   }
 
   /// Test for deleting all paragraph tab stops without node path.
   Future<void> testDeleteAllParagraphTabStopsWithoutNodePath() async
   {
-    final remoteFileName = 'TestDeleteAllParagraphTabStopsWithoutNodePath.docx';
-    await context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestDeleteAllParagraphTabStopsWithoutNodePath.docx';
+    await this.context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
 
-    final request = DeleteAllParagraphTabStopsRequest(
+    final request = new DeleteAllParagraphTabStopsRequest(
       remoteFileName,
       0,
       folder: remoteDataFolder
     );
 
-    await context.getApi().deleteAllParagraphTabStops(request);
+    var result = await this.context.getApi().deleteAllParagraphTabStops(request);
+    expect(result.tabStops, isNotNull);
+    expect(result.tabStops.length, 0);
   }
 
   /// Test for deleting a tab stops.
   Future<void> testDeleteParagraphTabStop() async
   {
-    final remoteFileName = 'TestDeleteParagraphTabStop.docx';
-    await context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestDeleteParagraphTabStop.docx';
+    await this.context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
 
-    final request = DeleteParagraphTabStopRequest(
+    final request = new DeleteParagraphTabStopRequest(
       remoteFileName,
       72,
       0,
@@ -536,22 +597,26 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().deleteParagraphTabStop(request);
+    var result = await this.context.getApi().deleteParagraphTabStop(request);
+    expect(result.tabStops, isNotNull);
+    expect(result.tabStops.length, 1);
   }
 
   /// Test for deleting a tab stops without node path.
   Future<void> testDeleteParagraphTabStopWithoutNodePath() async
   {
-    final remoteFileName = 'TestDeleteParagraphTabStopWithoutNodePath.docx';
-    await context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestDeleteParagraphTabStopWithoutNodePath.docx';
+    await this.context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
 
-    final request = DeleteParagraphTabStopRequest(
+    final request = new DeleteParagraphTabStopRequest(
       remoteFileName,
       72,
       0,
       folder: remoteDataFolder
     );
 
-    await context.getApi().deleteParagraphTabStop(request);
+    var result = await this.context.getApi().deleteParagraphTabStop(request);
+    expect(result.tabStops, isNotNull);
+    expect(result.tabStops.length, 1);
   }
 }

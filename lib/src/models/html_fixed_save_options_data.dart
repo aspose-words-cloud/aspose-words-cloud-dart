@@ -88,148 +88,148 @@ class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('CssClassNamesPrefix')) {
-      cssClassNamesPrefix = json['CssClassNamesPrefix'];
+      this.cssClassNamesPrefix = json['CssClassNamesPrefix'];
     } else {
-      cssClassNamesPrefix = null;
+      this.cssClassNamesPrefix = null;
     }
 
     if (json.containsKey('Encoding')) {
-      encoding = json['Encoding'];
+      this.encoding = json['Encoding'];
     } else {
-      encoding = null;
+      this.encoding = null;
     }
 
     if (json.containsKey('ExportEmbeddedCss')) {
-      exportEmbeddedCss = json['ExportEmbeddedCss'];
+      this.exportEmbeddedCss = json['ExportEmbeddedCss'];
     } else {
-      exportEmbeddedCss = null;
+      this.exportEmbeddedCss = null;
     }
 
     if (json.containsKey('ExportEmbeddedFonts')) {
-      exportEmbeddedFonts = json['ExportEmbeddedFonts'];
+      this.exportEmbeddedFonts = json['ExportEmbeddedFonts'];
     } else {
-      exportEmbeddedFonts = null;
+      this.exportEmbeddedFonts = null;
     }
 
     if (json.containsKey('ExportEmbeddedImages')) {
-      exportEmbeddedImages = json['ExportEmbeddedImages'];
+      this.exportEmbeddedImages = json['ExportEmbeddedImages'];
     } else {
-      exportEmbeddedImages = null;
+      this.exportEmbeddedImages = null;
     }
 
     if (json.containsKey('ExportFormFields')) {
-      exportFormFields = json['ExportFormFields'];
+      this.exportFormFields = json['ExportFormFields'];
     } else {
-      exportFormFields = null;
+      this.exportFormFields = null;
     }
 
     if (json.containsKey('FontFormat')) {
-      fontFormat = json['FontFormat'];
+      this.fontFormat = json['FontFormat'];
     } else {
-      fontFormat = null;
+      this.fontFormat = null;
     }
 
     if (json.containsKey('PageHorizontalAlignment')) {
-      pageHorizontalAlignment = json['PageHorizontalAlignment'];
+      this.pageHorizontalAlignment = json['PageHorizontalAlignment'];
     } else {
-      pageHorizontalAlignment = null;
+      this.pageHorizontalAlignment = null;
     }
 
     if (json.containsKey('PageMargins')) {
-      pageMargins = json['PageMargins'];
+      this.pageMargins = json['PageMargins'];
     } else {
-      pageMargins = null;
+      this.pageMargins = null;
     }
 
     if (json.containsKey('ResourcesFolder')) {
-      resourcesFolder = json['ResourcesFolder'];
+      this.resourcesFolder = json['ResourcesFolder'];
     } else {
-      resourcesFolder = null;
+      this.resourcesFolder = null;
     }
 
     if (json.containsKey('ResourcesFolderAlias')) {
-      resourcesFolderAlias = json['ResourcesFolderAlias'];
+      this.resourcesFolderAlias = json['ResourcesFolderAlias'];
     } else {
-      resourcesFolderAlias = null;
+      this.resourcesFolderAlias = null;
     }
 
     if (json.containsKey('SaveFontFaceCssSeparately')) {
-      saveFontFaceCssSeparately = json['SaveFontFaceCssSeparately'];
+      this.saveFontFaceCssSeparately = json['SaveFontFaceCssSeparately'];
     } else {
-      saveFontFaceCssSeparately = null;
+      this.saveFontFaceCssSeparately = null;
     }
 
     if (json.containsKey('ShowPageBorder')) {
-      showPageBorder = json['ShowPageBorder'];
+      this.showPageBorder = json['ShowPageBorder'];
     } else {
-      showPageBorder = null;
+      this.showPageBorder = null;
     }
 
     if (json.containsKey('UseTargetMachineFonts')) {
-      useTargetMachineFonts = json['UseTargetMachineFonts'];
+      this.useTargetMachineFonts = json['UseTargetMachineFonts'];
     } else {
-      useTargetMachineFonts = null;
+      this.useTargetMachineFonts = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (cssClassNamesPrefix != null) {
-      _result['CssClassNamesPrefix'] = cssClassNamesPrefix;
+    if (this.cssClassNamesPrefix != null) {
+      _result['CssClassNamesPrefix'] = this.cssClassNamesPrefix;
     }
 
-    if (encoding != null) {
-      _result['Encoding'] = encoding;
+    if (this.encoding != null) {
+      _result['Encoding'] = this.encoding;
     }
 
-    if (exportEmbeddedCss != null) {
-      _result['ExportEmbeddedCss'] = exportEmbeddedCss;
+    if (this.exportEmbeddedCss != null) {
+      _result['ExportEmbeddedCss'] = this.exportEmbeddedCss;
     }
 
-    if (exportEmbeddedFonts != null) {
-      _result['ExportEmbeddedFonts'] = exportEmbeddedFonts;
+    if (this.exportEmbeddedFonts != null) {
+      _result['ExportEmbeddedFonts'] = this.exportEmbeddedFonts;
     }
 
-    if (exportEmbeddedImages != null) {
-      _result['ExportEmbeddedImages'] = exportEmbeddedImages;
+    if (this.exportEmbeddedImages != null) {
+      _result['ExportEmbeddedImages'] = this.exportEmbeddedImages;
     }
 
-    if (exportFormFields != null) {
-      _result['ExportFormFields'] = exportFormFields;
+    if (this.exportFormFields != null) {
+      _result['ExportFormFields'] = this.exportFormFields;
     }
 
-    if (fontFormat != null) {
-      _result['FontFormat'] = fontFormat;
+    if (this.fontFormat != null) {
+      _result['FontFormat'] = this.fontFormat;
     }
 
-    if (pageHorizontalAlignment != null) {
-      _result['PageHorizontalAlignment'] = pageHorizontalAlignment;
+    if (this.pageHorizontalAlignment != null) {
+      _result['PageHorizontalAlignment'] = this.pageHorizontalAlignment;
     }
 
-    if (pageMargins != null) {
-      _result['PageMargins'] = pageMargins;
+    if (this.pageMargins != null) {
+      _result['PageMargins'] = this.pageMargins;
     }
 
-    if (resourcesFolder != null) {
-      _result['ResourcesFolder'] = resourcesFolder;
+    if (this.resourcesFolder != null) {
+      _result['ResourcesFolder'] = this.resourcesFolder;
     }
 
-    if (resourcesFolderAlias != null) {
-      _result['ResourcesFolderAlias'] = resourcesFolderAlias;
+    if (this.resourcesFolderAlias != null) {
+      _result['ResourcesFolderAlias'] = this.resourcesFolderAlias;
     }
 
-    if (saveFontFaceCssSeparately != null) {
-      _result['SaveFontFaceCssSeparately'] = saveFontFaceCssSeparately;
+    if (this.saveFontFaceCssSeparately != null) {
+      _result['SaveFontFaceCssSeparately'] = this.saveFontFaceCssSeparately;
     }
 
-    if (showPageBorder != null) {
-      _result['ShowPageBorder'] = showPageBorder;
+    if (this.showPageBorder != null) {
+      _result['ShowPageBorder'] = this.showPageBorder;
     }
 
-    if (useTargetMachineFonts != null) {
-      _result['UseTargetMachineFonts'] = useTargetMachineFonts;
+    if (this.useTargetMachineFonts != null) {
+      _result['UseTargetMachineFonts'] = this.useTargetMachineFonts;
     }
     return _result;
   }

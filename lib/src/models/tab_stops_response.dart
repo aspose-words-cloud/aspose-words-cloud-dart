@@ -40,23 +40,23 @@ class TabStopsResponse extends WordsResponse {
     super.deserialize(json);
     if (json.containsKey('TabStops')) {
       // Array processing
-      tabStops = <TabStop>[];
+      this.tabStops = new List<TabStop>();
       for(final _element in json['TabStops']) {
-        var _elementValue = TabStop();
+        var _elementValue = new TabStop();
         _elementValue.deserialize(_element);
-        tabStops.add(_elementValue);
+        this.tabStops.add(_elementValue);
       }
     } else {
-      tabStops = null;
+      this.tabStops = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (tabStops != null) {
-      _result['TabStops'] = tabStops.map((_element) => _element.serialize()).toList();
+    if (this.tabStops != null) {
+      _result['TabStops'] = this.tabStops.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

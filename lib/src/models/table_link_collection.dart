@@ -39,23 +39,23 @@ class TableLinkCollection extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('TableLinkList')) {
       // Array processing
-      tableLinkList = <TableLink>[];
+      this.tableLinkList = new List<TableLink>();
       for(final _element in json['TableLinkList']) {
-        var _elementValue = TableLink();
+        var _elementValue = new TableLink();
         _elementValue.deserialize(_element);
-        tableLinkList.add(_elementValue);
+        this.tableLinkList.add(_elementValue);
       }
     } else {
-      tableLinkList = null;
+      this.tableLinkList = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (tableLinkList != null) {
-      _result['TableLinkList'] = tableLinkList.map((_element) => _element.serialize()).toList();
+    if (this.tableLinkList != null) {
+      _result['TableLinkList'] = this.tableLinkList.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

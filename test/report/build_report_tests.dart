@@ -27,6 +27,7 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
+import 'package:test/test.dart';
 
 /// Example of how to perform mail merge.
 class BuildReportTests
@@ -35,51 +36,53 @@ class BuildReportTests
   String remoteDataFolder;
   String reportingFolder;
 
-  BuildReportTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/Reporting';
+  BuildReportTests(final TestContext this.context) {
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/Reporting';
     reportingFolder = 'DocumentActions/Reporting';
   }
 
   /// Test for build report online.
   Future<void> testBuildReportOnline() async
   {
-    final localDocumentFile = 'ReportTemplate.docx';
-    final localDataFile = await context.loadTextFile(reportingFolder + '/ReportData.json');
-    var requestReportEngineSettings = ReportEngineSettings();
+    final String localDocumentFile = 'ReportTemplate.docx';
+    final String localDataFile = await this.context.loadTextFile(reportingFolder + '/ReportData.json');
+    var requestReportEngineSettings = new ReportEngineSettings();
     requestReportEngineSettings.dataSourceType = ReportEngineSettings_DataSourceTypeEnum.json;
     requestReportEngineSettings.dataSourceName = 'persons';
 
-    final request = BuildReportOnlineRequest(
-      await context.loadBinaryFile(reportingFolder + '/' + localDocumentFile),
+    final request = new BuildReportOnlineRequest(
+      await this.context.loadBinaryFile(reportingFolder + '/' + localDocumentFile),
       localDataFile,
       requestReportEngineSettings
     );
 
-    await context.getApi().buildReportOnline(request);
+    var result = await this.context.getApi().buildReportOnline(request);
   }
 
   /// Test for build report.
   Future<void> testBuildReport() async
   {
-    final localDocumentFile = 'ReportTemplate.docx';
-    final remoteFileName = 'TestBuildReport.docx';
-    final localDataFile = await context.loadTextFile(reportingFolder + '/ReportData.json');
-    await context.uploadFile(reportingFolder + '/' + localDocumentFile, remoteDataFolder + '/' + remoteFileName);
+    final String localDocumentFile = 'ReportTemplate.docx';
+    final String remoteFileName = 'TestBuildReport.docx';
+    final String localDataFile = await this.context.loadTextFile(reportingFolder + '/ReportData.json');
+    await this.context.uploadFile(reportingFolder + '/' + localDocumentFile, remoteDataFolder + '/' + remoteFileName);
     var requestReportEngineSettingsReportBuildOptions = [
       ReportBuildOptionsEnum.allowMissingMembers,
     ReportBuildOptionsEnum.removeEmptyParagraphs];
 
-    var requestReportEngineSettings = ReportEngineSettings();
+    var requestReportEngineSettings = new ReportEngineSettings();
     requestReportEngineSettings.dataSourceType = ReportEngineSettings_DataSourceTypeEnum.json;
     requestReportEngineSettings.reportBuildOptions = requestReportEngineSettingsReportBuildOptions;
 
-    final request = BuildReportRequest(
+    final request = new BuildReportRequest(
       remoteFileName,
       localDataFile,
       requestReportEngineSettings,
       folder: remoteDataFolder
     );
 
-    await context.getApi().buildReport(request);
+    var result = await this.context.getApi().buildReport(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'TestBuildReport.docx');
   }
 }

@@ -37,18 +37,18 @@ class LinkElement implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link.deserialize(json['Link']);
+      this.link = new WordsApiLink();
+      this.link.deserialize(json['Link']);
     } else {
-      link = null;
+      this.link = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (link != null) {
-      _result['Link'] = link.serialize();
+    var _result = new Map<String, dynamic>();
+    if (this.link != null) {
+      _result['Link'] = this.link.serialize();
     }
     return _result;
   }

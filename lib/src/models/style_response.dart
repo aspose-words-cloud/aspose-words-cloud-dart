@@ -39,19 +39,19 @@ class StyleResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('Style')) {
-      style = Style();
-      style.deserialize(json['Style']);
+      this.style = new Style();
+      this.style.deserialize(json['Style']);
     } else {
-      style = null;
+      this.style = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (style != null) {
-      _result['Style'] = style.serialize();
+    if (this.style != null) {
+      _result['Style'] = this.style.serialize();
     }
     return _result;
   }

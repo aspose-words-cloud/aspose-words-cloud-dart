@@ -38,19 +38,19 @@ class DrawingObjectResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('DrawingObject')) {
-      drawingObject = DrawingObject();
-      drawingObject.deserialize(json['DrawingObject']);
+      this.drawingObject = new DrawingObject();
+      this.drawingObject.deserialize(json['DrawingObject']);
     } else {
-      drawingObject = null;
+      this.drawingObject = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (drawingObject != null) {
-      _result['DrawingObject'] = drawingObject.serialize();
+    if (this.drawingObject != null) {
+      _result['DrawingObject'] = this.drawingObject.serialize();
     }
     return _result;
   }

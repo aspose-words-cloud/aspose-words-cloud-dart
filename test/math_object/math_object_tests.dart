@@ -27,6 +27,7 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
+import 'package:test/test.dart';
 
 /// Example of how to work with MathObjects.
 class MathObjectTests
@@ -35,78 +36,90 @@ class MathObjectTests
   String remoteDataFolder;
   String localFile;
 
-  MathObjectTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/MathObjects';
+  MathObjectTests(final TestContext this.context) {
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/MathObjects';
     localFile = 'DocumentElements/MathObjects/MathObjects.docx';
   }
 
   /// Test for getting mathObjects.
   Future<void> testGetOfficeMathObjects() async
   {
-    final remoteFileName = 'TestGetOfficeMathObjects.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetOfficeMathObjects.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetOfficeMathObjectsRequest(
+    final request = new GetOfficeMathObjectsRequest(
       remoteFileName,
       nodePath: '',
       folder: remoteDataFolder
     );
 
-    await context.getApi().getOfficeMathObjects(request);
+    var result = await this.context.getApi().getOfficeMathObjects(request);
+    expect(result.officeMathObjects, isNotNull);
+    expect(result.officeMathObjects.list, isNotNull);
+    expect(result.officeMathObjects.list.length, 16);
+    expect(result.officeMathObjects.list[0].nodeId, '0.0.0.0');
   }
 
   /// Test for getting mathObjects without node path.
   Future<void> testGetOfficeMathObjectsWithoutNodePath() async
   {
-    final remoteFileName = 'TestGetOfficeMathObjectsWithoutNodePath.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetOfficeMathObjectsWithoutNodePath.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetOfficeMathObjectsRequest(
+    final request = new GetOfficeMathObjectsRequest(
       remoteFileName,
       folder: remoteDataFolder
     );
 
-    await context.getApi().getOfficeMathObjects(request);
+    var result = await this.context.getApi().getOfficeMathObjects(request);
+    expect(result.officeMathObjects, isNotNull);
+    expect(result.officeMathObjects.list, isNotNull);
+    expect(result.officeMathObjects.list.length, 16);
+    expect(result.officeMathObjects.list[0].nodeId, '0.0.0.0');
   }
 
   /// Test for getting mathObject.
   Future<void> testGetOfficeMathObject() async
   {
-    final remoteFileName = 'TestGetOfficeMathObject.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetOfficeMathObject.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetOfficeMathObjectRequest(
+    final request = new GetOfficeMathObjectRequest(
       remoteFileName,
       0,
       nodePath: '',
       folder: remoteDataFolder
     );
 
-    await context.getApi().getOfficeMathObject(request);
+    var result = await this.context.getApi().getOfficeMathObject(request);
+    expect(result.officeMathObject, isNotNull);
+    expect(result.officeMathObject.nodeId, '0.0.0.0');
   }
 
   /// Test for getting mathObject without node path.
   Future<void> testGetOfficeMathObjectWithoutNodePath() async
   {
-    final remoteFileName = 'TestGetOfficeMathObjectWithoutNodePath.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetOfficeMathObjectWithoutNodePath.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetOfficeMathObjectRequest(
+    final request = new GetOfficeMathObjectRequest(
       remoteFileName,
       0,
       folder: remoteDataFolder
     );
 
-    await context.getApi().getOfficeMathObject(request);
+    var result = await this.context.getApi().getOfficeMathObject(request);
+    expect(result.officeMathObject, isNotNull);
+    expect(result.officeMathObject.nodeId, '0.0.0.0');
   }
 
   /// Test for rendering mathObject.
   Future<void> testRenderMathObject() async
   {
-    final remoteFileName = 'TestRenderMathObject.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestRenderMathObject.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = RenderMathObjectRequest(
+    final request = new RenderMathObjectRequest(
       remoteFileName,
       'png',
       0,
@@ -114,53 +127,53 @@ class MathObjectTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().renderMathObject(request);
+    var result = await this.context.getApi().renderMathObject(request);
   }
 
   /// Test for rendering mathObject without node path.
   Future<void> testRenderMathObjectWithoutNodePath() async
   {
-    final remoteFileName = 'TestRenderMathObjectWithoutNodePath.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestRenderMathObjectWithoutNodePath.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = RenderMathObjectRequest(
+    final request = new RenderMathObjectRequest(
       remoteFileName,
       'png',
       0,
       folder: remoteDataFolder
     );
 
-    await context.getApi().renderMathObject(request);
+    var result = await this.context.getApi().renderMathObject(request);
   }
 
   /// Test for deleting mathObject.
   Future<void> testDeleteOfficeMathObject() async
   {
-    final remoteFileName = 'TestDeleteOfficeMathObject.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestDeleteOfficeMathObject.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = DeleteOfficeMathObjectRequest(
+    final request = new DeleteOfficeMathObjectRequest(
       remoteFileName,
       0,
       nodePath: '',
       folder: remoteDataFolder
     );
 
-    await context.getApi().deleteOfficeMathObject(request);
+    await this.context.getApi().deleteOfficeMathObject(request);
   }
 
   /// Test for deleting mathObject without node path.
   Future<void> testDeleteOfficeMathObjectWithoutNodePath() async
   {
-    final remoteFileName = 'TestDeleteOfficeMathObjectWithoutNodePath.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestDeleteOfficeMathObjectWithoutNodePath.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = DeleteOfficeMathObjectRequest(
+    final request = new DeleteOfficeMathObjectRequest(
       remoteFileName,
       0,
       folder: remoteDataFolder
     );
 
-    await context.getApi().deleteOfficeMathObject(request);
+    await this.context.getApi().deleteOfficeMathObject(request);
   }
 }

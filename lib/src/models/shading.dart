@@ -43,95 +43,95 @@ class Shading implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('BackgroundPatternColor')) {
-      backgroundPatternColor = XmlColor();
-      backgroundPatternColor.deserialize(json['BackgroundPatternColor']);
+      this.backgroundPatternColor = new XmlColor();
+      this.backgroundPatternColor.deserialize(json['BackgroundPatternColor']);
     } else {
-      backgroundPatternColor = null;
+      this.backgroundPatternColor = null;
     }
 
     if (json.containsKey('ForegroundPatternColor')) {
-      foregroundPatternColor = XmlColor();
-      foregroundPatternColor.deserialize(json['ForegroundPatternColor']);
+      this.foregroundPatternColor = new XmlColor();
+      this.foregroundPatternColor.deserialize(json['ForegroundPatternColor']);
     } else {
-      foregroundPatternColor = null;
+      this.foregroundPatternColor = null;
     }
 
     if (json.containsKey('Texture')) {
       switch (json['Texture']) {
-        case 'TextureNone': texture = Shading_TextureEnum.textureNone; break;
-        case 'TextureSolid': texture = Shading_TextureEnum.textureSolid; break;
-        case 'Texture5Percent': texture = Shading_TextureEnum.texture5Percent; break;
-        case 'Texture10Percent': texture = Shading_TextureEnum.texture10Percent; break;
-        case 'Texture20Percent': texture = Shading_TextureEnum.texture20Percent; break;
-        case 'Texture25Percent': texture = Shading_TextureEnum.texture25Percent; break;
-        case 'Texture30Percent': texture = Shading_TextureEnum.texture30Percent; break;
-        case 'Texture40Percent': texture = Shading_TextureEnum.texture40Percent; break;
-        case 'Texture50Percent': texture = Shading_TextureEnum.texture50Percent; break;
-        case 'Texture60Percent': texture = Shading_TextureEnum.texture60Percent; break;
-        case 'Texture70Percent': texture = Shading_TextureEnum.texture70Percent; break;
-        case 'Texture75Percent': texture = Shading_TextureEnum.texture75Percent; break;
-        case 'Texture80Percent': texture = Shading_TextureEnum.texture80Percent; break;
-        case 'Texture90Percent': texture = Shading_TextureEnum.texture90Percent; break;
-        case 'TextureDarkHorizontal': texture = Shading_TextureEnum.textureDarkHorizontal; break;
-        case 'TextureDarkVertical': texture = Shading_TextureEnum.textureDarkVertical; break;
-        case 'TextureDarkDiagonalDown': texture = Shading_TextureEnum.textureDarkDiagonalDown; break;
-        case 'TextureDarkDiagonalUp': texture = Shading_TextureEnum.textureDarkDiagonalUp; break;
-        case 'TextureDarkCross': texture = Shading_TextureEnum.textureDarkCross; break;
-        case 'TextureDarkDiagonalCross': texture = Shading_TextureEnum.textureDarkDiagonalCross; break;
-        case 'TextureHorizontal': texture = Shading_TextureEnum.textureHorizontal; break;
-        case 'TextureVertical': texture = Shading_TextureEnum.textureVertical; break;
-        case 'TextureDiagonalDown': texture = Shading_TextureEnum.textureDiagonalDown; break;
-        case 'TextureDiagonalUp': texture = Shading_TextureEnum.textureDiagonalUp; break;
-        case 'TextureCross': texture = Shading_TextureEnum.textureCross; break;
-        case 'TextureDiagonalCross': texture = Shading_TextureEnum.textureDiagonalCross; break;
-        case 'Texture2Pt5Percent': texture = Shading_TextureEnum.texture2Pt5Percent; break;
-        case 'Texture7Pt5Percent': texture = Shading_TextureEnum.texture7Pt5Percent; break;
-        case 'Texture12Pt5Percent': texture = Shading_TextureEnum.texture12Pt5Percent; break;
-        case 'Texture15Percent': texture = Shading_TextureEnum.texture15Percent; break;
-        case 'Texture17Pt5Percent': texture = Shading_TextureEnum.texture17Pt5Percent; break;
-        case 'Texture22Pt5Percent': texture = Shading_TextureEnum.texture22Pt5Percent; break;
-        case 'Texture27Pt5Percent': texture = Shading_TextureEnum.texture27Pt5Percent; break;
-        case 'Texture32Pt5Percent': texture = Shading_TextureEnum.texture32Pt5Percent; break;
-        case 'Texture35Percent': texture = Shading_TextureEnum.texture35Percent; break;
-        case 'Texture37Pt5Percent': texture = Shading_TextureEnum.texture37Pt5Percent; break;
-        case 'Texture42Pt5Percent': texture = Shading_TextureEnum.texture42Pt5Percent; break;
-        case 'Texture45Percent': texture = Shading_TextureEnum.texture45Percent; break;
-        case 'Texture47Pt5Percent': texture = Shading_TextureEnum.texture47Pt5Percent; break;
-        case 'Texture52Pt5Percent': texture = Shading_TextureEnum.texture52Pt5Percent; break;
-        case 'Texture55Percent': texture = Shading_TextureEnum.texture55Percent; break;
-        case 'Texture57Pt5Percent': texture = Shading_TextureEnum.texture57Pt5Percent; break;
-        case 'Texture62Pt5Percent': texture = Shading_TextureEnum.texture62Pt5Percent; break;
-        case 'Texture65Percent': texture = Shading_TextureEnum.texture65Percent; break;
-        case 'Texture67Pt5Percent': texture = Shading_TextureEnum.texture67Pt5Percent; break;
-        case 'Texture72Pt5Percent': texture = Shading_TextureEnum.texture72Pt5Percent; break;
-        case 'Texture77Pt5Percent': texture = Shading_TextureEnum.texture77Pt5Percent; break;
-        case 'Texture82Pt5Percent': texture = Shading_TextureEnum.texture82Pt5Percent; break;
-        case 'Texture85Percent': texture = Shading_TextureEnum.texture85Percent; break;
-        case 'Texture87Pt5Percent': texture = Shading_TextureEnum.texture87Pt5Percent; break;
-        case 'Texture92Pt5Percent': texture = Shading_TextureEnum.texture92Pt5Percent; break;
-        case 'Texture95Percent': texture = Shading_TextureEnum.texture95Percent; break;
-        case 'Texture97Pt5Percent': texture = Shading_TextureEnum.texture97Pt5Percent; break;
-        case 'TextureNil': texture = Shading_TextureEnum.textureNil; break;
-        default: texture = null; break;
+        case 'TextureNone': this.texture = Shading_TextureEnum.textureNone; break;
+        case 'TextureSolid': this.texture = Shading_TextureEnum.textureSolid; break;
+        case 'Texture5Percent': this.texture = Shading_TextureEnum.texture5Percent; break;
+        case 'Texture10Percent': this.texture = Shading_TextureEnum.texture10Percent; break;
+        case 'Texture20Percent': this.texture = Shading_TextureEnum.texture20Percent; break;
+        case 'Texture25Percent': this.texture = Shading_TextureEnum.texture25Percent; break;
+        case 'Texture30Percent': this.texture = Shading_TextureEnum.texture30Percent; break;
+        case 'Texture40Percent': this.texture = Shading_TextureEnum.texture40Percent; break;
+        case 'Texture50Percent': this.texture = Shading_TextureEnum.texture50Percent; break;
+        case 'Texture60Percent': this.texture = Shading_TextureEnum.texture60Percent; break;
+        case 'Texture70Percent': this.texture = Shading_TextureEnum.texture70Percent; break;
+        case 'Texture75Percent': this.texture = Shading_TextureEnum.texture75Percent; break;
+        case 'Texture80Percent': this.texture = Shading_TextureEnum.texture80Percent; break;
+        case 'Texture90Percent': this.texture = Shading_TextureEnum.texture90Percent; break;
+        case 'TextureDarkHorizontal': this.texture = Shading_TextureEnum.textureDarkHorizontal; break;
+        case 'TextureDarkVertical': this.texture = Shading_TextureEnum.textureDarkVertical; break;
+        case 'TextureDarkDiagonalDown': this.texture = Shading_TextureEnum.textureDarkDiagonalDown; break;
+        case 'TextureDarkDiagonalUp': this.texture = Shading_TextureEnum.textureDarkDiagonalUp; break;
+        case 'TextureDarkCross': this.texture = Shading_TextureEnum.textureDarkCross; break;
+        case 'TextureDarkDiagonalCross': this.texture = Shading_TextureEnum.textureDarkDiagonalCross; break;
+        case 'TextureHorizontal': this.texture = Shading_TextureEnum.textureHorizontal; break;
+        case 'TextureVertical': this.texture = Shading_TextureEnum.textureVertical; break;
+        case 'TextureDiagonalDown': this.texture = Shading_TextureEnum.textureDiagonalDown; break;
+        case 'TextureDiagonalUp': this.texture = Shading_TextureEnum.textureDiagonalUp; break;
+        case 'TextureCross': this.texture = Shading_TextureEnum.textureCross; break;
+        case 'TextureDiagonalCross': this.texture = Shading_TextureEnum.textureDiagonalCross; break;
+        case 'Texture2Pt5Percent': this.texture = Shading_TextureEnum.texture2Pt5Percent; break;
+        case 'Texture7Pt5Percent': this.texture = Shading_TextureEnum.texture7Pt5Percent; break;
+        case 'Texture12Pt5Percent': this.texture = Shading_TextureEnum.texture12Pt5Percent; break;
+        case 'Texture15Percent': this.texture = Shading_TextureEnum.texture15Percent; break;
+        case 'Texture17Pt5Percent': this.texture = Shading_TextureEnum.texture17Pt5Percent; break;
+        case 'Texture22Pt5Percent': this.texture = Shading_TextureEnum.texture22Pt5Percent; break;
+        case 'Texture27Pt5Percent': this.texture = Shading_TextureEnum.texture27Pt5Percent; break;
+        case 'Texture32Pt5Percent': this.texture = Shading_TextureEnum.texture32Pt5Percent; break;
+        case 'Texture35Percent': this.texture = Shading_TextureEnum.texture35Percent; break;
+        case 'Texture37Pt5Percent': this.texture = Shading_TextureEnum.texture37Pt5Percent; break;
+        case 'Texture42Pt5Percent': this.texture = Shading_TextureEnum.texture42Pt5Percent; break;
+        case 'Texture45Percent': this.texture = Shading_TextureEnum.texture45Percent; break;
+        case 'Texture47Pt5Percent': this.texture = Shading_TextureEnum.texture47Pt5Percent; break;
+        case 'Texture52Pt5Percent': this.texture = Shading_TextureEnum.texture52Pt5Percent; break;
+        case 'Texture55Percent': this.texture = Shading_TextureEnum.texture55Percent; break;
+        case 'Texture57Pt5Percent': this.texture = Shading_TextureEnum.texture57Pt5Percent; break;
+        case 'Texture62Pt5Percent': this.texture = Shading_TextureEnum.texture62Pt5Percent; break;
+        case 'Texture65Percent': this.texture = Shading_TextureEnum.texture65Percent; break;
+        case 'Texture67Pt5Percent': this.texture = Shading_TextureEnum.texture67Pt5Percent; break;
+        case 'Texture72Pt5Percent': this.texture = Shading_TextureEnum.texture72Pt5Percent; break;
+        case 'Texture77Pt5Percent': this.texture = Shading_TextureEnum.texture77Pt5Percent; break;
+        case 'Texture82Pt5Percent': this.texture = Shading_TextureEnum.texture82Pt5Percent; break;
+        case 'Texture85Percent': this.texture = Shading_TextureEnum.texture85Percent; break;
+        case 'Texture87Pt5Percent': this.texture = Shading_TextureEnum.texture87Pt5Percent; break;
+        case 'Texture92Pt5Percent': this.texture = Shading_TextureEnum.texture92Pt5Percent; break;
+        case 'Texture95Percent': this.texture = Shading_TextureEnum.texture95Percent; break;
+        case 'Texture97Pt5Percent': this.texture = Shading_TextureEnum.texture97Pt5Percent; break;
+        case 'TextureNil': this.texture = Shading_TextureEnum.textureNil; break;
+        default: this.texture = null; break;
       }
     } else {
-      texture = null;
+      this.texture = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (backgroundPatternColor != null) {
-      _result['BackgroundPatternColor'] = backgroundPatternColor.serialize();
+    var _result = new Map<String, dynamic>();
+    if (this.backgroundPatternColor != null) {
+      _result['BackgroundPatternColor'] = this.backgroundPatternColor.serialize();
     }
 
-    if (foregroundPatternColor != null) {
-      _result['ForegroundPatternColor'] = foregroundPatternColor.serialize();
+    if (this.foregroundPatternColor != null) {
+      _result['ForegroundPatternColor'] = this.foregroundPatternColor.serialize();
     }
 
-    if (texture != null) {
-      switch (texture) {
+    if (this.texture != null) {
+      switch (this.texture) {
         case Shading_TextureEnum.textureNone: _result['Texture'] = 'TextureNone'; break;
         case Shading_TextureEnum.textureSolid: _result['Texture'] = 'TextureSolid'; break;
         case Shading_TextureEnum.texture5Percent: _result['Texture'] = 'Texture5Percent'; break;

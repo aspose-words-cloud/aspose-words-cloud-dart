@@ -38,22 +38,22 @@ class StoryChildNodes implements ModelBase {
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('ChildNodes')) {
       // Array processing
-      childNodes = <NodeLink>[];
+      this.childNodes = new List<NodeLink>();
       for(final _element in json['ChildNodes']) {
-        var _elementValue = NodeLink();
+        var _elementValue = new NodeLink();
         _elementValue.deserialize(_element);
-        childNodes.add(_elementValue);
+        this.childNodes.add(_elementValue);
       }
     } else {
-      childNodes = null;
+      this.childNodes = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (childNodes != null) {
-      _result['ChildNodes'] = childNodes.map((_element) => _element.serialize()).toList();
+    var _result = new Map<String, dynamic>();
+    if (this.childNodes != null) {
+      _result['ChildNodes'] = this.childNodes.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

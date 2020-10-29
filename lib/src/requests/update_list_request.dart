@@ -66,66 +66,66 @@ class UpdateListRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  UpdateListRequest(final this.name, final this.listUpdate, final this.listId, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
+  UpdateListRequest(final String this.name, final ListUpdate this.listUpdate, final int this.listId, {final String this.folder = null, final String this.storage = null, final String this.loadEncoding = null, final String this.password = null, final String this.destFileName = null, final String this.revisionAuthor = null, final String this.revisionDateTime = null});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var _path = '/words/{name}/lists/{listId}';
-    var _queryParams = <String, String>{};
-    var _headers = <String, String>{};
-    var _bodyParts = <ApiRequestPart>[];
-    if (name == null) {
-      throw ApiException(400, 'Parameter name is required.');
+    String path = '/words/{name}/lists/{listId}';
+    Map<String, String> queryParams = new Map<String, String>();
+    Map<String, String> headers = new Map<String, String>();
+    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
+    if (this.name == null) {
+      throw new ApiException(400, 'Parameter name is required.');
     }
-    _path = _path.replaceAll('{name}', apiClient.serializeToString(name));
+    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
 
-    if (listId == null) {
-      throw ApiException(400, 'Parameter listId is required.');
+    if (this.listId == null) {
+      throw new ApiException(400, 'Parameter listId is required.');
     }
-    _path = _path.replaceAll('{listId}', apiClient.serializeToString(listId));
-    if (folder != null) {
-      _queryParams['folder'] = apiClient.serializeToString(folder);
-    }
-
-    if (storage != null) {
-      _queryParams['storage'] = apiClient.serializeToString(storage);
+    path = path.replaceAll('{listId}', apiClient.serializeToString(this.listId));
+    if (this.folder != null) {
+      queryParams['folder'] = apiClient.serializeToString(this.folder);
     }
 
-    if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
+    if (this.storage != null) {
+      queryParams['storage'] = apiClient.serializeToString(this.storage);
     }
 
-    if (password != null) {
-      _queryParams['password'] = apiClient.serializeToString(password);
+    if (this.loadEncoding != null) {
+      queryParams['loadEncoding'] = apiClient.serializeToString(this.loadEncoding);
     }
 
-    if (destFileName != null) {
-      _queryParams['destFileName'] = apiClient.serializeToString(destFileName);
+    if (this.password != null) {
+      queryParams['password'] = apiClient.serializeToString(this.password);
     }
 
-    if (revisionAuthor != null) {
-      _queryParams['revisionAuthor'] = apiClient.serializeToString(revisionAuthor);
+    if (this.destFileName != null) {
+      queryParams['destFileName'] = apiClient.serializeToString(this.destFileName);
     }
 
-    if (revisionDateTime != null) {
-      _queryParams['revisionDateTime'] = apiClient.serializeToString(revisionDateTime);
+    if (this.revisionAuthor != null) {
+      queryParams['revisionAuthor'] = apiClient.serializeToString(this.revisionAuthor);
     }
 
-    if (listUpdate != null) {
-      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(listUpdate), 'application/json'));
+    if (this.revisionDateTime != null) {
+      queryParams['revisionDateTime'] = apiClient.serializeToString(this.revisionDateTime);
+    }
+
+    if (this.listUpdate != null) {
+      bodyParts.add(new ApiRequestPart(apiClient.serializeBody(this.listUpdate), 'application/json'));
     }
     else {
-      throw ApiException(400, 'Parameter listUpdate is required.');
+      throw new ApiException(400, 'Parameter listUpdate is required.');
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('PUT', _url, _headers, _body);
+    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
+    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
+    return new ApiRequestData('PUT', url, headers, body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = ListResponse();
+    var _result = new ListResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
     _result.deserialize(_json);

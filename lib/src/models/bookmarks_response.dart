@@ -38,19 +38,19 @@ class BookmarksResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('Bookmarks')) {
-      bookmarks = Bookmarks();
-      bookmarks.deserialize(json['Bookmarks']);
+      this.bookmarks = new Bookmarks();
+      this.bookmarks.deserialize(json['Bookmarks']);
     } else {
-      bookmarks = null;
+      this.bookmarks = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (bookmarks != null) {
-      _result['Bookmarks'] = bookmarks.serialize();
+    if (this.bookmarks != null) {
+      _result['Bookmarks'] = this.bookmarks.serialize();
     }
     return _result;
   }

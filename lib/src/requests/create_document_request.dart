@@ -45,34 +45,34 @@ class CreateDocumentRequest implements RequestBase {
   /// The document folder.
   final String folder;
 
-  CreateDocumentRequest({final this.storage, final this.fileName, final this.folder});
+  CreateDocumentRequest({final String this.storage = null, final String this.fileName = null, final String this.folder = null});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var _path = '/words/create';
-    var _queryParams = <String, String>{};
-    var _headers = <String, String>{};
-    var _bodyParts = <ApiRequestPart>[];
-    if (storage != null) {
-      _queryParams['storage'] = apiClient.serializeToString(storage);
+    String path = '/words/create';
+    Map<String, String> queryParams = new Map<String, String>();
+    Map<String, String> headers = new Map<String, String>();
+    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
+    if (this.storage != null) {
+      queryParams['storage'] = apiClient.serializeToString(this.storage);
     }
 
-    if (fileName != null) {
-      _queryParams['fileName'] = apiClient.serializeToString(fileName);
+    if (this.fileName != null) {
+      queryParams['fileName'] = apiClient.serializeToString(this.fileName);
     }
 
-    if (folder != null) {
-      _queryParams['folder'] = apiClient.serializeToString(folder);
+    if (this.folder != null) {
+      queryParams['folder'] = apiClient.serializeToString(this.folder);
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('PUT', _url, _headers, _body);
+    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
+    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
+    return new ApiRequestData('PUT', url, headers, body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = DocumentResponse();
+    var _result = new DocumentResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
     _result.deserialize(_json);

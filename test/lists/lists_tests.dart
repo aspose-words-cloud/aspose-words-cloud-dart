@@ -27,6 +27,7 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
+import 'package:test/test.dart';
 
 /// Example of how to work with lists.
 class ListsTests
@@ -35,67 +36,76 @@ class ListsTests
   String remoteDataFolder;
   String localFile;
 
-  ListsTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Lists';
+  ListsTests(final TestContext this.context) {
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Lists';
     localFile = 'DocumentElements/Lists/ListsGet.doc';
   }
 
   /// Test for getting lists from document.
   Future<void> testGetLists() async
   {
-    final remoteFileName = 'TestGetLists.doc';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetLists.doc';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetListsRequest(
+    final request = new GetListsRequest(
       remoteFileName,
       folder: remoteDataFolder
     );
 
-    await context.getApi().getLists(request);
+    var result = await this.context.getApi().getLists(request);
+    expect(result.lists, isNotNull);
+    expect(result.lists.listInfo, isNotNull);
+    expect(result.lists.listInfo.length, 2);
+    expect(result.lists.listInfo[0].listId, 1);
   }
 
   /// Test for getting list from document.
   Future<void> testGetList() async
   {
-    final remoteFileName = 'TestGetList.doc';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetList.doc';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetListRequest(
+    final request = new GetListRequest(
       remoteFileName,
       1,
       folder: remoteDataFolder
     );
 
-    await context.getApi().getList(request);
+    var result = await this.context.getApi().getList(request);
+    expect(result.list, isNotNull);
+    expect(result.list.listId, 1);
   }
 
   /// Test for updating list from document.
   Future<void> testUpdateList() async
   {
-    final remoteFileName = 'TestUpdateList.doc';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestListUpdate = ListUpdate();
+    final String remoteFileName = 'TestUpdateList.doc';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestListUpdate = new ListUpdate();
     requestListUpdate.isRestartAtEachSection = true;
 
-    final request = UpdateListRequest(
+    final request = new UpdateListRequest(
       remoteFileName,
       requestListUpdate,
       1,
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateList(request);
+    var result = await this.context.getApi().updateList(request);
+    expect(result.list, isNotNull);
+    expect(result.list.listId, 1);
+    expect(result.list.isRestartAtEachSection, isTrue);
   }
 
   /// Test for updating list level from document.
   Future<void> testUpdateListLevel() async
   {
-    final remoteFileName = 'TestUpdateListLevel.doc';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestListUpdate = ListLevelUpdate();
+    final String remoteFileName = 'TestUpdateListLevel.doc';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestListUpdate = new ListLevelUpdate();
     requestListUpdate.alignment = ListLevelUpdate_AlignmentEnum.right;
 
-    final request = UpdateListLevelRequest(
+    final request = new UpdateListLevelRequest(
       remoteFileName,
       requestListUpdate,
       1,
@@ -103,23 +113,30 @@ class ListsTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateListLevel(request);
+    var result = await this.context.getApi().updateListLevel(request);
+    expect(result.list, isNotNull);
+    expect(result.list.listLevels, isNotNull);
+    expect(result.list.listLevels.listLevel, isNotNull);
+    expect(result.list.listLevels.listLevel.length, 9);
+
   }
 
   /// Test for inserting list from document.
   Future<void> testInsertList() async
   {
-    final remoteFileName = 'TestInsertList.doc';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestListInsert = ListInsert();
+    final String remoteFileName = 'TestInsertList.doc';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestListInsert = new ListInsert();
     requestListInsert.template = ListInsert_TemplateEnum.outlineLegal;
 
-    final request = InsertListRequest(
+    final request = new InsertListRequest(
       remoteFileName,
       requestListInsert,
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertList(request);
+    var result = await this.context.getApi().insertList(request);
+    expect(result.list, isNotNull);
+    expect(result.list.listId, 3);
   }
 }

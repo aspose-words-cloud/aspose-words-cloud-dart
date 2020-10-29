@@ -39,23 +39,23 @@ class CommentsCollection extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('CommentList')) {
       // Array processing
-      commentList = <Comment>[];
+      this.commentList = new List<Comment>();
       for(final _element in json['CommentList']) {
-        var _elementValue = Comment();
+        var _elementValue = new Comment();
         _elementValue.deserialize(_element);
-        commentList.add(_elementValue);
+        this.commentList.add(_elementValue);
       }
     } else {
-      commentList = null;
+      this.commentList = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (commentList != null) {
-      _result['CommentList'] = commentList.map((_element) => _element.serialize()).toList();
+    if (this.commentList != null) {
+      _result['CommentList'] = this.commentList.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

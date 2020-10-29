@@ -39,19 +39,19 @@ class TablePropertiesResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('Properties')) {
-      properties = TableProperties();
-      properties.deserialize(json['Properties']);
+      this.properties = new TableProperties();
+      this.properties.deserialize(json['Properties']);
     } else {
-      properties = null;
+      this.properties = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (properties != null) {
-      _result['Properties'] = properties.serialize();
+    if (this.properties != null) {
+      _result['Properties'] = this.properties.serialize();
     }
     return _result;
   }

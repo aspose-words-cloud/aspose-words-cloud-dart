@@ -44,38 +44,38 @@ class FormFieldCheckbox extends FormField {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('CheckBoxSize')) {
-      checkBoxSize = json['CheckBoxSize'];
+      this.checkBoxSize = json['CheckBoxSize'];
     } else {
-      checkBoxSize = null;
+      this.checkBoxSize = null;
     }
 
     if (json.containsKey('Checked')) {
-      checked = json['Checked'];
+      this.checked = json['Checked'];
     } else {
-      checked = null;
+      this.checked = null;
     }
 
     if (json.containsKey('IsCheckBoxExactSize')) {
-      isCheckBoxExactSize = json['IsCheckBoxExactSize'];
+      this.isCheckBoxExactSize = json['IsCheckBoxExactSize'];
     } else {
-      isCheckBoxExactSize = null;
+      this.isCheckBoxExactSize = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (checkBoxSize != null) {
-      _result['CheckBoxSize'] = checkBoxSize;
+    if (this.checkBoxSize != null) {
+      _result['CheckBoxSize'] = this.checkBoxSize;
     }
 
-    if (checked != null) {
-      _result['Checked'] = checked;
+    if (this.checked != null) {
+      _result['Checked'] = this.checked;
     }
 
-    if (isCheckBoxExactSize != null) {
-      _result['IsCheckBoxExactSize'] = isCheckBoxExactSize;
+    if (this.isCheckBoxExactSize != null) {
+      _result['IsCheckBoxExactSize'] = this.isCheckBoxExactSize;
     }
     return _result;
   }

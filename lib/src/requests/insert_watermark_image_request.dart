@@ -69,66 +69,66 @@ class InsertWatermarkImageRequest implements RequestBase {
   /// The image file server full name. If the name is empty the image is expected in request content.
   final String image;
 
-  InsertWatermarkImageRequest(final this.name, {final this.imageFile, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime, final this.rotationAngle, final this.image});
+  InsertWatermarkImageRequest(final String this.name, {final ByteData this.imageFile = null, final String this.folder = null, final String this.storage = null, final String this.loadEncoding = null, final String this.password = null, final String this.destFileName = null, final String this.revisionAuthor = null, final String this.revisionDateTime = null, final double this.rotationAngle = null, final String this.image = null});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var _path = '/words/{name}/watermarks/images';
-    var _queryParams = <String, String>{};
-    var _headers = <String, String>{};
-    var _bodyParts = <ApiRequestPart>[];
-    if (name == null) {
-      throw ApiException(400, 'Parameter name is required.');
+    String path = '/words/{name}/watermarks/images';
+    Map<String, String> queryParams = new Map<String, String>();
+    Map<String, String> headers = new Map<String, String>();
+    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
+    if (this.name == null) {
+      throw new ApiException(400, 'Parameter name is required.');
     }
-    _path = _path.replaceAll('{name}', apiClient.serializeToString(name));
-    if (folder != null) {
-      _queryParams['folder'] = apiClient.serializeToString(folder);
-    }
-
-    if (storage != null) {
-      _queryParams['storage'] = apiClient.serializeToString(storage);
+    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
+    if (this.folder != null) {
+      queryParams['folder'] = apiClient.serializeToString(this.folder);
     }
 
-    if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
+    if (this.storage != null) {
+      queryParams['storage'] = apiClient.serializeToString(this.storage);
     }
 
-    if (password != null) {
-      _queryParams['password'] = apiClient.serializeToString(password);
+    if (this.loadEncoding != null) {
+      queryParams['loadEncoding'] = apiClient.serializeToString(this.loadEncoding);
     }
 
-    if (destFileName != null) {
-      _queryParams['destFileName'] = apiClient.serializeToString(destFileName);
+    if (this.password != null) {
+      queryParams['password'] = apiClient.serializeToString(this.password);
     }
 
-    if (revisionAuthor != null) {
-      _queryParams['revisionAuthor'] = apiClient.serializeToString(revisionAuthor);
+    if (this.destFileName != null) {
+      queryParams['destFileName'] = apiClient.serializeToString(this.destFileName);
     }
 
-    if (revisionDateTime != null) {
-      _queryParams['revisionDateTime'] = apiClient.serializeToString(revisionDateTime);
+    if (this.revisionAuthor != null) {
+      queryParams['revisionAuthor'] = apiClient.serializeToString(this.revisionAuthor);
     }
 
-    if (rotationAngle != null) {
-      _queryParams['rotationAngle'] = apiClient.serializeToString(rotationAngle);
+    if (this.revisionDateTime != null) {
+      queryParams['revisionDateTime'] = apiClient.serializeToString(this.revisionDateTime);
     }
 
-    if (image != null) {
-      _queryParams['image'] = apiClient.serializeToString(image);
+    if (this.rotationAngle != null) {
+      queryParams['rotationAngle'] = apiClient.serializeToString(this.rotationAngle);
     }
 
-    if (imageFile != null) {
-      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(imageFile), 'application/octet-stream', name: 'ImageFile'));
+    if (this.image != null) {
+      queryParams['image'] = apiClient.serializeToString(this.image);
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('POST', _url, _headers, _body);
+    if (this.imageFile != null) {
+      bodyParts.add(new ApiRequestPart(apiClient.serializeBody(this.imageFile), 'application/octet-stream', name: 'ImageFile'));
+    }
+
+    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
+    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
+    return new ApiRequestData('POST', url, headers, body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = DocumentResponse();
+    var _result = new DocumentResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
     _result.deserialize(_json);

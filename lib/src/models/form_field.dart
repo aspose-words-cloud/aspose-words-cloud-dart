@@ -62,98 +62,98 @@ class FormField extends NodeLink {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('CalculateOnExit')) {
-      calculateOnExit = json['CalculateOnExit'];
+      this.calculateOnExit = json['CalculateOnExit'];
     } else {
-      calculateOnExit = null;
+      this.calculateOnExit = null;
     }
 
     if (json.containsKey('Enabled')) {
-      enabled = json['Enabled'];
+      this.enabled = json['Enabled'];
     } else {
-      enabled = null;
+      this.enabled = null;
     }
 
     if (json.containsKey('EntryMacro')) {
-      entryMacro = json['EntryMacro'];
+      this.entryMacro = json['EntryMacro'];
     } else {
-      entryMacro = null;
+      this.entryMacro = null;
     }
 
     if (json.containsKey('ExitMacro')) {
-      exitMacro = json['ExitMacro'];
+      this.exitMacro = json['ExitMacro'];
     } else {
-      exitMacro = null;
+      this.exitMacro = null;
     }
 
     if (json.containsKey('HelpText')) {
-      helpText = json['HelpText'];
+      this.helpText = json['HelpText'];
     } else {
-      helpText = null;
+      this.helpText = null;
     }
 
     if (json.containsKey('Name')) {
-      name = json['Name'];
+      this.name = json['Name'];
     } else {
-      name = null;
+      this.name = null;
     }
 
     if (json.containsKey('OwnHelp')) {
-      ownHelp = json['OwnHelp'];
+      this.ownHelp = json['OwnHelp'];
     } else {
-      ownHelp = null;
+      this.ownHelp = null;
     }
 
     if (json.containsKey('OwnStatus')) {
-      ownStatus = json['OwnStatus'];
+      this.ownStatus = json['OwnStatus'];
     } else {
-      ownStatus = null;
+      this.ownStatus = null;
     }
 
     if (json.containsKey('StatusText')) {
-      statusText = json['StatusText'];
+      this.statusText = json['StatusText'];
     } else {
-      statusText = null;
+      this.statusText = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (calculateOnExit != null) {
-      _result['CalculateOnExit'] = calculateOnExit;
+    if (this.calculateOnExit != null) {
+      _result['CalculateOnExit'] = this.calculateOnExit;
     }
 
-    if (enabled != null) {
-      _result['Enabled'] = enabled;
+    if (this.enabled != null) {
+      _result['Enabled'] = this.enabled;
     }
 
-    if (entryMacro != null) {
-      _result['EntryMacro'] = entryMacro;
+    if (this.entryMacro != null) {
+      _result['EntryMacro'] = this.entryMacro;
     }
 
-    if (exitMacro != null) {
-      _result['ExitMacro'] = exitMacro;
+    if (this.exitMacro != null) {
+      _result['ExitMacro'] = this.exitMacro;
     }
 
-    if (helpText != null) {
-      _result['HelpText'] = helpText;
+    if (this.helpText != null) {
+      _result['HelpText'] = this.helpText;
     }
 
-    if (name != null) {
-      _result['Name'] = name;
+    if (this.name != null) {
+      _result['Name'] = this.name;
     }
 
-    if (ownHelp != null) {
-      _result['OwnHelp'] = ownHelp;
+    if (this.ownHelp != null) {
+      _result['OwnHelp'] = this.ownHelp;
     }
 
-    if (ownStatus != null) {
-      _result['OwnStatus'] = ownStatus;
+    if (this.ownStatus != null) {
+      _result['OwnStatus'] = this.ownStatus;
     }
 
-    if (statusText != null) {
-      _result['StatusText'] = statusText;
+    if (this.statusText != null) {
+      _result['StatusText'] = this.statusText;
     }
     return _result;
   }

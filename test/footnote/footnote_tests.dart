@@ -27,6 +27,7 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
+import 'package:test/test.dart';
 
 /// Example of how to work with footnotes.
 class FootnoteTests
@@ -35,148 +36,166 @@ class FootnoteTests
   String remoteDataFolder;
   String footnoteFolder;
 
-  FootnoteTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Footnotes';
+  FootnoteTests(final TestContext this.context) {
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Footnotes';
     footnoteFolder = 'DocumentElements/Footnotes';
   }
 
   /// Test for adding footnote.
   Future<void> testInsertFootnote() async
   {
-    final remoteFileName = 'TestInsertFootnote.docx';
-    await context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
-    var requestFootnoteDto = FootnoteInsert();
+    final String remoteFileName = 'TestInsertFootnote.docx';
+    await this.context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
+    var requestFootnoteDto = new FootnoteInsert();
     requestFootnoteDto.footnoteType = FootnoteBase_FootnoteTypeEnum.endnote;
     requestFootnoteDto.text = 'test endnote';
 
-    final request = InsertFootnoteRequest(
+    final request = new InsertFootnoteRequest(
       remoteFileName,
       requestFootnoteDto,
       nodePath: '',
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertFootnote(request);
+    var result = await this.context.getApi().insertFootnote(request);
+    expect(result.footnote, isNotNull);
+    expect(result.footnote.nodeId, '0.1.7.1');
+    expect(result.footnote.text, ' test endnote\r\n');
   }
 
   /// Test for adding footnote without node path.
   Future<void> testInsertFootnoteWithoutNodePath() async
   {
-    final remoteFileName = 'TestInsertFootnoteWithoutNodePath.docx';
-    await context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
-    var requestFootnoteDto = FootnoteInsert();
+    final String remoteFileName = 'TestInsertFootnoteWithoutNodePath.docx';
+    await this.context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
+    var requestFootnoteDto = new FootnoteInsert();
     requestFootnoteDto.footnoteType = FootnoteBase_FootnoteTypeEnum.endnote;
     requestFootnoteDto.text = 'test endnote';
 
-    final request = InsertFootnoteRequest(
+    final request = new InsertFootnoteRequest(
       remoteFileName,
       requestFootnoteDto,
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertFootnote(request);
+    var result = await this.context.getApi().insertFootnote(request);
+    expect(result.footnote, isNotNull);
+    expect(result.footnote.nodeId, '0.1.7.1');
+    expect(result.footnote.text, ' test endnote\r\n');
   }
 
   /// Test for deleting footnote.
   Future<void> testDeleteFootnote() async
   {
-    final remoteFileName = 'TestDeleteFootnote.docx';
-    await context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestDeleteFootnote.docx';
+    await this.context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
 
-    final request = DeleteFootnoteRequest(
+    final request = new DeleteFootnoteRequest(
       remoteFileName,
       0,
       nodePath: '',
       folder: remoteDataFolder
     );
 
-    await context.getApi().deleteFootnote(request);
+    await this.context.getApi().deleteFootnote(request);
   }
 
   /// Test for deleting footnote without node path.
   Future<void> testDeleteFootnoteWithoutNodePath() async
   {
-    final remoteFileName = 'TestDeleteFootnoteWithoutNodePath.docx';
-    await context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestDeleteFootnoteWithoutNodePath.docx';
+    await this.context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
 
-    final request = DeleteFootnoteRequest(
+    final request = new DeleteFootnoteRequest(
       remoteFileName,
       0,
       folder: remoteDataFolder
     );
 
-    await context.getApi().deleteFootnote(request);
+    await this.context.getApi().deleteFootnote(request);
   }
 
   /// Test for getting footnotes.
   Future<void> testGetFootnotes() async
   {
-    final remoteFileName = 'TestGetFootnotes.docx';
-    await context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetFootnotes.docx';
+    await this.context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetFootnotesRequest(
+    final request = new GetFootnotesRequest(
       remoteFileName,
       nodePath: '',
       folder: remoteDataFolder
     );
 
-    await context.getApi().getFootnotes(request);
+    var result = await this.context.getApi().getFootnotes(request);
+    expect(result.footnotes, isNotNull);
+    expect(result.footnotes.list, isNotNull);
+    expect(result.footnotes.list.length, 6);
+    expect(result.footnotes.list[0].text, ' Footnote 1.\r\n');
   }
 
   /// Test for getting footnotes without node path.
   Future<void> testGetFootnotesWithoutNodePath() async
   {
-    final remoteFileName = 'TestGetFootnotesWithoutNodePath.docx';
-    await context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetFootnotesWithoutNodePath.docx';
+    await this.context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetFootnotesRequest(
+    final request = new GetFootnotesRequest(
       remoteFileName,
       folder: remoteDataFolder
     );
 
-    await context.getApi().getFootnotes(request);
+    var result = await this.context.getApi().getFootnotes(request);
+    expect(result.footnotes, isNotNull);
+    expect(result.footnotes.list, isNotNull);
+    expect(result.footnotes.list.length, 6);
+    expect(result.footnotes.list[0].text, ' Footnote 1.\r\n');
   }
 
   /// Test for getting footnote.
   Future<void> testGetFootnote() async
   {
-    final remoteFileName = 'TestGetFootnote.docx';
-    await context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetFootnote.docx';
+    await this.context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetFootnoteRequest(
+    final request = new GetFootnoteRequest(
       remoteFileName,
       0,
       nodePath: '',
       folder: remoteDataFolder
     );
 
-    await context.getApi().getFootnote(request);
+    var result = await this.context.getApi().getFootnote(request);
+    expect(result.footnote, isNotNull);
+    expect(result.footnote.text, ' Footnote 1.\r\n');
   }
 
   /// Test for getting footnote without node path.
   Future<void> testGetFootnoteWithoutNodePath() async
   {
-    final remoteFileName = 'TestGetFootnoteWithoutNodePath.docx';
-    await context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetFootnoteWithoutNodePath.docx';
+    await this.context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetFootnoteRequest(
+    final request = new GetFootnoteRequest(
       remoteFileName,
       0,
       folder: remoteDataFolder
     );
 
-    await context.getApi().getFootnote(request);
+    var result = await this.context.getApi().getFootnote(request);
+    expect(result.footnote, isNotNull);
+    expect(result.footnote.text, ' Footnote 1.\r\n');
   }
 
   /// Test for updating footnote.
   Future<void> testUpdateFootnote() async
   {
-    final remoteFileName = 'TestUpdateFootnote.docx';
-    await context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
-    var requestFootnoteDto = FootnoteUpdate();
+    final String remoteFileName = 'TestUpdateFootnote.docx';
+    await this.context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
+    var requestFootnoteDto = new FootnoteUpdate();
     requestFootnoteDto.text = 'new text is here';
 
-    final request = UpdateFootnoteRequest(
+    final request = new UpdateFootnoteRequest(
       remoteFileName,
       requestFootnoteDto,
       0,
@@ -184,24 +203,28 @@ class FootnoteTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateFootnote(request);
+    var result = await this.context.getApi().updateFootnote(request);
+    expect(result.footnote, isNotNull);
+    expect(result.footnote.text, ' new text is here\r\n');
   }
 
   /// Test for updating footnote without node path.
   Future<void> testUpdateFootnoteWithoutNodePath() async
   {
-    final remoteFileName = 'TestUpdateFootnoteWithoutNodePath.docx';
-    await context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
-    var requestFootnoteDto = FootnoteUpdate();
+    final String remoteFileName = 'TestUpdateFootnoteWithoutNodePath.docx';
+    await this.context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
+    var requestFootnoteDto = new FootnoteUpdate();
     requestFootnoteDto.text = 'new text is here';
 
-    final request = UpdateFootnoteRequest(
+    final request = new UpdateFootnoteRequest(
       remoteFileName,
       requestFootnoteDto,
       0,
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateFootnote(request);
+    var result = await this.context.getApi().updateFootnote(request);
+    expect(result.footnote, isNotNull);
+    expect(result.footnote.text, ' new text is here\r\n');
   }
 }

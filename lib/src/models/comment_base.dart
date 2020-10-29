@@ -52,69 +52,69 @@ class CommentBase implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('Author')) {
-      author = json['Author'];
+      this.author = json['Author'];
     } else {
-      author = null;
+      this.author = null;
     }
 
     if (json.containsKey('DateTime')) {
-      dateTime = DateTime.parse(json['DateTime']);
+      this.dateTime = DateTime.parse(json['DateTime']);
     } else {
-      dateTime = null;
+      this.dateTime = null;
     }
 
     if (json.containsKey('Initial')) {
-      initial = json['Initial'];
+      this.initial = json['Initial'];
     } else {
-      initial = null;
+      this.initial = null;
     }
 
     if (json.containsKey('RangeEnd')) {
-      rangeEnd = DocumentPosition();
-      rangeEnd.deserialize(json['RangeEnd']);
+      this.rangeEnd = new DocumentPosition();
+      this.rangeEnd.deserialize(json['RangeEnd']);
     } else {
-      rangeEnd = null;
+      this.rangeEnd = null;
     }
 
     if (json.containsKey('RangeStart')) {
-      rangeStart = DocumentPosition();
-      rangeStart.deserialize(json['RangeStart']);
+      this.rangeStart = new DocumentPosition();
+      this.rangeStart.deserialize(json['RangeStart']);
     } else {
-      rangeStart = null;
+      this.rangeStart = null;
     }
 
     if (json.containsKey('Text')) {
-      text = json['Text'];
+      this.text = json['Text'];
     } else {
-      text = null;
+      this.text = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (author != null) {
-      _result['Author'] = author;
+    var _result = new Map<String, dynamic>();
+    if (this.author != null) {
+      _result['Author'] = this.author;
     }
 
-    if (dateTime != null) {
-      _result['DateTime'] = dateTime.toIso8601String();
+    if (this.dateTime != null) {
+      _result['DateTime'] = this.dateTime.toIso8601String();
     }
 
-    if (initial != null) {
-      _result['Initial'] = initial;
+    if (this.initial != null) {
+      _result['Initial'] = this.initial;
     }
 
-    if (rangeEnd != null) {
-      _result['RangeEnd'] = rangeEnd.serialize();
+    if (this.rangeEnd != null) {
+      _result['RangeEnd'] = this.rangeEnd.serialize();
     }
 
-    if (rangeStart != null) {
-      _result['RangeStart'] = rangeStart.serialize();
+    if (this.rangeStart != null) {
+      _result['RangeStart'] = this.rangeStart.serialize();
     }
 
-    if (text != null) {
-      _result['Text'] = text;
+    if (this.text != null) {
+      _result['Text'] = this.text;
     }
     return _result;
   }

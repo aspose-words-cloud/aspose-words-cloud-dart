@@ -39,19 +39,19 @@ class ParagraphListFormatResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('ListFormat')) {
-      listFormat = ListFormat();
-      listFormat.deserialize(json['ListFormat']);
+      this.listFormat = new ListFormat();
+      this.listFormat.deserialize(json['ListFormat']);
     } else {
-      listFormat = null;
+      this.listFormat = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (listFormat != null) {
-      _result['ListFormat'] = listFormat.serialize();
+    if (this.listFormat != null) {
+      _result['ListFormat'] = this.listFormat.serialize();
     }
     return _result;
   }

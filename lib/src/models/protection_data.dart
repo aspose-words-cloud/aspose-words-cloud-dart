@@ -37,17 +37,17 @@ class ProtectionData implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('ProtectionType')) {
-      protectionType = json['ProtectionType'];
+      this.protectionType = json['ProtectionType'];
     } else {
-      protectionType = null;
+      this.protectionType = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (protectionType != null) {
-      _result['ProtectionType'] = protectionType;
+    var _result = new Map<String, dynamic>();
+    if (this.protectionType != null) {
+      _result['ProtectionType'] = this.protectionType;
     }
     return _result;
   }

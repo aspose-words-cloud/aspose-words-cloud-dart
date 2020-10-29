@@ -70,114 +70,114 @@ class SaveOptionsData implements ModelBase {
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('Dml3DEffectsRenderingMode')) {
       switch (json['Dml3DEffectsRenderingMode']) {
-        case 'Basic': dml3DEffectsRenderingMode = SaveOptionsData_Dml3DEffectsRenderingModeEnum.basic; break;
-        case 'Advanced': dml3DEffectsRenderingMode = SaveOptionsData_Dml3DEffectsRenderingModeEnum.advanced; break;
-        default: dml3DEffectsRenderingMode = null; break;
+        case 'Basic': this.dml3DEffectsRenderingMode = SaveOptionsData_Dml3DEffectsRenderingModeEnum.basic; break;
+        case 'Advanced': this.dml3DEffectsRenderingMode = SaveOptionsData_Dml3DEffectsRenderingModeEnum.advanced; break;
+        default: this.dml3DEffectsRenderingMode = null; break;
       }
     } else {
-      dml3DEffectsRenderingMode = null;
+      this.dml3DEffectsRenderingMode = null;
     }
 
     if (json.containsKey('DmlEffectsRenderingMode')) {
-      dmlEffectsRenderingMode = json['DmlEffectsRenderingMode'];
+      this.dmlEffectsRenderingMode = json['DmlEffectsRenderingMode'];
     } else {
-      dmlEffectsRenderingMode = null;
+      this.dmlEffectsRenderingMode = null;
     }
 
     if (json.containsKey('DmlRenderingMode')) {
-      dmlRenderingMode = json['DmlRenderingMode'];
+      this.dmlRenderingMode = json['DmlRenderingMode'];
     } else {
-      dmlRenderingMode = null;
+      this.dmlRenderingMode = null;
     }
 
     if (json.containsKey('FileName')) {
-      fileName = json['FileName'];
+      this.fileName = json['FileName'];
     } else {
-      fileName = null;
+      this.fileName = null;
     }
 
     if (json.containsKey('SaveFormat')) {
-      saveFormat = json['SaveFormat'];
+      this.saveFormat = json['SaveFormat'];
     } else {
-      saveFormat = null;
+      this.saveFormat = null;
     }
 
     if (json.containsKey('UpdateFields')) {
-      updateFields = json['UpdateFields'];
+      this.updateFields = json['UpdateFields'];
     } else {
-      updateFields = null;
+      this.updateFields = null;
     }
 
     if (json.containsKey('UpdateLastPrintedProperty')) {
-      updateLastPrintedProperty = json['UpdateLastPrintedProperty'];
+      this.updateLastPrintedProperty = json['UpdateLastPrintedProperty'];
     } else {
-      updateLastPrintedProperty = null;
+      this.updateLastPrintedProperty = null;
     }
 
     if (json.containsKey('UpdateLastSavedTimeProperty')) {
-      updateLastSavedTimeProperty = json['UpdateLastSavedTimeProperty'];
+      this.updateLastSavedTimeProperty = json['UpdateLastSavedTimeProperty'];
     } else {
-      updateLastSavedTimeProperty = null;
+      this.updateLastSavedTimeProperty = null;
     }
 
     if (json.containsKey('UpdateSdtContent')) {
-      updateSdtContent = json['UpdateSdtContent'];
+      this.updateSdtContent = json['UpdateSdtContent'];
     } else {
-      updateSdtContent = null;
+      this.updateSdtContent = null;
     }
 
     if (json.containsKey('ZipOutput')) {
-      zipOutput = json['ZipOutput'];
+      this.zipOutput = json['ZipOutput'];
     } else {
-      zipOutput = null;
+      this.zipOutput = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (dml3DEffectsRenderingMode != null) {
-      switch (dml3DEffectsRenderingMode) {
+    var _result = new Map<String, dynamic>();
+    if (this.dml3DEffectsRenderingMode != null) {
+      switch (this.dml3DEffectsRenderingMode) {
         case SaveOptionsData_Dml3DEffectsRenderingModeEnum.basic: _result['Dml3DEffectsRenderingMode'] = 'Basic'; break;
         case SaveOptionsData_Dml3DEffectsRenderingModeEnum.advanced: _result['Dml3DEffectsRenderingMode'] = 'Advanced'; break;
         default: break;
       }
     }
 
-    if (dmlEffectsRenderingMode != null) {
-      _result['DmlEffectsRenderingMode'] = dmlEffectsRenderingMode;
+    if (this.dmlEffectsRenderingMode != null) {
+      _result['DmlEffectsRenderingMode'] = this.dmlEffectsRenderingMode;
     }
 
-    if (dmlRenderingMode != null) {
-      _result['DmlRenderingMode'] = dmlRenderingMode;
+    if (this.dmlRenderingMode != null) {
+      _result['DmlRenderingMode'] = this.dmlRenderingMode;
     }
 
-    if (fileName != null) {
-      _result['FileName'] = fileName;
+    if (this.fileName != null) {
+      _result['FileName'] = this.fileName;
     }
 
-    if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat;
+    if (this.saveFormat != null) {
+      _result['SaveFormat'] = this.saveFormat;
     }
 
-    if (updateFields != null) {
-      _result['UpdateFields'] = updateFields;
+    if (this.updateFields != null) {
+      _result['UpdateFields'] = this.updateFields;
     }
 
-    if (updateLastPrintedProperty != null) {
-      _result['UpdateLastPrintedProperty'] = updateLastPrintedProperty;
+    if (this.updateLastPrintedProperty != null) {
+      _result['UpdateLastPrintedProperty'] = this.updateLastPrintedProperty;
     }
 
-    if (updateLastSavedTimeProperty != null) {
-      _result['UpdateLastSavedTimeProperty'] = updateLastSavedTimeProperty;
+    if (this.updateLastSavedTimeProperty != null) {
+      _result['UpdateLastSavedTimeProperty'] = this.updateLastSavedTimeProperty;
     }
 
-    if (updateSdtContent != null) {
-      _result['UpdateSdtContent'] = updateSdtContent;
+    if (this.updateSdtContent != null) {
+      _result['UpdateSdtContent'] = this.updateSdtContent;
     }
 
-    if (zipOutput != null) {
-      _result['ZipOutput'] = zipOutput;
+    if (this.zipOutput != null) {
+      _result['ZipOutput'] = this.zipOutput;
     }
     return _result;
   }

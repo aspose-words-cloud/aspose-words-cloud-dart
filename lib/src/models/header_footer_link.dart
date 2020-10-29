@@ -39,25 +39,25 @@ class HeaderFooterLink extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Type')) {
       switch (json['Type']) {
-        case 'HeaderEven': type = HeaderFooterLink_TypeEnum.headerEven; break;
-        case 'HeaderPrimary': type = HeaderFooterLink_TypeEnum.headerPrimary; break;
-        case 'FooterEven': type = HeaderFooterLink_TypeEnum.footerEven; break;
-        case 'FooterPrimary': type = HeaderFooterLink_TypeEnum.footerPrimary; break;
-        case 'HeaderFirst': type = HeaderFooterLink_TypeEnum.headerFirst; break;
-        case 'FooterFirst': type = HeaderFooterLink_TypeEnum.footerFirst; break;
-        default: type = null; break;
+        case 'HeaderEven': this.type = HeaderFooterLink_TypeEnum.headerEven; break;
+        case 'HeaderPrimary': this.type = HeaderFooterLink_TypeEnum.headerPrimary; break;
+        case 'FooterEven': this.type = HeaderFooterLink_TypeEnum.footerEven; break;
+        case 'FooterPrimary': this.type = HeaderFooterLink_TypeEnum.footerPrimary; break;
+        case 'HeaderFirst': this.type = HeaderFooterLink_TypeEnum.headerFirst; break;
+        case 'FooterFirst': this.type = HeaderFooterLink_TypeEnum.footerFirst; break;
+        default: this.type = null; break;
       }
     } else {
-      type = null;
+      this.type = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (type != null) {
-      switch (type) {
+    if (this.type != null) {
+      switch (this.type) {
         case HeaderFooterLink_TypeEnum.headerEven: _result['Type'] = 'HeaderEven'; break;
         case HeaderFooterLink_TypeEnum.headerPrimary: _result['Type'] = 'HeaderPrimary'; break;
         case HeaderFooterLink_TypeEnum.footerEven: _result['Type'] = 'FooterEven'; break;

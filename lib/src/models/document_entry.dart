@@ -40,27 +40,27 @@ class DocumentEntry implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('Href')) {
-      href = json['Href'];
+      this.href = json['Href'];
     } else {
-      href = null;
+      this.href = null;
     }
 
     if (json.containsKey('ImportFormatMode')) {
-      importFormatMode = json['ImportFormatMode'];
+      this.importFormatMode = json['ImportFormatMode'];
     } else {
-      importFormatMode = null;
+      this.importFormatMode = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (href != null) {
-      _result['Href'] = href;
+    var _result = new Map<String, dynamic>();
+    if (this.href != null) {
+      _result['Href'] = this.href;
     }
 
-    if (importFormatMode != null) {
-      _result['ImportFormatMode'] = importFormatMode;
+    if (this.importFormatMode != null) {
+      _result['ImportFormatMode'] = this.importFormatMode;
     }
     return _result;
   }

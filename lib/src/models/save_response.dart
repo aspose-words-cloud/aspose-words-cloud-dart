@@ -38,19 +38,19 @@ class SaveResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('SaveResult')) {
-      saveResult = SaveResult();
-      saveResult.deserialize(json['SaveResult']);
+      this.saveResult = new SaveResult();
+      this.saveResult.deserialize(json['SaveResult']);
     } else {
-      saveResult = null;
+      this.saveResult = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (saveResult != null) {
-      _result['SaveResult'] = saveResult.serialize();
+    if (this.saveResult != null) {
+      _result['SaveResult'] = this.saveResult.serialize();
     }
     return _result;
   }

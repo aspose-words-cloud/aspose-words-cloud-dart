@@ -39,19 +39,19 @@ class SectionPageSetupResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('PageSetup')) {
-      pageSetup = PageSetup();
-      pageSetup.deserialize(json['PageSetup']);
+      this.pageSetup = new PageSetup();
+      this.pageSetup.deserialize(json['PageSetup']);
     } else {
-      pageSetup = null;
+      this.pageSetup = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (pageSetup != null) {
-      _result['PageSetup'] = pageSetup.serialize();
+    if (this.pageSetup != null) {
+      _result['PageSetup'] = this.pageSetup.serialize();
     }
     return _result;
   }

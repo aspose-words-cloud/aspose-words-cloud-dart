@@ -42,29 +42,29 @@ class SearchResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('SearchingPattern')) {
-      searchingPattern = json['SearchingPattern'];
+      this.searchingPattern = json['SearchingPattern'];
     } else {
-      searchingPattern = null;
+      this.searchingPattern = null;
     }
 
     if (json.containsKey('SearchResults')) {
-      searchResults = SearchResultsCollection();
-      searchResults.deserialize(json['SearchResults']);
+      this.searchResults = new SearchResultsCollection();
+      this.searchResults.deserialize(json['SearchResults']);
     } else {
-      searchResults = null;
+      this.searchResults = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (searchingPattern != null) {
-      _result['SearchingPattern'] = searchingPattern;
+    if (this.searchingPattern != null) {
+      _result['SearchingPattern'] = this.searchingPattern;
     }
 
-    if (searchResults != null) {
-      _result['SearchResults'] = searchResults.serialize();
+    if (this.searchResults != null) {
+      _result['SearchResults'] = this.searchResults.serialize();
     }
     return _result;
   }

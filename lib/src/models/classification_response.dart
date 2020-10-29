@@ -45,44 +45,44 @@ class ClassificationResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('BestClassName')) {
-      bestClassName = json['BestClassName'];
+      this.bestClassName = json['BestClassName'];
     } else {
-      bestClassName = null;
+      this.bestClassName = null;
     }
 
     if (json.containsKey('BestClassProbability')) {
-      bestClassProbability = json['BestClassProbability'];
+      this.bestClassProbability = json['BestClassProbability'];
     } else {
-      bestClassProbability = null;
+      this.bestClassProbability = null;
     }
 
     if (json.containsKey('BestResults')) {
       // Array processing
-      bestResults = <ClassificationResult>[];
+      this.bestResults = new List<ClassificationResult>();
       for(final _element in json['BestResults']) {
-        var _elementValue = ClassificationResult();
+        var _elementValue = new ClassificationResult();
         _elementValue.deserialize(_element);
-        bestResults.add(_elementValue);
+        this.bestResults.add(_elementValue);
       }
     } else {
-      bestResults = null;
+      this.bestResults = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (bestClassName != null) {
-      _result['BestClassName'] = bestClassName;
+    if (this.bestClassName != null) {
+      _result['BestClassName'] = this.bestClassName;
     }
 
-    if (bestClassProbability != null) {
-      _result['BestClassProbability'] = bestClassProbability;
+    if (this.bestClassProbability != null) {
+      _result['BestClassProbability'] = this.bestClassProbability;
     }
 
-    if (bestResults != null) {
-      _result['BestResults'] = bestResults.map((_element) => _element.serialize()).toList();
+    if (this.bestResults != null) {
+      _result['BestResults'] = this.bestResults.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

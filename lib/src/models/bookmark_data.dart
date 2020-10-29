@@ -40,27 +40,27 @@ class BookmarkData implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('Name')) {
-      name = json['Name'];
+      this.name = json['Name'];
     } else {
-      name = null;
+      this.name = null;
     }
 
     if (json.containsKey('Text')) {
-      text = json['Text'];
+      this.text = json['Text'];
     } else {
-      text = null;
+      this.text = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (name != null) {
-      _result['Name'] = name;
+    var _result = new Map<String, dynamic>();
+    if (this.name != null) {
+      _result['Name'] = this.name;
     }
 
-    if (text != null) {
-      _result['Text'] = text;
+    if (this.text != null) {
+      _result['Text'] = this.text;
     }
     return _result;
   }

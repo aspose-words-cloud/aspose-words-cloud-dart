@@ -54,88 +54,88 @@ class Border extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('BorderType')) {
       switch (json['BorderType']) {
-        case 'Bottom': borderType = Border_BorderTypeEnum.bottom; break;
-        case 'Left': borderType = Border_BorderTypeEnum.left; break;
-        case 'Right': borderType = Border_BorderTypeEnum.right; break;
-        case 'Top': borderType = Border_BorderTypeEnum.top; break;
-        case 'Horizontal': borderType = Border_BorderTypeEnum.horizontal; break;
-        case 'Vertical': borderType = Border_BorderTypeEnum.vertical; break;
-        case 'DiagonalDown': borderType = Border_BorderTypeEnum.diagonalDown; break;
-        case 'DiagonalUp': borderType = Border_BorderTypeEnum.diagonalUp; break;
-        case 'None': borderType = Border_BorderTypeEnum.none; break;
-        default: borderType = null; break;
+        case 'Bottom': this.borderType = Border_BorderTypeEnum.bottom; break;
+        case 'Left': this.borderType = Border_BorderTypeEnum.left; break;
+        case 'Right': this.borderType = Border_BorderTypeEnum.right; break;
+        case 'Top': this.borderType = Border_BorderTypeEnum.top; break;
+        case 'Horizontal': this.borderType = Border_BorderTypeEnum.horizontal; break;
+        case 'Vertical': this.borderType = Border_BorderTypeEnum.vertical; break;
+        case 'DiagonalDown': this.borderType = Border_BorderTypeEnum.diagonalDown; break;
+        case 'DiagonalUp': this.borderType = Border_BorderTypeEnum.diagonalUp; break;
+        case 'None': this.borderType = Border_BorderTypeEnum.none; break;
+        default: this.borderType = null; break;
       }
     } else {
-      borderType = null;
+      this.borderType = null;
     }
 
     if (json.containsKey('Color')) {
-      color = XmlColor();
-      color.deserialize(json['Color']);
+      this.color = new XmlColor();
+      this.color.deserialize(json['Color']);
     } else {
-      color = null;
+      this.color = null;
     }
 
     if (json.containsKey('DistanceFromText')) {
-      distanceFromText = json['DistanceFromText'];
+      this.distanceFromText = json['DistanceFromText'];
     } else {
-      distanceFromText = null;
+      this.distanceFromText = null;
     }
 
     if (json.containsKey('LineStyle')) {
       switch (json['LineStyle']) {
-        case 'None': lineStyle = Border_LineStyleEnum.none; break;
-        case 'Single': lineStyle = Border_LineStyleEnum.single; break;
-        case 'Thick': lineStyle = Border_LineStyleEnum.thick; break;
-        case 'Double': lineStyle = Border_LineStyleEnum.double; break;
-        case 'Hairline': lineStyle = Border_LineStyleEnum.hairline; break;
-        case 'Dot': lineStyle = Border_LineStyleEnum.dot; break;
-        case 'DashLargeGap': lineStyle = Border_LineStyleEnum.dashLargeGap; break;
-        case 'DotDash': lineStyle = Border_LineStyleEnum.dotDash; break;
-        case 'DotDotDash': lineStyle = Border_LineStyleEnum.dotDotDash; break;
-        case 'Triple': lineStyle = Border_LineStyleEnum.triple; break;
-        case 'ThinThickSmallGap': lineStyle = Border_LineStyleEnum.thinThickSmallGap; break;
-        case 'ThickThinSmallGap': lineStyle = Border_LineStyleEnum.thickThinSmallGap; break;
-        case 'ThinThickThinSmallGap': lineStyle = Border_LineStyleEnum.thinThickThinSmallGap; break;
-        case 'ThinThickMediumGap': lineStyle = Border_LineStyleEnum.thinThickMediumGap; break;
-        case 'ThickThinMediumGap': lineStyle = Border_LineStyleEnum.thickThinMediumGap; break;
-        case 'ThinThickThinMediumGap': lineStyle = Border_LineStyleEnum.thinThickThinMediumGap; break;
-        case 'ThinThickLargeGap': lineStyle = Border_LineStyleEnum.thinThickLargeGap; break;
-        case 'ThickThinLargeGap': lineStyle = Border_LineStyleEnum.thickThinLargeGap; break;
-        case 'ThinThickThinLargeGap': lineStyle = Border_LineStyleEnum.thinThickThinLargeGap; break;
-        case 'Wave': lineStyle = Border_LineStyleEnum.wave; break;
-        case 'DoubleWave': lineStyle = Border_LineStyleEnum.doubleWave; break;
-        case 'DashSmallGap': lineStyle = Border_LineStyleEnum.dashSmallGap; break;
-        case 'DashDotStroker': lineStyle = Border_LineStyleEnum.dashDotStroker; break;
-        case 'Emboss3D': lineStyle = Border_LineStyleEnum.emboss3D; break;
-        case 'Engrave3D': lineStyle = Border_LineStyleEnum.engrave3D; break;
-        case 'Outset': lineStyle = Border_LineStyleEnum.outset; break;
-        case 'Inset': lineStyle = Border_LineStyleEnum.inset; break;
-        default: lineStyle = null; break;
+        case 'None': this.lineStyle = Border_LineStyleEnum.none; break;
+        case 'Single': this.lineStyle = Border_LineStyleEnum.single; break;
+        case 'Thick': this.lineStyle = Border_LineStyleEnum.thick; break;
+        case 'Double': this.lineStyle = Border_LineStyleEnum.double; break;
+        case 'Hairline': this.lineStyle = Border_LineStyleEnum.hairline; break;
+        case 'Dot': this.lineStyle = Border_LineStyleEnum.dot; break;
+        case 'DashLargeGap': this.lineStyle = Border_LineStyleEnum.dashLargeGap; break;
+        case 'DotDash': this.lineStyle = Border_LineStyleEnum.dotDash; break;
+        case 'DotDotDash': this.lineStyle = Border_LineStyleEnum.dotDotDash; break;
+        case 'Triple': this.lineStyle = Border_LineStyleEnum.triple; break;
+        case 'ThinThickSmallGap': this.lineStyle = Border_LineStyleEnum.thinThickSmallGap; break;
+        case 'ThickThinSmallGap': this.lineStyle = Border_LineStyleEnum.thickThinSmallGap; break;
+        case 'ThinThickThinSmallGap': this.lineStyle = Border_LineStyleEnum.thinThickThinSmallGap; break;
+        case 'ThinThickMediumGap': this.lineStyle = Border_LineStyleEnum.thinThickMediumGap; break;
+        case 'ThickThinMediumGap': this.lineStyle = Border_LineStyleEnum.thickThinMediumGap; break;
+        case 'ThinThickThinMediumGap': this.lineStyle = Border_LineStyleEnum.thinThickThinMediumGap; break;
+        case 'ThinThickLargeGap': this.lineStyle = Border_LineStyleEnum.thinThickLargeGap; break;
+        case 'ThickThinLargeGap': this.lineStyle = Border_LineStyleEnum.thickThinLargeGap; break;
+        case 'ThinThickThinLargeGap': this.lineStyle = Border_LineStyleEnum.thinThickThinLargeGap; break;
+        case 'Wave': this.lineStyle = Border_LineStyleEnum.wave; break;
+        case 'DoubleWave': this.lineStyle = Border_LineStyleEnum.doubleWave; break;
+        case 'DashSmallGap': this.lineStyle = Border_LineStyleEnum.dashSmallGap; break;
+        case 'DashDotStroker': this.lineStyle = Border_LineStyleEnum.dashDotStroker; break;
+        case 'Emboss3D': this.lineStyle = Border_LineStyleEnum.emboss3D; break;
+        case 'Engrave3D': this.lineStyle = Border_LineStyleEnum.engrave3D; break;
+        case 'Outset': this.lineStyle = Border_LineStyleEnum.outset; break;
+        case 'Inset': this.lineStyle = Border_LineStyleEnum.inset; break;
+        default: this.lineStyle = null; break;
       }
     } else {
-      lineStyle = null;
+      this.lineStyle = null;
     }
 
     if (json.containsKey('LineWidth')) {
-      lineWidth = json['LineWidth'];
+      this.lineWidth = json['LineWidth'];
     } else {
-      lineWidth = null;
+      this.lineWidth = null;
     }
 
     if (json.containsKey('Shadow')) {
-      shadow = json['Shadow'];
+      this.shadow = json['Shadow'];
     } else {
-      shadow = null;
+      this.shadow = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (borderType != null) {
-      switch (borderType) {
+    if (this.borderType != null) {
+      switch (this.borderType) {
         case Border_BorderTypeEnum.bottom: _result['BorderType'] = 'Bottom'; break;
         case Border_BorderTypeEnum.left: _result['BorderType'] = 'Left'; break;
         case Border_BorderTypeEnum.right: _result['BorderType'] = 'Right'; break;
@@ -149,16 +149,16 @@ class Border extends LinkElement {
       }
     }
 
-    if (color != null) {
-      _result['Color'] = color.serialize();
+    if (this.color != null) {
+      _result['Color'] = this.color.serialize();
     }
 
-    if (distanceFromText != null) {
-      _result['DistanceFromText'] = distanceFromText;
+    if (this.distanceFromText != null) {
+      _result['DistanceFromText'] = this.distanceFromText;
     }
 
-    if (lineStyle != null) {
-      switch (lineStyle) {
+    if (this.lineStyle != null) {
+      switch (this.lineStyle) {
         case Border_LineStyleEnum.none: _result['LineStyle'] = 'None'; break;
         case Border_LineStyleEnum.single: _result['LineStyle'] = 'Single'; break;
         case Border_LineStyleEnum.thick: _result['LineStyle'] = 'Thick'; break;
@@ -190,12 +190,12 @@ class Border extends LinkElement {
       }
     }
 
-    if (lineWidth != null) {
-      _result['LineWidth'] = lineWidth;
+    if (this.lineWidth != null) {
+      _result['LineWidth'] = this.lineWidth;
     }
 
-    if (shadow != null) {
-      _result['Shadow'] = shadow;
+    if (this.shadow != null) {
+      _result['Shadow'] = this.shadow;
     }
     return _result;
   }

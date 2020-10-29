@@ -27,6 +27,7 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
+import 'package:test/test.dart';
 
 /// Example of how to work with runs.
 class RunTests
@@ -35,20 +36,20 @@ class RunTests
   String remoteDataFolder;
   String localFile;
 
-  RunTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Runs';
+  RunTests(final TestContext this.context) {
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Runs';
     localFile = 'DocumentElements/Runs/Run.doc';
   }
 
   /// Test for updating run.
   Future<void> testUpdateRun() async
   {
-    final remoteFileName = 'TestUpdateRun.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestRun = RunUpdate();
+    final String remoteFileName = 'TestUpdateRun.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestRun = new RunUpdate();
     requestRun.text = 'run with text';
 
-    final request = UpdateRunRequest(
+    final request = new UpdateRunRequest(
       remoteFileName,
       requestRun,
       'paragraphs/1',
@@ -56,40 +57,45 @@ class RunTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateRun(request);
+    var result = await this.context.getApi().updateRun(request);
+    expect(result.run, isNotNull);
+    expect(result.run.text, 'run with text');
   }
 
   /// Test for adding run.
   Future<void> testInsertRun() async
   {
-    final remoteFileName = 'TestInsertRun.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestRun = RunInsert();
+    final String remoteFileName = 'TestInsertRun.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestRun = new RunInsert();
     requestRun.text = 'run with text';
 
-    final request = InsertRunRequest(
+    final request = new InsertRunRequest(
       remoteFileName,
       'paragraphs/1',
       requestRun,
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertRun(request);
+    var result = await this.context.getApi().insertRun(request);
+    expect(result.run, isNotNull);
+    expect(result.run.text, 'run with text');
+    expect(result.run.nodeId, '0.0.1.3');
   }
 
   /// Test for deleting run.
   Future<void> testDeleteRun() async
   {
-    final remoteFileName = 'TestDeleteRun.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestDeleteRun.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = DeleteRunRequest(
+    final request = new DeleteRunRequest(
       remoteFileName,
       'paragraphs/1',
       0,
       folder: remoteDataFolder
     );
 
-    await context.getApi().deleteRun(request);
+    await this.context.getApi().deleteRun(request);
   }
 }

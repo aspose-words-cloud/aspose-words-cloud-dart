@@ -38,19 +38,19 @@ class HyperlinkResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('Hyperlink')) {
-      hyperlink = Hyperlink();
-      hyperlink.deserialize(json['Hyperlink']);
+      this.hyperlink = new Hyperlink();
+      this.hyperlink.deserialize(json['Hyperlink']);
     } else {
-      hyperlink = null;
+      this.hyperlink = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (hyperlink != null) {
-      _result['Hyperlink'] = hyperlink.serialize();
+    if (this.hyperlink != null) {
+      _result['Hyperlink'] = this.hyperlink.serialize();
     }
     return _result;
   }

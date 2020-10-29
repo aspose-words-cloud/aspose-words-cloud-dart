@@ -27,6 +27,7 @@
 
 library aspose_words_cloud;
 
+import 'dart:convert';
 import 'dart:typed_data';
 import '../../aspose_words_cloud.dart';
 import '../api_client.dart';
@@ -41,25 +42,25 @@ class CreateFolderRequest implements RequestBase {
   /// Storage name.
   final String storageName;
 
-  CreateFolderRequest(final this.path, {final this.storageName});
+  CreateFolderRequest(final String this.path, {final String this.storageName = null});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var _path = '/words/storage/folder/{path}';
-    var _queryParams = <String, String>{};
-    var _headers = <String, String>{};
-    var _bodyParts = <ApiRequestPart>[];
-    if (path == null) {
-      throw ApiException(400, 'Parameter path is required.');
+    String path = '/words/storage/folder/{path}';
+    Map<String, String> queryParams = new Map<String, String>();
+    Map<String, String> headers = new Map<String, String>();
+    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
+    if (this.path == null) {
+      throw new ApiException(400, 'Parameter path is required.');
     }
-    _path = _path.replaceAll('{path}', apiClient.serializeToString(path));
-    if (storageName != null) {
-      _queryParams['storageName'] = apiClient.serializeToString(storageName);
+    path = path.replaceAll('{path}', apiClient.serializeToString(this.path));
+    if (this.storageName != null) {
+      queryParams['storageName'] = apiClient.serializeToString(this.storageName);
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('PUT', _url, _headers, _body);
+    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
+    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
+    return new ApiRequestData('PUT', url, headers, body);
   }
 
   @override

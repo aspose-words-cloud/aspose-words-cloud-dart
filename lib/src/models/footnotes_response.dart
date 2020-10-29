@@ -39,19 +39,19 @@ class FootnotesResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('Footnotes')) {
-      footnotes = FootnoteCollection();
-      footnotes.deserialize(json['Footnotes']);
+      this.footnotes = new FootnoteCollection();
+      this.footnotes.deserialize(json['Footnotes']);
     } else {
-      footnotes = null;
+      this.footnotes = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (footnotes != null) {
-      _result['Footnotes'] = footnotes.serialize();
+    if (this.footnotes != null) {
+      _result['Footnotes'] = this.footnotes.serialize();
     }
     return _result;
   }

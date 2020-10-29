@@ -39,23 +39,23 @@ class DrawingObjectCollection extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('List')) {
       // Array processing
-      list = <LinkElement>[];
+      this.list = new List<LinkElement>();
       for(final _element in json['List']) {
-        var _elementValue = LinkElement();
+        var _elementValue = new LinkElement();
         _elementValue.deserialize(_element);
-        list.add(_elementValue);
+        this.list.add(_elementValue);
       }
     } else {
-      list = null;
+      this.list = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (list != null) {
-      _result['List'] = list.map((_element) => _element.serialize()).toList();
+    if (this.list != null) {
+      _result['List'] = this.list.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

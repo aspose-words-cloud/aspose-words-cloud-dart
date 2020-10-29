@@ -38,22 +38,22 @@ class FilesList implements ModelBase {
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('Value')) {
       // Array processing
-      value = <StorageFile>[];
+      this.value = new List<StorageFile>();
       for(final _element in json['Value']) {
-        var _elementValue = StorageFile();
+        var _elementValue = new StorageFile();
         _elementValue.deserialize(_element);
-        value.add(_elementValue);
+        this.value.add(_elementValue);
       }
     } else {
-      value = null;
+      this.value = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (value != null) {
-      _result['Value'] = value.map((_element) => _element.serialize()).toList();
+    var _result = new Map<String, dynamic>();
+    if (this.value != null) {
+      _result['Value'] = this.value.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

@@ -46,48 +46,48 @@ class PageStatData implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('FootnotesStatData')) {
-      footnotesStatData = FootnotesStatData();
-      footnotesStatData.deserialize(json['FootnotesStatData']);
+      this.footnotesStatData = new FootnotesStatData();
+      this.footnotesStatData.deserialize(json['FootnotesStatData']);
     } else {
-      footnotesStatData = null;
+      this.footnotesStatData = null;
     }
 
     if (json.containsKey('PageNumber')) {
-      pageNumber = json['PageNumber'];
+      this.pageNumber = json['PageNumber'];
     } else {
-      pageNumber = null;
+      this.pageNumber = null;
     }
 
     if (json.containsKey('ParagraphCount')) {
-      paragraphCount = json['ParagraphCount'];
+      this.paragraphCount = json['ParagraphCount'];
     } else {
-      paragraphCount = null;
+      this.paragraphCount = null;
     }
 
     if (json.containsKey('WordCount')) {
-      wordCount = json['WordCount'];
+      this.wordCount = json['WordCount'];
     } else {
-      wordCount = null;
+      this.wordCount = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (footnotesStatData != null) {
-      _result['FootnotesStatData'] = footnotesStatData.serialize();
+    var _result = new Map<String, dynamic>();
+    if (this.footnotesStatData != null) {
+      _result['FootnotesStatData'] = this.footnotesStatData.serialize();
     }
 
-    if (pageNumber != null) {
-      _result['PageNumber'] = pageNumber;
+    if (this.pageNumber != null) {
+      _result['PageNumber'] = this.pageNumber;
     }
 
-    if (paragraphCount != null) {
-      _result['ParagraphCount'] = paragraphCount;
+    if (this.paragraphCount != null) {
+      _result['ParagraphCount'] = this.paragraphCount;
     }
 
-    if (wordCount != null) {
-      _result['WordCount'] = wordCount;
+    if (this.wordCount != null) {
+      _result['WordCount'] = this.wordCount;
     }
     return _result;
   }

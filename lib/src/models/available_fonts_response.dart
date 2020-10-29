@@ -45,55 +45,55 @@ class AvailableFontsResponse extends WordsResponse {
     super.deserialize(json);
     if (json.containsKey('AdditionalFonts')) {
       // Array processing
-      additionalFonts = <FontInfo>[];
+      this.additionalFonts = new List<FontInfo>();
       for(final _element in json['AdditionalFonts']) {
-        var _elementValue = FontInfo();
+        var _elementValue = new FontInfo();
         _elementValue.deserialize(_element);
-        additionalFonts.add(_elementValue);
+        this.additionalFonts.add(_elementValue);
       }
     } else {
-      additionalFonts = null;
+      this.additionalFonts = null;
     }
 
     if (json.containsKey('CustomFonts')) {
       // Array processing
-      customFonts = <FontInfo>[];
+      this.customFonts = new List<FontInfo>();
       for(final _element in json['CustomFonts']) {
-        var _elementValue = FontInfo();
+        var _elementValue = new FontInfo();
         _elementValue.deserialize(_element);
-        customFonts.add(_elementValue);
+        this.customFonts.add(_elementValue);
       }
     } else {
-      customFonts = null;
+      this.customFonts = null;
     }
 
     if (json.containsKey('SystemFonts')) {
       // Array processing
-      systemFonts = <FontInfo>[];
+      this.systemFonts = new List<FontInfo>();
       for(final _element in json['SystemFonts']) {
-        var _elementValue = FontInfo();
+        var _elementValue = new FontInfo();
         _elementValue.deserialize(_element);
-        systemFonts.add(_elementValue);
+        this.systemFonts.add(_elementValue);
       }
     } else {
-      systemFonts = null;
+      this.systemFonts = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (additionalFonts != null) {
-      _result['AdditionalFonts'] = additionalFonts.map((_element) => _element.serialize()).toList();
+    if (this.additionalFonts != null) {
+      _result['AdditionalFonts'] = this.additionalFonts.map((_element) => _element.serialize()).toList();
     }
 
-    if (customFonts != null) {
-      _result['CustomFonts'] = customFonts.map((_element) => _element.serialize()).toList();
+    if (this.customFonts != null) {
+      _result['CustomFonts'] = this.customFonts.map((_element) => _element.serialize()).toList();
     }
 
-    if (systemFonts != null) {
-      _result['SystemFonts'] = systemFonts.map((_element) => _element.serialize()).toList();
+    if (this.systemFonts != null) {
+      _result['SystemFonts'] = this.systemFonts.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

@@ -47,49 +47,49 @@ class XpsSaveOptionsData extends FixedPageSaveOptionsData {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('BookmarksOutlineLevel')) {
-      bookmarksOutlineLevel = json['BookmarksOutlineLevel'];
+      this.bookmarksOutlineLevel = json['BookmarksOutlineLevel'];
     } else {
-      bookmarksOutlineLevel = null;
+      this.bookmarksOutlineLevel = null;
     }
 
     if (json.containsKey('HeadingsOutlineLevels')) {
-      headingsOutlineLevels = json['HeadingsOutlineLevels'];
+      this.headingsOutlineLevels = json['HeadingsOutlineLevels'];
     } else {
-      headingsOutlineLevels = null;
+      this.headingsOutlineLevels = null;
     }
 
     if (json.containsKey('OutlineOptions')) {
-      outlineOptions = OutlineOptionsData();
-      outlineOptions.deserialize(json['OutlineOptions']);
+      this.outlineOptions = new OutlineOptionsData();
+      this.outlineOptions.deserialize(json['OutlineOptions']);
     } else {
-      outlineOptions = null;
+      this.outlineOptions = null;
     }
 
     if (json.containsKey('UseBookFoldPrintingSettings')) {
-      useBookFoldPrintingSettings = json['UseBookFoldPrintingSettings'];
+      this.useBookFoldPrintingSettings = json['UseBookFoldPrintingSettings'];
     } else {
-      useBookFoldPrintingSettings = null;
+      this.useBookFoldPrintingSettings = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (bookmarksOutlineLevel != null) {
-      _result['BookmarksOutlineLevel'] = bookmarksOutlineLevel;
+    if (this.bookmarksOutlineLevel != null) {
+      _result['BookmarksOutlineLevel'] = this.bookmarksOutlineLevel;
     }
 
-    if (headingsOutlineLevels != null) {
-      _result['HeadingsOutlineLevels'] = headingsOutlineLevels;
+    if (this.headingsOutlineLevels != null) {
+      _result['HeadingsOutlineLevels'] = this.headingsOutlineLevels;
     }
 
-    if (outlineOptions != null) {
-      _result['OutlineOptions'] = outlineOptions.serialize();
+    if (this.outlineOptions != null) {
+      _result['OutlineOptions'] = this.outlineOptions.serialize();
     }
 
-    if (useBookFoldPrintingSettings != null) {
-      _result['UseBookFoldPrintingSettings'] = useBookFoldPrintingSettings;
+    if (this.useBookFoldPrintingSettings != null) {
+      _result['UseBookFoldPrintingSettings'] = this.useBookFoldPrintingSettings;
     }
     return _result;
   }

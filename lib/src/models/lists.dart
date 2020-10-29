@@ -39,23 +39,23 @@ class Lists extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('ListInfo')) {
       // Array processing
-      listInfo = <ListInfo>[];
+      this.listInfo = new List<ListInfo>();
       for(final _element in json['ListInfo']) {
-        var _elementValue = ListInfo();
+        var _elementValue = new ListInfo();
         _elementValue.deserialize(_element);
-        listInfo.add(_elementValue);
+        this.listInfo.add(_elementValue);
       }
     } else {
-      listInfo = null;
+      this.listInfo = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (listInfo != null) {
-      _result['ListInfo'] = listInfo.map((_element) => _element.serialize()).toList();
+    if (this.listInfo != null) {
+      _result['ListInfo'] = this.listInfo.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

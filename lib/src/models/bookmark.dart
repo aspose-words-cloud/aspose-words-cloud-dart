@@ -41,28 +41,28 @@ class Bookmark extends LinkElement {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('Name')) {
-      name = json['Name'];
+      this.name = json['Name'];
     } else {
-      name = null;
+      this.name = null;
     }
 
     if (json.containsKey('Text')) {
-      text = json['Text'];
+      this.text = json['Text'];
     } else {
-      text = null;
+      this.text = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (name != null) {
-      _result['Name'] = name;
+    if (this.name != null) {
+      _result['Name'] = this.name;
     }
 
-    if (text != null) {
-      _result['Text'] = text;
+    if (this.text != null) {
+      _result['Text'] = this.text;
     }
     return _result;
   }

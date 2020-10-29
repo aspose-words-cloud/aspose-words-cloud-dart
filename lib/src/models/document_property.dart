@@ -45,38 +45,38 @@ class DocumentProperty extends LinkElement {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('BuiltIn')) {
-      builtIn = json['BuiltIn'];
+      this.builtIn = json['BuiltIn'];
     } else {
-      builtIn = null;
+      this.builtIn = null;
     }
 
     if (json.containsKey('Name')) {
-      name = json['Name'];
+      this.name = json['Name'];
     } else {
-      name = null;
+      this.name = null;
     }
 
     if (json.containsKey('Value')) {
-      value = json['Value'];
+      this.value = json['Value'];
     } else {
-      value = null;
+      this.value = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (builtIn != null) {
-      _result['BuiltIn'] = builtIn;
+    if (this.builtIn != null) {
+      _result['BuiltIn'] = this.builtIn;
     }
 
-    if (name != null) {
-      _result['Name'] = name;
+    if (this.name != null) {
+      _result['Name'] = this.name;
     }
 
-    if (value != null) {
-      _result['Value'] = value;
+    if (this.value != null) {
+      _result['Value'] = this.value;
     }
     return _result;
   }

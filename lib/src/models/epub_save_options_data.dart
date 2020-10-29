@@ -38,18 +38,18 @@ class EpubSaveOptionsData extends HtmlSaveOptionsData {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('EpubNavigationMapLevel')) {
-      epubNavigationMapLevel = json['EpubNavigationMapLevel'];
+      this.epubNavigationMapLevel = json['EpubNavigationMapLevel'];
     } else {
-      epubNavigationMapLevel = null;
+      this.epubNavigationMapLevel = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (epubNavigationMapLevel != null) {
-      _result['EpubNavigationMapLevel'] = epubNavigationMapLevel;
+    if (this.epubNavigationMapLevel != null) {
+      _result['EpubNavigationMapLevel'] = this.epubNavigationMapLevel;
     }
     return _result;
   }

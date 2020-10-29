@@ -39,19 +39,19 @@ class TableRowFormatResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('RowFormat')) {
-      rowFormat = TableRowFormat();
-      rowFormat.deserialize(json['RowFormat']);
+      this.rowFormat = new TableRowFormat();
+      this.rowFormat.deserialize(json['RowFormat']);
     } else {
-      rowFormat = null;
+      this.rowFormat = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (rowFormat != null) {
-      _result['RowFormat'] = rowFormat.serialize();
+    if (this.rowFormat != null) {
+      _result['RowFormat'] = this.rowFormat.serialize();
     }
     return _result;
   }

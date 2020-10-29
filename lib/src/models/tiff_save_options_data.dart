@@ -45,38 +45,38 @@ class TiffSaveOptionsData extends ImageSaveOptionsData {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('ThresholdForFloydSteinbergDithering')) {
-      thresholdForFloydSteinbergDithering = json['ThresholdForFloydSteinbergDithering'];
+      this.thresholdForFloydSteinbergDithering = json['ThresholdForFloydSteinbergDithering'];
     } else {
-      thresholdForFloydSteinbergDithering = null;
+      this.thresholdForFloydSteinbergDithering = null;
     }
 
     if (json.containsKey('TiffBinarizationMethod')) {
-      tiffBinarizationMethod = json['TiffBinarizationMethod'];
+      this.tiffBinarizationMethod = json['TiffBinarizationMethod'];
     } else {
-      tiffBinarizationMethod = null;
+      this.tiffBinarizationMethod = null;
     }
 
     if (json.containsKey('TiffCompression')) {
-      tiffCompression = json['TiffCompression'];
+      this.tiffCompression = json['TiffCompression'];
     } else {
-      tiffCompression = null;
+      this.tiffCompression = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (thresholdForFloydSteinbergDithering != null) {
-      _result['ThresholdForFloydSteinbergDithering'] = thresholdForFloydSteinbergDithering;
+    if (this.thresholdForFloydSteinbergDithering != null) {
+      _result['ThresholdForFloydSteinbergDithering'] = this.thresholdForFloydSteinbergDithering;
     }
 
-    if (tiffBinarizationMethod != null) {
-      _result['TiffBinarizationMethod'] = tiffBinarizationMethod;
+    if (this.tiffBinarizationMethod != null) {
+      _result['TiffBinarizationMethod'] = this.tiffBinarizationMethod;
     }
 
-    if (tiffCompression != null) {
-      _result['TiffCompression'] = tiffCompression;
+    if (this.tiffCompression != null) {
+      _result['TiffCompression'] = this.tiffCompression;
     }
     return _result;
   }

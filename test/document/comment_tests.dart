@@ -27,6 +27,7 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
+import 'package:test/test.dart';
 
 /// Example of how to get comments from document.
 class CommentTests
@@ -35,124 +36,140 @@ class CommentTests
   String remoteDataFolder;
   String localFile;
 
-  CommentTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/Comments';
+  CommentTests(final TestContext this.context) {
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/Comments';
     localFile = 'Common/test_multi_pages.docx';
   }
 
   /// Test for getting comment by specified comment's index.
   Future<void> testGetComment() async
   {
-    final remoteFileName = 'TestGetComment.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetComment.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetCommentRequest(
+    final request = new GetCommentRequest(
       remoteFileName,
       0,
       folder: remoteDataFolder
     );
 
-    await context.getApi().getComment(request);
+    var result = await this.context.getApi().getComment(request);
+    expect(result.comment, isNotNull);
+    expect(result.comment.text, 'Comment 1\r\n\r\n');
   }
 
   /// Test for getting all comments from document.
   Future<void> testGetComments() async
   {
-    final remoteFileName = 'TestGetComments.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetComments.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetCommentsRequest(
+    final request = new GetCommentsRequest(
       remoteFileName,
       folder: remoteDataFolder
     );
 
-    await context.getApi().getComments(request);
+    var result = await this.context.getApi().getComments(request);
+    expect(result.comments, isNotNull);
+    expect(result.comments.commentList, isNotNull);
+    expect(result.comments.commentList.length, 1);
+    expect(result.comments.commentList[0].text, 'Comment 1\r\n\r\n');
   }
 
   /// Test for adding comment.
   Future<void> testInsertComment() async
   {
-    final remoteFileName = 'TestInsertComment.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestCommentRangeStartNode = NodeLink();
+    final String remoteFileName = 'TestInsertComment.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestCommentRangeStartNode = new NodeLink();
     requestCommentRangeStartNode.nodeId = '0.3.0.3';
 
-    var requestCommentRangeStart = DocumentPosition();
+    var requestCommentRangeStart = new DocumentPosition();
     requestCommentRangeStart.node = requestCommentRangeStartNode;
     requestCommentRangeStart.offset = 0;
 
-    var requestCommentRangeEndNode = NodeLink();
+    var requestCommentRangeEndNode = new NodeLink();
     requestCommentRangeEndNode.nodeId = '0.3.0.3';
 
-    var requestCommentRangeEnd = DocumentPosition();
+    var requestCommentRangeEnd = new DocumentPosition();
     requestCommentRangeEnd.node = requestCommentRangeEndNode;
     requestCommentRangeEnd.offset = 0;
 
-    var requestComment = CommentInsert();
+    var requestComment = new CommentInsert();
     requestComment.rangeStart = requestCommentRangeStart;
     requestComment.rangeEnd = requestCommentRangeEnd;
     requestComment.initial = 'IA';
     requestComment.author = 'Imran Anwar';
     requestComment.text = 'A new Comment';
 
-    final request = InsertCommentRequest(
+    final request = new InsertCommentRequest(
       remoteFileName,
       requestComment,
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertComment(request);
+    var result = await this.context.getApi().insertComment(request);
+    expect(result.comment, isNotNull);
+    expect(result.comment.text, 'A new Comment\r\n');
+    expect(result.comment.rangeStart, isNotNull);
+    expect(result.comment.rangeStart.node, isNotNull);
+    expect(result.comment.rangeStart.node.nodeId, '0.3.0.4');
   }
 
   /// Test for updating comment.
   Future<void> testUpdateComment() async
   {
-    final remoteFileName = 'TestUpdateComment.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestCommentRangeStartNode = NodeLink();
+    final String remoteFileName = 'TestUpdateComment.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestCommentRangeStartNode = new NodeLink();
     requestCommentRangeStartNode.nodeId = '0.3.0';
 
-    var requestCommentRangeStart = DocumentPosition();
+    var requestCommentRangeStart = new DocumentPosition();
     requestCommentRangeStart.node = requestCommentRangeStartNode;
     requestCommentRangeStart.offset = 0;
 
-    var requestCommentRangeEndNode = NodeLink();
+    var requestCommentRangeEndNode = new NodeLink();
     requestCommentRangeEndNode.nodeId = '0.3.0';
 
-    var requestCommentRangeEnd = DocumentPosition();
+    var requestCommentRangeEnd = new DocumentPosition();
     requestCommentRangeEnd.node = requestCommentRangeEndNode;
     requestCommentRangeEnd.offset = 0;
 
-    var requestComment = CommentUpdate();
+    var requestComment = new CommentUpdate();
     requestComment.rangeStart = requestCommentRangeStart;
     requestComment.rangeEnd = requestCommentRangeEnd;
     requestComment.initial = 'IA';
     requestComment.author = 'Imran Anwar';
     requestComment.text = 'A new Comment';
 
-    final request = UpdateCommentRequest(
+    final request = new UpdateCommentRequest(
       remoteFileName,
       0,
       requestComment,
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateComment(request);
+    var result = await this.context.getApi().updateComment(request);
+    expect(result.comment, isNotNull);
+    expect(result.comment.text, 'A new Comment\r\n');
+    expect(result.comment.rangeStart, isNotNull);
+    expect(result.comment.rangeStart.node, isNotNull);
+    expect(result.comment.rangeStart.node.nodeId, '0.3.0.1');
   }
 
   /// A test for DeleteComment.
   Future<void> testDeleteComment() async
   {
-    final remoteFileName = 'TestDeleteComment.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestDeleteComment.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = DeleteCommentRequest(
+    final request = new DeleteCommentRequest(
       remoteFileName,
       0,
       folder: remoteDataFolder,
-      destFileName: context.baseTestOutPath + '/' + remoteFileName
+      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    await context.getApi().deleteComment(request);
+    await this.context.getApi().deleteComment(request);
   }
 }

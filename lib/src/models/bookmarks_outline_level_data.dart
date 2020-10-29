@@ -40,27 +40,27 @@ class BookmarksOutlineLevelData implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('BookmarksOutlineLevel')) {
-      bookmarksOutlineLevel = json['BookmarksOutlineLevel'];
+      this.bookmarksOutlineLevel = json['BookmarksOutlineLevel'];
     } else {
-      bookmarksOutlineLevel = null;
+      this.bookmarksOutlineLevel = null;
     }
 
     if (json.containsKey('Name')) {
-      name = json['Name'];
+      this.name = json['Name'];
     } else {
-      name = null;
+      this.name = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (bookmarksOutlineLevel != null) {
-      _result['BookmarksOutlineLevel'] = bookmarksOutlineLevel;
+    var _result = new Map<String, dynamic>();
+    if (this.bookmarksOutlineLevel != null) {
+      _result['BookmarksOutlineLevel'] = this.bookmarksOutlineLevel;
     }
 
-    if (name != null) {
-      _result['Name'] = name;
+    if (this.name != null) {
+      _result['Name'] = this.name;
     }
     return _result;
   }

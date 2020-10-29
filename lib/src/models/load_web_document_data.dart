@@ -40,28 +40,28 @@ class LoadWebDocumentData implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('LoadingDocumentUrl')) {
-      loadingDocumentUrl = json['LoadingDocumentUrl'];
+      this.loadingDocumentUrl = json['LoadingDocumentUrl'];
     } else {
-      loadingDocumentUrl = null;
+      this.loadingDocumentUrl = null;
     }
 
     if (json.containsKey('SaveOptions')) {
-      saveOptions = SaveOptionsData();
-      saveOptions.deserialize(json['SaveOptions']);
+      this.saveOptions = new SaveOptionsData();
+      this.saveOptions.deserialize(json['SaveOptions']);
     } else {
-      saveOptions = null;
+      this.saveOptions = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (loadingDocumentUrl != null) {
-      _result['LoadingDocumentUrl'] = loadingDocumentUrl;
+    var _result = new Map<String, dynamic>();
+    if (this.loadingDocumentUrl != null) {
+      _result['LoadingDocumentUrl'] = this.loadingDocumentUrl;
     }
 
-    if (saveOptions != null) {
-      _result['SaveOptions'] = saveOptions.serialize();
+    if (this.saveOptions != null) {
+      _result['SaveOptions'] = this.saveOptions.serialize();
     }
     return _result;
   }

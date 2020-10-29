@@ -39,19 +39,19 @@ class HeaderFooterResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('HeaderFooter')) {
-      headerFooter = HeaderFooter();
-      headerFooter.deserialize(json['HeaderFooter']);
+      this.headerFooter = new HeaderFooter();
+      this.headerFooter.deserialize(json['HeaderFooter']);
     } else {
-      headerFooter = null;
+      this.headerFooter = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (headerFooter != null) {
-      _result['HeaderFooter'] = headerFooter.serialize();
+    if (this.headerFooter != null) {
+      _result['HeaderFooter'] = this.headerFooter.serialize();
     }
     return _result;
   }

@@ -27,6 +27,7 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
+import 'package:test/test.dart';
 
 /// Example of how to classify text.
 class ClassificationTests
@@ -35,8 +36,8 @@ class ClassificationTests
   String remoteDataFolder;
   String localFile;
 
-  ClassificationTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/Common';
+  ClassificationTests(final TestContext this.context) {
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/Common';
     localFile = 'Common/test_multi_pages.docx';
   }
 
@@ -44,26 +45,32 @@ class ClassificationTests
   Future<void> testClassify() async
   {
 
-    final request = ClassifyRequest(
+    final request = new ClassifyRequest(
       'Try text classification',
       bestClassesCount: '3'
     );
 
-    await context.getApi().classify(request);
+    var result = await this.context.getApi().classify(request);
+    expect(result.bestClassName, 'Science');
+    expect(result.bestResults, isNotNull);
+    expect(result.bestResults.length, 3);
   }
 
   /// Test for document classification.
   Future<void> testClassifyDocument() async
   {
-    final remoteFileName = 'TestClassifyDocument.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestClassifyDocument.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = ClassifyDocumentRequest(
+    final request = new ClassifyDocumentRequest(
       remoteFileName,
       folder: remoteDataFolder,
       bestClassesCount: '3'
     );
 
-    await context.getApi().classifyDocument(request);
+    var result = await this.context.getApi().classifyDocument(request);
+    expect(result.bestClassName, 'Hobbies_&_Interests');
+    expect(result.bestResults, isNotNull);
+    expect(result.bestResults.length, 3);
   }
 }

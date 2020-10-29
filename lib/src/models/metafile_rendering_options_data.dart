@@ -50,57 +50,57 @@ class MetafileRenderingOptionsData implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('EmfPlusDualRenderingMode')) {
-      emfPlusDualRenderingMode = json['EmfPlusDualRenderingMode'];
+      this.emfPlusDualRenderingMode = json['EmfPlusDualRenderingMode'];
     } else {
-      emfPlusDualRenderingMode = null;
+      this.emfPlusDualRenderingMode = null;
     }
 
     if (json.containsKey('EmulateRasterOperations')) {
-      emulateRasterOperations = json['EmulateRasterOperations'];
+      this.emulateRasterOperations = json['EmulateRasterOperations'];
     } else {
-      emulateRasterOperations = null;
+      this.emulateRasterOperations = null;
     }
 
     if (json.containsKey('RenderingMode')) {
-      renderingMode = json['RenderingMode'];
+      this.renderingMode = json['RenderingMode'];
     } else {
-      renderingMode = null;
+      this.renderingMode = null;
     }
 
     if (json.containsKey('ScaleWmfFontsToMetafileSize')) {
-      scaleWmfFontsToMetafileSize = json['ScaleWmfFontsToMetafileSize'];
+      this.scaleWmfFontsToMetafileSize = json['ScaleWmfFontsToMetafileSize'];
     } else {
-      scaleWmfFontsToMetafileSize = null;
+      this.scaleWmfFontsToMetafileSize = null;
     }
 
     if (json.containsKey('UseEmfEmbeddedToWmf')) {
-      useEmfEmbeddedToWmf = json['UseEmfEmbeddedToWmf'];
+      this.useEmfEmbeddedToWmf = json['UseEmfEmbeddedToWmf'];
     } else {
-      useEmfEmbeddedToWmf = null;
+      this.useEmfEmbeddedToWmf = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (emfPlusDualRenderingMode != null) {
-      _result['EmfPlusDualRenderingMode'] = emfPlusDualRenderingMode;
+    var _result = new Map<String, dynamic>();
+    if (this.emfPlusDualRenderingMode != null) {
+      _result['EmfPlusDualRenderingMode'] = this.emfPlusDualRenderingMode;
     }
 
-    if (emulateRasterOperations != null) {
-      _result['EmulateRasterOperations'] = emulateRasterOperations;
+    if (this.emulateRasterOperations != null) {
+      _result['EmulateRasterOperations'] = this.emulateRasterOperations;
     }
 
-    if (renderingMode != null) {
-      _result['RenderingMode'] = renderingMode;
+    if (this.renderingMode != null) {
+      _result['RenderingMode'] = this.renderingMode;
     }
 
-    if (scaleWmfFontsToMetafileSize != null) {
-      _result['ScaleWmfFontsToMetafileSize'] = scaleWmfFontsToMetafileSize;
+    if (this.scaleWmfFontsToMetafileSize != null) {
+      _result['ScaleWmfFontsToMetafileSize'] = this.scaleWmfFontsToMetafileSize;
     }
 
-    if (useEmfEmbeddedToWmf != null) {
-      _result['UseEmfEmbeddedToWmf'] = useEmfEmbeddedToWmf;
+    if (this.useEmfEmbeddedToWmf != null) {
+      _result['UseEmfEmbeddedToWmf'] = this.useEmfEmbeddedToWmf;
     }
     return _result;
   }

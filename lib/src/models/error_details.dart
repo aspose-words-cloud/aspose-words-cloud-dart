@@ -40,27 +40,27 @@ class ErrorDetails implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('ErrorDateTime')) {
-      errorDateTime = DateTime.parse(json['ErrorDateTime']);
+      this.errorDateTime = DateTime.parse(json['ErrorDateTime']);
     } else {
-      errorDateTime = null;
+      this.errorDateTime = null;
     }
 
     if (json.containsKey('RequestId')) {
-      requestId = json['RequestId'];
+      this.requestId = json['RequestId'];
     } else {
-      requestId = null;
+      this.requestId = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (errorDateTime != null) {
-      _result['ErrorDateTime'] = errorDateTime.toIso8601String();
+    var _result = new Map<String, dynamic>();
+    if (this.errorDateTime != null) {
+      _result['ErrorDateTime'] = this.errorDateTime.toIso8601String();
     }
 
-    if (requestId != null) {
-      _result['RequestId'] = requestId;
+    if (this.requestId != null) {
+      _result['RequestId'] = this.requestId;
     }
     return _result;
   }

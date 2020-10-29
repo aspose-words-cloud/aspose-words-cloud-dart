@@ -46,47 +46,47 @@ class FontInfo implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('FilePath')) {
-      filePath = json['FilePath'];
+      this.filePath = json['FilePath'];
     } else {
-      filePath = null;
+      this.filePath = null;
     }
 
     if (json.containsKey('FontFamilyName')) {
-      fontFamilyName = json['FontFamilyName'];
+      this.fontFamilyName = json['FontFamilyName'];
     } else {
-      fontFamilyName = null;
+      this.fontFamilyName = null;
     }
 
     if (json.containsKey('FullFontName')) {
-      fullFontName = json['FullFontName'];
+      this.fullFontName = json['FullFontName'];
     } else {
-      fullFontName = null;
+      this.fullFontName = null;
     }
 
     if (json.containsKey('Version')) {
-      version = json['Version'];
+      this.version = json['Version'];
     } else {
-      version = null;
+      this.version = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (filePath != null) {
-      _result['FilePath'] = filePath;
+    var _result = new Map<String, dynamic>();
+    if (this.filePath != null) {
+      _result['FilePath'] = this.filePath;
     }
 
-    if (fontFamilyName != null) {
-      _result['FontFamilyName'] = fontFamilyName;
+    if (this.fontFamilyName != null) {
+      _result['FontFamilyName'] = this.fontFamilyName;
     }
 
-    if (fullFontName != null) {
-      _result['FullFontName'] = fullFontName;
+    if (this.fullFontName != null) {
+      _result['FullFontName'] = this.fullFontName;
     }
 
-    if (version != null) {
-      _result['Version'] = version;
+    if (this.version != null) {
+      _result['Version'] = this.version;
     }
     return _result;
   }

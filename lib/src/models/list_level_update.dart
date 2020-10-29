@@ -69,144 +69,144 @@ class ListLevelUpdate implements ModelBase {
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('Alignment')) {
       switch (json['Alignment']) {
-        case 'Left': alignment = ListLevelUpdate_AlignmentEnum.left; break;
-        case 'Center': alignment = ListLevelUpdate_AlignmentEnum.center; break;
-        case 'Right': alignment = ListLevelUpdate_AlignmentEnum.right; break;
-        default: alignment = null; break;
+        case 'Left': this.alignment = ListLevelUpdate_AlignmentEnum.left; break;
+        case 'Center': this.alignment = ListLevelUpdate_AlignmentEnum.center; break;
+        case 'Right': this.alignment = ListLevelUpdate_AlignmentEnum.right; break;
+        default: this.alignment = null; break;
       }
     } else {
-      alignment = null;
+      this.alignment = null;
     }
 
     if (json.containsKey('IsLegal')) {
-      isLegal = json['IsLegal'];
+      this.isLegal = json['IsLegal'];
     } else {
-      isLegal = null;
+      this.isLegal = null;
     }
 
     if (json.containsKey('NumberFormat')) {
-      numberFormat = json['NumberFormat'];
+      this.numberFormat = json['NumberFormat'];
     } else {
-      numberFormat = null;
+      this.numberFormat = null;
     }
 
     if (json.containsKey('NumberPosition')) {
-      numberPosition = json['NumberPosition'];
+      this.numberPosition = json['NumberPosition'];
     } else {
-      numberPosition = null;
+      this.numberPosition = null;
     }
 
     if (json.containsKey('NumberStyle')) {
       switch (json['NumberStyle']) {
-        case 'Arabic': numberStyle = ListLevelUpdate_NumberStyleEnum.arabic; break;
-        case 'UppercaseRoman': numberStyle = ListLevelUpdate_NumberStyleEnum.uppercaseRoman; break;
-        case 'LowercaseRoman': numberStyle = ListLevelUpdate_NumberStyleEnum.lowercaseRoman; break;
-        case 'UppercaseLetter': numberStyle = ListLevelUpdate_NumberStyleEnum.uppercaseLetter; break;
-        case 'LowercaseLetter': numberStyle = ListLevelUpdate_NumberStyleEnum.lowercaseLetter; break;
-        case 'Ordinal': numberStyle = ListLevelUpdate_NumberStyleEnum.ordinal; break;
-        case 'Number': numberStyle = ListLevelUpdate_NumberStyleEnum.number; break;
-        case 'OrdinalText': numberStyle = ListLevelUpdate_NumberStyleEnum.ordinalText; break;
-        case 'Hex': numberStyle = ListLevelUpdate_NumberStyleEnum.hex; break;
-        case 'ChicagoManual': numberStyle = ListLevelUpdate_NumberStyleEnum.chicagoManual; break;
-        case 'Kanji': numberStyle = ListLevelUpdate_NumberStyleEnum.kanji; break;
-        case 'KanjiDigit': numberStyle = ListLevelUpdate_NumberStyleEnum.kanjiDigit; break;
-        case 'AiueoHalfWidth': numberStyle = ListLevelUpdate_NumberStyleEnum.aiueoHalfWidth; break;
-        case 'IrohaHalfWidth': numberStyle = ListLevelUpdate_NumberStyleEnum.irohaHalfWidth; break;
-        case 'ArabicFullWidth': numberStyle = ListLevelUpdate_NumberStyleEnum.arabicFullWidth; break;
-        case 'ArabicHalfWidth': numberStyle = ListLevelUpdate_NumberStyleEnum.arabicHalfWidth; break;
-        case 'KanjiTraditional': numberStyle = ListLevelUpdate_NumberStyleEnum.kanjiTraditional; break;
-        case 'KanjiTraditional2': numberStyle = ListLevelUpdate_NumberStyleEnum.kanjiTraditional2; break;
-        case 'NumberInCircle': numberStyle = ListLevelUpdate_NumberStyleEnum.numberInCircle; break;
-        case 'DecimalFullWidth': numberStyle = ListLevelUpdate_NumberStyleEnum.decimalFullWidth; break;
-        case 'Aiueo': numberStyle = ListLevelUpdate_NumberStyleEnum.aiueo; break;
-        case 'Iroha': numberStyle = ListLevelUpdate_NumberStyleEnum.iroha; break;
-        case 'LeadingZero': numberStyle = ListLevelUpdate_NumberStyleEnum.leadingZero; break;
-        case 'Bullet': numberStyle = ListLevelUpdate_NumberStyleEnum.bullet; break;
-        case 'Ganada': numberStyle = ListLevelUpdate_NumberStyleEnum.ganada; break;
-        case 'Chosung': numberStyle = ListLevelUpdate_NumberStyleEnum.chosung; break;
-        case 'GB1': numberStyle = ListLevelUpdate_NumberStyleEnum.gB1; break;
-        case 'GB2': numberStyle = ListLevelUpdate_NumberStyleEnum.gB2; break;
-        case 'GB3': numberStyle = ListLevelUpdate_NumberStyleEnum.gB3; break;
-        case 'GB4': numberStyle = ListLevelUpdate_NumberStyleEnum.gB4; break;
-        case 'Zodiac1': numberStyle = ListLevelUpdate_NumberStyleEnum.zodiac1; break;
-        case 'Zodiac2': numberStyle = ListLevelUpdate_NumberStyleEnum.zodiac2; break;
-        case 'Zodiac3': numberStyle = ListLevelUpdate_NumberStyleEnum.zodiac3; break;
-        case 'TradChinNum1': numberStyle = ListLevelUpdate_NumberStyleEnum.tradChinNum1; break;
-        case 'TradChinNum2': numberStyle = ListLevelUpdate_NumberStyleEnum.tradChinNum2; break;
-        case 'TradChinNum3': numberStyle = ListLevelUpdate_NumberStyleEnum.tradChinNum3; break;
-        case 'TradChinNum4': numberStyle = ListLevelUpdate_NumberStyleEnum.tradChinNum4; break;
-        case 'SimpChinNum1': numberStyle = ListLevelUpdate_NumberStyleEnum.simpChinNum1; break;
-        case 'SimpChinNum2': numberStyle = ListLevelUpdate_NumberStyleEnum.simpChinNum2; break;
-        case 'SimpChinNum3': numberStyle = ListLevelUpdate_NumberStyleEnum.simpChinNum3; break;
-        case 'SimpChinNum4': numberStyle = ListLevelUpdate_NumberStyleEnum.simpChinNum4; break;
-        case 'HanjaRead': numberStyle = ListLevelUpdate_NumberStyleEnum.hanjaRead; break;
-        case 'HanjaReadDigit': numberStyle = ListLevelUpdate_NumberStyleEnum.hanjaReadDigit; break;
-        case 'Hangul': numberStyle = ListLevelUpdate_NumberStyleEnum.hangul; break;
-        case 'Hanja': numberStyle = ListLevelUpdate_NumberStyleEnum.hanja; break;
-        case 'Hebrew1': numberStyle = ListLevelUpdate_NumberStyleEnum.hebrew1; break;
-        case 'Arabic1': numberStyle = ListLevelUpdate_NumberStyleEnum.arabic1; break;
-        case 'Hebrew2': numberStyle = ListLevelUpdate_NumberStyleEnum.hebrew2; break;
-        case 'Arabic2': numberStyle = ListLevelUpdate_NumberStyleEnum.arabic2; break;
-        case 'HindiLetter1': numberStyle = ListLevelUpdate_NumberStyleEnum.hindiLetter1; break;
-        case 'HindiLetter2': numberStyle = ListLevelUpdate_NumberStyleEnum.hindiLetter2; break;
-        case 'HindiArabic': numberStyle = ListLevelUpdate_NumberStyleEnum.hindiArabic; break;
-        case 'HindiCardinalText': numberStyle = ListLevelUpdate_NumberStyleEnum.hindiCardinalText; break;
-        case 'ThaiLetter': numberStyle = ListLevelUpdate_NumberStyleEnum.thaiLetter; break;
-        case 'ThaiArabic': numberStyle = ListLevelUpdate_NumberStyleEnum.thaiArabic; break;
-        case 'ThaiCardinalText': numberStyle = ListLevelUpdate_NumberStyleEnum.thaiCardinalText; break;
-        case 'VietCardinalText': numberStyle = ListLevelUpdate_NumberStyleEnum.vietCardinalText; break;
-        case 'NumberInDash': numberStyle = ListLevelUpdate_NumberStyleEnum.numberInDash; break;
-        case 'LowercaseRussian': numberStyle = ListLevelUpdate_NumberStyleEnum.lowercaseRussian; break;
-        case 'UppercaseRussian': numberStyle = ListLevelUpdate_NumberStyleEnum.uppercaseRussian; break;
-        case 'None': numberStyle = ListLevelUpdate_NumberStyleEnum.none; break;
-        case 'Custom': numberStyle = ListLevelUpdate_NumberStyleEnum.custom; break;
-        default: numberStyle = null; break;
+        case 'Arabic': this.numberStyle = ListLevelUpdate_NumberStyleEnum.arabic; break;
+        case 'UppercaseRoman': this.numberStyle = ListLevelUpdate_NumberStyleEnum.uppercaseRoman; break;
+        case 'LowercaseRoman': this.numberStyle = ListLevelUpdate_NumberStyleEnum.lowercaseRoman; break;
+        case 'UppercaseLetter': this.numberStyle = ListLevelUpdate_NumberStyleEnum.uppercaseLetter; break;
+        case 'LowercaseLetter': this.numberStyle = ListLevelUpdate_NumberStyleEnum.lowercaseLetter; break;
+        case 'Ordinal': this.numberStyle = ListLevelUpdate_NumberStyleEnum.ordinal; break;
+        case 'Number': this.numberStyle = ListLevelUpdate_NumberStyleEnum.number; break;
+        case 'OrdinalText': this.numberStyle = ListLevelUpdate_NumberStyleEnum.ordinalText; break;
+        case 'Hex': this.numberStyle = ListLevelUpdate_NumberStyleEnum.hex; break;
+        case 'ChicagoManual': this.numberStyle = ListLevelUpdate_NumberStyleEnum.chicagoManual; break;
+        case 'Kanji': this.numberStyle = ListLevelUpdate_NumberStyleEnum.kanji; break;
+        case 'KanjiDigit': this.numberStyle = ListLevelUpdate_NumberStyleEnum.kanjiDigit; break;
+        case 'AiueoHalfWidth': this.numberStyle = ListLevelUpdate_NumberStyleEnum.aiueoHalfWidth; break;
+        case 'IrohaHalfWidth': this.numberStyle = ListLevelUpdate_NumberStyleEnum.irohaHalfWidth; break;
+        case 'ArabicFullWidth': this.numberStyle = ListLevelUpdate_NumberStyleEnum.arabicFullWidth; break;
+        case 'ArabicHalfWidth': this.numberStyle = ListLevelUpdate_NumberStyleEnum.arabicHalfWidth; break;
+        case 'KanjiTraditional': this.numberStyle = ListLevelUpdate_NumberStyleEnum.kanjiTraditional; break;
+        case 'KanjiTraditional2': this.numberStyle = ListLevelUpdate_NumberStyleEnum.kanjiTraditional2; break;
+        case 'NumberInCircle': this.numberStyle = ListLevelUpdate_NumberStyleEnum.numberInCircle; break;
+        case 'DecimalFullWidth': this.numberStyle = ListLevelUpdate_NumberStyleEnum.decimalFullWidth; break;
+        case 'Aiueo': this.numberStyle = ListLevelUpdate_NumberStyleEnum.aiueo; break;
+        case 'Iroha': this.numberStyle = ListLevelUpdate_NumberStyleEnum.iroha; break;
+        case 'LeadingZero': this.numberStyle = ListLevelUpdate_NumberStyleEnum.leadingZero; break;
+        case 'Bullet': this.numberStyle = ListLevelUpdate_NumberStyleEnum.bullet; break;
+        case 'Ganada': this.numberStyle = ListLevelUpdate_NumberStyleEnum.ganada; break;
+        case 'Chosung': this.numberStyle = ListLevelUpdate_NumberStyleEnum.chosung; break;
+        case 'GB1': this.numberStyle = ListLevelUpdate_NumberStyleEnum.gB1; break;
+        case 'GB2': this.numberStyle = ListLevelUpdate_NumberStyleEnum.gB2; break;
+        case 'GB3': this.numberStyle = ListLevelUpdate_NumberStyleEnum.gB3; break;
+        case 'GB4': this.numberStyle = ListLevelUpdate_NumberStyleEnum.gB4; break;
+        case 'Zodiac1': this.numberStyle = ListLevelUpdate_NumberStyleEnum.zodiac1; break;
+        case 'Zodiac2': this.numberStyle = ListLevelUpdate_NumberStyleEnum.zodiac2; break;
+        case 'Zodiac3': this.numberStyle = ListLevelUpdate_NumberStyleEnum.zodiac3; break;
+        case 'TradChinNum1': this.numberStyle = ListLevelUpdate_NumberStyleEnum.tradChinNum1; break;
+        case 'TradChinNum2': this.numberStyle = ListLevelUpdate_NumberStyleEnum.tradChinNum2; break;
+        case 'TradChinNum3': this.numberStyle = ListLevelUpdate_NumberStyleEnum.tradChinNum3; break;
+        case 'TradChinNum4': this.numberStyle = ListLevelUpdate_NumberStyleEnum.tradChinNum4; break;
+        case 'SimpChinNum1': this.numberStyle = ListLevelUpdate_NumberStyleEnum.simpChinNum1; break;
+        case 'SimpChinNum2': this.numberStyle = ListLevelUpdate_NumberStyleEnum.simpChinNum2; break;
+        case 'SimpChinNum3': this.numberStyle = ListLevelUpdate_NumberStyleEnum.simpChinNum3; break;
+        case 'SimpChinNum4': this.numberStyle = ListLevelUpdate_NumberStyleEnum.simpChinNum4; break;
+        case 'HanjaRead': this.numberStyle = ListLevelUpdate_NumberStyleEnum.hanjaRead; break;
+        case 'HanjaReadDigit': this.numberStyle = ListLevelUpdate_NumberStyleEnum.hanjaReadDigit; break;
+        case 'Hangul': this.numberStyle = ListLevelUpdate_NumberStyleEnum.hangul; break;
+        case 'Hanja': this.numberStyle = ListLevelUpdate_NumberStyleEnum.hanja; break;
+        case 'Hebrew1': this.numberStyle = ListLevelUpdate_NumberStyleEnum.hebrew1; break;
+        case 'Arabic1': this.numberStyle = ListLevelUpdate_NumberStyleEnum.arabic1; break;
+        case 'Hebrew2': this.numberStyle = ListLevelUpdate_NumberStyleEnum.hebrew2; break;
+        case 'Arabic2': this.numberStyle = ListLevelUpdate_NumberStyleEnum.arabic2; break;
+        case 'HindiLetter1': this.numberStyle = ListLevelUpdate_NumberStyleEnum.hindiLetter1; break;
+        case 'HindiLetter2': this.numberStyle = ListLevelUpdate_NumberStyleEnum.hindiLetter2; break;
+        case 'HindiArabic': this.numberStyle = ListLevelUpdate_NumberStyleEnum.hindiArabic; break;
+        case 'HindiCardinalText': this.numberStyle = ListLevelUpdate_NumberStyleEnum.hindiCardinalText; break;
+        case 'ThaiLetter': this.numberStyle = ListLevelUpdate_NumberStyleEnum.thaiLetter; break;
+        case 'ThaiArabic': this.numberStyle = ListLevelUpdate_NumberStyleEnum.thaiArabic; break;
+        case 'ThaiCardinalText': this.numberStyle = ListLevelUpdate_NumberStyleEnum.thaiCardinalText; break;
+        case 'VietCardinalText': this.numberStyle = ListLevelUpdate_NumberStyleEnum.vietCardinalText; break;
+        case 'NumberInDash': this.numberStyle = ListLevelUpdate_NumberStyleEnum.numberInDash; break;
+        case 'LowercaseRussian': this.numberStyle = ListLevelUpdate_NumberStyleEnum.lowercaseRussian; break;
+        case 'UppercaseRussian': this.numberStyle = ListLevelUpdate_NumberStyleEnum.uppercaseRussian; break;
+        case 'None': this.numberStyle = ListLevelUpdate_NumberStyleEnum.none; break;
+        case 'Custom': this.numberStyle = ListLevelUpdate_NumberStyleEnum.custom; break;
+        default: this.numberStyle = null; break;
       }
     } else {
-      numberStyle = null;
+      this.numberStyle = null;
     }
 
     if (json.containsKey('RestartAfterLevel')) {
-      restartAfterLevel = json['RestartAfterLevel'];
+      this.restartAfterLevel = json['RestartAfterLevel'];
     } else {
-      restartAfterLevel = null;
+      this.restartAfterLevel = null;
     }
 
     if (json.containsKey('StartAt')) {
-      startAt = json['StartAt'];
+      this.startAt = json['StartAt'];
     } else {
-      startAt = null;
+      this.startAt = null;
     }
 
     if (json.containsKey('TabPosition')) {
-      tabPosition = json['TabPosition'];
+      this.tabPosition = json['TabPosition'];
     } else {
-      tabPosition = null;
+      this.tabPosition = null;
     }
 
     if (json.containsKey('TextPosition')) {
-      textPosition = json['TextPosition'];
+      this.textPosition = json['TextPosition'];
     } else {
-      textPosition = null;
+      this.textPosition = null;
     }
 
     if (json.containsKey('TrailingCharacter')) {
       switch (json['TrailingCharacter']) {
-        case 'Tab': trailingCharacter = ListLevelUpdate_TrailingCharacterEnum.tab; break;
-        case 'Space': trailingCharacter = ListLevelUpdate_TrailingCharacterEnum.space; break;
-        case 'Nothing': trailingCharacter = ListLevelUpdate_TrailingCharacterEnum.nothing; break;
-        default: trailingCharacter = null; break;
+        case 'Tab': this.trailingCharacter = ListLevelUpdate_TrailingCharacterEnum.tab; break;
+        case 'Space': this.trailingCharacter = ListLevelUpdate_TrailingCharacterEnum.space; break;
+        case 'Nothing': this.trailingCharacter = ListLevelUpdate_TrailingCharacterEnum.nothing; break;
+        default: this.trailingCharacter = null; break;
       }
     } else {
-      trailingCharacter = null;
+      this.trailingCharacter = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (alignment != null) {
-      switch (alignment) {
+    var _result = new Map<String, dynamic>();
+    if (this.alignment != null) {
+      switch (this.alignment) {
         case ListLevelUpdate_AlignmentEnum.left: _result['Alignment'] = 'Left'; break;
         case ListLevelUpdate_AlignmentEnum.center: _result['Alignment'] = 'Center'; break;
         case ListLevelUpdate_AlignmentEnum.right: _result['Alignment'] = 'Right'; break;
@@ -214,20 +214,20 @@ class ListLevelUpdate implements ModelBase {
       }
     }
 
-    if (isLegal != null) {
-      _result['IsLegal'] = isLegal;
+    if (this.isLegal != null) {
+      _result['IsLegal'] = this.isLegal;
     }
 
-    if (numberFormat != null) {
-      _result['NumberFormat'] = numberFormat;
+    if (this.numberFormat != null) {
+      _result['NumberFormat'] = this.numberFormat;
     }
 
-    if (numberPosition != null) {
-      _result['NumberPosition'] = numberPosition;
+    if (this.numberPosition != null) {
+      _result['NumberPosition'] = this.numberPosition;
     }
 
-    if (numberStyle != null) {
-      switch (numberStyle) {
+    if (this.numberStyle != null) {
+      switch (this.numberStyle) {
         case ListLevelUpdate_NumberStyleEnum.arabic: _result['NumberStyle'] = 'Arabic'; break;
         case ListLevelUpdate_NumberStyleEnum.uppercaseRoman: _result['NumberStyle'] = 'UppercaseRoman'; break;
         case ListLevelUpdate_NumberStyleEnum.lowercaseRoman: _result['NumberStyle'] = 'LowercaseRoman'; break;
@@ -294,24 +294,24 @@ class ListLevelUpdate implements ModelBase {
       }
     }
 
-    if (restartAfterLevel != null) {
-      _result['RestartAfterLevel'] = restartAfterLevel;
+    if (this.restartAfterLevel != null) {
+      _result['RestartAfterLevel'] = this.restartAfterLevel;
     }
 
-    if (startAt != null) {
-      _result['StartAt'] = startAt;
+    if (this.startAt != null) {
+      _result['StartAt'] = this.startAt;
     }
 
-    if (tabPosition != null) {
-      _result['TabPosition'] = tabPosition;
+    if (this.tabPosition != null) {
+      _result['TabPosition'] = this.tabPosition;
     }
 
-    if (textPosition != null) {
-      _result['TextPosition'] = textPosition;
+    if (this.textPosition != null) {
+      _result['TextPosition'] = this.textPosition;
     }
 
-    if (trailingCharacter != null) {
-      switch (trailingCharacter) {
+    if (this.trailingCharacter != null) {
+      switch (this.trailingCharacter) {
         case ListLevelUpdate_TrailingCharacterEnum.tab: _result['TrailingCharacter'] = 'Tab'; break;
         case ListLevelUpdate_TrailingCharacterEnum.space: _result['TrailingCharacter'] = 'Space'; break;
         case ListLevelUpdate_TrailingCharacterEnum.nothing: _result['TrailingCharacter'] = 'Nothing'; break;

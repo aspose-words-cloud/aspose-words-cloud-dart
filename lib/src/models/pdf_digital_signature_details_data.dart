@@ -49,57 +49,57 @@ class PdfDigitalSignatureDetailsData implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('CertificateFilename')) {
-      certificateFilename = json['CertificateFilename'];
+      this.certificateFilename = json['CertificateFilename'];
     } else {
-      certificateFilename = null;
+      this.certificateFilename = null;
     }
 
     if (json.containsKey('HashAlgorithm')) {
-      hashAlgorithm = json['HashAlgorithm'];
+      this.hashAlgorithm = json['HashAlgorithm'];
     } else {
-      hashAlgorithm = null;
+      this.hashAlgorithm = null;
     }
 
     if (json.containsKey('Location')) {
-      location = json['Location'];
+      this.location = json['Location'];
     } else {
-      location = null;
+      this.location = null;
     }
 
     if (json.containsKey('Reason')) {
-      reason = json['Reason'];
+      this.reason = json['Reason'];
     } else {
-      reason = null;
+      this.reason = null;
     }
 
     if (json.containsKey('SignatureDate')) {
-      signatureDate = DateTime.parse(json['SignatureDate']);
+      this.signatureDate = DateTime.parse(json['SignatureDate']);
     } else {
-      signatureDate = null;
+      this.signatureDate = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (certificateFilename != null) {
-      _result['CertificateFilename'] = certificateFilename;
+    var _result = new Map<String, dynamic>();
+    if (this.certificateFilename != null) {
+      _result['CertificateFilename'] = this.certificateFilename;
     }
 
-    if (hashAlgorithm != null) {
-      _result['HashAlgorithm'] = hashAlgorithm;
+    if (this.hashAlgorithm != null) {
+      _result['HashAlgorithm'] = this.hashAlgorithm;
     }
 
-    if (location != null) {
-      _result['Location'] = location;
+    if (this.location != null) {
+      _result['Location'] = this.location;
     }
 
-    if (reason != null) {
-      _result['Reason'] = reason;
+    if (this.reason != null) {
+      _result['Reason'] = this.reason;
     }
 
-    if (signatureDate != null) {
-      _result['SignatureDate'] = signatureDate.toIso8601String();
+    if (this.signatureDate != null) {
+      _result['SignatureDate'] = this.signatureDate.toIso8601String();
     }
     return _result;
   }

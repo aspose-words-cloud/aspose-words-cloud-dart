@@ -38,16 +38,16 @@ class TestContext {
   final Configuration configuration;
 
   /// Base path to test data
-  final String remoteBaseTestDataFolder = 'Temp/SdkTests/Dart/TestData';
+  final String remoteBaseTestDataFolder = "Temp/SdkTests/Dart/TestData";
 
   /// Base path to output data
-  final String baseTestOutPath = 'TestOut/Dart';
+  final String baseTestOutPath = "TestOut/Dart";
 
   /// Base local test data folder
   final String localTestDataFolder = Directory.current.path + '/test_data';
 
-  TestContext(final this.configuration) {
-    _wordsApi = WordsApi(configuration);
+  TestContext(final Configuration this.configuration) {
+    _wordsApi = new WordsApi(configuration);
   }
 
   WordsApi getApi() {
@@ -55,9 +55,9 @@ class TestContext {
   }
 
   Future<void> uploadFile(String localPath, String remotePath) async {
-    final content = await loadBinaryFile(localPath);
-    final request = UploadFileRequest(content, remotePath);
-    final result = await getApi().uploadFile(request);
+    final content = await this.loadBinaryFile(localPath);
+    final request = new UploadFileRequest(content, remotePath);
+    final result = await this.getApi().uploadFile(request);
     expect(result.errors.length, 0);
     expect(result.uploaded.length, 1);
   }
@@ -70,7 +70,7 @@ class TestContext {
     if (!path.startsWith('/')) {
       path = '/' + path;
     }
-    final file = File(localTestDataFolder + path);
+    final file = new File(this.localTestDataFolder + path);
     final bytes = await file.readAsBytes();
     return ByteData.view(bytes.buffer);
   }
@@ -79,7 +79,7 @@ class TestContext {
     if (!path.startsWith('/')) {
       path = '/' + path;
     }
-    final file = File(localTestDataFolder + path);
+    final file = new File(this.localTestDataFolder + path);
     return await file.readAsString();
   }
 }

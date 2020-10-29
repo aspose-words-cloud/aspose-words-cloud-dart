@@ -27,6 +27,7 @@
 
 library aspose_words_cloud;
 
+import 'dart:convert';
 import 'dart:typed_data';
 import '../../aspose_words_cloud.dart';
 import '../api_client.dart';
@@ -53,47 +54,47 @@ class ConvertDocumentRequest implements RequestBase {
   /// Folder in filestorage with custom fonts.
   final String fontsLocation;
 
-  ConvertDocumentRequest(final this.document, final this.format, {final this.storage, final this.outPath, final this.fileNameFieldValue, final this.fontsLocation});
+  ConvertDocumentRequest(final ByteData this.document, final String this.format, {final String this.storage = null, final String this.outPath = null, final String this.fileNameFieldValue = null, final String this.fontsLocation = null});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var _path = '/words/convert';
-    var _queryParams = <String, String>{};
-    var _headers = <String, String>{};
-    var _bodyParts = <ApiRequestPart>[];
-    if (format != null) {
-      _queryParams['format'] = apiClient.serializeToString(format);
+    String path = '/words/convert';
+    Map<String, String> queryParams = new Map<String, String>();
+    Map<String, String> headers = new Map<String, String>();
+    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
+    if (this.format != null) {
+      queryParams['format'] = apiClient.serializeToString(this.format);
     }
     else {
-      throw ApiException(400, 'Parameter format is required.');
+      throw new ApiException(400, 'Parameter format is required.');
     }
 
-    if (storage != null) {
-      _queryParams['storage'] = apiClient.serializeToString(storage);
+    if (this.storage != null) {
+      queryParams['storage'] = apiClient.serializeToString(this.storage);
     }
 
-    if (outPath != null) {
-      _queryParams['outPath'] = apiClient.serializeToString(outPath);
+    if (this.outPath != null) {
+      queryParams['outPath'] = apiClient.serializeToString(this.outPath);
     }
 
-    if (fileNameFieldValue != null) {
-      _queryParams['fileNameFieldValue'] = apiClient.serializeToString(fileNameFieldValue);
+    if (this.fileNameFieldValue != null) {
+      queryParams['fileNameFieldValue'] = apiClient.serializeToString(this.fileNameFieldValue);
     }
 
-    if (fontsLocation != null) {
-      _queryParams['fontsLocation'] = apiClient.serializeToString(fontsLocation);
+    if (this.fontsLocation != null) {
+      queryParams['fontsLocation'] = apiClient.serializeToString(this.fontsLocation);
     }
 
-    if (document != null) {
-      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(document), 'application/octet-stream', name: 'Document'));
+    if (this.document != null) {
+      bodyParts.add(new ApiRequestPart(apiClient.serializeBody(this.document), 'application/octet-stream', name: 'Document'));
     }
     else {
-      throw ApiException(400, 'Parameter document is required.');
+      throw new ApiException(400, 'Parameter document is required.');
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('PUT', _url, _headers, _body);
+    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
+    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
+    return new ApiRequestData('PUT', url, headers, body);
   }
 
   @override

@@ -39,19 +39,19 @@ class OfficeMathObjectResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('OfficeMathObject')) {
-      officeMathObject = OfficeMathObject();
-      officeMathObject.deserialize(json['OfficeMathObject']);
+      this.officeMathObject = new OfficeMathObject();
+      this.officeMathObject.deserialize(json['OfficeMathObject']);
     } else {
-      officeMathObject = null;
+      this.officeMathObject = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (officeMathObject != null) {
-      _result['OfficeMathObject'] = officeMathObject.serialize();
+    if (this.officeMathObject != null) {
+      _result['OfficeMathObject'] = this.officeMathObject.serialize();
     }
     return _result;
   }

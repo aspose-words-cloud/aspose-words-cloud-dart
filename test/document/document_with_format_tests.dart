@@ -27,6 +27,7 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
+import 'package:test/test.dart';
 
 /// Example of how to get document with different format.
 class DocumentWithFormatTests
@@ -35,39 +36,39 @@ class DocumentWithFormatTests
   String remoteDataFolder;
   String localFile;
 
-  DocumentWithFormatTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/DocumentWithFormat';
+  DocumentWithFormatTests(final TestContext this.context) {
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/DocumentWithFormat';
     localFile = 'Common/test_multi_pages.docx';
   }
 
   /// Test for getting document with specified format.
   Future<void> testGetDocumentWithFormat() async
   {
-    final remoteFileName = 'TestGetDocumentWithFormat.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetDocumentWithFormat.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetDocumentWithFormatRequest(
+    final request = new GetDocumentWithFormatRequest(
       remoteFileName,
       'text',
       folder: remoteDataFolder
     );
 
-    await context.getApi().getDocumentWithFormat(request);
+    var result = await this.context.getApi().getDocumentWithFormat(request);
   }
 
   /// Test for getting document with specified format.
   Future<void> testGetDocumentWithFormatAndOutPath() async
   {
-    final remoteFileName = 'TestGetDocumentWithFormat.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetDocumentWithFormat.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetDocumentWithFormatRequest(
+    final request = new GetDocumentWithFormatRequest(
       remoteFileName,
       'text',
       folder: remoteDataFolder,
-      outPath: context.baseTestOutPath + '/TestGetDocumentWithFormatAndOutPath.text'
+      outPath: this.context.baseTestOutPath + '/TestGetDocumentWithFormatAndOutPath.text'
     );
 
-    await context.getApi().getDocumentWithFormat(request);
+    var result = await this.context.getApi().getDocumentWithFormat(request);
   }
 }

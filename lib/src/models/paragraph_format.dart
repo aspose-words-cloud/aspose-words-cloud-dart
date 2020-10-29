@@ -41,28 +41,28 @@ class ParagraphFormat extends ParagraphFormatBase {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('IsHeading')) {
-      isHeading = json['IsHeading'];
+      this.isHeading = json['IsHeading'];
     } else {
-      isHeading = null;
+      this.isHeading = null;
     }
 
     if (json.containsKey('IsListItem')) {
-      isListItem = json['IsListItem'];
+      this.isListItem = json['IsListItem'];
     } else {
-      isListItem = null;
+      this.isListItem = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (isHeading != null) {
-      _result['IsHeading'] = isHeading;
+    if (this.isHeading != null) {
+      _result['IsHeading'] = this.isHeading;
     }
 
-    if (isListItem != null) {
-      _result['IsListItem'] = isListItem;
+    if (this.isListItem != null) {
+      _result['IsListItem'] = this.isListItem;
     }
     return _result;
   }

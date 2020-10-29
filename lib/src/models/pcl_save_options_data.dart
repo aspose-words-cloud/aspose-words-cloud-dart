@@ -41,28 +41,28 @@ class PclSaveOptionsData extends FixedPageSaveOptionsData {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('FalllbackFontName')) {
-      falllbackFontName = json['FalllbackFontName'];
+      this.falllbackFontName = json['FalllbackFontName'];
     } else {
-      falllbackFontName = null;
+      this.falllbackFontName = null;
     }
 
     if (json.containsKey('RasterizeTransformedElements')) {
-      rasterizeTransformedElements = json['RasterizeTransformedElements'];
+      this.rasterizeTransformedElements = json['RasterizeTransformedElements'];
     } else {
-      rasterizeTransformedElements = null;
+      this.rasterizeTransformedElements = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (falllbackFontName != null) {
-      _result['FalllbackFontName'] = falllbackFontName;
+    if (this.falllbackFontName != null) {
+      _result['FalllbackFontName'] = this.falllbackFontName;
     }
 
-    if (rasterizeTransformedElements != null) {
-      _result['RasterizeTransformedElements'] = rasterizeTransformedElements;
+    if (this.rasterizeTransformedElements != null) {
+      _result['RasterizeTransformedElements'] = this.rasterizeTransformedElements;
     }
     return _result;
   }

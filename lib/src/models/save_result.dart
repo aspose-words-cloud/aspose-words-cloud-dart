@@ -44,44 +44,44 @@ class SaveResult implements ModelBase {
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('AdditionalItems')) {
       // Array processing
-      additionalItems = <FileLink>[];
+      this.additionalItems = new List<FileLink>();
       for(final _element in json['AdditionalItems']) {
-        var _elementValue = FileLink();
+        var _elementValue = new FileLink();
         _elementValue.deserialize(_element);
-        additionalItems.add(_elementValue);
+        this.additionalItems.add(_elementValue);
       }
     } else {
-      additionalItems = null;
+      this.additionalItems = null;
     }
 
     if (json.containsKey('DestDocument')) {
-      destDocument = FileLink();
-      destDocument.deserialize(json['DestDocument']);
+      this.destDocument = new FileLink();
+      this.destDocument.deserialize(json['DestDocument']);
     } else {
-      destDocument = null;
+      this.destDocument = null;
     }
 
     if (json.containsKey('SourceDocument')) {
-      sourceDocument = FileLink();
-      sourceDocument.deserialize(json['SourceDocument']);
+      this.sourceDocument = new FileLink();
+      this.sourceDocument.deserialize(json['SourceDocument']);
     } else {
-      sourceDocument = null;
+      this.sourceDocument = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (additionalItems != null) {
-      _result['AdditionalItems'] = additionalItems.map((_element) => _element.serialize()).toList();
+    var _result = new Map<String, dynamic>();
+    if (this.additionalItems != null) {
+      _result['AdditionalItems'] = this.additionalItems.map((_element) => _element.serialize()).toList();
     }
 
-    if (destDocument != null) {
-      _result['DestDocument'] = destDocument.serialize();
+    if (this.destDocument != null) {
+      _result['DestDocument'] = this.destDocument.serialize();
     }
 
-    if (sourceDocument != null) {
-      _result['SourceDocument'] = sourceDocument.serialize();
+    if (this.sourceDocument != null) {
+      _result['SourceDocument'] = this.sourceDocument.serialize();
     }
     return _result;
   }

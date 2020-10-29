@@ -27,31 +27,34 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
+import 'package:test/test.dart';
 
 /// Example of how to work with font.
 class FontTests
 {
   final TestContext context;
 
-  FontTests(final this.context);
+  FontTests(final TestContext this.context) {
+  }
 
   /// Test for reseting cache.
   Future<void> testResetCache() async
   {
 
-    final request = ResetCacheRequest(
+    final request = new ResetCacheRequest(
     );
 
-    await context.getApi().resetCache(request);
+    await this.context.getApi().resetCache(request);
   }
 
   /// Test for GetAvailableFonts resource.
   Future<void> testGetAvailableFonts() async
   {
 
-    final request = GetAvailableFontsRequest(
+    final request = new GetAvailableFontsRequest(
     );
 
-    await context.getApi().getAvailableFonts(request);
+    var result = await this.context.getApi().getAvailableFonts(request);
+    expect(result.systemFonts, isNotNull);
   }
 }

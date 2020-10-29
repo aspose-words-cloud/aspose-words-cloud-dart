@@ -71,116 +71,116 @@ class TableCellFormat extends LinkElement {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('BottomPadding')) {
-      bottomPadding = json['BottomPadding'];
+      this.bottomPadding = json['BottomPadding'];
     } else {
-      bottomPadding = null;
+      this.bottomPadding = null;
     }
 
     if (json.containsKey('FitText')) {
-      fitText = json['FitText'];
+      this.fitText = json['FitText'];
     } else {
-      fitText = null;
+      this.fitText = null;
     }
 
     if (json.containsKey('HorizontalMerge')) {
       switch (json['HorizontalMerge']) {
-        case 'None': horizontalMerge = TableCellFormat_HorizontalMergeEnum.none; break;
-        case 'First': horizontalMerge = TableCellFormat_HorizontalMergeEnum.first; break;
-        case 'Previous': horizontalMerge = TableCellFormat_HorizontalMergeEnum.previous; break;
-        default: horizontalMerge = null; break;
+        case 'None': this.horizontalMerge = TableCellFormat_HorizontalMergeEnum.none; break;
+        case 'First': this.horizontalMerge = TableCellFormat_HorizontalMergeEnum.first; break;
+        case 'Previous': this.horizontalMerge = TableCellFormat_HorizontalMergeEnum.previous; break;
+        default: this.horizontalMerge = null; break;
       }
     } else {
-      horizontalMerge = null;
+      this.horizontalMerge = null;
     }
 
     if (json.containsKey('LeftPadding')) {
-      leftPadding = json['LeftPadding'];
+      this.leftPadding = json['LeftPadding'];
     } else {
-      leftPadding = null;
+      this.leftPadding = null;
     }
 
     if (json.containsKey('Orientation')) {
       switch (json['Orientation']) {
-        case 'Horizontal': orientation = TableCellFormat_OrientationEnum.horizontal; break;
-        case 'Downward': orientation = TableCellFormat_OrientationEnum.downward; break;
-        case 'Upward': orientation = TableCellFormat_OrientationEnum.upward; break;
-        case 'HorizontalRotatedFarEast': orientation = TableCellFormat_OrientationEnum.horizontalRotatedFarEast; break;
-        case 'VerticalFarEast': orientation = TableCellFormat_OrientationEnum.verticalFarEast; break;
-        case 'VerticalRotatedFarEast': orientation = TableCellFormat_OrientationEnum.verticalRotatedFarEast; break;
-        default: orientation = null; break;
+        case 'Horizontal': this.orientation = TableCellFormat_OrientationEnum.horizontal; break;
+        case 'Downward': this.orientation = TableCellFormat_OrientationEnum.downward; break;
+        case 'Upward': this.orientation = TableCellFormat_OrientationEnum.upward; break;
+        case 'HorizontalRotatedFarEast': this.orientation = TableCellFormat_OrientationEnum.horizontalRotatedFarEast; break;
+        case 'VerticalFarEast': this.orientation = TableCellFormat_OrientationEnum.verticalFarEast; break;
+        case 'VerticalRotatedFarEast': this.orientation = TableCellFormat_OrientationEnum.verticalRotatedFarEast; break;
+        default: this.orientation = null; break;
       }
     } else {
-      orientation = null;
+      this.orientation = null;
     }
 
     if (json.containsKey('PreferredWidth')) {
-      preferredWidth = PreferredWidth();
-      preferredWidth.deserialize(json['PreferredWidth']);
+      this.preferredWidth = new PreferredWidth();
+      this.preferredWidth.deserialize(json['PreferredWidth']);
     } else {
-      preferredWidth = null;
+      this.preferredWidth = null;
     }
 
     if (json.containsKey('RightPadding')) {
-      rightPadding = json['RightPadding'];
+      this.rightPadding = json['RightPadding'];
     } else {
-      rightPadding = null;
+      this.rightPadding = null;
     }
 
     if (json.containsKey('TopPadding')) {
-      topPadding = json['TopPadding'];
+      this.topPadding = json['TopPadding'];
     } else {
-      topPadding = null;
+      this.topPadding = null;
     }
 
     if (json.containsKey('VerticalAlignment')) {
       switch (json['VerticalAlignment']) {
-        case 'Top': verticalAlignment = TableCellFormat_VerticalAlignmentEnum.top; break;
-        case 'Center': verticalAlignment = TableCellFormat_VerticalAlignmentEnum.center; break;
-        case 'Bottom': verticalAlignment = TableCellFormat_VerticalAlignmentEnum.bottom; break;
-        default: verticalAlignment = null; break;
+        case 'Top': this.verticalAlignment = TableCellFormat_VerticalAlignmentEnum.top; break;
+        case 'Center': this.verticalAlignment = TableCellFormat_VerticalAlignmentEnum.center; break;
+        case 'Bottom': this.verticalAlignment = TableCellFormat_VerticalAlignmentEnum.bottom; break;
+        default: this.verticalAlignment = null; break;
       }
     } else {
-      verticalAlignment = null;
+      this.verticalAlignment = null;
     }
 
     if (json.containsKey('VerticalMerge')) {
       switch (json['VerticalMerge']) {
-        case 'None': verticalMerge = TableCellFormat_VerticalMergeEnum.none; break;
-        case 'First': verticalMerge = TableCellFormat_VerticalMergeEnum.first; break;
-        case 'Previous': verticalMerge = TableCellFormat_VerticalMergeEnum.previous; break;
-        default: verticalMerge = null; break;
+        case 'None': this.verticalMerge = TableCellFormat_VerticalMergeEnum.none; break;
+        case 'First': this.verticalMerge = TableCellFormat_VerticalMergeEnum.first; break;
+        case 'Previous': this.verticalMerge = TableCellFormat_VerticalMergeEnum.previous; break;
+        default: this.verticalMerge = null; break;
       }
     } else {
-      verticalMerge = null;
+      this.verticalMerge = null;
     }
 
     if (json.containsKey('Width')) {
-      width = json['Width'];
+      this.width = json['Width'];
     } else {
-      width = null;
+      this.width = null;
     }
 
     if (json.containsKey('WrapText')) {
-      wrapText = json['WrapText'];
+      this.wrapText = json['WrapText'];
     } else {
-      wrapText = null;
+      this.wrapText = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (bottomPadding != null) {
-      _result['BottomPadding'] = bottomPadding;
+    if (this.bottomPadding != null) {
+      _result['BottomPadding'] = this.bottomPadding;
     }
 
-    if (fitText != null) {
-      _result['FitText'] = fitText;
+    if (this.fitText != null) {
+      _result['FitText'] = this.fitText;
     }
 
-    if (horizontalMerge != null) {
-      switch (horizontalMerge) {
+    if (this.horizontalMerge != null) {
+      switch (this.horizontalMerge) {
         case TableCellFormat_HorizontalMergeEnum.none: _result['HorizontalMerge'] = 'None'; break;
         case TableCellFormat_HorizontalMergeEnum.first: _result['HorizontalMerge'] = 'First'; break;
         case TableCellFormat_HorizontalMergeEnum.previous: _result['HorizontalMerge'] = 'Previous'; break;
@@ -188,12 +188,12 @@ class TableCellFormat extends LinkElement {
       }
     }
 
-    if (leftPadding != null) {
-      _result['LeftPadding'] = leftPadding;
+    if (this.leftPadding != null) {
+      _result['LeftPadding'] = this.leftPadding;
     }
 
-    if (orientation != null) {
-      switch (orientation) {
+    if (this.orientation != null) {
+      switch (this.orientation) {
         case TableCellFormat_OrientationEnum.horizontal: _result['Orientation'] = 'Horizontal'; break;
         case TableCellFormat_OrientationEnum.downward: _result['Orientation'] = 'Downward'; break;
         case TableCellFormat_OrientationEnum.upward: _result['Orientation'] = 'Upward'; break;
@@ -204,20 +204,20 @@ class TableCellFormat extends LinkElement {
       }
     }
 
-    if (preferredWidth != null) {
-      _result['PreferredWidth'] = preferredWidth.serialize();
+    if (this.preferredWidth != null) {
+      _result['PreferredWidth'] = this.preferredWidth.serialize();
     }
 
-    if (rightPadding != null) {
-      _result['RightPadding'] = rightPadding;
+    if (this.rightPadding != null) {
+      _result['RightPadding'] = this.rightPadding;
     }
 
-    if (topPadding != null) {
-      _result['TopPadding'] = topPadding;
+    if (this.topPadding != null) {
+      _result['TopPadding'] = this.topPadding;
     }
 
-    if (verticalAlignment != null) {
-      switch (verticalAlignment) {
+    if (this.verticalAlignment != null) {
+      switch (this.verticalAlignment) {
         case TableCellFormat_VerticalAlignmentEnum.top: _result['VerticalAlignment'] = 'Top'; break;
         case TableCellFormat_VerticalAlignmentEnum.center: _result['VerticalAlignment'] = 'Center'; break;
         case TableCellFormat_VerticalAlignmentEnum.bottom: _result['VerticalAlignment'] = 'Bottom'; break;
@@ -225,8 +225,8 @@ class TableCellFormat extends LinkElement {
       }
     }
 
-    if (verticalMerge != null) {
-      switch (verticalMerge) {
+    if (this.verticalMerge != null) {
+      switch (this.verticalMerge) {
         case TableCellFormat_VerticalMergeEnum.none: _result['VerticalMerge'] = 'None'; break;
         case TableCellFormat_VerticalMergeEnum.first: _result['VerticalMerge'] = 'First'; break;
         case TableCellFormat_VerticalMergeEnum.previous: _result['VerticalMerge'] = 'Previous'; break;
@@ -234,12 +234,12 @@ class TableCellFormat extends LinkElement {
       }
     }
 
-    if (width != null) {
-      _result['Width'] = width;
+    if (this.width != null) {
+      _result['Width'] = this.width;
     }
 
-    if (wrapText != null) {
-      _result['WrapText'] = wrapText;
+    if (this.wrapText != null) {
+      _result['WrapText'] = this.wrapText;
     }
     return _result;
   }

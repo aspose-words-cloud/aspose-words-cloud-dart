@@ -27,6 +27,7 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
+import 'package:test/test.dart';
 
 /// Example of how to work with macros.
 class MacrosTests
@@ -35,22 +36,22 @@ class MacrosTests
   String remoteDataFolder;
   String localFile;
 
-  MacrosTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Macros';
+  MacrosTests(final TestContext this.context) {
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Macros';
     localFile = 'Common/test_multi_pages.docx';
   }
 
   /// Test for deleting macros.
   Future<void> testDeleteMacros() async
   {
-    final remoteFileName = 'TestDeleteDocumentMacros.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestDeleteDocumentMacros.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = DeleteMacrosRequest(
+    final request = new DeleteMacrosRequest(
       remoteFileName,
       folder: remoteDataFolder
     );
 
-    await context.getApi().deleteMacros(request);
+    await this.context.getApi().deleteMacros(request);
   }
 }

@@ -68,101 +68,101 @@ class CompareOptions implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('IgnoreCaseChanges')) {
-      ignoreCaseChanges = json['IgnoreCaseChanges'];
+      this.ignoreCaseChanges = json['IgnoreCaseChanges'];
     } else {
-      ignoreCaseChanges = null;
+      this.ignoreCaseChanges = null;
     }
 
     if (json.containsKey('IgnoreComments')) {
-      ignoreComments = json['IgnoreComments'];
+      this.ignoreComments = json['IgnoreComments'];
     } else {
-      ignoreComments = null;
+      this.ignoreComments = null;
     }
 
     if (json.containsKey('IgnoreFields')) {
-      ignoreFields = json['IgnoreFields'];
+      this.ignoreFields = json['IgnoreFields'];
     } else {
-      ignoreFields = null;
+      this.ignoreFields = null;
     }
 
     if (json.containsKey('IgnoreFootnotes')) {
-      ignoreFootnotes = json['IgnoreFootnotes'];
+      this.ignoreFootnotes = json['IgnoreFootnotes'];
     } else {
-      ignoreFootnotes = null;
+      this.ignoreFootnotes = null;
     }
 
     if (json.containsKey('IgnoreFormatting')) {
-      ignoreFormatting = json['IgnoreFormatting'];
+      this.ignoreFormatting = json['IgnoreFormatting'];
     } else {
-      ignoreFormatting = null;
+      this.ignoreFormatting = null;
     }
 
     if (json.containsKey('IgnoreHeadersAndFooters')) {
-      ignoreHeadersAndFooters = json['IgnoreHeadersAndFooters'];
+      this.ignoreHeadersAndFooters = json['IgnoreHeadersAndFooters'];
     } else {
-      ignoreHeadersAndFooters = null;
+      this.ignoreHeadersAndFooters = null;
     }
 
     if (json.containsKey('IgnoreTables')) {
-      ignoreTables = json['IgnoreTables'];
+      this.ignoreTables = json['IgnoreTables'];
     } else {
-      ignoreTables = null;
+      this.ignoreTables = null;
     }
 
     if (json.containsKey('IgnoreTextboxes')) {
-      ignoreTextboxes = json['IgnoreTextboxes'];
+      this.ignoreTextboxes = json['IgnoreTextboxes'];
     } else {
-      ignoreTextboxes = null;
+      this.ignoreTextboxes = null;
     }
 
     if (json.containsKey('Target')) {
       switch (json['Target']) {
-        case 'Current': target = CompareOptions_TargetEnum.current; break;
-        case 'New': target = CompareOptions_TargetEnum.new_; break;
-        default: target = null; break;
+        case 'Current': this.target = CompareOptions_TargetEnum.current; break;
+        case 'New': this.target = CompareOptions_TargetEnum.new_; break;
+        default: this.target = null; break;
       }
     } else {
-      target = null;
+      this.target = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (ignoreCaseChanges != null) {
-      _result['IgnoreCaseChanges'] = ignoreCaseChanges;
+    var _result = new Map<String, dynamic>();
+    if (this.ignoreCaseChanges != null) {
+      _result['IgnoreCaseChanges'] = this.ignoreCaseChanges;
     }
 
-    if (ignoreComments != null) {
-      _result['IgnoreComments'] = ignoreComments;
+    if (this.ignoreComments != null) {
+      _result['IgnoreComments'] = this.ignoreComments;
     }
 
-    if (ignoreFields != null) {
-      _result['IgnoreFields'] = ignoreFields;
+    if (this.ignoreFields != null) {
+      _result['IgnoreFields'] = this.ignoreFields;
     }
 
-    if (ignoreFootnotes != null) {
-      _result['IgnoreFootnotes'] = ignoreFootnotes;
+    if (this.ignoreFootnotes != null) {
+      _result['IgnoreFootnotes'] = this.ignoreFootnotes;
     }
 
-    if (ignoreFormatting != null) {
-      _result['IgnoreFormatting'] = ignoreFormatting;
+    if (this.ignoreFormatting != null) {
+      _result['IgnoreFormatting'] = this.ignoreFormatting;
     }
 
-    if (ignoreHeadersAndFooters != null) {
-      _result['IgnoreHeadersAndFooters'] = ignoreHeadersAndFooters;
+    if (this.ignoreHeadersAndFooters != null) {
+      _result['IgnoreHeadersAndFooters'] = this.ignoreHeadersAndFooters;
     }
 
-    if (ignoreTables != null) {
-      _result['IgnoreTables'] = ignoreTables;
+    if (this.ignoreTables != null) {
+      _result['IgnoreTables'] = this.ignoreTables;
     }
 
-    if (ignoreTextboxes != null) {
-      _result['IgnoreTextboxes'] = ignoreTextboxes;
+    if (this.ignoreTextboxes != null) {
+      _result['IgnoreTextboxes'] = this.ignoreTextboxes;
     }
 
-    if (target != null) {
-      switch (target) {
+    if (this.target != null) {
+      switch (this.target) {
         case CompareOptions_TargetEnum.current: _result['Target'] = 'Current'; break;
         case CompareOptions_TargetEnum.new_: _result['Target'] = 'New'; break;
         default: break;

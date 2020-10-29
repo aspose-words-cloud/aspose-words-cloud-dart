@@ -55,47 +55,47 @@ class Link implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('Href')) {
-      href = json['Href'];
+      this.href = json['Href'];
     } else {
-      href = null;
+      this.href = null;
     }
 
     if (json.containsKey('Rel')) {
-      rel = json['Rel'];
+      this.rel = json['Rel'];
     } else {
-      rel = null;
+      this.rel = null;
     }
 
     if (json.containsKey('Title')) {
-      title = json['Title'];
+      this.title = json['Title'];
     } else {
-      title = null;
+      this.title = null;
     }
 
     if (json.containsKey('Type')) {
-      type = json['Type'];
+      this.type = json['Type'];
     } else {
-      type = null;
+      this.type = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (href != null) {
-      _result['Href'] = href;
+    var _result = new Map<String, dynamic>();
+    if (this.href != null) {
+      _result['Href'] = this.href;
     }
 
-    if (rel != null) {
-      _result['Rel'] = rel;
+    if (this.rel != null) {
+      _result['Rel'] = this.rel;
     }
 
-    if (title != null) {
-      _result['Title'] = title;
+    if (this.title != null) {
+      _result['Title'] = this.title;
     }
 
-    if (type != null) {
-      _result['Type'] = type;
+    if (this.type != null) {
+      _result['Type'] = this.type;
     }
     return _result;
   }

@@ -56,72 +56,72 @@ class OutlineOptionsData implements ModelBase {
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('BookmarksOutlineLevels')) {
       // Array processing
-      bookmarksOutlineLevels = <BookmarksOutlineLevelData>[];
+      this.bookmarksOutlineLevels = new List<BookmarksOutlineLevelData>();
       for(final _element in json['BookmarksOutlineLevels']) {
-        var _elementValue = BookmarksOutlineLevelData();
+        var _elementValue = new BookmarksOutlineLevelData();
         _elementValue.deserialize(_element);
-        bookmarksOutlineLevels.add(_elementValue);
+        this.bookmarksOutlineLevels.add(_elementValue);
       }
     } else {
-      bookmarksOutlineLevels = null;
+      this.bookmarksOutlineLevels = null;
     }
 
     if (json.containsKey('CreateMissingOutlineLevels')) {
-      createMissingOutlineLevels = json['CreateMissingOutlineLevels'];
+      this.createMissingOutlineLevels = json['CreateMissingOutlineLevels'];
     } else {
-      createMissingOutlineLevels = null;
+      this.createMissingOutlineLevels = null;
     }
 
     if (json.containsKey('CreateOutlinesForHeadingsInTables')) {
-      createOutlinesForHeadingsInTables = json['CreateOutlinesForHeadingsInTables'];
+      this.createOutlinesForHeadingsInTables = json['CreateOutlinesForHeadingsInTables'];
     } else {
-      createOutlinesForHeadingsInTables = null;
+      this.createOutlinesForHeadingsInTables = null;
     }
 
     if (json.containsKey('DefaultBookmarksOutlineLevel')) {
-      defaultBookmarksOutlineLevel = json['DefaultBookmarksOutlineLevel'];
+      this.defaultBookmarksOutlineLevel = json['DefaultBookmarksOutlineLevel'];
     } else {
-      defaultBookmarksOutlineLevel = null;
+      this.defaultBookmarksOutlineLevel = null;
     }
 
     if (json.containsKey('ExpandedOutlineLevels')) {
-      expandedOutlineLevels = json['ExpandedOutlineLevels'];
+      this.expandedOutlineLevels = json['ExpandedOutlineLevels'];
     } else {
-      expandedOutlineLevels = null;
+      this.expandedOutlineLevels = null;
     }
 
     if (json.containsKey('HeadingsOutlineLevels')) {
-      headingsOutlineLevels = json['HeadingsOutlineLevels'];
+      this.headingsOutlineLevels = json['HeadingsOutlineLevels'];
     } else {
-      headingsOutlineLevels = null;
+      this.headingsOutlineLevels = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (bookmarksOutlineLevels != null) {
-      _result['BookmarksOutlineLevels'] = bookmarksOutlineLevels.map((_element) => _element.serialize()).toList();
+    var _result = new Map<String, dynamic>();
+    if (this.bookmarksOutlineLevels != null) {
+      _result['BookmarksOutlineLevels'] = this.bookmarksOutlineLevels.map((_element) => _element.serialize()).toList();
     }
 
-    if (createMissingOutlineLevels != null) {
-      _result['CreateMissingOutlineLevels'] = createMissingOutlineLevels;
+    if (this.createMissingOutlineLevels != null) {
+      _result['CreateMissingOutlineLevels'] = this.createMissingOutlineLevels;
     }
 
-    if (createOutlinesForHeadingsInTables != null) {
-      _result['CreateOutlinesForHeadingsInTables'] = createOutlinesForHeadingsInTables;
+    if (this.createOutlinesForHeadingsInTables != null) {
+      _result['CreateOutlinesForHeadingsInTables'] = this.createOutlinesForHeadingsInTables;
     }
 
-    if (defaultBookmarksOutlineLevel != null) {
-      _result['DefaultBookmarksOutlineLevel'] = defaultBookmarksOutlineLevel;
+    if (this.defaultBookmarksOutlineLevel != null) {
+      _result['DefaultBookmarksOutlineLevel'] = this.defaultBookmarksOutlineLevel;
     }
 
-    if (expandedOutlineLevels != null) {
-      _result['ExpandedOutlineLevels'] = expandedOutlineLevels;
+    if (this.expandedOutlineLevels != null) {
+      _result['ExpandedOutlineLevels'] = this.expandedOutlineLevels;
     }
 
-    if (headingsOutlineLevels != null) {
-      _result['HeadingsOutlineLevels'] = headingsOutlineLevels;
+    if (this.headingsOutlineLevels != null) {
+      _result['HeadingsOutlineLevels'] = this.headingsOutlineLevels;
     }
     return _result;
   }

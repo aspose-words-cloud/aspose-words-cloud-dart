@@ -38,18 +38,18 @@ class FieldLink extends NodeLink {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('FieldCode')) {
-      fieldCode = json['FieldCode'];
+      this.fieldCode = json['FieldCode'];
     } else {
-      fieldCode = null;
+      this.fieldCode = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (fieldCode != null) {
-      _result['FieldCode'] = fieldCode;
+    if (this.fieldCode != null) {
+      _result['FieldCode'] = this.fieldCode;
     }
     return _result;
   }

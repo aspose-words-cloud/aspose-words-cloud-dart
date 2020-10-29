@@ -38,19 +38,19 @@ class SplitDocumentResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('SplitResult')) {
-      splitResult = SplitDocumentResult();
-      splitResult.deserialize(json['SplitResult']);
+      this.splitResult = new SplitDocumentResult();
+      this.splitResult.deserialize(json['SplitResult']);
     } else {
-      splitResult = null;
+      this.splitResult = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (splitResult != null) {
-      _result['SplitResult'] = splitResult.serialize();
+    if (this.splitResult != null) {
+      _result['SplitResult'] = this.splitResult.serialize();
     }
     return _result;
   }

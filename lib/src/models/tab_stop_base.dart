@@ -44,45 +44,45 @@ class TabStopBase implements ModelBase {
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('Alignment')) {
       switch (json['Alignment']) {
-        case 'Left': alignment = TabStopBase_AlignmentEnum.left; break;
-        case 'Center': alignment = TabStopBase_AlignmentEnum.center; break;
-        case 'Right': alignment = TabStopBase_AlignmentEnum.right; break;
-        case 'Decimal': alignment = TabStopBase_AlignmentEnum.decimal; break;
-        case 'Bar': alignment = TabStopBase_AlignmentEnum.bar; break;
-        case 'List': alignment = TabStopBase_AlignmentEnum.list; break;
-        case 'Clear': alignment = TabStopBase_AlignmentEnum.clear; break;
-        default: alignment = null; break;
+        case 'Left': this.alignment = TabStopBase_AlignmentEnum.left; break;
+        case 'Center': this.alignment = TabStopBase_AlignmentEnum.center; break;
+        case 'Right': this.alignment = TabStopBase_AlignmentEnum.right; break;
+        case 'Decimal': this.alignment = TabStopBase_AlignmentEnum.decimal; break;
+        case 'Bar': this.alignment = TabStopBase_AlignmentEnum.bar; break;
+        case 'List': this.alignment = TabStopBase_AlignmentEnum.list; break;
+        case 'Clear': this.alignment = TabStopBase_AlignmentEnum.clear; break;
+        default: this.alignment = null; break;
       }
     } else {
-      alignment = null;
+      this.alignment = null;
     }
 
     if (json.containsKey('Leader')) {
       switch (json['Leader']) {
-        case 'None': leader = TabStopBase_LeaderEnum.none; break;
-        case 'Dots': leader = TabStopBase_LeaderEnum.dots; break;
-        case 'Dashes': leader = TabStopBase_LeaderEnum.dashes; break;
-        case 'Line': leader = TabStopBase_LeaderEnum.line; break;
-        case 'Heavy': leader = TabStopBase_LeaderEnum.heavy; break;
-        case 'MiddleDot': leader = TabStopBase_LeaderEnum.middleDot; break;
-        default: leader = null; break;
+        case 'None': this.leader = TabStopBase_LeaderEnum.none; break;
+        case 'Dots': this.leader = TabStopBase_LeaderEnum.dots; break;
+        case 'Dashes': this.leader = TabStopBase_LeaderEnum.dashes; break;
+        case 'Line': this.leader = TabStopBase_LeaderEnum.line; break;
+        case 'Heavy': this.leader = TabStopBase_LeaderEnum.heavy; break;
+        case 'MiddleDot': this.leader = TabStopBase_LeaderEnum.middleDot; break;
+        default: this.leader = null; break;
       }
     } else {
-      leader = null;
+      this.leader = null;
     }
 
     if (json.containsKey('Position')) {
-      position = json['Position'];
+      this.position = json['Position'];
     } else {
-      position = null;
+      this.position = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (alignment != null) {
-      switch (alignment) {
+    var _result = new Map<String, dynamic>();
+    if (this.alignment != null) {
+      switch (this.alignment) {
         case TabStopBase_AlignmentEnum.left: _result['Alignment'] = 'Left'; break;
         case TabStopBase_AlignmentEnum.center: _result['Alignment'] = 'Center'; break;
         case TabStopBase_AlignmentEnum.right: _result['Alignment'] = 'Right'; break;
@@ -94,8 +94,8 @@ class TabStopBase implements ModelBase {
       }
     }
 
-    if (leader != null) {
-      switch (leader) {
+    if (this.leader != null) {
+      switch (this.leader) {
         case TabStopBase_LeaderEnum.none: _result['Leader'] = 'None'; break;
         case TabStopBase_LeaderEnum.dots: _result['Leader'] = 'Dots'; break;
         case TabStopBase_LeaderEnum.dashes: _result['Leader'] = 'Dashes'; break;
@@ -106,8 +106,8 @@ class TabStopBase implements ModelBase {
       }
     }
 
-    if (position != null) {
-      _result['Position'] = position;
+    if (this.position != null) {
+      _result['Position'] = this.position;
     }
     return _result;
   }

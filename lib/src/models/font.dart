@@ -157,792 +157,792 @@ class Font extends LinkElement {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('AllCaps')) {
-      allCaps = json['AllCaps'];
+      this.allCaps = json['AllCaps'];
     } else {
-      allCaps = null;
+      this.allCaps = null;
     }
 
     if (json.containsKey('Bidi')) {
-      bidi = json['Bidi'];
+      this.bidi = json['Bidi'];
     } else {
-      bidi = null;
+      this.bidi = null;
     }
 
     if (json.containsKey('Bold')) {
-      bold = json['Bold'];
+      this.bold = json['Bold'];
     } else {
-      bold = null;
+      this.bold = null;
     }
 
     if (json.containsKey('BoldBi')) {
-      boldBi = json['BoldBi'];
+      this.boldBi = json['BoldBi'];
     } else {
-      boldBi = null;
+      this.boldBi = null;
     }
 
     if (json.containsKey('Border')) {
-      border = Border();
-      border.deserialize(json['Border']);
+      this.border = new Border();
+      this.border.deserialize(json['Border']);
     } else {
-      border = null;
+      this.border = null;
     }
 
     if (json.containsKey('Color')) {
-      color = XmlColor();
-      color.deserialize(json['Color']);
+      this.color = new XmlColor();
+      this.color.deserialize(json['Color']);
     } else {
-      color = null;
+      this.color = null;
     }
 
     if (json.containsKey('ComplexScript')) {
-      complexScript = json['ComplexScript'];
+      this.complexScript = json['ComplexScript'];
     } else {
-      complexScript = null;
+      this.complexScript = null;
     }
 
     if (json.containsKey('DoubleStrikeThrough')) {
-      doubleStrikeThrough = json['DoubleStrikeThrough'];
+      this.doubleStrikeThrough = json['DoubleStrikeThrough'];
     } else {
-      doubleStrikeThrough = null;
+      this.doubleStrikeThrough = null;
     }
 
     if (json.containsKey('Emboss')) {
-      emboss = json['Emboss'];
+      this.emboss = json['Emboss'];
     } else {
-      emboss = null;
+      this.emboss = null;
     }
 
     if (json.containsKey('Engrave')) {
-      engrave = json['Engrave'];
+      this.engrave = json['Engrave'];
     } else {
-      engrave = null;
+      this.engrave = null;
     }
 
     if (json.containsKey('Hidden')) {
-      hidden = json['Hidden'];
+      this.hidden = json['Hidden'];
     } else {
-      hidden = null;
+      this.hidden = null;
     }
 
     if (json.containsKey('HighlightColor')) {
-      highlightColor = XmlColor();
-      highlightColor.deserialize(json['HighlightColor']);
+      this.highlightColor = new XmlColor();
+      this.highlightColor.deserialize(json['HighlightColor']);
     } else {
-      highlightColor = null;
+      this.highlightColor = null;
     }
 
     if (json.containsKey('Italic')) {
-      italic = json['Italic'];
+      this.italic = json['Italic'];
     } else {
-      italic = null;
+      this.italic = null;
     }
 
     if (json.containsKey('ItalicBi')) {
-      italicBi = json['ItalicBi'];
+      this.italicBi = json['ItalicBi'];
     } else {
-      italicBi = null;
+      this.italicBi = null;
     }
 
     if (json.containsKey('Kerning')) {
-      kerning = json['Kerning'];
+      this.kerning = json['Kerning'];
     } else {
-      kerning = null;
+      this.kerning = null;
     }
 
     if (json.containsKey('LocaleId')) {
-      localeId = json['LocaleId'];
+      this.localeId = json['LocaleId'];
     } else {
-      localeId = null;
+      this.localeId = null;
     }
 
     if (json.containsKey('LocaleIdBi')) {
-      localeIdBi = json['LocaleIdBi'];
+      this.localeIdBi = json['LocaleIdBi'];
     } else {
-      localeIdBi = null;
+      this.localeIdBi = null;
     }
 
     if (json.containsKey('LocaleIdFarEast')) {
-      localeIdFarEast = json['LocaleIdFarEast'];
+      this.localeIdFarEast = json['LocaleIdFarEast'];
     } else {
-      localeIdFarEast = null;
+      this.localeIdFarEast = null;
     }
 
     if (json.containsKey('Name')) {
-      name = json['Name'];
+      this.name = json['Name'];
     } else {
-      name = null;
+      this.name = null;
     }
 
     if (json.containsKey('NameAscii')) {
-      nameAscii = json['NameAscii'];
+      this.nameAscii = json['NameAscii'];
     } else {
-      nameAscii = null;
+      this.nameAscii = null;
     }
 
     if (json.containsKey('NameBi')) {
-      nameBi = json['NameBi'];
+      this.nameBi = json['NameBi'];
     } else {
-      nameBi = null;
+      this.nameBi = null;
     }
 
     if (json.containsKey('NameFarEast')) {
-      nameFarEast = json['NameFarEast'];
+      this.nameFarEast = json['NameFarEast'];
     } else {
-      nameFarEast = null;
+      this.nameFarEast = null;
     }
 
     if (json.containsKey('NameOther')) {
-      nameOther = json['NameOther'];
+      this.nameOther = json['NameOther'];
     } else {
-      nameOther = null;
+      this.nameOther = null;
     }
 
     if (json.containsKey('NoProofing')) {
-      noProofing = json['NoProofing'];
+      this.noProofing = json['NoProofing'];
     } else {
-      noProofing = null;
+      this.noProofing = null;
     }
 
     if (json.containsKey('Outline')) {
-      outline = json['Outline'];
+      this.outline = json['Outline'];
     } else {
-      outline = null;
+      this.outline = null;
     }
 
     if (json.containsKey('Position')) {
-      position = json['Position'];
+      this.position = json['Position'];
     } else {
-      position = null;
+      this.position = null;
     }
 
     if (json.containsKey('Scaling')) {
-      scaling = json['Scaling'];
+      this.scaling = json['Scaling'];
     } else {
-      scaling = null;
+      this.scaling = null;
     }
 
     if (json.containsKey('Shadow')) {
-      shadow = json['Shadow'];
+      this.shadow = json['Shadow'];
     } else {
-      shadow = null;
+      this.shadow = null;
     }
 
     if (json.containsKey('Size')) {
-      size = json['Size'];
+      this.size = json['Size'];
     } else {
-      size = null;
+      this.size = null;
     }
 
     if (json.containsKey('SizeBi')) {
-      sizeBi = json['SizeBi'];
+      this.sizeBi = json['SizeBi'];
     } else {
-      sizeBi = null;
+      this.sizeBi = null;
     }
 
     if (json.containsKey('SmallCaps')) {
-      smallCaps = json['SmallCaps'];
+      this.smallCaps = json['SmallCaps'];
     } else {
-      smallCaps = null;
+      this.smallCaps = null;
     }
 
     if (json.containsKey('Spacing')) {
-      spacing = json['Spacing'];
+      this.spacing = json['Spacing'];
     } else {
-      spacing = null;
+      this.spacing = null;
     }
 
     if (json.containsKey('StrikeThrough')) {
-      strikeThrough = json['StrikeThrough'];
+      this.strikeThrough = json['StrikeThrough'];
     } else {
-      strikeThrough = null;
+      this.strikeThrough = null;
     }
 
     if (json.containsKey('StyleIdentifier')) {
       switch (json['StyleIdentifier']) {
-        case 'Normal': styleIdentifier = Font_StyleIdentifierEnum.normal; break;
-        case 'Heading1': styleIdentifier = Font_StyleIdentifierEnum.heading1; break;
-        case 'Heading2': styleIdentifier = Font_StyleIdentifierEnum.heading2; break;
-        case 'Heading3': styleIdentifier = Font_StyleIdentifierEnum.heading3; break;
-        case 'Heading4': styleIdentifier = Font_StyleIdentifierEnum.heading4; break;
-        case 'Heading5': styleIdentifier = Font_StyleIdentifierEnum.heading5; break;
-        case 'Heading6': styleIdentifier = Font_StyleIdentifierEnum.heading6; break;
-        case 'Heading7': styleIdentifier = Font_StyleIdentifierEnum.heading7; break;
-        case 'Heading8': styleIdentifier = Font_StyleIdentifierEnum.heading8; break;
-        case 'Heading9': styleIdentifier = Font_StyleIdentifierEnum.heading9; break;
-        case 'Index1': styleIdentifier = Font_StyleIdentifierEnum.index1; break;
-        case 'Index2': styleIdentifier = Font_StyleIdentifierEnum.index2; break;
-        case 'Index3': styleIdentifier = Font_StyleIdentifierEnum.index3; break;
-        case 'Index4': styleIdentifier = Font_StyleIdentifierEnum.index4; break;
-        case 'Index5': styleIdentifier = Font_StyleIdentifierEnum.index5; break;
-        case 'Index6': styleIdentifier = Font_StyleIdentifierEnum.index6; break;
-        case 'Index7': styleIdentifier = Font_StyleIdentifierEnum.index7; break;
-        case 'Index8': styleIdentifier = Font_StyleIdentifierEnum.index8; break;
-        case 'Index9': styleIdentifier = Font_StyleIdentifierEnum.index9; break;
-        case 'Toc1': styleIdentifier = Font_StyleIdentifierEnum.toc1; break;
-        case 'Toc2': styleIdentifier = Font_StyleIdentifierEnum.toc2; break;
-        case 'Toc3': styleIdentifier = Font_StyleIdentifierEnum.toc3; break;
-        case 'Toc4': styleIdentifier = Font_StyleIdentifierEnum.toc4; break;
-        case 'Toc5': styleIdentifier = Font_StyleIdentifierEnum.toc5; break;
-        case 'Toc6': styleIdentifier = Font_StyleIdentifierEnum.toc6; break;
-        case 'Toc7': styleIdentifier = Font_StyleIdentifierEnum.toc7; break;
-        case 'Toc8': styleIdentifier = Font_StyleIdentifierEnum.toc8; break;
-        case 'Toc9': styleIdentifier = Font_StyleIdentifierEnum.toc9; break;
-        case 'NormalIndent': styleIdentifier = Font_StyleIdentifierEnum.normalIndent; break;
-        case 'FootnoteText': styleIdentifier = Font_StyleIdentifierEnum.footnoteText; break;
-        case 'CommentText': styleIdentifier = Font_StyleIdentifierEnum.commentText; break;
-        case 'Header': styleIdentifier = Font_StyleIdentifierEnum.header; break;
-        case 'Footer': styleIdentifier = Font_StyleIdentifierEnum.footer; break;
-        case 'IndexHeading': styleIdentifier = Font_StyleIdentifierEnum.indexHeading; break;
-        case 'Caption': styleIdentifier = Font_StyleIdentifierEnum.caption; break;
-        case 'TableOfFigures': styleIdentifier = Font_StyleIdentifierEnum.tableOfFigures; break;
-        case 'EnvelopeAddress': styleIdentifier = Font_StyleIdentifierEnum.envelopeAddress; break;
-        case 'EnvelopeReturn': styleIdentifier = Font_StyleIdentifierEnum.envelopeReturn; break;
-        case 'FootnoteReference': styleIdentifier = Font_StyleIdentifierEnum.footnoteReference; break;
-        case 'CommentReference': styleIdentifier = Font_StyleIdentifierEnum.commentReference; break;
-        case 'LineNumber': styleIdentifier = Font_StyleIdentifierEnum.lineNumber; break;
-        case 'PageNumber': styleIdentifier = Font_StyleIdentifierEnum.pageNumber; break;
-        case 'EndnoteReference': styleIdentifier = Font_StyleIdentifierEnum.endnoteReference; break;
-        case 'EndnoteText': styleIdentifier = Font_StyleIdentifierEnum.endnoteText; break;
-        case 'TableOfAuthorities': styleIdentifier = Font_StyleIdentifierEnum.tableOfAuthorities; break;
-        case 'Macro': styleIdentifier = Font_StyleIdentifierEnum.macro; break;
-        case 'ToaHeading': styleIdentifier = Font_StyleIdentifierEnum.toaHeading; break;
-        case 'List': styleIdentifier = Font_StyleIdentifierEnum.list; break;
-        case 'ListBullet': styleIdentifier = Font_StyleIdentifierEnum.listBullet; break;
-        case 'ListNumber': styleIdentifier = Font_StyleIdentifierEnum.listNumber; break;
-        case 'List2': styleIdentifier = Font_StyleIdentifierEnum.list2; break;
-        case 'List3': styleIdentifier = Font_StyleIdentifierEnum.list3; break;
-        case 'List4': styleIdentifier = Font_StyleIdentifierEnum.list4; break;
-        case 'List5': styleIdentifier = Font_StyleIdentifierEnum.list5; break;
-        case 'ListBullet2': styleIdentifier = Font_StyleIdentifierEnum.listBullet2; break;
-        case 'ListBullet3': styleIdentifier = Font_StyleIdentifierEnum.listBullet3; break;
-        case 'ListBullet4': styleIdentifier = Font_StyleIdentifierEnum.listBullet4; break;
-        case 'ListBullet5': styleIdentifier = Font_StyleIdentifierEnum.listBullet5; break;
-        case 'ListNumber2': styleIdentifier = Font_StyleIdentifierEnum.listNumber2; break;
-        case 'ListNumber3': styleIdentifier = Font_StyleIdentifierEnum.listNumber3; break;
-        case 'ListNumber4': styleIdentifier = Font_StyleIdentifierEnum.listNumber4; break;
-        case 'ListNumber5': styleIdentifier = Font_StyleIdentifierEnum.listNumber5; break;
-        case 'Title': styleIdentifier = Font_StyleIdentifierEnum.title; break;
-        case 'Closing': styleIdentifier = Font_StyleIdentifierEnum.closing; break;
-        case 'Signature': styleIdentifier = Font_StyleIdentifierEnum.signature; break;
-        case 'DefaultParagraphFont': styleIdentifier = Font_StyleIdentifierEnum.defaultParagraphFont; break;
-        case 'BodyText': styleIdentifier = Font_StyleIdentifierEnum.bodyText; break;
-        case 'BodyTextInd': styleIdentifier = Font_StyleIdentifierEnum.bodyTextInd; break;
-        case 'ListContinue': styleIdentifier = Font_StyleIdentifierEnum.listContinue; break;
-        case 'ListContinue2': styleIdentifier = Font_StyleIdentifierEnum.listContinue2; break;
-        case 'ListContinue3': styleIdentifier = Font_StyleIdentifierEnum.listContinue3; break;
-        case 'ListContinue4': styleIdentifier = Font_StyleIdentifierEnum.listContinue4; break;
-        case 'ListContinue5': styleIdentifier = Font_StyleIdentifierEnum.listContinue5; break;
-        case 'MessageHeader': styleIdentifier = Font_StyleIdentifierEnum.messageHeader; break;
-        case 'Subtitle': styleIdentifier = Font_StyleIdentifierEnum.subtitle; break;
-        case 'Salutation': styleIdentifier = Font_StyleIdentifierEnum.salutation; break;
-        case 'Date': styleIdentifier = Font_StyleIdentifierEnum.date; break;
-        case 'BodyText1I': styleIdentifier = Font_StyleIdentifierEnum.bodyText1I; break;
-        case 'BodyText1I2': styleIdentifier = Font_StyleIdentifierEnum.bodyText1I2; break;
-        case 'NoteHeading': styleIdentifier = Font_StyleIdentifierEnum.noteHeading; break;
-        case 'BodyText2': styleIdentifier = Font_StyleIdentifierEnum.bodyText2; break;
-        case 'BodyText3': styleIdentifier = Font_StyleIdentifierEnum.bodyText3; break;
-        case 'BodyTextInd2': styleIdentifier = Font_StyleIdentifierEnum.bodyTextInd2; break;
-        case 'BodyTextInd3': styleIdentifier = Font_StyleIdentifierEnum.bodyTextInd3; break;
-        case 'BlockText': styleIdentifier = Font_StyleIdentifierEnum.blockText; break;
-        case 'Hyperlink': styleIdentifier = Font_StyleIdentifierEnum.hyperlink; break;
-        case 'FollowedHyperlink': styleIdentifier = Font_StyleIdentifierEnum.followedHyperlink; break;
-        case 'Strong': styleIdentifier = Font_StyleIdentifierEnum.strong; break;
-        case 'Emphasis': styleIdentifier = Font_StyleIdentifierEnum.emphasis; break;
-        case 'DocumentMap': styleIdentifier = Font_StyleIdentifierEnum.documentMap; break;
-        case 'PlainText': styleIdentifier = Font_StyleIdentifierEnum.plainText; break;
-        case 'EmailSignature': styleIdentifier = Font_StyleIdentifierEnum.emailSignature; break;
-        case 'HtmlTopOfForm': styleIdentifier = Font_StyleIdentifierEnum.htmlTopOfForm; break;
-        case 'HtmlBottomOfForm': styleIdentifier = Font_StyleIdentifierEnum.htmlBottomOfForm; break;
-        case 'NormalWeb': styleIdentifier = Font_StyleIdentifierEnum.normalWeb; break;
-        case 'HtmlAcronym': styleIdentifier = Font_StyleIdentifierEnum.htmlAcronym; break;
-        case 'HtmlAddress': styleIdentifier = Font_StyleIdentifierEnum.htmlAddress; break;
-        case 'HtmlCite': styleIdentifier = Font_StyleIdentifierEnum.htmlCite; break;
-        case 'HtmlCode': styleIdentifier = Font_StyleIdentifierEnum.htmlCode; break;
-        case 'HtmlDefinition': styleIdentifier = Font_StyleIdentifierEnum.htmlDefinition; break;
-        case 'HtmlKeyboard': styleIdentifier = Font_StyleIdentifierEnum.htmlKeyboard; break;
-        case 'HtmlPreformatted': styleIdentifier = Font_StyleIdentifierEnum.htmlPreformatted; break;
-        case 'HtmlSample': styleIdentifier = Font_StyleIdentifierEnum.htmlSample; break;
-        case 'HtmlTypewriter': styleIdentifier = Font_StyleIdentifierEnum.htmlTypewriter; break;
-        case 'HtmlVariable': styleIdentifier = Font_StyleIdentifierEnum.htmlVariable; break;
-        case 'TableNormal': styleIdentifier = Font_StyleIdentifierEnum.tableNormal; break;
-        case 'CommentSubject': styleIdentifier = Font_StyleIdentifierEnum.commentSubject; break;
-        case 'NoList': styleIdentifier = Font_StyleIdentifierEnum.noList; break;
-        case 'OutlineList1': styleIdentifier = Font_StyleIdentifierEnum.outlineList1; break;
-        case 'OutlineList2': styleIdentifier = Font_StyleIdentifierEnum.outlineList2; break;
-        case 'OutlineList3': styleIdentifier = Font_StyleIdentifierEnum.outlineList3; break;
-        case 'TableSimple1': styleIdentifier = Font_StyleIdentifierEnum.tableSimple1; break;
-        case 'TableSimple2': styleIdentifier = Font_StyleIdentifierEnum.tableSimple2; break;
-        case 'TableSimple3': styleIdentifier = Font_StyleIdentifierEnum.tableSimple3; break;
-        case 'TableClassic1': styleIdentifier = Font_StyleIdentifierEnum.tableClassic1; break;
-        case 'TableClassic2': styleIdentifier = Font_StyleIdentifierEnum.tableClassic2; break;
-        case 'TableClassic3': styleIdentifier = Font_StyleIdentifierEnum.tableClassic3; break;
-        case 'TableClassic4': styleIdentifier = Font_StyleIdentifierEnum.tableClassic4; break;
-        case 'TableColorful1': styleIdentifier = Font_StyleIdentifierEnum.tableColorful1; break;
-        case 'TableColorful2': styleIdentifier = Font_StyleIdentifierEnum.tableColorful2; break;
-        case 'TableColorful3': styleIdentifier = Font_StyleIdentifierEnum.tableColorful3; break;
-        case 'TableColumns1': styleIdentifier = Font_StyleIdentifierEnum.tableColumns1; break;
-        case 'TableColumns2': styleIdentifier = Font_StyleIdentifierEnum.tableColumns2; break;
-        case 'TableColumns3': styleIdentifier = Font_StyleIdentifierEnum.tableColumns3; break;
-        case 'TableColumns4': styleIdentifier = Font_StyleIdentifierEnum.tableColumns4; break;
-        case 'TableColumns5': styleIdentifier = Font_StyleIdentifierEnum.tableColumns5; break;
-        case 'TableGrid1': styleIdentifier = Font_StyleIdentifierEnum.tableGrid1; break;
-        case 'TableGrid2': styleIdentifier = Font_StyleIdentifierEnum.tableGrid2; break;
-        case 'TableGrid3': styleIdentifier = Font_StyleIdentifierEnum.tableGrid3; break;
-        case 'TableGrid4': styleIdentifier = Font_StyleIdentifierEnum.tableGrid4; break;
-        case 'TableGrid5': styleIdentifier = Font_StyleIdentifierEnum.tableGrid5; break;
-        case 'TableGrid6': styleIdentifier = Font_StyleIdentifierEnum.tableGrid6; break;
-        case 'TableGrid7': styleIdentifier = Font_StyleIdentifierEnum.tableGrid7; break;
-        case 'TableGrid8': styleIdentifier = Font_StyleIdentifierEnum.tableGrid8; break;
-        case 'TableList1': styleIdentifier = Font_StyleIdentifierEnum.tableList1; break;
-        case 'TableList2': styleIdentifier = Font_StyleIdentifierEnum.tableList2; break;
-        case 'TableList3': styleIdentifier = Font_StyleIdentifierEnum.tableList3; break;
-        case 'TableList4': styleIdentifier = Font_StyleIdentifierEnum.tableList4; break;
-        case 'TableList5': styleIdentifier = Font_StyleIdentifierEnum.tableList5; break;
-        case 'TableList6': styleIdentifier = Font_StyleIdentifierEnum.tableList6; break;
-        case 'TableList7': styleIdentifier = Font_StyleIdentifierEnum.tableList7; break;
-        case 'TableList8': styleIdentifier = Font_StyleIdentifierEnum.tableList8; break;
-        case 'Table3DEffects1': styleIdentifier = Font_StyleIdentifierEnum.table3DEffects1; break;
-        case 'Table3DEffects2': styleIdentifier = Font_StyleIdentifierEnum.table3DEffects2; break;
-        case 'Table3DEffects3': styleIdentifier = Font_StyleIdentifierEnum.table3DEffects3; break;
-        case 'TableContemporary': styleIdentifier = Font_StyleIdentifierEnum.tableContemporary; break;
-        case 'TableElegant': styleIdentifier = Font_StyleIdentifierEnum.tableElegant; break;
-        case 'TableProfessional': styleIdentifier = Font_StyleIdentifierEnum.tableProfessional; break;
-        case 'TableSubtle1': styleIdentifier = Font_StyleIdentifierEnum.tableSubtle1; break;
-        case 'TableSubtle2': styleIdentifier = Font_StyleIdentifierEnum.tableSubtle2; break;
-        case 'TableWeb1': styleIdentifier = Font_StyleIdentifierEnum.tableWeb1; break;
-        case 'TableWeb2': styleIdentifier = Font_StyleIdentifierEnum.tableWeb2; break;
-        case 'TableWeb3': styleIdentifier = Font_StyleIdentifierEnum.tableWeb3; break;
-        case 'BalloonText': styleIdentifier = Font_StyleIdentifierEnum.balloonText; break;
-        case 'TableGrid': styleIdentifier = Font_StyleIdentifierEnum.tableGrid; break;
-        case 'TableTheme': styleIdentifier = Font_StyleIdentifierEnum.tableTheme; break;
-        case 'PlaceholderText': styleIdentifier = Font_StyleIdentifierEnum.placeholderText; break;
-        case 'NoSpacing': styleIdentifier = Font_StyleIdentifierEnum.noSpacing; break;
-        case 'LightShading': styleIdentifier = Font_StyleIdentifierEnum.lightShading; break;
-        case 'LightList': styleIdentifier = Font_StyleIdentifierEnum.lightList; break;
-        case 'LightGrid': styleIdentifier = Font_StyleIdentifierEnum.lightGrid; break;
-        case 'MediumShading1': styleIdentifier = Font_StyleIdentifierEnum.mediumShading1; break;
-        case 'MediumShading2': styleIdentifier = Font_StyleIdentifierEnum.mediumShading2; break;
-        case 'MediumList1': styleIdentifier = Font_StyleIdentifierEnum.mediumList1; break;
-        case 'MediumList2': styleIdentifier = Font_StyleIdentifierEnum.mediumList2; break;
-        case 'MediumGrid1': styleIdentifier = Font_StyleIdentifierEnum.mediumGrid1; break;
-        case 'MediumGrid2': styleIdentifier = Font_StyleIdentifierEnum.mediumGrid2; break;
-        case 'MediumGrid3': styleIdentifier = Font_StyleIdentifierEnum.mediumGrid3; break;
-        case 'DarkList': styleIdentifier = Font_StyleIdentifierEnum.darkList; break;
-        case 'ColorfulShading': styleIdentifier = Font_StyleIdentifierEnum.colorfulShading; break;
-        case 'ColorfulList': styleIdentifier = Font_StyleIdentifierEnum.colorfulList; break;
-        case 'ColorfulGrid': styleIdentifier = Font_StyleIdentifierEnum.colorfulGrid; break;
-        case 'LightShadingAccent1': styleIdentifier = Font_StyleIdentifierEnum.lightShadingAccent1; break;
-        case 'LightListAccent1': styleIdentifier = Font_StyleIdentifierEnum.lightListAccent1; break;
-        case 'LightGridAccent1': styleIdentifier = Font_StyleIdentifierEnum.lightGridAccent1; break;
-        case 'MediumShading1Accent1': styleIdentifier = Font_StyleIdentifierEnum.mediumShading1Accent1; break;
-        case 'MediumShading2Accent1': styleIdentifier = Font_StyleIdentifierEnum.mediumShading2Accent1; break;
-        case 'MediumList1Accent1': styleIdentifier = Font_StyleIdentifierEnum.mediumList1Accent1; break;
-        case 'Revision': styleIdentifier = Font_StyleIdentifierEnum.revision; break;
-        case 'ListParagraph': styleIdentifier = Font_StyleIdentifierEnum.listParagraph; break;
-        case 'Quote': styleIdentifier = Font_StyleIdentifierEnum.quote; break;
-        case 'IntenseQuote': styleIdentifier = Font_StyleIdentifierEnum.intenseQuote; break;
-        case 'MediumList2Accent1': styleIdentifier = Font_StyleIdentifierEnum.mediumList2Accent1; break;
-        case 'MediumGrid1Accent1': styleIdentifier = Font_StyleIdentifierEnum.mediumGrid1Accent1; break;
-        case 'MediumGrid2Accent1': styleIdentifier = Font_StyleIdentifierEnum.mediumGrid2Accent1; break;
-        case 'MediumGrid3Accent1': styleIdentifier = Font_StyleIdentifierEnum.mediumGrid3Accent1; break;
-        case 'DarkListAccent1': styleIdentifier = Font_StyleIdentifierEnum.darkListAccent1; break;
-        case 'ColorfulShadingAccent1': styleIdentifier = Font_StyleIdentifierEnum.colorfulShadingAccent1; break;
-        case 'ColorfulListAccent1': styleIdentifier = Font_StyleIdentifierEnum.colorfulListAccent1; break;
-        case 'ColorfulGridAccent1': styleIdentifier = Font_StyleIdentifierEnum.colorfulGridAccent1; break;
-        case 'LightShadingAccent2': styleIdentifier = Font_StyleIdentifierEnum.lightShadingAccent2; break;
-        case 'LightListAccent2': styleIdentifier = Font_StyleIdentifierEnum.lightListAccent2; break;
-        case 'LightGridAccent2': styleIdentifier = Font_StyleIdentifierEnum.lightGridAccent2; break;
-        case 'MediumShading1Accent2': styleIdentifier = Font_StyleIdentifierEnum.mediumShading1Accent2; break;
-        case 'MediumShading2Accent2': styleIdentifier = Font_StyleIdentifierEnum.mediumShading2Accent2; break;
-        case 'MediumList1Accent2': styleIdentifier = Font_StyleIdentifierEnum.mediumList1Accent2; break;
-        case 'MediumList2Accent2': styleIdentifier = Font_StyleIdentifierEnum.mediumList2Accent2; break;
-        case 'MediumGrid1Accent2': styleIdentifier = Font_StyleIdentifierEnum.mediumGrid1Accent2; break;
-        case 'MediumGrid2Accent2': styleIdentifier = Font_StyleIdentifierEnum.mediumGrid2Accent2; break;
-        case 'MediumGrid3Accent2': styleIdentifier = Font_StyleIdentifierEnum.mediumGrid3Accent2; break;
-        case 'DarkListAccent2': styleIdentifier = Font_StyleIdentifierEnum.darkListAccent2; break;
-        case 'ColorfulShadingAccent2': styleIdentifier = Font_StyleIdentifierEnum.colorfulShadingAccent2; break;
-        case 'ColorfulListAccent2': styleIdentifier = Font_StyleIdentifierEnum.colorfulListAccent2; break;
-        case 'ColorfulGridAccent2': styleIdentifier = Font_StyleIdentifierEnum.colorfulGridAccent2; break;
-        case 'LightShadingAccent3': styleIdentifier = Font_StyleIdentifierEnum.lightShadingAccent3; break;
-        case 'LightListAccent3': styleIdentifier = Font_StyleIdentifierEnum.lightListAccent3; break;
-        case 'LightGridAccent3': styleIdentifier = Font_StyleIdentifierEnum.lightGridAccent3; break;
-        case 'MediumShading1Accent3': styleIdentifier = Font_StyleIdentifierEnum.mediumShading1Accent3; break;
-        case 'MediumShading2Accent3': styleIdentifier = Font_StyleIdentifierEnum.mediumShading2Accent3; break;
-        case 'MediumList1Accent3': styleIdentifier = Font_StyleIdentifierEnum.mediumList1Accent3; break;
-        case 'MediumList2Accent3': styleIdentifier = Font_StyleIdentifierEnum.mediumList2Accent3; break;
-        case 'MediumGrid1Accent3': styleIdentifier = Font_StyleIdentifierEnum.mediumGrid1Accent3; break;
-        case 'MediumGrid2Accent3': styleIdentifier = Font_StyleIdentifierEnum.mediumGrid2Accent3; break;
-        case 'MediumGrid3Accent3': styleIdentifier = Font_StyleIdentifierEnum.mediumGrid3Accent3; break;
-        case 'DarkListAccent3': styleIdentifier = Font_StyleIdentifierEnum.darkListAccent3; break;
-        case 'ColorfulShadingAccent3': styleIdentifier = Font_StyleIdentifierEnum.colorfulShadingAccent3; break;
-        case 'ColorfulListAccent3': styleIdentifier = Font_StyleIdentifierEnum.colorfulListAccent3; break;
-        case 'ColorfulGridAccent3': styleIdentifier = Font_StyleIdentifierEnum.colorfulGridAccent3; break;
-        case 'LightShadingAccent4': styleIdentifier = Font_StyleIdentifierEnum.lightShadingAccent4; break;
-        case 'LightListAccent4': styleIdentifier = Font_StyleIdentifierEnum.lightListAccent4; break;
-        case 'LightGridAccent4': styleIdentifier = Font_StyleIdentifierEnum.lightGridAccent4; break;
-        case 'MediumShading1Accent4': styleIdentifier = Font_StyleIdentifierEnum.mediumShading1Accent4; break;
-        case 'MediumShading2Accent4': styleIdentifier = Font_StyleIdentifierEnum.mediumShading2Accent4; break;
-        case 'MediumList1Accent4': styleIdentifier = Font_StyleIdentifierEnum.mediumList1Accent4; break;
-        case 'MediumList2Accent4': styleIdentifier = Font_StyleIdentifierEnum.mediumList2Accent4; break;
-        case 'MediumGrid1Accent4': styleIdentifier = Font_StyleIdentifierEnum.mediumGrid1Accent4; break;
-        case 'MediumGrid2Accent4': styleIdentifier = Font_StyleIdentifierEnum.mediumGrid2Accent4; break;
-        case 'MediumGrid3Accent4': styleIdentifier = Font_StyleIdentifierEnum.mediumGrid3Accent4; break;
-        case 'DarkListAccent4': styleIdentifier = Font_StyleIdentifierEnum.darkListAccent4; break;
-        case 'ColorfulShadingAccent4': styleIdentifier = Font_StyleIdentifierEnum.colorfulShadingAccent4; break;
-        case 'ColorfulListAccent4': styleIdentifier = Font_StyleIdentifierEnum.colorfulListAccent4; break;
-        case 'ColorfulGridAccent4': styleIdentifier = Font_StyleIdentifierEnum.colorfulGridAccent4; break;
-        case 'LightShadingAccent5': styleIdentifier = Font_StyleIdentifierEnum.lightShadingAccent5; break;
-        case 'LightListAccent5': styleIdentifier = Font_StyleIdentifierEnum.lightListAccent5; break;
-        case 'LightGridAccent5': styleIdentifier = Font_StyleIdentifierEnum.lightGridAccent5; break;
-        case 'MediumShading1Accent5': styleIdentifier = Font_StyleIdentifierEnum.mediumShading1Accent5; break;
-        case 'MediumShading2Accent5': styleIdentifier = Font_StyleIdentifierEnum.mediumShading2Accent5; break;
-        case 'MediumList1Accent5': styleIdentifier = Font_StyleIdentifierEnum.mediumList1Accent5; break;
-        case 'MediumList2Accent5': styleIdentifier = Font_StyleIdentifierEnum.mediumList2Accent5; break;
-        case 'MediumGrid1Accent5': styleIdentifier = Font_StyleIdentifierEnum.mediumGrid1Accent5; break;
-        case 'MediumGrid2Accent5': styleIdentifier = Font_StyleIdentifierEnum.mediumGrid2Accent5; break;
-        case 'MediumGrid3Accent5': styleIdentifier = Font_StyleIdentifierEnum.mediumGrid3Accent5; break;
-        case 'DarkListAccent5': styleIdentifier = Font_StyleIdentifierEnum.darkListAccent5; break;
-        case 'ColorfulShadingAccent5': styleIdentifier = Font_StyleIdentifierEnum.colorfulShadingAccent5; break;
-        case 'ColorfulListAccent5': styleIdentifier = Font_StyleIdentifierEnum.colorfulListAccent5; break;
-        case 'ColorfulGridAccent5': styleIdentifier = Font_StyleIdentifierEnum.colorfulGridAccent5; break;
-        case 'LightShadingAccent6': styleIdentifier = Font_StyleIdentifierEnum.lightShadingAccent6; break;
-        case 'LightListAccent6': styleIdentifier = Font_StyleIdentifierEnum.lightListAccent6; break;
-        case 'LightGridAccent6': styleIdentifier = Font_StyleIdentifierEnum.lightGridAccent6; break;
-        case 'MediumShading1Accent6': styleIdentifier = Font_StyleIdentifierEnum.mediumShading1Accent6; break;
-        case 'MediumShading2Accent6': styleIdentifier = Font_StyleIdentifierEnum.mediumShading2Accent6; break;
-        case 'MediumList1Accent6': styleIdentifier = Font_StyleIdentifierEnum.mediumList1Accent6; break;
-        case 'MediumList2Accent6': styleIdentifier = Font_StyleIdentifierEnum.mediumList2Accent6; break;
-        case 'MediumGrid1Accent6': styleIdentifier = Font_StyleIdentifierEnum.mediumGrid1Accent6; break;
-        case 'MediumGrid2Accent6': styleIdentifier = Font_StyleIdentifierEnum.mediumGrid2Accent6; break;
-        case 'MediumGrid3Accent6': styleIdentifier = Font_StyleIdentifierEnum.mediumGrid3Accent6; break;
-        case 'DarkListAccent6': styleIdentifier = Font_StyleIdentifierEnum.darkListAccent6; break;
-        case 'ColorfulShadingAccent6': styleIdentifier = Font_StyleIdentifierEnum.colorfulShadingAccent6; break;
-        case 'ColorfulListAccent6': styleIdentifier = Font_StyleIdentifierEnum.colorfulListAccent6; break;
-        case 'ColorfulGridAccent6': styleIdentifier = Font_StyleIdentifierEnum.colorfulGridAccent6; break;
-        case 'SubtleEmphasis': styleIdentifier = Font_StyleIdentifierEnum.subtleEmphasis; break;
-        case 'IntenseEmphasis': styleIdentifier = Font_StyleIdentifierEnum.intenseEmphasis; break;
-        case 'SubtleReference': styleIdentifier = Font_StyleIdentifierEnum.subtleReference; break;
-        case 'IntenseReference': styleIdentifier = Font_StyleIdentifierEnum.intenseReference; break;
-        case 'BookTitle': styleIdentifier = Font_StyleIdentifierEnum.bookTitle; break;
-        case 'Bibliography': styleIdentifier = Font_StyleIdentifierEnum.bibliography; break;
-        case 'TocHeading': styleIdentifier = Font_StyleIdentifierEnum.tocHeading; break;
-        case 'PlainTable1': styleIdentifier = Font_StyleIdentifierEnum.plainTable1; break;
-        case 'PlainTable2': styleIdentifier = Font_StyleIdentifierEnum.plainTable2; break;
-        case 'PlainTable3': styleIdentifier = Font_StyleIdentifierEnum.plainTable3; break;
-        case 'PlainTable4': styleIdentifier = Font_StyleIdentifierEnum.plainTable4; break;
-        case 'PlainTable5': styleIdentifier = Font_StyleIdentifierEnum.plainTable5; break;
-        case 'TableGridLight': styleIdentifier = Font_StyleIdentifierEnum.tableGridLight; break;
-        case 'GridTable1Light': styleIdentifier = Font_StyleIdentifierEnum.gridTable1Light; break;
-        case 'GridTable2': styleIdentifier = Font_StyleIdentifierEnum.gridTable2; break;
-        case 'GridTable3': styleIdentifier = Font_StyleIdentifierEnum.gridTable3; break;
-        case 'GridTable4': styleIdentifier = Font_StyleIdentifierEnum.gridTable4; break;
-        case 'GridTable5Dark': styleIdentifier = Font_StyleIdentifierEnum.gridTable5Dark; break;
-        case 'GridTable6Colorful': styleIdentifier = Font_StyleIdentifierEnum.gridTable6Colorful; break;
-        case 'GridTable7Colorful': styleIdentifier = Font_StyleIdentifierEnum.gridTable7Colorful; break;
-        case 'GridTable1LightAccent1': styleIdentifier = Font_StyleIdentifierEnum.gridTable1LightAccent1; break;
-        case 'GridTable2Accent1': styleIdentifier = Font_StyleIdentifierEnum.gridTable2Accent1; break;
-        case 'GridTable3Accent1': styleIdentifier = Font_StyleIdentifierEnum.gridTable3Accent1; break;
-        case 'GridTable4Accent1': styleIdentifier = Font_StyleIdentifierEnum.gridTable4Accent1; break;
-        case 'GridTable5DarkAccent1': styleIdentifier = Font_StyleIdentifierEnum.gridTable5DarkAccent1; break;
-        case 'GridTable6ColorfulAccent1': styleIdentifier = Font_StyleIdentifierEnum.gridTable6ColorfulAccent1; break;
-        case 'GridTable7ColorfulAccent1': styleIdentifier = Font_StyleIdentifierEnum.gridTable7ColorfulAccent1; break;
-        case 'GridTable1LightAccent2': styleIdentifier = Font_StyleIdentifierEnum.gridTable1LightAccent2; break;
-        case 'GridTable2Accent2': styleIdentifier = Font_StyleIdentifierEnum.gridTable2Accent2; break;
-        case 'GridTable3Accent2': styleIdentifier = Font_StyleIdentifierEnum.gridTable3Accent2; break;
-        case 'GridTable4Accent2': styleIdentifier = Font_StyleIdentifierEnum.gridTable4Accent2; break;
-        case 'GridTable5DarkAccent2': styleIdentifier = Font_StyleIdentifierEnum.gridTable5DarkAccent2; break;
-        case 'GridTable6ColorfulAccent2': styleIdentifier = Font_StyleIdentifierEnum.gridTable6ColorfulAccent2; break;
-        case 'GridTable7ColorfulAccent2': styleIdentifier = Font_StyleIdentifierEnum.gridTable7ColorfulAccent2; break;
-        case 'GridTable1LightAccent3': styleIdentifier = Font_StyleIdentifierEnum.gridTable1LightAccent3; break;
-        case 'GridTable2Accent3': styleIdentifier = Font_StyleIdentifierEnum.gridTable2Accent3; break;
-        case 'GridTable3Accent3': styleIdentifier = Font_StyleIdentifierEnum.gridTable3Accent3; break;
-        case 'GridTable4Accent3': styleIdentifier = Font_StyleIdentifierEnum.gridTable4Accent3; break;
-        case 'GridTable5DarkAccent3': styleIdentifier = Font_StyleIdentifierEnum.gridTable5DarkAccent3; break;
-        case 'GridTable6ColorfulAccent3': styleIdentifier = Font_StyleIdentifierEnum.gridTable6ColorfulAccent3; break;
-        case 'GridTable7ColorfulAccent3': styleIdentifier = Font_StyleIdentifierEnum.gridTable7ColorfulAccent3; break;
-        case 'GridTable1LightAccent4': styleIdentifier = Font_StyleIdentifierEnum.gridTable1LightAccent4; break;
-        case 'GridTable2Accent4': styleIdentifier = Font_StyleIdentifierEnum.gridTable2Accent4; break;
-        case 'GridTable3Accent4': styleIdentifier = Font_StyleIdentifierEnum.gridTable3Accent4; break;
-        case 'GridTable4Accent4': styleIdentifier = Font_StyleIdentifierEnum.gridTable4Accent4; break;
-        case 'GridTable5DarkAccent4': styleIdentifier = Font_StyleIdentifierEnum.gridTable5DarkAccent4; break;
-        case 'GridTable6ColorfulAccent4': styleIdentifier = Font_StyleIdentifierEnum.gridTable6ColorfulAccent4; break;
-        case 'GridTable7ColorfulAccent4': styleIdentifier = Font_StyleIdentifierEnum.gridTable7ColorfulAccent4; break;
-        case 'GridTable1LightAccent5': styleIdentifier = Font_StyleIdentifierEnum.gridTable1LightAccent5; break;
-        case 'GridTable2Accent5': styleIdentifier = Font_StyleIdentifierEnum.gridTable2Accent5; break;
-        case 'GridTable3Accent5': styleIdentifier = Font_StyleIdentifierEnum.gridTable3Accent5; break;
-        case 'GridTable4Accent5': styleIdentifier = Font_StyleIdentifierEnum.gridTable4Accent5; break;
-        case 'GridTable5DarkAccent5': styleIdentifier = Font_StyleIdentifierEnum.gridTable5DarkAccent5; break;
-        case 'GridTable6ColorfulAccent5': styleIdentifier = Font_StyleIdentifierEnum.gridTable6ColorfulAccent5; break;
-        case 'GridTable7ColorfulAccent5': styleIdentifier = Font_StyleIdentifierEnum.gridTable7ColorfulAccent5; break;
-        case 'GridTable1LightAccent6': styleIdentifier = Font_StyleIdentifierEnum.gridTable1LightAccent6; break;
-        case 'GridTable2Accent6': styleIdentifier = Font_StyleIdentifierEnum.gridTable2Accent6; break;
-        case 'GridTable3Accent6': styleIdentifier = Font_StyleIdentifierEnum.gridTable3Accent6; break;
-        case 'GridTable4Accent6': styleIdentifier = Font_StyleIdentifierEnum.gridTable4Accent6; break;
-        case 'GridTable5DarkAccent6': styleIdentifier = Font_StyleIdentifierEnum.gridTable5DarkAccent6; break;
-        case 'GridTable6ColorfulAccent6': styleIdentifier = Font_StyleIdentifierEnum.gridTable6ColorfulAccent6; break;
-        case 'GridTable7ColorfulAccent6': styleIdentifier = Font_StyleIdentifierEnum.gridTable7ColorfulAccent6; break;
-        case 'ListTable1Light': styleIdentifier = Font_StyleIdentifierEnum.listTable1Light; break;
-        case 'ListTable2': styleIdentifier = Font_StyleIdentifierEnum.listTable2; break;
-        case 'ListTable3': styleIdentifier = Font_StyleIdentifierEnum.listTable3; break;
-        case 'ListTable4': styleIdentifier = Font_StyleIdentifierEnum.listTable4; break;
-        case 'ListTable5Dark': styleIdentifier = Font_StyleIdentifierEnum.listTable5Dark; break;
-        case 'ListTable6Colorful': styleIdentifier = Font_StyleIdentifierEnum.listTable6Colorful; break;
-        case 'ListTable7Colorful': styleIdentifier = Font_StyleIdentifierEnum.listTable7Colorful; break;
-        case 'ListTable1LightAccent1': styleIdentifier = Font_StyleIdentifierEnum.listTable1LightAccent1; break;
-        case 'ListTable2Accent1': styleIdentifier = Font_StyleIdentifierEnum.listTable2Accent1; break;
-        case 'ListTable3Accent1': styleIdentifier = Font_StyleIdentifierEnum.listTable3Accent1; break;
-        case 'ListTable4Accent1': styleIdentifier = Font_StyleIdentifierEnum.listTable4Accent1; break;
-        case 'ListTable5DarkAccent1': styleIdentifier = Font_StyleIdentifierEnum.listTable5DarkAccent1; break;
-        case 'ListTable6ColorfulAccent1': styleIdentifier = Font_StyleIdentifierEnum.listTable6ColorfulAccent1; break;
-        case 'ListTable7ColorfulAccent1': styleIdentifier = Font_StyleIdentifierEnum.listTable7ColorfulAccent1; break;
-        case 'ListTable1LightAccent2': styleIdentifier = Font_StyleIdentifierEnum.listTable1LightAccent2; break;
-        case 'ListTable2Accent2': styleIdentifier = Font_StyleIdentifierEnum.listTable2Accent2; break;
-        case 'ListTable3Accent2': styleIdentifier = Font_StyleIdentifierEnum.listTable3Accent2; break;
-        case 'ListTable4Accent2': styleIdentifier = Font_StyleIdentifierEnum.listTable4Accent2; break;
-        case 'ListTable5DarkAccent2': styleIdentifier = Font_StyleIdentifierEnum.listTable5DarkAccent2; break;
-        case 'ListTable6ColorfulAccent2': styleIdentifier = Font_StyleIdentifierEnum.listTable6ColorfulAccent2; break;
-        case 'ListTable7ColorfulAccent2': styleIdentifier = Font_StyleIdentifierEnum.listTable7ColorfulAccent2; break;
-        case 'ListTable1LightAccent3': styleIdentifier = Font_StyleIdentifierEnum.listTable1LightAccent3; break;
-        case 'ListTable2Accent3': styleIdentifier = Font_StyleIdentifierEnum.listTable2Accent3; break;
-        case 'ListTable3Accent3': styleIdentifier = Font_StyleIdentifierEnum.listTable3Accent3; break;
-        case 'ListTable4Accent3': styleIdentifier = Font_StyleIdentifierEnum.listTable4Accent3; break;
-        case 'ListTable5DarkAccent3': styleIdentifier = Font_StyleIdentifierEnum.listTable5DarkAccent3; break;
-        case 'ListTable6ColorfulAccent3': styleIdentifier = Font_StyleIdentifierEnum.listTable6ColorfulAccent3; break;
-        case 'ListTable7ColorfulAccent3': styleIdentifier = Font_StyleIdentifierEnum.listTable7ColorfulAccent3; break;
-        case 'ListTable1LightAccent4': styleIdentifier = Font_StyleIdentifierEnum.listTable1LightAccent4; break;
-        case 'ListTable2Accent4': styleIdentifier = Font_StyleIdentifierEnum.listTable2Accent4; break;
-        case 'ListTable3Accent4': styleIdentifier = Font_StyleIdentifierEnum.listTable3Accent4; break;
-        case 'ListTable4Accent4': styleIdentifier = Font_StyleIdentifierEnum.listTable4Accent4; break;
-        case 'ListTable5DarkAccent4': styleIdentifier = Font_StyleIdentifierEnum.listTable5DarkAccent4; break;
-        case 'ListTable6ColorfulAccent4': styleIdentifier = Font_StyleIdentifierEnum.listTable6ColorfulAccent4; break;
-        case 'ListTable7ColorfulAccent4': styleIdentifier = Font_StyleIdentifierEnum.listTable7ColorfulAccent4; break;
-        case 'ListTable1LightAccent5': styleIdentifier = Font_StyleIdentifierEnum.listTable1LightAccent5; break;
-        case 'ListTable2Accent5': styleIdentifier = Font_StyleIdentifierEnum.listTable2Accent5; break;
-        case 'ListTable3Accent5': styleIdentifier = Font_StyleIdentifierEnum.listTable3Accent5; break;
-        case 'ListTable4Accent5': styleIdentifier = Font_StyleIdentifierEnum.listTable4Accent5; break;
-        case 'ListTable5DarkAccent5': styleIdentifier = Font_StyleIdentifierEnum.listTable5DarkAccent5; break;
-        case 'ListTable6ColorfulAccent5': styleIdentifier = Font_StyleIdentifierEnum.listTable6ColorfulAccent5; break;
-        case 'ListTable7ColorfulAccent5': styleIdentifier = Font_StyleIdentifierEnum.listTable7ColorfulAccent5; break;
-        case 'ListTable1LightAccent6': styleIdentifier = Font_StyleIdentifierEnum.listTable1LightAccent6; break;
-        case 'ListTable2Accent6': styleIdentifier = Font_StyleIdentifierEnum.listTable2Accent6; break;
-        case 'ListTable3Accent6': styleIdentifier = Font_StyleIdentifierEnum.listTable3Accent6; break;
-        case 'ListTable4Accent6': styleIdentifier = Font_StyleIdentifierEnum.listTable4Accent6; break;
-        case 'ListTable5DarkAccent6': styleIdentifier = Font_StyleIdentifierEnum.listTable5DarkAccent6; break;
-        case 'ListTable6ColorfulAccent6': styleIdentifier = Font_StyleIdentifierEnum.listTable6ColorfulAccent6; break;
-        case 'ListTable7ColorfulAccent6': styleIdentifier = Font_StyleIdentifierEnum.listTable7ColorfulAccent6; break;
-        case 'User': styleIdentifier = Font_StyleIdentifierEnum.user; break;
-        case 'Nil': styleIdentifier = Font_StyleIdentifierEnum.nil; break;
-        default: styleIdentifier = null; break;
+        case 'Normal': this.styleIdentifier = Font_StyleIdentifierEnum.normal; break;
+        case 'Heading1': this.styleIdentifier = Font_StyleIdentifierEnum.heading1; break;
+        case 'Heading2': this.styleIdentifier = Font_StyleIdentifierEnum.heading2; break;
+        case 'Heading3': this.styleIdentifier = Font_StyleIdentifierEnum.heading3; break;
+        case 'Heading4': this.styleIdentifier = Font_StyleIdentifierEnum.heading4; break;
+        case 'Heading5': this.styleIdentifier = Font_StyleIdentifierEnum.heading5; break;
+        case 'Heading6': this.styleIdentifier = Font_StyleIdentifierEnum.heading6; break;
+        case 'Heading7': this.styleIdentifier = Font_StyleIdentifierEnum.heading7; break;
+        case 'Heading8': this.styleIdentifier = Font_StyleIdentifierEnum.heading8; break;
+        case 'Heading9': this.styleIdentifier = Font_StyleIdentifierEnum.heading9; break;
+        case 'Index1': this.styleIdentifier = Font_StyleIdentifierEnum.index1; break;
+        case 'Index2': this.styleIdentifier = Font_StyleIdentifierEnum.index2; break;
+        case 'Index3': this.styleIdentifier = Font_StyleIdentifierEnum.index3; break;
+        case 'Index4': this.styleIdentifier = Font_StyleIdentifierEnum.index4; break;
+        case 'Index5': this.styleIdentifier = Font_StyleIdentifierEnum.index5; break;
+        case 'Index6': this.styleIdentifier = Font_StyleIdentifierEnum.index6; break;
+        case 'Index7': this.styleIdentifier = Font_StyleIdentifierEnum.index7; break;
+        case 'Index8': this.styleIdentifier = Font_StyleIdentifierEnum.index8; break;
+        case 'Index9': this.styleIdentifier = Font_StyleIdentifierEnum.index9; break;
+        case 'Toc1': this.styleIdentifier = Font_StyleIdentifierEnum.toc1; break;
+        case 'Toc2': this.styleIdentifier = Font_StyleIdentifierEnum.toc2; break;
+        case 'Toc3': this.styleIdentifier = Font_StyleIdentifierEnum.toc3; break;
+        case 'Toc4': this.styleIdentifier = Font_StyleIdentifierEnum.toc4; break;
+        case 'Toc5': this.styleIdentifier = Font_StyleIdentifierEnum.toc5; break;
+        case 'Toc6': this.styleIdentifier = Font_StyleIdentifierEnum.toc6; break;
+        case 'Toc7': this.styleIdentifier = Font_StyleIdentifierEnum.toc7; break;
+        case 'Toc8': this.styleIdentifier = Font_StyleIdentifierEnum.toc8; break;
+        case 'Toc9': this.styleIdentifier = Font_StyleIdentifierEnum.toc9; break;
+        case 'NormalIndent': this.styleIdentifier = Font_StyleIdentifierEnum.normalIndent; break;
+        case 'FootnoteText': this.styleIdentifier = Font_StyleIdentifierEnum.footnoteText; break;
+        case 'CommentText': this.styleIdentifier = Font_StyleIdentifierEnum.commentText; break;
+        case 'Header': this.styleIdentifier = Font_StyleIdentifierEnum.header; break;
+        case 'Footer': this.styleIdentifier = Font_StyleIdentifierEnum.footer; break;
+        case 'IndexHeading': this.styleIdentifier = Font_StyleIdentifierEnum.indexHeading; break;
+        case 'Caption': this.styleIdentifier = Font_StyleIdentifierEnum.caption; break;
+        case 'TableOfFigures': this.styleIdentifier = Font_StyleIdentifierEnum.tableOfFigures; break;
+        case 'EnvelopeAddress': this.styleIdentifier = Font_StyleIdentifierEnum.envelopeAddress; break;
+        case 'EnvelopeReturn': this.styleIdentifier = Font_StyleIdentifierEnum.envelopeReturn; break;
+        case 'FootnoteReference': this.styleIdentifier = Font_StyleIdentifierEnum.footnoteReference; break;
+        case 'CommentReference': this.styleIdentifier = Font_StyleIdentifierEnum.commentReference; break;
+        case 'LineNumber': this.styleIdentifier = Font_StyleIdentifierEnum.lineNumber; break;
+        case 'PageNumber': this.styleIdentifier = Font_StyleIdentifierEnum.pageNumber; break;
+        case 'EndnoteReference': this.styleIdentifier = Font_StyleIdentifierEnum.endnoteReference; break;
+        case 'EndnoteText': this.styleIdentifier = Font_StyleIdentifierEnum.endnoteText; break;
+        case 'TableOfAuthorities': this.styleIdentifier = Font_StyleIdentifierEnum.tableOfAuthorities; break;
+        case 'Macro': this.styleIdentifier = Font_StyleIdentifierEnum.macro; break;
+        case 'ToaHeading': this.styleIdentifier = Font_StyleIdentifierEnum.toaHeading; break;
+        case 'List': this.styleIdentifier = Font_StyleIdentifierEnum.list; break;
+        case 'ListBullet': this.styleIdentifier = Font_StyleIdentifierEnum.listBullet; break;
+        case 'ListNumber': this.styleIdentifier = Font_StyleIdentifierEnum.listNumber; break;
+        case 'List2': this.styleIdentifier = Font_StyleIdentifierEnum.list2; break;
+        case 'List3': this.styleIdentifier = Font_StyleIdentifierEnum.list3; break;
+        case 'List4': this.styleIdentifier = Font_StyleIdentifierEnum.list4; break;
+        case 'List5': this.styleIdentifier = Font_StyleIdentifierEnum.list5; break;
+        case 'ListBullet2': this.styleIdentifier = Font_StyleIdentifierEnum.listBullet2; break;
+        case 'ListBullet3': this.styleIdentifier = Font_StyleIdentifierEnum.listBullet3; break;
+        case 'ListBullet4': this.styleIdentifier = Font_StyleIdentifierEnum.listBullet4; break;
+        case 'ListBullet5': this.styleIdentifier = Font_StyleIdentifierEnum.listBullet5; break;
+        case 'ListNumber2': this.styleIdentifier = Font_StyleIdentifierEnum.listNumber2; break;
+        case 'ListNumber3': this.styleIdentifier = Font_StyleIdentifierEnum.listNumber3; break;
+        case 'ListNumber4': this.styleIdentifier = Font_StyleIdentifierEnum.listNumber4; break;
+        case 'ListNumber5': this.styleIdentifier = Font_StyleIdentifierEnum.listNumber5; break;
+        case 'Title': this.styleIdentifier = Font_StyleIdentifierEnum.title; break;
+        case 'Closing': this.styleIdentifier = Font_StyleIdentifierEnum.closing; break;
+        case 'Signature': this.styleIdentifier = Font_StyleIdentifierEnum.signature; break;
+        case 'DefaultParagraphFont': this.styleIdentifier = Font_StyleIdentifierEnum.defaultParagraphFont; break;
+        case 'BodyText': this.styleIdentifier = Font_StyleIdentifierEnum.bodyText; break;
+        case 'BodyTextInd': this.styleIdentifier = Font_StyleIdentifierEnum.bodyTextInd; break;
+        case 'ListContinue': this.styleIdentifier = Font_StyleIdentifierEnum.listContinue; break;
+        case 'ListContinue2': this.styleIdentifier = Font_StyleIdentifierEnum.listContinue2; break;
+        case 'ListContinue3': this.styleIdentifier = Font_StyleIdentifierEnum.listContinue3; break;
+        case 'ListContinue4': this.styleIdentifier = Font_StyleIdentifierEnum.listContinue4; break;
+        case 'ListContinue5': this.styleIdentifier = Font_StyleIdentifierEnum.listContinue5; break;
+        case 'MessageHeader': this.styleIdentifier = Font_StyleIdentifierEnum.messageHeader; break;
+        case 'Subtitle': this.styleIdentifier = Font_StyleIdentifierEnum.subtitle; break;
+        case 'Salutation': this.styleIdentifier = Font_StyleIdentifierEnum.salutation; break;
+        case 'Date': this.styleIdentifier = Font_StyleIdentifierEnum.date; break;
+        case 'BodyText1I': this.styleIdentifier = Font_StyleIdentifierEnum.bodyText1I; break;
+        case 'BodyText1I2': this.styleIdentifier = Font_StyleIdentifierEnum.bodyText1I2; break;
+        case 'NoteHeading': this.styleIdentifier = Font_StyleIdentifierEnum.noteHeading; break;
+        case 'BodyText2': this.styleIdentifier = Font_StyleIdentifierEnum.bodyText2; break;
+        case 'BodyText3': this.styleIdentifier = Font_StyleIdentifierEnum.bodyText3; break;
+        case 'BodyTextInd2': this.styleIdentifier = Font_StyleIdentifierEnum.bodyTextInd2; break;
+        case 'BodyTextInd3': this.styleIdentifier = Font_StyleIdentifierEnum.bodyTextInd3; break;
+        case 'BlockText': this.styleIdentifier = Font_StyleIdentifierEnum.blockText; break;
+        case 'Hyperlink': this.styleIdentifier = Font_StyleIdentifierEnum.hyperlink; break;
+        case 'FollowedHyperlink': this.styleIdentifier = Font_StyleIdentifierEnum.followedHyperlink; break;
+        case 'Strong': this.styleIdentifier = Font_StyleIdentifierEnum.strong; break;
+        case 'Emphasis': this.styleIdentifier = Font_StyleIdentifierEnum.emphasis; break;
+        case 'DocumentMap': this.styleIdentifier = Font_StyleIdentifierEnum.documentMap; break;
+        case 'PlainText': this.styleIdentifier = Font_StyleIdentifierEnum.plainText; break;
+        case 'EmailSignature': this.styleIdentifier = Font_StyleIdentifierEnum.emailSignature; break;
+        case 'HtmlTopOfForm': this.styleIdentifier = Font_StyleIdentifierEnum.htmlTopOfForm; break;
+        case 'HtmlBottomOfForm': this.styleIdentifier = Font_StyleIdentifierEnum.htmlBottomOfForm; break;
+        case 'NormalWeb': this.styleIdentifier = Font_StyleIdentifierEnum.normalWeb; break;
+        case 'HtmlAcronym': this.styleIdentifier = Font_StyleIdentifierEnum.htmlAcronym; break;
+        case 'HtmlAddress': this.styleIdentifier = Font_StyleIdentifierEnum.htmlAddress; break;
+        case 'HtmlCite': this.styleIdentifier = Font_StyleIdentifierEnum.htmlCite; break;
+        case 'HtmlCode': this.styleIdentifier = Font_StyleIdentifierEnum.htmlCode; break;
+        case 'HtmlDefinition': this.styleIdentifier = Font_StyleIdentifierEnum.htmlDefinition; break;
+        case 'HtmlKeyboard': this.styleIdentifier = Font_StyleIdentifierEnum.htmlKeyboard; break;
+        case 'HtmlPreformatted': this.styleIdentifier = Font_StyleIdentifierEnum.htmlPreformatted; break;
+        case 'HtmlSample': this.styleIdentifier = Font_StyleIdentifierEnum.htmlSample; break;
+        case 'HtmlTypewriter': this.styleIdentifier = Font_StyleIdentifierEnum.htmlTypewriter; break;
+        case 'HtmlVariable': this.styleIdentifier = Font_StyleIdentifierEnum.htmlVariable; break;
+        case 'TableNormal': this.styleIdentifier = Font_StyleIdentifierEnum.tableNormal; break;
+        case 'CommentSubject': this.styleIdentifier = Font_StyleIdentifierEnum.commentSubject; break;
+        case 'NoList': this.styleIdentifier = Font_StyleIdentifierEnum.noList; break;
+        case 'OutlineList1': this.styleIdentifier = Font_StyleIdentifierEnum.outlineList1; break;
+        case 'OutlineList2': this.styleIdentifier = Font_StyleIdentifierEnum.outlineList2; break;
+        case 'OutlineList3': this.styleIdentifier = Font_StyleIdentifierEnum.outlineList3; break;
+        case 'TableSimple1': this.styleIdentifier = Font_StyleIdentifierEnum.tableSimple1; break;
+        case 'TableSimple2': this.styleIdentifier = Font_StyleIdentifierEnum.tableSimple2; break;
+        case 'TableSimple3': this.styleIdentifier = Font_StyleIdentifierEnum.tableSimple3; break;
+        case 'TableClassic1': this.styleIdentifier = Font_StyleIdentifierEnum.tableClassic1; break;
+        case 'TableClassic2': this.styleIdentifier = Font_StyleIdentifierEnum.tableClassic2; break;
+        case 'TableClassic3': this.styleIdentifier = Font_StyleIdentifierEnum.tableClassic3; break;
+        case 'TableClassic4': this.styleIdentifier = Font_StyleIdentifierEnum.tableClassic4; break;
+        case 'TableColorful1': this.styleIdentifier = Font_StyleIdentifierEnum.tableColorful1; break;
+        case 'TableColorful2': this.styleIdentifier = Font_StyleIdentifierEnum.tableColorful2; break;
+        case 'TableColorful3': this.styleIdentifier = Font_StyleIdentifierEnum.tableColorful3; break;
+        case 'TableColumns1': this.styleIdentifier = Font_StyleIdentifierEnum.tableColumns1; break;
+        case 'TableColumns2': this.styleIdentifier = Font_StyleIdentifierEnum.tableColumns2; break;
+        case 'TableColumns3': this.styleIdentifier = Font_StyleIdentifierEnum.tableColumns3; break;
+        case 'TableColumns4': this.styleIdentifier = Font_StyleIdentifierEnum.tableColumns4; break;
+        case 'TableColumns5': this.styleIdentifier = Font_StyleIdentifierEnum.tableColumns5; break;
+        case 'TableGrid1': this.styleIdentifier = Font_StyleIdentifierEnum.tableGrid1; break;
+        case 'TableGrid2': this.styleIdentifier = Font_StyleIdentifierEnum.tableGrid2; break;
+        case 'TableGrid3': this.styleIdentifier = Font_StyleIdentifierEnum.tableGrid3; break;
+        case 'TableGrid4': this.styleIdentifier = Font_StyleIdentifierEnum.tableGrid4; break;
+        case 'TableGrid5': this.styleIdentifier = Font_StyleIdentifierEnum.tableGrid5; break;
+        case 'TableGrid6': this.styleIdentifier = Font_StyleIdentifierEnum.tableGrid6; break;
+        case 'TableGrid7': this.styleIdentifier = Font_StyleIdentifierEnum.tableGrid7; break;
+        case 'TableGrid8': this.styleIdentifier = Font_StyleIdentifierEnum.tableGrid8; break;
+        case 'TableList1': this.styleIdentifier = Font_StyleIdentifierEnum.tableList1; break;
+        case 'TableList2': this.styleIdentifier = Font_StyleIdentifierEnum.tableList2; break;
+        case 'TableList3': this.styleIdentifier = Font_StyleIdentifierEnum.tableList3; break;
+        case 'TableList4': this.styleIdentifier = Font_StyleIdentifierEnum.tableList4; break;
+        case 'TableList5': this.styleIdentifier = Font_StyleIdentifierEnum.tableList5; break;
+        case 'TableList6': this.styleIdentifier = Font_StyleIdentifierEnum.tableList6; break;
+        case 'TableList7': this.styleIdentifier = Font_StyleIdentifierEnum.tableList7; break;
+        case 'TableList8': this.styleIdentifier = Font_StyleIdentifierEnum.tableList8; break;
+        case 'Table3DEffects1': this.styleIdentifier = Font_StyleIdentifierEnum.table3DEffects1; break;
+        case 'Table3DEffects2': this.styleIdentifier = Font_StyleIdentifierEnum.table3DEffects2; break;
+        case 'Table3DEffects3': this.styleIdentifier = Font_StyleIdentifierEnum.table3DEffects3; break;
+        case 'TableContemporary': this.styleIdentifier = Font_StyleIdentifierEnum.tableContemporary; break;
+        case 'TableElegant': this.styleIdentifier = Font_StyleIdentifierEnum.tableElegant; break;
+        case 'TableProfessional': this.styleIdentifier = Font_StyleIdentifierEnum.tableProfessional; break;
+        case 'TableSubtle1': this.styleIdentifier = Font_StyleIdentifierEnum.tableSubtle1; break;
+        case 'TableSubtle2': this.styleIdentifier = Font_StyleIdentifierEnum.tableSubtle2; break;
+        case 'TableWeb1': this.styleIdentifier = Font_StyleIdentifierEnum.tableWeb1; break;
+        case 'TableWeb2': this.styleIdentifier = Font_StyleIdentifierEnum.tableWeb2; break;
+        case 'TableWeb3': this.styleIdentifier = Font_StyleIdentifierEnum.tableWeb3; break;
+        case 'BalloonText': this.styleIdentifier = Font_StyleIdentifierEnum.balloonText; break;
+        case 'TableGrid': this.styleIdentifier = Font_StyleIdentifierEnum.tableGrid; break;
+        case 'TableTheme': this.styleIdentifier = Font_StyleIdentifierEnum.tableTheme; break;
+        case 'PlaceholderText': this.styleIdentifier = Font_StyleIdentifierEnum.placeholderText; break;
+        case 'NoSpacing': this.styleIdentifier = Font_StyleIdentifierEnum.noSpacing; break;
+        case 'LightShading': this.styleIdentifier = Font_StyleIdentifierEnum.lightShading; break;
+        case 'LightList': this.styleIdentifier = Font_StyleIdentifierEnum.lightList; break;
+        case 'LightGrid': this.styleIdentifier = Font_StyleIdentifierEnum.lightGrid; break;
+        case 'MediumShading1': this.styleIdentifier = Font_StyleIdentifierEnum.mediumShading1; break;
+        case 'MediumShading2': this.styleIdentifier = Font_StyleIdentifierEnum.mediumShading2; break;
+        case 'MediumList1': this.styleIdentifier = Font_StyleIdentifierEnum.mediumList1; break;
+        case 'MediumList2': this.styleIdentifier = Font_StyleIdentifierEnum.mediumList2; break;
+        case 'MediumGrid1': this.styleIdentifier = Font_StyleIdentifierEnum.mediumGrid1; break;
+        case 'MediumGrid2': this.styleIdentifier = Font_StyleIdentifierEnum.mediumGrid2; break;
+        case 'MediumGrid3': this.styleIdentifier = Font_StyleIdentifierEnum.mediumGrid3; break;
+        case 'DarkList': this.styleIdentifier = Font_StyleIdentifierEnum.darkList; break;
+        case 'ColorfulShading': this.styleIdentifier = Font_StyleIdentifierEnum.colorfulShading; break;
+        case 'ColorfulList': this.styleIdentifier = Font_StyleIdentifierEnum.colorfulList; break;
+        case 'ColorfulGrid': this.styleIdentifier = Font_StyleIdentifierEnum.colorfulGrid; break;
+        case 'LightShadingAccent1': this.styleIdentifier = Font_StyleIdentifierEnum.lightShadingAccent1; break;
+        case 'LightListAccent1': this.styleIdentifier = Font_StyleIdentifierEnum.lightListAccent1; break;
+        case 'LightGridAccent1': this.styleIdentifier = Font_StyleIdentifierEnum.lightGridAccent1; break;
+        case 'MediumShading1Accent1': this.styleIdentifier = Font_StyleIdentifierEnum.mediumShading1Accent1; break;
+        case 'MediumShading2Accent1': this.styleIdentifier = Font_StyleIdentifierEnum.mediumShading2Accent1; break;
+        case 'MediumList1Accent1': this.styleIdentifier = Font_StyleIdentifierEnum.mediumList1Accent1; break;
+        case 'Revision': this.styleIdentifier = Font_StyleIdentifierEnum.revision; break;
+        case 'ListParagraph': this.styleIdentifier = Font_StyleIdentifierEnum.listParagraph; break;
+        case 'Quote': this.styleIdentifier = Font_StyleIdentifierEnum.quote; break;
+        case 'IntenseQuote': this.styleIdentifier = Font_StyleIdentifierEnum.intenseQuote; break;
+        case 'MediumList2Accent1': this.styleIdentifier = Font_StyleIdentifierEnum.mediumList2Accent1; break;
+        case 'MediumGrid1Accent1': this.styleIdentifier = Font_StyleIdentifierEnum.mediumGrid1Accent1; break;
+        case 'MediumGrid2Accent1': this.styleIdentifier = Font_StyleIdentifierEnum.mediumGrid2Accent1; break;
+        case 'MediumGrid3Accent1': this.styleIdentifier = Font_StyleIdentifierEnum.mediumGrid3Accent1; break;
+        case 'DarkListAccent1': this.styleIdentifier = Font_StyleIdentifierEnum.darkListAccent1; break;
+        case 'ColorfulShadingAccent1': this.styleIdentifier = Font_StyleIdentifierEnum.colorfulShadingAccent1; break;
+        case 'ColorfulListAccent1': this.styleIdentifier = Font_StyleIdentifierEnum.colorfulListAccent1; break;
+        case 'ColorfulGridAccent1': this.styleIdentifier = Font_StyleIdentifierEnum.colorfulGridAccent1; break;
+        case 'LightShadingAccent2': this.styleIdentifier = Font_StyleIdentifierEnum.lightShadingAccent2; break;
+        case 'LightListAccent2': this.styleIdentifier = Font_StyleIdentifierEnum.lightListAccent2; break;
+        case 'LightGridAccent2': this.styleIdentifier = Font_StyleIdentifierEnum.lightGridAccent2; break;
+        case 'MediumShading1Accent2': this.styleIdentifier = Font_StyleIdentifierEnum.mediumShading1Accent2; break;
+        case 'MediumShading2Accent2': this.styleIdentifier = Font_StyleIdentifierEnum.mediumShading2Accent2; break;
+        case 'MediumList1Accent2': this.styleIdentifier = Font_StyleIdentifierEnum.mediumList1Accent2; break;
+        case 'MediumList2Accent2': this.styleIdentifier = Font_StyleIdentifierEnum.mediumList2Accent2; break;
+        case 'MediumGrid1Accent2': this.styleIdentifier = Font_StyleIdentifierEnum.mediumGrid1Accent2; break;
+        case 'MediumGrid2Accent2': this.styleIdentifier = Font_StyleIdentifierEnum.mediumGrid2Accent2; break;
+        case 'MediumGrid3Accent2': this.styleIdentifier = Font_StyleIdentifierEnum.mediumGrid3Accent2; break;
+        case 'DarkListAccent2': this.styleIdentifier = Font_StyleIdentifierEnum.darkListAccent2; break;
+        case 'ColorfulShadingAccent2': this.styleIdentifier = Font_StyleIdentifierEnum.colorfulShadingAccent2; break;
+        case 'ColorfulListAccent2': this.styleIdentifier = Font_StyleIdentifierEnum.colorfulListAccent2; break;
+        case 'ColorfulGridAccent2': this.styleIdentifier = Font_StyleIdentifierEnum.colorfulGridAccent2; break;
+        case 'LightShadingAccent3': this.styleIdentifier = Font_StyleIdentifierEnum.lightShadingAccent3; break;
+        case 'LightListAccent3': this.styleIdentifier = Font_StyleIdentifierEnum.lightListAccent3; break;
+        case 'LightGridAccent3': this.styleIdentifier = Font_StyleIdentifierEnum.lightGridAccent3; break;
+        case 'MediumShading1Accent3': this.styleIdentifier = Font_StyleIdentifierEnum.mediumShading1Accent3; break;
+        case 'MediumShading2Accent3': this.styleIdentifier = Font_StyleIdentifierEnum.mediumShading2Accent3; break;
+        case 'MediumList1Accent3': this.styleIdentifier = Font_StyleIdentifierEnum.mediumList1Accent3; break;
+        case 'MediumList2Accent3': this.styleIdentifier = Font_StyleIdentifierEnum.mediumList2Accent3; break;
+        case 'MediumGrid1Accent3': this.styleIdentifier = Font_StyleIdentifierEnum.mediumGrid1Accent3; break;
+        case 'MediumGrid2Accent3': this.styleIdentifier = Font_StyleIdentifierEnum.mediumGrid2Accent3; break;
+        case 'MediumGrid3Accent3': this.styleIdentifier = Font_StyleIdentifierEnum.mediumGrid3Accent3; break;
+        case 'DarkListAccent3': this.styleIdentifier = Font_StyleIdentifierEnum.darkListAccent3; break;
+        case 'ColorfulShadingAccent3': this.styleIdentifier = Font_StyleIdentifierEnum.colorfulShadingAccent3; break;
+        case 'ColorfulListAccent3': this.styleIdentifier = Font_StyleIdentifierEnum.colorfulListAccent3; break;
+        case 'ColorfulGridAccent3': this.styleIdentifier = Font_StyleIdentifierEnum.colorfulGridAccent3; break;
+        case 'LightShadingAccent4': this.styleIdentifier = Font_StyleIdentifierEnum.lightShadingAccent4; break;
+        case 'LightListAccent4': this.styleIdentifier = Font_StyleIdentifierEnum.lightListAccent4; break;
+        case 'LightGridAccent4': this.styleIdentifier = Font_StyleIdentifierEnum.lightGridAccent4; break;
+        case 'MediumShading1Accent4': this.styleIdentifier = Font_StyleIdentifierEnum.mediumShading1Accent4; break;
+        case 'MediumShading2Accent4': this.styleIdentifier = Font_StyleIdentifierEnum.mediumShading2Accent4; break;
+        case 'MediumList1Accent4': this.styleIdentifier = Font_StyleIdentifierEnum.mediumList1Accent4; break;
+        case 'MediumList2Accent4': this.styleIdentifier = Font_StyleIdentifierEnum.mediumList2Accent4; break;
+        case 'MediumGrid1Accent4': this.styleIdentifier = Font_StyleIdentifierEnum.mediumGrid1Accent4; break;
+        case 'MediumGrid2Accent4': this.styleIdentifier = Font_StyleIdentifierEnum.mediumGrid2Accent4; break;
+        case 'MediumGrid3Accent4': this.styleIdentifier = Font_StyleIdentifierEnum.mediumGrid3Accent4; break;
+        case 'DarkListAccent4': this.styleIdentifier = Font_StyleIdentifierEnum.darkListAccent4; break;
+        case 'ColorfulShadingAccent4': this.styleIdentifier = Font_StyleIdentifierEnum.colorfulShadingAccent4; break;
+        case 'ColorfulListAccent4': this.styleIdentifier = Font_StyleIdentifierEnum.colorfulListAccent4; break;
+        case 'ColorfulGridAccent4': this.styleIdentifier = Font_StyleIdentifierEnum.colorfulGridAccent4; break;
+        case 'LightShadingAccent5': this.styleIdentifier = Font_StyleIdentifierEnum.lightShadingAccent5; break;
+        case 'LightListAccent5': this.styleIdentifier = Font_StyleIdentifierEnum.lightListAccent5; break;
+        case 'LightGridAccent5': this.styleIdentifier = Font_StyleIdentifierEnum.lightGridAccent5; break;
+        case 'MediumShading1Accent5': this.styleIdentifier = Font_StyleIdentifierEnum.mediumShading1Accent5; break;
+        case 'MediumShading2Accent5': this.styleIdentifier = Font_StyleIdentifierEnum.mediumShading2Accent5; break;
+        case 'MediumList1Accent5': this.styleIdentifier = Font_StyleIdentifierEnum.mediumList1Accent5; break;
+        case 'MediumList2Accent5': this.styleIdentifier = Font_StyleIdentifierEnum.mediumList2Accent5; break;
+        case 'MediumGrid1Accent5': this.styleIdentifier = Font_StyleIdentifierEnum.mediumGrid1Accent5; break;
+        case 'MediumGrid2Accent5': this.styleIdentifier = Font_StyleIdentifierEnum.mediumGrid2Accent5; break;
+        case 'MediumGrid3Accent5': this.styleIdentifier = Font_StyleIdentifierEnum.mediumGrid3Accent5; break;
+        case 'DarkListAccent5': this.styleIdentifier = Font_StyleIdentifierEnum.darkListAccent5; break;
+        case 'ColorfulShadingAccent5': this.styleIdentifier = Font_StyleIdentifierEnum.colorfulShadingAccent5; break;
+        case 'ColorfulListAccent5': this.styleIdentifier = Font_StyleIdentifierEnum.colorfulListAccent5; break;
+        case 'ColorfulGridAccent5': this.styleIdentifier = Font_StyleIdentifierEnum.colorfulGridAccent5; break;
+        case 'LightShadingAccent6': this.styleIdentifier = Font_StyleIdentifierEnum.lightShadingAccent6; break;
+        case 'LightListAccent6': this.styleIdentifier = Font_StyleIdentifierEnum.lightListAccent6; break;
+        case 'LightGridAccent6': this.styleIdentifier = Font_StyleIdentifierEnum.lightGridAccent6; break;
+        case 'MediumShading1Accent6': this.styleIdentifier = Font_StyleIdentifierEnum.mediumShading1Accent6; break;
+        case 'MediumShading2Accent6': this.styleIdentifier = Font_StyleIdentifierEnum.mediumShading2Accent6; break;
+        case 'MediumList1Accent6': this.styleIdentifier = Font_StyleIdentifierEnum.mediumList1Accent6; break;
+        case 'MediumList2Accent6': this.styleIdentifier = Font_StyleIdentifierEnum.mediumList2Accent6; break;
+        case 'MediumGrid1Accent6': this.styleIdentifier = Font_StyleIdentifierEnum.mediumGrid1Accent6; break;
+        case 'MediumGrid2Accent6': this.styleIdentifier = Font_StyleIdentifierEnum.mediumGrid2Accent6; break;
+        case 'MediumGrid3Accent6': this.styleIdentifier = Font_StyleIdentifierEnum.mediumGrid3Accent6; break;
+        case 'DarkListAccent6': this.styleIdentifier = Font_StyleIdentifierEnum.darkListAccent6; break;
+        case 'ColorfulShadingAccent6': this.styleIdentifier = Font_StyleIdentifierEnum.colorfulShadingAccent6; break;
+        case 'ColorfulListAccent6': this.styleIdentifier = Font_StyleIdentifierEnum.colorfulListAccent6; break;
+        case 'ColorfulGridAccent6': this.styleIdentifier = Font_StyleIdentifierEnum.colorfulGridAccent6; break;
+        case 'SubtleEmphasis': this.styleIdentifier = Font_StyleIdentifierEnum.subtleEmphasis; break;
+        case 'IntenseEmphasis': this.styleIdentifier = Font_StyleIdentifierEnum.intenseEmphasis; break;
+        case 'SubtleReference': this.styleIdentifier = Font_StyleIdentifierEnum.subtleReference; break;
+        case 'IntenseReference': this.styleIdentifier = Font_StyleIdentifierEnum.intenseReference; break;
+        case 'BookTitle': this.styleIdentifier = Font_StyleIdentifierEnum.bookTitle; break;
+        case 'Bibliography': this.styleIdentifier = Font_StyleIdentifierEnum.bibliography; break;
+        case 'TocHeading': this.styleIdentifier = Font_StyleIdentifierEnum.tocHeading; break;
+        case 'PlainTable1': this.styleIdentifier = Font_StyleIdentifierEnum.plainTable1; break;
+        case 'PlainTable2': this.styleIdentifier = Font_StyleIdentifierEnum.plainTable2; break;
+        case 'PlainTable3': this.styleIdentifier = Font_StyleIdentifierEnum.plainTable3; break;
+        case 'PlainTable4': this.styleIdentifier = Font_StyleIdentifierEnum.plainTable4; break;
+        case 'PlainTable5': this.styleIdentifier = Font_StyleIdentifierEnum.plainTable5; break;
+        case 'TableGridLight': this.styleIdentifier = Font_StyleIdentifierEnum.tableGridLight; break;
+        case 'GridTable1Light': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable1Light; break;
+        case 'GridTable2': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable2; break;
+        case 'GridTable3': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable3; break;
+        case 'GridTable4': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable4; break;
+        case 'GridTable5Dark': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable5Dark; break;
+        case 'GridTable6Colorful': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable6Colorful; break;
+        case 'GridTable7Colorful': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable7Colorful; break;
+        case 'GridTable1LightAccent1': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable1LightAccent1; break;
+        case 'GridTable2Accent1': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable2Accent1; break;
+        case 'GridTable3Accent1': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable3Accent1; break;
+        case 'GridTable4Accent1': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable4Accent1; break;
+        case 'GridTable5DarkAccent1': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable5DarkAccent1; break;
+        case 'GridTable6ColorfulAccent1': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable6ColorfulAccent1; break;
+        case 'GridTable7ColorfulAccent1': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable7ColorfulAccent1; break;
+        case 'GridTable1LightAccent2': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable1LightAccent2; break;
+        case 'GridTable2Accent2': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable2Accent2; break;
+        case 'GridTable3Accent2': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable3Accent2; break;
+        case 'GridTable4Accent2': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable4Accent2; break;
+        case 'GridTable5DarkAccent2': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable5DarkAccent2; break;
+        case 'GridTable6ColorfulAccent2': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable6ColorfulAccent2; break;
+        case 'GridTable7ColorfulAccent2': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable7ColorfulAccent2; break;
+        case 'GridTable1LightAccent3': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable1LightAccent3; break;
+        case 'GridTable2Accent3': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable2Accent3; break;
+        case 'GridTable3Accent3': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable3Accent3; break;
+        case 'GridTable4Accent3': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable4Accent3; break;
+        case 'GridTable5DarkAccent3': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable5DarkAccent3; break;
+        case 'GridTable6ColorfulAccent3': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable6ColorfulAccent3; break;
+        case 'GridTable7ColorfulAccent3': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable7ColorfulAccent3; break;
+        case 'GridTable1LightAccent4': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable1LightAccent4; break;
+        case 'GridTable2Accent4': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable2Accent4; break;
+        case 'GridTable3Accent4': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable3Accent4; break;
+        case 'GridTable4Accent4': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable4Accent4; break;
+        case 'GridTable5DarkAccent4': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable5DarkAccent4; break;
+        case 'GridTable6ColorfulAccent4': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable6ColorfulAccent4; break;
+        case 'GridTable7ColorfulAccent4': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable7ColorfulAccent4; break;
+        case 'GridTable1LightAccent5': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable1LightAccent5; break;
+        case 'GridTable2Accent5': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable2Accent5; break;
+        case 'GridTable3Accent5': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable3Accent5; break;
+        case 'GridTable4Accent5': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable4Accent5; break;
+        case 'GridTable5DarkAccent5': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable5DarkAccent5; break;
+        case 'GridTable6ColorfulAccent5': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable6ColorfulAccent5; break;
+        case 'GridTable7ColorfulAccent5': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable7ColorfulAccent5; break;
+        case 'GridTable1LightAccent6': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable1LightAccent6; break;
+        case 'GridTable2Accent6': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable2Accent6; break;
+        case 'GridTable3Accent6': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable3Accent6; break;
+        case 'GridTable4Accent6': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable4Accent6; break;
+        case 'GridTable5DarkAccent6': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable5DarkAccent6; break;
+        case 'GridTable6ColorfulAccent6': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable6ColorfulAccent6; break;
+        case 'GridTable7ColorfulAccent6': this.styleIdentifier = Font_StyleIdentifierEnum.gridTable7ColorfulAccent6; break;
+        case 'ListTable1Light': this.styleIdentifier = Font_StyleIdentifierEnum.listTable1Light; break;
+        case 'ListTable2': this.styleIdentifier = Font_StyleIdentifierEnum.listTable2; break;
+        case 'ListTable3': this.styleIdentifier = Font_StyleIdentifierEnum.listTable3; break;
+        case 'ListTable4': this.styleIdentifier = Font_StyleIdentifierEnum.listTable4; break;
+        case 'ListTable5Dark': this.styleIdentifier = Font_StyleIdentifierEnum.listTable5Dark; break;
+        case 'ListTable6Colorful': this.styleIdentifier = Font_StyleIdentifierEnum.listTable6Colorful; break;
+        case 'ListTable7Colorful': this.styleIdentifier = Font_StyleIdentifierEnum.listTable7Colorful; break;
+        case 'ListTable1LightAccent1': this.styleIdentifier = Font_StyleIdentifierEnum.listTable1LightAccent1; break;
+        case 'ListTable2Accent1': this.styleIdentifier = Font_StyleIdentifierEnum.listTable2Accent1; break;
+        case 'ListTable3Accent1': this.styleIdentifier = Font_StyleIdentifierEnum.listTable3Accent1; break;
+        case 'ListTable4Accent1': this.styleIdentifier = Font_StyleIdentifierEnum.listTable4Accent1; break;
+        case 'ListTable5DarkAccent1': this.styleIdentifier = Font_StyleIdentifierEnum.listTable5DarkAccent1; break;
+        case 'ListTable6ColorfulAccent1': this.styleIdentifier = Font_StyleIdentifierEnum.listTable6ColorfulAccent1; break;
+        case 'ListTable7ColorfulAccent1': this.styleIdentifier = Font_StyleIdentifierEnum.listTable7ColorfulAccent1; break;
+        case 'ListTable1LightAccent2': this.styleIdentifier = Font_StyleIdentifierEnum.listTable1LightAccent2; break;
+        case 'ListTable2Accent2': this.styleIdentifier = Font_StyleIdentifierEnum.listTable2Accent2; break;
+        case 'ListTable3Accent2': this.styleIdentifier = Font_StyleIdentifierEnum.listTable3Accent2; break;
+        case 'ListTable4Accent2': this.styleIdentifier = Font_StyleIdentifierEnum.listTable4Accent2; break;
+        case 'ListTable5DarkAccent2': this.styleIdentifier = Font_StyleIdentifierEnum.listTable5DarkAccent2; break;
+        case 'ListTable6ColorfulAccent2': this.styleIdentifier = Font_StyleIdentifierEnum.listTable6ColorfulAccent2; break;
+        case 'ListTable7ColorfulAccent2': this.styleIdentifier = Font_StyleIdentifierEnum.listTable7ColorfulAccent2; break;
+        case 'ListTable1LightAccent3': this.styleIdentifier = Font_StyleIdentifierEnum.listTable1LightAccent3; break;
+        case 'ListTable2Accent3': this.styleIdentifier = Font_StyleIdentifierEnum.listTable2Accent3; break;
+        case 'ListTable3Accent3': this.styleIdentifier = Font_StyleIdentifierEnum.listTable3Accent3; break;
+        case 'ListTable4Accent3': this.styleIdentifier = Font_StyleIdentifierEnum.listTable4Accent3; break;
+        case 'ListTable5DarkAccent3': this.styleIdentifier = Font_StyleIdentifierEnum.listTable5DarkAccent3; break;
+        case 'ListTable6ColorfulAccent3': this.styleIdentifier = Font_StyleIdentifierEnum.listTable6ColorfulAccent3; break;
+        case 'ListTable7ColorfulAccent3': this.styleIdentifier = Font_StyleIdentifierEnum.listTable7ColorfulAccent3; break;
+        case 'ListTable1LightAccent4': this.styleIdentifier = Font_StyleIdentifierEnum.listTable1LightAccent4; break;
+        case 'ListTable2Accent4': this.styleIdentifier = Font_StyleIdentifierEnum.listTable2Accent4; break;
+        case 'ListTable3Accent4': this.styleIdentifier = Font_StyleIdentifierEnum.listTable3Accent4; break;
+        case 'ListTable4Accent4': this.styleIdentifier = Font_StyleIdentifierEnum.listTable4Accent4; break;
+        case 'ListTable5DarkAccent4': this.styleIdentifier = Font_StyleIdentifierEnum.listTable5DarkAccent4; break;
+        case 'ListTable6ColorfulAccent4': this.styleIdentifier = Font_StyleIdentifierEnum.listTable6ColorfulAccent4; break;
+        case 'ListTable7ColorfulAccent4': this.styleIdentifier = Font_StyleIdentifierEnum.listTable7ColorfulAccent4; break;
+        case 'ListTable1LightAccent5': this.styleIdentifier = Font_StyleIdentifierEnum.listTable1LightAccent5; break;
+        case 'ListTable2Accent5': this.styleIdentifier = Font_StyleIdentifierEnum.listTable2Accent5; break;
+        case 'ListTable3Accent5': this.styleIdentifier = Font_StyleIdentifierEnum.listTable3Accent5; break;
+        case 'ListTable4Accent5': this.styleIdentifier = Font_StyleIdentifierEnum.listTable4Accent5; break;
+        case 'ListTable5DarkAccent5': this.styleIdentifier = Font_StyleIdentifierEnum.listTable5DarkAccent5; break;
+        case 'ListTable6ColorfulAccent5': this.styleIdentifier = Font_StyleIdentifierEnum.listTable6ColorfulAccent5; break;
+        case 'ListTable7ColorfulAccent5': this.styleIdentifier = Font_StyleIdentifierEnum.listTable7ColorfulAccent5; break;
+        case 'ListTable1LightAccent6': this.styleIdentifier = Font_StyleIdentifierEnum.listTable1LightAccent6; break;
+        case 'ListTable2Accent6': this.styleIdentifier = Font_StyleIdentifierEnum.listTable2Accent6; break;
+        case 'ListTable3Accent6': this.styleIdentifier = Font_StyleIdentifierEnum.listTable3Accent6; break;
+        case 'ListTable4Accent6': this.styleIdentifier = Font_StyleIdentifierEnum.listTable4Accent6; break;
+        case 'ListTable5DarkAccent6': this.styleIdentifier = Font_StyleIdentifierEnum.listTable5DarkAccent6; break;
+        case 'ListTable6ColorfulAccent6': this.styleIdentifier = Font_StyleIdentifierEnum.listTable6ColorfulAccent6; break;
+        case 'ListTable7ColorfulAccent6': this.styleIdentifier = Font_StyleIdentifierEnum.listTable7ColorfulAccent6; break;
+        case 'User': this.styleIdentifier = Font_StyleIdentifierEnum.user; break;
+        case 'Nil': this.styleIdentifier = Font_StyleIdentifierEnum.nil; break;
+        default: this.styleIdentifier = null; break;
       }
     } else {
-      styleIdentifier = null;
+      this.styleIdentifier = null;
     }
 
     if (json.containsKey('StyleName')) {
-      styleName = json['StyleName'];
+      this.styleName = json['StyleName'];
     } else {
-      styleName = null;
+      this.styleName = null;
     }
 
     if (json.containsKey('Subscript')) {
-      subscript = json['Subscript'];
+      this.subscript = json['Subscript'];
     } else {
-      subscript = null;
+      this.subscript = null;
     }
 
     if (json.containsKey('Superscript')) {
-      superscript = json['Superscript'];
+      this.superscript = json['Superscript'];
     } else {
-      superscript = null;
+      this.superscript = null;
     }
 
     if (json.containsKey('TextEffect')) {
       switch (json['TextEffect']) {
-        case 'None': textEffect = Font_TextEffectEnum.none; break;
-        case 'LasVegasLights': textEffect = Font_TextEffectEnum.lasVegasLights; break;
-        case 'BlinkingBackground': textEffect = Font_TextEffectEnum.blinkingBackground; break;
-        case 'SparkleText': textEffect = Font_TextEffectEnum.sparkleText; break;
-        case 'MarchingBlackAnts': textEffect = Font_TextEffectEnum.marchingBlackAnts; break;
-        case 'MarchingRedAnts': textEffect = Font_TextEffectEnum.marchingRedAnts; break;
-        case 'Shimmer': textEffect = Font_TextEffectEnum.shimmer; break;
-        default: textEffect = null; break;
+        case 'None': this.textEffect = Font_TextEffectEnum.none; break;
+        case 'LasVegasLights': this.textEffect = Font_TextEffectEnum.lasVegasLights; break;
+        case 'BlinkingBackground': this.textEffect = Font_TextEffectEnum.blinkingBackground; break;
+        case 'SparkleText': this.textEffect = Font_TextEffectEnum.sparkleText; break;
+        case 'MarchingBlackAnts': this.textEffect = Font_TextEffectEnum.marchingBlackAnts; break;
+        case 'MarchingRedAnts': this.textEffect = Font_TextEffectEnum.marchingRedAnts; break;
+        case 'Shimmer': this.textEffect = Font_TextEffectEnum.shimmer; break;
+        default: this.textEffect = null; break;
       }
     } else {
-      textEffect = null;
+      this.textEffect = null;
     }
 
     if (json.containsKey('Underline')) {
       switch (json['Underline']) {
-        case 'None': underline = Font_UnderlineEnum.none; break;
-        case 'Single': underline = Font_UnderlineEnum.single; break;
-        case 'Words': underline = Font_UnderlineEnum.words; break;
-        case 'Double': underline = Font_UnderlineEnum.double; break;
-        case 'Dotted': underline = Font_UnderlineEnum.dotted; break;
-        case 'Thick': underline = Font_UnderlineEnum.thick; break;
-        case 'Dash': underline = Font_UnderlineEnum.dash; break;
-        case 'DotDash': underline = Font_UnderlineEnum.dotDash; break;
-        case 'DotDotDash': underline = Font_UnderlineEnum.dotDotDash; break;
-        case 'Wavy': underline = Font_UnderlineEnum.wavy; break;
-        case 'DottedHeavy': underline = Font_UnderlineEnum.dottedHeavy; break;
-        case 'DashHeavy': underline = Font_UnderlineEnum.dashHeavy; break;
-        case 'DotDashHeavy': underline = Font_UnderlineEnum.dotDashHeavy; break;
-        case 'DotDotDashHeavy': underline = Font_UnderlineEnum.dotDotDashHeavy; break;
-        case 'WavyHeavy': underline = Font_UnderlineEnum.wavyHeavy; break;
-        case 'DashLong': underline = Font_UnderlineEnum.dashLong; break;
-        case 'WavyDouble': underline = Font_UnderlineEnum.wavyDouble; break;
-        case 'DashLongHeavy': underline = Font_UnderlineEnum.dashLongHeavy; break;
-        default: underline = null; break;
+        case 'None': this.underline = Font_UnderlineEnum.none; break;
+        case 'Single': this.underline = Font_UnderlineEnum.single; break;
+        case 'Words': this.underline = Font_UnderlineEnum.words; break;
+        case 'Double': this.underline = Font_UnderlineEnum.double; break;
+        case 'Dotted': this.underline = Font_UnderlineEnum.dotted; break;
+        case 'Thick': this.underline = Font_UnderlineEnum.thick; break;
+        case 'Dash': this.underline = Font_UnderlineEnum.dash; break;
+        case 'DotDash': this.underline = Font_UnderlineEnum.dotDash; break;
+        case 'DotDotDash': this.underline = Font_UnderlineEnum.dotDotDash; break;
+        case 'Wavy': this.underline = Font_UnderlineEnum.wavy; break;
+        case 'DottedHeavy': this.underline = Font_UnderlineEnum.dottedHeavy; break;
+        case 'DashHeavy': this.underline = Font_UnderlineEnum.dashHeavy; break;
+        case 'DotDashHeavy': this.underline = Font_UnderlineEnum.dotDashHeavy; break;
+        case 'DotDotDashHeavy': this.underline = Font_UnderlineEnum.dotDotDashHeavy; break;
+        case 'WavyHeavy': this.underline = Font_UnderlineEnum.wavyHeavy; break;
+        case 'DashLong': this.underline = Font_UnderlineEnum.dashLong; break;
+        case 'WavyDouble': this.underline = Font_UnderlineEnum.wavyDouble; break;
+        case 'DashLongHeavy': this.underline = Font_UnderlineEnum.dashLongHeavy; break;
+        default: this.underline = null; break;
       }
     } else {
-      underline = null;
+      this.underline = null;
     }
 
     if (json.containsKey('UnderlineColor')) {
-      underlineColor = XmlColor();
-      underlineColor.deserialize(json['UnderlineColor']);
+      this.underlineColor = new XmlColor();
+      this.underlineColor.deserialize(json['UnderlineColor']);
     } else {
-      underlineColor = null;
+      this.underlineColor = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (allCaps != null) {
-      _result['AllCaps'] = allCaps;
+    if (this.allCaps != null) {
+      _result['AllCaps'] = this.allCaps;
     }
 
-    if (bidi != null) {
-      _result['Bidi'] = bidi;
+    if (this.bidi != null) {
+      _result['Bidi'] = this.bidi;
     }
 
-    if (bold != null) {
-      _result['Bold'] = bold;
+    if (this.bold != null) {
+      _result['Bold'] = this.bold;
     }
 
-    if (boldBi != null) {
-      _result['BoldBi'] = boldBi;
+    if (this.boldBi != null) {
+      _result['BoldBi'] = this.boldBi;
     }
 
-    if (border != null) {
-      _result['Border'] = border.serialize();
+    if (this.border != null) {
+      _result['Border'] = this.border.serialize();
     }
 
-    if (color != null) {
-      _result['Color'] = color.serialize();
+    if (this.color != null) {
+      _result['Color'] = this.color.serialize();
     }
 
-    if (complexScript != null) {
-      _result['ComplexScript'] = complexScript;
+    if (this.complexScript != null) {
+      _result['ComplexScript'] = this.complexScript;
     }
 
-    if (doubleStrikeThrough != null) {
-      _result['DoubleStrikeThrough'] = doubleStrikeThrough;
+    if (this.doubleStrikeThrough != null) {
+      _result['DoubleStrikeThrough'] = this.doubleStrikeThrough;
     }
 
-    if (emboss != null) {
-      _result['Emboss'] = emboss;
+    if (this.emboss != null) {
+      _result['Emboss'] = this.emboss;
     }
 
-    if (engrave != null) {
-      _result['Engrave'] = engrave;
+    if (this.engrave != null) {
+      _result['Engrave'] = this.engrave;
     }
 
-    if (hidden != null) {
-      _result['Hidden'] = hidden;
+    if (this.hidden != null) {
+      _result['Hidden'] = this.hidden;
     }
 
-    if (highlightColor != null) {
-      _result['HighlightColor'] = highlightColor.serialize();
+    if (this.highlightColor != null) {
+      _result['HighlightColor'] = this.highlightColor.serialize();
     }
 
-    if (italic != null) {
-      _result['Italic'] = italic;
+    if (this.italic != null) {
+      _result['Italic'] = this.italic;
     }
 
-    if (italicBi != null) {
-      _result['ItalicBi'] = italicBi;
+    if (this.italicBi != null) {
+      _result['ItalicBi'] = this.italicBi;
     }
 
-    if (kerning != null) {
-      _result['Kerning'] = kerning;
+    if (this.kerning != null) {
+      _result['Kerning'] = this.kerning;
     }
 
-    if (localeId != null) {
-      _result['LocaleId'] = localeId;
+    if (this.localeId != null) {
+      _result['LocaleId'] = this.localeId;
     }
 
-    if (localeIdBi != null) {
-      _result['LocaleIdBi'] = localeIdBi;
+    if (this.localeIdBi != null) {
+      _result['LocaleIdBi'] = this.localeIdBi;
     }
 
-    if (localeIdFarEast != null) {
-      _result['LocaleIdFarEast'] = localeIdFarEast;
+    if (this.localeIdFarEast != null) {
+      _result['LocaleIdFarEast'] = this.localeIdFarEast;
     }
 
-    if (name != null) {
-      _result['Name'] = name;
+    if (this.name != null) {
+      _result['Name'] = this.name;
     }
 
-    if (nameAscii != null) {
-      _result['NameAscii'] = nameAscii;
+    if (this.nameAscii != null) {
+      _result['NameAscii'] = this.nameAscii;
     }
 
-    if (nameBi != null) {
-      _result['NameBi'] = nameBi;
+    if (this.nameBi != null) {
+      _result['NameBi'] = this.nameBi;
     }
 
-    if (nameFarEast != null) {
-      _result['NameFarEast'] = nameFarEast;
+    if (this.nameFarEast != null) {
+      _result['NameFarEast'] = this.nameFarEast;
     }
 
-    if (nameOther != null) {
-      _result['NameOther'] = nameOther;
+    if (this.nameOther != null) {
+      _result['NameOther'] = this.nameOther;
     }
 
-    if (noProofing != null) {
-      _result['NoProofing'] = noProofing;
+    if (this.noProofing != null) {
+      _result['NoProofing'] = this.noProofing;
     }
 
-    if (outline != null) {
-      _result['Outline'] = outline;
+    if (this.outline != null) {
+      _result['Outline'] = this.outline;
     }
 
-    if (position != null) {
-      _result['Position'] = position;
+    if (this.position != null) {
+      _result['Position'] = this.position;
     }
 
-    if (scaling != null) {
-      _result['Scaling'] = scaling;
+    if (this.scaling != null) {
+      _result['Scaling'] = this.scaling;
     }
 
-    if (shadow != null) {
-      _result['Shadow'] = shadow;
+    if (this.shadow != null) {
+      _result['Shadow'] = this.shadow;
     }
 
-    if (size != null) {
-      _result['Size'] = size;
+    if (this.size != null) {
+      _result['Size'] = this.size;
     }
 
-    if (sizeBi != null) {
-      _result['SizeBi'] = sizeBi;
+    if (this.sizeBi != null) {
+      _result['SizeBi'] = this.sizeBi;
     }
 
-    if (smallCaps != null) {
-      _result['SmallCaps'] = smallCaps;
+    if (this.smallCaps != null) {
+      _result['SmallCaps'] = this.smallCaps;
     }
 
-    if (spacing != null) {
-      _result['Spacing'] = spacing;
+    if (this.spacing != null) {
+      _result['Spacing'] = this.spacing;
     }
 
-    if (strikeThrough != null) {
-      _result['StrikeThrough'] = strikeThrough;
+    if (this.strikeThrough != null) {
+      _result['StrikeThrough'] = this.strikeThrough;
     }
 
-    if (styleIdentifier != null) {
-      switch (styleIdentifier) {
+    if (this.styleIdentifier != null) {
+      switch (this.styleIdentifier) {
         case Font_StyleIdentifierEnum.normal: _result['StyleIdentifier'] = 'Normal'; break;
         case Font_StyleIdentifierEnum.heading1: _result['StyleIdentifier'] = 'Heading1'; break;
         case Font_StyleIdentifierEnum.heading2: _result['StyleIdentifier'] = 'Heading2'; break;
@@ -1320,20 +1320,20 @@ class Font extends LinkElement {
       }
     }
 
-    if (styleName != null) {
-      _result['StyleName'] = styleName;
+    if (this.styleName != null) {
+      _result['StyleName'] = this.styleName;
     }
 
-    if (subscript != null) {
-      _result['Subscript'] = subscript;
+    if (this.subscript != null) {
+      _result['Subscript'] = this.subscript;
     }
 
-    if (superscript != null) {
-      _result['Superscript'] = superscript;
+    if (this.superscript != null) {
+      _result['Superscript'] = this.superscript;
     }
 
-    if (textEffect != null) {
-      switch (textEffect) {
+    if (this.textEffect != null) {
+      switch (this.textEffect) {
         case Font_TextEffectEnum.none: _result['TextEffect'] = 'None'; break;
         case Font_TextEffectEnum.lasVegasLights: _result['TextEffect'] = 'LasVegasLights'; break;
         case Font_TextEffectEnum.blinkingBackground: _result['TextEffect'] = 'BlinkingBackground'; break;
@@ -1345,8 +1345,8 @@ class Font extends LinkElement {
       }
     }
 
-    if (underline != null) {
-      switch (underline) {
+    if (this.underline != null) {
+      switch (this.underline) {
         case Font_UnderlineEnum.none: _result['Underline'] = 'None'; break;
         case Font_UnderlineEnum.single: _result['Underline'] = 'Single'; break;
         case Font_UnderlineEnum.words: _result['Underline'] = 'Words'; break;
@@ -1369,8 +1369,8 @@ class Font extends LinkElement {
       }
     }
 
-    if (underlineColor != null) {
-      _result['UnderlineColor'] = underlineColor.serialize();
+    if (this.underlineColor != null) {
+      _result['UnderlineColor'] = this.underlineColor.serialize();
     }
     return _result;
   }

@@ -39,21 +39,21 @@ class FieldNames extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Names')) {
       // Array processing
-      names = <String>[];
+      this.names = new List<String>();
       for(final _element in json['Names']) {
-        names.add(_element);
+        this.names.add(_element);
       }
     } else {
-      names = null;
+      this.names = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (names != null) {
-      _result['Names'] = names;
+    if (this.names != null) {
+      _result['Names'] = this.names;
     }
     return _result;
   }

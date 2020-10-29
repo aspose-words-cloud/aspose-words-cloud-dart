@@ -41,30 +41,30 @@ class StatDataResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('DocumentLink')) {
-      documentLink = FileLink();
-      documentLink.deserialize(json['DocumentLink']);
+      this.documentLink = new FileLink();
+      this.documentLink.deserialize(json['DocumentLink']);
     } else {
-      documentLink = null;
+      this.documentLink = null;
     }
 
     if (json.containsKey('StatData')) {
-      statData = DocumentStatData();
-      statData.deserialize(json['StatData']);
+      this.statData = new DocumentStatData();
+      this.statData.deserialize(json['StatData']);
     } else {
-      statData = null;
+      this.statData = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (documentLink != null) {
-      _result['DocumentLink'] = documentLink.serialize();
+    if (this.documentLink != null) {
+      _result['DocumentLink'] = this.documentLink.serialize();
     }
 
-    if (statData != null) {
-      _result['StatData'] = statData.serialize();
+    if (this.statData != null) {
+      _result['StatData'] = this.statData.serialize();
     }
     return _result;
   }

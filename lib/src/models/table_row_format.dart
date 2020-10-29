@@ -47,53 +47,53 @@ class TableRowFormat extends LinkElement {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('AllowBreakAcrossPages')) {
-      allowBreakAcrossPages = json['AllowBreakAcrossPages'];
+      this.allowBreakAcrossPages = json['AllowBreakAcrossPages'];
     } else {
-      allowBreakAcrossPages = null;
+      this.allowBreakAcrossPages = null;
     }
 
     if (json.containsKey('HeadingFormat')) {
-      headingFormat = json['HeadingFormat'];
+      this.headingFormat = json['HeadingFormat'];
     } else {
-      headingFormat = null;
+      this.headingFormat = null;
     }
 
     if (json.containsKey('Height')) {
-      height = json['Height'];
+      this.height = json['Height'];
     } else {
-      height = null;
+      this.height = null;
     }
 
     if (json.containsKey('HeightRule')) {
       switch (json['HeightRule']) {
-        case 'AtLeast': heightRule = TableRowFormat_HeightRuleEnum.atLeast; break;
-        case 'Exactly': heightRule = TableRowFormat_HeightRuleEnum.exactly; break;
-        case 'Auto': heightRule = TableRowFormat_HeightRuleEnum.auto; break;
-        default: heightRule = null; break;
+        case 'AtLeast': this.heightRule = TableRowFormat_HeightRuleEnum.atLeast; break;
+        case 'Exactly': this.heightRule = TableRowFormat_HeightRuleEnum.exactly; break;
+        case 'Auto': this.heightRule = TableRowFormat_HeightRuleEnum.auto; break;
+        default: this.heightRule = null; break;
       }
     } else {
-      heightRule = null;
+      this.heightRule = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (allowBreakAcrossPages != null) {
-      _result['AllowBreakAcrossPages'] = allowBreakAcrossPages;
+    if (this.allowBreakAcrossPages != null) {
+      _result['AllowBreakAcrossPages'] = this.allowBreakAcrossPages;
     }
 
-    if (headingFormat != null) {
-      _result['HeadingFormat'] = headingFormat;
+    if (this.headingFormat != null) {
+      _result['HeadingFormat'] = this.headingFormat;
     }
 
-    if (height != null) {
-      _result['Height'] = height;
+    if (this.height != null) {
+      _result['Height'] = this.height;
     }
 
-    if (heightRule != null) {
-      switch (heightRule) {
+    if (this.heightRule != null) {
+      switch (this.heightRule) {
         case TableRowFormat_HeightRuleEnum.atLeast: _result['HeightRule'] = 'AtLeast'; break;
         case TableRowFormat_HeightRuleEnum.exactly: _result['HeightRule'] = 'Exactly'; break;
         case TableRowFormat_HeightRuleEnum.auto: _result['HeightRule'] = 'Auto'; break;

@@ -39,19 +39,19 @@ class BordersResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('Borders')) {
-      borders = BordersCollection();
-      borders.deserialize(json['Borders']);
+      this.borders = new BordersCollection();
+      this.borders.deserialize(json['Borders']);
     } else {
-      borders = null;
+      this.borders = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (borders != null) {
-      _result['Borders'] = borders.serialize();
+    if (this.borders != null) {
+      _result['Borders'] = this.borders.serialize();
     }
     return _result;
   }

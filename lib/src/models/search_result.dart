@@ -40,29 +40,29 @@ class SearchResult implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('RangeEnd')) {
-      rangeEnd = DocumentPosition();
-      rangeEnd.deserialize(json['RangeEnd']);
+      this.rangeEnd = new DocumentPosition();
+      this.rangeEnd.deserialize(json['RangeEnd']);
     } else {
-      rangeEnd = null;
+      this.rangeEnd = null;
     }
 
     if (json.containsKey('RangeStart')) {
-      rangeStart = DocumentPosition();
-      rangeStart.deserialize(json['RangeStart']);
+      this.rangeStart = new DocumentPosition();
+      this.rangeStart.deserialize(json['RangeStart']);
     } else {
-      rangeStart = null;
+      this.rangeStart = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (rangeEnd != null) {
-      _result['RangeEnd'] = rangeEnd.serialize();
+    var _result = new Map<String, dynamic>();
+    if (this.rangeEnd != null) {
+      _result['RangeEnd'] = this.rangeEnd.serialize();
     }
 
-    if (rangeStart != null) {
-      _result['RangeStart'] = rangeStart.serialize();
+    if (this.rangeStart != null) {
+      _result['RangeStart'] = this.rangeStart.serialize();
     }
     return _result;
   }

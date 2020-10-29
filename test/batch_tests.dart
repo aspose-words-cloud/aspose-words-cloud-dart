@@ -38,8 +38,8 @@ class BatchTests
   String localFile;
   String reportingFolder;
 
-  BatchTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Paragraphs';
+  BatchTests(final TestContext this.context) {
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Paragraphs';
     localFile = 'Common/test_multi_pages.docx';
     reportingFolder = 'DocumentActions/Reporting';
   }
@@ -47,53 +47,53 @@ class BatchTests
   /// Test for batch request.
   Future<void> testBatch1() async
   {
-    var remoteFileName = 'TestBatchDocument.docx';
+    var remoteFileName = "TestBatchDocument.docx";
 
-    await context.uploadFile(
+    await this.context.uploadFile(
         localFile,
-        '${remoteDataFolder}/${remoteFileName}'
+        remoteDataFolder + "/" + remoteFileName
     );
 
-    var request1 = GetParagraphsRequest(
+    var request1 = new GetParagraphsRequest(
         remoteFileName,
-        nodePath: 'sections/0',
+        nodePath: "sections/0",
         folder: remoteDataFolder
     );
 
-    var request2 = GetParagraphRequest(
-        remoteFileName,
-        0,
-        nodePath: 'sections/0',
-        folder: remoteDataFolder
-    );
-
-    var request3 = InsertParagraphRequest(
-        remoteFileName,
-        ParagraphInsert()
-          ..text = 'This is a new paragraph for your document',
-        nodePath: 'sections/0',
-        folder: remoteDataFolder
-    );
-
-    var request4 = DeleteParagraphRequest(
+    var request2 = new GetParagraphRequest(
         remoteFileName,
         0,
-        nodePath: '',
+        nodePath: "sections/0",
         folder: remoteDataFolder
     );
 
-    var localDocumentFile = 'ReportTemplate.docx';
-    var localDataFile = await context.loadTextFile(reportingFolder + '/ReportData.json');
+    var request3 = new InsertParagraphRequest(
+        remoteFileName,
+        new ParagraphInsert()
+          ..text = "This is a new paragraph for your document",
+        nodePath: "sections/0",
+        folder: remoteDataFolder
+    );
 
-    var request5 = BuildReportOnlineRequest(
-        await context.loadBinaryFile(reportingFolder + '/' + localDocumentFile),
+    var request4 = new DeleteParagraphRequest(
+        remoteFileName,
+        0,
+        nodePath: "",
+        folder: remoteDataFolder
+    );
+
+    var localDocumentFile = "ReportTemplate.docx";
+    var localDataFile = await this.context.loadTextFile(reportingFolder + "/ReportData.json");
+
+    var request5 = new BuildReportOnlineRequest(
+        await this.context.loadBinaryFile(reportingFolder + "/" + localDocumentFile),
         localDataFile,
-        ReportEngineSettings()
+        new ReportEngineSettings()
           ..dataSourceType = ReportEngineSettings_DataSourceTypeEnum.json
-          ..dataSourceName = 'persons'
+          ..dataSourceName = "persons"
     );
 
-    var actual = await context.getApi().batch([request1, request2, request3, request4, request5]);
+    var actual = await this.context.getApi().batch([request1, request2, request3, request4, request5]);
     expect(actual.length, 5);
     expect(actual[0] is ParagraphLinkCollectionResponse, isTrue); // GetParagraphs
     expect(actual[1] is ParagraphResponse, isTrue); // GetParagraph

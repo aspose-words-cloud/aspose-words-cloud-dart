@@ -164,388 +164,388 @@ class HtmlSaveOptionsData extends SaveOptionsData {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('AllowNegativeIndent')) {
-      allowNegativeIndent = json['AllowNegativeIndent'];
+      this.allowNegativeIndent = json['AllowNegativeIndent'];
     } else {
-      allowNegativeIndent = null;
+      this.allowNegativeIndent = null;
     }
 
     if (json.containsKey('CssClassNamePrefix')) {
-      cssClassNamePrefix = json['CssClassNamePrefix'];
+      this.cssClassNamePrefix = json['CssClassNamePrefix'];
     } else {
-      cssClassNamePrefix = null;
+      this.cssClassNamePrefix = null;
     }
 
     if (json.containsKey('CssStyleSheetFileName')) {
-      cssStyleSheetFileName = json['CssStyleSheetFileName'];
+      this.cssStyleSheetFileName = json['CssStyleSheetFileName'];
     } else {
-      cssStyleSheetFileName = null;
+      this.cssStyleSheetFileName = null;
     }
 
     if (json.containsKey('CssStyleSheetType')) {
-      cssStyleSheetType = json['CssStyleSheetType'];
+      this.cssStyleSheetType = json['CssStyleSheetType'];
     } else {
-      cssStyleSheetType = null;
+      this.cssStyleSheetType = null;
     }
 
     if (json.containsKey('DocumentSplitCriteria')) {
-      documentSplitCriteria = json['DocumentSplitCriteria'];
+      this.documentSplitCriteria = json['DocumentSplitCriteria'];
     } else {
-      documentSplitCriteria = null;
+      this.documentSplitCriteria = null;
     }
 
     if (json.containsKey('DocumentSplitHeadingLevel')) {
-      documentSplitHeadingLevel = json['DocumentSplitHeadingLevel'];
+      this.documentSplitHeadingLevel = json['DocumentSplitHeadingLevel'];
     } else {
-      documentSplitHeadingLevel = null;
+      this.documentSplitHeadingLevel = null;
     }
 
     if (json.containsKey('Encoding')) {
-      encoding = json['Encoding'];
+      this.encoding = json['Encoding'];
     } else {
-      encoding = null;
+      this.encoding = null;
     }
 
     if (json.containsKey('ExportDocumentProperties')) {
-      exportDocumentProperties = json['ExportDocumentProperties'];
+      this.exportDocumentProperties = json['ExportDocumentProperties'];
     } else {
-      exportDocumentProperties = null;
+      this.exportDocumentProperties = null;
     }
 
     if (json.containsKey('ExportDropDownFormFieldAsText')) {
-      exportDropDownFormFieldAsText = json['ExportDropDownFormFieldAsText'];
+      this.exportDropDownFormFieldAsText = json['ExportDropDownFormFieldAsText'];
     } else {
-      exportDropDownFormFieldAsText = null;
+      this.exportDropDownFormFieldAsText = null;
     }
 
     if (json.containsKey('ExportFontResources')) {
-      exportFontResources = json['ExportFontResources'];
+      this.exportFontResources = json['ExportFontResources'];
     } else {
-      exportFontResources = null;
+      this.exportFontResources = null;
     }
 
     if (json.containsKey('ExportFontsAsBase64')) {
-      exportFontsAsBase64 = json['ExportFontsAsBase64'];
+      this.exportFontsAsBase64 = json['ExportFontsAsBase64'];
     } else {
-      exportFontsAsBase64 = null;
+      this.exportFontsAsBase64 = null;
     }
 
     if (json.containsKey('ExportHeadersFootersMode')) {
-      exportHeadersFootersMode = json['ExportHeadersFootersMode'];
+      this.exportHeadersFootersMode = json['ExportHeadersFootersMode'];
     } else {
-      exportHeadersFootersMode = null;
+      this.exportHeadersFootersMode = null;
     }
 
     if (json.containsKey('ExportImagesAsBase64')) {
-      exportImagesAsBase64 = json['ExportImagesAsBase64'];
+      this.exportImagesAsBase64 = json['ExportImagesAsBase64'];
     } else {
-      exportImagesAsBase64 = null;
+      this.exportImagesAsBase64 = null;
     }
 
     if (json.containsKey('ExportLanguageInformation')) {
-      exportLanguageInformation = json['ExportLanguageInformation'];
+      this.exportLanguageInformation = json['ExportLanguageInformation'];
     } else {
-      exportLanguageInformation = null;
+      this.exportLanguageInformation = null;
     }
 
     if (json.containsKey('ExportListLabels')) {
-      exportListLabels = json['ExportListLabels'];
+      this.exportListLabels = json['ExportListLabels'];
     } else {
-      exportListLabels = null;
+      this.exportListLabels = null;
     }
 
     if (json.containsKey('ExportOriginalUrlForLinkedImages')) {
-      exportOriginalUrlForLinkedImages = json['ExportOriginalUrlForLinkedImages'];
+      this.exportOriginalUrlForLinkedImages = json['ExportOriginalUrlForLinkedImages'];
     } else {
-      exportOriginalUrlForLinkedImages = null;
+      this.exportOriginalUrlForLinkedImages = null;
     }
 
     if (json.containsKey('ExportPageMargins')) {
-      exportPageMargins = json['ExportPageMargins'];
+      this.exportPageMargins = json['ExportPageMargins'];
     } else {
-      exportPageMargins = null;
+      this.exportPageMargins = null;
     }
 
     if (json.containsKey('ExportPageSetup')) {
-      exportPageSetup = json['ExportPageSetup'];
+      this.exportPageSetup = json['ExportPageSetup'];
     } else {
-      exportPageSetup = null;
+      this.exportPageSetup = null;
     }
 
     if (json.containsKey('ExportRelativeFontSize')) {
-      exportRelativeFontSize = json['ExportRelativeFontSize'];
+      this.exportRelativeFontSize = json['ExportRelativeFontSize'];
     } else {
-      exportRelativeFontSize = null;
+      this.exportRelativeFontSize = null;
     }
 
     if (json.containsKey('ExportRoundtripInformation')) {
-      exportRoundtripInformation = json['ExportRoundtripInformation'];
+      this.exportRoundtripInformation = json['ExportRoundtripInformation'];
     } else {
-      exportRoundtripInformation = null;
+      this.exportRoundtripInformation = null;
     }
 
     if (json.containsKey('ExportTextBoxAsSvg')) {
-      exportTextBoxAsSvg = json['ExportTextBoxAsSvg'];
+      this.exportTextBoxAsSvg = json['ExportTextBoxAsSvg'];
     } else {
-      exportTextBoxAsSvg = null;
+      this.exportTextBoxAsSvg = null;
     }
 
     if (json.containsKey('ExportTextInputFormFieldAsText')) {
-      exportTextInputFormFieldAsText = json['ExportTextInputFormFieldAsText'];
+      this.exportTextInputFormFieldAsText = json['ExportTextInputFormFieldAsText'];
     } else {
-      exportTextInputFormFieldAsText = null;
+      this.exportTextInputFormFieldAsText = null;
     }
 
     if (json.containsKey('ExportTocPageNumbers')) {
-      exportTocPageNumbers = json['ExportTocPageNumbers'];
+      this.exportTocPageNumbers = json['ExportTocPageNumbers'];
     } else {
-      exportTocPageNumbers = null;
+      this.exportTocPageNumbers = null;
     }
 
     if (json.containsKey('ExportXhtmlTransitional')) {
-      exportXhtmlTransitional = json['ExportXhtmlTransitional'];
+      this.exportXhtmlTransitional = json['ExportXhtmlTransitional'];
     } else {
-      exportXhtmlTransitional = null;
+      this.exportXhtmlTransitional = null;
     }
 
     if (json.containsKey('FontResourcesSubsettingSizeThreshold')) {
-      fontResourcesSubsettingSizeThreshold = json['FontResourcesSubsettingSizeThreshold'];
+      this.fontResourcesSubsettingSizeThreshold = json['FontResourcesSubsettingSizeThreshold'];
     } else {
-      fontResourcesSubsettingSizeThreshold = null;
+      this.fontResourcesSubsettingSizeThreshold = null;
     }
 
     if (json.containsKey('FontsFolder')) {
-      fontsFolder = json['FontsFolder'];
+      this.fontsFolder = json['FontsFolder'];
     } else {
-      fontsFolder = null;
+      this.fontsFolder = null;
     }
 
     if (json.containsKey('FontsFolderAlias')) {
-      fontsFolderAlias = json['FontsFolderAlias'];
+      this.fontsFolderAlias = json['FontsFolderAlias'];
     } else {
-      fontsFolderAlias = null;
+      this.fontsFolderAlias = null;
     }
 
     if (json.containsKey('HtmlVersion')) {
       switch (json['HtmlVersion']) {
-        case 'Xhtml': htmlVersion = HtmlSaveOptionsData_HtmlVersionEnum.xhtml; break;
-        case 'Html5': htmlVersion = HtmlSaveOptionsData_HtmlVersionEnum.html5; break;
-        default: htmlVersion = null; break;
+        case 'Xhtml': this.htmlVersion = HtmlSaveOptionsData_HtmlVersionEnum.xhtml; break;
+        case 'Html5': this.htmlVersion = HtmlSaveOptionsData_HtmlVersionEnum.html5; break;
+        default: this.htmlVersion = null; break;
       }
     } else {
-      htmlVersion = null;
+      this.htmlVersion = null;
     }
 
     if (json.containsKey('ImageResolution')) {
-      imageResolution = json['ImageResolution'];
+      this.imageResolution = json['ImageResolution'];
     } else {
-      imageResolution = null;
+      this.imageResolution = null;
     }
 
     if (json.containsKey('ImagesFolder')) {
-      imagesFolder = json['ImagesFolder'];
+      this.imagesFolder = json['ImagesFolder'];
     } else {
-      imagesFolder = null;
+      this.imagesFolder = null;
     }
 
     if (json.containsKey('ImagesFolderAlias')) {
-      imagesFolderAlias = json['ImagesFolderAlias'];
+      this.imagesFolderAlias = json['ImagesFolderAlias'];
     } else {
-      imagesFolderAlias = null;
+      this.imagesFolderAlias = null;
     }
 
     if (json.containsKey('MetafileFormat')) {
       switch (json['MetafileFormat']) {
-        case 'Png': metafileFormat = HtmlSaveOptionsData_MetafileFormatEnum.png; break;
-        case 'Svg': metafileFormat = HtmlSaveOptionsData_MetafileFormatEnum.svg; break;
-        case 'EmfOrWmf': metafileFormat = HtmlSaveOptionsData_MetafileFormatEnum.emfOrWmf; break;
-        default: metafileFormat = null; break;
+        case 'Png': this.metafileFormat = HtmlSaveOptionsData_MetafileFormatEnum.png; break;
+        case 'Svg': this.metafileFormat = HtmlSaveOptionsData_MetafileFormatEnum.svg; break;
+        case 'EmfOrWmf': this.metafileFormat = HtmlSaveOptionsData_MetafileFormatEnum.emfOrWmf; break;
+        default: this.metafileFormat = null; break;
       }
     } else {
-      metafileFormat = null;
+      this.metafileFormat = null;
     }
 
     if (json.containsKey('OfficeMathOutputMode')) {
       switch (json['OfficeMathOutputMode']) {
-        case 'Image': officeMathOutputMode = HtmlSaveOptionsData_OfficeMathOutputModeEnum.image; break;
-        case 'MathML': officeMathOutputMode = HtmlSaveOptionsData_OfficeMathOutputModeEnum.mathML; break;
-        case 'Text': officeMathOutputMode = HtmlSaveOptionsData_OfficeMathOutputModeEnum.text; break;
-        default: officeMathOutputMode = null; break;
+        case 'Image': this.officeMathOutputMode = HtmlSaveOptionsData_OfficeMathOutputModeEnum.image; break;
+        case 'MathML': this.officeMathOutputMode = HtmlSaveOptionsData_OfficeMathOutputModeEnum.mathML; break;
+        case 'Text': this.officeMathOutputMode = HtmlSaveOptionsData_OfficeMathOutputModeEnum.text; break;
+        default: this.officeMathOutputMode = null; break;
       }
     } else {
-      officeMathOutputMode = null;
+      this.officeMathOutputMode = null;
     }
 
     if (json.containsKey('PrettyFormat')) {
-      prettyFormat = json['PrettyFormat'];
+      this.prettyFormat = json['PrettyFormat'];
     } else {
-      prettyFormat = null;
+      this.prettyFormat = null;
     }
 
     if (json.containsKey('ResolveFontNames')) {
-      resolveFontNames = json['ResolveFontNames'];
+      this.resolveFontNames = json['ResolveFontNames'];
     } else {
-      resolveFontNames = null;
+      this.resolveFontNames = null;
     }
 
     if (json.containsKey('ResourceFolder')) {
-      resourceFolder = json['ResourceFolder'];
+      this.resourceFolder = json['ResourceFolder'];
     } else {
-      resourceFolder = null;
+      this.resourceFolder = null;
     }
 
     if (json.containsKey('ResourceFolderAlias')) {
-      resourceFolderAlias = json['ResourceFolderAlias'];
+      this.resourceFolderAlias = json['ResourceFolderAlias'];
     } else {
-      resourceFolderAlias = null;
+      this.resourceFolderAlias = null;
     }
 
     if (json.containsKey('ScaleImageToShapeSize')) {
-      scaleImageToShapeSize = json['ScaleImageToShapeSize'];
+      this.scaleImageToShapeSize = json['ScaleImageToShapeSize'];
     } else {
-      scaleImageToShapeSize = null;
+      this.scaleImageToShapeSize = null;
     }
 
     if (json.containsKey('TableWidthOutputMode')) {
-      tableWidthOutputMode = json['TableWidthOutputMode'];
+      this.tableWidthOutputMode = json['TableWidthOutputMode'];
     } else {
-      tableWidthOutputMode = null;
+      this.tableWidthOutputMode = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (allowNegativeIndent != null) {
-      _result['AllowNegativeIndent'] = allowNegativeIndent;
+    if (this.allowNegativeIndent != null) {
+      _result['AllowNegativeIndent'] = this.allowNegativeIndent;
     }
 
-    if (cssClassNamePrefix != null) {
-      _result['CssClassNamePrefix'] = cssClassNamePrefix;
+    if (this.cssClassNamePrefix != null) {
+      _result['CssClassNamePrefix'] = this.cssClassNamePrefix;
     }
 
-    if (cssStyleSheetFileName != null) {
-      _result['CssStyleSheetFileName'] = cssStyleSheetFileName;
+    if (this.cssStyleSheetFileName != null) {
+      _result['CssStyleSheetFileName'] = this.cssStyleSheetFileName;
     }
 
-    if (cssStyleSheetType != null) {
-      _result['CssStyleSheetType'] = cssStyleSheetType;
+    if (this.cssStyleSheetType != null) {
+      _result['CssStyleSheetType'] = this.cssStyleSheetType;
     }
 
-    if (documentSplitCriteria != null) {
-      _result['DocumentSplitCriteria'] = documentSplitCriteria;
+    if (this.documentSplitCriteria != null) {
+      _result['DocumentSplitCriteria'] = this.documentSplitCriteria;
     }
 
-    if (documentSplitHeadingLevel != null) {
-      _result['DocumentSplitHeadingLevel'] = documentSplitHeadingLevel;
+    if (this.documentSplitHeadingLevel != null) {
+      _result['DocumentSplitHeadingLevel'] = this.documentSplitHeadingLevel;
     }
 
-    if (encoding != null) {
-      _result['Encoding'] = encoding;
+    if (this.encoding != null) {
+      _result['Encoding'] = this.encoding;
     }
 
-    if (exportDocumentProperties != null) {
-      _result['ExportDocumentProperties'] = exportDocumentProperties;
+    if (this.exportDocumentProperties != null) {
+      _result['ExportDocumentProperties'] = this.exportDocumentProperties;
     }
 
-    if (exportDropDownFormFieldAsText != null) {
-      _result['ExportDropDownFormFieldAsText'] = exportDropDownFormFieldAsText;
+    if (this.exportDropDownFormFieldAsText != null) {
+      _result['ExportDropDownFormFieldAsText'] = this.exportDropDownFormFieldAsText;
     }
 
-    if (exportFontResources != null) {
-      _result['ExportFontResources'] = exportFontResources;
+    if (this.exportFontResources != null) {
+      _result['ExportFontResources'] = this.exportFontResources;
     }
 
-    if (exportFontsAsBase64 != null) {
-      _result['ExportFontsAsBase64'] = exportFontsAsBase64;
+    if (this.exportFontsAsBase64 != null) {
+      _result['ExportFontsAsBase64'] = this.exportFontsAsBase64;
     }
 
-    if (exportHeadersFootersMode != null) {
-      _result['ExportHeadersFootersMode'] = exportHeadersFootersMode;
+    if (this.exportHeadersFootersMode != null) {
+      _result['ExportHeadersFootersMode'] = this.exportHeadersFootersMode;
     }
 
-    if (exportImagesAsBase64 != null) {
-      _result['ExportImagesAsBase64'] = exportImagesAsBase64;
+    if (this.exportImagesAsBase64 != null) {
+      _result['ExportImagesAsBase64'] = this.exportImagesAsBase64;
     }
 
-    if (exportLanguageInformation != null) {
-      _result['ExportLanguageInformation'] = exportLanguageInformation;
+    if (this.exportLanguageInformation != null) {
+      _result['ExportLanguageInformation'] = this.exportLanguageInformation;
     }
 
-    if (exportListLabels != null) {
-      _result['ExportListLabels'] = exportListLabels;
+    if (this.exportListLabels != null) {
+      _result['ExportListLabels'] = this.exportListLabels;
     }
 
-    if (exportOriginalUrlForLinkedImages != null) {
-      _result['ExportOriginalUrlForLinkedImages'] = exportOriginalUrlForLinkedImages;
+    if (this.exportOriginalUrlForLinkedImages != null) {
+      _result['ExportOriginalUrlForLinkedImages'] = this.exportOriginalUrlForLinkedImages;
     }
 
-    if (exportPageMargins != null) {
-      _result['ExportPageMargins'] = exportPageMargins;
+    if (this.exportPageMargins != null) {
+      _result['ExportPageMargins'] = this.exportPageMargins;
     }
 
-    if (exportPageSetup != null) {
-      _result['ExportPageSetup'] = exportPageSetup;
+    if (this.exportPageSetup != null) {
+      _result['ExportPageSetup'] = this.exportPageSetup;
     }
 
-    if (exportRelativeFontSize != null) {
-      _result['ExportRelativeFontSize'] = exportRelativeFontSize;
+    if (this.exportRelativeFontSize != null) {
+      _result['ExportRelativeFontSize'] = this.exportRelativeFontSize;
     }
 
-    if (exportRoundtripInformation != null) {
-      _result['ExportRoundtripInformation'] = exportRoundtripInformation;
+    if (this.exportRoundtripInformation != null) {
+      _result['ExportRoundtripInformation'] = this.exportRoundtripInformation;
     }
 
-    if (exportTextBoxAsSvg != null) {
-      _result['ExportTextBoxAsSvg'] = exportTextBoxAsSvg;
+    if (this.exportTextBoxAsSvg != null) {
+      _result['ExportTextBoxAsSvg'] = this.exportTextBoxAsSvg;
     }
 
-    if (exportTextInputFormFieldAsText != null) {
-      _result['ExportTextInputFormFieldAsText'] = exportTextInputFormFieldAsText;
+    if (this.exportTextInputFormFieldAsText != null) {
+      _result['ExportTextInputFormFieldAsText'] = this.exportTextInputFormFieldAsText;
     }
 
-    if (exportTocPageNumbers != null) {
-      _result['ExportTocPageNumbers'] = exportTocPageNumbers;
+    if (this.exportTocPageNumbers != null) {
+      _result['ExportTocPageNumbers'] = this.exportTocPageNumbers;
     }
 
-    if (exportXhtmlTransitional != null) {
-      _result['ExportXhtmlTransitional'] = exportXhtmlTransitional;
+    if (this.exportXhtmlTransitional != null) {
+      _result['ExportXhtmlTransitional'] = this.exportXhtmlTransitional;
     }
 
-    if (fontResourcesSubsettingSizeThreshold != null) {
-      _result['FontResourcesSubsettingSizeThreshold'] = fontResourcesSubsettingSizeThreshold;
+    if (this.fontResourcesSubsettingSizeThreshold != null) {
+      _result['FontResourcesSubsettingSizeThreshold'] = this.fontResourcesSubsettingSizeThreshold;
     }
 
-    if (fontsFolder != null) {
-      _result['FontsFolder'] = fontsFolder;
+    if (this.fontsFolder != null) {
+      _result['FontsFolder'] = this.fontsFolder;
     }
 
-    if (fontsFolderAlias != null) {
-      _result['FontsFolderAlias'] = fontsFolderAlias;
+    if (this.fontsFolderAlias != null) {
+      _result['FontsFolderAlias'] = this.fontsFolderAlias;
     }
 
-    if (htmlVersion != null) {
-      switch (htmlVersion) {
+    if (this.htmlVersion != null) {
+      switch (this.htmlVersion) {
         case HtmlSaveOptionsData_HtmlVersionEnum.xhtml: _result['HtmlVersion'] = 'Xhtml'; break;
         case HtmlSaveOptionsData_HtmlVersionEnum.html5: _result['HtmlVersion'] = 'Html5'; break;
         default: break;
       }
     }
 
-    if (imageResolution != null) {
-      _result['ImageResolution'] = imageResolution;
+    if (this.imageResolution != null) {
+      _result['ImageResolution'] = this.imageResolution;
     }
 
-    if (imagesFolder != null) {
-      _result['ImagesFolder'] = imagesFolder;
+    if (this.imagesFolder != null) {
+      _result['ImagesFolder'] = this.imagesFolder;
     }
 
-    if (imagesFolderAlias != null) {
-      _result['ImagesFolderAlias'] = imagesFolderAlias;
+    if (this.imagesFolderAlias != null) {
+      _result['ImagesFolderAlias'] = this.imagesFolderAlias;
     }
 
-    if (metafileFormat != null) {
-      switch (metafileFormat) {
+    if (this.metafileFormat != null) {
+      switch (this.metafileFormat) {
         case HtmlSaveOptionsData_MetafileFormatEnum.png: _result['MetafileFormat'] = 'Png'; break;
         case HtmlSaveOptionsData_MetafileFormatEnum.svg: _result['MetafileFormat'] = 'Svg'; break;
         case HtmlSaveOptionsData_MetafileFormatEnum.emfOrWmf: _result['MetafileFormat'] = 'EmfOrWmf'; break;
@@ -553,8 +553,8 @@ class HtmlSaveOptionsData extends SaveOptionsData {
       }
     }
 
-    if (officeMathOutputMode != null) {
-      switch (officeMathOutputMode) {
+    if (this.officeMathOutputMode != null) {
+      switch (this.officeMathOutputMode) {
         case HtmlSaveOptionsData_OfficeMathOutputModeEnum.image: _result['OfficeMathOutputMode'] = 'Image'; break;
         case HtmlSaveOptionsData_OfficeMathOutputModeEnum.mathML: _result['OfficeMathOutputMode'] = 'MathML'; break;
         case HtmlSaveOptionsData_OfficeMathOutputModeEnum.text: _result['OfficeMathOutputMode'] = 'Text'; break;
@@ -562,28 +562,28 @@ class HtmlSaveOptionsData extends SaveOptionsData {
       }
     }
 
-    if (prettyFormat != null) {
-      _result['PrettyFormat'] = prettyFormat;
+    if (this.prettyFormat != null) {
+      _result['PrettyFormat'] = this.prettyFormat;
     }
 
-    if (resolveFontNames != null) {
-      _result['ResolveFontNames'] = resolveFontNames;
+    if (this.resolveFontNames != null) {
+      _result['ResolveFontNames'] = this.resolveFontNames;
     }
 
-    if (resourceFolder != null) {
-      _result['ResourceFolder'] = resourceFolder;
+    if (this.resourceFolder != null) {
+      _result['ResourceFolder'] = this.resourceFolder;
     }
 
-    if (resourceFolderAlias != null) {
-      _result['ResourceFolderAlias'] = resourceFolderAlias;
+    if (this.resourceFolderAlias != null) {
+      _result['ResourceFolderAlias'] = this.resourceFolderAlias;
     }
 
-    if (scaleImageToShapeSize != null) {
-      _result['ScaleImageToShapeSize'] = scaleImageToShapeSize;
+    if (this.scaleImageToShapeSize != null) {
+      _result['ScaleImageToShapeSize'] = this.scaleImageToShapeSize;
     }
 
-    if (tableWidthOutputMode != null) {
-      _result['TableWidthOutputMode'] = tableWidthOutputMode;
+    if (this.tableWidthOutputMode != null) {
+      _result['TableWidthOutputMode'] = this.tableWidthOutputMode;
     }
     return _result;
   }

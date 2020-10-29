@@ -46,37 +46,37 @@ class DownsampleOptionsData implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('DownsampleImages')) {
-      downsampleImages = json['DownsampleImages'];
+      this.downsampleImages = json['DownsampleImages'];
     } else {
-      downsampleImages = null;
+      this.downsampleImages = null;
     }
 
     if (json.containsKey('Resolution')) {
-      resolution = json['Resolution'];
+      this.resolution = json['Resolution'];
     } else {
-      resolution = null;
+      this.resolution = null;
     }
 
     if (json.containsKey('ResolutionThreshold')) {
-      resolutionThreshold = json['ResolutionThreshold'];
+      this.resolutionThreshold = json['ResolutionThreshold'];
     } else {
-      resolutionThreshold = null;
+      this.resolutionThreshold = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (downsampleImages != null) {
-      _result['DownsampleImages'] = downsampleImages;
+    var _result = new Map<String, dynamic>();
+    if (this.downsampleImages != null) {
+      _result['DownsampleImages'] = this.downsampleImages;
     }
 
-    if (resolution != null) {
-      _result['Resolution'] = resolution;
+    if (this.resolution != null) {
+      _result['Resolution'] = this.resolution;
     }
 
-    if (resolutionThreshold != null) {
-      _result['ResolutionThreshold'] = resolutionThreshold;
+    if (this.resolutionThreshold != null) {
+      _result['ResolutionThreshold'] = this.resolutionThreshold;
     }
     return _result;
   }

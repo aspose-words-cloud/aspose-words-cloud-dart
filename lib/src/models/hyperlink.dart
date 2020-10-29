@@ -41,28 +41,28 @@ class Hyperlink extends LinkElement {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('DisplayText')) {
-      displayText = json['DisplayText'];
+      this.displayText = json['DisplayText'];
     } else {
-      displayText = null;
+      this.displayText = null;
     }
 
     if (json.containsKey('Value')) {
-      value = json['Value'];
+      this.value = json['Value'];
     } else {
-      value = null;
+      this.value = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (displayText != null) {
-      _result['DisplayText'] = displayText;
+    if (this.displayText != null) {
+      _result['DisplayText'] = this.displayText;
     }
 
-    if (value != null) {
-      _result['Value'] = value;
+    if (this.value != null) {
+      _result['Value'] = this.value;
     }
     return _result;
   }

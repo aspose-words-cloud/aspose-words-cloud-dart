@@ -39,23 +39,23 @@ class Paragraph extends NodeLink {
     super.deserialize(json);
     if (json.containsKey('ChildNodes')) {
       // Array processing
-      childNodes = <NodeLink>[];
+      this.childNodes = new List<NodeLink>();
       for(final _element in json['ChildNodes']) {
-        var _elementValue = NodeLink();
+        var _elementValue = new NodeLink();
         _elementValue.deserialize(_element);
-        childNodes.add(_elementValue);
+        this.childNodes.add(_elementValue);
       }
     } else {
-      childNodes = null;
+      this.childNodes = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (childNodes != null) {
-      _result['ChildNodes'] = childNodes.map((_element) => _element.serialize()).toList();
+    if (this.childNodes != null) {
+      _result['ChildNodes'] = this.childNodes.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

@@ -27,6 +27,7 @@
 
 library aspose_words_cloud;
 
+import 'dart:convert';
 import 'dart:typed_data';
 import '../../aspose_words_cloud.dart';
 import '../api_client.dart';
@@ -50,43 +51,43 @@ class ExecuteMailMergeOnlineRequest implements RequestBase {
   /// This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
   final String documentFileName;
 
-  ExecuteMailMergeOnlineRequest(final this.template, final this.data, {final this.withRegions, final this.cleanup, final this.documentFileName});
+  ExecuteMailMergeOnlineRequest(final ByteData this.template, final ByteData this.data, {final bool this.withRegions = null, final String this.cleanup = null, final String this.documentFileName = null});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var _path = '/words/MailMerge';
-    var _queryParams = <String, String>{};
-    var _headers = <String, String>{};
-    var _bodyParts = <ApiRequestPart>[];
-    if (withRegions != null) {
-      _queryParams['withRegions'] = apiClient.serializeToString(withRegions);
+    String path = '/words/MailMerge';
+    Map<String, String> queryParams = new Map<String, String>();
+    Map<String, String> headers = new Map<String, String>();
+    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
+    if (this.withRegions != null) {
+      queryParams['withRegions'] = apiClient.serializeToString(this.withRegions);
     }
 
-    if (cleanup != null) {
-      _queryParams['cleanup'] = apiClient.serializeToString(cleanup);
+    if (this.cleanup != null) {
+      queryParams['cleanup'] = apiClient.serializeToString(this.cleanup);
     }
 
-    if (documentFileName != null) {
-      _queryParams['documentFileName'] = apiClient.serializeToString(documentFileName);
+    if (this.documentFileName != null) {
+      queryParams['documentFileName'] = apiClient.serializeToString(this.documentFileName);
     }
 
-    if (template != null) {
-      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(template), 'application/octet-stream', name: 'Template'));
+    if (this.template != null) {
+      bodyParts.add(new ApiRequestPart(apiClient.serializeBody(this.template), 'application/octet-stream', name: 'Template'));
     }
     else {
-      throw ApiException(400, 'Parameter template is required.');
+      throw new ApiException(400, 'Parameter template is required.');
     }
 
-    if (data != null) {
-      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(data), 'application/octet-stream', name: 'Data'));
+    if (this.data != null) {
+      bodyParts.add(new ApiRequestPart(apiClient.serializeBody(this.data), 'application/octet-stream', name: 'Data'));
     }
     else {
-      throw ApiException(400, 'Parameter data is required.');
+      throw new ApiException(400, 'Parameter data is required.');
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('PUT', _url, _headers, _body);
+    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
+    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
+    return new ApiRequestData('PUT', url, headers, body);
   }
 
   @override

@@ -27,6 +27,7 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
+import 'package:test/test.dart';
 
 /// Example of how to work with macros.
 class PageSetupTests
@@ -36,8 +37,8 @@ class PageSetupTests
   String localFile;
   String localTextFile;
 
-  PageSetupTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/PageSetup';
+  PageSetupTests(final TestContext this.context) {
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/PageSetup';
     localFile = 'Common/test_multi_pages.docx';
     localTextFile = 'DocumentElements/Text/SampleWordDocument.docx';
   }
@@ -45,52 +46,58 @@ class PageSetupTests
   /// Test for getting page settings.
   Future<void> testGetSectionPageSetup() async
   {
-    final remoteFileName = 'TestGetSectionPageSetup.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetSectionPageSetup.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetSectionPageSetupRequest(
+    final request = new GetSectionPageSetupRequest(
       remoteFileName,
       0,
       folder: remoteDataFolder
     );
 
-    await context.getApi().getSectionPageSetup(request);
+    var result = await this.context.getApi().getSectionPageSetup(request);
+    expect(result.pageSetup, isNotNull);
+    expect(result.pageSetup.lineStartingNumber, 1);
   }
 
   /// Test for updating page settings.
   Future<void> testUpdateSectionPageSetup() async
   {
-    final remoteFileName = 'TestUpdateSectionPageSetup.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestPageSetup = PageSetup();
+    final String remoteFileName = 'TestUpdateSectionPageSetup.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestPageSetup = new PageSetup();
     requestPageSetup.rtlGutter = true;
     requestPageSetup.leftMargin = 10;
     requestPageSetup.orientation = PageSetup_OrientationEnum.landscape;
     requestPageSetup.paperSize = PageSetup_PaperSizeEnum.a5;
 
-    final request = UpdateSectionPageSetupRequest(
+    final request = new UpdateSectionPageSetupRequest(
       remoteFileName,
       0,
       requestPageSetup,
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateSectionPageSetup(request);
+    var result = await this.context.getApi().updateSectionPageSetup(request);
+    expect(result.pageSetup, isNotNull);
+    expect(result.pageSetup.rtlGutter, isTrue);
+
+
   }
 
   /// Test for page rendering.
   Future<void> testGetRenderPage() async
   {
-    final remoteFileName = 'TestGetRenderPage.docx';
-    await context.uploadFile(localTextFile, remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetRenderPage.docx';
+    await this.context.uploadFile(localTextFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = RenderPageRequest(
+    final request = new RenderPageRequest(
       remoteFileName,
       1,
       'bmp',
       folder: remoteDataFolder
     );
 
-    await context.getApi().renderPage(request);
+    var result = await this.context.getApi().renderPage(request);
   }
 }

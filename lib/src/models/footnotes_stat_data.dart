@@ -40,27 +40,27 @@ class FootnotesStatData implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('ParagraphCount')) {
-      paragraphCount = json['ParagraphCount'];
+      this.paragraphCount = json['ParagraphCount'];
     } else {
-      paragraphCount = null;
+      this.paragraphCount = null;
     }
 
     if (json.containsKey('WordCount')) {
-      wordCount = json['WordCount'];
+      this.wordCount = json['WordCount'];
     } else {
-      wordCount = null;
+      this.wordCount = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (paragraphCount != null) {
-      _result['ParagraphCount'] = paragraphCount;
+    var _result = new Map<String, dynamic>();
+    if (this.paragraphCount != null) {
+      _result['ParagraphCount'] = this.paragraphCount;
     }
 
-    if (wordCount != null) {
-      _result['WordCount'] = wordCount;
+    if (this.wordCount != null) {
+      _result['WordCount'] = this.wordCount;
     }
     return _result;
   }

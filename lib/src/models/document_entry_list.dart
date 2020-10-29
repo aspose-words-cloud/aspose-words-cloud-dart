@@ -40,33 +40,33 @@ class DocumentEntryList implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('ApplyBaseDocumentHeadersAndFootersToAppendingDocuments')) {
-      applyBaseDocumentHeadersAndFootersToAppendingDocuments = json['ApplyBaseDocumentHeadersAndFootersToAppendingDocuments'];
+      this.applyBaseDocumentHeadersAndFootersToAppendingDocuments = json['ApplyBaseDocumentHeadersAndFootersToAppendingDocuments'];
     } else {
-      applyBaseDocumentHeadersAndFootersToAppendingDocuments = null;
+      this.applyBaseDocumentHeadersAndFootersToAppendingDocuments = null;
     }
 
     if (json.containsKey('DocumentEntries')) {
       // Array processing
-      documentEntries = <DocumentEntry>[];
+      this.documentEntries = new List<DocumentEntry>();
       for(final _element in json['DocumentEntries']) {
-        var _elementValue = DocumentEntry();
+        var _elementValue = new DocumentEntry();
         _elementValue.deserialize(_element);
-        documentEntries.add(_elementValue);
+        this.documentEntries.add(_elementValue);
       }
     } else {
-      documentEntries = null;
+      this.documentEntries = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (applyBaseDocumentHeadersAndFootersToAppendingDocuments != null) {
-      _result['ApplyBaseDocumentHeadersAndFootersToAppendingDocuments'] = applyBaseDocumentHeadersAndFootersToAppendingDocuments;
+    var _result = new Map<String, dynamic>();
+    if (this.applyBaseDocumentHeadersAndFootersToAppendingDocuments != null) {
+      _result['ApplyBaseDocumentHeadersAndFootersToAppendingDocuments'] = this.applyBaseDocumentHeadersAndFootersToAppendingDocuments;
     }
 
-    if (documentEntries != null) {
-      _result['DocumentEntries'] = documentEntries.map((_element) => _element.serialize()).toList();
+    if (this.documentEntries != null) {
+      _result['DocumentEntries'] = this.documentEntries.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

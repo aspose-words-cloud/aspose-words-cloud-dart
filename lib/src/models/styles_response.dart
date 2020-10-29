@@ -40,23 +40,23 @@ class StylesResponse extends WordsResponse {
     super.deserialize(json);
     if (json.containsKey('Styles')) {
       // Array processing
-      styles = <Style>[];
+      this.styles = new List<Style>();
       for(final _element in json['Styles']) {
-        var _elementValue = Style();
+        var _elementValue = new Style();
         _elementValue.deserialize(_element);
-        styles.add(_elementValue);
+        this.styles.add(_elementValue);
       }
     } else {
-      styles = null;
+      this.styles = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (styles != null) {
-      _result['Styles'] = styles.map((_element) => _element.serialize()).toList();
+    if (this.styles != null) {
+      _result['Styles'] = this.styles.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

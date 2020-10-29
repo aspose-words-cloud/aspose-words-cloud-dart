@@ -40,31 +40,31 @@ class ReplaceRange implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('Text')) {
-      text = json['Text'];
+      this.text = json['Text'];
     } else {
-      text = null;
+      this.text = null;
     }
 
     if (json.containsKey('TextType')) {
       switch (json['TextType']) {
-        case 'Text': textType = ReplaceRange_TextTypeEnum.text; break;
-        case 'Html': textType = ReplaceRange_TextTypeEnum.html; break;
-        default: textType = null; break;
+        case 'Text': this.textType = ReplaceRange_TextTypeEnum.text; break;
+        case 'Html': this.textType = ReplaceRange_TextTypeEnum.html; break;
+        default: this.textType = null; break;
       }
     } else {
-      textType = null;
+      this.textType = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (text != null) {
-      _result['Text'] = text;
+    var _result = new Map<String, dynamic>();
+    if (this.text != null) {
+      _result['Text'] = this.text;
     }
 
-    if (textType != null) {
-      switch (textType) {
+    if (this.textType != null) {
+      switch (this.textType) {
         case ReplaceRange_TextTypeEnum.text: _result['TextType'] = 'Text'; break;
         case ReplaceRange_TextTypeEnum.html: _result['TextType'] = 'Html'; break;
         default: break;

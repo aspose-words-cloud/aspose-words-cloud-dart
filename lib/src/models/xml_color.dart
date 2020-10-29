@@ -40,27 +40,27 @@ class XmlColor implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('Alpha')) {
-      alpha = json['Alpha'];
+      this.alpha = json['Alpha'];
     } else {
-      alpha = null;
+      this.alpha = null;
     }
 
     if (json.containsKey('Web')) {
-      web = json['Web'];
+      this.web = json['Web'];
     } else {
-      web = null;
+      this.web = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (alpha != null) {
-      _result['Alpha'] = alpha;
+    var _result = new Map<String, dynamic>();
+    if (this.alpha != null) {
+      _result['Alpha'] = this.alpha;
     }
 
-    if (web != null) {
-      _result['Web'] = web;
+    if (this.web != null) {
+      _result['Web'] = this.web;
     }
     return _result;
   }

@@ -39,19 +39,19 @@ class CommentResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('Comment')) {
-      comment = Comment();
-      comment.deserialize(json['Comment']);
+      this.comment = new Comment();
+      this.comment.deserialize(json['Comment']);
     } else {
-      comment = null;
+      this.comment = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (comment != null) {
-      _result['Comment'] = comment.serialize();
+    if (this.comment != null) {
+      _result['Comment'] = this.comment.serialize();
     }
     return _result;
   }

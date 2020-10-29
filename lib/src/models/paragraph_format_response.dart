@@ -39,19 +39,19 @@ class ParagraphFormatResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('ParagraphFormat')) {
-      paragraphFormat = ParagraphFormat();
-      paragraphFormat.deserialize(json['ParagraphFormat']);
+      this.paragraphFormat = new ParagraphFormat();
+      this.paragraphFormat.deserialize(json['ParagraphFormat']);
     } else {
-      paragraphFormat = null;
+      this.paragraphFormat = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (paragraphFormat != null) {
-      _result['ParagraphFormat'] = paragraphFormat.serialize();
+    if (this.paragraphFormat != null) {
+      _result['ParagraphFormat'] = this.paragraphFormat.serialize();
     }
     return _result;
   }

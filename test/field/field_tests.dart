@@ -27,6 +27,7 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
+import 'package:test/test.dart';
 
 /// Example of how to work with field.
 class FieldTests
@@ -36,8 +37,8 @@ class FieldTests
   String textFolder;
   String fieldFolder;
 
-  FieldTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Fields';
+  FieldTests(final TestContext this.context) {
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Fields';
     textFolder = 'DocumentElements/Text';
     fieldFolder = 'DocumentElements/Fields';
   }
@@ -45,114 +46,132 @@ class FieldTests
   /// Test for getting fields.
   Future<void> testGetFields() async
   {
-    final localFileName = 'GetField.docx';
-    final remoteFileName = 'TestGetFields.docx';
-    await context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
+    final String localFileName = 'GetField.docx';
+    final String remoteFileName = 'TestGetFields.docx';
+    await this.context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetFieldsRequest(
+    final request = new GetFieldsRequest(
       remoteFileName,
       nodePath: 'sections/0',
       folder: remoteDataFolder
     );
 
-    await context.getApi().getFields(request);
+    var result = await this.context.getApi().getFields(request);
+    expect(result.fields, isNotNull);
+    expect(result.fields.list, isNotNull);
+    expect(result.fields.list.length, 1);
+    expect(result.fields.list[0].result, '1');
   }
 
   /// Test for getting fields without node path.
   Future<void> testGetFieldsWithoutNodePath() async
   {
-    final localFileName = 'GetField.docx';
-    final remoteFileName = 'TestGetFieldsWithoutNodePath.docx';
-    await context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
+    final String localFileName = 'GetField.docx';
+    final String remoteFileName = 'TestGetFieldsWithoutNodePath.docx';
+    await this.context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetFieldsRequest(
+    final request = new GetFieldsRequest(
       remoteFileName,
       folder: remoteDataFolder
     );
 
-    await context.getApi().getFields(request);
+    var result = await this.context.getApi().getFields(request);
+    expect(result.fields, isNotNull);
+    expect(result.fields.list, isNotNull);
+    expect(result.fields.list.length, 1);
+    expect(result.fields.list[0].result, '1');
   }
 
   /// Test for getting field by index.
   Future<void> testGetField() async
   {
-    final localFileName = 'GetField.docx';
-    final remoteFileName = 'TestGetField.docx';
-    await context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
+    final String localFileName = 'GetField.docx';
+    final String remoteFileName = 'TestGetField.docx';
+    await this.context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetFieldRequest(
+    final request = new GetFieldRequest(
       remoteFileName,
       0,
       nodePath: 'sections/0/paragraphs/0',
       folder: remoteDataFolder
     );
 
-    await context.getApi().getField(request);
+    var result = await this.context.getApi().getField(request);
+    expect(result.field, isNotNull);
+    expect(result.field.result, '1');
   }
 
   /// Test for getting field by index without node path.
   Future<void> testGetFieldWithoutNodePath() async
   {
-    final localFileName = 'GetField.docx';
-    final remoteFileName = 'TestGetFieldWithoutNodePath.docx';
-    await context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
+    final String localFileName = 'GetField.docx';
+    final String remoteFileName = 'TestGetFieldWithoutNodePath.docx';
+    await this.context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetFieldRequest(
+    final request = new GetFieldRequest(
       remoteFileName,
       0,
       folder: remoteDataFolder
     );
 
-    await context.getApi().getField(request);
+    var result = await this.context.getApi().getField(request);
+    expect(result.field, isNotNull);
+    expect(result.field.result, '1');
   }
 
   /// Test for putting field.
   Future<void> testInsertField() async
   {
-    final localFileName = 'SampleWordDocument.docx';
-    final remoteFileName = 'TestInsertField.docx';
-    await context.uploadFile(textFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
-    var requestField = FieldInsert();
+    final String localFileName = 'SampleWordDocument.docx';
+    final String remoteFileName = 'TestInsertField.docx';
+    await this.context.uploadFile(textFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
+    var requestField = new FieldInsert();
     requestField.fieldCode = '{ NUMPAGES }';
 
-    final request = InsertFieldRequest(
+    final request = new InsertFieldRequest(
       remoteFileName,
       requestField,
       nodePath: 'sections/0/paragraphs/0',
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertField(request);
+    var result = await this.context.getApi().insertField(request);
+    expect(result.field, isNotNull);
+    expect(result.field.fieldCode, '{ NUMPAGES }');
+    expect(result.field.nodeId, '0.0.0.1');
   }
 
   /// Test for putting field without node path.
   Future<void> testInsertFieldWithoutNodePath() async
   {
-    final localFileName = 'SampleWordDocument.docx';
-    final remoteFileName = 'TestInsertFieldWithoutNodePath.docx';
-    await context.uploadFile(textFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
-    var requestField = FieldInsert();
+    final String localFileName = 'SampleWordDocument.docx';
+    final String remoteFileName = 'TestInsertFieldWithoutNodePath.docx';
+    await this.context.uploadFile(textFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
+    var requestField = new FieldInsert();
     requestField.fieldCode = '{ NUMPAGES }';
 
-    final request = InsertFieldRequest(
+    final request = new InsertFieldRequest(
       remoteFileName,
       requestField,
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertField(request);
+    var result = await this.context.getApi().insertField(request);
+    expect(result.field, isNotNull);
+    expect(result.field.fieldCode, '{ NUMPAGES }');
+    expect(result.field.nodeId, '5.0.22.0');
   }
 
   /// Test for posting field.
   Future<void> testUpdateField() async
   {
-    final localFileName = 'GetField.docx';
-    final remoteFileName = 'TestUpdateField.docx';
-    await context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
-    var requestField = FieldUpdate();
+    final String localFileName = 'GetField.docx';
+    final String remoteFileName = 'TestUpdateField.docx';
+    await this.context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
+    var requestField = new FieldUpdate();
     requestField.fieldCode = '{ NUMPAGES }';
 
-    final request = UpdateFieldRequest(
+    final request = new UpdateFieldRequest(
       remoteFileName,
       requestField,
       0,
@@ -160,168 +179,175 @@ class FieldTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateField(request);
+    var result = await this.context.getApi().updateField(request);
+    expect(result.field, isNotNull);
+    expect(result.field.fieldCode, '{ NUMPAGES }');
+    expect(result.field.nodeId, '0.0.0.0');
   }
 
   /// Test for inserting page numbers field.
   Future<void> testInsertPageNumbers() async
   {
-    final localFileName = 'test_multi_pages.docx';
-    final remoteFileName = 'TestInsertPageNumbers.docx';
-    await context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
-    var requestPageNumber = PageNumber();
+    final String localFileName = 'test_multi_pages.docx';
+    final String remoteFileName = 'TestInsertPageNumbers.docx';
+    await this.context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
+    var requestPageNumber = new PageNumber();
     requestPageNumber.alignment = 'center';
     requestPageNumber.format = '{PAGE} of {NUMPAGES}';
 
-    final request = InsertPageNumbersRequest(
+    final request = new InsertPageNumbersRequest(
       remoteFileName,
       requestPageNumber,
       folder: remoteDataFolder,
-      destFileName: context.baseTestOutPath + '/' + remoteFileName
+      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    await context.getApi().insertPageNumbers(request);
+    var result = await this.context.getApi().insertPageNumbers(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'TestInsertPageNumbers.docx');
   }
 
   /// Test for deleting field.
   Future<void> testDeleteField() async
   {
-    final localFileName = 'GetField.docx';
-    final remoteFileName = 'TestDeleteField.docx';
-    await context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
+    final String localFileName = 'GetField.docx';
+    final String remoteFileName = 'TestDeleteField.docx';
+    await this.context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
-    final request = DeleteFieldRequest(
+    final request = new DeleteFieldRequest(
       remoteFileName,
       0,
       nodePath: 'sections/0/paragraphs/0',
       folder: remoteDataFolder
     );
 
-    await context.getApi().deleteField(request);
+    await this.context.getApi().deleteField(request);
   }
 
   /// Test for deleting field without node path.
   Future<void> testDeleteFieldWithoutNodePath() async
   {
-    final localFileName = 'GetField.docx';
-    final remoteFileName = 'TestDeleteFieldWithoutNodePath.docx';
-    await context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
+    final String localFileName = 'GetField.docx';
+    final String remoteFileName = 'TestDeleteFieldWithoutNodePath.docx';
+    await this.context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
-    final request = DeleteFieldRequest(
+    final request = new DeleteFieldRequest(
       remoteFileName,
       0,
       folder: remoteDataFolder
     );
 
-    await context.getApi().deleteField(request);
+    await this.context.getApi().deleteField(request);
   }
 
   /// Test for deleting paragraph fields.
   Future<void> testDeleteParagraphFields() async
   {
-    final localFileName = 'test_multi_pages.docx';
-    final remoteFileName = 'TestDeleteParagraphFields.docx';
-    await context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
+    final String localFileName = 'test_multi_pages.docx';
+    final String remoteFileName = 'TestDeleteParagraphFields.docx';
+    await this.context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
-    final request = DeleteFieldsRequest(
+    final request = new DeleteFieldsRequest(
       remoteFileName,
       nodePath: 'paragraphs/0',
       folder: remoteDataFolder
     );
 
-    await context.getApi().deleteFields(request);
+    await this.context.getApi().deleteFields(request);
   }
 
   /// Test for deleting paragraph fields without node path.
   Future<void> testDeleteParagraphFieldsWithoutNodePath() async
   {
-    final localFileName = 'test_multi_pages.docx';
-    final remoteFileName = 'TestDeleteParagraphFieldsWithoutNodePath.docx';
-    await context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
+    final String localFileName = 'test_multi_pages.docx';
+    final String remoteFileName = 'TestDeleteParagraphFieldsWithoutNodePath.docx';
+    await this.context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
-    final request = DeleteFieldsRequest(
+    final request = new DeleteFieldsRequest(
       remoteFileName,
       folder: remoteDataFolder
     );
 
-    await context.getApi().deleteFields(request);
+    await this.context.getApi().deleteFields(request);
   }
 
   /// Test for deleting section fields.
   Future<void> testDeleteSectionFields() async
   {
-    final localFileName = 'test_multi_pages.docx';
-    final remoteFileName = 'TestDeleteSectionFields.docx';
-    await context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
+    final String localFileName = 'test_multi_pages.docx';
+    final String remoteFileName = 'TestDeleteSectionFields.docx';
+    await this.context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
-    final request = DeleteFieldsRequest(
+    final request = new DeleteFieldsRequest(
       remoteFileName,
       nodePath: 'sections/0',
       folder: remoteDataFolder
     );
 
-    await context.getApi().deleteFields(request);
+    await this.context.getApi().deleteFields(request);
   }
 
   /// Test for deleting section fields without node path.
   Future<void> testDeleteSectionFieldsWithoutNodePath() async
   {
-    final localFileName = 'test_multi_pages.docx';
-    final remoteFileName = 'TestDeleteSectionFieldsWithoutNodePath.docx';
-    await context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
+    final String localFileName = 'test_multi_pages.docx';
+    final String remoteFileName = 'TestDeleteSectionFieldsWithoutNodePath.docx';
+    await this.context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
-    final request = DeleteFieldsRequest(
+    final request = new DeleteFieldsRequest(
       remoteFileName,
       folder: remoteDataFolder
     );
 
-    await context.getApi().deleteFields(request);
+    await this.context.getApi().deleteFields(request);
   }
 
   /// Test for deleting paragraph fields in section.
   Future<void> testDeleteSectionParagraphFields() async
   {
-    final localFileName = 'test_multi_pages.docx';
-    final remoteFileName = 'TestDeleteSectionParagraphFields.docx';
-    await context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
+    final String localFileName = 'test_multi_pages.docx';
+    final String remoteFileName = 'TestDeleteSectionParagraphFields.docx';
+    await this.context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
-    final request = DeleteFieldsRequest(
+    final request = new DeleteFieldsRequest(
       remoteFileName,
       nodePath: 'sections/0/paragraphs/0',
       folder: remoteDataFolder
     );
 
-    await context.getApi().deleteFields(request);
+    await this.context.getApi().deleteFields(request);
   }
 
   /// Test for deleting fields.
   Future<void> testDeleteDocumentFields() async
   {
-    final localFileName = 'test_multi_pages.docx';
-    final remoteFileName = 'TestDeleteSectionParagraphFields.docx';
-    await context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
+    final String localFileName = 'test_multi_pages.docx';
+    final String remoteFileName = 'TestDeleteSectionParagraphFields.docx';
+    await this.context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
-    final request = DeleteFieldsRequest(
+    final request = new DeleteFieldsRequest(
       remoteFileName,
       nodePath: '',
       folder: remoteDataFolder
     );
 
-    await context.getApi().deleteFields(request);
+    await this.context.getApi().deleteFields(request);
   }
 
   /// Test for posting updated fields.
   Future<void> testUpdateDocumentFields() async
   {
-    final localFileName = 'test_multi_pages.docx';
-    final remoteFileName = 'TestUpdateDocumentFields.docx';
-    await context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
+    final String localFileName = 'test_multi_pages.docx';
+    final String remoteFileName = 'TestUpdateDocumentFields.docx';
+    await this.context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
-    final request = UpdateFieldsRequest(
+    final request = new UpdateFieldsRequest(
       remoteFileName,
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateFields(request);
+    var result = await this.context.getApi().updateFields(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'TestUpdateDocumentFields.docx');
   }
 }

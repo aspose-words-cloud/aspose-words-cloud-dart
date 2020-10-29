@@ -44,38 +44,38 @@ class ListFormat extends LinkElement {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('IsListItem')) {
-      isListItem = json['IsListItem'];
+      this.isListItem = json['IsListItem'];
     } else {
-      isListItem = null;
+      this.isListItem = null;
     }
 
     if (json.containsKey('ListId')) {
-      listId = json['ListId'];
+      this.listId = json['ListId'];
     } else {
-      listId = null;
+      this.listId = null;
     }
 
     if (json.containsKey('ListLevelNumber')) {
-      listLevelNumber = json['ListLevelNumber'];
+      this.listLevelNumber = json['ListLevelNumber'];
     } else {
-      listLevelNumber = null;
+      this.listLevelNumber = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (isListItem != null) {
-      _result['IsListItem'] = isListItem;
+    if (this.isListItem != null) {
+      _result['IsListItem'] = this.isListItem;
     }
 
-    if (listId != null) {
-      _result['ListId'] = listId;
+    if (this.listId != null) {
+      _result['ListId'] = this.listId;
     }
 
-    if (listLevelNumber != null) {
-      _result['ListLevelNumber'] = listLevelNumber;
+    if (this.listLevelNumber != null) {
+      _result['ListLevelNumber'] = this.listLevelNumber;
     }
     return _result;
   }

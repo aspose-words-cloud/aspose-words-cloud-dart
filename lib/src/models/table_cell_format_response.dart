@@ -39,19 +39,19 @@ class TableCellFormatResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('CellFormat')) {
-      cellFormat = TableCellFormat();
-      cellFormat.deserialize(json['CellFormat']);
+      this.cellFormat = new TableCellFormat();
+      this.cellFormat.deserialize(json['CellFormat']);
     } else {
-      cellFormat = null;
+      this.cellFormat = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (cellFormat != null) {
-      _result['CellFormat'] = cellFormat.serialize();
+    if (this.cellFormat != null) {
+      _result['CellFormat'] = this.cellFormat.serialize();
     }
     return _result;
   }

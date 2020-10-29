@@ -42,33 +42,33 @@ class ClassifyRequest implements RequestBase {
   /// Number of the best classes to return.
   final String bestClassesCount;
 
-  ClassifyRequest(final this.text, {final this.bestClassesCount});
+  ClassifyRequest(final String this.text, {final String this.bestClassesCount = null});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var _path = '/words/classify';
-    var _queryParams = <String, String>{};
-    var _headers = <String, String>{};
-    var _bodyParts = <ApiRequestPart>[];
-    if (bestClassesCount != null) {
-      _queryParams['bestClassesCount'] = apiClient.serializeToString(bestClassesCount);
+    String path = '/words/classify';
+    Map<String, String> queryParams = new Map<String, String>();
+    Map<String, String> headers = new Map<String, String>();
+    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
+    if (this.bestClassesCount != null) {
+      queryParams['bestClassesCount'] = apiClient.serializeToString(this.bestClassesCount);
     }
 
-    if (text != null) {
-      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(text, isJson: true), 'application/json'));
+    if (this.text != null) {
+      bodyParts.add(new ApiRequestPart(apiClient.serializeBody(this.text, isJson: true), 'application/json'));
     }
     else {
-      throw ApiException(400, 'Parameter text is required.');
+      throw new ApiException(400, 'Parameter text is required.');
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('PUT', _url, _headers, _body);
+    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
+    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
+    return new ApiRequestData('PUT', url, headers, body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = ClassificationResponse();
+    var _result = new ClassificationResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
     _result.deserialize(_json);

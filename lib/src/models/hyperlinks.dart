@@ -39,23 +39,23 @@ class Hyperlinks extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('HyperlinkList')) {
       // Array processing
-      hyperlinkList = <Hyperlink>[];
+      this.hyperlinkList = new List<Hyperlink>();
       for(final _element in json['HyperlinkList']) {
-        var _elementValue = Hyperlink();
+        var _elementValue = new Hyperlink();
         _elementValue.deserialize(_element);
-        hyperlinkList.add(_elementValue);
+        this.hyperlinkList.add(_elementValue);
       }
     } else {
-      hyperlinkList = null;
+      this.hyperlinkList = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (hyperlinkList != null) {
-      _result['HyperlinkList'] = hyperlinkList.map((_element) => _element.serialize()).toList();
+    if (this.hyperlinkList != null) {
+      _result['HyperlinkList'] = this.hyperlinkList.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

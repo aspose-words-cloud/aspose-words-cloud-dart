@@ -27,6 +27,7 @@
 
 library aspose_words_cloud;
 
+import 'dart:convert';
 import 'dart:typed_data';
 import '../../aspose_words_cloud.dart';
 import '../api_client.dart';
@@ -59,53 +60,53 @@ class RenderPageRequest implements RequestBase {
   /// Folder in filestorage with custom fonts.
   final String fontsLocation;
 
-  RenderPageRequest(final this.name, final this.pageIndex, final this.format, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.fontsLocation});
+  RenderPageRequest(final String this.name, final int this.pageIndex, final String this.format, {final String this.folder = null, final String this.storage = null, final String this.loadEncoding = null, final String this.password = null, final String this.fontsLocation = null});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var _path = '/words/{name}/pages/{pageIndex}/render';
-    var _queryParams = <String, String>{};
-    var _headers = <String, String>{};
-    var _bodyParts = <ApiRequestPart>[];
-    if (name == null) {
-      throw ApiException(400, 'Parameter name is required.');
+    String path = '/words/{name}/pages/{pageIndex}/render';
+    Map<String, String> queryParams = new Map<String, String>();
+    Map<String, String> headers = new Map<String, String>();
+    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
+    if (this.name == null) {
+      throw new ApiException(400, 'Parameter name is required.');
     }
-    _path = _path.replaceAll('{name}', apiClient.serializeToString(name));
+    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
 
-    if (pageIndex == null) {
-      throw ApiException(400, 'Parameter pageIndex is required.');
+    if (this.pageIndex == null) {
+      throw new ApiException(400, 'Parameter pageIndex is required.');
     }
-    _path = _path.replaceAll('{pageIndex}', apiClient.serializeToString(pageIndex));
-    if (format != null) {
-      _queryParams['format'] = apiClient.serializeToString(format);
+    path = path.replaceAll('{pageIndex}', apiClient.serializeToString(this.pageIndex));
+    if (this.format != null) {
+      queryParams['format'] = apiClient.serializeToString(this.format);
     }
     else {
-      throw ApiException(400, 'Parameter format is required.');
+      throw new ApiException(400, 'Parameter format is required.');
     }
 
-    if (folder != null) {
-      _queryParams['folder'] = apiClient.serializeToString(folder);
+    if (this.folder != null) {
+      queryParams['folder'] = apiClient.serializeToString(this.folder);
     }
 
-    if (storage != null) {
-      _queryParams['storage'] = apiClient.serializeToString(storage);
+    if (this.storage != null) {
+      queryParams['storage'] = apiClient.serializeToString(this.storage);
     }
 
-    if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
+    if (this.loadEncoding != null) {
+      queryParams['loadEncoding'] = apiClient.serializeToString(this.loadEncoding);
     }
 
-    if (password != null) {
-      _queryParams['password'] = apiClient.serializeToString(password);
+    if (this.password != null) {
+      queryParams['password'] = apiClient.serializeToString(this.password);
     }
 
-    if (fontsLocation != null) {
-      _queryParams['fontsLocation'] = apiClient.serializeToString(fontsLocation);
+    if (this.fontsLocation != null) {
+      queryParams['fontsLocation'] = apiClient.serializeToString(this.fontsLocation);
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('GET', _url, _headers, _body);
+    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
+    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
+    return new ApiRequestData('GET', url, headers, body);
   }
 
   @override

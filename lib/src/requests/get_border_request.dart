@@ -57,48 +57,48 @@ class GetBorderRequest implements RequestBase {
   /// Password for opening an encrypted document.
   final String password;
 
-  GetBorderRequest(final this.name, final this.borderType, {final this.nodePath, final this.folder, final this.storage, final this.loadEncoding, final this.password});
+  GetBorderRequest(final String this.name, final String this.borderType, {final String this.nodePath = null, final String this.folder = null, final String this.storage = null, final String this.loadEncoding = null, final String this.password = null});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var _path = '/words/{name}/{nodePath}/borders/{borderType}';
-    var _queryParams = <String, String>{};
-    var _headers = <String, String>{};
-    var _bodyParts = <ApiRequestPart>[];
-    if (name == null) {
-      throw ApiException(400, 'Parameter name is required.');
+    String path = '/words/{name}/{nodePath}/borders/{borderType}';
+    Map<String, String> queryParams = new Map<String, String>();
+    Map<String, String> headers = new Map<String, String>();
+    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
+    if (this.name == null) {
+      throw new ApiException(400, 'Parameter name is required.');
     }
-    _path = _path.replaceAll('{name}', apiClient.serializeToString(name));
+    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
 
-    if (borderType == null) {
-      throw ApiException(400, 'Parameter borderType is required.');
+    if (this.borderType == null) {
+      throw new ApiException(400, 'Parameter borderType is required.');
     }
-    _path = _path.replaceAll('{borderType}', apiClient.serializeToString(borderType));
-    _path = _path.replaceAll('{nodePath}', apiClient.serializeToString(nodePath) ?? '');
-    if (folder != null) {
-      _queryParams['folder'] = apiClient.serializeToString(folder);
-    }
-
-    if (storage != null) {
-      _queryParams['storage'] = apiClient.serializeToString(storage);
+    path = path.replaceAll('{borderType}', apiClient.serializeToString(this.borderType));
+    path = path.replaceAll('{nodePath}', apiClient.serializeToString(this.nodePath) ?? '');
+    if (this.folder != null) {
+      queryParams['folder'] = apiClient.serializeToString(this.folder);
     }
 
-    if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
+    if (this.storage != null) {
+      queryParams['storage'] = apiClient.serializeToString(this.storage);
     }
 
-    if (password != null) {
-      _queryParams['password'] = apiClient.serializeToString(password);
+    if (this.loadEncoding != null) {
+      queryParams['loadEncoding'] = apiClient.serializeToString(this.loadEncoding);
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('GET', _url, _headers, _body);
+    if (this.password != null) {
+      queryParams['password'] = apiClient.serializeToString(this.password);
+    }
+
+    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
+    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
+    return new ApiRequestData('GET', url, headers, body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = BorderResponse();
+    var _result = new BorderResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
     _result.deserialize(_json);

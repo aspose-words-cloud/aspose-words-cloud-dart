@@ -38,19 +38,19 @@ class DocumentPropertyResponse extends WordsResponse {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('DocumentProperty')) {
-      documentProperty = DocumentProperty();
-      documentProperty.deserialize(json['DocumentProperty']);
+      this.documentProperty = new DocumentProperty();
+      this.documentProperty.deserialize(json['DocumentProperty']);
     } else {
-      documentProperty = null;
+      this.documentProperty = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (documentProperty != null) {
-      _result['DocumentProperty'] = documentProperty.serialize();
+    if (this.documentProperty != null) {
+      _result['DocumentProperty'] = this.documentProperty.serialize();
     }
     return _result;
   }

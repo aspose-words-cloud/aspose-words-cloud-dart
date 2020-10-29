@@ -39,7 +39,7 @@ class TableLink extends NodeLink {
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
     return _result;
   }

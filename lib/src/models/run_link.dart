@@ -38,18 +38,18 @@ class RunLink extends NodeLink {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('Text')) {
-      text = json['Text'];
+      this.text = json['Text'];
     } else {
-      text = null;
+      this.text = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (text != null) {
-      _result['Text'] = text;
+    if (this.text != null) {
+      _result['Text'] = this.text;
     }
     return _result;
   }

@@ -27,6 +27,7 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
+import 'package:test/test.dart';
 
 /// Example of how to work with compatibility options.
 class CompatibilityTests
@@ -35,25 +36,25 @@ class CompatibilityTests
   String remoteDataFolder;
   String localFile;
 
-  CompatibilityTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/Compatibility';
+  CompatibilityTests(final TestContext this.context) {
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/Compatibility';
     localFile = 'Common/test_multi_pages.docx';
   }
 
   /// Test for optimize document to specific MS Word version.
   Future<void> testOptimizeDocument() async
   {
-    final remoteFileName = 'TestOptimizeDocument.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestOptions = OptimizationOptions();
+    final String remoteFileName = 'TestOptimizeDocument.docx';
+    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestOptions = new OptimizationOptions();
     requestOptions.msWordVersion = OptimizationOptions_MsWordVersionEnum.word2002;
 
-    final request = OptimizeDocumentRequest(
+    final request = new OptimizeDocumentRequest(
       remoteFileName,
       requestOptions,
       folder: remoteDataFolder
     );
 
-    await context.getApi().optimizeDocument(request);
+    await this.context.getApi().optimizeDocument(request);
   }
 }

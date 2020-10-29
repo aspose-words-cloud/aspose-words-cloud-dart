@@ -48,55 +48,55 @@ class FootnoteBase implements ModelBase {
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('FootnoteType')) {
       switch (json['FootnoteType']) {
-        case 'Footnote': footnoteType = FootnoteBase_FootnoteTypeEnum.footnote; break;
-        case 'Endnote': footnoteType = FootnoteBase_FootnoteTypeEnum.endnote; break;
-        default: footnoteType = null; break;
+        case 'Footnote': this.footnoteType = FootnoteBase_FootnoteTypeEnum.footnote; break;
+        case 'Endnote': this.footnoteType = FootnoteBase_FootnoteTypeEnum.endnote; break;
+        default: this.footnoteType = null; break;
       }
     } else {
-      footnoteType = null;
+      this.footnoteType = null;
     }
 
     if (json.containsKey('Position')) {
-      position = DocumentPosition();
-      position.deserialize(json['Position']);
+      this.position = new DocumentPosition();
+      this.position.deserialize(json['Position']);
     } else {
-      position = null;
+      this.position = null;
     }
 
     if (json.containsKey('ReferenceMark')) {
-      referenceMark = json['ReferenceMark'];
+      this.referenceMark = json['ReferenceMark'];
     } else {
-      referenceMark = null;
+      this.referenceMark = null;
     }
 
     if (json.containsKey('Text')) {
-      text = json['Text'];
+      this.text = json['Text'];
     } else {
-      text = null;
+      this.text = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (footnoteType != null) {
-      switch (footnoteType) {
+    var _result = new Map<String, dynamic>();
+    if (this.footnoteType != null) {
+      switch (this.footnoteType) {
         case FootnoteBase_FootnoteTypeEnum.footnote: _result['FootnoteType'] = 'Footnote'; break;
         case FootnoteBase_FootnoteTypeEnum.endnote: _result['FootnoteType'] = 'Endnote'; break;
         default: break;
       }
     }
 
-    if (position != null) {
-      _result['Position'] = position.serialize();
+    if (this.position != null) {
+      _result['Position'] = this.position.serialize();
     }
 
-    if (referenceMark != null) {
-      _result['ReferenceMark'] = referenceMark;
+    if (this.referenceMark != null) {
+      _result['ReferenceMark'] = this.referenceMark;
     }
 
-    if (text != null) {
-      _result['Text'] = text;
+    if (this.text != null) {
+      _result['Text'] = this.text;
     }
     return _result;
   }

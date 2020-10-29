@@ -27,6 +27,7 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
+import 'package:test/test.dart';
 
 /// Example of how to work with merge fields.
 class MailMergeFiledsTests
@@ -35,35 +36,42 @@ class MailMergeFiledsTests
   String remoteDataFolder;
   String mailMergeFolder;
 
-  MailMergeFiledsTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/MailMerge';
+  MailMergeFiledsTests(final TestContext this.context) {
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/MailMerge';
     mailMergeFolder = 'DocumentActions/MailMerge';
   }
 
   /// Test for putting new fields.
   Future<void> testGetDocumentFieldNamesOnline() async
   {
-    final localDocumentFile = 'SampleExecuteTemplate.docx';
+    final String localDocumentFile = 'SampleExecuteTemplate.docx';
 
-    final request = GetDocumentFieldNamesOnlineRequest(
-      await context.loadBinaryFile(mailMergeFolder + '/' + localDocumentFile),
+    final request = new GetDocumentFieldNamesOnlineRequest(
+      await this.context.loadBinaryFile(mailMergeFolder + '/' + localDocumentFile),
       useNonMergeFields: true
     );
 
-    await context.getApi().getDocumentFieldNamesOnline(request);
+    var result = await this.context.getApi().getDocumentFieldNamesOnline(request);
+    expect(result.fieldNames, isNotNull);
+    expect(result.fieldNames.names, isNotNull);
+    expect(result.fieldNames.names.length, 15);
+    expect(result.fieldNames.names[0], 'TableStart:Order');
   }
 
   /// Test for getting mailmerge fields.
   Future<void> testGetDocumentFieldNames() async
   {
-    final remoteFileName = 'TestGetDocumentFieldNames.docx';
-    await context.uploadFile('Common/test_multi_pages.docx', remoteDataFolder + '/' + remoteFileName);
+    final String remoteFileName = 'TestGetDocumentFieldNames.docx';
+    await this.context.uploadFile('Common/test_multi_pages.docx', remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetDocumentFieldNamesRequest(
+    final request = new GetDocumentFieldNamesRequest(
       remoteFileName,
       folder: remoteDataFolder
     );
 
-    await context.getApi().getDocumentFieldNames(request);
+    var result = await this.context.getApi().getDocumentFieldNames(request);
+    expect(result.fieldNames, isNotNull);
+    expect(result.fieldNames.names, isNotNull);
+    expect(result.fieldNames.names.length, 0);
   }
 }

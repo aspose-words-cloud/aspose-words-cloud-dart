@@ -49,45 +49,45 @@ class TxtSaveOptionsBaseData extends SaveOptionsData {
   void deserialize(Map<String, dynamic> json) {
     super.deserialize(json);
     if (json.containsKey('Encoding')) {
-      encoding = json['Encoding'];
+      this.encoding = json['Encoding'];
     } else {
-      encoding = null;
+      this.encoding = null;
     }
 
     if (json.containsKey('ExportHeadersFootersMode')) {
       switch (json['ExportHeadersFootersMode']) {
-        case 'None': exportHeadersFootersMode = TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum.none; break;
-        case 'PrimaryOnly': exportHeadersFootersMode = TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum.primaryOnly; break;
-        case 'AllAtEnd': exportHeadersFootersMode = TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum.allAtEnd; break;
-        default: exportHeadersFootersMode = null; break;
+        case 'None': this.exportHeadersFootersMode = TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum.none; break;
+        case 'PrimaryOnly': this.exportHeadersFootersMode = TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum.primaryOnly; break;
+        case 'AllAtEnd': this.exportHeadersFootersMode = TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum.allAtEnd; break;
+        default: this.exportHeadersFootersMode = null; break;
       }
     } else {
-      exportHeadersFootersMode = null;
+      this.exportHeadersFootersMode = null;
     }
 
     if (json.containsKey('ForcePageBreaks')) {
-      forcePageBreaks = json['ForcePageBreaks'];
+      this.forcePageBreaks = json['ForcePageBreaks'];
     } else {
-      forcePageBreaks = null;
+      this.forcePageBreaks = null;
     }
 
     if (json.containsKey('ParagraphBreak')) {
-      paragraphBreak = json['ParagraphBreak'];
+      this.paragraphBreak = json['ParagraphBreak'];
     } else {
-      paragraphBreak = null;
+      this.paragraphBreak = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (encoding != null) {
-      _result['Encoding'] = encoding;
+    if (this.encoding != null) {
+      _result['Encoding'] = this.encoding;
     }
 
-    if (exportHeadersFootersMode != null) {
-      switch (exportHeadersFootersMode) {
+    if (this.exportHeadersFootersMode != null) {
+      switch (this.exportHeadersFootersMode) {
         case TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum.none: _result['ExportHeadersFootersMode'] = 'None'; break;
         case TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum.primaryOnly: _result['ExportHeadersFootersMode'] = 'PrimaryOnly'; break;
         case TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum.allAtEnd: _result['ExportHeadersFootersMode'] = 'AllAtEnd'; break;
@@ -95,12 +95,12 @@ class TxtSaveOptionsBaseData extends SaveOptionsData {
       }
     }
 
-    if (forcePageBreaks != null) {
-      _result['ForcePageBreaks'] = forcePageBreaks;
+    if (this.forcePageBreaks != null) {
+      _result['ForcePageBreaks'] = this.forcePageBreaks;
     }
 
-    if (paragraphBreak != null) {
-      _result['ParagraphBreak'] = paragraphBreak;
+    if (this.paragraphBreak != null) {
+      _result['ParagraphBreak'] = this.paragraphBreak;
     }
     return _result;
   }

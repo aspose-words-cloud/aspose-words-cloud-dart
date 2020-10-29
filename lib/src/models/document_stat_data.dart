@@ -49,64 +49,64 @@ class DocumentStatData implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('FootnotesStatData')) {
-      footnotesStatData = FootnotesStatData();
-      footnotesStatData.deserialize(json['FootnotesStatData']);
+      this.footnotesStatData = new FootnotesStatData();
+      this.footnotesStatData.deserialize(json['FootnotesStatData']);
     } else {
-      footnotesStatData = null;
+      this.footnotesStatData = null;
     }
 
     if (json.containsKey('PageCount')) {
-      pageCount = json['PageCount'];
+      this.pageCount = json['PageCount'];
     } else {
-      pageCount = null;
+      this.pageCount = null;
     }
 
     if (json.containsKey('PageStatData')) {
       // Array processing
-      pageStatData = <PageStatData>[];
+      this.pageStatData = new List<PageStatData>();
       for(final _element in json['PageStatData']) {
-        var _elementValue = PageStatData();
+        var _elementValue = new PageStatData();
         _elementValue.deserialize(_element);
-        pageStatData.add(_elementValue);
+        this.pageStatData.add(_elementValue);
       }
     } else {
-      pageStatData = null;
+      this.pageStatData = null;
     }
 
     if (json.containsKey('ParagraphCount')) {
-      paragraphCount = json['ParagraphCount'];
+      this.paragraphCount = json['ParagraphCount'];
     } else {
-      paragraphCount = null;
+      this.paragraphCount = null;
     }
 
     if (json.containsKey('WordCount')) {
-      wordCount = json['WordCount'];
+      this.wordCount = json['WordCount'];
     } else {
-      wordCount = null;
+      this.wordCount = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (footnotesStatData != null) {
-      _result['FootnotesStatData'] = footnotesStatData.serialize();
+    var _result = new Map<String, dynamic>();
+    if (this.footnotesStatData != null) {
+      _result['FootnotesStatData'] = this.footnotesStatData.serialize();
     }
 
-    if (pageCount != null) {
-      _result['PageCount'] = pageCount;
+    if (this.pageCount != null) {
+      _result['PageCount'] = this.pageCount;
     }
 
-    if (pageStatData != null) {
-      _result['PageStatData'] = pageStatData.map((_element) => _element.serialize()).toList();
+    if (this.pageStatData != null) {
+      _result['PageStatData'] = this.pageStatData.map((_element) => _element.serialize()).toList();
     }
 
-    if (paragraphCount != null) {
-      _result['ParagraphCount'] = paragraphCount;
+    if (this.paragraphCount != null) {
+      _result['ParagraphCount'] = this.paragraphCount;
     }
 
-    if (wordCount != null) {
-      _result['WordCount'] = wordCount;
+    if (this.wordCount != null) {
+      _result['WordCount'] = this.wordCount;
     }
     return _result;
   }

@@ -27,6 +27,7 @@
 
 library aspose_words_cloud;
 
+import '../../aspose_words_cloud.dart';
 
 /// Specifies options controlling behavior of ReportingEngine while building a report.
 enum ReportBuildOptionsEnum {

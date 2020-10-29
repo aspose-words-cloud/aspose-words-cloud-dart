@@ -46,48 +46,48 @@ class Error implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('Code')) {
-      code = json['Code'];
+      this.code = json['Code'];
     } else {
-      code = null;
+      this.code = null;
     }
 
     if (json.containsKey('Description')) {
-      description = json['Description'];
+      this.description = json['Description'];
     } else {
-      description = null;
+      this.description = null;
     }
 
     if (json.containsKey('InnerError')) {
-      innerError = ErrorDetails();
-      innerError.deserialize(json['InnerError']);
+      this.innerError = new ErrorDetails();
+      this.innerError.deserialize(json['InnerError']);
     } else {
-      innerError = null;
+      this.innerError = null;
     }
 
     if (json.containsKey('Message')) {
-      message = json['Message'];
+      this.message = json['Message'];
     } else {
-      message = null;
+      this.message = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (code != null) {
-      _result['Code'] = code;
+    var _result = new Map<String, dynamic>();
+    if (this.code != null) {
+      _result['Code'] = this.code;
     }
 
-    if (description != null) {
-      _result['Description'] = description;
+    if (this.description != null) {
+      _result['Description'] = this.description;
     }
 
-    if (innerError != null) {
-      _result['InnerError'] = innerError.serialize();
+    if (this.innerError != null) {
+      _result['InnerError'] = this.innerError.serialize();
     }
 
-    if (message != null) {
-      _result['Message'] = message;
+    if (this.message != null) {
+      _result['Message'] = this.message;
     }
     return _result;
   }

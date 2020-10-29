@@ -51,67 +51,67 @@ class Section extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('ChildNodes')) {
       // Array processing
-      childNodes = <NodeLink>[];
+      this.childNodes = new List<NodeLink>();
       for(final _element in json['ChildNodes']) {
-        var _elementValue = NodeLink();
+        var _elementValue = new NodeLink();
         _elementValue.deserialize(_element);
-        childNodes.add(_elementValue);
+        this.childNodes.add(_elementValue);
       }
     } else {
-      childNodes = null;
+      this.childNodes = null;
     }
 
     if (json.containsKey('HeaderFooters')) {
-      headerFooters = LinkElement();
-      headerFooters.deserialize(json['HeaderFooters']);
+      this.headerFooters = new LinkElement();
+      this.headerFooters.deserialize(json['HeaderFooters']);
     } else {
-      headerFooters = null;
+      this.headerFooters = null;
     }
 
     if (json.containsKey('PageSetup')) {
-      pageSetup = LinkElement();
-      pageSetup.deserialize(json['PageSetup']);
+      this.pageSetup = new LinkElement();
+      this.pageSetup.deserialize(json['PageSetup']);
     } else {
-      pageSetup = null;
+      this.pageSetup = null;
     }
 
     if (json.containsKey('Paragraphs')) {
-      paragraphs = LinkElement();
-      paragraphs.deserialize(json['Paragraphs']);
+      this.paragraphs = new LinkElement();
+      this.paragraphs.deserialize(json['Paragraphs']);
     } else {
-      paragraphs = null;
+      this.paragraphs = null;
     }
 
     if (json.containsKey('Tables')) {
-      tables = LinkElement();
-      tables.deserialize(json['Tables']);
+      this.tables = new LinkElement();
+      this.tables.deserialize(json['Tables']);
     } else {
-      tables = null;
+      this.tables = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (childNodes != null) {
-      _result['ChildNodes'] = childNodes.map((_element) => _element.serialize()).toList();
+    if (this.childNodes != null) {
+      _result['ChildNodes'] = this.childNodes.map((_element) => _element.serialize()).toList();
     }
 
-    if (headerFooters != null) {
-      _result['HeaderFooters'] = headerFooters.serialize();
+    if (this.headerFooters != null) {
+      _result['HeaderFooters'] = this.headerFooters.serialize();
     }
 
-    if (pageSetup != null) {
-      _result['PageSetup'] = pageSetup.serialize();
+    if (this.pageSetup != null) {
+      _result['PageSetup'] = this.pageSetup.serialize();
     }
 
-    if (paragraphs != null) {
-      _result['Paragraphs'] = paragraphs.serialize();
+    if (this.paragraphs != null) {
+      _result['Paragraphs'] = this.paragraphs.serialize();
     }
 
-    if (tables != null) {
-      _result['Tables'] = tables.serialize();
+    if (this.tables != null) {
+      _result['Tables'] = this.tables.serialize();
     }
     return _result;
   }

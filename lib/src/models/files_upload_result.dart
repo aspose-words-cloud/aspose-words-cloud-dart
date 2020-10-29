@@ -41,36 +41,36 @@ class FilesUploadResult implements ModelBase {
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('Errors')) {
       // Array processing
-      errors = <Error>[];
+      this.errors = new List<Error>();
       for(final _element in json['Errors']) {
-        var _elementValue = Error();
+        var _elementValue = new Error();
         _elementValue.deserialize(_element);
-        errors.add(_elementValue);
+        this.errors.add(_elementValue);
       }
     } else {
-      errors = null;
+      this.errors = null;
     }
 
     if (json.containsKey('Uploaded')) {
       // Array processing
-      uploaded = <String>[];
+      this.uploaded = new List<String>();
       for(final _element in json['Uploaded']) {
-        uploaded.add(_element);
+        this.uploaded.add(_element);
       }
     } else {
-      uploaded = null;
+      this.uploaded = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (errors != null) {
-      _result['Errors'] = errors.map((_element) => _element.serialize()).toList();
+    var _result = new Map<String, dynamic>();
+    if (this.errors != null) {
+      _result['Errors'] = this.errors.map((_element) => _element.serialize()).toList();
     }
 
-    if (uploaded != null) {
-      _result['Uploaded'] = uploaded;
+    if (this.uploaded != null) {
+      _result['Uploaded'] = this.uploaded;
     }
     return _result;
   }

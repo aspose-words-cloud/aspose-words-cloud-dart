@@ -40,28 +40,28 @@ class DocumentPosition implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('Node')) {
-      node = NodeLink();
-      node.deserialize(json['Node']);
+      this.node = new NodeLink();
+      this.node.deserialize(json['Node']);
     } else {
-      node = null;
+      this.node = null;
     }
 
     if (json.containsKey('Offset')) {
-      offset = json['Offset'];
+      this.offset = json['Offset'];
     } else {
-      offset = null;
+      this.offset = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (node != null) {
-      _result['Node'] = node.serialize();
+    var _result = new Map<String, dynamic>();
+    if (this.node != null) {
+      _result['Node'] = this.node.serialize();
     }
 
-    if (offset != null) {
-      _result['Offset'] = offset;
+    if (this.offset != null) {
+      _result['Offset'] = this.offset;
     }
     return _result;
   }

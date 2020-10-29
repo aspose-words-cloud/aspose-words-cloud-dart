@@ -27,9 +27,12 @@
 
 library aspose_words_cloud;
 
+import 'dart:convert';
 import 'dart:typed_data';
+import '../../aspose_words_cloud.dart';
 import '../api_client.dart';
 import '../api_request_data.dart';
+import '../api_request_part.dart';
 
 abstract class RequestBase {
   ApiRequestData createRequestData(final ApiClient apiClient);

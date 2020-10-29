@@ -39,23 +39,23 @@ class Bookmarks extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('BookmarkList')) {
       // Array processing
-      bookmarkList = <Bookmark>[];
+      this.bookmarkList = new List<Bookmark>();
       for(final _element in json['BookmarkList']) {
-        var _elementValue = Bookmark();
+        var _elementValue = new Bookmark();
         _elementValue.deserialize(_element);
-        bookmarkList.add(_elementValue);
+        this.bookmarkList.add(_elementValue);
       }
     } else {
-      bookmarkList = null;
+      this.bookmarkList = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
+    var _result = new Map<String, dynamic>();
     _result.addAll(super.serialize());
-    if (bookmarkList != null) {
-      _result['BookmarkList'] = bookmarkList.map((_element) => _element.serialize()).toList();
+    if (this.bookmarkList != null) {
+      _result['BookmarkList'] = this.bookmarkList.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

@@ -46,47 +46,47 @@ class PdfEncryptionDetailsData implements ModelBase {
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json.containsKey('EncryptionAlgorithm')) {
-      encryptionAlgorithm = json['EncryptionAlgorithm'];
+      this.encryptionAlgorithm = json['EncryptionAlgorithm'];
     } else {
-      encryptionAlgorithm = null;
+      this.encryptionAlgorithm = null;
     }
 
     if (json.containsKey('OwnerPassword')) {
-      ownerPassword = json['OwnerPassword'];
+      this.ownerPassword = json['OwnerPassword'];
     } else {
-      ownerPassword = null;
+      this.ownerPassword = null;
     }
 
     if (json.containsKey('Permissions')) {
-      permissions = json['Permissions'];
+      this.permissions = json['Permissions'];
     } else {
-      permissions = null;
+      this.permissions = null;
     }
 
     if (json.containsKey('UserPassword')) {
-      userPassword = json['UserPassword'];
+      this.userPassword = json['UserPassword'];
     } else {
-      userPassword = null;
+      this.userPassword = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    if (encryptionAlgorithm != null) {
-      _result['EncryptionAlgorithm'] = encryptionAlgorithm;
+    var _result = new Map<String, dynamic>();
+    if (this.encryptionAlgorithm != null) {
+      _result['EncryptionAlgorithm'] = this.encryptionAlgorithm;
     }
 
-    if (ownerPassword != null) {
-      _result['OwnerPassword'] = ownerPassword;
+    if (this.ownerPassword != null) {
+      _result['OwnerPassword'] = this.ownerPassword;
     }
 
-    if (permissions != null) {
-      _result['Permissions'] = permissions;
+    if (this.permissions != null) {
+      _result['Permissions'] = this.permissions;
     }
 
-    if (userPassword != null) {
-      _result['UserPassword'] = userPassword;
+    if (this.userPassword != null) {
+      _result['UserPassword'] = this.userPassword;
     }
     return _result;
   }
