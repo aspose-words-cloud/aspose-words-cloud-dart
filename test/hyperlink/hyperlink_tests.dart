@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to work with hyperlinks.
 class HyperlinkTests
@@ -53,7 +52,7 @@ class HyperlinkTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getDocumentHyperlinkByIndex(request);
+    await this.context.getApi().getDocumentHyperlinkByIndex(request);
   }
 
   /// Test for getting hyperlinks.
@@ -67,6 +66,6 @@ class HyperlinkTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getDocumentHyperlinks(request);
+    await this.context.getApi().getDocumentHyperlinks(request);
   }
 }

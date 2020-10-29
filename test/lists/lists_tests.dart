@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to work with lists.
 class ListsTests
@@ -52,7 +51,7 @@ class ListsTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getLists(request);
+    await this.context.getApi().getLists(request);
   }
 
   /// Test for getting list from document.
@@ -67,7 +66,7 @@ class ListsTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getList(request);
+    await this.context.getApi().getList(request);
   }
 
   /// Test for updating list from document.
@@ -85,7 +84,7 @@ class ListsTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().updateList(request);
+    await this.context.getApi().updateList(request);
   }
 
   /// Test for updating list level from document.
@@ -104,7 +103,7 @@ class ListsTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().updateListLevel(request);
+    await this.context.getApi().updateListLevel(request);
   }
 
   /// Test for inserting list from document.
@@ -121,6 +120,6 @@ class ListsTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().insertList(request);
+    await this.context.getApi().insertList(request);
   }
 }

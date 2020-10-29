@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to work with macros.
 class TextTests
@@ -56,7 +55,7 @@ class TextTests
       destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await this.context.getApi().replaceText(request);
+    await this.context.getApi().replaceText(request);
   }
 
   /// Test for searching.
@@ -72,6 +71,6 @@ class TextTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().search(request);
+    await this.context.getApi().search(request);
   }
 }

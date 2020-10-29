@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to set document protection.
 class DocumentProtectionTests
@@ -56,7 +55,7 @@ class DocumentProtectionTests
       destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await this.context.getApi().protectDocument(request);
+    await this.context.getApi().protectDocument(request);
   }
 
   /// Test for getting document protection.
@@ -70,7 +69,7 @@ class DocumentProtectionTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getDocumentProtection(request);
+    await this.context.getApi().getDocumentProtection(request);
   }
 
   /// Test for changing document protection.
@@ -87,7 +86,7 @@ class DocumentProtectionTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().protectDocument(request);
+    await this.context.getApi().protectDocument(request);
   }
 
   /// Test for deleting unprotect document.
@@ -105,6 +104,6 @@ class DocumentProtectionTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().unprotectDocument(request);
+    await this.context.getApi().unprotectDocument(request);
   }
 }

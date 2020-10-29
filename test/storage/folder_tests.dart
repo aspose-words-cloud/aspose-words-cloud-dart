@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to work with folders.
 class FolderTests
@@ -73,7 +72,7 @@ class FolderTests
       remoteDataFolder
     );
 
-    var result = await this.context.getApi().getFilesList(request);
+    await this.context.getApi().getFilesList(request);
   }
 
   /// Test for copy folder.

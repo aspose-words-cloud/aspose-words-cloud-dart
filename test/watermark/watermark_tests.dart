@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to work with watermarks.
 class WatermarkTests
@@ -58,7 +57,7 @@ class WatermarkTests
       image: remoteImagePath
     );
 
-    var result = await this.context.getApi().insertWatermarkImage(request);
+    await this.context.getApi().insertWatermarkImage(request);
   }
 
   /// Test for adding watermark text.
@@ -77,7 +76,7 @@ class WatermarkTests
       destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await this.context.getApi().insertWatermarkText(request);
+    await this.context.getApi().insertWatermarkText(request);
   }
 
   /// Test for deleting watermark.
@@ -92,6 +91,6 @@ class WatermarkTests
       destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await this.context.getApi().deleteWatermark(request);
+    await this.context.getApi().deleteWatermark(request);
   }
 }

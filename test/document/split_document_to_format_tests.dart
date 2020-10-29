@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to split document and return result with specified format and page range.
 class SplitDocumentToFormatTests
@@ -56,6 +55,6 @@ class SplitDocumentToFormatTests
       to: 2
     );
 
-    var result = await this.context.getApi().splitDocument(request);
+    await this.context.getApi().splitDocument(request);
   }
 }

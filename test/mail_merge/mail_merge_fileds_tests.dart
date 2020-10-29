@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to work with merge fields.
 class MailMergeFiledsTests
@@ -51,7 +50,7 @@ class MailMergeFiledsTests
       useNonMergeFields: true
     );
 
-    var result = await this.context.getApi().getDocumentFieldNamesOnline(request);
+    await this.context.getApi().getDocumentFieldNamesOnline(request);
   }
 
   /// Test for getting mailmerge fields.
@@ -65,6 +64,6 @@ class MailMergeFiledsTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getDocumentFieldNames(request);
+    await this.context.getApi().getDocumentFieldNames(request);
   }
 }

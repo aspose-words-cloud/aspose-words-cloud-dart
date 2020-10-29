@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to classify text.
 class ClassificationTests
@@ -50,7 +49,7 @@ class ClassificationTests
       bestClassesCount: '3'
     );
 
-    var result = await this.context.getApi().classify(request);
+    await this.context.getApi().classify(request);
   }
 
   /// Test for document classification.
@@ -65,6 +64,6 @@ class ClassificationTests
       bestClassesCount: '3'
     );
 
-    var result = await this.context.getApi().classifyDocument(request);
+    await this.context.getApi().classifyDocument(request);
   }
 }

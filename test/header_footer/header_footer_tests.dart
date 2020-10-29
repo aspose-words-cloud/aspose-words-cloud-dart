@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to work with headers and footers.
 class HeaderFooterTests
@@ -53,7 +52,7 @@ class HeaderFooterTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getHeaderFooters(request);
+    await this.context.getApi().getHeaderFooters(request);
   }
 
   /// Test for getting headerfooter.
@@ -68,7 +67,7 @@ class HeaderFooterTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getHeaderFooter(request);
+    await this.context.getApi().getHeaderFooter(request);
   }
 
   /// Test for getting headerfooter of section.
@@ -84,7 +83,7 @@ class HeaderFooterTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getHeaderFooterOfSection(request);
+    await this.context.getApi().getHeaderFooterOfSection(request);
   }
 
   /// Test for deleting headerfooter.
@@ -131,6 +130,6 @@ class HeaderFooterTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().insertHeaderFooter(request);
+    await this.context.getApi().insertHeaderFooter(request);
   }
 }

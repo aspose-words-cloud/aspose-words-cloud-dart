@@ -25,7 +25,6 @@
  * --------------------------------------------------------------------------------
  */
 
-import 'dart:typed_data';
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import 'test_context.dart';
 import 'package:test/test.dart';
@@ -55,5 +54,6 @@ class EncodingTests
 
     var request = new GetSectionRequest(remoteName, sectionIndex, folder: this.dataFolder);
     var actual = await this.context.getApi().getSection(request);
+    expect(actual, isNotNull);
   }
 }

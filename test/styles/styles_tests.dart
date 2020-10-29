@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to work with styles.
 class StylesTests
@@ -52,7 +51,7 @@ class StylesTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getStyles(request);
+    await this.context.getApi().getStyles(request);
   }
 
   /// Test for getting style from document.
@@ -67,7 +66,7 @@ class StylesTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getStyle(request);
+    await this.context.getApi().getStyle(request);
   }
 
   /// Test for updating style from document.
@@ -85,7 +84,7 @@ class StylesTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().updateStyle(request);
+    await this.context.getApi().updateStyle(request);
   }
 
   /// Test for inserting style from document.
@@ -103,7 +102,7 @@ class StylesTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().insertStyle(request);
+    await this.context.getApi().insertStyle(request);
   }
 
   /// Test for coping style from document.
@@ -120,7 +119,7 @@ class StylesTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().copyStyle(request);
+    await this.context.getApi().copyStyle(request);
   }
 
   /// Test for getting style from document element.
@@ -135,7 +134,7 @@ class StylesTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getStyleFromDocumentElement(request);
+    await this.context.getApi().getStyleFromDocumentElement(request);
   }
 
   /// Test for applying style to document element.
@@ -153,6 +152,6 @@ class StylesTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().applyStyleToDocumentElement(request);
+    await this.context.getApi().applyStyleToDocumentElement(request);
   }
 }

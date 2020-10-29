@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to get drawing objects.
 class DrawingObjectsTests
@@ -55,7 +54,7 @@ class DrawingObjectsTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getDocumentDrawingObjects(request);
+    await this.context.getApi().getDocumentDrawingObjects(request);
   }
 
   /// Test for getting drawing objects from document without node path.
@@ -69,7 +68,7 @@ class DrawingObjectsTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getDocumentDrawingObjects(request);
+    await this.context.getApi().getDocumentDrawingObjects(request);
   }
 
   /// Test for getting drawing object by specified index.
@@ -85,7 +84,7 @@ class DrawingObjectsTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getDocumentDrawingObjectByIndex(request);
+    await this.context.getApi().getDocumentDrawingObjectByIndex(request);
   }
 
   /// Test for getting drawing object by specified index without node path.
@@ -100,7 +99,7 @@ class DrawingObjectsTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getDocumentDrawingObjectByIndex(request);
+    await this.context.getApi().getDocumentDrawingObjectByIndex(request);
   }
 
   /// Test for getting drawing object by specified index and format.
@@ -117,7 +116,7 @@ class DrawingObjectsTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().renderDrawingObject(request);
+    await this.context.getApi().renderDrawingObject(request);
   }
 
   /// Test for getting drawing object by specified index and format without node path.
@@ -133,7 +132,7 @@ class DrawingObjectsTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().renderDrawingObject(request);
+    await this.context.getApi().renderDrawingObject(request);
   }
 
   /// Test for reading drawing object's image data.
@@ -149,7 +148,7 @@ class DrawingObjectsTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getDocumentDrawingObjectImageData(request);
+    await this.context.getApi().getDocumentDrawingObjectImageData(request);
   }
 
   /// Test for reading drawing object's image data without node path.
@@ -164,7 +163,7 @@ class DrawingObjectsTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getDocumentDrawingObjectImageData(request);
+    await this.context.getApi().getDocumentDrawingObjectImageData(request);
   }
 
   /// Test for getting drawing object OLE data.
@@ -180,7 +179,7 @@ class DrawingObjectsTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getDocumentDrawingObjectOleData(request);
+    await this.context.getApi().getDocumentDrawingObjectOleData(request);
   }
 
   /// Test for getting drawing object OLE data without node path.
@@ -195,7 +194,7 @@ class DrawingObjectsTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getDocumentDrawingObjectOleData(request);
+    await this.context.getApi().getDocumentDrawingObjectOleData(request);
   }
 
   /// Test for adding drawing object.
@@ -220,7 +219,7 @@ class DrawingObjectsTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().insertDrawingObject(request);
+    await this.context.getApi().insertDrawingObject(request);
   }
 
   /// Test for adding drawing object without node path.
@@ -244,7 +243,7 @@ class DrawingObjectsTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().insertDrawingObject(request);
+    await this.context.getApi().insertDrawingObject(request);
   }
 
   /// Test for deleting drawing object.
@@ -295,7 +294,7 @@ class DrawingObjectsTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().updateDrawingObject(request);
+    await this.context.getApi().updateDrawingObject(request);
   }
 
   /// Test for updating drawing object without node path.
@@ -314,6 +313,6 @@ class DrawingObjectsTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().updateDrawingObject(request);
+    await this.context.getApi().updateDrawingObject(request);
   }
 }

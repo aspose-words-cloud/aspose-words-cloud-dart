@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to work with MathObjects.
 class MathObjectTests
@@ -53,7 +52,7 @@ class MathObjectTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getOfficeMathObjects(request);
+    await this.context.getApi().getOfficeMathObjects(request);
   }
 
   /// Test for getting mathObjects without node path.
@@ -67,7 +66,7 @@ class MathObjectTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getOfficeMathObjects(request);
+    await this.context.getApi().getOfficeMathObjects(request);
   }
 
   /// Test for getting mathObject.
@@ -83,7 +82,7 @@ class MathObjectTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getOfficeMathObject(request);
+    await this.context.getApi().getOfficeMathObject(request);
   }
 
   /// Test for getting mathObject without node path.
@@ -98,7 +97,7 @@ class MathObjectTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getOfficeMathObject(request);
+    await this.context.getApi().getOfficeMathObject(request);
   }
 
   /// Test for rendering mathObject.
@@ -115,7 +114,7 @@ class MathObjectTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().renderMathObject(request);
+    await this.context.getApi().renderMathObject(request);
   }
 
   /// Test for rendering mathObject without node path.
@@ -131,7 +130,7 @@ class MathObjectTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().renderMathObject(request);
+    await this.context.getApi().renderMathObject(request);
   }
 
   /// Test for deleting mathObject.

@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to append document.
 class AppendDocumentTests
@@ -63,6 +62,6 @@ class AppendDocumentTests
       destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await this.context.getApi().appendDocument(request);
+    await this.context.getApi().appendDocument(request);
   }
 }

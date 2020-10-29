@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to work with macros.
 class PageSetupTests
@@ -55,7 +54,7 @@ class PageSetupTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getSectionPageSetup(request);
+    await this.context.getApi().getSectionPageSetup(request);
   }
 
   /// Test for updating page settings.
@@ -76,7 +75,7 @@ class PageSetupTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().updateSectionPageSetup(request);
+    await this.context.getApi().updateSectionPageSetup(request);
   }
 
   /// Test for page rendering.
@@ -92,6 +91,6 @@ class PageSetupTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().renderPage(request);
+    await this.context.getApi().renderPage(request);
   }
 }

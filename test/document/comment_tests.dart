@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to get comments from document.
 class CommentTests
@@ -53,7 +52,7 @@ class CommentTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getComment(request);
+    await this.context.getApi().getComment(request);
   }
 
   /// Test for getting all comments from document.
@@ -67,7 +66,7 @@ class CommentTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getComments(request);
+    await this.context.getApi().getComments(request);
   }
 
   /// Test for adding comment.
@@ -102,7 +101,7 @@ class CommentTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().insertComment(request);
+    await this.context.getApi().insertComment(request);
   }
 
   /// Test for updating comment.
@@ -138,7 +137,7 @@ class CommentTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().updateComment(request);
+    await this.context.getApi().updateComment(request);
   }
 
   /// A test for DeleteComment.

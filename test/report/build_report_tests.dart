@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to perform mail merge.
 class BuildReportTests
@@ -56,7 +55,7 @@ class BuildReportTests
       requestReportEngineSettings
     );
 
-    var result = await this.context.getApi().buildReportOnline(request);
+    await this.context.getApi().buildReportOnline(request);
   }
 
   /// Test for build report.
@@ -81,6 +80,6 @@ class BuildReportTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().buildReport(request);
+    await this.context.getApi().buildReport(request);
   }
 }

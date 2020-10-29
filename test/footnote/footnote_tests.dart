@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to work with footnotes.
 class FootnoteTests
@@ -57,7 +56,7 @@ class FootnoteTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().insertFootnote(request);
+    await this.context.getApi().insertFootnote(request);
   }
 
   /// Test for adding footnote without node path.
@@ -75,7 +74,7 @@ class FootnoteTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().insertFootnote(request);
+    await this.context.getApi().insertFootnote(request);
   }
 
   /// Test for deleting footnote.
@@ -121,7 +120,7 @@ class FootnoteTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getFootnotes(request);
+    await this.context.getApi().getFootnotes(request);
   }
 
   /// Test for getting footnotes without node path.
@@ -135,7 +134,7 @@ class FootnoteTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getFootnotes(request);
+    await this.context.getApi().getFootnotes(request);
   }
 
   /// Test for getting footnote.
@@ -151,7 +150,7 @@ class FootnoteTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getFootnote(request);
+    await this.context.getApi().getFootnote(request);
   }
 
   /// Test for getting footnote without node path.
@@ -166,7 +165,7 @@ class FootnoteTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getFootnote(request);
+    await this.context.getApi().getFootnote(request);
   }
 
   /// Test for updating footnote.
@@ -185,7 +184,7 @@ class FootnoteTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().updateFootnote(request);
+    await this.context.getApi().updateFootnote(request);
   }
 
   /// Test for updating footnote without node path.
@@ -203,6 +202,6 @@ class FootnoteTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().updateFootnote(request);
+    await this.context.getApi().updateFootnote(request);
   }
 }

@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of document comparison.
 class CompareDocumentTests
@@ -63,6 +62,6 @@ class CompareDocumentTests
       destFileName: this.context.baseTestOutPath + '/TestCompareDocumentOut.doc'
     );
 
-    var result = await this.context.getApi().compareDocument(request);
+    await this.context.getApi().compareDocument(request);
   }
 }

@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to work with font.
 class FontTests
@@ -54,6 +53,6 @@ class FontTests
     final request = new GetAvailableFontsRequest(
     );
 
-    var result = await this.context.getApi().getAvailableFonts(request);
+    await this.context.getApi().getAvailableFonts(request);
   }
 }

@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to get document with different format.
 class DocumentWithFormatTests
@@ -53,7 +52,7 @@ class DocumentWithFormatTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getDocumentWithFormat(request);
+    await this.context.getApi().getDocumentWithFormat(request);
   }
 
   /// Test for getting document with specified format.
@@ -69,6 +68,6 @@ class DocumentWithFormatTests
       outPath: this.context.baseTestOutPath + '/TestGetDocumentWithFormatAndOutPath.text'
     );
 
-    var result = await this.context.getApi().getDocumentWithFormat(request);
+    await this.context.getApi().getDocumentWithFormat(request);
   }
 }

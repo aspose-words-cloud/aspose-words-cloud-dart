@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to work with field.
 class FieldTests
@@ -56,7 +55,7 @@ class FieldTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getFields(request);
+    await this.context.getApi().getFields(request);
   }
 
   /// Test for getting fields without node path.
@@ -71,7 +70,7 @@ class FieldTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getFields(request);
+    await this.context.getApi().getFields(request);
   }
 
   /// Test for getting field by index.
@@ -88,7 +87,7 @@ class FieldTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getField(request);
+    await this.context.getApi().getField(request);
   }
 
   /// Test for getting field by index without node path.
@@ -104,7 +103,7 @@ class FieldTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getField(request);
+    await this.context.getApi().getField(request);
   }
 
   /// Test for putting field.
@@ -123,7 +122,7 @@ class FieldTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().insertField(request);
+    await this.context.getApi().insertField(request);
   }
 
   /// Test for putting field without node path.
@@ -141,7 +140,7 @@ class FieldTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().insertField(request);
+    await this.context.getApi().insertField(request);
   }
 
   /// Test for posting field.
@@ -161,7 +160,7 @@ class FieldTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().updateField(request);
+    await this.context.getApi().updateField(request);
   }
 
   /// Test for inserting page numbers field.
@@ -181,7 +180,7 @@ class FieldTests
       destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await this.context.getApi().insertPageNumbers(request);
+    await this.context.getApi().insertPageNumbers(request);
   }
 
   /// Test for deleting field.
@@ -323,6 +322,6 @@ class FieldTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().updateFields(request);
+    await this.context.getApi().updateFields(request);
   }
 }

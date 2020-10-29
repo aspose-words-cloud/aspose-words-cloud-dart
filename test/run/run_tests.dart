@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to work with runs.
 class RunTests
@@ -57,7 +56,7 @@ class RunTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().updateRun(request);
+    await this.context.getApi().updateRun(request);
   }
 
   /// Test for adding run.
@@ -75,7 +74,7 @@ class RunTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().insertRun(request);
+    await this.context.getApi().insertRun(request);
   }
 
   /// Test for deleting run.

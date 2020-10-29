@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to work with sections.
 class SectionTests
@@ -53,7 +52,7 @@ class SectionTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getSection(request);
+    await this.context.getApi().getSection(request);
   }
 
   /// Test for getting sections.
@@ -67,7 +66,7 @@ class SectionTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getSections(request);
+    await this.context.getApi().getSections(request);
   }
 
   /// Test for delete a section.

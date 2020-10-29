@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to convert document to one of the available formats.
 class ConvertDocumentTests
@@ -57,7 +56,7 @@ class ConvertDocumentTests
       folder: remoteFolder
     );
 
-    var result = await this.context.getApi().saveAs(request);
+    await this.context.getApi().saveAs(request);
   }
 
   /// Test for converting document to one of the available formats.
@@ -76,7 +75,7 @@ class ConvertDocumentTests
       folder: remoteFolder
     );
 
-    var result = await this.context.getApi().saveAs(request);
+    await this.context.getApi().saveAs(request);
   }
 
   /// Test for converting document to one of the available formats.
@@ -95,7 +94,7 @@ class ConvertDocumentTests
       folder: remoteFolder
     );
 
-    var result = await this.context.getApi().saveAsTiff(request);
+    await this.context.getApi().saveAsTiff(request);
   }
 
   /// A test for ConvertDocument.
@@ -107,6 +106,6 @@ class ConvertDocumentTests
       'pdf'
     );
 
-    var result = await this.context.getApi().convertDocument(request);
+    await this.context.getApi().convertDocument(request);
   }
 }

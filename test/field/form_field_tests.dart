@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to work with form field.
 class FormFieldTests
@@ -63,7 +62,7 @@ class FormFieldTests
       destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await this.context.getApi().updateFormField(request);
+    await this.context.getApi().updateFormField(request);
   }
 
   /// Test for posting form field without node path.
@@ -87,7 +86,7 @@ class FormFieldTests
       destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await this.context.getApi().updateFormField(request);
+    await this.context.getApi().updateFormField(request);
   }
 
   /// Test for getting form field.
@@ -103,7 +102,7 @@ class FormFieldTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getFormField(request);
+    await this.context.getApi().getFormField(request);
   }
 
   /// Test for getting form field without node path.
@@ -118,7 +117,7 @@ class FormFieldTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getFormField(request);
+    await this.context.getApi().getFormField(request);
   }
 
   /// Test for getting form fields.
@@ -133,7 +132,7 @@ class FormFieldTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getFormFields(request);
+    await this.context.getApi().getFormFields(request);
   }
 
   /// Test for getting form fields without node path.
@@ -147,7 +146,7 @@ class FormFieldTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getFormFields(request);
+    await this.context.getApi().getFormFields(request);
   }
 
   /// Test for insert form field without node path.
@@ -172,7 +171,7 @@ class FormFieldTests
       destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await this.context.getApi().insertFormField(request);
+    await this.context.getApi().insertFormField(request);
   }
 
   /// Test for insert form field without node path.
@@ -196,7 +195,7 @@ class FormFieldTests
       destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await this.context.getApi().insertFormField(request);
+    await this.context.getApi().insertFormField(request);
   }
 
   /// Test for deleting form field.

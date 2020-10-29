@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to work with files.
 class FileTests
@@ -51,7 +50,7 @@ class FileTests
       remoteDataFolder + '/' + remoteFileName
     );
 
-    var result = await this.context.getApi().uploadFile(request);
+    await this.context.getApi().uploadFile(request);
   }
 
   /// Test for copy file.
@@ -105,6 +104,6 @@ class FileTests
       remoteDataFolder + '/' + remoteFileName
     );
 
-    var result = await this.context.getApi().downloadFile(request);
+    await this.context.getApi().downloadFile(request);
   }
 }

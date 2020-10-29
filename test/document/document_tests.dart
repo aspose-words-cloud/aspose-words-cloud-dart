@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to get document.
 class DocumentTests
@@ -52,7 +51,7 @@ class DocumentTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getDocument(request);
+    await this.context.getApi().getDocument(request);
   }
 
   /// Test for creating word document.
@@ -65,6 +64,6 @@ class DocumentTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().createDocument(request);
+    await this.context.getApi().createDocument(request);
   }
 }

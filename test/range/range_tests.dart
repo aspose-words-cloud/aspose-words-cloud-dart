@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to work with ranges.
 class RangeTests
@@ -54,7 +53,7 @@ class RangeTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getRangeText(request);
+    await this.context.getApi().getRangeText(request);
   }
 
   /// Test for removing the text for range.
@@ -70,7 +69,7 @@ class RangeTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().removeRange(request);
+    await this.context.getApi().removeRange(request);
   }
 
   /// Test for saving a range as a new document.
@@ -89,7 +88,7 @@ class RangeTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().saveAsRange(request);
+    await this.context.getApi().saveAsRange(request);
   }
 
   /// Test for replacing text in range.
@@ -108,6 +107,6 @@ class RangeTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().replaceWithText(request);
+    await this.context.getApi().replaceWithText(request);
   }
 }

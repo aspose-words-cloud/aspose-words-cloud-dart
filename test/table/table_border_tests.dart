@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to work with table borders.
 class TableBorderTests
@@ -53,7 +52,7 @@ class TableBorderTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getBorders(request);
+    await this.context.getApi().getBorders(request);
   }
 
   /// Test for getting border.
@@ -69,7 +68,7 @@ class TableBorderTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getBorder(request);
+    await this.context.getApi().getBorder(request);
   }
 
   /// Test for deleting borders.
@@ -84,7 +83,7 @@ class TableBorderTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().deleteBorders(request);
+    await this.context.getApi().deleteBorders(request);
   }
 
   /// Test for deleting border.
@@ -100,7 +99,7 @@ class TableBorderTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().deleteBorder(request);
+    await this.context.getApi().deleteBorder(request);
   }
 
   /// Test for updating border.
@@ -127,6 +126,6 @@ class TableBorderTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().updateBorder(request);
+    await this.context.getApi().updateBorder(request);
   }
 }

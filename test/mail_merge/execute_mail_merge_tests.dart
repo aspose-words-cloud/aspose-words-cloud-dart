@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to perform mail merge.
 class ExecuteMailMergeTests
@@ -52,7 +51,7 @@ class ExecuteMailMergeTests
       await this.context.loadBinaryFile(mailMergeFolder + '/' + localDataFile)
     );
 
-    var result = await this.context.getApi().executeMailMergeOnline(request);
+    await this.context.getApi().executeMailMergeOnline(request);
   }
 
   /// Test for executing mail merge.
@@ -71,6 +70,6 @@ class ExecuteMailMergeTests
       destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await this.context.getApi().executeMailMerge(request);
+    await this.context.getApi().executeMailMerge(request);
   }
 }

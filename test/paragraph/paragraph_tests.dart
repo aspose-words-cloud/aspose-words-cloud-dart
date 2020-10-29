@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to work with paragraph.
 class ParagraphTests
@@ -58,7 +57,7 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getParagraph(request);
+    await this.context.getApi().getParagraph(request);
   }
 
   /// Test for getting paragraph without node path.
@@ -73,7 +72,7 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getParagraph(request);
+    await this.context.getApi().getParagraph(request);
   }
 
   /// Test for getting all paragraphs.
@@ -88,7 +87,7 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getParagraphs(request);
+    await this.context.getApi().getParagraphs(request);
   }
 
   /// Test for getting all paragraphs without node path.
@@ -102,7 +101,7 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getParagraphs(request);
+    await this.context.getApi().getParagraphs(request);
   }
 
   /// Test for getting paragraph run.
@@ -118,7 +117,7 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getRun(request);
+    await this.context.getApi().getRun(request);
   }
 
   /// Test for getting paragraph run font.
@@ -134,7 +133,7 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getRunFont(request);
+    await this.context.getApi().getRunFont(request);
   }
 
   /// Test for getting paragraph runs.
@@ -149,7 +148,7 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getRuns(request);
+    await this.context.getApi().getRuns(request);
   }
 
   /// Test for updating paragraph run font.
@@ -169,7 +168,7 @@ class ParagraphTests
       destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await this.context.getApi().updateRunFont(request);
+    await this.context.getApi().updateRunFont(request);
   }
 
   /// Test for adding paragraph.
@@ -187,7 +186,7 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().insertParagraph(request);
+    await this.context.getApi().insertParagraph(request);
   }
 
   /// Test for adding paragraph without node path.
@@ -204,7 +203,7 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().insertParagraph(request);
+    await this.context.getApi().insertParagraph(request);
   }
 
   /// Test for paragraph rendering.
@@ -221,7 +220,7 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().renderParagraph(request);
+    await this.context.getApi().renderParagraph(request);
   }
 
   /// Test for paragraph rendering without node path.
@@ -237,7 +236,7 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().renderParagraph(request);
+    await this.context.getApi().renderParagraph(request);
   }
 
   /// Test for getting paragraph format settings.
@@ -253,7 +252,7 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getParagraphFormat(request);
+    await this.context.getApi().getParagraphFormat(request);
   }
 
   /// Test for getting paragraph format settings without node path.
@@ -268,7 +267,7 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getParagraphFormat(request);
+    await this.context.getApi().getParagraphFormat(request);
   }
 
   /// Test for updating  paragraph format settings.
@@ -287,7 +286,7 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().updateParagraphFormat(request);
+    await this.context.getApi().updateParagraphFormat(request);
   }
 
   /// Test for deleting  a paragraph.
@@ -334,7 +333,7 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getParagraphListFormat(request);
+    await this.context.getApi().getParagraphListFormat(request);
   }
 
   /// Test for getting paragraph list format without node path.
@@ -349,7 +348,7 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getParagraphListFormat(request);
+    await this.context.getApi().getParagraphListFormat(request);
   }
 
   /// Test for updating paragraph list format.
@@ -368,7 +367,7 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().updateParagraphListFormat(request);
+    await this.context.getApi().updateParagraphListFormat(request);
   }
 
   /// Test for updating paragraph list format without node path.
@@ -386,7 +385,7 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().updateParagraphListFormat(request);
+    await this.context.getApi().updateParagraphListFormat(request);
   }
 
   /// Test for deleting paragraph list format.
@@ -402,7 +401,7 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().deleteParagraphListFormat(request);
+    await this.context.getApi().deleteParagraphListFormat(request);
   }
 
   /// Test for deleting paragraph list format without node path.
@@ -417,7 +416,7 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().deleteParagraphListFormat(request);
+    await this.context.getApi().deleteParagraphListFormat(request);
   }
 
   /// Test for getting paragraph tab stops.
@@ -433,7 +432,7 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getParagraphTabStops(request);
+    await this.context.getApi().getParagraphTabStops(request);
   }
 
   /// Test for getting paragraph tab stops without node path.
@@ -448,7 +447,7 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getParagraphTabStops(request);
+    await this.context.getApi().getParagraphTabStops(request);
   }
 
   /// Test for inserting paragraph tab stop.
@@ -469,7 +468,7 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().insertOrUpdateParagraphTabStop(request);
+    await this.context.getApi().insertOrUpdateParagraphTabStop(request);
   }
 
   /// Test for inserting paragraph tab stop without node path.
@@ -489,7 +488,7 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().insertOrUpdateParagraphTabStop(request);
+    await this.context.getApi().insertOrUpdateParagraphTabStop(request);
   }
 
   /// Test for deleting all paragraph tab stops.
@@ -505,7 +504,7 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().deleteAllParagraphTabStops(request);
+    await this.context.getApi().deleteAllParagraphTabStops(request);
   }
 
   /// Test for deleting all paragraph tab stops without node path.
@@ -520,7 +519,7 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().deleteAllParagraphTabStops(request);
+    await this.context.getApi().deleteAllParagraphTabStops(request);
   }
 
   /// Test for deleting a tab stops.
@@ -537,7 +536,7 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().deleteParagraphTabStop(request);
+    await this.context.getApi().deleteParagraphTabStop(request);
   }
 
   /// Test for deleting a tab stops without node path.
@@ -553,6 +552,6 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().deleteParagraphTabStop(request);
+    await this.context.getApi().deleteParagraphTabStop(request);
   }
 }

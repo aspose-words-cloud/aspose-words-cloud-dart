@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to work wtih table.
 class TableTests
@@ -53,7 +52,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getTables(request);
+    await this.context.getApi().getTables(request);
   }
 
   /// Test for getting tables without node path.
@@ -67,7 +66,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getTables(request);
+    await this.context.getApi().getTables(request);
   }
 
   /// Test for getting table.
@@ -83,7 +82,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getTable(request);
+    await this.context.getApi().getTable(request);
   }
 
   /// Test for getting table without node path.
@@ -98,7 +97,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getTable(request);
+    await this.context.getApi().getTable(request);
   }
 
   /// Test for deleting table.
@@ -148,7 +147,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().insertTable(request);
+    await this.context.getApi().insertTable(request);
   }
 
   /// Test for adding table without node path.
@@ -166,7 +165,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().insertTable(request);
+    await this.context.getApi().insertTable(request);
   }
 
   /// Test for getting document properties.
@@ -182,7 +181,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getTableProperties(request);
+    await this.context.getApi().getTableProperties(request);
   }
 
   /// Test for getting document properties without node path.
@@ -197,7 +196,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getTableProperties(request);
+    await this.context.getApi().getTableProperties(request);
   }
 
   /// Test for updating table properties.
@@ -221,7 +220,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().updateTableProperties(request);
+    await this.context.getApi().updateTableProperties(request);
   }
 
   /// Test for updating table properties without node path.
@@ -244,7 +243,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().updateTableProperties(request);
+    await this.context.getApi().updateTableProperties(request);
   }
 
   /// Test for getting table row.
@@ -260,7 +259,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getTableRow(request);
+    await this.context.getApi().getTableRow(request);
   }
 
   /// Test for deleting table row.
@@ -294,7 +293,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().insertTableRow(request);
+    await this.context.getApi().insertTableRow(request);
   }
 
   /// Test for getting row format.
@@ -310,7 +309,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getTableRowFormat(request);
+    await this.context.getApi().getTableRowFormat(request);
   }
 
   /// Test updating row format.
@@ -332,7 +331,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().updateTableRowFormat(request);
+    await this.context.getApi().updateTableRowFormat(request);
   }
 
   /// Test for getting table cell.
@@ -348,7 +347,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getTableCell(request);
+    await this.context.getApi().getTableCell(request);
   }
 
   /// Test for deleting cell.
@@ -382,7 +381,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().insertTableCell(request);
+    await this.context.getApi().insertTableCell(request);
   }
 
   /// Test for getting cell format.
@@ -398,7 +397,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getTableCellFormat(request);
+    await this.context.getApi().getTableCellFormat(request);
   }
 
   /// Test for updating cell format.
@@ -420,7 +419,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().updateTableCellFormat(request);
+    await this.context.getApi().updateTableCellFormat(request);
   }
 
   /// Test for table rendering.
@@ -437,7 +436,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().renderTable(request);
+    await this.context.getApi().renderTable(request);
   }
 
   /// Test for table rendering without node path.
@@ -453,6 +452,6 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().renderTable(request);
+    await this.context.getApi().renderTable(request);
   }
 }

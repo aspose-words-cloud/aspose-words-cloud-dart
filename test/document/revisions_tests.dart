@@ -27,7 +27,6 @@
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import '../test_context.dart';
-import 'package:test/test.dart';
 
 /// Example of how to accept all revisions in document.
 class RevisionsTests
@@ -53,7 +52,7 @@ class RevisionsTests
       destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await this.context.getApi().acceptAllRevisions(request);
+    await this.context.getApi().acceptAllRevisions(request);
   }
 
   /// Test for rejecting revisions in document.
@@ -68,6 +67,6 @@ class RevisionsTests
       destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await this.context.getApi().rejectAllRevisions(request);
+    await this.context.getApi().rejectAllRevisions(request);
   }
 }
