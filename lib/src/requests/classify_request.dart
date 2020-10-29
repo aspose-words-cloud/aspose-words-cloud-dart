@@ -46,24 +46,24 @@ class ClassifyRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var path = '/words/classify';
-    var queryParams = <String, String>{};
-    var headers = <String, String>{};
-    var bodyParts = <ApiRequestPart>[];
+    var _path = '/words/classify';
+    var _queryParams = <String, String>{};
+    var _headers = <String, String>{};
+    var _bodyParts = <ApiRequestPart>[];
     if (bestClassesCount != null) {
-      queryParams['bestClassesCount'] = apiClient.serializeToString(bestClassesCount);
+      _queryParams['bestClassesCount'] = apiClient.serializeToString(bestClassesCount);
     }
 
     if (text != null) {
-      bodyParts.add(ApiRequestPart(apiClient.serializeBody(text, isJson: true), 'application/json'));
+      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(text, isJson: true), 'application/json'));
     }
     else {
       throw ApiException(400, 'Parameter text is required.');
     }
 
-    var url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    var body = apiClient.serializeBodyParts(bodyParts, headers);
-    return ApiRequestData('PUT', url, headers, body);
+    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override

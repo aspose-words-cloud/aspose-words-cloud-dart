@@ -46,24 +46,24 @@ class LoadWebDocumentRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var path = '/words/loadWebDocument';
-    var queryParams = <String, String>{};
-    var headers = <String, String>{};
-    var bodyParts = <ApiRequestPart>[];
+    var _path = '/words/loadWebDocument';
+    var _queryParams = <String, String>{};
+    var _headers = <String, String>{};
+    var _bodyParts = <ApiRequestPart>[];
     if (storage != null) {
-      queryParams['storage'] = apiClient.serializeToString(storage);
+      _queryParams['storage'] = apiClient.serializeToString(storage);
     }
 
     if (data != null) {
-      bodyParts.add(ApiRequestPart(apiClient.serializeBody(data), 'application/json'));
+      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(data), 'application/json'));
     }
     else {
       throw ApiException(400, 'Parameter data is required.');
     }
 
-    var url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    var body = apiClient.serializeBodyParts(bodyParts, headers);
-    return ApiRequestData('PUT', url, headers, body);
+    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override

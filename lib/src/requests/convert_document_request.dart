@@ -57,43 +57,43 @@ class ConvertDocumentRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var path = '/words/convert';
-    var queryParams = <String, String>{};
-    var headers = <String, String>{};
-    var bodyParts = <ApiRequestPart>[];
+    var _path = '/words/convert';
+    var _queryParams = <String, String>{};
+    var _headers = <String, String>{};
+    var _bodyParts = <ApiRequestPart>[];
     if (format != null) {
-      queryParams['format'] = apiClient.serializeToString(format);
+      _queryParams['format'] = apiClient.serializeToString(format);
     }
     else {
       throw ApiException(400, 'Parameter format is required.');
     }
 
     if (storage != null) {
-      queryParams['storage'] = apiClient.serializeToString(storage);
+      _queryParams['storage'] = apiClient.serializeToString(storage);
     }
 
     if (outPath != null) {
-      queryParams['outPath'] = apiClient.serializeToString(outPath);
+      _queryParams['outPath'] = apiClient.serializeToString(outPath);
     }
 
     if (fileNameFieldValue != null) {
-      queryParams['fileNameFieldValue'] = apiClient.serializeToString(fileNameFieldValue);
+      _queryParams['fileNameFieldValue'] = apiClient.serializeToString(fileNameFieldValue);
     }
 
     if (fontsLocation != null) {
-      queryParams['fontsLocation'] = apiClient.serializeToString(fontsLocation);
+      _queryParams['fontsLocation'] = apiClient.serializeToString(fontsLocation);
     }
 
     if (document != null) {
-      bodyParts.add(ApiRequestPart(apiClient.serializeBody(document), 'application/octet-stream', name: 'Document'));
+      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(document), 'application/octet-stream', name: 'Document'));
     }
     else {
       throw ApiException(400, 'Parameter document is required.');
     }
 
-    var url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    var body = apiClient.serializeBodyParts(bodyParts, headers);
-    return ApiRequestData('PUT', url, headers, body);
+    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override

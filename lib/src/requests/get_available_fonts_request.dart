@@ -43,17 +43,17 @@ class GetAvailableFontsRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var path = '/words/fonts/available';
-    var queryParams = <String, String>{};
-    var headers = <String, String>{};
-    var bodyParts = <ApiRequestPart>[];
+    var _path = '/words/fonts/available';
+    var _queryParams = <String, String>{};
+    var _headers = <String, String>{};
+    var _bodyParts = <ApiRequestPart>[];
     if (fontsLocation != null) {
-      queryParams['fontsLocation'] = apiClient.serializeToString(fontsLocation);
+      _queryParams['fontsLocation'] = apiClient.serializeToString(fontsLocation);
     }
 
-    var url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    var body = apiClient.serializeBodyParts(bodyParts, headers);
-    return ApiRequestData('GET', url, headers, body);
+    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    return ApiRequestData('GET', _url, _headers, _body);
   }
 
   @override

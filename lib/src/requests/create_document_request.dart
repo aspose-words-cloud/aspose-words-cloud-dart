@@ -49,25 +49,25 @@ class CreateDocumentRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var path = '/words/create';
-    var queryParams = <String, String>{};
-    var headers = <String, String>{};
-    var bodyParts = <ApiRequestPart>[];
+    var _path = '/words/create';
+    var _queryParams = <String, String>{};
+    var _headers = <String, String>{};
+    var _bodyParts = <ApiRequestPart>[];
     if (storage != null) {
-      queryParams['storage'] = apiClient.serializeToString(storage);
+      _queryParams['storage'] = apiClient.serializeToString(storage);
     }
 
     if (fileName != null) {
-      queryParams['fileName'] = apiClient.serializeToString(fileName);
+      _queryParams['fileName'] = apiClient.serializeToString(fileName);
     }
 
     if (folder != null) {
-      queryParams['folder'] = apiClient.serializeToString(folder);
+      _queryParams['folder'] = apiClient.serializeToString(folder);
     }
 
-    var url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    var body = apiClient.serializeBodyParts(bodyParts, headers);
-    return ApiRequestData('PUT', url, headers, body);
+    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override

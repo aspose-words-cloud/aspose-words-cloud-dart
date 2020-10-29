@@ -69,51 +69,51 @@ class DeleteDrawingObjectRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var path = '/words/{name}/{nodePath}/drawingObjects/{index}';
-    var queryParams = <String, String>{};
-    var headers = <String, String>{};
-    var bodyParts = <ApiRequestPart>[];
+    var _path = '/words/{name}/{nodePath}/drawingObjects/{index}';
+    var _queryParams = <String, String>{};
+    var _headers = <String, String>{};
+    var _bodyParts = <ApiRequestPart>[];
     if (name == null) {
       throw ApiException(400, 'Parameter name is required.');
     }
-    path = path.replaceAll('{name}', apiClient.serializeToString(name));
+    _path = _path.replaceAll('{name}', apiClient.serializeToString(name));
 
     if (index == null) {
       throw ApiException(400, 'Parameter index is required.');
     }
-    path = path.replaceAll('{index}', apiClient.serializeToString(index));
-    path = path.replaceAll('{nodePath}', apiClient.serializeToString(nodePath) ?? '');
+    _path = _path.replaceAll('{index}', apiClient.serializeToString(index));
+    _path = _path.replaceAll('{nodePath}', apiClient.serializeToString(nodePath) ?? '');
     if (folder != null) {
-      queryParams['folder'] = apiClient.serializeToString(folder);
+      _queryParams['folder'] = apiClient.serializeToString(folder);
     }
 
     if (storage != null) {
-      queryParams['storage'] = apiClient.serializeToString(storage);
+      _queryParams['storage'] = apiClient.serializeToString(storage);
     }
 
     if (loadEncoding != null) {
-      queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
+      _queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
     }
 
     if (password != null) {
-      queryParams['password'] = apiClient.serializeToString(password);
+      _queryParams['password'] = apiClient.serializeToString(password);
     }
 
     if (destFileName != null) {
-      queryParams['destFileName'] = apiClient.serializeToString(destFileName);
+      _queryParams['destFileName'] = apiClient.serializeToString(destFileName);
     }
 
     if (revisionAuthor != null) {
-      queryParams['revisionAuthor'] = apiClient.serializeToString(revisionAuthor);
+      _queryParams['revisionAuthor'] = apiClient.serializeToString(revisionAuthor);
     }
 
     if (revisionDateTime != null) {
-      queryParams['revisionDateTime'] = apiClient.serializeToString(revisionDateTime);
+      _queryParams['revisionDateTime'] = apiClient.serializeToString(revisionDateTime);
     }
 
-    var url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    var body = apiClient.serializeBodyParts(bodyParts, headers);
-    return ApiRequestData('DELETE', url, headers, body);
+    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    return ApiRequestData('DELETE', _url, _headers, _body);
   }
 
   @override

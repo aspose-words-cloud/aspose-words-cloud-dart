@@ -54,39 +54,39 @@ class ExecuteMailMergeOnlineRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var path = '/words/MailMerge';
-    var queryParams = <String, String>{};
-    var headers = <String, String>{};
-    var bodyParts = <ApiRequestPart>[];
+    var _path = '/words/MailMerge';
+    var _queryParams = <String, String>{};
+    var _headers = <String, String>{};
+    var _bodyParts = <ApiRequestPart>[];
     if (withRegions != null) {
-      queryParams['withRegions'] = apiClient.serializeToString(withRegions);
+      _queryParams['withRegions'] = apiClient.serializeToString(withRegions);
     }
 
     if (cleanup != null) {
-      queryParams['cleanup'] = apiClient.serializeToString(cleanup);
+      _queryParams['cleanup'] = apiClient.serializeToString(cleanup);
     }
 
     if (documentFileName != null) {
-      queryParams['documentFileName'] = apiClient.serializeToString(documentFileName);
+      _queryParams['documentFileName'] = apiClient.serializeToString(documentFileName);
     }
 
     if (template != null) {
-      bodyParts.add(ApiRequestPart(apiClient.serializeBody(template), 'application/octet-stream', name: 'Template'));
+      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(template), 'application/octet-stream', name: 'Template'));
     }
     else {
       throw ApiException(400, 'Parameter template is required.');
     }
 
     if (data != null) {
-      bodyParts.add(ApiRequestPart(apiClient.serializeBody(data), 'application/octet-stream', name: 'Data'));
+      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(data), 'application/octet-stream', name: 'Data'));
     }
     else {
       throw ApiException(400, 'Parameter data is required.');
     }
 
-    var url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    var body = apiClient.serializeBodyParts(bodyParts, headers);
-    return ApiRequestData('PUT', url, headers, body);
+    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override

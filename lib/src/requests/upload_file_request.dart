@@ -51,28 +51,28 @@ class UploadFileRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var path = '/words/storage/file/{path}';
-    var queryParams = <String, String>{};
-    var headers = <String, String>{};
-    var bodyParts = <ApiRequestPart>[];
+    var _path = '/words/storage/file/{path}';
+    var _queryParams = <String, String>{};
+    var _headers = <String, String>{};
+    var _bodyParts = <ApiRequestPart>[];
     if (path == null) {
       throw ApiException(400, 'Parameter path is required.');
     }
-    path = path.replaceAll('{path}', apiClient.serializeToString(path));
+    _path = _path.replaceAll('{path}', apiClient.serializeToString(path));
     if (storageName != null) {
-      queryParams['storageName'] = apiClient.serializeToString(storageName);
+      _queryParams['storageName'] = apiClient.serializeToString(storageName);
     }
 
     if (fileContent != null) {
-      bodyParts.add(ApiRequestPart(apiClient.serializeBody(fileContent), 'application/octet-stream', name: 'FileContent'));
+      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(fileContent), 'application/octet-stream', name: 'FileContent'));
     }
     else {
       throw ApiException(400, 'Parameter fileContent is required.');
     }
 
-    var url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    var body = apiClient.serializeBodyParts(bodyParts, headers);
-    return ApiRequestData('PUT', url, headers, body);
+    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override

@@ -51,38 +51,38 @@ class BuildReportOnlineRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var path = '/words/buildReport';
-    var queryParams = <String, String>{};
-    var headers = <String, String>{};
-    var bodyParts = <ApiRequestPart>[];
+    var _path = '/words/buildReport';
+    var _queryParams = <String, String>{};
+    var _headers = <String, String>{};
+    var _bodyParts = <ApiRequestPart>[];
     if (documentFileName != null) {
-      queryParams['documentFileName'] = apiClient.serializeToString(documentFileName);
+      _queryParams['documentFileName'] = apiClient.serializeToString(documentFileName);
     }
 
     if (template != null) {
-      bodyParts.add(ApiRequestPart(apiClient.serializeBody(template), 'application/octet-stream', name: 'Template'));
+      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(template), 'application/octet-stream', name: 'Template'));
     }
     else {
       throw ApiException(400, 'Parameter template is required.');
     }
 
     if (data != null) {
-      bodyParts.add(ApiRequestPart(apiClient.serializeBody(data), 'application/json', name: 'Data'));
+      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(data), 'application/json', name: 'Data'));
     }
     else {
       throw ApiException(400, 'Parameter data is required.');
     }
 
     if (reportEngineSettings != null) {
-      bodyParts.add(ApiRequestPart(apiClient.serializeBody(reportEngineSettings), 'application/json', name: 'ReportEngineSettings'));
+      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(reportEngineSettings), 'application/json', name: 'ReportEngineSettings'));
     }
     else {
       throw ApiException(400, 'Parameter reportEngineSettings is required.');
     }
 
-    var url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    var body = apiClient.serializeBodyParts(bodyParts, headers);
-    return ApiRequestData('PUT', url, headers, body);
+    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override

@@ -51,32 +51,32 @@ class CopyFolderRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var path = '/words/storage/folder/copy/{srcPath}';
-    var queryParams = <String, String>{};
-    var headers = <String, String>{};
-    var bodyParts = <ApiRequestPart>[];
+    var _path = '/words/storage/folder/copy/{srcPath}';
+    var _queryParams = <String, String>{};
+    var _headers = <String, String>{};
+    var _bodyParts = <ApiRequestPart>[];
     if (srcPath == null) {
       throw ApiException(400, 'Parameter srcPath is required.');
     }
-    path = path.replaceAll('{srcPath}', apiClient.serializeToString(srcPath));
+    _path = _path.replaceAll('{srcPath}', apiClient.serializeToString(srcPath));
     if (destPath != null) {
-      queryParams['destPath'] = apiClient.serializeToString(destPath);
+      _queryParams['destPath'] = apiClient.serializeToString(destPath);
     }
     else {
       throw ApiException(400, 'Parameter destPath is required.');
     }
 
     if (srcStorageName != null) {
-      queryParams['srcStorageName'] = apiClient.serializeToString(srcStorageName);
+      _queryParams['srcStorageName'] = apiClient.serializeToString(srcStorageName);
     }
 
     if (destStorageName != null) {
-      queryParams['destStorageName'] = apiClient.serializeToString(destStorageName);
+      _queryParams['destStorageName'] = apiClient.serializeToString(destStorageName);
     }
 
-    var url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    var body = apiClient.serializeBodyParts(bodyParts, headers);
-    return ApiRequestData('PUT', url, headers, body);
+    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override
