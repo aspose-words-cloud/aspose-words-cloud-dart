@@ -41,7 +41,7 @@ node('words-linux') {
                         }
                         
                         stage('lint'){
-                            sh "dartanalyzer --options analysis_options.yaml ."
+                            sh "dartanalyzer --fatal-infos --fatal-warnings --options analysis_options.yaml ."
                         }
                     
                         stage('tests'){
