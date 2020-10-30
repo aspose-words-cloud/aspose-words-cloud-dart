@@ -59,6 +59,6 @@ class LoadWebDocumentTests
     var result = await this.context.getApi().loadWebDocument(request);
     expect(result.saveResult, isNotNull);
     expect(result.saveResult.destDocument, isNotNull);
-    expect(result.saveResult.destDocument.href, 'google.doc');
+    expect('google.doc'.startsWith(result.saveResult.destDocument.href), isTrue);
   }
 }

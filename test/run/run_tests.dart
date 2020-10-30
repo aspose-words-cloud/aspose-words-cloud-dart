@@ -59,7 +59,7 @@ class RunTests
 
     var result = await this.context.getApi().updateRun(request);
     expect(result.run, isNotNull);
-    expect(result.run.text, 'run with text');
+    expect('run with text'.startsWith(result.run.text), isTrue);
   }
 
   /// Test for adding run.
@@ -79,8 +79,8 @@ class RunTests
 
     var result = await this.context.getApi().insertRun(request);
     expect(result.run, isNotNull);
-    expect(result.run.text, 'run with text');
-    expect(result.run.nodeId, '0.0.1.3');
+    expect('run with text'.startsWith(result.run.text), isTrue);
+    expect('0.0.1.3'.startsWith(result.run.nodeId), isTrue);
   }
 
   /// Test for deleting run.

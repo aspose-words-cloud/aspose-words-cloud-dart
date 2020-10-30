@@ -65,6 +65,6 @@ class AppendDocumentTests
 
     var result = await this.context.getApi().appendDocument(request);
     expect(result.document, isNotNull);
-    expect(result.document.fileName, 'TestAppendDocument.docx');
+    expect('TestAppendDocument.docx'.startsWith(result.document.fileName), isTrue);
   }
 }

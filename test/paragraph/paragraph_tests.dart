@@ -60,7 +60,7 @@ class ParagraphTests
 
     var result = await this.context.getApi().getParagraph(request);
     expect(result.paragraph, isNotNull);
-    expect(result.paragraph.nodeId, '0.0.0');
+    expect('0.0.0'.startsWith(result.paragraph.nodeId), isTrue);
   }
 
   /// Test for getting paragraph without node path.
@@ -77,7 +77,7 @@ class ParagraphTests
 
     var result = await this.context.getApi().getParagraph(request);
     expect(result.paragraph, isNotNull);
-    expect(result.paragraph.nodeId, '0.0.0');
+    expect('0.0.0'.startsWith(result.paragraph.nodeId), isTrue);
   }
 
   /// Test for getting all paragraphs.
@@ -96,7 +96,7 @@ class ParagraphTests
     expect(result.paragraphs, isNotNull);
     expect(result.paragraphs.paragraphLinkList, isNotNull);
     expect(result.paragraphs.paragraphLinkList.length, 15);
-    expect(result.paragraphs.paragraphLinkList[0].text, 'Page 1 of 3');
+    expect('Page 1 of 3'.startsWith(result.paragraphs.paragraphLinkList[0].text), isTrue);
   }
 
   /// Test for getting all paragraphs without node path.
@@ -114,7 +114,7 @@ class ParagraphTests
     expect(result.paragraphs, isNotNull);
     expect(result.paragraphs.paragraphLinkList, isNotNull);
     expect(result.paragraphs.paragraphLinkList.length, 15);
-    expect(result.paragraphs.paragraphLinkList[0].text, 'Page 1 of 3');
+    expect('Page 1 of 3'.startsWith(result.paragraphs.paragraphLinkList[0].text), isTrue);
   }
 
   /// Test for getting paragraph run.
@@ -132,7 +132,7 @@ class ParagraphTests
 
     var result = await this.context.getApi().getRun(request);
     expect(result.run, isNotNull);
-    expect(result.run.text, 'Page ');
+    expect('Page '.startsWith(result.run.text), isTrue);
   }
 
   /// Test for getting paragraph run font.
@@ -150,7 +150,7 @@ class ParagraphTests
 
     var result = await this.context.getApi().getRunFont(request);
     expect(result.font, isNotNull);
-    expect(result.font.name, 'Times New Roman');
+    expect('Times New Roman'.startsWith(result.font.name), isTrue);
   }
 
   /// Test for getting paragraph runs.
@@ -169,7 +169,7 @@ class ParagraphTests
     expect(result.runs, isNotNull);
     expect(result.runs.list, isNotNull);
     expect(result.runs.list.length, 6);
-    expect(result.runs.list[0].text, 'Page ');
+    expect('Page '.startsWith(result.runs.list[0].text), isTrue);
   }
 
   /// Test for updating paragraph run font.
@@ -211,7 +211,7 @@ class ParagraphTests
 
     var result = await this.context.getApi().insertParagraph(request);
     expect(result.paragraph, isNotNull);
-    expect(result.paragraph.nodeId, '0.3.8');
+    expect('0.3.8'.startsWith(result.paragraph.nodeId), isTrue);
   }
 
   /// Test for adding paragraph without node path.
@@ -230,7 +230,7 @@ class ParagraphTests
 
     var result = await this.context.getApi().insertParagraph(request);
     expect(result.paragraph, isNotNull);
-    expect(result.paragraph.nodeId, '0.3.8');
+    expect('0.3.8'.startsWith(result.paragraph.nodeId), isTrue);
   }
 
   /// Test for paragraph rendering.
@@ -281,7 +281,7 @@ class ParagraphTests
 
     var result = await this.context.getApi().getParagraphFormat(request);
     expect(result.paragraphFormat, isNotNull);
-    expect(result.paragraphFormat.styleName, 'Normal');
+    expect('Normal'.startsWith(result.paragraphFormat.styleName), isTrue);
   }
 
   /// Test for getting paragraph format settings without node path.
@@ -298,7 +298,7 @@ class ParagraphTests
 
     var result = await this.context.getApi().getParagraphFormat(request);
     expect(result.paragraphFormat, isNotNull);
-    expect(result.paragraphFormat.styleName, 'Normal');
+    expect('Normal'.startsWith(result.paragraphFormat.styleName), isTrue);
   }
 
   /// Test for updating  paragraph format settings.

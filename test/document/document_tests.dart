@@ -54,7 +54,7 @@ class DocumentTests
 
     var result = await this.context.getApi().getDocument(request);
     expect(result.document, isNotNull);
-    expect(result.document.fileName, 'TestGetDocument.docx');
+    expect('TestGetDocument.docx'.startsWith(result.document.fileName), isTrue);
   }
 
   /// Test for creating word document.
@@ -69,6 +69,6 @@ class DocumentTests
 
     var result = await this.context.getApi().createDocument(request);
     expect(result.document, isNotNull);
-    expect(result.document.fileName, 'TestCreateDocument.doc');
+    expect('TestCreateDocument.doc'.startsWith(result.document.fileName), isTrue);
   }
 }

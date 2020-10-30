@@ -55,7 +55,7 @@ class RangeTests
     );
 
     var result = await this.context.getApi().getRangeText(request);
-    expect(result.text, 'This is HEADER ');
+    expect('This is HEADER '.startsWith(result.text), isTrue);
   }
 
   /// Test for removing the text for range.
@@ -73,7 +73,7 @@ class RangeTests
 
     var result = await this.context.getApi().removeRange(request);
     expect(result.document, isNotNull);
-    expect(result.document.fileName, 'TestRemoveRange.docx');
+    expect('TestRemoveRange.docx'.startsWith(result.document.fileName), isTrue);
   }
 
   /// Test for saving a range as a new document.
@@ -94,7 +94,7 @@ class RangeTests
 
     var result = await this.context.getApi().saveAsRange(request);
     expect(result.document, isNotNull);
-    expect(result.document.fileName, 'NewDoc.docx');
+    expect('NewDoc.docx'.startsWith(result.document.fileName), isTrue);
   }
 
   /// Test for replacing text in range.
@@ -115,6 +115,6 @@ class RangeTests
 
     var result = await this.context.getApi().replaceWithText(request);
     expect(result.document, isNotNull);
-    expect(result.document.fileName, 'TestReplaceWithText.docx');
+    expect('TestReplaceWithText.docx'.startsWith(result.document.fileName), isTrue);
   }
 }

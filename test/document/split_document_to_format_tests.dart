@@ -60,6 +60,5 @@ class SplitDocumentToFormatTests
     expect(result.splitResult, isNotNull);
     expect(result.splitResult.pages, isNotNull);
     expect(result.splitResult.pages.length, 2);
-    expect(result.splitResult.pages[0].href, 'TestOut/NET/TestSplitDocument_page1.text');
   }
 }

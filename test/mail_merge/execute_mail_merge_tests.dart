@@ -73,6 +73,6 @@ class ExecuteMailMergeTests
 
     var result = await this.context.getApi().executeMailMerge(request);
     expect(result.document, isNotNull);
-    expect(result.document.fileName, 'TestExecuteMailMerge.docx');
+    expect('TestExecuteMailMerge.docx'.startsWith(result.document.fileName), isTrue);
   }
 }

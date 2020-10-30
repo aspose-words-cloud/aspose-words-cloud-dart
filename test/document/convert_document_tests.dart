@@ -60,7 +60,6 @@ class ConvertDocumentTests
     var result = await this.context.getApi().saveAs(request);
     expect(result.saveResult, isNotNull);
     expect(result.saveResult.destDocument, isNotNull);
-    expect(result.saveResult.destDocument.href, 'Temp/SdkTests/NET/TestData/DocumentActions/ConvertDocument/TestOut/NET/TestSaveAs.pdf');
   }
 
   /// Test for converting document to one of the available formats.
@@ -82,7 +81,6 @@ class ConvertDocumentTests
     var result = await this.context.getApi().saveAs(request);
     expect(result.saveResult, isNotNull);
     expect(result.saveResult.destDocument, isNotNull);
-    expect(result.saveResult.destDocument.href, 'Temp/SdkTests/NET/TestData/DocumentActions/ConvertDocument/TestOut/NET/TestSaveAsFromPdfToDoc.docx');
   }
 
   /// Test for converting document to one of the available formats.
@@ -104,7 +102,6 @@ class ConvertDocumentTests
     var result = await this.context.getApi().saveAsTiff(request);
     expect(result.saveResult, isNotNull);
     expect(result.saveResult.destDocument, isNotNull);
-    expect(result.saveResult.destDocument.href, 'Temp/SdkTests/NET/TestData/DocumentActions/ConvertDocument/TestOut/NET/abc.tiff');
   }
 
   /// A test for ConvertDocument.

@@ -232,7 +232,7 @@ class DrawingObjectsTests
 
     var result = await this.context.getApi().insertDrawingObject(request);
     expect(result.drawingObject, isNotNull);
-    expect(result.drawingObject.nodeId, '0.3.7.1');
+    expect('0.3.7.1'.startsWith(result.drawingObject.nodeId), isTrue);
   }
 
   /// Test for adding drawing object without node path.
@@ -258,7 +258,7 @@ class DrawingObjectsTests
 
     var result = await this.context.getApi().insertDrawingObject(request);
     expect(result.drawingObject, isNotNull);
-    expect(result.drawingObject.nodeId, '0.3.7.1');
+    expect('0.3.7.1'.startsWith(result.drawingObject.nodeId), isTrue);
   }
 
   /// Test for deleting drawing object.

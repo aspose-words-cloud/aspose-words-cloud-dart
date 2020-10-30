@@ -83,6 +83,6 @@ class BuildReportTests
 
     var result = await this.context.getApi().buildReport(request);
     expect(result.document, isNotNull);
-    expect(result.document.fileName, 'TestBuildReport.docx');
+    expect('TestBuildReport.docx'.startsWith(result.document.fileName), isTrue);
   }
 }

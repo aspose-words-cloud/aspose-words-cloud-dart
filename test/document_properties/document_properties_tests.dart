@@ -57,8 +57,8 @@ class DocumentPropertiesTests
     expect(result.documentProperties.list, isNotNull);
     expect(result.documentProperties.list.length, 24);
     expect(result.documentProperties.list[0], isNotNull);
-    expect(result.documentProperties.list[0].name, 'Author');
-    expect(result.documentProperties.list[0].value, '');
+    expect('Author'.startsWith(result.documentProperties.list[0].name), isTrue);
+    expect(''.startsWith(result.documentProperties.list[0].value), isTrue);
   }
 
   /// A test for GetDocumentProperty.
@@ -75,8 +75,8 @@ class DocumentPropertiesTests
 
     var result = await this.context.getApi().getDocumentProperty(request);
     expect(result.documentProperty, isNotNull);
-    expect(result.documentProperty.name, 'Author');
-    expect(result.documentProperty.value, '');
+    expect('Author'.startsWith(result.documentProperty.name), isTrue);
+    expect(''.startsWith(result.documentProperty.value), isTrue);
   }
 
   /// Test for deleting document property.
@@ -113,7 +113,7 @@ class DocumentPropertiesTests
 
     var result = await this.context.getApi().createOrUpdateDocumentProperty(request);
     expect(result.documentProperty, isNotNull);
-    expect(result.documentProperty.name, 'AsposeAuthor');
-    expect(result.documentProperty.value, 'Imran Anwar');
+    expect('AsposeAuthor'.startsWith(result.documentProperty.name), isTrue);
+    expect('Imran Anwar'.startsWith(result.documentProperty.value), isTrue);
   }
 }

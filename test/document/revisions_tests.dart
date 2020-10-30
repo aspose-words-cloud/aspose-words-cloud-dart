@@ -56,7 +56,6 @@ class RevisionsTests
     var result = await this.context.getApi().acceptAllRevisions(request);
     expect(result.result, isNotNull);
     expect(result.result.dest, isNotNull);
-    expect(result.result.dest.href, 'TestOut/NET/TestAcceptAllRevisions.docx');
   }
 
   /// Test for rejecting revisions in document.
@@ -74,6 +73,5 @@ class RevisionsTests
     var result = await this.context.getApi().rejectAllRevisions(request);
     expect(result.result, isNotNull);
     expect(result.result.dest, isNotNull);
-    expect(result.result.dest.href, 'TestOut/NET/TestRejectAllRevisions.docx');
   }
 }

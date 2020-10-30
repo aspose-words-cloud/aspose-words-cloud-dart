@@ -58,7 +58,7 @@ class TableBorderTests
     expect(result.borders.list, isNotNull);
     expect(result.borders.list.length, 6);
     expect(result.borders.list[0].color, isNotNull);
-    expect(result.borders.list[0].color.web, '#000000');
+    expect('#000000'.startsWith(result.borders.list[0].color.web), isTrue);
   }
 
   /// Test for getting border.
@@ -77,7 +77,7 @@ class TableBorderTests
     var result = await this.context.getApi().getBorder(request);
     expect(result.border, isNotNull);
     expect(result.border.color, isNotNull);
-    expect(result.border.color.web, '#000000');
+    expect('#000000'.startsWith(result.border.color.web), isTrue);
   }
 
   /// Test for deleting borders.
@@ -97,7 +97,7 @@ class TableBorderTests
     expect(result.borders.list, isNotNull);
     expect(result.borders.list.length, 6);
     expect(result.borders.list[0].color, isNotNull);
-    expect(result.borders.list[0].color.web, '');
+    expect(''.startsWith(result.borders.list[0].color.web), isTrue);
   }
 
   /// Test for deleting border.
@@ -116,7 +116,7 @@ class TableBorderTests
     var result = await this.context.getApi().deleteBorder(request);
     expect(result.border, isNotNull);
     expect(result.border.color, isNotNull);
-    expect(result.border.color.web, '');
+    expect(''.startsWith(result.border.color.web), isTrue);
   }
 
   /// Test for updating border.
@@ -146,7 +146,7 @@ class TableBorderTests
     var result = await this.context.getApi().updateBorder(request);
     expect(result.border, isNotNull);
     expect(result.border.color, isNotNull);
-    expect(result.border.color.web, '#000002');
+    expect('#000002'.startsWith(result.border.color.web), isTrue);
     expect(result.border.distanceFromText, 6);
     expect(result.border.lineWidth, 2);
     expect(result.border.shadow, isTrue);

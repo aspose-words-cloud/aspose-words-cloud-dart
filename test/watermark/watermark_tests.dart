@@ -60,7 +60,7 @@ class WatermarkTests
 
     var result = await this.context.getApi().insertWatermarkImage(request);
     expect(result.document, isNotNull);
-    expect(result.document.fileName, 'TestInsertWatermarkImage.docx');
+    expect('TestInsertWatermarkImage.docx'.startsWith(result.document.fileName), isTrue);
   }
 
   /// Test for adding watermark text.
@@ -81,7 +81,7 @@ class WatermarkTests
 
     var result = await this.context.getApi().insertWatermarkText(request);
     expect(result.document, isNotNull);
-    expect(result.document.fileName, 'TestInsertWatermarkText.docx');
+    expect('TestInsertWatermarkText.docx'.startsWith(result.document.fileName), isTrue);
   }
 
   /// Test for deleting watermark.
@@ -98,6 +98,6 @@ class WatermarkTests
 
     var result = await this.context.getApi().deleteWatermark(request);
     expect(result.document, isNotNull);
-    expect(result.document.fileName, 'TestDeleteWatermark.docx');
+    expect('TestDeleteWatermark.docx'.startsWith(result.document.fileName), isTrue);
   }
 }
