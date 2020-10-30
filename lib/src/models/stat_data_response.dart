@@ -39,17 +39,21 @@ class StatDataResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize StatDataResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('DocumentLink')) {
       documentLink = FileLink();
-      documentLink.deserialize(json['DocumentLink']);
+      documentLink.deserialize(json['DocumentLink'] as Map<String, dynamic>);
     } else {
       documentLink = null;
     }
 
     if (json.containsKey('StatData')) {
       statData = DocumentStatData();
-      statData.deserialize(json['StatData']);
+      statData.deserialize(json['StatData'] as Map<String, dynamic>);
     } else {
       statData = null;
     }

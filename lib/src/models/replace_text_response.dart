@@ -39,16 +39,20 @@ class ReplaceTextResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ReplaceTextResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('DocumentLink')) {
       documentLink = FileLink();
-      documentLink.deserialize(json['DocumentLink']);
+      documentLink.deserialize(json['DocumentLink'] as Map<String, dynamic>);
     } else {
       documentLink = null;
     }
 
     if (json.containsKey('Matches')) {
-      matches = json['Matches'];
+      matches = json['Matches'] as int;
     } else {
       matches = null;
     }

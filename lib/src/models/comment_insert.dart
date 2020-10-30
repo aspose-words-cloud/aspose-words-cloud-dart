@@ -34,6 +34,10 @@ class CommentInsert extends CommentBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize CommentInsert data model.');
+    }
+
     super.deserialize(json);
   }
 

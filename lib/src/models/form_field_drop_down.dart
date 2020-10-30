@@ -39,19 +39,23 @@ class FormFieldDropDown extends FormField {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FormFieldDropDown data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('DropDownItems')) {
       // Array processing
       dropDownItems = <String>[];
       for(final _element in json['DropDownItems']) {
-        dropDownItems.add(_element);
+        dropDownItems.add(_element as String);
       }
     } else {
       dropDownItems = null;
     }
 
     if (json.containsKey('DropDownSelectedIndex')) {
-      dropDownSelectedIndex = json['DropDownSelectedIndex'];
+      dropDownSelectedIndex = json['DropDownSelectedIndex'] as int;
     } else {
       dropDownSelectedIndex = null;
     }

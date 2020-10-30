@@ -36,10 +36,14 @@ class DocumentResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize DocumentResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Document')) {
       document = Document();
-      document.deserialize(json['Document']);
+      document.deserialize(json['Document'] as Map<String, dynamic>);
     } else {
       document = null;
     }

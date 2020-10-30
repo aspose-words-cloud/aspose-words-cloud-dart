@@ -36,13 +36,17 @@ class Lists extends LinkElement {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize Lists data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('ListInfo')) {
       // Array processing
       listInfo = <ListInfo>[];
       for(final _element in json['ListInfo']) {
         var _elementValue = ListInfo();
-        _elementValue.deserialize(_element);
+        _elementValue.deserialize(_element as Map<String, dynamic>);
         listInfo.add(_elementValue);
       }
     } else {

@@ -36,8 +36,12 @@ class ListInsert implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ListInsert data model.');
+    }
+
     if (json.containsKey('Template')) {
-      switch (json['Template']) {
+      switch (json['Template'] as String) {
         case 'BulletDefault': template = ListInsert_TemplateEnum.bulletDefault; break;
         case 'BulletDisk': template = ListInsert_TemplateEnum.bulletDisk; break;
         case 'BulletCircle': template = ListInsert_TemplateEnum.bulletCircle; break;

@@ -46,16 +46,20 @@ class OfficeMathObject extends OfficeMathLink {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize OfficeMathObject data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Content')) {
       content = StoryChildNodes();
-      content.deserialize(json['Content']);
+      content.deserialize(json['Content'] as Map<String, dynamic>);
     } else {
       content = null;
     }
 
     if (json.containsKey('DisplayType')) {
-      switch (json['DisplayType']) {
+      switch (json['DisplayType'] as String) {
         case 'Display': displayType = OfficeMathObject_DisplayTypeEnum.display; break;
         case 'Inline': displayType = OfficeMathObject_DisplayTypeEnum.inline; break;
         default: displayType = null; break;
@@ -65,9 +69,9 @@ class OfficeMathObject extends OfficeMathLink {
     }
 
     if (json.containsKey('Justification')) {
-      switch (json['Justification']) {
+      switch (json['Justification'] as String) {
         case 'CenterGroup': justification = OfficeMathObject_JustificationEnum.centerGroup; break;
-        case 'Default': justification = OfficeMathObject_JustificationEnum.default_; break;
+        case 'Default': justification = OfficeMathObject_JustificationEnum.defaultValue; break;
         case 'Center': justification = OfficeMathObject_JustificationEnum.center; break;
         case 'Left': justification = OfficeMathObject_JustificationEnum.left; break;
         case 'Right': justification = OfficeMathObject_JustificationEnum.right; break;
@@ -79,7 +83,7 @@ class OfficeMathObject extends OfficeMathLink {
     }
 
     if (json.containsKey('MathObjectType')) {
-      switch (json['MathObjectType']) {
+      switch (json['MathObjectType'] as String) {
         case 'OMath': mathObjectType = OfficeMathObject_MathObjectTypeEnum.oMath; break;
         case 'OMathPara': mathObjectType = OfficeMathObject_MathObjectTypeEnum.oMathPara; break;
         case 'Accent': mathObjectType = OfficeMathObject_MathObjectTypeEnum.accent; break;
@@ -136,7 +140,7 @@ class OfficeMathObject extends OfficeMathLink {
     if (justification != null) {
       switch (justification) {
         case OfficeMathObject_JustificationEnum.centerGroup: _result['Justification'] = 'CenterGroup'; break;
-        case OfficeMathObject_JustificationEnum.default_: _result['Justification'] = 'Default'; break;
+        case OfficeMathObject_JustificationEnum.defaultValue: _result['Justification'] = 'Default'; break;
         case OfficeMathObject_JustificationEnum.center: _result['Justification'] = 'Center'; break;
         case OfficeMathObject_JustificationEnum.left: _result['Justification'] = 'Left'; break;
         case OfficeMathObject_JustificationEnum.right: _result['Justification'] = 'Right'; break;
@@ -196,7 +200,7 @@ enum OfficeMathObject_DisplayTypeEnum
 enum OfficeMathObject_JustificationEnum
 { 
   centerGroup,
-  default_,
+  defaultValue,
   center,
   left,
   right,

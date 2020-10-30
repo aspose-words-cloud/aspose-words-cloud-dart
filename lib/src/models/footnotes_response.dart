@@ -37,10 +37,14 @@ class FootnotesResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FootnotesResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Footnotes')) {
       footnotes = FootnoteCollection();
-      footnotes.deserialize(json['Footnotes']);
+      footnotes.deserialize(json['Footnotes'] as Map<String, dynamic>);
     } else {
       footnotes = null;
     }

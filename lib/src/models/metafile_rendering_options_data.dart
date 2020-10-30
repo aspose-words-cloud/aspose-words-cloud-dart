@@ -49,32 +49,36 @@ class MetafileRenderingOptionsData implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize MetafileRenderingOptionsData data model.');
+    }
+
     if (json.containsKey('EmfPlusDualRenderingMode')) {
-      emfPlusDualRenderingMode = json['EmfPlusDualRenderingMode'];
+      emfPlusDualRenderingMode = json['EmfPlusDualRenderingMode'] as String;
     } else {
       emfPlusDualRenderingMode = null;
     }
 
     if (json.containsKey('EmulateRasterOperations')) {
-      emulateRasterOperations = json['EmulateRasterOperations'];
+      emulateRasterOperations = json['EmulateRasterOperations'] as bool;
     } else {
       emulateRasterOperations = null;
     }
 
     if (json.containsKey('RenderingMode')) {
-      renderingMode = json['RenderingMode'];
+      renderingMode = json['RenderingMode'] as String;
     } else {
       renderingMode = null;
     }
 
     if (json.containsKey('ScaleWmfFontsToMetafileSize')) {
-      scaleWmfFontsToMetafileSize = json['ScaleWmfFontsToMetafileSize'];
+      scaleWmfFontsToMetafileSize = json['ScaleWmfFontsToMetafileSize'] as bool;
     } else {
       scaleWmfFontsToMetafileSize = null;
     }
 
     if (json.containsKey('UseEmfEmbeddedToWmf')) {
-      useEmfEmbeddedToWmf = json['UseEmfEmbeddedToWmf'];
+      useEmfEmbeddedToWmf = json['UseEmfEmbeddedToWmf'] as bool;
     } else {
       useEmfEmbeddedToWmf = null;
     }

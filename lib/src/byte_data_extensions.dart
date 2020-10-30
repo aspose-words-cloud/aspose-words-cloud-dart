@@ -85,7 +85,7 @@ extension ByteDataExtensions on ByteData {
         }
         offset = newOffset + separatorSize;
       }
-    };
+    }
 
     return result;
   }

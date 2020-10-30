@@ -36,13 +36,17 @@ class SearchResultsCollection extends LinkElement {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize SearchResultsCollection data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('ResultsList')) {
       // Array processing
       resultsList = <SearchResult>[];
       for(final _element in json['ResultsList']) {
         var _elementValue = SearchResult();
-        _elementValue.deserialize(_element);
+        _elementValue.deserialize(_element as Map<String, dynamic>);
         resultsList.add(_elementValue);
       }
     } else {

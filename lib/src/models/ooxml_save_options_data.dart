@@ -45,15 +45,19 @@ class OoxmlSaveOptionsData extends SaveOptionsData {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize OoxmlSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Compliance')) {
-      compliance = json['Compliance'];
+      compliance = json['Compliance'] as String;
     } else {
       compliance = null;
     }
 
     if (json.containsKey('CompressionLevel')) {
-      switch (json['CompressionLevel']) {
+      switch (json['CompressionLevel'] as String) {
         case 'Normal': compressionLevel = OoxmlSaveOptionsData_CompressionLevelEnum.normal; break;
         case 'Maximum': compressionLevel = OoxmlSaveOptionsData_CompressionLevelEnum.maximum; break;
         case 'Fast': compressionLevel = OoxmlSaveOptionsData_CompressionLevelEnum.fast; break;
@@ -65,13 +69,13 @@ class OoxmlSaveOptionsData extends SaveOptionsData {
     }
 
     if (json.containsKey('Password')) {
-      password = json['Password'];
+      password = json['Password'] as String;
     } else {
       password = null;
     }
 
     if (json.containsKey('PrettyFormat')) {
-      prettyFormat = json['PrettyFormat'];
+      prettyFormat = json['PrettyFormat'] as bool;
     } else {
       prettyFormat = null;
     }

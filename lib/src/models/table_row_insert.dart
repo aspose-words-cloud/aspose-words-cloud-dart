@@ -39,14 +39,18 @@ class TableRowInsert implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize TableRowInsert data model.');
+    }
+
     if (json.containsKey('ColumnsCount')) {
-      columnsCount = json['ColumnsCount'];
+      columnsCount = json['ColumnsCount'] as int;
     } else {
       columnsCount = null;
     }
 
     if (json.containsKey('InsertAfter')) {
-      insertAfter = json['InsertAfter'];
+      insertAfter = json['InsertAfter'] as int;
     } else {
       insertAfter = null;
     }

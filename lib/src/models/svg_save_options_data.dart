@@ -51,39 +51,43 @@ class SvgSaveOptionsData extends FixedPageSaveOptionsData {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize SvgSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('ExportEmbeddedImages')) {
-      exportEmbeddedImages = json['ExportEmbeddedImages'];
+      exportEmbeddedImages = json['ExportEmbeddedImages'] as bool;
     } else {
       exportEmbeddedImages = null;
     }
 
     if (json.containsKey('FitToViewPort')) {
-      fitToViewPort = json['FitToViewPort'];
+      fitToViewPort = json['FitToViewPort'] as bool;
     } else {
       fitToViewPort = null;
     }
 
     if (json.containsKey('ResourcesFolder')) {
-      resourcesFolder = json['ResourcesFolder'];
+      resourcesFolder = json['ResourcesFolder'] as String;
     } else {
       resourcesFolder = null;
     }
 
     if (json.containsKey('ResourcesFolderAlias')) {
-      resourcesFolderAlias = json['ResourcesFolderAlias'];
+      resourcesFolderAlias = json['ResourcesFolderAlias'] as String;
     } else {
       resourcesFolderAlias = null;
     }
 
     if (json.containsKey('ShowPageBorder')) {
-      showPageBorder = json['ShowPageBorder'];
+      showPageBorder = json['ShowPageBorder'] as bool;
     } else {
       showPageBorder = null;
     }
 
     if (json.containsKey('TextOutputMode')) {
-      textOutputMode = json['TextOutputMode'];
+      textOutputMode = json['TextOutputMode'] as String;
     } else {
       textOutputMode = null;
     }

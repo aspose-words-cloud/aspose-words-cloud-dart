@@ -36,13 +36,17 @@ class CommentsCollection extends LinkElement {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize CommentsCollection data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('CommentList')) {
       // Array processing
       commentList = <Comment>[];
       for(final _element in json['CommentList']) {
         var _elementValue = Comment();
-        _elementValue.deserialize(_element);
+        _elementValue.deserialize(_element as Map<String, dynamic>);
         commentList.add(_elementValue);
       }
     } else {

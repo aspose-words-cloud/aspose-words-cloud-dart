@@ -46,8 +46,12 @@ class FootnoteBase implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FootnoteBase data model.');
+    }
+
     if (json.containsKey('FootnoteType')) {
-      switch (json['FootnoteType']) {
+      switch (json['FootnoteType'] as String) {
         case 'Footnote': footnoteType = FootnoteBase_FootnoteTypeEnum.footnote; break;
         case 'Endnote': footnoteType = FootnoteBase_FootnoteTypeEnum.endnote; break;
         default: footnoteType = null; break;
@@ -58,19 +62,19 @@ class FootnoteBase implements ModelBase {
 
     if (json.containsKey('Position')) {
       position = DocumentPosition();
-      position.deserialize(json['Position']);
+      position.deserialize(json['Position'] as Map<String, dynamic>);
     } else {
       position = null;
     }
 
     if (json.containsKey('ReferenceMark')) {
-      referenceMark = json['ReferenceMark'];
+      referenceMark = json['ReferenceMark'] as String;
     } else {
       referenceMark = null;
     }
 
     if (json.containsKey('Text')) {
-      text = json['Text'];
+      text = json['Text'] as String;
     } else {
       text = null;
     }

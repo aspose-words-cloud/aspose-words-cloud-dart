@@ -36,8 +36,12 @@ class RangeDocument implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize RangeDocument data model.');
+    }
+
     if (json.containsKey('DocumentName')) {
-      documentName = json['DocumentName'];
+      documentName = json['DocumentName'] as String;
     } else {
       documentName = null;
     }

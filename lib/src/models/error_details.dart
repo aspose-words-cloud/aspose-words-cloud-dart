@@ -39,14 +39,18 @@ class ErrorDetails implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ErrorDetails data model.');
+    }
+
     if (json.containsKey('ErrorDateTime')) {
-      errorDateTime = DateTime.parse(json['ErrorDateTime']);
+      errorDateTime = DateTime.parse(json['ErrorDateTime'] as String);
     } else {
       errorDateTime = null;
     }
 
     if (json.containsKey('RequestId')) {
-      requestId = json['RequestId'];
+      requestId = json['RequestId'] as String;
     } else {
       requestId = null;
     }

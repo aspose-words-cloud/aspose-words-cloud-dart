@@ -162,171 +162,175 @@ class HtmlSaveOptionsData extends SaveOptionsData {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize HtmlSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('AllowNegativeIndent')) {
-      allowNegativeIndent = json['AllowNegativeIndent'];
+      allowNegativeIndent = json['AllowNegativeIndent'] as bool;
     } else {
       allowNegativeIndent = null;
     }
 
     if (json.containsKey('CssClassNamePrefix')) {
-      cssClassNamePrefix = json['CssClassNamePrefix'];
+      cssClassNamePrefix = json['CssClassNamePrefix'] as String;
     } else {
       cssClassNamePrefix = null;
     }
 
     if (json.containsKey('CssStyleSheetFileName')) {
-      cssStyleSheetFileName = json['CssStyleSheetFileName'];
+      cssStyleSheetFileName = json['CssStyleSheetFileName'] as String;
     } else {
       cssStyleSheetFileName = null;
     }
 
     if (json.containsKey('CssStyleSheetType')) {
-      cssStyleSheetType = json['CssStyleSheetType'];
+      cssStyleSheetType = json['CssStyleSheetType'] as String;
     } else {
       cssStyleSheetType = null;
     }
 
     if (json.containsKey('DocumentSplitCriteria')) {
-      documentSplitCriteria = json['DocumentSplitCriteria'];
+      documentSplitCriteria = json['DocumentSplitCriteria'] as String;
     } else {
       documentSplitCriteria = null;
     }
 
     if (json.containsKey('DocumentSplitHeadingLevel')) {
-      documentSplitHeadingLevel = json['DocumentSplitHeadingLevel'];
+      documentSplitHeadingLevel = json['DocumentSplitHeadingLevel'] as int;
     } else {
       documentSplitHeadingLevel = null;
     }
 
     if (json.containsKey('Encoding')) {
-      encoding = json['Encoding'];
+      encoding = json['Encoding'] as String;
     } else {
       encoding = null;
     }
 
     if (json.containsKey('ExportDocumentProperties')) {
-      exportDocumentProperties = json['ExportDocumentProperties'];
+      exportDocumentProperties = json['ExportDocumentProperties'] as bool;
     } else {
       exportDocumentProperties = null;
     }
 
     if (json.containsKey('ExportDropDownFormFieldAsText')) {
-      exportDropDownFormFieldAsText = json['ExportDropDownFormFieldAsText'];
+      exportDropDownFormFieldAsText = json['ExportDropDownFormFieldAsText'] as bool;
     } else {
       exportDropDownFormFieldAsText = null;
     }
 
     if (json.containsKey('ExportFontResources')) {
-      exportFontResources = json['ExportFontResources'];
+      exportFontResources = json['ExportFontResources'] as bool;
     } else {
       exportFontResources = null;
     }
 
     if (json.containsKey('ExportFontsAsBase64')) {
-      exportFontsAsBase64 = json['ExportFontsAsBase64'];
+      exportFontsAsBase64 = json['ExportFontsAsBase64'] as bool;
     } else {
       exportFontsAsBase64 = null;
     }
 
     if (json.containsKey('ExportHeadersFootersMode')) {
-      exportHeadersFootersMode = json['ExportHeadersFootersMode'];
+      exportHeadersFootersMode = json['ExportHeadersFootersMode'] as String;
     } else {
       exportHeadersFootersMode = null;
     }
 
     if (json.containsKey('ExportImagesAsBase64')) {
-      exportImagesAsBase64 = json['ExportImagesAsBase64'];
+      exportImagesAsBase64 = json['ExportImagesAsBase64'] as bool;
     } else {
       exportImagesAsBase64 = null;
     }
 
     if (json.containsKey('ExportLanguageInformation')) {
-      exportLanguageInformation = json['ExportLanguageInformation'];
+      exportLanguageInformation = json['ExportLanguageInformation'] as bool;
     } else {
       exportLanguageInformation = null;
     }
 
     if (json.containsKey('ExportListLabels')) {
-      exportListLabels = json['ExportListLabels'];
+      exportListLabels = json['ExportListLabels'] as String;
     } else {
       exportListLabels = null;
     }
 
     if (json.containsKey('ExportOriginalUrlForLinkedImages')) {
-      exportOriginalUrlForLinkedImages = json['ExportOriginalUrlForLinkedImages'];
+      exportOriginalUrlForLinkedImages = json['ExportOriginalUrlForLinkedImages'] as bool;
     } else {
       exportOriginalUrlForLinkedImages = null;
     }
 
     if (json.containsKey('ExportPageMargins')) {
-      exportPageMargins = json['ExportPageMargins'];
+      exportPageMargins = json['ExportPageMargins'] as bool;
     } else {
       exportPageMargins = null;
     }
 
     if (json.containsKey('ExportPageSetup')) {
-      exportPageSetup = json['ExportPageSetup'];
+      exportPageSetup = json['ExportPageSetup'] as bool;
     } else {
       exportPageSetup = null;
     }
 
     if (json.containsKey('ExportRelativeFontSize')) {
-      exportRelativeFontSize = json['ExportRelativeFontSize'];
+      exportRelativeFontSize = json['ExportRelativeFontSize'] as bool;
     } else {
       exportRelativeFontSize = null;
     }
 
     if (json.containsKey('ExportRoundtripInformation')) {
-      exportRoundtripInformation = json['ExportRoundtripInformation'];
+      exportRoundtripInformation = json['ExportRoundtripInformation'] as bool;
     } else {
       exportRoundtripInformation = null;
     }
 
     if (json.containsKey('ExportTextBoxAsSvg')) {
-      exportTextBoxAsSvg = json['ExportTextBoxAsSvg'];
+      exportTextBoxAsSvg = json['ExportTextBoxAsSvg'] as bool;
     } else {
       exportTextBoxAsSvg = null;
     }
 
     if (json.containsKey('ExportTextInputFormFieldAsText')) {
-      exportTextInputFormFieldAsText = json['ExportTextInputFormFieldAsText'];
+      exportTextInputFormFieldAsText = json['ExportTextInputFormFieldAsText'] as bool;
     } else {
       exportTextInputFormFieldAsText = null;
     }
 
     if (json.containsKey('ExportTocPageNumbers')) {
-      exportTocPageNumbers = json['ExportTocPageNumbers'];
+      exportTocPageNumbers = json['ExportTocPageNumbers'] as bool;
     } else {
       exportTocPageNumbers = null;
     }
 
     if (json.containsKey('ExportXhtmlTransitional')) {
-      exportXhtmlTransitional = json['ExportXhtmlTransitional'];
+      exportXhtmlTransitional = json['ExportXhtmlTransitional'] as bool;
     } else {
       exportXhtmlTransitional = null;
     }
 
     if (json.containsKey('FontResourcesSubsettingSizeThreshold')) {
-      fontResourcesSubsettingSizeThreshold = json['FontResourcesSubsettingSizeThreshold'];
+      fontResourcesSubsettingSizeThreshold = json['FontResourcesSubsettingSizeThreshold'] as int;
     } else {
       fontResourcesSubsettingSizeThreshold = null;
     }
 
     if (json.containsKey('FontsFolder')) {
-      fontsFolder = json['FontsFolder'];
+      fontsFolder = json['FontsFolder'] as String;
     } else {
       fontsFolder = null;
     }
 
     if (json.containsKey('FontsFolderAlias')) {
-      fontsFolderAlias = json['FontsFolderAlias'];
+      fontsFolderAlias = json['FontsFolderAlias'] as String;
     } else {
       fontsFolderAlias = null;
     }
 
     if (json.containsKey('HtmlVersion')) {
-      switch (json['HtmlVersion']) {
+      switch (json['HtmlVersion'] as String) {
         case 'Xhtml': htmlVersion = HtmlSaveOptionsData_HtmlVersionEnum.xhtml; break;
         case 'Html5': htmlVersion = HtmlSaveOptionsData_HtmlVersionEnum.html5; break;
         default: htmlVersion = null; break;
@@ -336,25 +340,25 @@ class HtmlSaveOptionsData extends SaveOptionsData {
     }
 
     if (json.containsKey('ImageResolution')) {
-      imageResolution = json['ImageResolution'];
+      imageResolution = json['ImageResolution'] as int;
     } else {
       imageResolution = null;
     }
 
     if (json.containsKey('ImagesFolder')) {
-      imagesFolder = json['ImagesFolder'];
+      imagesFolder = json['ImagesFolder'] as String;
     } else {
       imagesFolder = null;
     }
 
     if (json.containsKey('ImagesFolderAlias')) {
-      imagesFolderAlias = json['ImagesFolderAlias'];
+      imagesFolderAlias = json['ImagesFolderAlias'] as String;
     } else {
       imagesFolderAlias = null;
     }
 
     if (json.containsKey('MetafileFormat')) {
-      switch (json['MetafileFormat']) {
+      switch (json['MetafileFormat'] as String) {
         case 'Png': metafileFormat = HtmlSaveOptionsData_MetafileFormatEnum.png; break;
         case 'Svg': metafileFormat = HtmlSaveOptionsData_MetafileFormatEnum.svg; break;
         case 'EmfOrWmf': metafileFormat = HtmlSaveOptionsData_MetafileFormatEnum.emfOrWmf; break;
@@ -365,7 +369,7 @@ class HtmlSaveOptionsData extends SaveOptionsData {
     }
 
     if (json.containsKey('OfficeMathOutputMode')) {
-      switch (json['OfficeMathOutputMode']) {
+      switch (json['OfficeMathOutputMode'] as String) {
         case 'Image': officeMathOutputMode = HtmlSaveOptionsData_OfficeMathOutputModeEnum.image; break;
         case 'MathML': officeMathOutputMode = HtmlSaveOptionsData_OfficeMathOutputModeEnum.mathML; break;
         case 'Text': officeMathOutputMode = HtmlSaveOptionsData_OfficeMathOutputModeEnum.text; break;
@@ -376,37 +380,37 @@ class HtmlSaveOptionsData extends SaveOptionsData {
     }
 
     if (json.containsKey('PrettyFormat')) {
-      prettyFormat = json['PrettyFormat'];
+      prettyFormat = json['PrettyFormat'] as bool;
     } else {
       prettyFormat = null;
     }
 
     if (json.containsKey('ResolveFontNames')) {
-      resolveFontNames = json['ResolveFontNames'];
+      resolveFontNames = json['ResolveFontNames'] as bool;
     } else {
       resolveFontNames = null;
     }
 
     if (json.containsKey('ResourceFolder')) {
-      resourceFolder = json['ResourceFolder'];
+      resourceFolder = json['ResourceFolder'] as String;
     } else {
       resourceFolder = null;
     }
 
     if (json.containsKey('ResourceFolderAlias')) {
-      resourceFolderAlias = json['ResourceFolderAlias'];
+      resourceFolderAlias = json['ResourceFolderAlias'] as String;
     } else {
       resourceFolderAlias = null;
     }
 
     if (json.containsKey('ScaleImageToShapeSize')) {
-      scaleImageToShapeSize = json['ScaleImageToShapeSize'];
+      scaleImageToShapeSize = json['ScaleImageToShapeSize'] as bool;
     } else {
       scaleImageToShapeSize = null;
     }
 
     if (json.containsKey('TableWidthOutputMode')) {
-      tableWidthOutputMode = json['TableWidthOutputMode'];
+      tableWidthOutputMode = json['TableWidthOutputMode'] as String;
     } else {
       tableWidthOutputMode = null;
     }

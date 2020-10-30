@@ -42,21 +42,25 @@ class ListFormat extends LinkElement {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ListFormat data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('IsListItem')) {
-      isListItem = json['IsListItem'];
+      isListItem = json['IsListItem'] as bool;
     } else {
       isListItem = null;
     }
 
     if (json.containsKey('ListId')) {
-      listId = json['ListId'];
+      listId = json['ListId'] as int;
     } else {
       listId = null;
     }
 
     if (json.containsKey('ListLevelNumber')) {
-      listLevelNumber = json['ListLevelNumber'];
+      listLevelNumber = json['ListLevelNumber'] as int;
     } else {
       listLevelNumber = null;
     }

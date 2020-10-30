@@ -39,14 +39,18 @@ class BookmarksOutlineLevelData implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize BookmarksOutlineLevelData data model.');
+    }
+
     if (json.containsKey('BookmarksOutlineLevel')) {
-      bookmarksOutlineLevel = json['BookmarksOutlineLevel'];
+      bookmarksOutlineLevel = json['BookmarksOutlineLevel'] as int;
     } else {
       bookmarksOutlineLevel = null;
     }
 
     if (json.containsKey('Name')) {
-      name = json['Name'];
+      name = json['Name'] as String;
     } else {
       name = null;
     }

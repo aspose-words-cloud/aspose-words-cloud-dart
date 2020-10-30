@@ -45,28 +45,32 @@ class XpsSaveOptionsData extends FixedPageSaveOptionsData {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize XpsSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('BookmarksOutlineLevel')) {
-      bookmarksOutlineLevel = json['BookmarksOutlineLevel'];
+      bookmarksOutlineLevel = json['BookmarksOutlineLevel'] as int;
     } else {
       bookmarksOutlineLevel = null;
     }
 
     if (json.containsKey('HeadingsOutlineLevels')) {
-      headingsOutlineLevels = json['HeadingsOutlineLevels'];
+      headingsOutlineLevels = json['HeadingsOutlineLevels'] as int;
     } else {
       headingsOutlineLevels = null;
     }
 
     if (json.containsKey('OutlineOptions')) {
       outlineOptions = OutlineOptionsData();
-      outlineOptions.deserialize(json['OutlineOptions']);
+      outlineOptions.deserialize(json['OutlineOptions'] as Map<String, dynamic>);
     } else {
       outlineOptions = null;
     }
 
     if (json.containsKey('UseBookFoldPrintingSettings')) {
-      useBookFoldPrintingSettings = json['UseBookFoldPrintingSettings'];
+      useBookFoldPrintingSettings = json['UseBookFoldPrintingSettings'] as bool;
     } else {
       useBookFoldPrintingSettings = null;
     }

@@ -42,12 +42,16 @@ class SplitDocumentResult implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize SplitDocumentResult data model.');
+    }
+
     if (json.containsKey('Pages')) {
       // Array processing
       pages = <FileLink>[];
       for(final _element in json['Pages']) {
         var _elementValue = FileLink();
-        _elementValue.deserialize(_element);
+        _elementValue.deserialize(_element as Map<String, dynamic>);
         pages.add(_elementValue);
       }
     } else {
@@ -56,14 +60,14 @@ class SplitDocumentResult implements ModelBase {
 
     if (json.containsKey('SourceDocument')) {
       sourceDocument = FileLink();
-      sourceDocument.deserialize(json['SourceDocument']);
+      sourceDocument.deserialize(json['SourceDocument'] as Map<String, dynamic>);
     } else {
       sourceDocument = null;
     }
 
     if (json.containsKey('ZippedPages')) {
       zippedPages = FileLink();
-      zippedPages.deserialize(json['ZippedPages']);
+      zippedPages.deserialize(json['ZippedPages'] as Map<String, dynamic>);
     } else {
       zippedPages = null;
     }

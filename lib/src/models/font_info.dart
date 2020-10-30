@@ -45,26 +45,30 @@ class FontInfo implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FontInfo data model.');
+    }
+
     if (json.containsKey('FilePath')) {
-      filePath = json['FilePath'];
+      filePath = json['FilePath'] as String;
     } else {
       filePath = null;
     }
 
     if (json.containsKey('FontFamilyName')) {
-      fontFamilyName = json['FontFamilyName'];
+      fontFamilyName = json['FontFamilyName'] as String;
     } else {
       fontFamilyName = null;
     }
 
     if (json.containsKey('FullFontName')) {
-      fullFontName = json['FullFontName'];
+      fullFontName = json['FullFontName'] as String;
     } else {
       fullFontName = null;
     }
 
     if (json.containsKey('Version')) {
-      version = json['Version'];
+      version = json['Version'] as String;
     } else {
       version = null;
     }

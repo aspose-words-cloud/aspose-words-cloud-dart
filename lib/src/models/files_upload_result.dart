@@ -39,12 +39,16 @@ class FilesUploadResult implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FilesUploadResult data model.');
+    }
+
     if (json.containsKey('Errors')) {
       // Array processing
       errors = <Error>[];
       for(final _element in json['Errors']) {
         var _elementValue = Error();
-        _elementValue.deserialize(_element);
+        _elementValue.deserialize(_element as Map<String, dynamic>);
         errors.add(_elementValue);
       }
     } else {
@@ -55,7 +59,7 @@ class FilesUploadResult implements ModelBase {
       // Array processing
       uploaded = <String>[];
       for(final _element in json['Uploaded']) {
-        uploaded.add(_element);
+        uploaded.add(_element as String);
       }
     } else {
       uploaded = null;

@@ -39,14 +39,18 @@ class DocumentEntry implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize DocumentEntry data model.');
+    }
+
     if (json.containsKey('Href')) {
-      href = json['Href'];
+      href = json['Href'] as String;
     } else {
       href = null;
     }
 
     if (json.containsKey('ImportFormatMode')) {
-      importFormatMode = json['ImportFormatMode'];
+      importFormatMode = json['ImportFormatMode'] as String;
     } else {
       importFormatMode = null;
     }

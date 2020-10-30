@@ -36,13 +36,17 @@ class ListLevels extends LinkElement {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ListLevels data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('ListLevel')) {
       // Array processing
       listLevel = <ListLevel>[];
       for(final _element in json['ListLevel']) {
         var _elementValue = ListLevel();
-        _elementValue.deserialize(_element);
+        _elementValue.deserialize(_element as Map<String, dynamic>);
         listLevel.add(_elementValue);
       }
     } else {

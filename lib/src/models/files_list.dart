@@ -36,12 +36,16 @@ class FilesList implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FilesList data model.');
+    }
+
     if (json.containsKey('Value')) {
       // Array processing
       value = <StorageFile>[];
       for(final _element in json['Value']) {
         var _elementValue = StorageFile();
-        _elementValue.deserialize(_element);
+        _elementValue.deserialize(_element as Map<String, dynamic>);
         value.add(_elementValue);
       }
     } else {

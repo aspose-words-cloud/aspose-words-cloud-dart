@@ -36,10 +36,14 @@ class BookmarkResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize BookmarkResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Bookmark')) {
       bookmark = Bookmark();
-      bookmark.deserialize(json['Bookmark']);
+      bookmark.deserialize(json['Bookmark'] as Map<String, dynamic>);
     } else {
       bookmark = null;
     }

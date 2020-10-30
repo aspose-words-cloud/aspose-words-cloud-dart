@@ -42,8 +42,12 @@ class TabStopBase implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize TabStopBase data model.');
+    }
+
     if (json.containsKey('Alignment')) {
-      switch (json['Alignment']) {
+      switch (json['Alignment'] as String) {
         case 'Left': alignment = TabStopBase_AlignmentEnum.left; break;
         case 'Center': alignment = TabStopBase_AlignmentEnum.center; break;
         case 'Right': alignment = TabStopBase_AlignmentEnum.right; break;
@@ -58,7 +62,7 @@ class TabStopBase implements ModelBase {
     }
 
     if (json.containsKey('Leader')) {
-      switch (json['Leader']) {
+      switch (json['Leader'] as String) {
         case 'None': leader = TabStopBase_LeaderEnum.none; break;
         case 'Dots': leader = TabStopBase_LeaderEnum.dots; break;
         case 'Dashes': leader = TabStopBase_LeaderEnum.dashes; break;
@@ -72,7 +76,7 @@ class TabStopBase implements ModelBase {
     }
 
     if (json.containsKey('Position')) {
-      position = json['Position'];
+      position = json['Position'] as double;
     } else {
       position = null;
     }

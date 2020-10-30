@@ -37,10 +37,14 @@ class ParagraphFormatResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ParagraphFormatResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('ParagraphFormat')) {
       paragraphFormat = ParagraphFormat();
-      paragraphFormat.deserialize(json['ParagraphFormat']);
+      paragraphFormat.deserialize(json['ParagraphFormat'] as Map<String, dynamic>);
     } else {
       paragraphFormat = null;
     }

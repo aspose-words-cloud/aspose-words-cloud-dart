@@ -45,27 +45,31 @@ class FormFieldTextInput extends FormField {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FormFieldTextInput data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('MaxLength')) {
-      maxLength = json['MaxLength'];
+      maxLength = json['MaxLength'] as int;
     } else {
       maxLength = null;
     }
 
     if (json.containsKey('TextInputDefault')) {
-      textInputDefault = json['TextInputDefault'];
+      textInputDefault = json['TextInputDefault'] as String;
     } else {
       textInputDefault = null;
     }
 
     if (json.containsKey('TextInputFormat')) {
-      textInputFormat = json['TextInputFormat'];
+      textInputFormat = json['TextInputFormat'] as String;
     } else {
       textInputFormat = null;
     }
 
     if (json.containsKey('TextInputType')) {
-      switch (json['TextInputType']) {
+      switch (json['TextInputType'] as String) {
         case 'Regular': textInputType = FormFieldTextInput_TextInputTypeEnum.regular; break;
         case 'Number': textInputType = FormFieldTextInput_TextInputTypeEnum.number; break;
         case 'Date': textInputType = FormFieldTextInput_TextInputTypeEnum.date; break;

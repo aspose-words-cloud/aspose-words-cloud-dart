@@ -45,27 +45,31 @@ class PageStatData implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize PageStatData data model.');
+    }
+
     if (json.containsKey('FootnotesStatData')) {
       footnotesStatData = FootnotesStatData();
-      footnotesStatData.deserialize(json['FootnotesStatData']);
+      footnotesStatData.deserialize(json['FootnotesStatData'] as Map<String, dynamic>);
     } else {
       footnotesStatData = null;
     }
 
     if (json.containsKey('PageNumber')) {
-      pageNumber = json['PageNumber'];
+      pageNumber = json['PageNumber'] as int;
     } else {
       pageNumber = null;
     }
 
     if (json.containsKey('ParagraphCount')) {
-      paragraphCount = json['ParagraphCount'];
+      paragraphCount = json['ParagraphCount'] as int;
     } else {
       paragraphCount = null;
     }
 
     if (json.containsKey('WordCount')) {
-      wordCount = json['WordCount'];
+      wordCount = json['WordCount'] as int;
     } else {
       wordCount = null;
     }

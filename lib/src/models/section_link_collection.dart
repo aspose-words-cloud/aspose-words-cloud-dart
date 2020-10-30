@@ -36,13 +36,17 @@ class SectionLinkCollection extends LinkElement {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize SectionLinkCollection data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('SectionLinkList')) {
       // Array processing
       sectionLinkList = <SectionLink>[];
       for(final _element in json['SectionLinkList']) {
         var _elementValue = SectionLink();
-        _elementValue.deserialize(_element);
+        _elementValue.deserialize(_element as Map<String, dynamic>);
         sectionLinkList.add(_elementValue);
       }
     } else {

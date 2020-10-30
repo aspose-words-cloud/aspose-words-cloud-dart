@@ -39,17 +39,21 @@ class ProtectionDataResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ProtectionDataResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('DocumentLink')) {
       documentLink = FileLink();
-      documentLink.deserialize(json['DocumentLink']);
+      documentLink.deserialize(json['DocumentLink'] as Map<String, dynamic>);
     } else {
       documentLink = null;
     }
 
     if (json.containsKey('ProtectionData')) {
       protectionData = ProtectionData();
-      protectionData.deserialize(json['ProtectionData']);
+      protectionData.deserialize(json['ProtectionData'] as Map<String, dynamic>);
     } else {
       protectionData = null;
     }

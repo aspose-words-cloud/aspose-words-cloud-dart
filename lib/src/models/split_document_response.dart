@@ -36,10 +36,14 @@ class SplitDocumentResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize SplitDocumentResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('SplitResult')) {
       splitResult = SplitDocumentResult();
-      splitResult.deserialize(json['SplitResult']);
+      splitResult.deserialize(json['SplitResult'] as Map<String, dynamic>);
     } else {
       splitResult = null;
     }

@@ -37,10 +37,14 @@ class OfficeMathObjectResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize OfficeMathObjectResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('OfficeMathObject')) {
       officeMathObject = OfficeMathObject();
-      officeMathObject.deserialize(json['OfficeMathObject']);
+      officeMathObject.deserialize(json['OfficeMathObject'] as Map<String, dynamic>);
     } else {
       officeMathObject = null;
     }

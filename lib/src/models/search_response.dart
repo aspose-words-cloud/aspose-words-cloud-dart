@@ -40,16 +40,20 @@ class SearchResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize SearchResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('SearchingPattern')) {
-      searchingPattern = json['SearchingPattern'];
+      searchingPattern = json['SearchingPattern'] as String;
     } else {
       searchingPattern = null;
     }
 
     if (json.containsKey('SearchResults')) {
       searchResults = SearchResultsCollection();
-      searchResults.deserialize(json['SearchResults']);
+      searchResults.deserialize(json['SearchResults'] as Map<String, dynamic>);
     } else {
       searchResults = null;
     }

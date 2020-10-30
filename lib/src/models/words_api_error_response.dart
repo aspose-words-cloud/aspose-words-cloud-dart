@@ -36,10 +36,14 @@ class WordsApiErrorResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize WordsApiErrorResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Error')) {
       error = ApiError();
-      error.deserialize(json['Error']);
+      error.deserialize(json['Error'] as Map<String, dynamic>);
     } else {
       error = null;
     }

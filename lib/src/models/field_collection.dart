@@ -36,13 +36,17 @@ class FieldCollection extends LinkElement {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FieldCollection data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('List')) {
       // Array processing
       list = <Field>[];
       for(final _element in json['List']) {
         var _elementValue = Field();
-        _elementValue.deserialize(_element);
+        _elementValue.deserialize(_element as Map<String, dynamic>);
         list.add(_elementValue);
       }
     } else {

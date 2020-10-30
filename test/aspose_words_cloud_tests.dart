@@ -26,15 +26,12 @@
  */
 
 @Timeout(Duration(minutes: 5))
-
-import 'package:aspose_words_cloud/aspose_words_cloud.dart';
-import 'package:test/test.dart';
-import 'test_context.dart';
 import 'dart:convert';
 import 'dart:io';
 
-import './readme_tests.dart';
-import './encoding_tests.dart';
+import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
+
 import './batch_tests.dart';
 import './bookmark/bookmark_tests.dart';
 import './compatibility/compatibility_tests.dart';
@@ -43,8 +40,8 @@ import './document/classification_tests.dart';
 import './document/comment_tests.dart';
 import './document/compare_document_tests.dart';
 import './document/convert_document_tests.dart';
-import './document/document_tests.dart';
 import './document/document_statistics_tests.dart';
+import './document/document_tests.dart';
 import './document/document_with_format_tests.dart';
 import './document/load_web_document_tests.dart';
 import './document/revisions_tests.dart';
@@ -52,6 +49,7 @@ import './document/split_document_to_format_tests.dart';
 import './document_properties/document_properties_tests.dart';
 import './document_protection/document_protection_tests.dart';
 import './drawing/drawing_objects_tests.dart';
+import './encoding_tests.dart';
 import './field/field_tests.dart';
 import './field/form_field_tests.dart';
 import './font/font_tests.dart';
@@ -67,14 +65,16 @@ import './math_object/math_object_tests.dart';
 import './page_setup/page_setup_tests.dart';
 import './paragraph/paragraph_tests.dart';
 import './range/range_tests.dart';
+import './readme_tests.dart';
 import './report/build_report_tests.dart';
 import './run/run_tests.dart';
 import './sections/section_tests.dart';
 import './storage/file_tests.dart';
 import './storage/folder_tests.dart';
 import './styles/styles_tests.dart';
-import './table/table_tests.dart';
 import './table/table_border_tests.dart';
+import './table/table_tests.dart';
+import './test_context.dart';
 import './text/text_tests.dart';
 import './watermark/watermark_tests.dart';
 
@@ -88,7 +88,7 @@ void main() {
     }
 
     final jsonString = await file.readAsString();
-    final json = jsonDecode(jsonString);
+    final json = jsonDecode(jsonString) as Map<String, dynamic>;
     final config = Configuration.fromJson(json);
     testContext = TestContext(config);
   });

@@ -39,15 +39,19 @@ class DocumentPosition implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize DocumentPosition data model.');
+    }
+
     if (json.containsKey('Node')) {
       node = NodeLink();
-      node.deserialize(json['Node']);
+      node.deserialize(json['Node'] as Map<String, dynamic>);
     } else {
       node = null;
     }
 
     if (json.containsKey('Offset')) {
-      offset = json['Offset'];
+      offset = json['Offset'] as int;
     } else {
       offset = null;
     }

@@ -54,12 +54,16 @@ class OutlineOptionsData implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize OutlineOptionsData data model.');
+    }
+
     if (json.containsKey('BookmarksOutlineLevels')) {
       // Array processing
       bookmarksOutlineLevels = <BookmarksOutlineLevelData>[];
       for(final _element in json['BookmarksOutlineLevels']) {
         var _elementValue = BookmarksOutlineLevelData();
-        _elementValue.deserialize(_element);
+        _elementValue.deserialize(_element as Map<String, dynamic>);
         bookmarksOutlineLevels.add(_elementValue);
       }
     } else {
@@ -67,31 +71,31 @@ class OutlineOptionsData implements ModelBase {
     }
 
     if (json.containsKey('CreateMissingOutlineLevels')) {
-      createMissingOutlineLevels = json['CreateMissingOutlineLevels'];
+      createMissingOutlineLevels = json['CreateMissingOutlineLevels'] as bool;
     } else {
       createMissingOutlineLevels = null;
     }
 
     if (json.containsKey('CreateOutlinesForHeadingsInTables')) {
-      createOutlinesForHeadingsInTables = json['CreateOutlinesForHeadingsInTables'];
+      createOutlinesForHeadingsInTables = json['CreateOutlinesForHeadingsInTables'] as bool;
     } else {
       createOutlinesForHeadingsInTables = null;
     }
 
     if (json.containsKey('DefaultBookmarksOutlineLevel')) {
-      defaultBookmarksOutlineLevel = json['DefaultBookmarksOutlineLevel'];
+      defaultBookmarksOutlineLevel = json['DefaultBookmarksOutlineLevel'] as int;
     } else {
       defaultBookmarksOutlineLevel = null;
     }
 
     if (json.containsKey('ExpandedOutlineLevels')) {
-      expandedOutlineLevels = json['ExpandedOutlineLevels'];
+      expandedOutlineLevels = json['ExpandedOutlineLevels'] as int;
     } else {
       expandedOutlineLevels = null;
     }
 
     if (json.containsKey('HeadingsOutlineLevels')) {
-      headingsOutlineLevels = json['HeadingsOutlineLevels'];
+      headingsOutlineLevels = json['HeadingsOutlineLevels'] as int;
     } else {
       headingsOutlineLevels = null;
     }

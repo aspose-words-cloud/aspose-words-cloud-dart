@@ -39,15 +39,19 @@ class ParagraphFormat extends ParagraphFormatBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ParagraphFormat data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('IsHeading')) {
-      isHeading = json['IsHeading'];
+      isHeading = json['IsHeading'] as bool;
     } else {
       isHeading = null;
     }
 
     if (json.containsKey('IsListItem')) {
-      isListItem = json['IsListItem'];
+      isListItem = json['IsListItem'] as bool;
     } else {
       isListItem = null;
     }

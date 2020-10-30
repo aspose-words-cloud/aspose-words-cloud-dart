@@ -34,6 +34,10 @@ class FieldInsert extends FieldBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FieldInsert data model.');
+    }
+
     super.deserialize(json);
   }
 

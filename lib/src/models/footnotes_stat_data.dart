@@ -39,14 +39,18 @@ class FootnotesStatData implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FootnotesStatData data model.');
+    }
+
     if (json.containsKey('ParagraphCount')) {
-      paragraphCount = json['ParagraphCount'];
+      paragraphCount = json['ParagraphCount'] as int;
     } else {
       paragraphCount = null;
     }
 
     if (json.containsKey('WordCount')) {
-      wordCount = json['WordCount'];
+      wordCount = json['WordCount'] as int;
     } else {
       wordCount = null;
     }

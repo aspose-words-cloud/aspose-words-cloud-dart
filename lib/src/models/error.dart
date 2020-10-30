@@ -45,27 +45,31 @@ class Error implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize Error data model.');
+    }
+
     if (json.containsKey('Code')) {
-      code = json['Code'];
+      code = json['Code'] as String;
     } else {
       code = null;
     }
 
     if (json.containsKey('Description')) {
-      description = json['Description'];
+      description = json['Description'] as String;
     } else {
       description = null;
     }
 
     if (json.containsKey('InnerError')) {
       innerError = ErrorDetails();
-      innerError.deserialize(json['InnerError']);
+      innerError.deserialize(json['InnerError'] as Map<String, dynamic>);
     } else {
       innerError = null;
     }
 
     if (json.containsKey('Message')) {
-      message = json['Message'];
+      message = json['Message'] as String;
     } else {
       message = null;
     }

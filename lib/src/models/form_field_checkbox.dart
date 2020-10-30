@@ -42,21 +42,25 @@ class FormFieldCheckbox extends FormField {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FormFieldCheckbox data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('CheckBoxSize')) {
-      checkBoxSize = json['CheckBoxSize'];
+      checkBoxSize = json['CheckBoxSize'] as double;
     } else {
       checkBoxSize = null;
     }
 
     if (json.containsKey('Checked')) {
-      checked = json['Checked'];
+      checked = json['Checked'] as bool;
     } else {
       checked = null;
     }
 
     if (json.containsKey('IsCheckBoxExactSize')) {
-      isCheckBoxExactSize = json['IsCheckBoxExactSize'];
+      isCheckBoxExactSize = json['IsCheckBoxExactSize'] as bool;
     } else {
       isCheckBoxExactSize = null;
     }

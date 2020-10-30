@@ -39,14 +39,18 @@ class WatermarkText implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize WatermarkText data model.');
+    }
+
     if (json.containsKey('RotationAngle')) {
-      rotationAngle = json['RotationAngle'];
+      rotationAngle = json['RotationAngle'] as double;
     } else {
       rotationAngle = null;
     }
 
     if (json.containsKey('Text')) {
-      text = json['Text'];
+      text = json['Text'] as String;
     } else {
       text = null;
     }

@@ -42,12 +42,16 @@ class SaveResult implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize SaveResult data model.');
+    }
+
     if (json.containsKey('AdditionalItems')) {
       // Array processing
       additionalItems = <FileLink>[];
       for(final _element in json['AdditionalItems']) {
         var _elementValue = FileLink();
-        _elementValue.deserialize(_element);
+        _elementValue.deserialize(_element as Map<String, dynamic>);
         additionalItems.add(_elementValue);
       }
     } else {
@@ -56,14 +60,14 @@ class SaveResult implements ModelBase {
 
     if (json.containsKey('DestDocument')) {
       destDocument = FileLink();
-      destDocument.deserialize(json['DestDocument']);
+      destDocument.deserialize(json['DestDocument'] as Map<String, dynamic>);
     } else {
       destDocument = null;
     }
 
     if (json.containsKey('SourceDocument')) {
       sourceDocument = FileLink();
-      sourceDocument.deserialize(json['SourceDocument']);
+      sourceDocument.deserialize(json['SourceDocument'] as Map<String, dynamic>);
     } else {
       sourceDocument = null;
     }

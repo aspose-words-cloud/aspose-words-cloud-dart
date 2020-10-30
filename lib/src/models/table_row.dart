@@ -39,10 +39,14 @@ class TableRow extends NodeLink {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize TableRow data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('RowFormat')) {
       rowFormat = TableRowFormat();
-      rowFormat.deserialize(json['RowFormat']);
+      rowFormat.deserialize(json['RowFormat'] as Map<String, dynamic>);
     } else {
       rowFormat = null;
     }
@@ -52,7 +56,7 @@ class TableRow extends NodeLink {
       tableCellList = <TableCell>[];
       for(final _element in json['TableCellList']) {
         var _elementValue = TableCell();
-        _elementValue.deserialize(_element);
+        _elementValue.deserialize(_element as Map<String, dynamic>);
         tableCellList.add(_elementValue);
       }
     } else {

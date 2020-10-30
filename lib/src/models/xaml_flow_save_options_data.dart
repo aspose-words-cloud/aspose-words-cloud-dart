@@ -39,15 +39,19 @@ class XamlFlowSaveOptionsData extends SaveOptionsData {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize XamlFlowSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('ImagesFolder')) {
-      imagesFolder = json['ImagesFolder'];
+      imagesFolder = json['ImagesFolder'] as String;
     } else {
       imagesFolder = null;
     }
 
     if (json.containsKey('ImagesFolderAlias')) {
-      imagesFolderAlias = json['ImagesFolderAlias'];
+      imagesFolderAlias = json['ImagesFolderAlias'] as String;
     } else {
       imagesFolderAlias = null;
     }

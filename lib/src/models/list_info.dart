@@ -54,47 +54,51 @@ class ListInfo extends LinkElement {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ListInfo data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('IsListStyleDefinition')) {
-      isListStyleDefinition = json['IsListStyleDefinition'];
+      isListStyleDefinition = json['IsListStyleDefinition'] as bool;
     } else {
       isListStyleDefinition = null;
     }
 
     if (json.containsKey('IsListStyleReference')) {
-      isListStyleReference = json['IsListStyleReference'];
+      isListStyleReference = json['IsListStyleReference'] as bool;
     } else {
       isListStyleReference = null;
     }
 
     if (json.containsKey('IsMultiLevel')) {
-      isMultiLevel = json['IsMultiLevel'];
+      isMultiLevel = json['IsMultiLevel'] as bool;
     } else {
       isMultiLevel = null;
     }
 
     if (json.containsKey('IsRestartAtEachSection')) {
-      isRestartAtEachSection = json['IsRestartAtEachSection'];
+      isRestartAtEachSection = json['IsRestartAtEachSection'] as bool;
     } else {
       isRestartAtEachSection = null;
     }
 
     if (json.containsKey('ListId')) {
-      listId = json['ListId'];
+      listId = json['ListId'] as int;
     } else {
       listId = null;
     }
 
     if (json.containsKey('ListLevels')) {
       listLevels = ListLevels();
-      listLevels.deserialize(json['ListLevels']);
+      listLevels.deserialize(json['ListLevels'] as Map<String, dynamic>);
     } else {
       listLevels = null;
     }
 
     if (json.containsKey('Style')) {
       style = Style();
-      style.deserialize(json['Style']);
+      style.deserialize(json['Style'] as Map<String, dynamic>);
     } else {
       style = null;
     }

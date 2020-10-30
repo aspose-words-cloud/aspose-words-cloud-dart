@@ -42,22 +42,26 @@ class Shading implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize Shading data model.');
+    }
+
     if (json.containsKey('BackgroundPatternColor')) {
       backgroundPatternColor = XmlColor();
-      backgroundPatternColor.deserialize(json['BackgroundPatternColor']);
+      backgroundPatternColor.deserialize(json['BackgroundPatternColor'] as Map<String, dynamic>);
     } else {
       backgroundPatternColor = null;
     }
 
     if (json.containsKey('ForegroundPatternColor')) {
       foregroundPatternColor = XmlColor();
-      foregroundPatternColor.deserialize(json['ForegroundPatternColor']);
+      foregroundPatternColor.deserialize(json['ForegroundPatternColor'] as Map<String, dynamic>);
     } else {
       foregroundPatternColor = null;
     }
 
     if (json.containsKey('Texture')) {
-      switch (json['Texture']) {
+      switch (json['Texture'] as String) {
         case 'TextureNone': texture = Shading_TextureEnum.textureNone; break;
         case 'TextureSolid': texture = Shading_TextureEnum.textureSolid; break;
         case 'Texture5Percent': texture = Shading_TextureEnum.texture5Percent; break;

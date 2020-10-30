@@ -36,10 +36,14 @@ class DrawingObjectsResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize DrawingObjectsResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('DrawingObjects')) {
       drawingObjects = DrawingObjectCollection();
-      drawingObjects.deserialize(json['DrawingObjects']);
+      drawingObjects.deserialize(json['DrawingObjects'] as Map<String, dynamic>);
     } else {
       drawingObjects = null;
     }

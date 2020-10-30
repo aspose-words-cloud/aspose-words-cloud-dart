@@ -39,15 +39,19 @@ class PclSaveOptionsData extends FixedPageSaveOptionsData {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize PclSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('FalllbackFontName')) {
-      falllbackFontName = json['FalllbackFontName'];
+      falllbackFontName = json['FalllbackFontName'] as String;
     } else {
       falllbackFontName = null;
     }
 
     if (json.containsKey('RasterizeTransformedElements')) {
-      rasterizeTransformedElements = json['RasterizeTransformedElements'];
+      rasterizeTransformedElements = json['RasterizeTransformedElements'] as bool;
     } else {
       rasterizeTransformedElements = null;
     }

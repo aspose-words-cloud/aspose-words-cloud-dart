@@ -29,18 +29,20 @@ library aspose_words_cloud;
 
 import 'dart:convert';
 import 'dart:typed_data';
+
+import 'package:http/http.dart' as http;
+import 'package:uuid/uuid.dart';
+
 import '../aspose_words_cloud.dart';
 import './api_request_data.dart';
 import './api_request_part.dart';
 import './byte_data_extensions.dart';
-import 'package:http/http.dart' as http;
-import 'package:uuid/uuid.dart';
 
 class ApiClient {
   String _authToken;
   final _starting = ByteData.view(utf8.encoder.convert('--').buffer);
   final _newline = ByteData.view(utf8.encoder.convert('\r\n').buffer);
-  final _2newline = ByteData.view(utf8.encoder.convert('\r\n\r\n').buffer);
+  final _newline2x = ByteData.view(utf8.encoder.convert('\r\n\r\n').buffer);
 
   final Configuration configuration;
 
@@ -111,7 +113,7 @@ class ApiClient {
 
     var firstAppend = true;
     queryParams.forEach((key, value) {
-      url = '${url}${firstAppend ? '?' : '&'}${key}=${Uri.encodeQueryComponent(value)}';
+      url = '$url${firstAppend ? '?' : '&'}$key=${Uri.encodeQueryComponent(value)}';
       firstAppend = false;
     });
 
@@ -155,7 +157,7 @@ class ApiClient {
     }
     else if (value is String) {
       if (isJson) {
-        return ByteData.view(utf8.encoder.convert('"${value}"').buffer);
+        return ByteData.view(utf8.encoder.convert('"$value"').buffer);
       }
       else {
         return ByteData.view(utf8.encoder.convert(value).buffer);
@@ -183,7 +185,7 @@ class ApiClient {
     } else if (bodyParts.length > 1) {
       var boundary = Uuid().v4();
       body = serializeMultipart(bodyParts, boundary);
-      headers['Content-Type'] = 'multipart/form-data; boundary="${boundary}"';
+      headers['Content-Type'] = 'multipart/form-data; boundary="$boundary"';
     }
 
     return body;
@@ -192,11 +194,11 @@ class ApiClient {
   ApiRequestPart serializeBatchPart(final ApiRequestData requestData) {
     var data = <Uint8List>[];
     var relativeUrl = requestData.url.substring( (configuration.getApiRootUrl() + '/words/').length );
-    data.add(utf8.encoder.convert('${requestData.method} ${relativeUrl} \r\n'));
+    data.add(utf8.encoder.convert('${requestData.method} $relativeUrl \r\n'));
 
     if (requestData.headers != null) {
       requestData.headers.forEach((key, value) {
-        data.add(utf8.encoder.convert('${key}: ${value}\r\n'));
+        data.add(utf8.encoder.convert('$key: $value\r\n'));
       });
     }
 
@@ -217,7 +219,7 @@ class ApiClient {
       }
       needsClrf = true;
 
-      formBody.add(utf8.encoder.convert('--${boundary}\r\n'));
+      formBody.add(utf8.encoder.convert('--$boundary\r\n'));
       formBody.add(utf8.encoder.convert('Content-Type: ${formParam.mimeType}\r\n'));
       formBody.add(utf8.encoder.convert('Content-Disposition: form-data'));
 
@@ -228,7 +230,7 @@ class ApiClient {
       formBody.add(utf8.encoder.convert('\r\n\r\n'));
       formBody.add(formParam.data.buffer.asUint8List(formParam.data.offsetInBytes, formParam.data.lengthInBytes));
     }
-    formBody.add(utf8.encoder.convert('\r\n--${boundary}--\r\n'));
+    formBody.add(utf8.encoder.convert('\r\n--$boundary--\r\n'));
     return toByteData(formBody);
   }
 
@@ -254,9 +256,9 @@ class ApiClient {
 
     parts.removeLast();
     return parts.map((part) {
-      var headersEndIndex = part.indexOf(_2newline);
+      var headersEndIndex = part.indexOf(_newline2x);
       if (headersEndIndex != null) {
-        return ByteData.sublistView(part, headersEndIndex + _2newline.lengthInBytes, part.lengthInBytes - _newline.lengthInBytes);
+        return ByteData.sublistView(part, headersEndIndex + _newline2x.lengthInBytes, part.lengthInBytes - _newline.lengthInBytes);
       }
 
       return ByteData.sublistView(part, _newline.lengthInBytes, part.lengthInBytes - _newline.lengthInBytes);
@@ -282,9 +284,9 @@ class ApiClient {
     }
 
     ByteData body;
-    var headersEndIndex = partData.indexOf(_2newline);
+    var headersEndIndex = partData.indexOf(_newline2x);
     if (headersEndIndex != null) {
-      body = ByteData.sublistView(partData, headersEndIndex + _2newline.lengthInBytes);
+      body = ByteData.sublistView(partData, headersEndIndex + _newline2x.lengthInBytes);
     }
 
     if (statusCode != 200) {
@@ -330,7 +332,7 @@ class ApiClient {
     var batchUrl = '${configuration.getApiRootUrl()}/words/batch';
     var batchHeaders = <String, String>{};
     var batchBody = serializeMultipart(bodyParts, boundary);
-    batchHeaders['Content-Type'] = 'multipart/form-data; boundary="${boundary}"';
+    batchHeaders['Content-Type'] = 'multipart/form-data; boundary="$boundary"';
 
     var batchRequestData = ApiRequestData('PUT', batchUrl, batchHeaders, batchBody);
     var response = await _callWithChecks(batchRequestData);
@@ -352,7 +354,7 @@ class ApiClient {
       return await _callInternal(requestData);
     }
     on ApiException catch(ex) {
-      if (ex.status_code == 401) {
+      if (ex.statusCode == 401) {
         await _updateAuthToken();
         return await _callInternal(requestData);
       } else {
@@ -366,7 +368,7 @@ class ApiClient {
       var debugMessage = 'CALL BEGIN: ${requestData.method} ${requestData.url}\r\n';
       if (requestData.headers != null && requestData.headers.isNotEmpty) {
         debugMessage += 'REQUEST HEADERS:\r\n';
-        requestData.headers.forEach((key, value) => debugMessage += '\t${key}: ${value}\r\n');
+        requestData.headers.forEach((key, value) => debugMessage += '\t$key: $value\r\n');
       }
       if (requestData.body != null) {
         debugMessage += 'REQUEST BODY:\r\n';
@@ -395,7 +397,7 @@ class ApiClient {
       var debugMessage = 'RESPONSE STATUS: ${response.statusCode} ${response.reasonPhrase}\r\n';
       if (response.headers != null && response.headers.isNotEmpty) {
         debugMessage += 'RESPONSE HEADERS:\r\n';
-        response.headers.forEach((key, value) => debugMessage += '\t${key}: ${value}\r\n');
+        response.headers.forEach((key, value) => debugMessage += '\t$key: $value\r\n');
       }
       if (responseData.lengthInBytes > 0) {
         debugMessage += 'RESPONSE BODY:\r\n';
@@ -405,7 +407,7 @@ class ApiClient {
       print(debugMessage);
     }
 
-    await _handleResponse(response.statusCode, response.reasonPhrase, responseData);
+    _handleResponse(response.statusCode, response.reasonPhrase, responseData);
     return responseData;
   }
 }

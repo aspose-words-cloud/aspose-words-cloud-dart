@@ -52,27 +52,31 @@ class Document implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize Document data model.');
+    }
+
     if (json.containsKey('DocumentProperties')) {
       documentProperties = DocumentProperties();
-      documentProperties.deserialize(json['DocumentProperties']);
+      documentProperties.deserialize(json['DocumentProperties'] as Map<String, dynamic>);
     } else {
       documentProperties = null;
     }
 
     if (json.containsKey('FileName')) {
-      fileName = json['FileName'];
+      fileName = json['FileName'] as String;
     } else {
       fileName = null;
     }
 
     if (json.containsKey('IsEncrypted')) {
-      isEncrypted = json['IsEncrypted'];
+      isEncrypted = json['IsEncrypted'] as bool;
     } else {
       isEncrypted = null;
     }
 
     if (json.containsKey('IsSigned')) {
-      isSigned = json['IsSigned'];
+      isSigned = json['IsSigned'] as bool;
     } else {
       isSigned = null;
     }
@@ -82,7 +86,7 @@ class Document implements ModelBase {
       links = <Link>[];
       for(final _element in json['Links']) {
         var _elementValue = Link();
-        _elementValue.deserialize(_element);
+        _elementValue.deserialize(_element as Map<String, dynamic>);
         links.add(_elementValue);
       }
     } else {
@@ -90,7 +94,7 @@ class Document implements ModelBase {
     }
 
     if (json.containsKey('SourceFormat')) {
-      switch (json['SourceFormat']) {
+      switch (json['SourceFormat'] as String) {
         case 'Unknown': sourceFormat = Document_SourceFormatEnum.unknown; break;
         case 'Doc': sourceFormat = Document_SourceFormatEnum.doc; break;
         case 'Dot': sourceFormat = Document_SourceFormatEnum.dot; break;

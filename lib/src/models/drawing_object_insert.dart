@@ -57,31 +57,35 @@ class DrawingObjectInsert implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize DrawingObjectInsert data model.');
+    }
+
     if (json.containsKey('Height')) {
-      height = json['Height'];
+      height = json['Height'] as double;
     } else {
       height = null;
     }
 
     if (json.containsKey('Left')) {
-      left = json['Left'];
+      left = json['Left'] as double;
     } else {
       left = null;
     }
 
     if (json.containsKey('Position')) {
       position = DocumentPosition();
-      position.deserialize(json['Position']);
+      position.deserialize(json['Position'] as Map<String, dynamic>);
     } else {
       position = null;
     }
 
     if (json.containsKey('RelativeHorizontalPosition')) {
-      switch (json['RelativeHorizontalPosition']) {
+      switch (json['RelativeHorizontalPosition'] as String) {
         case 'Margin': relativeHorizontalPosition = DrawingObjectInsert_RelativeHorizontalPositionEnum.margin; break;
         case 'Page': relativeHorizontalPosition = DrawingObjectInsert_RelativeHorizontalPositionEnum.page; break;
         case 'Column': relativeHorizontalPosition = DrawingObjectInsert_RelativeHorizontalPositionEnum.column; break;
-        case 'Default': relativeHorizontalPosition = DrawingObjectInsert_RelativeHorizontalPositionEnum.default_; break;
+        case 'Default': relativeHorizontalPosition = DrawingObjectInsert_RelativeHorizontalPositionEnum.defaultValue; break;
         case 'Character': relativeHorizontalPosition = DrawingObjectInsert_RelativeHorizontalPositionEnum.character; break;
         case 'LeftMargin': relativeHorizontalPosition = DrawingObjectInsert_RelativeHorizontalPositionEnum.leftMargin; break;
         case 'RightMargin': relativeHorizontalPosition = DrawingObjectInsert_RelativeHorizontalPositionEnum.rightMargin; break;
@@ -94,7 +98,7 @@ class DrawingObjectInsert implements ModelBase {
     }
 
     if (json.containsKey('RelativeVerticalPosition')) {
-      switch (json['RelativeVerticalPosition']) {
+      switch (json['RelativeVerticalPosition'] as String) {
         case 'Margin': relativeVerticalPosition = DrawingObjectInsert_RelativeVerticalPositionEnum.margin; break;
         case 'TableDefault': relativeVerticalPosition = DrawingObjectInsert_RelativeVerticalPositionEnum.tableDefault; break;
         case 'Page': relativeVerticalPosition = DrawingObjectInsert_RelativeVerticalPositionEnum.page; break;
@@ -112,19 +116,19 @@ class DrawingObjectInsert implements ModelBase {
     }
 
     if (json.containsKey('Top')) {
-      top = json['Top'];
+      top = json['Top'] as double;
     } else {
       top = null;
     }
 
     if (json.containsKey('Width')) {
-      width = json['Width'];
+      width = json['Width'] as double;
     } else {
       width = null;
     }
 
     if (json.containsKey('WrapType')) {
-      switch (json['WrapType']) {
+      switch (json['WrapType'] as String) {
         case 'Inline': wrapType = DrawingObjectInsert_WrapTypeEnum.inline; break;
         case 'TopBottom': wrapType = DrawingObjectInsert_WrapTypeEnum.topBottom; break;
         case 'Square': wrapType = DrawingObjectInsert_WrapTypeEnum.square; break;
@@ -158,7 +162,7 @@ class DrawingObjectInsert implements ModelBase {
         case DrawingObjectInsert_RelativeHorizontalPositionEnum.margin: _result['RelativeHorizontalPosition'] = 'Margin'; break;
         case DrawingObjectInsert_RelativeHorizontalPositionEnum.page: _result['RelativeHorizontalPosition'] = 'Page'; break;
         case DrawingObjectInsert_RelativeHorizontalPositionEnum.column: _result['RelativeHorizontalPosition'] = 'Column'; break;
-        case DrawingObjectInsert_RelativeHorizontalPositionEnum.default_: _result['RelativeHorizontalPosition'] = 'Default'; break;
+        case DrawingObjectInsert_RelativeHorizontalPositionEnum.defaultValue: _result['RelativeHorizontalPosition'] = 'Default'; break;
         case DrawingObjectInsert_RelativeHorizontalPositionEnum.character: _result['RelativeHorizontalPosition'] = 'Character'; break;
         case DrawingObjectInsert_RelativeHorizontalPositionEnum.leftMargin: _result['RelativeHorizontalPosition'] = 'LeftMargin'; break;
         case DrawingObjectInsert_RelativeHorizontalPositionEnum.rightMargin: _result['RelativeHorizontalPosition'] = 'RightMargin'; break;
@@ -213,7 +217,7 @@ enum DrawingObjectInsert_RelativeHorizontalPositionEnum
   margin,
   page,
   column,
-  default_,
+  defaultValue,
   character,
   leftMargin,
   rightMargin,

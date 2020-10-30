@@ -47,27 +47,31 @@ class DocSaveOptionsData extends SaveOptionsData {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize DocSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('AlwaysCompressMetafiles')) {
-      alwaysCompressMetafiles = json['AlwaysCompressMetafiles'];
+      alwaysCompressMetafiles = json['AlwaysCompressMetafiles'] as bool;
     } else {
       alwaysCompressMetafiles = null;
     }
 
     if (json.containsKey('Password')) {
-      password = json['Password'];
+      password = json['Password'] as String;
     } else {
       password = null;
     }
 
     if (json.containsKey('SavePictureBullet')) {
-      savePictureBullet = json['SavePictureBullet'];
+      savePictureBullet = json['SavePictureBullet'] as bool;
     } else {
       savePictureBullet = null;
     }
 
     if (json.containsKey('SaveRoutingSlip')) {
-      saveRoutingSlip = json['SaveRoutingSlip'];
+      saveRoutingSlip = json['SaveRoutingSlip'] as bool;
     } else {
       saveRoutingSlip = null;
     }

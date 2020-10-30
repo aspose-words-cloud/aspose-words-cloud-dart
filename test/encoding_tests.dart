@@ -26,8 +26,9 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
-import 'test_context.dart';
 import 'package:test/test.dart';
+
+import 'test_context.dart';
 
 /// Example of how to use batch requests.
 class EncodingTests
@@ -44,7 +45,7 @@ class EncodingTests
   {
     var localName = 'test_multi_pages.docx';
     var remoteName = '[“Test_Two,_Inc.”]-_83(b)Election([“Bill_Gates”]).docx';
-    var fullName = '${dataFolder}/${remoteName}';
+    var fullName = '$dataFolder/$remoteName';
     var sectionIndex = 0;
 
     await context.uploadFile(

@@ -48,32 +48,36 @@ class StorageFile implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize StorageFile data model.');
+    }
+
     if (json.containsKey('IsFolder')) {
-      isFolder = json['IsFolder'];
+      isFolder = json['IsFolder'] as bool;
     } else {
       isFolder = null;
     }
 
     if (json.containsKey('ModifiedDate')) {
-      modifiedDate = DateTime.parse(json['ModifiedDate']);
+      modifiedDate = DateTime.parse(json['ModifiedDate'] as String);
     } else {
       modifiedDate = null;
     }
 
     if (json.containsKey('Name')) {
-      name = json['Name'];
+      name = json['Name'] as String;
     } else {
       name = null;
     }
 
     if (json.containsKey('Path')) {
-      path = json['Path'];
+      path = json['Path'] as String;
     } else {
       path = null;
     }
 
     if (json.containsKey('Size')) {
-      size = json['Size'];
+      size = json['Size'] as int;
     } else {
       size = null;
     }

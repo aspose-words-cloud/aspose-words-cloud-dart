@@ -39,8 +39,12 @@ class DocumentEntryList implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize DocumentEntryList data model.');
+    }
+
     if (json.containsKey('ApplyBaseDocumentHeadersAndFootersToAppendingDocuments')) {
-      applyBaseDocumentHeadersAndFootersToAppendingDocuments = json['ApplyBaseDocumentHeadersAndFootersToAppendingDocuments'];
+      applyBaseDocumentHeadersAndFootersToAppendingDocuments = json['ApplyBaseDocumentHeadersAndFootersToAppendingDocuments'] as bool;
     } else {
       applyBaseDocumentHeadersAndFootersToAppendingDocuments = null;
     }
@@ -50,7 +54,7 @@ class DocumentEntryList implements ModelBase {
       documentEntries = <DocumentEntry>[];
       for(final _element in json['DocumentEntries']) {
         var _elementValue = DocumentEntry();
-        _elementValue.deserialize(_element);
+        _elementValue.deserialize(_element as Map<String, dynamic>);
         documentEntries.add(_elementValue);
       }
     } else {

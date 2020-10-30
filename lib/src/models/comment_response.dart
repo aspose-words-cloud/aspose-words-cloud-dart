@@ -37,10 +37,14 @@ class CommentResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize CommentResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Comment')) {
       comment = Comment();
-      comment.deserialize(json['Comment']);
+      comment.deserialize(json['Comment'] as Map<String, dynamic>);
     } else {
       comment = null;
     }

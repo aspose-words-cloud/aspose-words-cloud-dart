@@ -39,15 +39,19 @@ class Bookmark extends LinkElement {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize Bookmark data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Name')) {
-      name = json['Name'];
+      name = json['Name'] as String;
     } else {
       name = null;
     }
 
     if (json.containsKey('Text')) {
-      text = json['Text'];
+      text = json['Text'] as String;
     } else {
       text = null;
     }

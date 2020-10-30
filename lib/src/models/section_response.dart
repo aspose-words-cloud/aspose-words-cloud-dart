@@ -37,10 +37,14 @@ class SectionResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize SectionResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Section')) {
       section = Section();
-      section.deserialize(json['Section']);
+      section.deserialize(json['Section'] as Map<String, dynamic>);
     } else {
       section = null;
     }

@@ -37,10 +37,14 @@ class TableRowFormatResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize TableRowFormatResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('RowFormat')) {
       rowFormat = TableRowFormat();
-      rowFormat.deserialize(json['RowFormat']);
+      rowFormat.deserialize(json['RowFormat'] as Map<String, dynamic>);
     } else {
       rowFormat = null;
     }

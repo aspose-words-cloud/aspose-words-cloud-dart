@@ -45,27 +45,31 @@ class CompareData implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize CompareData data model.');
+    }
+
     if (json.containsKey('Author')) {
-      author = json['Author'];
+      author = json['Author'] as String;
     } else {
       author = null;
     }
 
     if (json.containsKey('CompareOptions')) {
       compareOptions = CompareOptions();
-      compareOptions.deserialize(json['CompareOptions']);
+      compareOptions.deserialize(json['CompareOptions'] as Map<String, dynamic>);
     } else {
       compareOptions = null;
     }
 
     if (json.containsKey('ComparingWithDocument')) {
-      comparingWithDocument = json['ComparingWithDocument'];
+      comparingWithDocument = json['ComparingWithDocument'] as String;
     } else {
       comparingWithDocument = null;
     }
 
     if (json.containsKey('DateTime')) {
-      dateTime = DateTime.parse(json['DateTime']);
+      dateTime = DateTime.parse(json['DateTime'] as String);
     } else {
       dateTime = null;
     }

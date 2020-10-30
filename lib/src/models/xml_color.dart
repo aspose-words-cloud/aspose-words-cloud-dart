@@ -39,14 +39,18 @@ class XmlColor implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize XmlColor data model.');
+    }
+
     if (json.containsKey('Alpha')) {
-      alpha = json['Alpha'];
+      alpha = json['Alpha'] as int;
     } else {
       alpha = null;
     }
 
     if (json.containsKey('Web')) {
-      web = json['Web'];
+      web = json['Web'] as String;
     } else {
       web = null;
     }

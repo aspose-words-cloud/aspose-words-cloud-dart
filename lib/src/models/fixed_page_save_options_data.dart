@@ -57,46 +57,50 @@ class FixedPageSaveOptionsData extends SaveOptionsData {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FixedPageSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('ColorMode')) {
-      colorMode = json['ColorMode'];
+      colorMode = json['ColorMode'] as String;
     } else {
       colorMode = null;
     }
 
     if (json.containsKey('JpegQuality')) {
-      jpegQuality = json['JpegQuality'];
+      jpegQuality = json['JpegQuality'] as int;
     } else {
       jpegQuality = null;
     }
 
     if (json.containsKey('MetafileRenderingOptions')) {
       metafileRenderingOptions = MetafileRenderingOptionsData();
-      metafileRenderingOptions.deserialize(json['MetafileRenderingOptions']);
+      metafileRenderingOptions.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
     } else {
       metafileRenderingOptions = null;
     }
 
     if (json.containsKey('NumeralFormat')) {
-      numeralFormat = json['NumeralFormat'];
+      numeralFormat = json['NumeralFormat'] as String;
     } else {
       numeralFormat = null;
     }
 
     if (json.containsKey('OptimizeOutput')) {
-      optimizeOutput = json['OptimizeOutput'];
+      optimizeOutput = json['OptimizeOutput'] as bool;
     } else {
       optimizeOutput = null;
     }
 
     if (json.containsKey('PageCount')) {
-      pageCount = json['PageCount'];
+      pageCount = json['PageCount'] as int;
     } else {
       pageCount = null;
     }
 
     if (json.containsKey('PageIndex')) {
-      pageIndex = json['PageIndex'];
+      pageIndex = json['PageIndex'] as int;
     } else {
       pageIndex = null;
     }

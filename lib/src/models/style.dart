@@ -69,68 +69,72 @@ class Style extends LinkElement {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize Style data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Aliases')) {
       // Array processing
       aliases = <String>[];
       for(final _element in json['Aliases']) {
-        aliases.add(_element);
+        aliases.add(_element as String);
       }
     } else {
       aliases = null;
     }
 
     if (json.containsKey('BaseStyleName')) {
-      baseStyleName = json['BaseStyleName'];
+      baseStyleName = json['BaseStyleName'] as String;
     } else {
       baseStyleName = null;
     }
 
     if (json.containsKey('BuiltIn')) {
-      builtIn = json['BuiltIn'];
+      builtIn = json['BuiltIn'] as bool;
     } else {
       builtIn = null;
     }
 
     if (json.containsKey('Font')) {
       font = Font();
-      font.deserialize(json['Font']);
+      font.deserialize(json['Font'] as Map<String, dynamic>);
     } else {
       font = null;
     }
 
     if (json.containsKey('IsHeading')) {
-      isHeading = json['IsHeading'];
+      isHeading = json['IsHeading'] as bool;
     } else {
       isHeading = null;
     }
 
     if (json.containsKey('IsQuickStyle')) {
-      isQuickStyle = json['IsQuickStyle'];
+      isQuickStyle = json['IsQuickStyle'] as bool;
     } else {
       isQuickStyle = null;
     }
 
     if (json.containsKey('LinkedStyleName')) {
-      linkedStyleName = json['LinkedStyleName'];
+      linkedStyleName = json['LinkedStyleName'] as String;
     } else {
       linkedStyleName = null;
     }
 
     if (json.containsKey('Name')) {
-      name = json['Name'];
+      name = json['Name'] as String;
     } else {
       name = null;
     }
 
     if (json.containsKey('NextParagraphStyleName')) {
-      nextParagraphStyleName = json['NextParagraphStyleName'];
+      nextParagraphStyleName = json['NextParagraphStyleName'] as String;
     } else {
       nextParagraphStyleName = null;
     }
 
     if (json.containsKey('StyleIdentifier')) {
-      switch (json['StyleIdentifier']) {
+      switch (json['StyleIdentifier'] as String) {
         case 'Normal': styleIdentifier = Style_StyleIdentifierEnum.normal; break;
         case 'Heading1': styleIdentifier = Style_StyleIdentifierEnum.heading1; break;
         case 'Heading2': styleIdentifier = Style_StyleIdentifierEnum.heading2; break;
@@ -511,7 +515,7 @@ class Style extends LinkElement {
     }
 
     if (json.containsKey('Type')) {
-      switch (json['Type']) {
+      switch (json['Type'] as String) {
         case 'Paragraph': type = Style_TypeEnum.paragraph; break;
         case 'Character': type = Style_TypeEnum.character; break;
         case 'Table': type = Style_TypeEnum.table; break;

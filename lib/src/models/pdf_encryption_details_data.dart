@@ -45,26 +45,30 @@ class PdfEncryptionDetailsData implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize PdfEncryptionDetailsData data model.');
+    }
+
     if (json.containsKey('EncryptionAlgorithm')) {
-      encryptionAlgorithm = json['EncryptionAlgorithm'];
+      encryptionAlgorithm = json['EncryptionAlgorithm'] as String;
     } else {
       encryptionAlgorithm = null;
     }
 
     if (json.containsKey('OwnerPassword')) {
-      ownerPassword = json['OwnerPassword'];
+      ownerPassword = json['OwnerPassword'] as String;
     } else {
       ownerPassword = null;
     }
 
     if (json.containsKey('Permissions')) {
-      permissions = json['Permissions'];
+      permissions = json['Permissions'] as String;
     } else {
       permissions = null;
     }
 
     if (json.containsKey('UserPassword')) {
-      userPassword = json['UserPassword'];
+      userPassword = json['UserPassword'] as String;
     } else {
       userPassword = null;
     }

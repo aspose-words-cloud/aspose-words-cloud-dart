@@ -36,13 +36,17 @@ class TableCell extends NodeLink {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize TableCell data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('ChildNodes')) {
       // Array processing
       childNodes = <NodeLink>[];
       for(final _element in json['ChildNodes']) {
         var _elementValue = NodeLink();
-        _elementValue.deserialize(_element);
+        _elementValue.deserialize(_element as Map<String, dynamic>);
         childNodes.add(_elementValue);
       }
     } else {

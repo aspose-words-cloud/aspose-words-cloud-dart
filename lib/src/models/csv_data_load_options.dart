@@ -45,26 +45,30 @@ class CsvDataLoadOptions implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize CsvDataLoadOptions data model.');
+    }
+
     if (json.containsKey('CommentChar')) {
-      commentChar = json['CommentChar'];
+      commentChar = json['CommentChar'] as String;
     } else {
       commentChar = null;
     }
 
     if (json.containsKey('Delimiter')) {
-      delimiter = json['Delimiter'];
+      delimiter = json['Delimiter'] as String;
     } else {
       delimiter = null;
     }
 
     if (json.containsKey('HasHeaders')) {
-      hasHeaders = json['HasHeaders'];
+      hasHeaders = json['HasHeaders'] as bool;
     } else {
       hasHeaders = null;
     }
 
     if (json.containsKey('QuoteChar')) {
-      quoteChar = json['QuoteChar'];
+      quoteChar = json['QuoteChar'] as String;
     } else {
       quoteChar = null;
     }

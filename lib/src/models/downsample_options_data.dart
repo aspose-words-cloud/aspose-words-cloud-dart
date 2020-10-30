@@ -45,20 +45,24 @@ class DownsampleOptionsData implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize DownsampleOptionsData data model.');
+    }
+
     if (json.containsKey('DownsampleImages')) {
-      downsampleImages = json['DownsampleImages'];
+      downsampleImages = json['DownsampleImages'] as bool;
     } else {
       downsampleImages = null;
     }
 
     if (json.containsKey('Resolution')) {
-      resolution = json['Resolution'];
+      resolution = json['Resolution'] as int;
     } else {
       resolution = null;
     }
 
     if (json.containsKey('ResolutionThreshold')) {
-      resolutionThreshold = json['ResolutionThreshold'];
+      resolutionThreshold = json['ResolutionThreshold'] as int;
     } else {
       resolutionThreshold = null;
     }

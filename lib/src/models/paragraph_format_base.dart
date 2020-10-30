@@ -117,21 +117,25 @@ class ParagraphFormatBase extends LinkElement {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ParagraphFormatBase data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('AddSpaceBetweenFarEastAndAlpha')) {
-      addSpaceBetweenFarEastAndAlpha = json['AddSpaceBetweenFarEastAndAlpha'];
+      addSpaceBetweenFarEastAndAlpha = json['AddSpaceBetweenFarEastAndAlpha'] as bool;
     } else {
       addSpaceBetweenFarEastAndAlpha = null;
     }
 
     if (json.containsKey('AddSpaceBetweenFarEastAndDigit')) {
-      addSpaceBetweenFarEastAndDigit = json['AddSpaceBetweenFarEastAndDigit'];
+      addSpaceBetweenFarEastAndDigit = json['AddSpaceBetweenFarEastAndDigit'] as bool;
     } else {
       addSpaceBetweenFarEastAndDigit = null;
     }
 
     if (json.containsKey('Alignment')) {
-      switch (json['Alignment']) {
+      switch (json['Alignment'] as String) {
         case 'Left': alignment = ParagraphFormatBase_AlignmentEnum.left; break;
         case 'Center': alignment = ParagraphFormatBase_AlignmentEnum.center; break;
         case 'Right': alignment = ParagraphFormatBase_AlignmentEnum.right; break;
@@ -148,13 +152,13 @@ class ParagraphFormatBase extends LinkElement {
     }
 
     if (json.containsKey('Bidi')) {
-      bidi = json['Bidi'];
+      bidi = json['Bidi'] as bool;
     } else {
       bidi = null;
     }
 
     if (json.containsKey('DropCapPosition')) {
-      switch (json['DropCapPosition']) {
+      switch (json['DropCapPosition'] as String) {
         case 'None': dropCapPosition = ParagraphFormatBase_DropCapPositionEnum.none; break;
         case 'Normal': dropCapPosition = ParagraphFormatBase_DropCapPositionEnum.normal; break;
         case 'Margin': dropCapPosition = ParagraphFormatBase_DropCapPositionEnum.margin; break;
@@ -165,37 +169,37 @@ class ParagraphFormatBase extends LinkElement {
     }
 
     if (json.containsKey('FirstLineIndent')) {
-      firstLineIndent = json['FirstLineIndent'];
+      firstLineIndent = json['FirstLineIndent'] as double;
     } else {
       firstLineIndent = null;
     }
 
     if (json.containsKey('KeepTogether')) {
-      keepTogether = json['KeepTogether'];
+      keepTogether = json['KeepTogether'] as bool;
     } else {
       keepTogether = null;
     }
 
     if (json.containsKey('KeepWithNext')) {
-      keepWithNext = json['KeepWithNext'];
+      keepWithNext = json['KeepWithNext'] as bool;
     } else {
       keepWithNext = null;
     }
 
     if (json.containsKey('LeftIndent')) {
-      leftIndent = json['LeftIndent'];
+      leftIndent = json['LeftIndent'] as double;
     } else {
       leftIndent = null;
     }
 
     if (json.containsKey('LineSpacing')) {
-      lineSpacing = json['LineSpacing'];
+      lineSpacing = json['LineSpacing'] as double;
     } else {
       lineSpacing = null;
     }
 
     if (json.containsKey('LineSpacingRule')) {
-      switch (json['LineSpacingRule']) {
+      switch (json['LineSpacingRule'] as String) {
         case 'AtLeast': lineSpacingRule = ParagraphFormatBase_LineSpacingRuleEnum.atLeast; break;
         case 'Exactly': lineSpacingRule = ParagraphFormatBase_LineSpacingRuleEnum.exactly; break;
         case 'Multiple': lineSpacingRule = ParagraphFormatBase_LineSpacingRuleEnum.multiple; break;
@@ -206,19 +210,19 @@ class ParagraphFormatBase extends LinkElement {
     }
 
     if (json.containsKey('LinesToDrop')) {
-      linesToDrop = json['LinesToDrop'];
+      linesToDrop = json['LinesToDrop'] as int;
     } else {
       linesToDrop = null;
     }
 
     if (json.containsKey('NoSpaceBetweenParagraphsOfSameStyle')) {
-      noSpaceBetweenParagraphsOfSameStyle = json['NoSpaceBetweenParagraphsOfSameStyle'];
+      noSpaceBetweenParagraphsOfSameStyle = json['NoSpaceBetweenParagraphsOfSameStyle'] as bool;
     } else {
       noSpaceBetweenParagraphsOfSameStyle = null;
     }
 
     if (json.containsKey('OutlineLevel')) {
-      switch (json['OutlineLevel']) {
+      switch (json['OutlineLevel'] as String) {
         case 'Level1': outlineLevel = ParagraphFormatBase_OutlineLevelEnum.level1; break;
         case 'Level2': outlineLevel = ParagraphFormatBase_OutlineLevelEnum.level2; break;
         case 'Level3': outlineLevel = ParagraphFormatBase_OutlineLevelEnum.level3; break;
@@ -236,50 +240,50 @@ class ParagraphFormatBase extends LinkElement {
     }
 
     if (json.containsKey('PageBreakBefore')) {
-      pageBreakBefore = json['PageBreakBefore'];
+      pageBreakBefore = json['PageBreakBefore'] as bool;
     } else {
       pageBreakBefore = null;
     }
 
     if (json.containsKey('RightIndent')) {
-      rightIndent = json['RightIndent'];
+      rightIndent = json['RightIndent'] as double;
     } else {
       rightIndent = null;
     }
 
     if (json.containsKey('Shading')) {
       shading = Shading();
-      shading.deserialize(json['Shading']);
+      shading.deserialize(json['Shading'] as Map<String, dynamic>);
     } else {
       shading = null;
     }
 
     if (json.containsKey('SpaceAfter')) {
-      spaceAfter = json['SpaceAfter'];
+      spaceAfter = json['SpaceAfter'] as double;
     } else {
       spaceAfter = null;
     }
 
     if (json.containsKey('SpaceAfterAuto')) {
-      spaceAfterAuto = json['SpaceAfterAuto'];
+      spaceAfterAuto = json['SpaceAfterAuto'] as bool;
     } else {
       spaceAfterAuto = null;
     }
 
     if (json.containsKey('SpaceBefore')) {
-      spaceBefore = json['SpaceBefore'];
+      spaceBefore = json['SpaceBefore'] as double;
     } else {
       spaceBefore = null;
     }
 
     if (json.containsKey('SpaceBeforeAuto')) {
-      spaceBeforeAuto = json['SpaceBeforeAuto'];
+      spaceBeforeAuto = json['SpaceBeforeAuto'] as bool;
     } else {
       spaceBeforeAuto = null;
     }
 
     if (json.containsKey('StyleIdentifier')) {
-      switch (json['StyleIdentifier']) {
+      switch (json['StyleIdentifier'] as String) {
         case 'Normal': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.normal; break;
         case 'Heading1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.heading1; break;
         case 'Heading2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.heading2; break;
@@ -660,25 +664,25 @@ class ParagraphFormatBase extends LinkElement {
     }
 
     if (json.containsKey('StyleName')) {
-      styleName = json['StyleName'];
+      styleName = json['StyleName'] as String;
     } else {
       styleName = null;
     }
 
     if (json.containsKey('SuppressAutoHyphens')) {
-      suppressAutoHyphens = json['SuppressAutoHyphens'];
+      suppressAutoHyphens = json['SuppressAutoHyphens'] as bool;
     } else {
       suppressAutoHyphens = null;
     }
 
     if (json.containsKey('SuppressLineNumbers')) {
-      suppressLineNumbers = json['SuppressLineNumbers'];
+      suppressLineNumbers = json['SuppressLineNumbers'] as bool;
     } else {
       suppressLineNumbers = null;
     }
 
     if (json.containsKey('WidowControl')) {
-      widowControl = json['WidowControl'];
+      widowControl = json['WidowControl'] as bool;
     } else {
       widowControl = null;
     }

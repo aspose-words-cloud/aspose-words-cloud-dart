@@ -48,32 +48,36 @@ class PdfDigitalSignatureDetailsData implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize PdfDigitalSignatureDetailsData data model.');
+    }
+
     if (json.containsKey('CertificateFilename')) {
-      certificateFilename = json['CertificateFilename'];
+      certificateFilename = json['CertificateFilename'] as String;
     } else {
       certificateFilename = null;
     }
 
     if (json.containsKey('HashAlgorithm')) {
-      hashAlgorithm = json['HashAlgorithm'];
+      hashAlgorithm = json['HashAlgorithm'] as String;
     } else {
       hashAlgorithm = null;
     }
 
     if (json.containsKey('Location')) {
-      location = json['Location'];
+      location = json['Location'] as String;
     } else {
       location = null;
     }
 
     if (json.containsKey('Reason')) {
-      reason = json['Reason'];
+      reason = json['Reason'] as String;
     } else {
       reason = null;
     }
 
     if (json.containsKey('SignatureDate')) {
-      signatureDate = DateTime.parse(json['SignatureDate']);
+      signatureDate = DateTime.parse(json['SignatureDate'] as String);
     } else {
       signatureDate = null;
     }

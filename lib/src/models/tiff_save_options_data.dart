@@ -43,21 +43,25 @@ class TiffSaveOptionsData extends ImageSaveOptionsData {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize TiffSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('ThresholdForFloydSteinbergDithering')) {
-      thresholdForFloydSteinbergDithering = json['ThresholdForFloydSteinbergDithering'];
+      thresholdForFloydSteinbergDithering = json['ThresholdForFloydSteinbergDithering'] as int;
     } else {
       thresholdForFloydSteinbergDithering = null;
     }
 
     if (json.containsKey('TiffBinarizationMethod')) {
-      tiffBinarizationMethod = json['TiffBinarizationMethod'];
+      tiffBinarizationMethod = json['TiffBinarizationMethod'] as String;
     } else {
       tiffBinarizationMethod = null;
     }
 
     if (json.containsKey('TiffCompression')) {
-      tiffCompression = json['TiffCompression'];
+      tiffCompression = json['TiffCompression'] as String;
     } else {
       tiffCompression = null;
     }

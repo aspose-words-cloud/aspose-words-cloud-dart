@@ -36,10 +36,14 @@ class RevisionsModificationResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize RevisionsModificationResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Result')) {
       result = ModificationOperationResult();
-      result.deserialize(json['Result']);
+      result.deserialize(json['Result'] as Map<String, dynamic>);
     } else {
       result = null;
     }

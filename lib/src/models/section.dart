@@ -48,13 +48,17 @@ class Section extends LinkElement {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize Section data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('ChildNodes')) {
       // Array processing
       childNodes = <NodeLink>[];
       for(final _element in json['ChildNodes']) {
         var _elementValue = NodeLink();
-        _elementValue.deserialize(_element);
+        _elementValue.deserialize(_element as Map<String, dynamic>);
         childNodes.add(_elementValue);
       }
     } else {
@@ -63,28 +67,28 @@ class Section extends LinkElement {
 
     if (json.containsKey('HeaderFooters')) {
       headerFooters = LinkElement();
-      headerFooters.deserialize(json['HeaderFooters']);
+      headerFooters.deserialize(json['HeaderFooters'] as Map<String, dynamic>);
     } else {
       headerFooters = null;
     }
 
     if (json.containsKey('PageSetup')) {
       pageSetup = LinkElement();
-      pageSetup.deserialize(json['PageSetup']);
+      pageSetup.deserialize(json['PageSetup'] as Map<String, dynamic>);
     } else {
       pageSetup = null;
     }
 
     if (json.containsKey('Paragraphs')) {
       paragraphs = LinkElement();
-      paragraphs.deserialize(json['Paragraphs']);
+      paragraphs.deserialize(json['Paragraphs'] as Map<String, dynamic>);
     } else {
       paragraphs = null;
     }
 
     if (json.containsKey('Tables')) {
       tables = LinkElement();
-      tables.deserialize(json['Tables']);
+      tables.deserialize(json['Tables'] as Map<String, dynamic>);
     } else {
       tables = null;
     }

@@ -37,10 +37,14 @@ class SectionLinkCollectionResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize SectionLinkCollectionResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Sections')) {
       sections = SectionLinkCollection();
-      sections.deserialize(json['Sections']);
+      sections.deserialize(json['Sections'] as Map<String, dynamic>);
     } else {
       sections = null;
     }

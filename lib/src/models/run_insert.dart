@@ -34,6 +34,10 @@ class RunInsert extends RunBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize RunInsert data model.');
+    }
+
     super.deserialize(json);
   }
 

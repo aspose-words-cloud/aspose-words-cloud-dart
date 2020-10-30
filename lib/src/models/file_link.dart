@@ -34,6 +34,10 @@ class FileLink extends Link {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FileLink data model.');
+    }
+
     super.deserialize(json);
   }
 

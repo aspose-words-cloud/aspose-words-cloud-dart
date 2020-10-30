@@ -37,10 +37,14 @@ class ListsResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ListsResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Lists')) {
       lists = Lists();
-      lists.deserialize(json['Lists']);
+      lists.deserialize(json['Lists'] as Map<String, dynamic>);
     } else {
       lists = null;
     }

@@ -48,8 +48,12 @@ class StringFormatData implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize StringFormatData data model.');
+    }
+
     if (json.containsKey('Alignment')) {
-      switch (json['Alignment']) {
+      switch (json['Alignment'] as String) {
         case 'Near': alignment = StringFormatData_AlignmentEnum.near; break;
         case 'Center': alignment = StringFormatData_AlignmentEnum.center; break;
         case 'Far': alignment = StringFormatData_AlignmentEnum.far; break;
@@ -60,7 +64,7 @@ class StringFormatData implements ModelBase {
     }
 
     if (json.containsKey('FormatFlags')) {
-      switch (json['FormatFlags']) {
+      switch (json['FormatFlags'] as String) {
         case 'DirectionRightToLeft': formatFlags = StringFormatData_FormatFlagsEnum.directionRightToLeft; break;
         case 'DirectionVertical': formatFlags = StringFormatData_FormatFlagsEnum.directionVertical; break;
         case 'FitBlackBox': formatFlags = StringFormatData_FormatFlagsEnum.fitBlackBox; break;
@@ -77,7 +81,7 @@ class StringFormatData implements ModelBase {
     }
 
     if (json.containsKey('HotkeyPrefix')) {
-      switch (json['HotkeyPrefix']) {
+      switch (json['HotkeyPrefix'] as String) {
         case 'None': hotkeyPrefix = StringFormatData_HotkeyPrefixEnum.none; break;
         case 'Show': hotkeyPrefix = StringFormatData_HotkeyPrefixEnum.show; break;
         case 'Hide': hotkeyPrefix = StringFormatData_HotkeyPrefixEnum.hide; break;
@@ -88,7 +92,7 @@ class StringFormatData implements ModelBase {
     }
 
     if (json.containsKey('LineAlignment')) {
-      switch (json['LineAlignment']) {
+      switch (json['LineAlignment'] as String) {
         case 'Near': lineAlignment = StringFormatData_LineAlignmentEnum.near; break;
         case 'Center': lineAlignment = StringFormatData_LineAlignmentEnum.center; break;
         case 'Far': lineAlignment = StringFormatData_LineAlignmentEnum.far; break;
@@ -99,7 +103,7 @@ class StringFormatData implements ModelBase {
     }
 
     if (json.containsKey('Trimming')) {
-      switch (json['Trimming']) {
+      switch (json['Trimming'] as String) {
         case 'None': trimming = StringFormatData_TrimmingEnum.none; break;
         case 'Character': trimming = StringFormatData_TrimmingEnum.character; break;
         case 'Word': trimming = StringFormatData_TrimmingEnum.word; break;

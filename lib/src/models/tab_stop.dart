@@ -36,9 +36,13 @@ class TabStop extends TabStopBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize TabStop data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('IsClear')) {
-      isClear = json['IsClear'];
+      isClear = json['IsClear'] as bool;
     } else {
       isClear = null;
     }

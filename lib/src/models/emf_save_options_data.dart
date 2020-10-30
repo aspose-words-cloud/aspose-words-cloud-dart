@@ -34,6 +34,10 @@ class EmfSaveOptionsData extends ImageSaveOptionsData {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize EmfSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
   }
 

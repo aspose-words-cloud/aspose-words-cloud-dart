@@ -36,8 +36,12 @@ class ListUpdate implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ListUpdate data model.');
+    }
+
     if (json.containsKey('IsRestartAtEachSection')) {
-      isRestartAtEachSection = json['IsRestartAtEachSection'];
+      isRestartAtEachSection = json['IsRestartAtEachSection'] as bool;
     } else {
       isRestartAtEachSection = null;
     }

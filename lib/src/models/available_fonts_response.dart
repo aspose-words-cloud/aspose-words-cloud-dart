@@ -42,13 +42,17 @@ class AvailableFontsResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize AvailableFontsResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('AdditionalFonts')) {
       // Array processing
       additionalFonts = <FontInfo>[];
       for(final _element in json['AdditionalFonts']) {
         var _elementValue = FontInfo();
-        _elementValue.deserialize(_element);
+        _elementValue.deserialize(_element as Map<String, dynamic>);
         additionalFonts.add(_elementValue);
       }
     } else {
@@ -60,7 +64,7 @@ class AvailableFontsResponse extends WordsResponse {
       customFonts = <FontInfo>[];
       for(final _element in json['CustomFonts']) {
         var _elementValue = FontInfo();
-        _elementValue.deserialize(_element);
+        _elementValue.deserialize(_element as Map<String, dynamic>);
         customFonts.add(_elementValue);
       }
     } else {
@@ -72,7 +76,7 @@ class AvailableFontsResponse extends WordsResponse {
       systemFonts = <FontInfo>[];
       for(final _element in json['SystemFonts']) {
         var _elementValue = FontInfo();
-        _elementValue.deserialize(_element);
+        _elementValue.deserialize(_element as Map<String, dynamic>);
         systemFonts.add(_elementValue);
       }
     } else {

@@ -54,26 +54,30 @@ class Link implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize Link data model.');
+    }
+
     if (json.containsKey('Href')) {
-      href = json['Href'];
+      href = json['Href'] as String;
     } else {
       href = null;
     }
 
     if (json.containsKey('Rel')) {
-      rel = json['Rel'];
+      rel = json['Rel'] as String;
     } else {
       rel = null;
     }
 
     if (json.containsKey('Title')) {
-      title = json['Title'];
+      title = json['Title'] as String;
     } else {
       title = null;
     }
 
     if (json.containsKey('Type')) {
-      type = json['Type'];
+      type = json['Type'] as String;
     } else {
       type = null;
     }

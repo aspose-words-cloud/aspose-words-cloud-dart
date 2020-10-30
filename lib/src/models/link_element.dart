@@ -36,9 +36,13 @@ class LinkElement implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize LinkElement data model.');
+    }
+
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link']);
+      link.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }

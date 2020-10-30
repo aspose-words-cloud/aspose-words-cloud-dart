@@ -36,9 +36,13 @@ class WordMLSaveOptionsData extends SaveOptionsData {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize WordMLSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('PrettyFormat')) {
-      prettyFormat = json['PrettyFormat'];
+      prettyFormat = json['PrettyFormat'] as bool;
     } else {
       prettyFormat = null;
     }

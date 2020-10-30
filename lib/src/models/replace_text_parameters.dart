@@ -48,32 +48,36 @@ class ReplaceTextParameters implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ReplaceTextParameters data model.');
+    }
+
     if (json.containsKey('IsMatchCase')) {
-      isMatchCase = json['IsMatchCase'];
+      isMatchCase = json['IsMatchCase'] as bool;
     } else {
       isMatchCase = null;
     }
 
     if (json.containsKey('IsMatchWholeWord')) {
-      isMatchWholeWord = json['IsMatchWholeWord'];
+      isMatchWholeWord = json['IsMatchWholeWord'] as bool;
     } else {
       isMatchWholeWord = null;
     }
 
     if (json.containsKey('IsOldValueRegex')) {
-      isOldValueRegex = json['IsOldValueRegex'];
+      isOldValueRegex = json['IsOldValueRegex'] as bool;
     } else {
       isOldValueRegex = null;
     }
 
     if (json.containsKey('NewValue')) {
-      newValue = json['NewValue'];
+      newValue = json['NewValue'] as String;
     } else {
       newValue = null;
     }
 
     if (json.containsKey('OldValue')) {
-      oldValue = json['OldValue'];
+      oldValue = json['OldValue'] as String;
     } else {
       oldValue = null;
     }

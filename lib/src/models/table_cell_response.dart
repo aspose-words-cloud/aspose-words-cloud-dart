@@ -37,10 +37,14 @@ class TableCellResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize TableCellResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Cell')) {
       cell = TableCell();
-      cell.deserialize(json['Cell']);
+      cell.deserialize(json['Cell'] as Map<String, dynamic>);
     } else {
       cell = null;
     }

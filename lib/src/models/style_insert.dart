@@ -39,14 +39,18 @@ class StyleInsert implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize StyleInsert data model.');
+    }
+
     if (json.containsKey('StyleName')) {
-      styleName = json['StyleName'];
+      styleName = json['StyleName'] as String;
     } else {
       styleName = null;
     }
 
     if (json.containsKey('StyleType')) {
-      switch (json['StyleType']) {
+      switch (json['StyleType'] as String) {
         case 'Paragraph': styleType = StyleInsert_StyleTypeEnum.paragraph; break;
         case 'Character': styleType = StyleInsert_StyleTypeEnum.character; break;
         case 'Table': styleType = StyleInsert_StyleTypeEnum.table; break;

@@ -43,21 +43,25 @@ class TextSaveOptionsData extends TxtSaveOptionsBaseData {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize TextSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('AddBidiMarks')) {
-      addBidiMarks = json['AddBidiMarks'];
+      addBidiMarks = json['AddBidiMarks'] as bool;
     } else {
       addBidiMarks = null;
     }
 
     if (json.containsKey('PreserveTableLayout')) {
-      preserveTableLayout = json['PreserveTableLayout'];
+      preserveTableLayout = json['PreserveTableLayout'] as bool;
     } else {
       preserveTableLayout = null;
     }
 
     if (json.containsKey('SimplifyListLabels')) {
-      simplifyListLabels = json['SimplifyListLabels'];
+      simplifyListLabels = json['SimplifyListLabels'] as bool;
     } else {
       simplifyListLabels = null;
     }

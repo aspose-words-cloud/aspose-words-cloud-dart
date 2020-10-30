@@ -36,9 +36,13 @@ class HeaderFooterLink extends LinkElement {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize HeaderFooterLink data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Type')) {
-      switch (json['Type']) {
+      switch (json['Type'] as String) {
         case 'HeaderEven': type = HeaderFooterLink_TypeEnum.headerEven; break;
         case 'HeaderPrimary': type = HeaderFooterLink_TypeEnum.headerPrimary; break;
         case 'FooterEven': type = HeaderFooterLink_TypeEnum.footerEven; break;

@@ -36,8 +36,12 @@ class TableCellInsert implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize TableCellInsert data model.');
+    }
+
     if (json.containsKey('InsertAfter')) {
-      insertAfter = json['InsertAfter'];
+      insertAfter = json['InsertAfter'] as int;
     } else {
       insertAfter = null;
     }

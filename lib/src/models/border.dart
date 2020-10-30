@@ -51,9 +51,13 @@ class Border extends LinkElement {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize Border data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('BorderType')) {
-      switch (json['BorderType']) {
+      switch (json['BorderType'] as String) {
         case 'Bottom': borderType = Border_BorderTypeEnum.bottom; break;
         case 'Left': borderType = Border_BorderTypeEnum.left; break;
         case 'Right': borderType = Border_BorderTypeEnum.right; break;
@@ -71,19 +75,19 @@ class Border extends LinkElement {
 
     if (json.containsKey('Color')) {
       color = XmlColor();
-      color.deserialize(json['Color']);
+      color.deserialize(json['Color'] as Map<String, dynamic>);
     } else {
       color = null;
     }
 
     if (json.containsKey('DistanceFromText')) {
-      distanceFromText = json['DistanceFromText'];
+      distanceFromText = json['DistanceFromText'] as double;
     } else {
       distanceFromText = null;
     }
 
     if (json.containsKey('LineStyle')) {
-      switch (json['LineStyle']) {
+      switch (json['LineStyle'] as String) {
         case 'None': lineStyle = Border_LineStyleEnum.none; break;
         case 'Single': lineStyle = Border_LineStyleEnum.single; break;
         case 'Thick': lineStyle = Border_LineStyleEnum.thick; break;
@@ -118,13 +122,13 @@ class Border extends LinkElement {
     }
 
     if (json.containsKey('LineWidth')) {
-      lineWidth = json['LineWidth'];
+      lineWidth = json['LineWidth'] as double;
     } else {
       lineWidth = null;
     }
 
     if (json.containsKey('Shadow')) {
-      shadow = json['Shadow'];
+      shadow = json['Shadow'] as bool;
     } else {
       shadow = null;
     }

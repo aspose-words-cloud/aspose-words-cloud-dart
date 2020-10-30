@@ -114,78 +114,82 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize PdfSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Compliance')) {
-      compliance = json['Compliance'];
+      compliance = json['Compliance'] as String;
     } else {
       compliance = null;
     }
 
     if (json.containsKey('CreateNoteHyperlinks')) {
-      createNoteHyperlinks = json['CreateNoteHyperlinks'];
+      createNoteHyperlinks = json['CreateNoteHyperlinks'] as bool;
     } else {
       createNoteHyperlinks = null;
     }
 
     if (json.containsKey('CustomPropertiesExport')) {
-      customPropertiesExport = json['CustomPropertiesExport'];
+      customPropertiesExport = json['CustomPropertiesExport'] as String;
     } else {
       customPropertiesExport = null;
     }
 
     if (json.containsKey('DigitalSignatureDetails')) {
       digitalSignatureDetails = PdfDigitalSignatureDetailsData();
-      digitalSignatureDetails.deserialize(json['DigitalSignatureDetails']);
+      digitalSignatureDetails.deserialize(json['DigitalSignatureDetails'] as Map<String, dynamic>);
     } else {
       digitalSignatureDetails = null;
     }
 
     if (json.containsKey('DisplayDocTitle')) {
-      displayDocTitle = json['DisplayDocTitle'];
+      displayDocTitle = json['DisplayDocTitle'] as bool;
     } else {
       displayDocTitle = null;
     }
 
     if (json.containsKey('DownsampleOptions')) {
       downsampleOptions = DownsampleOptionsData();
-      downsampleOptions.deserialize(json['DownsampleOptions']);
+      downsampleOptions.deserialize(json['DownsampleOptions'] as Map<String, dynamic>);
     } else {
       downsampleOptions = null;
     }
 
     if (json.containsKey('EmbedFullFonts')) {
-      embedFullFonts = json['EmbedFullFonts'];
+      embedFullFonts = json['EmbedFullFonts'] as bool;
     } else {
       embedFullFonts = null;
     }
 
     if (json.containsKey('EncryptionDetails')) {
       encryptionDetails = PdfEncryptionDetailsData();
-      encryptionDetails.deserialize(json['EncryptionDetails']);
+      encryptionDetails.deserialize(json['EncryptionDetails'] as Map<String, dynamic>);
     } else {
       encryptionDetails = null;
     }
 
     if (json.containsKey('EscapeUri')) {
-      escapeUri = json['EscapeUri'];
+      escapeUri = json['EscapeUri'] as bool;
     } else {
       escapeUri = null;
     }
 
     if (json.containsKey('ExportDocumentStructure')) {
-      exportDocumentStructure = json['ExportDocumentStructure'];
+      exportDocumentStructure = json['ExportDocumentStructure'] as bool;
     } else {
       exportDocumentStructure = null;
     }
 
     if (json.containsKey('FontEmbeddingMode')) {
-      fontEmbeddingMode = json['FontEmbeddingMode'];
+      fontEmbeddingMode = json['FontEmbeddingMode'] as String;
     } else {
       fontEmbeddingMode = null;
     }
 
     if (json.containsKey('HeaderFooterBookmarksExportMode')) {
-      switch (json['HeaderFooterBookmarksExportMode']) {
+      switch (json['HeaderFooterBookmarksExportMode'] as String) {
         case 'None': headerFooterBookmarksExportMode = PdfSaveOptionsData_HeaderFooterBookmarksExportModeEnum.none; break;
         case 'First': headerFooterBookmarksExportMode = PdfSaveOptionsData_HeaderFooterBookmarksExportModeEnum.first; break;
         case 'All': headerFooterBookmarksExportMode = PdfSaveOptionsData_HeaderFooterBookmarksExportModeEnum.all; break;
@@ -196,80 +200,80 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('ImageColorSpaceExportMode')) {
-      imageColorSpaceExportMode = json['ImageColorSpaceExportMode'];
+      imageColorSpaceExportMode = json['ImageColorSpaceExportMode'] as String;
     } else {
       imageColorSpaceExportMode = null;
     }
 
     if (json.containsKey('ImageCompression')) {
-      imageCompression = json['ImageCompression'];
+      imageCompression = json['ImageCompression'] as String;
     } else {
       imageCompression = null;
     }
 
     if (json.containsKey('InterpolateImages')) {
-      interpolateImages = json['InterpolateImages'];
+      interpolateImages = json['InterpolateImages'] as bool;
     } else {
       interpolateImages = null;
     }
 
     if (json.containsKey('OpenHyperlinksInNewWindow')) {
-      openHyperlinksInNewWindow = json['OpenHyperlinksInNewWindow'];
+      openHyperlinksInNewWindow = json['OpenHyperlinksInNewWindow'] as bool;
     } else {
       openHyperlinksInNewWindow = null;
     }
 
     if (json.containsKey('OutlineOptions')) {
       outlineOptions = OutlineOptionsData();
-      outlineOptions.deserialize(json['OutlineOptions']);
+      outlineOptions.deserialize(json['OutlineOptions'] as Map<String, dynamic>);
     } else {
       outlineOptions = null;
     }
 
     if (json.containsKey('PageMode')) {
-      pageMode = json['PageMode'];
+      pageMode = json['PageMode'] as String;
     } else {
       pageMode = null;
     }
 
     if (json.containsKey('PreblendImages')) {
-      preblendImages = json['PreblendImages'];
+      preblendImages = json['PreblendImages'] as bool;
     } else {
       preblendImages = null;
     }
 
     if (json.containsKey('PreserveFormFields')) {
-      preserveFormFields = json['PreserveFormFields'];
+      preserveFormFields = json['PreserveFormFields'] as bool;
     } else {
       preserveFormFields = null;
     }
 
     if (json.containsKey('TextCompression')) {
-      textCompression = json['TextCompression'];
+      textCompression = json['TextCompression'] as String;
     } else {
       textCompression = null;
     }
 
     if (json.containsKey('UseBookFoldPrintingSettings')) {
-      useBookFoldPrintingSettings = json['UseBookFoldPrintingSettings'];
+      useBookFoldPrintingSettings = json['UseBookFoldPrintingSettings'] as bool;
     } else {
       useBookFoldPrintingSettings = null;
     }
 
     if (json.containsKey('UseCoreFonts')) {
-      useCoreFonts = json['UseCoreFonts'];
+      useCoreFonts = json['UseCoreFonts'] as bool;
     } else {
       useCoreFonts = null;
     }
 
     if (json.containsKey('ZoomBehavior')) {
-      zoomBehavior = json['ZoomBehavior'];
+      zoomBehavior = json['ZoomBehavior'] as String;
     } else {
       zoomBehavior = null;
     }
 
     if (json.containsKey('ZoomFactor')) {
-      zoomFactor = json['ZoomFactor'];
+      zoomFactor = json['ZoomFactor'] as int;
     } else {
       zoomFactor = null;
     }

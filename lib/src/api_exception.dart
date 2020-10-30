@@ -28,10 +28,10 @@
 library aspose_words_cloud;
 
 class ApiException implements Exception {
-  final int status_code;
+  final int statusCode;
   final String message;
-  ApiException(final this.status_code, final this.message);
+  ApiException(final this.statusCode, final this.message);
 
   @override
-  String toString() => '[${status_code}]: ${message}';
+  String toString() => '[$statusCode]: $message';
 }

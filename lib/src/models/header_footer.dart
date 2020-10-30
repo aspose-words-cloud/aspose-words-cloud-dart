@@ -42,13 +42,17 @@ class HeaderFooter extends HeaderFooterLink {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize HeaderFooter data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('ChildNodes')) {
       // Array processing
       childNodes = <NodeLink>[];
       for(final _element in json['ChildNodes']) {
         var _elementValue = NodeLink();
-        _elementValue.deserialize(_element);
+        _elementValue.deserialize(_element as Map<String, dynamic>);
         childNodes.add(_elementValue);
       }
     } else {
@@ -57,14 +61,14 @@ class HeaderFooter extends HeaderFooterLink {
 
     if (json.containsKey('DrawingObjects')) {
       drawingObjects = LinkElement();
-      drawingObjects.deserialize(json['DrawingObjects']);
+      drawingObjects.deserialize(json['DrawingObjects'] as Map<String, dynamic>);
     } else {
       drawingObjects = null;
     }
 
     if (json.containsKey('Paragraphs')) {
       paragraphs = LinkElement();
-      paragraphs.deserialize(json['Paragraphs']);
+      paragraphs.deserialize(json['Paragraphs'] as Map<String, dynamic>);
     } else {
       paragraphs = null;
     }

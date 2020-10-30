@@ -45,21 +45,25 @@ class ReportEngineSettings implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ReportEngineSettings data model.');
+    }
+
     if (json.containsKey('CsvDataLoadOptions')) {
       csvDataLoadOptions = CsvDataLoadOptions();
-      csvDataLoadOptions.deserialize(json['CsvDataLoadOptions']);
+      csvDataLoadOptions.deserialize(json['CsvDataLoadOptions'] as Map<String, dynamic>);
     } else {
       csvDataLoadOptions = null;
     }
 
     if (json.containsKey('DataSourceName')) {
-      dataSourceName = json['DataSourceName'];
+      dataSourceName = json['DataSourceName'] as String;
     } else {
       dataSourceName = null;
     }
 
     if (json.containsKey('DataSourceType')) {
-      switch (json['DataSourceType']) {
+      switch (json['DataSourceType'] as String) {
         case 'Xml': dataSourceType = ReportEngineSettings_DataSourceTypeEnum.xml; break;
         case 'Json': dataSourceType = ReportEngineSettings_DataSourceTypeEnum.json; break;
         case 'Csv': dataSourceType = ReportEngineSettings_DataSourceTypeEnum.csv; break;
@@ -73,7 +77,7 @@ class ReportEngineSettings implements ModelBase {
       // Array processing
       reportBuildOptions = <ReportBuildOptionsEnum>[];
       for(final _element in json['ReportBuildOptions']) {
-        switch (_element) {
+        switch (_element as String) {
           case 'None': reportBuildOptions.add(ReportBuildOptionsEnum.none); break;
           case 'AllowMissingMembers': reportBuildOptions.add(ReportBuildOptionsEnum.allowMissingMembers); break;
           case 'RemoveEmptyParagraphs': reportBuildOptions.add(ReportBuildOptionsEnum.removeEmptyParagraphs); break;

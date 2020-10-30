@@ -37,10 +37,14 @@ class FontResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FontResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Font')) {
       font = Font();
-      font.deserialize(json['Font']);
+      font.deserialize(json['Font'] as Map<String, dynamic>);
     } else {
       font = null;
     }

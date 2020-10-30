@@ -128,21 +128,25 @@ class PageSetup extends LinkElement {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize PageSetup data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Bidi')) {
-      bidi = json['Bidi'];
+      bidi = json['Bidi'] as bool;
     } else {
       bidi = null;
     }
 
     if (json.containsKey('BorderAlwaysInFront')) {
-      borderAlwaysInFront = json['BorderAlwaysInFront'];
+      borderAlwaysInFront = json['BorderAlwaysInFront'] as bool;
     } else {
       borderAlwaysInFront = null;
     }
 
     if (json.containsKey('BorderAppliesTo')) {
-      switch (json['BorderAppliesTo']) {
+      switch (json['BorderAppliesTo'] as String) {
         case 'AllPages': borderAppliesTo = PageSetup_BorderAppliesToEnum.allPages; break;
         case 'FirstPage': borderAppliesTo = PageSetup_BorderAppliesToEnum.firstPage; break;
         case 'OtherPages': borderAppliesTo = PageSetup_BorderAppliesToEnum.otherPages; break;
@@ -153,7 +157,7 @@ class PageSetup extends LinkElement {
     }
 
     if (json.containsKey('BorderDistanceFrom')) {
-      switch (json['BorderDistanceFrom']) {
+      switch (json['BorderDistanceFrom'] as String) {
         case 'Text': borderDistanceFrom = PageSetup_BorderDistanceFromEnum.text; break;
         case 'PageEdge': borderDistanceFrom = PageSetup_BorderDistanceFromEnum.pageEdge; break;
         default: borderDistanceFrom = null; break;
@@ -163,61 +167,61 @@ class PageSetup extends LinkElement {
     }
 
     if (json.containsKey('BottomMargin')) {
-      bottomMargin = json['BottomMargin'];
+      bottomMargin = json['BottomMargin'] as double;
     } else {
       bottomMargin = null;
     }
 
     if (json.containsKey('DifferentFirstPageHeaderFooter')) {
-      differentFirstPageHeaderFooter = json['DifferentFirstPageHeaderFooter'];
+      differentFirstPageHeaderFooter = json['DifferentFirstPageHeaderFooter'] as bool;
     } else {
       differentFirstPageHeaderFooter = null;
     }
 
     if (json.containsKey('FirstPageTray')) {
-      firstPageTray = json['FirstPageTray'];
+      firstPageTray = json['FirstPageTray'] as int;
     } else {
       firstPageTray = null;
     }
 
     if (json.containsKey('FooterDistance')) {
-      footerDistance = json['FooterDistance'];
+      footerDistance = json['FooterDistance'] as double;
     } else {
       footerDistance = null;
     }
 
     if (json.containsKey('Gutter')) {
-      gutter = json['Gutter'];
+      gutter = json['Gutter'] as double;
     } else {
       gutter = null;
     }
 
     if (json.containsKey('HeaderDistance')) {
-      headerDistance = json['HeaderDistance'];
+      headerDistance = json['HeaderDistance'] as double;
     } else {
       headerDistance = null;
     }
 
     if (json.containsKey('LeftMargin')) {
-      leftMargin = json['LeftMargin'];
+      leftMargin = json['LeftMargin'] as double;
     } else {
       leftMargin = null;
     }
 
     if (json.containsKey('LineNumberCountBy')) {
-      lineNumberCountBy = json['LineNumberCountBy'];
+      lineNumberCountBy = json['LineNumberCountBy'] as int;
     } else {
       lineNumberCountBy = null;
     }
 
     if (json.containsKey('LineNumberDistanceFromText')) {
-      lineNumberDistanceFromText = json['LineNumberDistanceFromText'];
+      lineNumberDistanceFromText = json['LineNumberDistanceFromText'] as double;
     } else {
       lineNumberDistanceFromText = null;
     }
 
     if (json.containsKey('LineNumberRestartMode')) {
-      switch (json['LineNumberRestartMode']) {
+      switch (json['LineNumberRestartMode'] as String) {
         case 'RestartPage': lineNumberRestartMode = PageSetup_LineNumberRestartModeEnum.restartPage; break;
         case 'RestartSection': lineNumberRestartMode = PageSetup_LineNumberRestartModeEnum.restartSection; break;
         case 'Continuous': lineNumberRestartMode = PageSetup_LineNumberRestartModeEnum.continuous; break;
@@ -228,13 +232,13 @@ class PageSetup extends LinkElement {
     }
 
     if (json.containsKey('LineStartingNumber')) {
-      lineStartingNumber = json['LineStartingNumber'];
+      lineStartingNumber = json['LineStartingNumber'] as int;
     } else {
       lineStartingNumber = null;
     }
 
     if (json.containsKey('Orientation')) {
-      switch (json['Orientation']) {
+      switch (json['Orientation'] as String) {
         case 'Portrait': orientation = PageSetup_OrientationEnum.portrait; break;
         case 'Landscape': orientation = PageSetup_OrientationEnum.landscape; break;
         default: orientation = null; break;
@@ -244,19 +248,19 @@ class PageSetup extends LinkElement {
     }
 
     if (json.containsKey('OtherPagesTray')) {
-      otherPagesTray = json['OtherPagesTray'];
+      otherPagesTray = json['OtherPagesTray'] as int;
     } else {
       otherPagesTray = null;
     }
 
     if (json.containsKey('PageHeight')) {
-      pageHeight = json['PageHeight'];
+      pageHeight = json['PageHeight'] as double;
     } else {
       pageHeight = null;
     }
 
     if (json.containsKey('PageNumberStyle')) {
-      switch (json['PageNumberStyle']) {
+      switch (json['PageNumberStyle'] as String) {
         case 'Arabic': pageNumberStyle = PageSetup_PageNumberStyleEnum.arabic; break;
         case 'UppercaseRoman': pageNumberStyle = PageSetup_PageNumberStyleEnum.uppercaseRoman; break;
         case 'LowercaseRoman': pageNumberStyle = PageSetup_PageNumberStyleEnum.lowercaseRoman; break;
@@ -326,19 +330,19 @@ class PageSetup extends LinkElement {
     }
 
     if (json.containsKey('PageStartingNumber')) {
-      pageStartingNumber = json['PageStartingNumber'];
+      pageStartingNumber = json['PageStartingNumber'] as int;
     } else {
       pageStartingNumber = null;
     }
 
     if (json.containsKey('PageWidth')) {
-      pageWidth = json['PageWidth'];
+      pageWidth = json['PageWidth'] as double;
     } else {
       pageWidth = null;
     }
 
     if (json.containsKey('PaperSize')) {
-      switch (json['PaperSize']) {
+      switch (json['PaperSize'] as String) {
         case 'A3': paperSize = PageSetup_PaperSizeEnum.a3; break;
         case 'A4': paperSize = PageSetup_PaperSizeEnum.a4; break;
         case 'A5': paperSize = PageSetup_PaperSizeEnum.a5; break;
@@ -363,25 +367,25 @@ class PageSetup extends LinkElement {
     }
 
     if (json.containsKey('RestartPageNumbering')) {
-      restartPageNumbering = json['RestartPageNumbering'];
+      restartPageNumbering = json['RestartPageNumbering'] as bool;
     } else {
       restartPageNumbering = null;
     }
 
     if (json.containsKey('RightMargin')) {
-      rightMargin = json['RightMargin'];
+      rightMargin = json['RightMargin'] as double;
     } else {
       rightMargin = null;
     }
 
     if (json.containsKey('RtlGutter')) {
-      rtlGutter = json['RtlGutter'];
+      rtlGutter = json['RtlGutter'] as bool;
     } else {
       rtlGutter = null;
     }
 
     if (json.containsKey('SectionStart')) {
-      switch (json['SectionStart']) {
+      switch (json['SectionStart'] as String) {
         case 'Continuous': sectionStart = PageSetup_SectionStartEnum.continuous; break;
         case 'NewColumn': sectionStart = PageSetup_SectionStartEnum.newColumn; break;
         case 'NewPage': sectionStart = PageSetup_SectionStartEnum.newPage; break;
@@ -394,19 +398,19 @@ class PageSetup extends LinkElement {
     }
 
     if (json.containsKey('SuppressEndnotes')) {
-      suppressEndnotes = json['SuppressEndnotes'];
+      suppressEndnotes = json['SuppressEndnotes'] as bool;
     } else {
       suppressEndnotes = null;
     }
 
     if (json.containsKey('TopMargin')) {
-      topMargin = json['TopMargin'];
+      topMargin = json['TopMargin'] as double;
     } else {
       topMargin = null;
     }
 
     if (json.containsKey('VerticalAlignment')) {
-      switch (json['VerticalAlignment']) {
+      switch (json['VerticalAlignment'] as String) {
         case 'Top': verticalAlignment = PageSetup_VerticalAlignmentEnum.top; break;
         case 'Center': verticalAlignment = PageSetup_VerticalAlignmentEnum.center; break;
         case 'Justify': verticalAlignment = PageSetup_VerticalAlignmentEnum.justify; break;

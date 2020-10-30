@@ -39,14 +39,18 @@ class ReplaceRange implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ReplaceRange data model.');
+    }
+
     if (json.containsKey('Text')) {
-      text = json['Text'];
+      text = json['Text'] as String;
     } else {
       text = null;
     }
 
     if (json.containsKey('TextType')) {
-      switch (json['TextType']) {
+      switch (json['TextType'] as String) {
         case 'Text': textType = ReplaceRange_TextTypeEnum.text; break;
         case 'Html': textType = ReplaceRange_TextTypeEnum.html; break;
         default: textType = null; break;

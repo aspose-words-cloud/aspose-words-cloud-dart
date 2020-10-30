@@ -45,27 +45,31 @@ class TableRowFormat extends LinkElement {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize TableRowFormat data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('AllowBreakAcrossPages')) {
-      allowBreakAcrossPages = json['AllowBreakAcrossPages'];
+      allowBreakAcrossPages = json['AllowBreakAcrossPages'] as bool;
     } else {
       allowBreakAcrossPages = null;
     }
 
     if (json.containsKey('HeadingFormat')) {
-      headingFormat = json['HeadingFormat'];
+      headingFormat = json['HeadingFormat'] as bool;
     } else {
       headingFormat = null;
     }
 
     if (json.containsKey('Height')) {
-      height = json['Height'];
+      height = json['Height'] as double;
     } else {
       height = null;
     }
 
     if (json.containsKey('HeightRule')) {
-      switch (json['HeightRule']) {
+      switch (json['HeightRule'] as String) {
         case 'AtLeast': heightRule = TableRowFormat_HeightRuleEnum.atLeast; break;
         case 'Exactly': heightRule = TableRowFormat_HeightRuleEnum.exactly; break;
         case 'Auto': heightRule = TableRowFormat_HeightRuleEnum.auto; break;

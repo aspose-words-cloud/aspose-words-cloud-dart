@@ -37,10 +37,14 @@ class FormFieldsResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FormFieldsResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('FormFields')) {
       formFields = FormFieldCollection();
-      formFields.deserialize(json['FormFields']);
+      formFields.deserialize(json['FormFields'] as Map<String, dynamic>);
     } else {
       formFields = null;
     }

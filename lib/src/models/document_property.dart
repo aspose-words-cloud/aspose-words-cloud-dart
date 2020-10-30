@@ -43,21 +43,25 @@ class DocumentProperty extends LinkElement {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize DocumentProperty data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('BuiltIn')) {
-      builtIn = json['BuiltIn'];
+      builtIn = json['BuiltIn'] as bool;
     } else {
       builtIn = null;
     }
 
     if (json.containsKey('Name')) {
-      name = json['Name'];
+      name = json['Name'] as String;
     } else {
       name = null;
     }
 
     if (json.containsKey('Value')) {
-      value = json['Value'];
+      value = json['Value'] as String;
     } else {
       value = null;
     }

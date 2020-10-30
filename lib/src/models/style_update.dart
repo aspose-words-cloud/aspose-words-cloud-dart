@@ -46,26 +46,30 @@ class StyleUpdate implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize StyleUpdate data model.');
+    }
+
     if (json.containsKey('BaseStyleName')) {
-      baseStyleName = json['BaseStyleName'];
+      baseStyleName = json['BaseStyleName'] as String;
     } else {
       baseStyleName = null;
     }
 
     if (json.containsKey('IsQuickStyle')) {
-      isQuickStyle = json['IsQuickStyle'];
+      isQuickStyle = json['IsQuickStyle'] as bool;
     } else {
       isQuickStyle = null;
     }
 
     if (json.containsKey('Name')) {
-      name = json['Name'];
+      name = json['Name'] as String;
     } else {
       name = null;
     }
 
     if (json.containsKey('NextParagraphStyleName')) {
-      nextParagraphStyleName = json['NextParagraphStyleName'];
+      nextParagraphStyleName = json['NextParagraphStyleName'] as String;
     } else {
       nextParagraphStyleName = null;
     }

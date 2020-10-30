@@ -36,8 +36,12 @@ class OptimizationOptions implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize OptimizationOptions data model.');
+    }
+
     if (json.containsKey('MsWordVersion')) {
-      switch (json['MsWordVersion']) {
+      switch (json['MsWordVersion'] as String) {
         case 'Word2000': msWordVersion = OptimizationOptions_MsWordVersionEnum.word2000; break;
         case 'Word2002': msWordVersion = OptimizationOptions_MsWordVersionEnum.word2002; break;
         case 'Word2003': msWordVersion = OptimizationOptions_MsWordVersionEnum.word2003; break;

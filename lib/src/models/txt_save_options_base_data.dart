@@ -47,15 +47,19 @@ class TxtSaveOptionsBaseData extends SaveOptionsData {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize TxtSaveOptionsBaseData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Encoding')) {
-      encoding = json['Encoding'];
+      encoding = json['Encoding'] as String;
     } else {
       encoding = null;
     }
 
     if (json.containsKey('ExportHeadersFootersMode')) {
-      switch (json['ExportHeadersFootersMode']) {
+      switch (json['ExportHeadersFootersMode'] as String) {
         case 'None': exportHeadersFootersMode = TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum.none; break;
         case 'PrimaryOnly': exportHeadersFootersMode = TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum.primaryOnly; break;
         case 'AllAtEnd': exportHeadersFootersMode = TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum.allAtEnd; break;
@@ -66,13 +70,13 @@ class TxtSaveOptionsBaseData extends SaveOptionsData {
     }
 
     if (json.containsKey('ForcePageBreaks')) {
-      forcePageBreaks = json['ForcePageBreaks'];
+      forcePageBreaks = json['ForcePageBreaks'] as bool;
     } else {
       forcePageBreaks = null;
     }
 
     if (json.containsKey('ParagraphBreak')) {
-      paragraphBreak = json['ParagraphBreak'];
+      paragraphBreak = json['ParagraphBreak'] as String;
     } else {
       paragraphBreak = null;
     }

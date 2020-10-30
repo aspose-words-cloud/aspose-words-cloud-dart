@@ -39,8 +39,12 @@ class PreferredWidth implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize PreferredWidth data model.');
+    }
+
     if (json.containsKey('Type')) {
-      switch (json['Type']) {
+      switch (json['Type'] as String) {
         case 'Auto': type = PreferredWidth_TypeEnum.auto; break;
         case 'Percent': type = PreferredWidth_TypeEnum.percent; break;
         case 'Points': type = PreferredWidth_TypeEnum.points; break;
@@ -51,7 +55,7 @@ class PreferredWidth implements ModelBase {
     }
 
     if (json.containsKey('Value')) {
-      value = json['Value'];
+      value = json['Value'] as double;
     } else {
       value = null;
     }

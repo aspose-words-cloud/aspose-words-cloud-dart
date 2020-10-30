@@ -37,13 +37,17 @@ class StylesResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize StylesResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Styles')) {
       // Array processing
       styles = <Style>[];
       for(final _element in json['Styles']) {
         var _elementValue = Style();
-        _elementValue.deserialize(_element);
+        _elementValue.deserialize(_element as Map<String, dynamic>);
         styles.add(_elementValue);
       }
     } else {

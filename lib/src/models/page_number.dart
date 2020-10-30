@@ -45,26 +45,30 @@ class PageNumber implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize PageNumber data model.');
+    }
+
     if (json.containsKey('Alignment')) {
-      alignment = json['Alignment'];
+      alignment = json['Alignment'] as String;
     } else {
       alignment = null;
     }
 
     if (json.containsKey('Format')) {
-      format = json['Format'];
+      format = json['Format'] as String;
     } else {
       format = null;
     }
 
     if (json.containsKey('IsTop')) {
-      isTop = json['IsTop'];
+      isTop = json['IsTop'] as bool;
     } else {
       isTop = null;
     }
 
     if (json.containsKey('SetPageNumberOnFirstPage')) {
-      setPageNumberOnFirstPage = json['SetPageNumberOnFirstPage'];
+      setPageNumberOnFirstPage = json['SetPageNumberOnFirstPage'] as bool;
     } else {
       setPageNumberOnFirstPage = null;
     }

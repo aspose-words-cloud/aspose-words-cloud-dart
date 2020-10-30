@@ -36,8 +36,12 @@ class WordsResponse implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize WordsResponse data model.');
+    }
+
     if (json.containsKey('RequestId')) {
-      requestId = json['RequestId'];
+      requestId = json['RequestId'] as String;
     } else {
       requestId = null;
     }

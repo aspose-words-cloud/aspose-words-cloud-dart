@@ -86,87 +86,91 @@ class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize HtmlFixedSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('CssClassNamesPrefix')) {
-      cssClassNamesPrefix = json['CssClassNamesPrefix'];
+      cssClassNamesPrefix = json['CssClassNamesPrefix'] as String;
     } else {
       cssClassNamesPrefix = null;
     }
 
     if (json.containsKey('Encoding')) {
-      encoding = json['Encoding'];
+      encoding = json['Encoding'] as String;
     } else {
       encoding = null;
     }
 
     if (json.containsKey('ExportEmbeddedCss')) {
-      exportEmbeddedCss = json['ExportEmbeddedCss'];
+      exportEmbeddedCss = json['ExportEmbeddedCss'] as bool;
     } else {
       exportEmbeddedCss = null;
     }
 
     if (json.containsKey('ExportEmbeddedFonts')) {
-      exportEmbeddedFonts = json['ExportEmbeddedFonts'];
+      exportEmbeddedFonts = json['ExportEmbeddedFonts'] as bool;
     } else {
       exportEmbeddedFonts = null;
     }
 
     if (json.containsKey('ExportEmbeddedImages')) {
-      exportEmbeddedImages = json['ExportEmbeddedImages'];
+      exportEmbeddedImages = json['ExportEmbeddedImages'] as bool;
     } else {
       exportEmbeddedImages = null;
     }
 
     if (json.containsKey('ExportFormFields')) {
-      exportFormFields = json['ExportFormFields'];
+      exportFormFields = json['ExportFormFields'] as bool;
     } else {
       exportFormFields = null;
     }
 
     if (json.containsKey('FontFormat')) {
-      fontFormat = json['FontFormat'];
+      fontFormat = json['FontFormat'] as String;
     } else {
       fontFormat = null;
     }
 
     if (json.containsKey('PageHorizontalAlignment')) {
-      pageHorizontalAlignment = json['PageHorizontalAlignment'];
+      pageHorizontalAlignment = json['PageHorizontalAlignment'] as String;
     } else {
       pageHorizontalAlignment = null;
     }
 
     if (json.containsKey('PageMargins')) {
-      pageMargins = json['PageMargins'];
+      pageMargins = json['PageMargins'] as double;
     } else {
       pageMargins = null;
     }
 
     if (json.containsKey('ResourcesFolder')) {
-      resourcesFolder = json['ResourcesFolder'];
+      resourcesFolder = json['ResourcesFolder'] as String;
     } else {
       resourcesFolder = null;
     }
 
     if (json.containsKey('ResourcesFolderAlias')) {
-      resourcesFolderAlias = json['ResourcesFolderAlias'];
+      resourcesFolderAlias = json['ResourcesFolderAlias'] as String;
     } else {
       resourcesFolderAlias = null;
     }
 
     if (json.containsKey('SaveFontFaceCssSeparately')) {
-      saveFontFaceCssSeparately = json['SaveFontFaceCssSeparately'];
+      saveFontFaceCssSeparately = json['SaveFontFaceCssSeparately'] as bool;
     } else {
       saveFontFaceCssSeparately = null;
     }
 
     if (json.containsKey('ShowPageBorder')) {
-      showPageBorder = json['ShowPageBorder'];
+      showPageBorder = json['ShowPageBorder'] as bool;
     } else {
       showPageBorder = null;
     }
 
     if (json.containsKey('UseTargetMachineFonts')) {
-      useTargetMachineFonts = json['UseTargetMachineFonts'];
+      useTargetMachineFonts = json['UseTargetMachineFonts'] as bool;
     } else {
       useTargetMachineFonts = null;
     }

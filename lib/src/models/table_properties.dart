@@ -76,9 +76,13 @@ class TableProperties extends LinkElement {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize TableProperties data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Alignment')) {
-      switch (json['Alignment']) {
+      switch (json['Alignment'] as String) {
         case 'Left': alignment = TableProperties_AlignmentEnum.left; break;
         case 'Center': alignment = TableProperties_AlignmentEnum.center; break;
         case 'Right': alignment = TableProperties_AlignmentEnum.right; break;
@@ -89,56 +93,56 @@ class TableProperties extends LinkElement {
     }
 
     if (json.containsKey('AllowAutoFit')) {
-      allowAutoFit = json['AllowAutoFit'];
+      allowAutoFit = json['AllowAutoFit'] as bool;
     } else {
       allowAutoFit = null;
     }
 
     if (json.containsKey('Bidi')) {
-      bidi = json['Bidi'];
+      bidi = json['Bidi'] as bool;
     } else {
       bidi = null;
     }
 
     if (json.containsKey('BottomPadding')) {
-      bottomPadding = json['BottomPadding'];
+      bottomPadding = json['BottomPadding'] as double;
     } else {
       bottomPadding = null;
     }
 
     if (json.containsKey('CellSpacing')) {
-      cellSpacing = json['CellSpacing'];
+      cellSpacing = json['CellSpacing'] as double;
     } else {
       cellSpacing = null;
     }
 
     if (json.containsKey('LeftIndent')) {
-      leftIndent = json['LeftIndent'];
+      leftIndent = json['LeftIndent'] as double;
     } else {
       leftIndent = null;
     }
 
     if (json.containsKey('LeftPadding')) {
-      leftPadding = json['LeftPadding'];
+      leftPadding = json['LeftPadding'] as double;
     } else {
       leftPadding = null;
     }
 
     if (json.containsKey('PreferredWidth')) {
       preferredWidth = PreferredWidth();
-      preferredWidth.deserialize(json['PreferredWidth']);
+      preferredWidth.deserialize(json['PreferredWidth'] as Map<String, dynamic>);
     } else {
       preferredWidth = null;
     }
 
     if (json.containsKey('RightPadding')) {
-      rightPadding = json['RightPadding'];
+      rightPadding = json['RightPadding'] as double;
     } else {
       rightPadding = null;
     }
 
     if (json.containsKey('StyleIdentifier')) {
-      switch (json['StyleIdentifier']) {
+      switch (json['StyleIdentifier'] as String) {
         case 'Normal': styleIdentifier = TableProperties_StyleIdentifierEnum.normal; break;
         case 'Heading1': styleIdentifier = TableProperties_StyleIdentifierEnum.heading1; break;
         case 'Heading2': styleIdentifier = TableProperties_StyleIdentifierEnum.heading2; break;
@@ -519,20 +523,20 @@ class TableProperties extends LinkElement {
     }
 
     if (json.containsKey('StyleName')) {
-      styleName = json['StyleName'];
+      styleName = json['StyleName'] as String;
     } else {
       styleName = null;
     }
 
     if (json.containsKey('StyleOptions')) {
-      switch (json['StyleOptions']) {
+      switch (json['StyleOptions'] as String) {
         case 'None': styleOptions = TableProperties_StyleOptionsEnum.none; break;
         case 'FirstRow': styleOptions = TableProperties_StyleOptionsEnum.firstRow; break;
         case 'LastRow': styleOptions = TableProperties_StyleOptionsEnum.lastRow; break;
         case 'FirstColumn': styleOptions = TableProperties_StyleOptionsEnum.firstColumn; break;
         case 'LastColumn': styleOptions = TableProperties_StyleOptionsEnum.lastColumn; break;
         case 'RowBands': styleOptions = TableProperties_StyleOptionsEnum.rowBands; break;
-        case 'Default': styleOptions = TableProperties_StyleOptionsEnum.default_; break;
+        case 'Default': styleOptions = TableProperties_StyleOptionsEnum.defaultValue; break;
         case 'ColumnBands': styleOptions = TableProperties_StyleOptionsEnum.columnBands; break;
         case 'Default2003': styleOptions = TableProperties_StyleOptionsEnum.default2003; break;
         default: styleOptions = null; break;
@@ -542,8 +546,8 @@ class TableProperties extends LinkElement {
     }
 
     if (json.containsKey('TextWrapping')) {
-      switch (json['TextWrapping']) {
-        case 'Default': textWrapping = TableProperties_TextWrappingEnum.default_; break;
+      switch (json['TextWrapping'] as String) {
+        case 'Default': textWrapping = TableProperties_TextWrappingEnum.defaultValue; break;
         case 'None': textWrapping = TableProperties_TextWrappingEnum.none; break;
         case 'Around': textWrapping = TableProperties_TextWrappingEnum.around; break;
         default: textWrapping = null; break;
@@ -553,7 +557,7 @@ class TableProperties extends LinkElement {
     }
 
     if (json.containsKey('TopPadding')) {
-      topPadding = json['TopPadding'];
+      topPadding = json['TopPadding'] as double;
     } else {
       topPadding = null;
     }
@@ -995,7 +999,7 @@ class TableProperties extends LinkElement {
         case TableProperties_StyleOptionsEnum.firstColumn: _result['StyleOptions'] = 'FirstColumn'; break;
         case TableProperties_StyleOptionsEnum.lastColumn: _result['StyleOptions'] = 'LastColumn'; break;
         case TableProperties_StyleOptionsEnum.rowBands: _result['StyleOptions'] = 'RowBands'; break;
-        case TableProperties_StyleOptionsEnum.default_: _result['StyleOptions'] = 'Default'; break;
+        case TableProperties_StyleOptionsEnum.defaultValue: _result['StyleOptions'] = 'Default'; break;
         case TableProperties_StyleOptionsEnum.columnBands: _result['StyleOptions'] = 'ColumnBands'; break;
         case TableProperties_StyleOptionsEnum.default2003: _result['StyleOptions'] = 'Default2003'; break;
         default: break;
@@ -1004,7 +1008,7 @@ class TableProperties extends LinkElement {
 
     if (textWrapping != null) {
       switch (textWrapping) {
-        case TableProperties_TextWrappingEnum.default_: _result['TextWrapping'] = 'Default'; break;
+        case TableProperties_TextWrappingEnum.defaultValue: _result['TextWrapping'] = 'Default'; break;
         case TableProperties_TextWrappingEnum.none: _result['TextWrapping'] = 'None'; break;
         case TableProperties_TextWrappingEnum.around: _result['TextWrapping'] = 'Around'; break;
         default: break;
@@ -1413,7 +1417,7 @@ enum TableProperties_StyleOptionsEnum
   firstColumn,
   lastColumn,
   rowBands,
-  default_,
+  defaultValue,
   columnBands,
   default2003
 }
@@ -1421,7 +1425,7 @@ enum TableProperties_StyleOptionsEnum
 /// Gets or sets get or sets TextWrapping for table.
 enum TableProperties_TextWrappingEnum
 { 
-  default_,
+  defaultValue,
   none,
   around
 }

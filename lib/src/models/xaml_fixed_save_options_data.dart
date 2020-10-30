@@ -41,15 +41,19 @@ class XamlFixedSaveOptionsData extends FixedPageSaveOptionsData {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize XamlFixedSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('ResourcesFolder')) {
-      resourcesFolder = json['ResourcesFolder'];
+      resourcesFolder = json['ResourcesFolder'] as String;
     } else {
       resourcesFolder = null;
     }
 
     if (json.containsKey('ResourcesFolderAlias')) {
-      resourcesFolderAlias = json['ResourcesFolderAlias'];
+      resourcesFolderAlias = json['ResourcesFolderAlias'] as String;
     } else {
       resourcesFolderAlias = null;
     }

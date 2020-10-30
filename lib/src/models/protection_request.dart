@@ -42,20 +42,24 @@ class ProtectionRequest implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ProtectionRequest data model.');
+    }
+
     if (json.containsKey('NewPassword')) {
-      newPassword = json['NewPassword'];
+      newPassword = json['NewPassword'] as String;
     } else {
       newPassword = null;
     }
 
     if (json.containsKey('Password')) {
-      password = json['Password'];
+      password = json['Password'] as String;
     } else {
       password = null;
     }
 
     if (json.containsKey('ProtectionType')) {
-      protectionType = json['ProtectionType'];
+      protectionType = json['ProtectionType'] as String;
     } else {
       protectionType = null;
     }

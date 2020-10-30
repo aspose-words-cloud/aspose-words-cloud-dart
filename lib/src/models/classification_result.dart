@@ -39,14 +39,18 @@ class ClassificationResult implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ClassificationResult data model.');
+    }
+
     if (json.containsKey('ClassName')) {
-      className = json['ClassName'];
+      className = json['ClassName'] as String;
     } else {
       className = null;
     }
 
     if (json.containsKey('ClassProbability')) {
-      classProbability = json['ClassProbability'];
+      classProbability = json['ClassProbability'] as double;
     } else {
       classProbability = null;
     }

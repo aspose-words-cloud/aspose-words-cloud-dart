@@ -67,58 +67,62 @@ class CompareOptions implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize CompareOptions data model.');
+    }
+
     if (json.containsKey('IgnoreCaseChanges')) {
-      ignoreCaseChanges = json['IgnoreCaseChanges'];
+      ignoreCaseChanges = json['IgnoreCaseChanges'] as bool;
     } else {
       ignoreCaseChanges = null;
     }
 
     if (json.containsKey('IgnoreComments')) {
-      ignoreComments = json['IgnoreComments'];
+      ignoreComments = json['IgnoreComments'] as bool;
     } else {
       ignoreComments = null;
     }
 
     if (json.containsKey('IgnoreFields')) {
-      ignoreFields = json['IgnoreFields'];
+      ignoreFields = json['IgnoreFields'] as bool;
     } else {
       ignoreFields = null;
     }
 
     if (json.containsKey('IgnoreFootnotes')) {
-      ignoreFootnotes = json['IgnoreFootnotes'];
+      ignoreFootnotes = json['IgnoreFootnotes'] as bool;
     } else {
       ignoreFootnotes = null;
     }
 
     if (json.containsKey('IgnoreFormatting')) {
-      ignoreFormatting = json['IgnoreFormatting'];
+      ignoreFormatting = json['IgnoreFormatting'] as bool;
     } else {
       ignoreFormatting = null;
     }
 
     if (json.containsKey('IgnoreHeadersAndFooters')) {
-      ignoreHeadersAndFooters = json['IgnoreHeadersAndFooters'];
+      ignoreHeadersAndFooters = json['IgnoreHeadersAndFooters'] as bool;
     } else {
       ignoreHeadersAndFooters = null;
     }
 
     if (json.containsKey('IgnoreTables')) {
-      ignoreTables = json['IgnoreTables'];
+      ignoreTables = json['IgnoreTables'] as bool;
     } else {
       ignoreTables = null;
     }
 
     if (json.containsKey('IgnoreTextboxes')) {
-      ignoreTextboxes = json['IgnoreTextboxes'];
+      ignoreTextboxes = json['IgnoreTextboxes'] as bool;
     } else {
       ignoreTextboxes = null;
     }
 
     if (json.containsKey('Target')) {
-      switch (json['Target']) {
+      switch (json['Target'] as String) {
         case 'Current': target = CompareOptions_TargetEnum.current; break;
-        case 'New': target = CompareOptions_TargetEnum.new_; break;
+        case 'New': target = CompareOptions_TargetEnum.newValue; break;
         default: target = null; break;
       }
     } else {
@@ -164,7 +168,7 @@ class CompareOptions implements ModelBase {
     if (target != null) {
       switch (target) {
         case CompareOptions_TargetEnum.current: _result['Target'] = 'Current'; break;
-        case CompareOptions_TargetEnum.new_: _result['Target'] = 'New'; break;
+        case CompareOptions_TargetEnum.newValue: _result['Target'] = 'New'; break;
         default: break;
       }
     }
@@ -176,6 +180,6 @@ class CompareOptions implements ModelBase {
 enum CompareOptions_TargetEnum
 { 
   current,
-  new_
+  newValue
 }
 

@@ -155,210 +155,214 @@ class Font extends LinkElement {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize Font data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('AllCaps')) {
-      allCaps = json['AllCaps'];
+      allCaps = json['AllCaps'] as bool;
     } else {
       allCaps = null;
     }
 
     if (json.containsKey('Bidi')) {
-      bidi = json['Bidi'];
+      bidi = json['Bidi'] as bool;
     } else {
       bidi = null;
     }
 
     if (json.containsKey('Bold')) {
-      bold = json['Bold'];
+      bold = json['Bold'] as bool;
     } else {
       bold = null;
     }
 
     if (json.containsKey('BoldBi')) {
-      boldBi = json['BoldBi'];
+      boldBi = json['BoldBi'] as bool;
     } else {
       boldBi = null;
     }
 
     if (json.containsKey('Border')) {
       border = Border();
-      border.deserialize(json['Border']);
+      border.deserialize(json['Border'] as Map<String, dynamic>);
     } else {
       border = null;
     }
 
     if (json.containsKey('Color')) {
       color = XmlColor();
-      color.deserialize(json['Color']);
+      color.deserialize(json['Color'] as Map<String, dynamic>);
     } else {
       color = null;
     }
 
     if (json.containsKey('ComplexScript')) {
-      complexScript = json['ComplexScript'];
+      complexScript = json['ComplexScript'] as bool;
     } else {
       complexScript = null;
     }
 
     if (json.containsKey('DoubleStrikeThrough')) {
-      doubleStrikeThrough = json['DoubleStrikeThrough'];
+      doubleStrikeThrough = json['DoubleStrikeThrough'] as bool;
     } else {
       doubleStrikeThrough = null;
     }
 
     if (json.containsKey('Emboss')) {
-      emboss = json['Emboss'];
+      emboss = json['Emboss'] as bool;
     } else {
       emboss = null;
     }
 
     if (json.containsKey('Engrave')) {
-      engrave = json['Engrave'];
+      engrave = json['Engrave'] as bool;
     } else {
       engrave = null;
     }
 
     if (json.containsKey('Hidden')) {
-      hidden = json['Hidden'];
+      hidden = json['Hidden'] as bool;
     } else {
       hidden = null;
     }
 
     if (json.containsKey('HighlightColor')) {
       highlightColor = XmlColor();
-      highlightColor.deserialize(json['HighlightColor']);
+      highlightColor.deserialize(json['HighlightColor'] as Map<String, dynamic>);
     } else {
       highlightColor = null;
     }
 
     if (json.containsKey('Italic')) {
-      italic = json['Italic'];
+      italic = json['Italic'] as bool;
     } else {
       italic = null;
     }
 
     if (json.containsKey('ItalicBi')) {
-      italicBi = json['ItalicBi'];
+      italicBi = json['ItalicBi'] as bool;
     } else {
       italicBi = null;
     }
 
     if (json.containsKey('Kerning')) {
-      kerning = json['Kerning'];
+      kerning = json['Kerning'] as double;
     } else {
       kerning = null;
     }
 
     if (json.containsKey('LocaleId')) {
-      localeId = json['LocaleId'];
+      localeId = json['LocaleId'] as int;
     } else {
       localeId = null;
     }
 
     if (json.containsKey('LocaleIdBi')) {
-      localeIdBi = json['LocaleIdBi'];
+      localeIdBi = json['LocaleIdBi'] as int;
     } else {
       localeIdBi = null;
     }
 
     if (json.containsKey('LocaleIdFarEast')) {
-      localeIdFarEast = json['LocaleIdFarEast'];
+      localeIdFarEast = json['LocaleIdFarEast'] as int;
     } else {
       localeIdFarEast = null;
     }
 
     if (json.containsKey('Name')) {
-      name = json['Name'];
+      name = json['Name'] as String;
     } else {
       name = null;
     }
 
     if (json.containsKey('NameAscii')) {
-      nameAscii = json['NameAscii'];
+      nameAscii = json['NameAscii'] as String;
     } else {
       nameAscii = null;
     }
 
     if (json.containsKey('NameBi')) {
-      nameBi = json['NameBi'];
+      nameBi = json['NameBi'] as String;
     } else {
       nameBi = null;
     }
 
     if (json.containsKey('NameFarEast')) {
-      nameFarEast = json['NameFarEast'];
+      nameFarEast = json['NameFarEast'] as String;
     } else {
       nameFarEast = null;
     }
 
     if (json.containsKey('NameOther')) {
-      nameOther = json['NameOther'];
+      nameOther = json['NameOther'] as String;
     } else {
       nameOther = null;
     }
 
     if (json.containsKey('NoProofing')) {
-      noProofing = json['NoProofing'];
+      noProofing = json['NoProofing'] as bool;
     } else {
       noProofing = null;
     }
 
     if (json.containsKey('Outline')) {
-      outline = json['Outline'];
+      outline = json['Outline'] as bool;
     } else {
       outline = null;
     }
 
     if (json.containsKey('Position')) {
-      position = json['Position'];
+      position = json['Position'] as double;
     } else {
       position = null;
     }
 
     if (json.containsKey('Scaling')) {
-      scaling = json['Scaling'];
+      scaling = json['Scaling'] as int;
     } else {
       scaling = null;
     }
 
     if (json.containsKey('Shadow')) {
-      shadow = json['Shadow'];
+      shadow = json['Shadow'] as bool;
     } else {
       shadow = null;
     }
 
     if (json.containsKey('Size')) {
-      size = json['Size'];
+      size = json['Size'] as double;
     } else {
       size = null;
     }
 
     if (json.containsKey('SizeBi')) {
-      sizeBi = json['SizeBi'];
+      sizeBi = json['SizeBi'] as double;
     } else {
       sizeBi = null;
     }
 
     if (json.containsKey('SmallCaps')) {
-      smallCaps = json['SmallCaps'];
+      smallCaps = json['SmallCaps'] as bool;
     } else {
       smallCaps = null;
     }
 
     if (json.containsKey('Spacing')) {
-      spacing = json['Spacing'];
+      spacing = json['Spacing'] as double;
     } else {
       spacing = null;
     }
 
     if (json.containsKey('StrikeThrough')) {
-      strikeThrough = json['StrikeThrough'];
+      strikeThrough = json['StrikeThrough'] as bool;
     } else {
       strikeThrough = null;
     }
 
     if (json.containsKey('StyleIdentifier')) {
-      switch (json['StyleIdentifier']) {
+      switch (json['StyleIdentifier'] as String) {
         case 'Normal': styleIdentifier = Font_StyleIdentifierEnum.normal; break;
         case 'Heading1': styleIdentifier = Font_StyleIdentifierEnum.heading1; break;
         case 'Heading2': styleIdentifier = Font_StyleIdentifierEnum.heading2; break;
@@ -739,25 +743,25 @@ class Font extends LinkElement {
     }
 
     if (json.containsKey('StyleName')) {
-      styleName = json['StyleName'];
+      styleName = json['StyleName'] as String;
     } else {
       styleName = null;
     }
 
     if (json.containsKey('Subscript')) {
-      subscript = json['Subscript'];
+      subscript = json['Subscript'] as bool;
     } else {
       subscript = null;
     }
 
     if (json.containsKey('Superscript')) {
-      superscript = json['Superscript'];
+      superscript = json['Superscript'] as bool;
     } else {
       superscript = null;
     }
 
     if (json.containsKey('TextEffect')) {
-      switch (json['TextEffect']) {
+      switch (json['TextEffect'] as String) {
         case 'None': textEffect = Font_TextEffectEnum.none; break;
         case 'LasVegasLights': textEffect = Font_TextEffectEnum.lasVegasLights; break;
         case 'BlinkingBackground': textEffect = Font_TextEffectEnum.blinkingBackground; break;
@@ -772,7 +776,7 @@ class Font extends LinkElement {
     }
 
     if (json.containsKey('Underline')) {
-      switch (json['Underline']) {
+      switch (json['Underline'] as String) {
         case 'None': underline = Font_UnderlineEnum.none; break;
         case 'Single': underline = Font_UnderlineEnum.single; break;
         case 'Words': underline = Font_UnderlineEnum.words; break;
@@ -799,7 +803,7 @@ class Font extends LinkElement {
 
     if (json.containsKey('UnderlineColor')) {
       underlineColor = XmlColor();
-      underlineColor.deserialize(json['UnderlineColor']);
+      underlineColor.deserialize(json['UnderlineColor'] as Map<String, dynamic>);
     } else {
       underlineColor = null;
     }

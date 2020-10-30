@@ -48,33 +48,37 @@ class ApiError implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ApiError data model.');
+    }
+
     if (json.containsKey('Code')) {
-      code = json['Code'];
+      code = json['Code'] as String;
     } else {
       code = null;
     }
 
     if (json.containsKey('DateTime')) {
-      dateTime = DateTime.parse(json['DateTime']);
+      dateTime = DateTime.parse(json['DateTime'] as String);
     } else {
       dateTime = null;
     }
 
     if (json.containsKey('Description')) {
-      description = json['Description'];
+      description = json['Description'] as String;
     } else {
       description = null;
     }
 
     if (json.containsKey('InnerError')) {
       innerError = ApiError();
-      innerError.deserialize(json['InnerError']);
+      innerError.deserialize(json['InnerError'] as Map<String, dynamic>);
     } else {
       innerError = null;
     }
 
     if (json.containsKey('Message')) {
-      message = json['Message'];
+      message = json['Message'] as String;
     } else {
       message = null;
     }

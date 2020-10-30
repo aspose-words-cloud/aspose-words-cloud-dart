@@ -37,10 +37,14 @@ class ParagraphLinkCollectionResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ParagraphLinkCollectionResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Paragraphs')) {
       paragraphs = ParagraphLinkCollection();
-      paragraphs.deserialize(json['Paragraphs']);
+      paragraphs.deserialize(json['Paragraphs'] as Map<String, dynamic>);
     } else {
       paragraphs = null;
     }

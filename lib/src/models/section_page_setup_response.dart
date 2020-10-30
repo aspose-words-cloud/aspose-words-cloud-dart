@@ -37,10 +37,14 @@ class SectionPageSetupResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize SectionPageSetupResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('PageSetup')) {
       pageSetup = PageSetup();
-      pageSetup.deserialize(json['PageSetup']);
+      pageSetup.deserialize(json['PageSetup'] as Map<String, dynamic>);
     } else {
       pageSetup = null;
     }

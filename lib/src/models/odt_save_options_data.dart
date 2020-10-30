@@ -46,15 +46,19 @@ class OdtSaveOptionsData extends SaveOptionsData {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize OdtSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('IsStrictSchema11')) {
-      isStrictSchema11 = json['IsStrictSchema11'];
+      isStrictSchema11 = json['IsStrictSchema11'] as bool;
     } else {
       isStrictSchema11 = null;
     }
 
     if (json.containsKey('MeasureUnit')) {
-      switch (json['MeasureUnit']) {
+      switch (json['MeasureUnit'] as String) {
         case 'Centimeters': measureUnit = OdtSaveOptionsData_MeasureUnitEnum.centimeters; break;
         case 'Inches': measureUnit = OdtSaveOptionsData_MeasureUnitEnum.inches; break;
         default: measureUnit = null; break;
@@ -64,13 +68,13 @@ class OdtSaveOptionsData extends SaveOptionsData {
     }
 
     if (json.containsKey('Password')) {
-      password = json['Password'];
+      password = json['Password'] as String;
     } else {
       password = null;
     }
 
     if (json.containsKey('PrettyFormat')) {
-      prettyFormat = json['PrettyFormat'];
+      prettyFormat = json['PrettyFormat'] as bool;
     } else {
       prettyFormat = null;
     }

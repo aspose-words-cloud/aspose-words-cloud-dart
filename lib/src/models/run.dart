@@ -34,6 +34,10 @@ class Run extends RunLink {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize Run data model.');
+    }
+
     super.deserialize(json);
   }
 

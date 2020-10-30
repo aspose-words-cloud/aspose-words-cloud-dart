@@ -39,15 +39,19 @@ class Field extends FieldLink {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize Field data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('LocaleId')) {
-      localeId = json['LocaleId'];
+      localeId = json['LocaleId'] as String;
     } else {
       localeId = null;
     }
 
     if (json.containsKey('Result')) {
-      result = json['Result'];
+      result = json['Result'] as String;
     } else {
       result = null;
     }

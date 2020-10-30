@@ -67,8 +67,12 @@ class ListLevelUpdate implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ListLevelUpdate data model.');
+    }
+
     if (json.containsKey('Alignment')) {
-      switch (json['Alignment']) {
+      switch (json['Alignment'] as String) {
         case 'Left': alignment = ListLevelUpdate_AlignmentEnum.left; break;
         case 'Center': alignment = ListLevelUpdate_AlignmentEnum.center; break;
         case 'Right': alignment = ListLevelUpdate_AlignmentEnum.right; break;
@@ -79,25 +83,25 @@ class ListLevelUpdate implements ModelBase {
     }
 
     if (json.containsKey('IsLegal')) {
-      isLegal = json['IsLegal'];
+      isLegal = json['IsLegal'] as bool;
     } else {
       isLegal = null;
     }
 
     if (json.containsKey('NumberFormat')) {
-      numberFormat = json['NumberFormat'];
+      numberFormat = json['NumberFormat'] as String;
     } else {
       numberFormat = null;
     }
 
     if (json.containsKey('NumberPosition')) {
-      numberPosition = json['NumberPosition'];
+      numberPosition = json['NumberPosition'] as double;
     } else {
       numberPosition = null;
     }
 
     if (json.containsKey('NumberStyle')) {
-      switch (json['NumberStyle']) {
+      switch (json['NumberStyle'] as String) {
         case 'Arabic': numberStyle = ListLevelUpdate_NumberStyleEnum.arabic; break;
         case 'UppercaseRoman': numberStyle = ListLevelUpdate_NumberStyleEnum.uppercaseRoman; break;
         case 'LowercaseRoman': numberStyle = ListLevelUpdate_NumberStyleEnum.lowercaseRoman; break;
@@ -167,31 +171,31 @@ class ListLevelUpdate implements ModelBase {
     }
 
     if (json.containsKey('RestartAfterLevel')) {
-      restartAfterLevel = json['RestartAfterLevel'];
+      restartAfterLevel = json['RestartAfterLevel'] as int;
     } else {
       restartAfterLevel = null;
     }
 
     if (json.containsKey('StartAt')) {
-      startAt = json['StartAt'];
+      startAt = json['StartAt'] as int;
     } else {
       startAt = null;
     }
 
     if (json.containsKey('TabPosition')) {
-      tabPosition = json['TabPosition'];
+      tabPosition = json['TabPosition'] as double;
     } else {
       tabPosition = null;
     }
 
     if (json.containsKey('TextPosition')) {
-      textPosition = json['TextPosition'];
+      textPosition = json['TextPosition'] as double;
     } else {
       textPosition = null;
     }
 
     if (json.containsKey('TrailingCharacter')) {
-      switch (json['TrailingCharacter']) {
+      switch (json['TrailingCharacter'] as String) {
         case 'Tab': trailingCharacter = ListLevelUpdate_TrailingCharacterEnum.tab; break;
         case 'Space': trailingCharacter = ListLevelUpdate_TrailingCharacterEnum.space; break;
         case 'Nothing': trailingCharacter = ListLevelUpdate_TrailingCharacterEnum.nothing; break;

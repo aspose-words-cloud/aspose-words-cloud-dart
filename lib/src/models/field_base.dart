@@ -39,14 +39,18 @@ class FieldBase implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FieldBase data model.');
+    }
+
     if (json.containsKey('FieldCode')) {
-      fieldCode = json['FieldCode'];
+      fieldCode = json['FieldCode'] as String;
     } else {
       fieldCode = null;
     }
 
     if (json.containsKey('LocaleId')) {
-      localeId = json['LocaleId'];
+      localeId = json['LocaleId'] as String;
     } else {
       localeId = null;
     }

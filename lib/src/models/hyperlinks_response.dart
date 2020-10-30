@@ -36,10 +36,14 @@ class HyperlinksResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize HyperlinksResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Hyperlinks')) {
       hyperlinks = Hyperlinks();
-      hyperlinks.deserialize(json['Hyperlinks']);
+      hyperlinks.deserialize(json['Hyperlinks'] as Map<String, dynamic>);
     } else {
       hyperlinks = null;
     }

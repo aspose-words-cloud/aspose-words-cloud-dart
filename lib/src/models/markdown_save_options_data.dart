@@ -37,9 +37,13 @@ class MarkdownSaveOptionsData extends TxtSaveOptionsBaseData {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize MarkdownSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('TableContentAlignment')) {
-      switch (json['TableContentAlignment']) {
+      switch (json['TableContentAlignment'] as String) {
         case 'Auto': tableContentAlignment = MarkdownSaveOptionsData_TableContentAlignmentEnum.auto; break;
         case 'Left': tableContentAlignment = MarkdownSaveOptionsData_TableContentAlignmentEnum.left; break;
         case 'Center': tableContentAlignment = MarkdownSaveOptionsData_TableContentAlignmentEnum.center; break;

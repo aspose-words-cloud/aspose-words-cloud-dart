@@ -37,10 +37,14 @@ class TablePropertiesResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize TablePropertiesResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Properties')) {
       properties = TableProperties();
-      properties.deserialize(json['Properties']);
+      properties.deserialize(json['Properties'] as Map<String, dynamic>);
     } else {
       properties = null;
     }

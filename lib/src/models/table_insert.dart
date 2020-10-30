@@ -42,21 +42,25 @@ class TableInsert implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize TableInsert data model.');
+    }
+
     if (json.containsKey('ColumnsCount')) {
-      columnsCount = json['ColumnsCount'];
+      columnsCount = json['ColumnsCount'] as int;
     } else {
       columnsCount = null;
     }
 
     if (json.containsKey('Position')) {
       position = DocumentPosition();
-      position.deserialize(json['Position']);
+      position.deserialize(json['Position'] as Map<String, dynamic>);
     } else {
       position = null;
     }
 
     if (json.containsKey('RowsCount')) {
-      rowsCount = json['RowsCount'];
+      rowsCount = json['RowsCount'] as int;
     } else {
       rowsCount = null;
     }

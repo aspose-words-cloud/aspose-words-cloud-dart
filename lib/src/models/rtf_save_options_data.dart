@@ -45,27 +45,31 @@ class RtfSaveOptionsData extends SaveOptionsData {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize RtfSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('ExportCompactSize')) {
-      exportCompactSize = json['ExportCompactSize'];
+      exportCompactSize = json['ExportCompactSize'] as bool;
     } else {
       exportCompactSize = null;
     }
 
     if (json.containsKey('ExportImagesForOldReaders')) {
-      exportImagesForOldReaders = json['ExportImagesForOldReaders'];
+      exportImagesForOldReaders = json['ExportImagesForOldReaders'] as bool;
     } else {
       exportImagesForOldReaders = null;
     }
 
     if (json.containsKey('PrettyFormat')) {
-      prettyFormat = json['PrettyFormat'];
+      prettyFormat = json['PrettyFormat'] as bool;
     } else {
       prettyFormat = null;
     }
 
     if (json.containsKey('SaveImagesAsWmf')) {
-      saveImagesAsWmf = json['SaveImagesAsWmf'];
+      saveImagesAsWmf = json['SaveImagesAsWmf'] as bool;
     } else {
       saveImagesAsWmf = null;
     }

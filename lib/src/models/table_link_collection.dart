@@ -36,13 +36,17 @@ class TableLinkCollection extends LinkElement {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize TableLinkCollection data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('TableLinkList')) {
       // Array processing
       tableLinkList = <TableLink>[];
       for(final _element in json['TableLinkList']) {
         var _elementValue = TableLink();
-        _elementValue.deserialize(_element);
+        _elementValue.deserialize(_element as Map<String, dynamic>);
         tableLinkList.add(_elementValue);
       }
     } else {

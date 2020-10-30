@@ -36,9 +36,13 @@ class FieldLink extends NodeLink {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FieldLink data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('FieldCode')) {
-      fieldCode = json['FieldCode'];
+      fieldCode = json['FieldCode'] as String;
     } else {
       fieldCode = null;
     }

@@ -37,9 +37,13 @@ class RangeTextResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize RangeTextResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Text')) {
-      text = json['Text'];
+      text = json['Text'] as String;
     } else {
       text = null;
     }

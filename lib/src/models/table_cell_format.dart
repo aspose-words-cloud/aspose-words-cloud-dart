@@ -69,21 +69,25 @@ class TableCellFormat extends LinkElement {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize TableCellFormat data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('BottomPadding')) {
-      bottomPadding = json['BottomPadding'];
+      bottomPadding = json['BottomPadding'] as double;
     } else {
       bottomPadding = null;
     }
 
     if (json.containsKey('FitText')) {
-      fitText = json['FitText'];
+      fitText = json['FitText'] as bool;
     } else {
       fitText = null;
     }
 
     if (json.containsKey('HorizontalMerge')) {
-      switch (json['HorizontalMerge']) {
+      switch (json['HorizontalMerge'] as String) {
         case 'None': horizontalMerge = TableCellFormat_HorizontalMergeEnum.none; break;
         case 'First': horizontalMerge = TableCellFormat_HorizontalMergeEnum.first; break;
         case 'Previous': horizontalMerge = TableCellFormat_HorizontalMergeEnum.previous; break;
@@ -94,13 +98,13 @@ class TableCellFormat extends LinkElement {
     }
 
     if (json.containsKey('LeftPadding')) {
-      leftPadding = json['LeftPadding'];
+      leftPadding = json['LeftPadding'] as double;
     } else {
       leftPadding = null;
     }
 
     if (json.containsKey('Orientation')) {
-      switch (json['Orientation']) {
+      switch (json['Orientation'] as String) {
         case 'Horizontal': orientation = TableCellFormat_OrientationEnum.horizontal; break;
         case 'Downward': orientation = TableCellFormat_OrientationEnum.downward; break;
         case 'Upward': orientation = TableCellFormat_OrientationEnum.upward; break;
@@ -115,25 +119,25 @@ class TableCellFormat extends LinkElement {
 
     if (json.containsKey('PreferredWidth')) {
       preferredWidth = PreferredWidth();
-      preferredWidth.deserialize(json['PreferredWidth']);
+      preferredWidth.deserialize(json['PreferredWidth'] as Map<String, dynamic>);
     } else {
       preferredWidth = null;
     }
 
     if (json.containsKey('RightPadding')) {
-      rightPadding = json['RightPadding'];
+      rightPadding = json['RightPadding'] as double;
     } else {
       rightPadding = null;
     }
 
     if (json.containsKey('TopPadding')) {
-      topPadding = json['TopPadding'];
+      topPadding = json['TopPadding'] as double;
     } else {
       topPadding = null;
     }
 
     if (json.containsKey('VerticalAlignment')) {
-      switch (json['VerticalAlignment']) {
+      switch (json['VerticalAlignment'] as String) {
         case 'Top': verticalAlignment = TableCellFormat_VerticalAlignmentEnum.top; break;
         case 'Center': verticalAlignment = TableCellFormat_VerticalAlignmentEnum.center; break;
         case 'Bottom': verticalAlignment = TableCellFormat_VerticalAlignmentEnum.bottom; break;
@@ -144,7 +148,7 @@ class TableCellFormat extends LinkElement {
     }
 
     if (json.containsKey('VerticalMerge')) {
-      switch (json['VerticalMerge']) {
+      switch (json['VerticalMerge'] as String) {
         case 'None': verticalMerge = TableCellFormat_VerticalMergeEnum.none; break;
         case 'First': verticalMerge = TableCellFormat_VerticalMergeEnum.first; break;
         case 'Previous': verticalMerge = TableCellFormat_VerticalMergeEnum.previous; break;
@@ -155,13 +159,13 @@ class TableCellFormat extends LinkElement {
     }
 
     if (json.containsKey('Width')) {
-      width = json['Width'];
+      width = json['Width'] as double;
     } else {
       width = null;
     }
 
     if (json.containsKey('WrapText')) {
-      wrapText = json['WrapText'];
+      wrapText = json['WrapText'] as bool;
     } else {
       wrapText = null;
     }

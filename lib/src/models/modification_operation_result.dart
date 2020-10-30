@@ -39,16 +39,20 @@ class ModificationOperationResult implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ModificationOperationResult data model.');
+    }
+
     if (json.containsKey('Dest')) {
       dest = FileLink();
-      dest.deserialize(json['Dest']);
+      dest.deserialize(json['Dest'] as Map<String, dynamic>);
     } else {
       dest = null;
     }
 
     if (json.containsKey('Source')) {
       source = FileLink();
-      source.deserialize(json['Source']);
+      source.deserialize(json['Source'] as Map<String, dynamic>);
     } else {
       source = null;
     }

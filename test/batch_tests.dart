@@ -26,9 +26,11 @@
  */
 
 import 'dart:typed_data';
+
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
-import 'test_context.dart';
 import 'package:test/test.dart';
+
+import 'test_context.dart';
 
 /// Example of how to use batch requests.
 class BatchTests
@@ -51,7 +53,7 @@ class BatchTests
 
     await context.uploadFile(
         localFile,
-        '${remoteDataFolder}/${remoteFileName}'
+        '$remoteDataFolder/$remoteFileName'
     );
 
     var request1 = GetParagraphsRequest(

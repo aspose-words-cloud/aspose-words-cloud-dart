@@ -43,15 +43,19 @@ class ClassificationResponse extends WordsResponse {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ClassificationResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('BestClassName')) {
-      bestClassName = json['BestClassName'];
+      bestClassName = json['BestClassName'] as String;
     } else {
       bestClassName = null;
     }
 
     if (json.containsKey('BestClassProbability')) {
-      bestClassProbability = json['BestClassProbability'];
+      bestClassProbability = json['BestClassProbability'] as double;
     } else {
       bestClassProbability = null;
     }
@@ -61,7 +65,7 @@ class ClassificationResponse extends WordsResponse {
       bestResults = <ClassificationResult>[];
       for(final _element in json['BestResults']) {
         var _elementValue = ClassificationResult();
-        _elementValue.deserialize(_element);
+        _elementValue.deserialize(_element as Map<String, dynamic>);
         bestResults.add(_elementValue);
       }
     } else {

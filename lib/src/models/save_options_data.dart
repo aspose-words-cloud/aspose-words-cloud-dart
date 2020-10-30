@@ -68,8 +68,12 @@ class SaveOptionsData implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize SaveOptionsData data model.');
+    }
+
     if (json.containsKey('Dml3DEffectsRenderingMode')) {
-      switch (json['Dml3DEffectsRenderingMode']) {
+      switch (json['Dml3DEffectsRenderingMode'] as String) {
         case 'Basic': dml3DEffectsRenderingMode = SaveOptionsData_Dml3DEffectsRenderingModeEnum.basic; break;
         case 'Advanced': dml3DEffectsRenderingMode = SaveOptionsData_Dml3DEffectsRenderingModeEnum.advanced; break;
         default: dml3DEffectsRenderingMode = null; break;
@@ -79,55 +83,55 @@ class SaveOptionsData implements ModelBase {
     }
 
     if (json.containsKey('DmlEffectsRenderingMode')) {
-      dmlEffectsRenderingMode = json['DmlEffectsRenderingMode'];
+      dmlEffectsRenderingMode = json['DmlEffectsRenderingMode'] as String;
     } else {
       dmlEffectsRenderingMode = null;
     }
 
     if (json.containsKey('DmlRenderingMode')) {
-      dmlRenderingMode = json['DmlRenderingMode'];
+      dmlRenderingMode = json['DmlRenderingMode'] as String;
     } else {
       dmlRenderingMode = null;
     }
 
     if (json.containsKey('FileName')) {
-      fileName = json['FileName'];
+      fileName = json['FileName'] as String;
     } else {
       fileName = null;
     }
 
     if (json.containsKey('SaveFormat')) {
-      saveFormat = json['SaveFormat'];
+      saveFormat = json['SaveFormat'] as String;
     } else {
       saveFormat = null;
     }
 
     if (json.containsKey('UpdateFields')) {
-      updateFields = json['UpdateFields'];
+      updateFields = json['UpdateFields'] as bool;
     } else {
       updateFields = null;
     }
 
     if (json.containsKey('UpdateLastPrintedProperty')) {
-      updateLastPrintedProperty = json['UpdateLastPrintedProperty'];
+      updateLastPrintedProperty = json['UpdateLastPrintedProperty'] as bool;
     } else {
       updateLastPrintedProperty = null;
     }
 
     if (json.containsKey('UpdateLastSavedTimeProperty')) {
-      updateLastSavedTimeProperty = json['UpdateLastSavedTimeProperty'];
+      updateLastSavedTimeProperty = json['UpdateLastSavedTimeProperty'] as bool;
     } else {
       updateLastSavedTimeProperty = null;
     }
 
     if (json.containsKey('UpdateSdtContent')) {
-      updateSdtContent = json['UpdateSdtContent'];
+      updateSdtContent = json['UpdateSdtContent'] as bool;
     } else {
       updateSdtContent = null;
     }
 
     if (json.containsKey('ZipOutput')) {
-      zipOutput = json['ZipOutput'];
+      zipOutput = json['ZipOutput'] as bool;
     } else {
       zipOutput = null;
     }

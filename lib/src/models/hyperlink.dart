@@ -39,15 +39,19 @@ class Hyperlink extends LinkElement {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize Hyperlink data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('DisplayText')) {
-      displayText = json['DisplayText'];
+      displayText = json['DisplayText'] as String;
     } else {
       displayText = null;
     }
 
     if (json.containsKey('Value')) {
-      value = json['Value'];
+      value = json['Value'] as String;
     } else {
       value = null;
     }

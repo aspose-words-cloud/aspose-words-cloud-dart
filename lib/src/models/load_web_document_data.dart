@@ -39,15 +39,19 @@ class LoadWebDocumentData implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize LoadWebDocumentData data model.');
+    }
+
     if (json.containsKey('LoadingDocumentUrl')) {
-      loadingDocumentUrl = json['LoadingDocumentUrl'];
+      loadingDocumentUrl = json['LoadingDocumentUrl'] as String;
     } else {
       loadingDocumentUrl = null;
     }
 
     if (json.containsKey('SaveOptions')) {
       saveOptions = SaveOptionsData();
-      saveOptions.deserialize(json['SaveOptions']);
+      saveOptions.deserialize(json['SaveOptions'] as Map<String, dynamic>);
     } else {
       saveOptions = null;
     }

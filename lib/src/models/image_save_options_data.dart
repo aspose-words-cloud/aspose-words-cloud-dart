@@ -78,82 +78,86 @@ class ImageSaveOptionsData extends FixedPageSaveOptionsData {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ImageSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('GraphicsQualityOptions')) {
       graphicsQualityOptions = GraphicsQualityOptionsData();
-      graphicsQualityOptions.deserialize(json['GraphicsQualityOptions']);
+      graphicsQualityOptions.deserialize(json['GraphicsQualityOptions'] as Map<String, dynamic>);
     } else {
       graphicsQualityOptions = null;
     }
 
     if (json.containsKey('HorizontalResolution')) {
-      horizontalResolution = json['HorizontalResolution'];
+      horizontalResolution = json['HorizontalResolution'] as double;
     } else {
       horizontalResolution = null;
     }
 
     if (json.containsKey('ImageBrightness')) {
-      imageBrightness = json['ImageBrightness'];
+      imageBrightness = json['ImageBrightness'] as double;
     } else {
       imageBrightness = null;
     }
 
     if (json.containsKey('ImageColorMode')) {
-      imageColorMode = json['ImageColorMode'];
+      imageColorMode = json['ImageColorMode'] as String;
     } else {
       imageColorMode = null;
     }
 
     if (json.containsKey('ImageContrast')) {
-      imageContrast = json['ImageContrast'];
+      imageContrast = json['ImageContrast'] as double;
     } else {
       imageContrast = null;
     }
 
     if (json.containsKey('PaperColor')) {
-      paperColor = json['PaperColor'];
+      paperColor = json['PaperColor'] as String;
     } else {
       paperColor = null;
     }
 
     if (json.containsKey('PixelFormat')) {
-      pixelFormat = json['PixelFormat'];
+      pixelFormat = json['PixelFormat'] as String;
     } else {
       pixelFormat = null;
     }
 
     if (json.containsKey('Resolution')) {
-      resolution = json['Resolution'];
+      resolution = json['Resolution'] as double;
     } else {
       resolution = null;
     }
 
     if (json.containsKey('Scale')) {
-      scale = json['Scale'];
+      scale = json['Scale'] as double;
     } else {
       scale = null;
     }
 
     if (json.containsKey('UseAntiAliasing')) {
-      useAntiAliasing = json['UseAntiAliasing'];
+      useAntiAliasing = json['UseAntiAliasing'] as bool;
     } else {
       useAntiAliasing = null;
     }
 
     if (json.containsKey('UseGdiEmfRenderer')) {
-      useGdiEmfRenderer = json['UseGdiEmfRenderer'];
+      useGdiEmfRenderer = json['UseGdiEmfRenderer'] as bool;
     } else {
       useGdiEmfRenderer = null;
     }
 
     if (json.containsKey('UseHighQualityRendering')) {
-      useHighQualityRendering = json['UseHighQualityRendering'];
+      useHighQualityRendering = json['UseHighQualityRendering'] as bool;
     } else {
       useHighQualityRendering = null;
     }
 
     if (json.containsKey('VerticalResolution')) {
-      verticalResolution = json['VerticalResolution'];
+      verticalResolution = json['VerticalResolution'] as double;
     } else {
       verticalResolution = null;
     }

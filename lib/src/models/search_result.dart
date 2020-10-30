@@ -39,16 +39,20 @@ class SearchResult implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize SearchResult data model.');
+    }
+
     if (json.containsKey('RangeEnd')) {
       rangeEnd = DocumentPosition();
-      rangeEnd.deserialize(json['RangeEnd']);
+      rangeEnd.deserialize(json['RangeEnd'] as Map<String, dynamic>);
     } else {
       rangeEnd = null;
     }
 
     if (json.containsKey('RangeStart')) {
       rangeStart = DocumentPosition();
-      rangeStart.deserialize(json['RangeStart']);
+      rangeStart.deserialize(json['RangeStart'] as Map<String, dynamic>);
     } else {
       rangeStart = null;
     }
