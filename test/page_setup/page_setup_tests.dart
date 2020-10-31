@@ -67,7 +67,7 @@ class PageSetupTests
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     var requestPageSetup = new PageSetup();
     requestPageSetup.rtlGutter = true;
-    requestPageSetup.leftMargin = 10;
+    requestPageSetup.leftMargin = 10.0;
     requestPageSetup.orientation = PageSetup_OrientationEnum.landscape;
     requestPageSetup.paperSize = PageSetup_PaperSizeEnum.a5;
 

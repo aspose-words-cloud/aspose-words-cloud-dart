@@ -242,7 +242,7 @@ class TableTests
     requestProperties.allowAutoFit = false;
     requestProperties.bidi = true;
     requestProperties.bottomPadding = 1;
-    requestProperties.cellSpacing = 2;
+    requestProperties.cellSpacing = 2.0;
     requestProperties.styleOptions = TableProperties_StyleOptionsEnum.columnBands;
 
     final request = new UpdateTablePropertiesRequest(
@@ -257,8 +257,8 @@ class TableTests
     expect(result.properties, isNotNull);
     expect(result.properties.allowAutoFit, isFalse);
     expect(result.properties.bidi, isTrue);
-    expect(result.properties.bottomPadding, 1);
-    expect(result.properties.cellSpacing, 2);
+    expect(result.properties.bottomPadding, 1.0);
+    expect(result.properties.cellSpacing, 2.0);
   }
 
   /// Test for updating table properties without node path.
@@ -270,8 +270,8 @@ class TableTests
     requestProperties.alignment = TableProperties_AlignmentEnum.right;
     requestProperties.allowAutoFit = false;
     requestProperties.bidi = true;
-    requestProperties.bottomPadding = 1;
-    requestProperties.cellSpacing = 2;
+    requestProperties.bottomPadding = 1.0;
+    requestProperties.cellSpacing = 2.0;
     requestProperties.styleOptions = TableProperties_StyleOptionsEnum.columnBands;
 
     final request = new UpdateTablePropertiesRequest(
@@ -285,8 +285,8 @@ class TableTests
     expect(result.properties, isNotNull);
     expect(result.properties.allowAutoFit, isFalse);
     expect(result.properties.bidi, isTrue);
-    expect(result.properties.bottomPadding, 1);
-    expect(result.properties.cellSpacing, 2);
+    expect(result.properties.bottomPadding, 1.0);
+    expect(result.properties.cellSpacing, 2.0);
   }
 
   /// Test for getting table row.
@@ -371,7 +371,7 @@ class TableTests
     var requestFormat = new TableRowFormat();
     requestFormat.allowBreakAcrossPages = true;
     requestFormat.headingFormat = true;
-    requestFormat.height = 10;
+    requestFormat.height = 10.0;
     requestFormat.heightRule = TableRowFormat_HeightRuleEnum.exactly;
 
     final request = new UpdateTableRowFormatRequest(
@@ -386,7 +386,7 @@ class TableTests
     expect(result.rowFormat, isNotNull);
     expect(result.rowFormat.allowBreakAcrossPages, isTrue);
     expect(result.rowFormat.headingFormat, isTrue);
-    expect(result.rowFormat.height, 10);
+    expect(result.rowFormat.height, 10.0);
   }
 
   /// Test for getting table cell.
@@ -467,7 +467,7 @@ class TableTests
     final String remoteFileName = 'TestUpdateTableCellFormat.docx';
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     var requestFormat = new TableCellFormat();
-    requestFormat.bottomPadding = 5;
+    requestFormat.bottomPadding = 5.0;
     requestFormat.fitText = true;
     requestFormat.horizontalMerge = TableCellFormat_HorizontalMergeEnum.first;
     requestFormat.wrapText = true;
@@ -482,7 +482,7 @@ class TableTests
 
     var result = await this.context.getApi().updateTableCellFormat(request);
     expect(result.cellFormat, isNotNull);
-    expect(result.cellFormat.bottomPadding, 5);
+    expect(result.cellFormat.bottomPadding, 5.0);
     expect(result.cellFormat.fitText, isTrue);
     expect(result.cellFormat.wrapText, isTrue);
   }

@@ -476,7 +476,7 @@ class ParagraphTests
     var result = await this.context.getApi().getParagraphTabStops(request);
     expect(result.tabStops, isNotNull);
     expect(result.tabStops.length, 2);
-    expect(result.tabStops[0].position, 72);
+    expect(result.tabStops[0].position, 72.0);
   }
 
   /// Test for getting paragraph tab stops without node path.
@@ -494,7 +494,7 @@ class ParagraphTests
     var result = await this.context.getApi().getParagraphTabStops(request);
     expect(result.tabStops, isNotNull);
     expect(result.tabStops.length, 2);
-    expect(result.tabStops[0].position, 72);
+    expect(result.tabStops[0].position, 72.0);
   }
 
   /// Test for inserting paragraph tab stop.
@@ -505,7 +505,7 @@ class ParagraphTests
     var requestDto = new TabStopInsert();
     requestDto.alignment = TabStopBase_AlignmentEnum.left;
     requestDto.leader = TabStopBase_LeaderEnum.none;
-    requestDto.position = 100;
+    requestDto.position = 100.0;
 
     final request = new InsertOrUpdateParagraphTabStopRequest(
       remoteFileName,
@@ -518,7 +518,7 @@ class ParagraphTests
     var result = await this.context.getApi().insertOrUpdateParagraphTabStop(request);
     expect(result.tabStops, isNotNull);
     expect(result.tabStops.length, 3);
-    expect(result.tabStops[1].position, 100);
+    expect(result.tabStops[1].position, 100.0);
 
 
   }
@@ -531,7 +531,7 @@ class ParagraphTests
     var requestDto = new TabStopInsert();
     requestDto.alignment = TabStopBase_AlignmentEnum.left;
     requestDto.leader = TabStopBase_LeaderEnum.none;
-    requestDto.position = 100;
+    requestDto.position = 100.0;
 
     final request = new InsertOrUpdateParagraphTabStopRequest(
       remoteFileName,
@@ -543,7 +543,7 @@ class ParagraphTests
     var result = await this.context.getApi().insertOrUpdateParagraphTabStop(request);
     expect(result.tabStops, isNotNull);
     expect(result.tabStops.length, 3);
-    expect(result.tabStops[1].position, 100);
+    expect(result.tabStops[1].position, 100.0);
 
 
   }
@@ -591,7 +591,7 @@ class ParagraphTests
 
     final request = new DeleteParagraphTabStopRequest(
       remoteFileName,
-      72,
+      72.0,
       0,
       nodePath: '',
       folder: remoteDataFolder
@@ -610,7 +610,7 @@ class ParagraphTests
 
     final request = new DeleteParagraphTabStopRequest(
       remoteFileName,
-      72,
+      72.0,
       0,
       folder: remoteDataFolder
     );

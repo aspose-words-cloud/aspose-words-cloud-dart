@@ -130,9 +130,9 @@ class TableBorderTests
     var requestBorderProperties = new Border();
     requestBorderProperties.borderType = Border_BorderTypeEnum.left;
     requestBorderProperties.color = requestBorderPropertiesColor;
-    requestBorderProperties.distanceFromText = 6;
+    requestBorderProperties.distanceFromText = 6.0;
     requestBorderProperties.lineStyle = Border_LineStyleEnum.dashDotStroker;
-    requestBorderProperties.lineWidth = 2;
+    requestBorderProperties.lineWidth = 2.0;
     requestBorderProperties.shadow = true;
 
     final request = new UpdateBorderRequest(
@@ -147,8 +147,8 @@ class TableBorderTests
     expect(result.border, isNotNull);
     expect(result.border.color, isNotNull);
     expect('#000002'.startsWith(result.border.color.web), isTrue);
-    expect(result.border.distanceFromText, 6);
-    expect(result.border.lineWidth, 2);
+    expect(result.border.distanceFromText, 6.0);
+    expect(result.border.lineWidth, 2.0);
     expect(result.border.shadow, isTrue);
   }
 }

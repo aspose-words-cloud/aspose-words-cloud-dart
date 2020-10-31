@@ -70,7 +70,7 @@ class WatermarkTests
     await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     var requestWatermarkText = new WatermarkText();
     requestWatermarkText.text = 'This is the text';
-    requestWatermarkText.rotationAngle = 90;
+    requestWatermarkText.rotationAngle = 90.0;
 
     final request = new InsertWatermarkTextRequest(
       remoteFileName,
