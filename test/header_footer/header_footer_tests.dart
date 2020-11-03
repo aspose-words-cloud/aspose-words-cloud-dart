@@ -75,7 +75,7 @@ class HeaderFooterTests
     expect(result.headerFooter, isNotNull);
     expect(result.headerFooter.childNodes, isNotNull);
     expect(result.headerFooter.childNodes.length, 1);
-    expect('0.0.0'.startsWith(result.headerFooter.childNodes[0].nodeId), isTrue);
+    expect(result.headerFooter.childNodes[0].nodeId, '0.0.0');
   }
 
   /// Test for getting headerfooter of section.
@@ -95,7 +95,7 @@ class HeaderFooterTests
     expect(result.headerFooter, isNotNull);
     expect(result.headerFooter.childNodes, isNotNull);
     expect(result.headerFooter.childNodes.length, 1);
-    expect('0.0.0'.startsWith(result.headerFooter.childNodes[0].nodeId), isTrue);
+    expect(result.headerFooter.childNodes[0].nodeId, '0.0.0');
   }
 
   /// Test for deleting headerfooter.
@@ -146,6 +146,6 @@ class HeaderFooterTests
     expect(result.headerFooter, isNotNull);
     expect(result.headerFooter.childNodes, isNotNull);
     expect(result.headerFooter.childNodes.length, 1);
-    expect('0.2.0'.startsWith(result.headerFooter.childNodes[0].nodeId), isTrue);
+    expect(result.headerFooter.childNodes[0].nodeId, '0.2.0');
   }
 }

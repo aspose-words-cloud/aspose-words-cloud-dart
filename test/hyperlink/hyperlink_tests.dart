@@ -55,7 +55,7 @@ class HyperlinkTests
 
     var result = await this.context.getApi().getDocumentHyperlinkByIndex(request);
     expect(result.hyperlink, isNotNull);
-    expect('Aspose'.startsWith(result.hyperlink.displayText), isTrue);
+    expect(result.hyperlink.displayText, 'Aspose');
   }
 
   /// Test for getting hyperlinks.
@@ -73,6 +73,6 @@ class HyperlinkTests
     expect(result.hyperlinks, isNotNull);
     expect(result.hyperlinks.hyperlinkList, isNotNull);
     expect(result.hyperlinks.hyperlinkList.length, 2);
-    expect('Aspose'.startsWith(result.hyperlinks.hyperlinkList[0].displayText), isTrue);
+    expect(result.hyperlinks.hyperlinkList[0].displayText, 'Aspose');
   }
 }

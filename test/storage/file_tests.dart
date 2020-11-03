@@ -54,7 +54,7 @@ class FileTests
     var result = await this.context.getApi().uploadFile(request);
     expect(result.uploaded, isNotNull);
     expect(result.uploaded.length, 1);
-    expect('TestUploadFile.docx'.startsWith(result.uploaded[0]), isTrue);
+    expect(result.uploaded[0], 'TestUploadFile.docx');
   }
 
   /// Test for copy file.

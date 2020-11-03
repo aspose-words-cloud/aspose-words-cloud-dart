@@ -59,7 +59,7 @@ class DocumentProtectionTests
 
     var result = await this.context.getApi().protectDocument(request);
     expect(result.protectionData, isNotNull);
-    expect('ReadOnly'.startsWith(result.protectionData.protectionType), isTrue);
+    expect(result.protectionData.protectionType, 'ReadOnly');
   }
 
   /// Test for getting document protection.
@@ -76,7 +76,7 @@ class DocumentProtectionTests
 
     var result = await this.context.getApi().getDocumentProtection(request);
     expect(result.protectionData, isNotNull);
-    expect('ReadOnly'.startsWith(result.protectionData.protectionType), isTrue);
+    expect(result.protectionData.protectionType, 'ReadOnly');
   }
 
   /// Test for deleting unprotect document.
@@ -96,6 +96,6 @@ class DocumentProtectionTests
 
     var result = await this.context.getApi().unprotectDocument(request);
     expect(result.protectionData, isNotNull);
-    expect('NoProtection'.startsWith(result.protectionData.protectionType), isTrue);
+    expect(result.protectionData.protectionType, 'NoProtection');
   }
 }

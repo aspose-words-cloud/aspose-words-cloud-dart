@@ -60,7 +60,7 @@ class FieldTests
     expect(result.fields, isNotNull);
     expect(result.fields.list, isNotNull);
     expect(result.fields.list.length, 1);
-    expect('1'.startsWith(result.fields.list[0].result), isTrue);
+    expect(result.fields.list[0].result, '1');
   }
 
   /// Test for getting fields without node path.
@@ -79,7 +79,7 @@ class FieldTests
     expect(result.fields, isNotNull);
     expect(result.fields.list, isNotNull);
     expect(result.fields.list.length, 1);
-    expect('1'.startsWith(result.fields.list[0].result), isTrue);
+    expect(result.fields.list[0].result, '1');
   }
 
   /// Test for getting field by index.
@@ -98,7 +98,7 @@ class FieldTests
 
     var result = await this.context.getApi().getField(request);
     expect(result.field, isNotNull);
-    expect('1'.startsWith(result.field.result), isTrue);
+    expect(result.field.result, '1');
   }
 
   /// Test for getting field by index without node path.
@@ -116,7 +116,7 @@ class FieldTests
 
     var result = await this.context.getApi().getField(request);
     expect(result.field, isNotNull);
-    expect('1'.startsWith(result.field.result), isTrue);
+    expect(result.field.result, '1');
   }
 
   /// Test for putting field.
@@ -137,8 +137,8 @@ class FieldTests
 
     var result = await this.context.getApi().insertField(request);
     expect(result.field, isNotNull);
-    expect('{ NUMPAGES }'.startsWith(result.field.fieldCode), isTrue);
-    expect('0.0.0.1'.startsWith(result.field.nodeId), isTrue);
+    expect(result.field.fieldCode, '{ NUMPAGES }');
+    expect(result.field.nodeId, '0.0.0.1');
   }
 
   /// Test for putting field without node path.
@@ -158,8 +158,8 @@ class FieldTests
 
     var result = await this.context.getApi().insertField(request);
     expect(result.field, isNotNull);
-    expect('{ NUMPAGES }'.startsWith(result.field.fieldCode), isTrue);
-    expect('5.0.22.0'.startsWith(result.field.nodeId), isTrue);
+    expect(result.field.fieldCode, '{ NUMPAGES }');
+    expect(result.field.nodeId, '5.0.22.0');
   }
 
   /// Test for posting field.
@@ -181,8 +181,8 @@ class FieldTests
 
     var result = await this.context.getApi().updateField(request);
     expect(result.field, isNotNull);
-    expect('{ NUMPAGES }'.startsWith(result.field.fieldCode), isTrue);
-    expect('0.0.0.0'.startsWith(result.field.nodeId), isTrue);
+    expect(result.field.fieldCode, '{ NUMPAGES }');
+    expect(result.field.nodeId, '0.0.0.0');
   }
 
   /// Test for inserting page numbers field.
@@ -204,7 +204,7 @@ class FieldTests
 
     var result = await this.context.getApi().insertPageNumbers(request);
     expect(result.document, isNotNull);
-    expect('TestInsertPageNumbers.docx'.startsWith(result.document.fileName), isTrue);
+    expect(result.document.fileName, 'TestInsertPageNumbers.docx');
   }
 
   /// Test for deleting field.
@@ -348,6 +348,6 @@ class FieldTests
 
     var result = await this.context.getApi().updateFields(request);
     expect(result.document, isNotNull);
-    expect('TestUpdateDocumentFields.docx'.startsWith(result.document.fileName), isTrue);
+    expect(result.document.fileName, 'TestUpdateDocumentFields.docx');
   }
 }

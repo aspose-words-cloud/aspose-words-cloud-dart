@@ -57,7 +57,7 @@ class MathObjectTests
     expect(result.officeMathObjects, isNotNull);
     expect(result.officeMathObjects.list, isNotNull);
     expect(result.officeMathObjects.list.length, 16);
-    expect('0.0.0.0'.startsWith(result.officeMathObjects.list[0].nodeId), isTrue);
+    expect(result.officeMathObjects.list[0].nodeId, '0.0.0.0');
   }
 
   /// Test for getting mathObjects without node path.
@@ -75,7 +75,7 @@ class MathObjectTests
     expect(result.officeMathObjects, isNotNull);
     expect(result.officeMathObjects.list, isNotNull);
     expect(result.officeMathObjects.list.length, 16);
-    expect('0.0.0.0'.startsWith(result.officeMathObjects.list[0].nodeId), isTrue);
+    expect(result.officeMathObjects.list[0].nodeId, '0.0.0.0');
   }
 
   /// Test for getting mathObject.
@@ -93,7 +93,7 @@ class MathObjectTests
 
     var result = await this.context.getApi().getOfficeMathObject(request);
     expect(result.officeMathObject, isNotNull);
-    expect('0.0.0.0'.startsWith(result.officeMathObject.nodeId), isTrue);
+    expect(result.officeMathObject.nodeId, '0.0.0.0');
   }
 
   /// Test for getting mathObject without node path.
@@ -110,7 +110,7 @@ class MathObjectTests
 
     var result = await this.context.getApi().getOfficeMathObject(request);
     expect(result.officeMathObject, isNotNull);
-    expect('0.0.0.0'.startsWith(result.officeMathObject.nodeId), isTrue);
+    expect(result.officeMathObject.nodeId, '0.0.0.0');
   }
 
   /// Test for rendering mathObject.

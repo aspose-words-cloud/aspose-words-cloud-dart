@@ -58,7 +58,7 @@ class ExecuteTemplateTests
 
     var result = await this.context.getApi().executeMailMerge(request);
     expect(result.document, isNotNull);
-    expect('TestExecuteTemplate.docx'.startsWith(result.document.fileName), isTrue);
+    expect(result.document.fileName, 'TestExecuteTemplate.docx');
   }
 
   /// Test for execute template online.

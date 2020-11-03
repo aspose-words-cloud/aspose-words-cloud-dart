@@ -57,7 +57,7 @@ class TableTests
     expect(result.tables, isNotNull);
     expect(result.tables.tableLinkList, isNotNull);
     expect(result.tables.tableLinkList.length, 5);
-    expect('0.0.1'.startsWith(result.tables.tableLinkList[0].nodeId), isTrue);
+    expect(result.tables.tableLinkList[0].nodeId, '0.0.1');
   }
 
   /// Test for getting tables without node path.
@@ -75,7 +75,7 @@ class TableTests
     expect(result.tables, isNotNull);
     expect(result.tables.tableLinkList, isNotNull);
     expect(result.tables.tableLinkList.length, 5);
-    expect('0.0.1'.startsWith(result.tables.tableLinkList[0].nodeId), isTrue);
+    expect(result.tables.tableLinkList[0].nodeId, '0.0.1');
   }
 
   /// Test for getting table.
@@ -212,7 +212,7 @@ class TableTests
 
     var result = await this.context.getApi().getTableProperties(request);
     expect(result.properties, isNotNull);
-    expect('Table Grid'.startsWith(result.properties.styleName), isTrue);
+    expect(result.properties.styleName, 'Table Grid');
   }
 
   /// Test for getting document properties without node path.
@@ -229,7 +229,7 @@ class TableTests
 
     var result = await this.context.getApi().getTableProperties(request);
     expect(result.properties, isNotNull);
-    expect('Table Grid'.startsWith(result.properties.styleName), isTrue);
+    expect(result.properties.styleName, 'Table Grid');
   }
 
   /// Test for updating table properties.
@@ -404,7 +404,7 @@ class TableTests
 
     var result = await this.context.getApi().getTableCell(request);
     expect(result.cell, isNotNull);
-    expect('0.0.5.0.0'.startsWith(result.cell.nodeId), isTrue);
+    expect(result.cell.nodeId, '0.0.5.0.0');
   }
 
   /// Test for deleting cell.
@@ -440,7 +440,7 @@ class TableTests
 
     var result = await this.context.getApi().insertTableCell(request);
     expect(result.cell, isNotNull);
-    expect('0.0.5.0.3'.startsWith(result.cell.nodeId), isTrue);
+    expect(result.cell.nodeId, '0.0.5.0.3');
   }
 
   /// Test for getting cell format.

@@ -65,6 +65,6 @@ class CompareDocumentTests
 
     var result = await this.context.getApi().compareDocument(request);
     expect(result.document, isNotNull);
-    expect('TestCompareDocumentOut.doc'.startsWith(result.document.fileName), isTrue);
+    expect(result.document.fileName, 'TestCompareDocumentOut.doc');
   }
 }

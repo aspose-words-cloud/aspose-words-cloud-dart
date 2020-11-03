@@ -55,7 +55,7 @@ class CommentTests
 
     var result = await this.context.getApi().getComment(request);
     expect(result.comment, isNotNull);
-    expect('Comment 1'.startsWith(result.comment.text), isTrue);
+    expect(result.comment.text, 'Comment 1' + '\r\n\r\n');
   }
 
   /// Test for getting all comments from document.
@@ -73,7 +73,7 @@ class CommentTests
     expect(result.comments, isNotNull);
     expect(result.comments.commentList, isNotNull);
     expect(result.comments.commentList.length, 1);
-    expect('Comment 1'.startsWith(result.comments.commentList[0].text), isTrue);
+    expect(result.comments.commentList[0].text, 'Comment 1' + '\r\n\r\n');
   }
 
   /// Test for adding comment.
@@ -110,10 +110,10 @@ class CommentTests
 
     var result = await this.context.getApi().insertComment(request);
     expect(result.comment, isNotNull);
-    expect('A new Comment'.startsWith(result.comment.text), isTrue);
+    expect(result.comment.text, 'A new Comment' + '\r\n');
     expect(result.comment.rangeStart, isNotNull);
     expect(result.comment.rangeStart.node, isNotNull);
-    expect('0.3.0.4'.startsWith(result.comment.rangeStart.node.nodeId), isTrue);
+    expect(result.comment.rangeStart.node.nodeId, '0.3.0.4');
   }
 
   /// Test for updating comment.
@@ -151,10 +151,10 @@ class CommentTests
 
     var result = await this.context.getApi().updateComment(request);
     expect(result.comment, isNotNull);
-    expect('A new Comment'.startsWith(result.comment.text), isTrue);
+    expect(result.comment.text, 'A new Comment' + '\r\n');
     expect(result.comment.rangeStart, isNotNull);
     expect(result.comment.rangeStart.node, isNotNull);
-    expect('0.3.0.1'.startsWith(result.comment.rangeStart.node.nodeId), isTrue);
+    expect(result.comment.rangeStart.node.nodeId, '0.3.0.1');
   }
 
   /// A test for DeleteComment.

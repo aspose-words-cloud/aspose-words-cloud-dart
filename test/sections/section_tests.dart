@@ -57,7 +57,7 @@ class SectionTests
     expect(result.section, isNotNull);
     expect(result.section.childNodes, isNotNull);
     expect(result.section.childNodes.length, 13);
-    expect('0.3.0'.startsWith(result.section.childNodes[0].nodeId), isTrue);
+    expect(result.section.childNodes[0].nodeId, '0.3.0');
   }
 
   /// Test for getting sections.
@@ -75,7 +75,7 @@ class SectionTests
     expect(result.sections, isNotNull);
     expect(result.sections.sectionLinkList, isNotNull);
     expect(result.sections.sectionLinkList.length, 1);
-    expect('0'.startsWith(result.sections.sectionLinkList[0].nodeId), isTrue);
+    expect(result.sections.sectionLinkList[0].nodeId, '0');
   }
 
   /// Test for delete a section.

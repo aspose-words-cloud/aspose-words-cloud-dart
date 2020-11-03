@@ -59,8 +59,8 @@ class FootnoteTests
 
     var result = await this.context.getApi().insertFootnote(request);
     expect(result.footnote, isNotNull);
-    expect('0.1.7.1'.startsWith(result.footnote.nodeId), isTrue);
-    expect(' test endnote'.startsWith(result.footnote.text), isTrue);
+    expect(result.footnote.nodeId, '0.1.7.1');
+    expect(result.footnote.text, ' test endnote' + '\r\n');
   }
 
   /// Test for adding footnote without node path.
@@ -80,8 +80,8 @@ class FootnoteTests
 
     var result = await this.context.getApi().insertFootnote(request);
     expect(result.footnote, isNotNull);
-    expect('0.1.7.1'.startsWith(result.footnote.nodeId), isTrue);
-    expect(' test endnote'.startsWith(result.footnote.text), isTrue);
+    expect(result.footnote.nodeId, '0.1.7.1');
+    expect(result.footnote.text, ' test endnote' + '\r\n');
   }
 
   /// Test for deleting footnote.
@@ -131,7 +131,7 @@ class FootnoteTests
     expect(result.footnotes, isNotNull);
     expect(result.footnotes.list, isNotNull);
     expect(result.footnotes.list.length, 6);
-    expect(' Footnote 1.'.startsWith(result.footnotes.list[0].text), isTrue);
+    expect(result.footnotes.list[0].text, ' Footnote 1.' + '\r\n');
   }
 
   /// Test for getting footnotes without node path.
@@ -149,7 +149,7 @@ class FootnoteTests
     expect(result.footnotes, isNotNull);
     expect(result.footnotes.list, isNotNull);
     expect(result.footnotes.list.length, 6);
-    expect(' Footnote 1.'.startsWith(result.footnotes.list[0].text), isTrue);
+    expect(result.footnotes.list[0].text, ' Footnote 1.' + '\r\n');
   }
 
   /// Test for getting footnote.
@@ -167,7 +167,7 @@ class FootnoteTests
 
     var result = await this.context.getApi().getFootnote(request);
     expect(result.footnote, isNotNull);
-    expect(' Footnote 1.'.startsWith(result.footnote.text), isTrue);
+    expect(result.footnote.text, ' Footnote 1.' + '\r\n');
   }
 
   /// Test for getting footnote without node path.
@@ -184,7 +184,7 @@ class FootnoteTests
 
     var result = await this.context.getApi().getFootnote(request);
     expect(result.footnote, isNotNull);
-    expect(' Footnote 1.'.startsWith(result.footnote.text), isTrue);
+    expect(result.footnote.text, ' Footnote 1.' + '\r\n');
   }
 
   /// Test for updating footnote.
@@ -205,7 +205,7 @@ class FootnoteTests
 
     var result = await this.context.getApi().updateFootnote(request);
     expect(result.footnote, isNotNull);
-    expect(' new text is here'.startsWith(result.footnote.text), isTrue);
+    expect(result.footnote.text, ' new text is here' + '\r\n');
   }
 
   /// Test for updating footnote without node path.
@@ -225,6 +225,6 @@ class FootnoteTests
 
     var result = await this.context.getApi().updateFootnote(request);
     expect(result.footnote, isNotNull);
-    expect(' new text is here'.startsWith(result.footnote.text), isTrue);
+    expect(result.footnote.text, ' new text is here' + '\r\n');
   }
 }

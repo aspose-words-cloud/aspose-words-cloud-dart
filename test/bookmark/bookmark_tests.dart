@@ -55,7 +55,7 @@ class BookmarkTests
     var result = await this.context.getApi().getBookmarks(request);
     expect(result.bookmarks, isNotNull);
     expect(result.bookmarks.bookmarkList.length, 3);
-    expect('aspose'.startsWith(result.bookmarks.bookmarkList[1].name), isTrue);
+    expect(result.bookmarks.bookmarkList[1].name, 'aspose');
   }
 
   /// Test for getting bookmark by specified name.
@@ -73,7 +73,7 @@ class BookmarkTests
 
     var result = await this.context.getApi().getBookmarkByName(request);
     expect(result.bookmark, isNotNull);
-    expect(bookmarkName.startsWith(result.bookmark.name), isTrue);
+    expect(result.bookmark.name, bookmarkName);
   }
 
   /// Test for updating existed bookmark.
@@ -97,7 +97,7 @@ class BookmarkTests
 
     var result = await this.context.getApi().updateBookmark(request);
     expect(result.bookmark, isNotNull);
-    expect(bookmarkName.startsWith(result.bookmark.name), isTrue);
-    expect(bookmarkText.startsWith(result.bookmark.text), isTrue);
+    expect(result.bookmark.name, bookmarkName);
+    expect(result.bookmark.text, bookmarkText);
   }
 }

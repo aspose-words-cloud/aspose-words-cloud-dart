@@ -65,8 +65,8 @@ class FormFieldTests
 
     var result = await this.context.getApi().updateFormField(request);
     expect(result.formField, isNotNull);
-    expect('FullName'.startsWith(result.formField.name), isTrue);
-    expect(''.startsWith(result.formField.statusText), isTrue);
+    expect(result.formField.name, 'FullName');
+    expect(result.formField.statusText, '');
   }
 
   /// Test for posting form field without node path.
@@ -92,8 +92,8 @@ class FormFieldTests
 
     var result = await this.context.getApi().updateFormField(request);
     expect(result.formField, isNotNull);
-    expect('FullName'.startsWith(result.formField.name), isTrue);
-    expect(''.startsWith(result.formField.statusText), isTrue);
+    expect(result.formField.name, 'FullName');
+    expect(result.formField.statusText, '');
   }
 
   /// Test for getting form field.
@@ -111,7 +111,7 @@ class FormFieldTests
 
     var result = await this.context.getApi().getFormField(request);
     expect(result.formField, isNotNull);
-    expect('FullName'.startsWith(result.formField.name), isTrue);
+    expect(result.formField.name, 'FullName');
   }
 
   /// Test for getting form field without node path.
@@ -128,7 +128,7 @@ class FormFieldTests
 
     var result = await this.context.getApi().getFormField(request);
     expect(result.formField, isNotNull);
-    expect('FullName'.startsWith(result.formField.name), isTrue);
+    expect(result.formField.name, 'FullName');
   }
 
   /// Test for getting form fields.
@@ -147,7 +147,7 @@ class FormFieldTests
     expect(result.formFields, isNotNull);
     expect(result.formFields.list, isNotNull);
     expect(result.formFields.list.length, 5);
-    expect('FullName'.startsWith(result.formFields.list[0].name), isTrue);
+    expect(result.formFields.list[0].name, 'FullName');
   }
 
   /// Test for getting form fields without node path.
@@ -165,7 +165,7 @@ class FormFieldTests
     expect(result.formFields, isNotNull);
     expect(result.formFields.list, isNotNull);
     expect(result.formFields.list.length, 5);
-    expect('FullName'.startsWith(result.formFields.list[0].name), isTrue);
+    expect(result.formFields.list[0].name, 'FullName');
   }
 
   /// Test for insert form field without node path.
@@ -192,8 +192,8 @@ class FormFieldTests
 
     var result = await this.context.getApi().insertFormField(request);
     expect(result.formField, isNotNull);
-    expect('FullName'.startsWith(result.formField.name), isTrue);
-    expect(''.startsWith(result.formField.statusText), isTrue);
+    expect(result.formField.name, 'FullName');
+    expect(result.formField.statusText, '');
   }
 
   /// Test for insert form field without node path.
@@ -219,8 +219,8 @@ class FormFieldTests
 
     var result = await this.context.getApi().insertFormField(request);
     expect(result.formField, isNotNull);
-    expect('FullName'.startsWith(result.formField.name), isTrue);
-    expect(''.startsWith(result.formField.statusText), isTrue);
+    expect(result.formField.name, 'FullName');
+    expect(result.formField.statusText, '');
   }
 
   /// Test for deleting form field.

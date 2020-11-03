@@ -55,7 +55,7 @@ class MailMergeFiledsTests
     expect(result.fieldNames, isNotNull);
     expect(result.fieldNames.names, isNotNull);
     expect(result.fieldNames.names.length, 15);
-    expect('TableStart:Order'.startsWith(result.fieldNames.names[0]), isTrue);
+    expect(result.fieldNames.names[0], 'TableStart:Order');
   }
 
   /// Test for getting mailmerge fields.

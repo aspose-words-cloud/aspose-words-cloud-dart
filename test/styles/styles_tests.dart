@@ -55,7 +55,7 @@ class StylesTests
     var result = await this.context.getApi().getStyles(request);
     expect(result.styles, isNotNull);
     expect(result.styles.length, 22);
-    expect('Default Paragraph Font'.startsWith(result.styles[0].name), isTrue);
+    expect(result.styles[0].name, 'Default Paragraph Font');
   }
 
   /// Test for getting style from document.
@@ -72,7 +72,7 @@ class StylesTests
 
     var result = await this.context.getApi().getStyle(request);
     expect(result.style, isNotNull);
-    expect('Heading 1'.startsWith(result.style.name), isTrue);
+    expect(result.style.name, 'Heading 1');
   }
 
   /// Test for updating style from document.
@@ -92,7 +92,7 @@ class StylesTests
 
     var result = await this.context.getApi().updateStyle(request);
     expect(result.style, isNotNull);
-    expect('My Style'.startsWith(result.style.name), isTrue);
+    expect(result.style.name, 'My Style');
   }
 
   /// Test for inserting style from document.
@@ -112,7 +112,7 @@ class StylesTests
 
     var result = await this.context.getApi().insertStyle(request);
     expect(result.style, isNotNull);
-    expect('My Style'.startsWith(result.style.name), isTrue);
+    expect(result.style.name, 'My Style');
   }
 
   /// Test for coping style from document.
@@ -131,7 +131,7 @@ class StylesTests
 
     var result = await this.context.getApi().copyStyle(request);
     expect(result.style, isNotNull);
-    expect('Heading 1_0'.startsWith(result.style.name), isTrue);
+    expect(result.style.name, 'Heading 1_0');
   }
 
   /// Test for getting style from document element.
@@ -148,7 +148,7 @@ class StylesTests
 
     var result = await this.context.getApi().getStyleFromDocumentElement(request);
     expect(result.style, isNotNull);
-    expect('TOC 1'.startsWith(result.style.name), isTrue);
+    expect(result.style.name, 'TOC 1');
   }
 
   /// Test for applying style to document element.
