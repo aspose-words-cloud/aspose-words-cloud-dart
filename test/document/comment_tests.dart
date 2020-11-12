@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -37,7 +38,7 @@ class CommentTests
   String localFile;
 
   CommentTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/Comments';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/Comments';
     localFile = 'Common/test_multi_pages.docx';
   }
 
@@ -53,7 +54,9 @@ class CommentTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getComment(request);
+    var result = await context.getApi().getComment(request);
+    expect(result.comment, isNotNull);
+    expect(result.comment.text, 'Comment 1' + '\r\n\r\n');
   }
 
   /// Test for getting all comments from document.
@@ -67,7 +70,11 @@ class CommentTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getComments(request);
+    var result = await context.getApi().getComments(request);
+    expect(result.comments, isNotNull);
+    expect(result.comments.commentList, isNotNull);
+    expect(result.comments.commentList.length, 1);
+    expect(result.comments.commentList[0].text, 'Comment 1' + '\r\n\r\n');
   }
 
   /// Test for adding comment.
@@ -102,7 +109,12 @@ class CommentTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertComment(request);
+    var result = await context.getApi().insertComment(request);
+    expect(result.comment, isNotNull);
+    expect(result.comment.text, 'A new Comment' + '\r\n');
+    expect(result.comment.rangeStart, isNotNull);
+    expect(result.comment.rangeStart.node, isNotNull);
+    expect(result.comment.rangeStart.node.nodeId, '0.3.0.4');
   }
 
   /// Test for updating comment.
@@ -138,7 +150,12 @@ class CommentTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateComment(request);
+    var result = await context.getApi().updateComment(request);
+    expect(result.comment, isNotNull);
+    expect(result.comment.text, 'A new Comment' + '\r\n');
+    expect(result.comment.rangeStart, isNotNull);
+    expect(result.comment.rangeStart.node, isNotNull);
+    expect(result.comment.rangeStart.node.nodeId, '0.3.0.1');
   }
 
   /// A test for DeleteComment.
@@ -151,7 +168,7 @@ class CommentTests
       remoteFileName,
       0,
       folder: remoteDataFolder,
-      destFileName: context.baseTestOutPath + '/' + remoteFileName
+      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
     await context.getApi().deleteComment(request);

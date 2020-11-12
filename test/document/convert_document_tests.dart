@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -37,7 +38,7 @@ class ConvertDocumentTests
   String localFolder;
 
   ConvertDocumentTests(final this.context) {
-    remoteFolder = context.remoteBaseTestDataFolder + '/DocumentActions/ConvertDocument';
+    remoteFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/ConvertDocument';
     localFolder = 'DocumentActions/ConvertDocument';
   }
 
@@ -49,7 +50,7 @@ class ConvertDocumentTests
     await context.uploadFile('Common/' + localName, remoteFolder + '/' + remoteName);
     var requestSaveOptionsData = SaveOptionsData();
     requestSaveOptionsData.saveFormat = 'pdf';
-    requestSaveOptionsData.fileName = context.baseTestOutPath + '/TestSaveAs.pdf';
+    requestSaveOptionsData.fileName = this.context.baseTestOutPath + '/TestSaveAs.pdf';
 
     final request = SaveAsRequest(
       remoteName,
@@ -57,7 +58,9 @@ class ConvertDocumentTests
       folder: remoteFolder
     );
 
-    await context.getApi().saveAs(request);
+    var result = await context.getApi().saveAs(request);
+    expect(result.saveResult, isNotNull);
+    expect(result.saveResult.destDocument, isNotNull);
   }
 
   /// Test for converting document to one of the available formats.
@@ -68,7 +71,7 @@ class ConvertDocumentTests
     await context.uploadFile(localFolder + '/' + localName, remoteFolder + '/' + remoteName);
     var requestSaveOptionsData = SaveOptionsData();
     requestSaveOptionsData.saveFormat = 'docx';
-    requestSaveOptionsData.fileName = context.baseTestOutPath + '/TestSaveAsFromPdfToDoc.docx';
+    requestSaveOptionsData.fileName = this.context.baseTestOutPath + '/TestSaveAsFromPdfToDoc.docx';
 
     final request = SaveAsRequest(
       remoteName,
@@ -76,7 +79,9 @@ class ConvertDocumentTests
       folder: remoteFolder
     );
 
-    await context.getApi().saveAs(request);
+    var result = await context.getApi().saveAs(request);
+    expect(result.saveResult, isNotNull);
+    expect(result.saveResult.destDocument, isNotNull);
   }
 
   /// Test for converting document to one of the available formats.
@@ -87,7 +92,7 @@ class ConvertDocumentTests
     await context.uploadFile('Common/' + localName, remoteFolder + '/' + remoteName);
     var requestSaveOptions = TiffSaveOptionsData();
     requestSaveOptions.saveFormat = 'tiff';
-    requestSaveOptions.fileName = context.baseTestOutPath + '/abc.tiff';
+    requestSaveOptions.fileName = this.context.baseTestOutPath + '/abc.tiff';
 
     final request = SaveAsTiffRequest(
       remoteName,
@@ -95,7 +100,9 @@ class ConvertDocumentTests
       folder: remoteFolder
     );
 
-    await context.getApi().saveAsTiff(request);
+    var result = await context.getApi().saveAsTiff(request);
+    expect(result.saveResult, isNotNull);
+    expect(result.saveResult.destDocument, isNotNull);
   }
 
   /// A test for ConvertDocument.

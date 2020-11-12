@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -37,7 +38,7 @@ class RangeTests
   String localFile;
 
   RangeTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Range';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Range';
     localFile = 'DocumentElements/Range/RangeGet.doc';
   }
 
@@ -54,7 +55,8 @@ class RangeTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getRangeText(request);
+    var result = await context.getApi().getRangeText(request);
+    expect(result.text, 'This is HEADER ');
   }
 
   /// Test for removing the text for range.
@@ -70,7 +72,9 @@ class RangeTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().removeRange(request);
+    var result = await context.getApi().removeRange(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'TestRemoveRange.docx');
   }
 
   /// Test for saving a range as a new document.
@@ -89,7 +93,9 @@ class RangeTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().saveAsRange(request);
+    var result = await context.getApi().saveAsRange(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'NewDoc.docx');
   }
 
   /// Test for replacing text in range.
@@ -108,6 +114,8 @@ class RangeTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().replaceWithText(request);
+    var result = await context.getApi().replaceWithText(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'TestReplaceWithText.docx');
   }
 }

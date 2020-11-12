@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -55,6 +56,9 @@ class LoadWebDocumentTests
       requestData
     );
 
-    await context.getApi().loadWebDocument(request);
+    var result = await context.getApi().loadWebDocument(request);
+    expect(result.saveResult, isNotNull);
+    expect(result.saveResult.destDocument, isNotNull);
+    expect(result.saveResult.destDocument.href, 'google.doc');
   }
 }

@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -37,7 +38,7 @@ class FootnoteTests
   String footnoteFolder;
 
   FootnoteTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Footnotes';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Footnotes';
     footnoteFolder = 'DocumentElements/Footnotes';
   }
 
@@ -57,7 +58,10 @@ class FootnoteTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertFootnote(request);
+    var result = await context.getApi().insertFootnote(request);
+    expect(result.footnote, isNotNull);
+    expect(result.footnote.nodeId, '0.1.7.1');
+    expect(result.footnote.text, ' test endnote' + '\r\n');
   }
 
   /// Test for adding footnote without node path.
@@ -75,7 +79,10 @@ class FootnoteTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertFootnote(request);
+    var result = await context.getApi().insertFootnote(request);
+    expect(result.footnote, isNotNull);
+    expect(result.footnote.nodeId, '0.1.7.1');
+    expect(result.footnote.text, ' test endnote' + '\r\n');
   }
 
   /// Test for deleting footnote.
@@ -121,7 +128,11 @@ class FootnoteTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getFootnotes(request);
+    var result = await context.getApi().getFootnotes(request);
+    expect(result.footnotes, isNotNull);
+    expect(result.footnotes.list, isNotNull);
+    expect(result.footnotes.list.length, 6);
+    expect(result.footnotes.list[0].text, ' Footnote 1.' + '\r\n');
   }
 
   /// Test for getting footnotes without node path.
@@ -135,7 +146,11 @@ class FootnoteTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getFootnotes(request);
+    var result = await context.getApi().getFootnotes(request);
+    expect(result.footnotes, isNotNull);
+    expect(result.footnotes.list, isNotNull);
+    expect(result.footnotes.list.length, 6);
+    expect(result.footnotes.list[0].text, ' Footnote 1.' + '\r\n');
   }
 
   /// Test for getting footnote.
@@ -151,7 +166,9 @@ class FootnoteTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getFootnote(request);
+    var result = await context.getApi().getFootnote(request);
+    expect(result.footnote, isNotNull);
+    expect(result.footnote.text, ' Footnote 1.' + '\r\n');
   }
 
   /// Test for getting footnote without node path.
@@ -166,7 +183,9 @@ class FootnoteTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getFootnote(request);
+    var result = await context.getApi().getFootnote(request);
+    expect(result.footnote, isNotNull);
+    expect(result.footnote.text, ' Footnote 1.' + '\r\n');
   }
 
   /// Test for updating footnote.
@@ -185,7 +204,9 @@ class FootnoteTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateFootnote(request);
+    var result = await context.getApi().updateFootnote(request);
+    expect(result.footnote, isNotNull);
+    expect(result.footnote.text, ' new text is here' + '\r\n');
   }
 
   /// Test for updating footnote without node path.
@@ -203,6 +224,8 @@ class FootnoteTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateFootnote(request);
+    var result = await context.getApi().updateFootnote(request);
+    expect(result.footnote, isNotNull);
+    expect(result.footnote.text, ' new text is here' + '\r\n');
   }
 }

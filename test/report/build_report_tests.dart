@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -37,7 +38,7 @@ class BuildReportTests
   String reportingFolder;
 
   BuildReportTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/Reporting';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/Reporting';
     reportingFolder = 'DocumentActions/Reporting';
   }
 
@@ -81,6 +82,8 @@ class BuildReportTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().buildReport(request);
+    var result = await context.getApi().buildReport(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'TestBuildReport.docx');
   }
 }

@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -37,7 +38,7 @@ class HeaderFooterTests
   String localFile;
 
   HeaderFooterTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/HeaderFooters';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/HeaderFooters';
     localFile = 'DocumentElements/HeaderFooters/HeadersFooters.doc';
   }
 
@@ -53,7 +54,10 @@ class HeaderFooterTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getHeaderFooters(request);
+    var result = await context.getApi().getHeaderFooters(request);
+    expect(result.headerFooters, isNotNull);
+    expect(result.headerFooters.list, isNotNull);
+    expect(result.headerFooters.list.length, 6);
   }
 
   /// Test for getting headerfooter.
@@ -68,7 +72,11 @@ class HeaderFooterTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getHeaderFooter(request);
+    var result = await context.getApi().getHeaderFooter(request);
+    expect(result.headerFooter, isNotNull);
+    expect(result.headerFooter.childNodes, isNotNull);
+    expect(result.headerFooter.childNodes.length, 1);
+    expect(result.headerFooter.childNodes[0].nodeId, '0.0.0');
   }
 
   /// Test for getting headerfooter of section.
@@ -84,7 +92,11 @@ class HeaderFooterTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getHeaderFooterOfSection(request);
+    var result = await context.getApi().getHeaderFooterOfSection(request);
+    expect(result.headerFooter, isNotNull);
+    expect(result.headerFooter.childNodes, isNotNull);
+    expect(result.headerFooter.childNodes.length, 1);
+    expect(result.headerFooter.childNodes[0].nodeId, '0.0.0');
   }
 
   /// Test for deleting headerfooter.
@@ -131,6 +143,10 @@ class HeaderFooterTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertHeaderFooter(request);
+    var result = await context.getApi().insertHeaderFooter(request);
+    expect(result.headerFooter, isNotNull);
+    expect(result.headerFooter.childNodes, isNotNull);
+    expect(result.headerFooter.childNodes.length, 1);
+    expect(result.headerFooter.childNodes[0].nodeId, '0.2.0');
   }
 }

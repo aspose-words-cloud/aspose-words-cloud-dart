@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -37,7 +38,7 @@ class FolderTests
   String localFile;
 
   FolderTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/Storage';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/Storage';
     localFile = 'Common/test_multi_pages.docx';
   }
 
@@ -73,7 +74,8 @@ class FolderTests
       remoteDataFolder
     );
 
-    await context.getApi().getFilesList(request);
+    var result = await context.getApi().getFilesList(request);
+    expect(result.value, isNotNull);
   }
 
   /// Test for copy folder.
@@ -96,7 +98,7 @@ class FolderTests
     await context.uploadFile(localFile, remoteDataFolder + '/TestMoveFolderSrc/TestMoveFolderSrc.docx');
 
     final request = MoveFolderRequest(
-      context.baseTestOutPath + '/TestMoveFolderDest_' + context.createRandomGuid(),
+      this.context.baseTestOutPath + '/TestMoveFolderDest_' + this.context.createRandomGuid(),
       remoteDataFolder + '/TestMoveFolderSrc'
     );
 

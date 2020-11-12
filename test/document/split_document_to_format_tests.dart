@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -37,7 +38,7 @@ class SplitDocumentToFormatTests
   String localFile;
 
   SplitDocumentToFormatTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/SplitDocument';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/SplitDocument';
     localFile = 'Common/test_multi_pages.docx';
   }
 
@@ -51,11 +52,14 @@ class SplitDocumentToFormatTests
       remoteFileName,
       'text',
       folder: remoteDataFolder,
-      destFileName: context.baseTestOutPath + '/TestSplitDocument.text',
+      destFileName: this.context.baseTestOutPath + '/TestSplitDocument.text',
       from: 1,
       to: 2
     );
 
-    await context.getApi().splitDocument(request);
+    var result = await context.getApi().splitDocument(request);
+    expect(result.splitResult, isNotNull);
+    expect(result.splitResult.pages, isNotNull);
+    expect(result.splitResult.pages.length, 2);
   }
 }

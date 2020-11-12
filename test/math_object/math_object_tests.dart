@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -37,7 +38,7 @@ class MathObjectTests
   String localFile;
 
   MathObjectTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/MathObjects';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/MathObjects';
     localFile = 'DocumentElements/MathObjects/MathObjects.docx';
   }
 
@@ -53,7 +54,11 @@ class MathObjectTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getOfficeMathObjects(request);
+    var result = await context.getApi().getOfficeMathObjects(request);
+    expect(result.officeMathObjects, isNotNull);
+    expect(result.officeMathObjects.list, isNotNull);
+    expect(result.officeMathObjects.list.length, 16);
+    expect(result.officeMathObjects.list[0].nodeId, '0.0.0.0');
   }
 
   /// Test for getting mathObjects without node path.
@@ -67,7 +72,11 @@ class MathObjectTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getOfficeMathObjects(request);
+    var result = await context.getApi().getOfficeMathObjects(request);
+    expect(result.officeMathObjects, isNotNull);
+    expect(result.officeMathObjects.list, isNotNull);
+    expect(result.officeMathObjects.list.length, 16);
+    expect(result.officeMathObjects.list[0].nodeId, '0.0.0.0');
   }
 
   /// Test for getting mathObject.
@@ -83,7 +92,9 @@ class MathObjectTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getOfficeMathObject(request);
+    var result = await context.getApi().getOfficeMathObject(request);
+    expect(result.officeMathObject, isNotNull);
+    expect(result.officeMathObject.nodeId, '0.0.0.0');
   }
 
   /// Test for getting mathObject without node path.
@@ -98,7 +109,9 @@ class MathObjectTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getOfficeMathObject(request);
+    var result = await context.getApi().getOfficeMathObject(request);
+    expect(result.officeMathObject, isNotNull);
+    expect(result.officeMathObject.nodeId, '0.0.0.0');
   }
 
   /// Test for rendering mathObject.

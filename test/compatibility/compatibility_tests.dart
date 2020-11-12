@@ -37,7 +37,7 @@ class CompatibilityTests
   String localFile;
 
   CompatibilityTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/Compatibility';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/Compatibility';
     localFile = 'Common/test_multi_pages.docx';
   }
 

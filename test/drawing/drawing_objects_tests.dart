@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -38,7 +39,7 @@ class DrawingObjectsTests
   String localDrawingFile;
 
   DrawingObjectsTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/DrawingObjectss';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/DrawingObjectss';
     localFile = 'Common/test_multi_pages.docx';
     localDrawingFile = 'DocumentElements/DrawingObjects/sample_EmbeddedOLE.docx';
   }
@@ -55,7 +56,10 @@ class DrawingObjectsTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getDocumentDrawingObjects(request);
+    var result = await context.getApi().getDocumentDrawingObjects(request);
+    expect(result.drawingObjects, isNotNull);
+    expect(result.drawingObjects.list, isNotNull);
+    expect(result.drawingObjects.list.length, 1);
   }
 
   /// Test for getting drawing objects from document without node path.
@@ -69,7 +73,10 @@ class DrawingObjectsTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getDocumentDrawingObjects(request);
+    var result = await context.getApi().getDocumentDrawingObjects(request);
+    expect(result.drawingObjects, isNotNull);
+    expect(result.drawingObjects.list, isNotNull);
+    expect(result.drawingObjects.list.length, 1);
   }
 
   /// Test for getting drawing object by specified index.
@@ -85,7 +92,9 @@ class DrawingObjectsTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getDocumentDrawingObjectByIndex(request);
+    var result = await context.getApi().getDocumentDrawingObjectByIndex(request);
+    expect(result.drawingObject, isNotNull);
+    expect(result.drawingObject.height, 300.0);
   }
 
   /// Test for getting drawing object by specified index without node path.
@@ -100,7 +109,9 @@ class DrawingObjectsTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getDocumentDrawingObjectByIndex(request);
+    var result = await context.getApi().getDocumentDrawingObjectByIndex(request);
+    expect(result.drawingObject, isNotNull);
+    expect(result.drawingObject.height, 300.0);
   }
 
   /// Test for getting drawing object by specified index and format.
@@ -204,10 +215,10 @@ class DrawingObjectsTests
     final remoteFileName = 'TestInsetDrawingObject.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     var requestDrawingObject = DrawingObjectInsert();
-    requestDrawingObject.height = 0;
-    requestDrawingObject.left = 0;
-    requestDrawingObject.top = 0;
-    requestDrawingObject.width = 0;
+    requestDrawingObject.height = 0.0;
+    requestDrawingObject.left = 0.0;
+    requestDrawingObject.top = 0.0;
+    requestDrawingObject.width = 0.0;
     requestDrawingObject.relativeHorizontalPosition = DrawingObjectInsert_RelativeHorizontalPositionEnum.margin;
     requestDrawingObject.relativeVerticalPosition = DrawingObjectInsert_RelativeVerticalPositionEnum.margin;
     requestDrawingObject.wrapType = DrawingObjectInsert_WrapTypeEnum.inline;
@@ -220,7 +231,9 @@ class DrawingObjectsTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertDrawingObject(request);
+    var result = await context.getApi().insertDrawingObject(request);
+    expect(result.drawingObject, isNotNull);
+    expect(result.drawingObject.nodeId, '0.3.7.1');
   }
 
   /// Test for adding drawing object without node path.
@@ -229,10 +242,10 @@ class DrawingObjectsTests
     final remoteFileName = 'TestInsetDrawingObjectWithoutNodePath.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     var requestDrawingObject = DrawingObjectInsert();
-    requestDrawingObject.height = 0;
-    requestDrawingObject.left = 0;
-    requestDrawingObject.top = 0;
-    requestDrawingObject.width = 0;
+    requestDrawingObject.height = 0.0;
+    requestDrawingObject.left = 0.0;
+    requestDrawingObject.top = 0.0;
+    requestDrawingObject.width = 0.0;
     requestDrawingObject.relativeHorizontalPosition = DrawingObjectInsert_RelativeHorizontalPositionEnum.margin;
     requestDrawingObject.relativeVerticalPosition = DrawingObjectInsert_RelativeVerticalPositionEnum.margin;
     requestDrawingObject.wrapType = DrawingObjectInsert_WrapTypeEnum.inline;
@@ -244,7 +257,9 @@ class DrawingObjectsTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertDrawingObject(request);
+    var result = await context.getApi().insertDrawingObject(request);
+    expect(result.drawingObject, isNotNull);
+    expect(result.drawingObject.nodeId, '0.3.7.1');
   }
 
   /// Test for deleting drawing object.
@@ -284,7 +299,7 @@ class DrawingObjectsTests
     final remoteFileName = 'TestUpdateDrawingObject.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     var requestDrawingObject = DrawingObjectUpdate();
-    requestDrawingObject.left = 0;
+    requestDrawingObject.left = 1.0;
 
     final request = UpdateDrawingObjectRequest(
       remoteFileName,
@@ -295,7 +310,9 @@ class DrawingObjectsTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateDrawingObject(request);
+    var result = await context.getApi().updateDrawingObject(request);
+    expect(result.drawingObject, isNotNull);
+    expect(result.drawingObject.left, 1.0);
   }
 
   /// Test for updating drawing object without node path.
@@ -304,7 +321,7 @@ class DrawingObjectsTests
     final remoteFileName = 'TestUpdateDrawingObjectWithoutNodePath.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     var requestDrawingObject = DrawingObjectUpdate();
-    requestDrawingObject.left = 0;
+    requestDrawingObject.left = 1.0;
 
     final request = UpdateDrawingObjectRequest(
       remoteFileName,
@@ -314,6 +331,8 @@ class DrawingObjectsTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateDrawingObject(request);
+    var result = await context.getApi().updateDrawingObject(request);
+    expect(result.drawingObject, isNotNull);
+    expect(result.drawingObject.left, 1.0);
   }
 }

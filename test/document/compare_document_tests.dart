@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -37,7 +38,7 @@ class CompareDocumentTests
   String localFolder;
 
   CompareDocumentTests(final this.context) {
-    remoteFolder = context.remoteBaseTestDataFolder + '/DocumentActions/CompareDocument';
+    remoteFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/CompareDocument';
     localFolder = 'DocumentActions/CompareDocument';
   }
 
@@ -60,9 +61,11 @@ class CompareDocumentTests
       remoteName1,
       requestCompareData,
       folder: remoteFolder,
-      destFileName: context.baseTestOutPath + '/TestCompareDocumentOut.doc'
+      destFileName: this.context.baseTestOutPath + '/TestCompareDocumentOut.doc'
     );
 
-    await context.getApi().compareDocument(request);
+    var result = await context.getApi().compareDocument(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'TestCompareDocumentOut.doc');
   }
 }

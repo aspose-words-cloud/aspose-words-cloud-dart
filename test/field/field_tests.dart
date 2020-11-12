@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -38,7 +39,7 @@ class FieldTests
   String fieldFolder;
 
   FieldTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Fields';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Fields';
     textFolder = 'DocumentElements/Text';
     fieldFolder = 'DocumentElements/Fields';
   }
@@ -56,7 +57,11 @@ class FieldTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getFields(request);
+    var result = await context.getApi().getFields(request);
+    expect(result.fields, isNotNull);
+    expect(result.fields.list, isNotNull);
+    expect(result.fields.list.length, 1);
+    expect(result.fields.list[0].result, '1');
   }
 
   /// Test for getting fields without node path.
@@ -71,7 +76,11 @@ class FieldTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getFields(request);
+    var result = await context.getApi().getFields(request);
+    expect(result.fields, isNotNull);
+    expect(result.fields.list, isNotNull);
+    expect(result.fields.list.length, 1);
+    expect(result.fields.list[0].result, '1');
   }
 
   /// Test for getting field by index.
@@ -88,7 +97,9 @@ class FieldTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getField(request);
+    var result = await context.getApi().getField(request);
+    expect(result.field, isNotNull);
+    expect(result.field.result, '1');
   }
 
   /// Test for getting field by index without node path.
@@ -104,7 +115,9 @@ class FieldTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getField(request);
+    var result = await context.getApi().getField(request);
+    expect(result.field, isNotNull);
+    expect(result.field.result, '1');
   }
 
   /// Test for putting field.
@@ -123,7 +136,10 @@ class FieldTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertField(request);
+    var result = await context.getApi().insertField(request);
+    expect(result.field, isNotNull);
+    expect(result.field.fieldCode, '{ NUMPAGES }');
+    expect(result.field.nodeId, '0.0.0.1');
   }
 
   /// Test for putting field without node path.
@@ -141,7 +157,10 @@ class FieldTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertField(request);
+    var result = await context.getApi().insertField(request);
+    expect(result.field, isNotNull);
+    expect(result.field.fieldCode, '{ NUMPAGES }');
+    expect(result.field.nodeId, '5.0.22.0');
   }
 
   /// Test for posting field.
@@ -161,7 +180,10 @@ class FieldTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateField(request);
+    var result = await context.getApi().updateField(request);
+    expect(result.field, isNotNull);
+    expect(result.field.fieldCode, '{ NUMPAGES }');
+    expect(result.field.nodeId, '0.0.0.0');
   }
 
   /// Test for inserting page numbers field.
@@ -178,10 +200,12 @@ class FieldTests
       remoteFileName,
       requestPageNumber,
       folder: remoteDataFolder,
-      destFileName: context.baseTestOutPath + '/' + remoteFileName
+      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    await context.getApi().insertPageNumbers(request);
+    var result = await context.getApi().insertPageNumbers(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'TestInsertPageNumbers.docx');
   }
 
   /// Test for deleting field.
@@ -323,6 +347,8 @@ class FieldTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateFields(request);
+    var result = await context.getApi().updateFields(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'TestUpdateDocumentFields.docx');
   }
 }

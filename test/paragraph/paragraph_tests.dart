@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -39,7 +40,7 @@ class ParagraphTests
   String tabStopFolder;
 
   ParagraphTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Paragraphs';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Paragraphs';
     localFile = 'Common/test_multi_pages.docx';
     listFolder = 'DocumentElements/ParagraphListFormat';
     tabStopFolder = 'DocumentElements/Paragraphs';
@@ -58,7 +59,9 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getParagraph(request);
+    var result = await context.getApi().getParagraph(request);
+    expect(result.paragraph, isNotNull);
+    expect(result.paragraph.nodeId, '0.0.0');
   }
 
   /// Test for getting paragraph without node path.
@@ -73,7 +76,9 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getParagraph(request);
+    var result = await context.getApi().getParagraph(request);
+    expect(result.paragraph, isNotNull);
+    expect(result.paragraph.nodeId, '0.0.0');
   }
 
   /// Test for getting all paragraphs.
@@ -88,7 +93,11 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getParagraphs(request);
+    var result = await context.getApi().getParagraphs(request);
+    expect(result.paragraphs, isNotNull);
+    expect(result.paragraphs.paragraphLinkList, isNotNull);
+    expect(result.paragraphs.paragraphLinkList.length, 15);
+    expect(result.paragraphs.paragraphLinkList[0].text, 'Page 1 of 3');
   }
 
   /// Test for getting all paragraphs without node path.
@@ -102,7 +111,11 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getParagraphs(request);
+    var result = await context.getApi().getParagraphs(request);
+    expect(result.paragraphs, isNotNull);
+    expect(result.paragraphs.paragraphLinkList, isNotNull);
+    expect(result.paragraphs.paragraphLinkList.length, 15);
+    expect(result.paragraphs.paragraphLinkList[0].text, 'Page 1 of 3');
   }
 
   /// Test for getting paragraph run.
@@ -118,7 +131,9 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getRun(request);
+    var result = await context.getApi().getRun(request);
+    expect(result.run, isNotNull);
+    expect(result.run.text, 'Page ');
   }
 
   /// Test for getting paragraph run font.
@@ -134,7 +149,9 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getRunFont(request);
+    var result = await context.getApi().getRunFont(request);
+    expect(result.font, isNotNull);
+    expect(result.font.name, 'Times New Roman');
   }
 
   /// Test for getting paragraph runs.
@@ -149,7 +166,11 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getRuns(request);
+    var result = await context.getApi().getRuns(request);
+    expect(result.runs, isNotNull);
+    expect(result.runs.list, isNotNull);
+    expect(result.runs.list.length, 6);
+    expect(result.runs.list[0].text, 'Page ');
   }
 
   /// Test for updating paragraph run font.
@@ -166,10 +187,12 @@ class ParagraphTests
       'paragraphs/0',
       0,
       folder: remoteDataFolder,
-      destFileName: context.baseTestOutPath + '/' + remoteFileName
+      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    await context.getApi().updateRunFont(request);
+    var result = await context.getApi().updateRunFont(request);
+    expect(result.font, isNotNull);
+    expect(result.font.bold, isTrue);
   }
 
   /// Test for adding paragraph.
@@ -187,7 +210,9 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertParagraph(request);
+    var result = await context.getApi().insertParagraph(request);
+    expect(result.paragraph, isNotNull);
+    expect(result.paragraph.nodeId, '0.3.8');
   }
 
   /// Test for adding paragraph without node path.
@@ -204,7 +229,9 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertParagraph(request);
+    var result = await context.getApi().insertParagraph(request);
+    expect(result.paragraph, isNotNull);
+    expect(result.paragraph.nodeId, '0.3.8');
   }
 
   /// Test for paragraph rendering.
@@ -253,7 +280,9 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getParagraphFormat(request);
+    var result = await context.getApi().getParagraphFormat(request);
+    expect(result.paragraphFormat, isNotNull);
+    expect(result.paragraphFormat.styleName, 'Normal');
   }
 
   /// Test for getting paragraph format settings without node path.
@@ -268,7 +297,9 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getParagraphFormat(request);
+    var result = await context.getApi().getParagraphFormat(request);
+    expect(result.paragraphFormat, isNotNull);
+    expect(result.paragraphFormat.styleName, 'Normal');
   }
 
   /// Test for updating  paragraph format settings.
@@ -287,7 +318,9 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateParagraphFormat(request);
+    var result = await context.getApi().updateParagraphFormat(request);
+    expect(result.paragraphFormat, isNotNull);
+
   }
 
   /// Test for deleting  a paragraph.
@@ -334,7 +367,9 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getParagraphListFormat(request);
+    var result = await context.getApi().getParagraphListFormat(request);
+    expect(result.listFormat, isNotNull);
+    expect(result.listFormat.listId, 1);
   }
 
   /// Test for getting paragraph list format without node path.
@@ -349,7 +384,9 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getParagraphListFormat(request);
+    var result = await context.getApi().getParagraphListFormat(request);
+    expect(result.listFormat, isNotNull);
+    expect(result.listFormat.listId, 1);
   }
 
   /// Test for updating paragraph list format.
@@ -368,7 +405,9 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateParagraphListFormat(request);
+    var result = await context.getApi().updateParagraphListFormat(request);
+    expect(result.listFormat, isNotNull);
+    expect(result.listFormat.listId, 2);
   }
 
   /// Test for updating paragraph list format without node path.
@@ -386,7 +425,9 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateParagraphListFormat(request);
+    var result = await context.getApi().updateParagraphListFormat(request);
+    expect(result.listFormat, isNotNull);
+    expect(result.listFormat.listId, 2);
   }
 
   /// Test for deleting paragraph list format.
@@ -433,7 +474,10 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getParagraphTabStops(request);
+    var result = await context.getApi().getParagraphTabStops(request);
+    expect(result.tabStops, isNotNull);
+    expect(result.tabStops.length, 2);
+    expect(result.tabStops[0].position, 72.0);
   }
 
   /// Test for getting paragraph tab stops without node path.
@@ -448,7 +492,10 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getParagraphTabStops(request);
+    var result = await context.getApi().getParagraphTabStops(request);
+    expect(result.tabStops, isNotNull);
+    expect(result.tabStops.length, 2);
+    expect(result.tabStops[0].position, 72.0);
   }
 
   /// Test for inserting paragraph tab stop.
@@ -459,7 +506,7 @@ class ParagraphTests
     var requestDto = TabStopInsert();
     requestDto.alignment = TabStopBase_AlignmentEnum.left;
     requestDto.leader = TabStopBase_LeaderEnum.none;
-    requestDto.position = 72;
+    requestDto.position = 100.0;
 
     final request = InsertOrUpdateParagraphTabStopRequest(
       remoteFileName,
@@ -469,7 +516,12 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertOrUpdateParagraphTabStop(request);
+    var result = await context.getApi().insertOrUpdateParagraphTabStop(request);
+    expect(result.tabStops, isNotNull);
+    expect(result.tabStops.length, 3);
+    expect(result.tabStops[1].position, 100.0);
+
+
   }
 
   /// Test for inserting paragraph tab stop without node path.
@@ -480,7 +532,7 @@ class ParagraphTests
     var requestDto = TabStopInsert();
     requestDto.alignment = TabStopBase_AlignmentEnum.left;
     requestDto.leader = TabStopBase_LeaderEnum.none;
-    requestDto.position = 72;
+    requestDto.position = 100.0;
 
     final request = InsertOrUpdateParagraphTabStopRequest(
       remoteFileName,
@@ -489,7 +541,12 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertOrUpdateParagraphTabStop(request);
+    var result = await context.getApi().insertOrUpdateParagraphTabStop(request);
+    expect(result.tabStops, isNotNull);
+    expect(result.tabStops.length, 3);
+    expect(result.tabStops[1].position, 100.0);
+
+
   }
 
   /// Test for deleting all paragraph tab stops.
@@ -505,7 +562,9 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().deleteAllParagraphTabStops(request);
+    var result = await context.getApi().deleteAllParagraphTabStops(request);
+    expect(result.tabStops, isNotNull);
+    expect(result.tabStops.length, 0);
   }
 
   /// Test for deleting all paragraph tab stops without node path.
@@ -520,7 +579,9 @@ class ParagraphTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().deleteAllParagraphTabStops(request);
+    var result = await context.getApi().deleteAllParagraphTabStops(request);
+    expect(result.tabStops, isNotNull);
+    expect(result.tabStops.length, 0);
   }
 
   /// Test for deleting a tab stops.
@@ -531,13 +592,15 @@ class ParagraphTests
 
     final request = DeleteParagraphTabStopRequest(
       remoteFileName,
-      72,
+      72.0,
       0,
       nodePath: '',
       folder: remoteDataFolder
     );
 
-    await context.getApi().deleteParagraphTabStop(request);
+    var result = await context.getApi().deleteParagraphTabStop(request);
+    expect(result.tabStops, isNotNull);
+    expect(result.tabStops.length, 1);
   }
 
   /// Test for deleting a tab stops without node path.
@@ -548,11 +611,13 @@ class ParagraphTests
 
     final request = DeleteParagraphTabStopRequest(
       remoteFileName,
-      72,
+      72.0,
       0,
       folder: remoteDataFolder
     );
 
-    await context.getApi().deleteParagraphTabStop(request);
+    var result = await context.getApi().deleteParagraphTabStop(request);
+    expect(result.tabStops, isNotNull);
+    expect(result.tabStops.length, 1);
   }
 }

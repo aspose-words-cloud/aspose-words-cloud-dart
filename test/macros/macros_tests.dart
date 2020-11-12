@@ -37,7 +37,7 @@ class MacrosTests
   String localFile;
 
   MacrosTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Macros';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Macros';
     localFile = 'Common/test_multi_pages.docx';
   }
 

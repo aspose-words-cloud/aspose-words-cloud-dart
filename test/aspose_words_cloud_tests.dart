@@ -180,7 +180,6 @@ void main() {
   group('DocumentProtection', () {
     test('ProtectDocument', () async => await DocumentProtectionTests(testContext).testProtectDocument());
     test('GetDocumentProtection', () async => await DocumentProtectionTests(testContext).testGetDocumentProtection());
-    test('ChangeDocumentProtection', () async => await DocumentProtectionTests(testContext).testChangeDocumentProtection());
     test('DeleteUnprotectDocument', () async => await DocumentProtectionTests(testContext).testDeleteUnprotectDocument());
   });
 

@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -37,7 +38,7 @@ class ExecuteMailMergeTests
   String mailMergeFolder;
 
   ExecuteMailMergeTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/MailMerge';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/MailMerge';
     mailMergeFolder = 'DocumentActions/MailMerge';
   }
 
@@ -68,9 +69,11 @@ class ExecuteMailMergeTests
       data: localDataFile,
       folder: remoteDataFolder,
       withRegions: false,
-      destFileName: context.baseTestOutPath + '/' + remoteFileName
+      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    await context.getApi().executeMailMerge(request);
+    var result = await context.getApi().executeMailMerge(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'TestExecuteMailMerge.docx');
   }
 }

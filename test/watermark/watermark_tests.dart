@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -37,7 +38,7 @@ class WatermarkTests
   String localFile;
 
   WatermarkTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/Watermark';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/Watermark';
     localFile = 'Common/test_multi_pages.docx';
   }
 
@@ -54,11 +55,13 @@ class WatermarkTests
       remoteFileName,
       imageFile: null,
       folder: remoteDataFolder,
-      destFileName: context.baseTestOutPath + '/' + remoteFileName,
+      destFileName: this.context.baseTestOutPath + '/' + remoteFileName,
       image: remoteImagePath
     );
 
-    await context.getApi().insertWatermarkImage(request);
+    var result = await context.getApi().insertWatermarkImage(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'TestInsertWatermarkImage.docx');
   }
 
   /// Test for adding watermark text.
@@ -68,16 +71,18 @@ class WatermarkTests
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     var requestWatermarkText = WatermarkText();
     requestWatermarkText.text = 'This is the text';
-    requestWatermarkText.rotationAngle = 90;
+    requestWatermarkText.rotationAngle = 90.0;
 
     final request = InsertWatermarkTextRequest(
       remoteFileName,
       requestWatermarkText,
       folder: remoteDataFolder,
-      destFileName: context.baseTestOutPath + '/' + remoteFileName
+      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    await context.getApi().insertWatermarkText(request);
+    var result = await context.getApi().insertWatermarkText(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'TestInsertWatermarkText.docx');
   }
 
   /// Test for deleting watermark.
@@ -89,9 +94,11 @@ class WatermarkTests
     final request = DeleteWatermarkRequest(
       remoteFileName,
       folder: remoteDataFolder,
-      destFileName: context.baseTestOutPath + '/' + remoteFileName
+      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    await context.getApi().deleteWatermark(request);
+    var result = await context.getApi().deleteWatermark(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'TestDeleteWatermark.docx');
   }
 }

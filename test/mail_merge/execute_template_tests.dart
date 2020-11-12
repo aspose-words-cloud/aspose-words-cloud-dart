@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -37,7 +38,7 @@ class ExecuteTemplateTests
   String mailMergeFolder;
 
   ExecuteTemplateTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/MailMerge';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/MailMerge';
     mailMergeFolder = 'DocumentActions/MailMerge';
   }
 
@@ -53,10 +54,12 @@ class ExecuteTemplateTests
       remoteFileName,
       data: localDataFile,
       folder: remoteDataFolder,
-      destFileName: context.baseTestOutPath + '/' + remoteFileName
+      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    await context.getApi().executeMailMerge(request);
+    var result = await context.getApi().executeMailMerge(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'TestExecuteTemplate.docx');
   }
 
   /// Test for execute template online.

@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -37,7 +38,7 @@ class TableTests
   String localFile;
 
   TableTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Tables';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Tables';
     localFile = 'DocumentElements/Tables/TablesGet.docx';
   }
 
@@ -53,7 +54,11 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getTables(request);
+    var result = await context.getApi().getTables(request);
+    expect(result.tables, isNotNull);
+    expect(result.tables.tableLinkList, isNotNull);
+    expect(result.tables.tableLinkList.length, 5);
+    expect(result.tables.tableLinkList[0].nodeId, '0.0.1');
   }
 
   /// Test for getting tables without node path.
@@ -67,7 +72,11 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getTables(request);
+    var result = await context.getApi().getTables(request);
+    expect(result.tables, isNotNull);
+    expect(result.tables.tableLinkList, isNotNull);
+    expect(result.tables.tableLinkList.length, 5);
+    expect(result.tables.tableLinkList[0].nodeId, '0.0.1');
   }
 
   /// Test for getting table.
@@ -83,7 +92,12 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getTable(request);
+    var result = await context.getApi().getTable(request);
+    expect(result.table, isNotNull);
+    expect(result.table.tableRowList, isNotNull);
+    expect(result.table.tableRowList.length, 1);
+    expect(result.table.tableRowList[0].tableCellList, isNotNull);
+    expect(result.table.tableRowList[0].tableCellList.length, 2);
   }
 
   /// Test for getting table without node path.
@@ -98,7 +112,12 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getTable(request);
+    var result = await context.getApi().getTable(request);
+    expect(result.table, isNotNull);
+    expect(result.table.tableRowList, isNotNull);
+    expect(result.table.tableRowList.length, 1);
+    expect(result.table.tableRowList[0].tableCellList, isNotNull);
+    expect(result.table.tableRowList[0].tableCellList.length, 2);
   }
 
   /// Test for deleting table.
@@ -148,7 +167,12 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertTable(request);
+    var result = await context.getApi().insertTable(request);
+    expect(result.table, isNotNull);
+    expect(result.table.tableRowList, isNotNull);
+    expect(result.table.tableRowList.length, 4);
+    expect(result.table.tableRowList[0].tableCellList, isNotNull);
+    expect(result.table.tableRowList[0].tableCellList.length, 5);
   }
 
   /// Test for adding table without node path.
@@ -166,7 +190,12 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertTable(request);
+    var result = await context.getApi().insertTable(request);
+    expect(result.table, isNotNull);
+    expect(result.table.tableRowList, isNotNull);
+    expect(result.table.tableRowList.length, 4);
+    expect(result.table.tableRowList[0].tableCellList, isNotNull);
+    expect(result.table.tableRowList[0].tableCellList.length, 5);
   }
 
   /// Test for getting document properties.
@@ -182,7 +211,9 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getTableProperties(request);
+    var result = await context.getApi().getTableProperties(request);
+    expect(result.properties, isNotNull);
+    expect(result.properties.styleName, 'Table Grid');
   }
 
   /// Test for getting document properties without node path.
@@ -197,7 +228,9 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getTableProperties(request);
+    var result = await context.getApi().getTableProperties(request);
+    expect(result.properties, isNotNull);
+    expect(result.properties.styleName, 'Table Grid');
   }
 
   /// Test for updating table properties.
@@ -210,7 +243,7 @@ class TableTests
     requestProperties.allowAutoFit = false;
     requestProperties.bidi = true;
     requestProperties.bottomPadding = 1;
-    requestProperties.cellSpacing = 2;
+    requestProperties.cellSpacing = 2.0;
     requestProperties.styleOptions = TableProperties_StyleOptionsEnum.columnBands;
 
     final request = UpdateTablePropertiesRequest(
@@ -221,7 +254,12 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateTableProperties(request);
+    var result = await context.getApi().updateTableProperties(request);
+    expect(result.properties, isNotNull);
+    expect(result.properties.allowAutoFit, isFalse);
+    expect(result.properties.bidi, isTrue);
+    expect(result.properties.bottomPadding, 1.0);
+    expect(result.properties.cellSpacing, 2.0);
   }
 
   /// Test for updating table properties without node path.
@@ -233,8 +271,8 @@ class TableTests
     requestProperties.alignment = TableProperties_AlignmentEnum.right;
     requestProperties.allowAutoFit = false;
     requestProperties.bidi = true;
-    requestProperties.bottomPadding = 1;
-    requestProperties.cellSpacing = 2;
+    requestProperties.bottomPadding = 1.0;
+    requestProperties.cellSpacing = 2.0;
     requestProperties.styleOptions = TableProperties_StyleOptionsEnum.columnBands;
 
     final request = UpdateTablePropertiesRequest(
@@ -244,7 +282,12 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateTableProperties(request);
+    var result = await context.getApi().updateTableProperties(request);
+    expect(result.properties, isNotNull);
+    expect(result.properties.allowAutoFit, isFalse);
+    expect(result.properties.bidi, isTrue);
+    expect(result.properties.bottomPadding, 1.0);
+    expect(result.properties.cellSpacing, 2.0);
   }
 
   /// Test for getting table row.
@@ -260,7 +303,10 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getTableRow(request);
+    var result = await context.getApi().getTableRow(request);
+    expect(result.row, isNotNull);
+    expect(result.row.tableCellList, isNotNull);
+    expect(result.row.tableCellList.length, 2);
   }
 
   /// Test for deleting table row.
@@ -294,7 +340,10 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertTableRow(request);
+    var result = await context.getApi().insertTableRow(request);
+    expect(result.row, isNotNull);
+    expect(result.row.tableCellList, isNotNull);
+    expect(result.row.tableCellList.length, 5);
   }
 
   /// Test for getting row format.
@@ -310,7 +359,9 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getTableRowFormat(request);
+    var result = await context.getApi().getTableRowFormat(request);
+    expect(result.rowFormat, isNotNull);
+    expect(result.rowFormat.allowBreakAcrossPages, isTrue);
   }
 
   /// Test updating row format.
@@ -321,8 +372,8 @@ class TableTests
     var requestFormat = TableRowFormat();
     requestFormat.allowBreakAcrossPages = true;
     requestFormat.headingFormat = true;
-    requestFormat.height = 10;
-    requestFormat.heightRule = TableRowFormat_HeightRuleEnum.auto;
+    requestFormat.height = 10.0;
+    requestFormat.heightRule = TableRowFormat_HeightRuleEnum.exactly;
 
     final request = UpdateTableRowFormatRequest(
       remoteFileName,
@@ -332,7 +383,11 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateTableRowFormat(request);
+    var result = await context.getApi().updateTableRowFormat(request);
+    expect(result.rowFormat, isNotNull);
+    expect(result.rowFormat.allowBreakAcrossPages, isTrue);
+    expect(result.rowFormat.headingFormat, isTrue);
+    expect(result.rowFormat.height, 10.0);
   }
 
   /// Test for getting table cell.
@@ -348,7 +403,9 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getTableCell(request);
+    var result = await context.getApi().getTableCell(request);
+    expect(result.cell, isNotNull);
+    expect(result.cell.nodeId, '0.0.5.0.0');
   }
 
   /// Test for deleting cell.
@@ -382,7 +439,9 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertTableCell(request);
+    var result = await context.getApi().insertTableCell(request);
+    expect(result.cell, isNotNull);
+    expect(result.cell.nodeId, '0.0.5.0.3');
   }
 
   /// Test for getting cell format.
@@ -398,7 +457,9 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getTableCellFormat(request);
+    var result = await context.getApi().getTableCellFormat(request);
+    expect(result.cellFormat, isNotNull);
+    expect(result.cellFormat.wrapText, isTrue);
   }
 
   /// Test for updating cell format.
@@ -407,7 +468,7 @@ class TableTests
     final remoteFileName = 'TestUpdateTableCellFormat.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     var requestFormat = TableCellFormat();
-    requestFormat.bottomPadding = 5;
+    requestFormat.bottomPadding = 5.0;
     requestFormat.fitText = true;
     requestFormat.horizontalMerge = TableCellFormat_HorizontalMergeEnum.first;
     requestFormat.wrapText = true;
@@ -420,7 +481,11 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateTableCellFormat(request);
+    var result = await context.getApi().updateTableCellFormat(request);
+    expect(result.cellFormat, isNotNull);
+    expect(result.cellFormat.bottomPadding, 5.0);
+    expect(result.cellFormat.fitText, isTrue);
+    expect(result.cellFormat.wrapText, isTrue);
   }
 
   /// Test for table rendering.

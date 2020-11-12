@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -37,7 +38,7 @@ class FileTests
   String localFile;
 
   FileTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/Storage';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/Storage';
     localFile = 'Common/test_multi_pages.docx';
   }
 
@@ -51,7 +52,10 @@ class FileTests
       remoteDataFolder + '/' + remoteFileName
     );
 
-    await context.getApi().uploadFile(request);
+    var result = await context.getApi().uploadFile(request);
+    expect(result.uploaded, isNotNull);
+    expect(result.uploaded.length, 1);
+    expect(result.uploaded[0], 'TestUploadFile.docx');
   }
 
   /// Test for copy file.
@@ -75,7 +79,7 @@ class FileTests
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = MoveFileRequest(
-      context.baseTestOutPath + '/TestMoveFileDest_' + context.createRandomGuid() + '.docx',
+      this.context.baseTestOutPath + '/TestMoveFileDest_' + this.context.createRandomGuid() + '.docx',
       remoteDataFolder + '/' + remoteFileName
     );
 

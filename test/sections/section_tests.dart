@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -37,7 +38,7 @@ class SectionTests
   String localFile;
 
   SectionTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Section';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Section';
     localFile = 'Common/test_multi_pages.docx';
   }
 
@@ -53,7 +54,11 @@ class SectionTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getSection(request);
+    var result = await context.getApi().getSection(request);
+    expect(result.section, isNotNull);
+    expect(result.section.childNodes, isNotNull);
+    expect(result.section.childNodes.length, 13);
+    expect(result.section.childNodes[0].nodeId, '0.3.0');
   }
 
   /// Test for getting sections.
@@ -67,7 +72,11 @@ class SectionTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getSections(request);
+    var result = await context.getApi().getSections(request);
+    expect(result.sections, isNotNull);
+    expect(result.sections.sectionLinkList, isNotNull);
+    expect(result.sections.sectionLinkList.length, 1);
+    expect(result.sections.sectionLinkList[0].nodeId, '0');
   }
 
   /// Test for delete a section.

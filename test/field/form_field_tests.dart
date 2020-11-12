@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -37,7 +38,7 @@ class FormFieldTests
   String fieldFolder;
 
   FormFieldTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/FormFields';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/FormFields';
     fieldFolder = 'DocumentElements/FormFields';
   }
 
@@ -60,10 +61,13 @@ class FormFieldTests
       0,
       nodePath: 'sections/0',
       folder: remoteDataFolder,
-      destFileName: context.baseTestOutPath + '/' + remoteFileName
+      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    await context.getApi().updateFormField(request);
+    var result = await context.getApi().updateFormField(request);
+    expect(result.formField, isNotNull);
+    expect(result.formField.name, 'FullName');
+    expect(result.formField.statusText, '');
   }
 
   /// Test for posting form field without node path.
@@ -84,10 +88,13 @@ class FormFieldTests
       requestFormField,
       0,
       folder: remoteDataFolder,
-      destFileName: context.baseTestOutPath + '/' + remoteFileName
+      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    await context.getApi().updateFormField(request);
+    var result = await context.getApi().updateFormField(request);
+    expect(result.formField, isNotNull);
+    expect(result.formField.name, 'FullName');
+    expect(result.formField.statusText, '');
   }
 
   /// Test for getting form field.
@@ -103,7 +110,9 @@ class FormFieldTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getFormField(request);
+    var result = await context.getApi().getFormField(request);
+    expect(result.formField, isNotNull);
+    expect(result.formField.name, 'FullName');
   }
 
   /// Test for getting form field without node path.
@@ -118,7 +127,9 @@ class FormFieldTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getFormField(request);
+    var result = await context.getApi().getFormField(request);
+    expect(result.formField, isNotNull);
+    expect(result.formField.name, 'FullName');
   }
 
   /// Test for getting form fields.
@@ -133,7 +144,11 @@ class FormFieldTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getFormFields(request);
+    var result = await context.getApi().getFormFields(request);
+    expect(result.formFields, isNotNull);
+    expect(result.formFields.list, isNotNull);
+    expect(result.formFields.list.length, 5);
+    expect(result.formFields.list[0].name, 'FullName');
   }
 
   /// Test for getting form fields without node path.
@@ -147,7 +162,11 @@ class FormFieldTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getFormFields(request);
+    var result = await context.getApi().getFormFields(request);
+    expect(result.formFields, isNotNull);
+    expect(result.formFields.list, isNotNull);
+    expect(result.formFields.list.length, 5);
+    expect(result.formFields.list[0].name, 'FullName');
   }
 
   /// Test for insert form field without node path.
@@ -169,10 +188,13 @@ class FormFieldTests
       requestFormField,
       nodePath: 'sections/0/paragraphs/0',
       folder: remoteDataFolder,
-      destFileName: context.baseTestOutPath + '/' + remoteFileName
+      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    await context.getApi().insertFormField(request);
+    var result = await context.getApi().insertFormField(request);
+    expect(result.formField, isNotNull);
+    expect(result.formField.name, 'FullName');
+    expect(result.formField.statusText, '');
   }
 
   /// Test for insert form field without node path.
@@ -193,10 +215,13 @@ class FormFieldTests
       remoteFileName,
       requestFormField,
       folder: remoteDataFolder,
-      destFileName: context.baseTestOutPath + '/' + remoteFileName
+      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    await context.getApi().insertFormField(request);
+    var result = await context.getApi().insertFormField(request);
+    expect(result.formField, isNotNull);
+    expect(result.formField.name, 'FullName');
+    expect(result.formField.statusText, '');
   }
 
   /// Test for deleting form field.
@@ -210,7 +235,7 @@ class FormFieldTests
       0,
       nodePath: 'sections/0',
       folder: remoteDataFolder,
-      destFileName: context.baseTestOutPath + '/' + remoteFileName
+      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
     await context.getApi().deleteFormField(request);
@@ -226,7 +251,7 @@ class FormFieldTests
       remoteFileName,
       0,
       folder: remoteDataFolder,
-      destFileName: context.baseTestOutPath + '/' + remoteFileName
+      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
     await context.getApi().deleteFormField(request);

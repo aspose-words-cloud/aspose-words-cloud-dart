@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -37,7 +38,7 @@ class TableBorderTests
   String localFile;
 
   TableBorderTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Tables';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Tables';
     localFile = 'DocumentElements/Tables/TablesGet.docx';
   }
 
@@ -53,7 +54,12 @@ class TableBorderTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getBorders(request);
+    var result = await context.getApi().getBorders(request);
+    expect(result.borders, isNotNull);
+    expect(result.borders.list, isNotNull);
+    expect(result.borders.list.length, 6);
+    expect(result.borders.list[0].color, isNotNull);
+    expect(result.borders.list[0].color.web, '#000000');
   }
 
   /// Test for getting border.
@@ -69,7 +75,10 @@ class TableBorderTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getBorder(request);
+    var result = await context.getApi().getBorder(request);
+    expect(result.border, isNotNull);
+    expect(result.border.color, isNotNull);
+    expect(result.border.color.web, '#000000');
   }
 
   /// Test for deleting borders.
@@ -84,7 +93,12 @@ class TableBorderTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().deleteBorders(request);
+    var result = await context.getApi().deleteBorders(request);
+    expect(result.borders, isNotNull);
+    expect(result.borders.list, isNotNull);
+    expect(result.borders.list.length, 6);
+    expect(result.borders.list[0].color, isNotNull);
+    expect(result.borders.list[0].color.web, '');
   }
 
   /// Test for deleting border.
@@ -100,7 +114,10 @@ class TableBorderTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().deleteBorder(request);
+    var result = await context.getApi().deleteBorder(request);
+    expect(result.border, isNotNull);
+    expect(result.border.color, isNotNull);
+    expect(result.border.color.web, '');
   }
 
   /// Test for updating border.
@@ -114,9 +131,9 @@ class TableBorderTests
     var requestBorderProperties = Border();
     requestBorderProperties.borderType = Border_BorderTypeEnum.left;
     requestBorderProperties.color = requestBorderPropertiesColor;
-    requestBorderProperties.distanceFromText = 6;
+    requestBorderProperties.distanceFromText = 6.0;
     requestBorderProperties.lineStyle = Border_LineStyleEnum.dashDotStroker;
-    requestBorderProperties.lineWidth = 2;
+    requestBorderProperties.lineWidth = 2.0;
     requestBorderProperties.shadow = true;
 
     final request = UpdateBorderRequest(
@@ -127,6 +144,12 @@ class TableBorderTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateBorder(request);
+    var result = await context.getApi().updateBorder(request);
+    expect(result.border, isNotNull);
+    expect(result.border.color, isNotNull);
+    expect(result.border.color.web, '#000002');
+    expect(result.border.distanceFromText, 6.0);
+    expect(result.border.lineWidth, 2.0);
+    expect(result.border.shadow, isTrue);
   }
 }

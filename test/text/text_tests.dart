@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -36,7 +37,7 @@ class TextTests
   String remoteDataFolder;
 
   TextTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Text';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Text';
   }
 
   /// Test for replacing text.
@@ -46,17 +47,18 @@ class TextTests
     final localFile = 'Common/test_multi_pages.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     var requestReplaceText = ReplaceTextParameters();
-    requestReplaceText.oldValue = 'aspose';
-    requestReplaceText.newValue = 'aspose new';
+    requestReplaceText.oldValue = 'Testing';
+    requestReplaceText.newValue = 'Aspose testing';
 
     final request = ReplaceTextRequest(
       remoteFileName,
       requestReplaceText,
       folder: remoteDataFolder,
-      destFileName: context.baseTestOutPath + '/' + remoteFileName
+      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    await context.getApi().replaceText(request);
+    var result = await context.getApi().replaceText(request);
+    expect(result.matches, 3);
   }
 
   /// Test for searching.
@@ -72,6 +74,11 @@ class TextTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().search(request);
+    var result = await context.getApi().search(request);
+    expect(result.searchResults, isNotNull);
+    expect(result.searchResults.resultsList, isNotNull);
+    expect(result.searchResults.resultsList.length, 23);
+    expect(result.searchResults.resultsList[0].rangeStart, isNotNull);
+    expect(result.searchResults.resultsList[0].rangeStart.offset, 65);
   }
 }

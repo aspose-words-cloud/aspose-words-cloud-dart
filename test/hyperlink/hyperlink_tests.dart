@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -37,7 +38,7 @@ class HyperlinkTests
   String localFile;
 
   HyperlinkTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Hyperlink';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Hyperlink';
     localFile = 'Common/test_doc.docx';
   }
 
@@ -53,7 +54,9 @@ class HyperlinkTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getDocumentHyperlinkByIndex(request);
+    var result = await context.getApi().getDocumentHyperlinkByIndex(request);
+    expect(result.hyperlink, isNotNull);
+    expect(result.hyperlink.displayText, 'Aspose');
   }
 
   /// Test for getting hyperlinks.
@@ -67,6 +70,10 @@ class HyperlinkTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getDocumentHyperlinks(request);
+    var result = await context.getApi().getDocumentHyperlinks(request);
+    expect(result.hyperlinks, isNotNull);
+    expect(result.hyperlinks.hyperlinkList, isNotNull);
+    expect(result.hyperlinks.hyperlinkList.length, 2);
+    expect(result.hyperlinks.hyperlinkList[0].displayText, 'Aspose');
   }
 }

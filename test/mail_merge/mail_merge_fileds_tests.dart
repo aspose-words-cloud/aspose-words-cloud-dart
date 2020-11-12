@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -37,7 +38,7 @@ class MailMergeFiledsTests
   String mailMergeFolder;
 
   MailMergeFiledsTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/MailMerge';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/MailMerge';
     mailMergeFolder = 'DocumentActions/MailMerge';
   }
 
@@ -51,7 +52,11 @@ class MailMergeFiledsTests
       useNonMergeFields: true
     );
 
-    await context.getApi().getDocumentFieldNamesOnline(request);
+    var result = await context.getApi().getDocumentFieldNamesOnline(request);
+    expect(result.fieldNames, isNotNull);
+    expect(result.fieldNames.names, isNotNull);
+    expect(result.fieldNames.names.length, 15);
+    expect(result.fieldNames.names[0], 'TableStart:Order');
   }
 
   /// Test for getting mailmerge fields.
@@ -65,6 +70,9 @@ class MailMergeFiledsTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getDocumentFieldNames(request);
+    var result = await context.getApi().getDocumentFieldNames(request);
+    expect(result.fieldNames, isNotNull);
+    expect(result.fieldNames.names, isNotNull);
+    expect(result.fieldNames.names.length, 0);
   }
 }

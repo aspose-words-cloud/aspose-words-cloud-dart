@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -37,7 +38,7 @@ class RevisionsTests
   String localFile;
 
   RevisionsTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/Revisions';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/Revisions';
     localFile = 'Common/test_multi_pages.docx';
   }
 
@@ -50,10 +51,12 @@ class RevisionsTests
     final request = AcceptAllRevisionsRequest(
       remoteFileName,
       folder: remoteDataFolder,
-      destFileName: context.baseTestOutPath + '/' + remoteFileName
+      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    await context.getApi().acceptAllRevisions(request);
+    var result = await context.getApi().acceptAllRevisions(request);
+    expect(result.result, isNotNull);
+    expect(result.result.dest, isNotNull);
   }
 
   /// Test for rejecting revisions in document.
@@ -65,9 +68,11 @@ class RevisionsTests
     final request = RejectAllRevisionsRequest(
       remoteFileName,
       folder: remoteDataFolder,
-      destFileName: context.baseTestOutPath + '/' + remoteFileName
+      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    await context.getApi().rejectAllRevisions(request);
+    var result = await context.getApi().rejectAllRevisions(request);
+    expect(result.result, isNotNull);
+    expect(result.result.dest, isNotNull);
   }
 }

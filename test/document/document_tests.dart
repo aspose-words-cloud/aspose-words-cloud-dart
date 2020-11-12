@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -37,7 +38,7 @@ class DocumentTests
   String localFile;
 
   DocumentTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/Document';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/Document';
     localFile = 'Common/test_multi_pages.docx';
   }
 
@@ -52,7 +53,9 @@ class DocumentTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getDocument(request);
+    var result = await context.getApi().getDocument(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'TestGetDocument.docx');
   }
 
   /// Test for creating word document.
@@ -65,6 +68,8 @@ class DocumentTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().createDocument(request);
+    var result = await context.getApi().createDocument(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'TestCreateDocument.doc');
   }
 }

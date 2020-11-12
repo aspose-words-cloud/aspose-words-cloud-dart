@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -37,7 +38,7 @@ class ClassificationTests
   String localFile;
 
   ClassificationTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/Common';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/Common';
     localFile = 'Common/test_multi_pages.docx';
   }
 
@@ -50,7 +51,10 @@ class ClassificationTests
       bestClassesCount: '3'
     );
 
-    await context.getApi().classify(request);
+    var result = await context.getApi().classify(request);
+    expect(result.bestClassName, 'Science');
+    expect(result.bestResults, isNotNull);
+    expect(result.bestResults.length, 3);
   }
 
   /// Test for document classification.
@@ -65,6 +69,9 @@ class ClassificationTests
       bestClassesCount: '3'
     );
 
-    await context.getApi().classifyDocument(request);
+    var result = await context.getApi().classifyDocument(request);
+    expect(result.bestClassName, 'Hobbies_&_Interests');
+    expect(result.bestResults, isNotNull);
+    expect(result.bestResults.length, 3);
   }
 }

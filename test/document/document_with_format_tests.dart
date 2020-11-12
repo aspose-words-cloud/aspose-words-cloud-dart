@@ -37,7 +37,7 @@ class DocumentWithFormatTests
   String localFile;
 
   DocumentWithFormatTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/DocumentWithFormat';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/DocumentWithFormat';
     localFile = 'Common/test_multi_pages.docx';
   }
 
@@ -66,7 +66,7 @@ class DocumentWithFormatTests
       remoteFileName,
       'text',
       folder: remoteDataFolder,
-      outPath: context.baseTestOutPath + '/TestGetDocumentWithFormatAndOutPath.text'
+      outPath: this.context.baseTestOutPath + '/TestGetDocumentWithFormatAndOutPath.text'
     );
 
     await context.getApi().getDocumentWithFormat(request);

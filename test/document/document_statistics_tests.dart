@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -37,7 +38,7 @@ class DocumentStatisticsTests
   String localFile;
 
   DocumentStatisticsTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/Statistics';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/Statistics';
     localFile = 'Common/test_multi_pages.docx';
   }
 
@@ -52,6 +53,8 @@ class DocumentStatisticsTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getDocumentStatistics(request);
+    var result = await context.getApi().getDocumentStatistics(request);
+    expect(result.statData, isNotNull);
+    expect(result.statData.wordCount, 10);
   }
 }

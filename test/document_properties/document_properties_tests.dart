@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -37,7 +38,7 @@ class DocumentPropertiesTests
   String localFile;
 
   DocumentPropertiesTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/DocumentProperties';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/DocumentProperties';
     localFile = 'Common/test_multi_pages.docx';
   }
 
@@ -52,7 +53,13 @@ class DocumentPropertiesTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getDocumentProperties(request);
+    var result = await context.getApi().getDocumentProperties(request);
+    expect(result.documentProperties, isNotNull);
+    expect(result.documentProperties.list, isNotNull);
+    expect(result.documentProperties.list.length, 24);
+    expect(result.documentProperties.list[0], isNotNull);
+    expect(result.documentProperties.list[0].name, 'Author');
+    expect(result.documentProperties.list[0].value, '');
   }
 
   /// A test for GetDocumentProperty.
@@ -67,7 +74,10 @@ class DocumentPropertiesTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getDocumentProperty(request);
+    var result = await context.getApi().getDocumentProperty(request);
+    expect(result.documentProperty, isNotNull);
+    expect(result.documentProperty.name, 'Author');
+    expect(result.documentProperty.value, '');
   }
 
   /// Test for deleting document property.
@@ -80,7 +90,7 @@ class DocumentPropertiesTests
       remoteFileName,
       'testProp',
       folder: remoteDataFolder,
-      destFileName: context.baseTestOutPath + '/' + remoteFileName
+      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
     await context.getApi().deleteDocumentProperty(request);
@@ -99,9 +109,12 @@ class DocumentPropertiesTests
       'AsposeAuthor',
       requestProperty,
       folder: remoteDataFolder,
-      destFileName: context.baseTestOutPath + '/' + remoteFileName
+      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    await context.getApi().createOrUpdateDocumentProperty(request);
+    var result = await context.getApi().createOrUpdateDocumentProperty(request);
+    expect(result.documentProperty, isNotNull);
+    expect(result.documentProperty.name, 'AsposeAuthor');
+    expect(result.documentProperty.value, 'Imran Anwar');
   }
 }

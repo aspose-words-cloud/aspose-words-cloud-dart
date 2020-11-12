@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -37,7 +38,7 @@ class RunTests
   String localFile;
 
   RunTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Runs';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Runs';
     localFile = 'DocumentElements/Runs/Run.doc';
   }
 
@@ -57,7 +58,9 @@ class RunTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateRun(request);
+    var result = await context.getApi().updateRun(request);
+    expect(result.run, isNotNull);
+    expect(result.run.text, 'run with text');
   }
 
   /// Test for adding run.
@@ -75,7 +78,10 @@ class RunTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertRun(request);
+    var result = await context.getApi().insertRun(request);
+    expect(result.run, isNotNull);
+    expect(result.run.text, 'run with text');
+    expect(result.run.nodeId, '0.0.1.3');
   }
 
   /// Test for deleting run.

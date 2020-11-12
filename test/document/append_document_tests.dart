@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -37,7 +38,7 @@ class AppendDocumentTests
   String localFile;
 
   AppendDocumentTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/AppendDocument';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/AppendDocument';
     localFile = 'Common/test_multi_pages.docx';
   }
 
@@ -60,9 +61,11 @@ class AppendDocumentTests
       remoteFileName,
       requestDocumentList,
       folder: remoteDataFolder,
-      destFileName: context.baseTestOutPath + '/' + remoteFileName
+      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
     );
 
-    await context.getApi().appendDocument(request);
+    var result = await context.getApi().appendDocument(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'TestAppendDocument.docx');
   }
 }

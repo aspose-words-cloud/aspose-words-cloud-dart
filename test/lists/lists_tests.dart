@@ -26,6 +26,7 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -37,7 +38,7 @@ class ListsTests
   String localFile;
 
   ListsTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Lists';
+    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Lists';
     localFile = 'DocumentElements/Lists/ListsGet.doc';
   }
 
@@ -52,7 +53,11 @@ class ListsTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getLists(request);
+    var result = await context.getApi().getLists(request);
+    expect(result.lists, isNotNull);
+    expect(result.lists.listInfo, isNotNull);
+    expect(result.lists.listInfo.length, 2);
+    expect(result.lists.listInfo[0].listId, 1);
   }
 
   /// Test for getting list from document.
@@ -67,7 +72,9 @@ class ListsTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().getList(request);
+    var result = await context.getApi().getList(request);
+    expect(result.list, isNotNull);
+    expect(result.list.listId, 1);
   }
 
   /// Test for updating list from document.
@@ -85,7 +92,10 @@ class ListsTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateList(request);
+    var result = await context.getApi().updateList(request);
+    expect(result.list, isNotNull);
+    expect(result.list.listId, 1);
+    expect(result.list.isRestartAtEachSection, isTrue);
   }
 
   /// Test for updating list level from document.
@@ -104,7 +114,12 @@ class ListsTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().updateListLevel(request);
+    var result = await context.getApi().updateListLevel(request);
+    expect(result.list, isNotNull);
+    expect(result.list.listLevels, isNotNull);
+    expect(result.list.listLevels.listLevel, isNotNull);
+    expect(result.list.listLevels.listLevel.length, 9);
+
   }
 
   /// Test for inserting list from document.
@@ -121,6 +136,8 @@ class ListsTests
       folder: remoteDataFolder
     );
 
-    await context.getApi().insertList(request);
+    var result = await context.getApi().insertList(request);
+    expect(result.list, isNotNull);
+    expect(result.list.listId, 3);
   }
 }
