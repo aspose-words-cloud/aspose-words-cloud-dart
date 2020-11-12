@@ -38,7 +38,7 @@ class SectionTests
   String localFile;
 
   SectionTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Section';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Section';
     localFile = 'Common/test_multi_pages.docx';
   }
 

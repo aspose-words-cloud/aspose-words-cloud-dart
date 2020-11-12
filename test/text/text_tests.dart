@@ -37,7 +37,7 @@ class TextTests
   String remoteDataFolder;
 
   TextTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Text';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Text';
   }
 
   /// Test for replacing text.
@@ -54,7 +54,7 @@ class TextTests
       remoteFileName,
       requestReplaceText,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
     var result = await context.getApi().replaceText(request);

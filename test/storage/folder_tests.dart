@@ -38,7 +38,7 @@ class FolderTests
   String localFile;
 
   FolderTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/Storage';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/Storage';
     localFile = 'Common/test_multi_pages.docx';
   }
 
@@ -98,7 +98,7 @@ class FolderTests
     await context.uploadFile(localFile, remoteDataFolder + '/TestMoveFolderSrc/TestMoveFolderSrc.docx');
 
     final request = MoveFolderRequest(
-      this.context.baseTestOutPath + '/TestMoveFolderDest_' + this.context.createRandomGuid(),
+      context.baseTestOutPath + '/TestMoveFolderDest_' + context.createRandomGuid(),
       remoteDataFolder + '/TestMoveFolderSrc'
     );
 

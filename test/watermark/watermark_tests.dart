@@ -38,7 +38,7 @@ class WatermarkTests
   String localFile;
 
   WatermarkTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/Watermark';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/Watermark';
     localFile = 'Common/test_multi_pages.docx';
   }
 
@@ -55,7 +55,7 @@ class WatermarkTests
       remoteFileName,
       imageFile: null,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName,
+      destFileName: context.baseTestOutPath + '/' + remoteFileName,
       image: remoteImagePath
     );
 
@@ -77,7 +77,7 @@ class WatermarkTests
       remoteFileName,
       requestWatermarkText,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
     var result = await context.getApi().insertWatermarkText(request);
@@ -94,7 +94,7 @@ class WatermarkTests
     final request = DeleteWatermarkRequest(
       remoteFileName,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
     var result = await context.getApi().deleteWatermark(request);

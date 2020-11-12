@@ -38,7 +38,7 @@ class RangeTests
   String localFile;
 
   RangeTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Range';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Range';
     localFile = 'DocumentElements/Range/RangeGet.doc';
   }
 

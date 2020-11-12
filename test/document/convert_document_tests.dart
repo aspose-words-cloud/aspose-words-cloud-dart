@@ -38,7 +38,7 @@ class ConvertDocumentTests
   String localFolder;
 
   ConvertDocumentTests(final this.context) {
-    remoteFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/ConvertDocument';
+    remoteFolder = context.remoteBaseTestDataFolder + '/DocumentActions/ConvertDocument';
     localFolder = 'DocumentActions/ConvertDocument';
   }
 
@@ -50,7 +50,7 @@ class ConvertDocumentTests
     await context.uploadFile('Common/' + localName, remoteFolder + '/' + remoteName);
     var requestSaveOptionsData = SaveOptionsData();
     requestSaveOptionsData.saveFormat = 'pdf';
-    requestSaveOptionsData.fileName = this.context.baseTestOutPath + '/TestSaveAs.pdf';
+    requestSaveOptionsData.fileName = context.baseTestOutPath + '/TestSaveAs.pdf';
 
     final request = SaveAsRequest(
       remoteName,
@@ -71,7 +71,7 @@ class ConvertDocumentTests
     await context.uploadFile(localFolder + '/' + localName, remoteFolder + '/' + remoteName);
     var requestSaveOptionsData = SaveOptionsData();
     requestSaveOptionsData.saveFormat = 'docx';
-    requestSaveOptionsData.fileName = this.context.baseTestOutPath + '/TestSaveAsFromPdfToDoc.docx';
+    requestSaveOptionsData.fileName = context.baseTestOutPath + '/TestSaveAsFromPdfToDoc.docx';
 
     final request = SaveAsRequest(
       remoteName,
@@ -92,7 +92,7 @@ class ConvertDocumentTests
     await context.uploadFile('Common/' + localName, remoteFolder + '/' + remoteName);
     var requestSaveOptions = TiffSaveOptionsData();
     requestSaveOptions.saveFormat = 'tiff';
-    requestSaveOptions.fileName = this.context.baseTestOutPath + '/abc.tiff';
+    requestSaveOptions.fileName = context.baseTestOutPath + '/abc.tiff';
 
     final request = SaveAsTiffRequest(
       remoteName,

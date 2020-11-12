@@ -38,7 +38,7 @@ class MailMergeFiledsTests
   String mailMergeFolder;
 
   MailMergeFiledsTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/MailMerge';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/MailMerge';
     mailMergeFolder = 'DocumentActions/MailMerge';
   }
 

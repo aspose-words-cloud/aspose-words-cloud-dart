@@ -38,7 +38,7 @@ class CompareDocumentTests
   String localFolder;
 
   CompareDocumentTests(final this.context) {
-    remoteFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/CompareDocument';
+    remoteFolder = context.remoteBaseTestDataFolder + '/DocumentActions/CompareDocument';
     localFolder = 'DocumentActions/CompareDocument';
   }
 
@@ -61,7 +61,7 @@ class CompareDocumentTests
       remoteName1,
       requestCompareData,
       folder: remoteFolder,
-      destFileName: this.context.baseTestOutPath + '/TestCompareDocumentOut.doc'
+      destFileName: context.baseTestOutPath + '/TestCompareDocumentOut.doc'
     );
 
     var result = await context.getApi().compareDocument(request);

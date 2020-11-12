@@ -39,7 +39,7 @@ class PageSetupTests
   String localTextFile;
 
   PageSetupTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/PageSetup';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/PageSetup';
     localFile = 'Common/test_multi_pages.docx';
     localTextFile = 'DocumentElements/Text/SampleWordDocument.docx';
   }

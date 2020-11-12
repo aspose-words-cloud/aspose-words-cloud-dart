@@ -38,7 +38,7 @@ class RunTests
   String localFile;
 
   RunTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Runs';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Runs';
     localFile = 'DocumentElements/Runs/Run.doc';
   }
 

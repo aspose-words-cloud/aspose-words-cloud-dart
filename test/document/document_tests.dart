@@ -38,7 +38,7 @@ class DocumentTests
   String localFile;
 
   DocumentTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/Document';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/Document';
     localFile = 'Common/test_multi_pages.docx';
   }
 

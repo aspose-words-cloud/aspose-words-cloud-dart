@@ -38,7 +38,7 @@ class StylesTests
   String localFile;
 
   StylesTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Styles';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Styles';
     localFile = 'DocumentElements/Styles/GetStyles.docx';
   }
 

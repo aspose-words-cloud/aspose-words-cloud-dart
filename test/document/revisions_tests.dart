@@ -38,7 +38,7 @@ class RevisionsTests
   String localFile;
 
   RevisionsTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/Revisions';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/Revisions';
     localFile = 'Common/test_multi_pages.docx';
   }
 
@@ -51,7 +51,7 @@ class RevisionsTests
     final request = AcceptAllRevisionsRequest(
       remoteFileName,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
     var result = await context.getApi().acceptAllRevisions(request);
@@ -68,7 +68,7 @@ class RevisionsTests
     final request = RejectAllRevisionsRequest(
       remoteFileName,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
     var result = await context.getApi().rejectAllRevisions(request);

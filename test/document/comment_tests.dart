@@ -38,7 +38,7 @@ class CommentTests
   String localFile;
 
   CommentTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/Comments';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/Comments';
     localFile = 'Common/test_multi_pages.docx';
   }
 
@@ -168,7 +168,7 @@ class CommentTests
       remoteFileName,
       0,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
     await context.getApi().deleteComment(request);

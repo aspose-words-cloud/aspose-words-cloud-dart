@@ -38,7 +38,7 @@ class SplitDocumentToFormatTests
   String localFile;
 
   SplitDocumentToFormatTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/SplitDocument';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/SplitDocument';
     localFile = 'Common/test_multi_pages.docx';
   }
 
@@ -52,7 +52,7 @@ class SplitDocumentToFormatTests
       remoteFileName,
       'text',
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/TestSplitDocument.text',
+      destFileName: context.baseTestOutPath + '/TestSplitDocument.text',
       from: 1,
       to: 2
     );

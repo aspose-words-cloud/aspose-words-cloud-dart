@@ -38,7 +38,7 @@ class FootnoteTests
   String footnoteFolder;
 
   FootnoteTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Footnotes';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Footnotes';
     footnoteFolder = 'DocumentElements/Footnotes';
   }
 

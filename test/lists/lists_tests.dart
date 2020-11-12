@@ -38,7 +38,7 @@ class ListsTests
   String localFile;
 
   ListsTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Lists';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Lists';
     localFile = 'DocumentElements/Lists/ListsGet.doc';
   }
 

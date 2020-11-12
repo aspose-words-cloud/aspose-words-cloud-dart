@@ -39,7 +39,7 @@ class DrawingObjectsTests
   String localDrawingFile;
 
   DrawingObjectsTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/DrawingObjectss';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/DrawingObjectss';
     localFile = 'Common/test_multi_pages.docx';
     localDrawingFile = 'DocumentElements/DrawingObjects/sample_EmbeddedOLE.docx';
   }

@@ -38,7 +38,7 @@ class HyperlinkTests
   String localFile;
 
   HyperlinkTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Hyperlink';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Hyperlink';
     localFile = 'Common/test_doc.docx';
   }
 

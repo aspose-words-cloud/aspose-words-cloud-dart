@@ -38,7 +38,7 @@ class BuildReportTests
   String reportingFolder;
 
   BuildReportTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/Reporting';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/Reporting';
     reportingFolder = 'DocumentActions/Reporting';
   }
 

@@ -38,7 +38,7 @@ class HeaderFooterTests
   String localFile;
 
   HeaderFooterTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/HeaderFooters';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/HeaderFooters';
     localFile = 'DocumentElements/HeaderFooters/HeadersFooters.doc';
   }
 

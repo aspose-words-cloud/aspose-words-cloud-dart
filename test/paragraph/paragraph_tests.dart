@@ -40,7 +40,7 @@ class ParagraphTests
   String tabStopFolder;
 
   ParagraphTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Paragraphs';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Paragraphs';
     localFile = 'Common/test_multi_pages.docx';
     listFolder = 'DocumentElements/ParagraphListFormat';
     tabStopFolder = 'DocumentElements/Paragraphs';
@@ -187,7 +187,7 @@ class ParagraphTests
       'paragraphs/0',
       0,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
     var result = await context.getApi().updateRunFont(request);

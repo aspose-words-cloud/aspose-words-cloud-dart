@@ -38,7 +38,7 @@ class DocumentProtectionTests
   String localFile;
 
   DocumentProtectionTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/DocumentProtection';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/DocumentProtection';
     localFile = 'Common/test_multi_pages.docx';
   }
 
@@ -55,7 +55,7 @@ class DocumentProtectionTests
       remoteFileName,
       requestProtectionRequest,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
     var result = await context.getApi().protectDocument(request);

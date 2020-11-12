@@ -38,7 +38,7 @@ class BookmarkTests
   String localFile;
 
   BookmarkTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Bookmarks';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Bookmarks';
     localFile = 'Common/test_multi_pages.docx';
   }
 
@@ -93,7 +93,7 @@ class BookmarkTests
       requestBookmarkData,
       bookmarkName,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
     var result = await context.getApi().updateBookmark(request);

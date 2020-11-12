@@ -38,7 +38,7 @@ class AppendDocumentTests
   String localFile;
 
   AppendDocumentTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/AppendDocument';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/AppendDocument';
     localFile = 'Common/test_multi_pages.docx';
   }
 
@@ -61,7 +61,7 @@ class AppendDocumentTests
       remoteFileName,
       requestDocumentList,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
     var result = await context.getApi().appendDocument(request);

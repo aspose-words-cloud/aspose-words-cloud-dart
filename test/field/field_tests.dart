@@ -39,7 +39,7 @@ class FieldTests
   String fieldFolder;
 
   FieldTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Fields';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Fields';
     textFolder = 'DocumentElements/Text';
     fieldFolder = 'DocumentElements/Fields';
   }
@@ -200,7 +200,7 @@ class FieldTests
       remoteFileName,
       requestPageNumber,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
     var result = await context.getApi().insertPageNumbers(request);

@@ -38,7 +38,7 @@ class ExecuteTemplateTests
   String mailMergeFolder;
 
   ExecuteTemplateTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/MailMerge';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/MailMerge';
     mailMergeFolder = 'DocumentActions/MailMerge';
   }
 
@@ -54,7 +54,7 @@ class ExecuteTemplateTests
       remoteFileName,
       data: localDataFile,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
     var result = await context.getApi().executeMailMerge(request);

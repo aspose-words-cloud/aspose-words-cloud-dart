@@ -38,7 +38,7 @@ class DocumentPropertiesTests
   String localFile;
 
   DocumentPropertiesTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/DocumentProperties';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/DocumentProperties';
     localFile = 'Common/test_multi_pages.docx';
   }
 
@@ -90,7 +90,7 @@ class DocumentPropertiesTests
       remoteFileName,
       'testProp',
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
     await context.getApi().deleteDocumentProperty(request);
@@ -109,7 +109,7 @@ class DocumentPropertiesTests
       'AsposeAuthor',
       requestProperty,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
     var result = await context.getApi().createOrUpdateDocumentProperty(request);

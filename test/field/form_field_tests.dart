@@ -38,7 +38,7 @@ class FormFieldTests
   String fieldFolder;
 
   FormFieldTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/FormFields';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/FormFields';
     fieldFolder = 'DocumentElements/FormFields';
   }
 
@@ -61,7 +61,7 @@ class FormFieldTests
       0,
       nodePath: 'sections/0',
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
     var result = await context.getApi().updateFormField(request);
@@ -88,7 +88,7 @@ class FormFieldTests
       requestFormField,
       0,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
     var result = await context.getApi().updateFormField(request);
@@ -188,7 +188,7 @@ class FormFieldTests
       requestFormField,
       nodePath: 'sections/0/paragraphs/0',
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
     var result = await context.getApi().insertFormField(request);
@@ -215,7 +215,7 @@ class FormFieldTests
       remoteFileName,
       requestFormField,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
     var result = await context.getApi().insertFormField(request);
@@ -235,7 +235,7 @@ class FormFieldTests
       0,
       nodePath: 'sections/0',
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
     await context.getApi().deleteFormField(request);
@@ -251,7 +251,7 @@ class FormFieldTests
       remoteFileName,
       0,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
     await context.getApi().deleteFormField(request);

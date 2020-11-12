@@ -38,7 +38,7 @@ class ClassificationTests
   String localFile;
 
   ClassificationTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/Common';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/Common';
     localFile = 'Common/test_multi_pages.docx';
   }
 

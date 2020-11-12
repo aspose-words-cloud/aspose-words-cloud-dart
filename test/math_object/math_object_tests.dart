@@ -38,7 +38,7 @@ class MathObjectTests
   String localFile;
 
   MathObjectTests(final this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/MathObjects';
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/MathObjects';
     localFile = 'DocumentElements/MathObjects/MathObjects.docx';
   }
 
