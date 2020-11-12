@@ -9,10 +9,10 @@ def runtests()
         try {
             stage('checkout'){
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'LocalBranch', localBranch: "**"]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '361885ba-9425-4230-950e-0af201d90547', url: 'https://git.auckland.dynabic.com/words-cloud/words-cloud-sdk-dart.git']]])
-                withCredentials([usernamePassword(credentialsId: '6839cbe8-39fa-40c0-86ce-90706f0bae5d', passwordVariable: 'AppKey', usernameVariable: 'AppSid')]) {
-                    sh 'mkdir -p settings'
-                    sh 'echo "{\\"AppSid\\": \\"$AppSid\\",\\"AppKey\\": \\"$AppKey\\", \\"BaseUrl\\": \\"$testServerUrl\\"}" > settings/servercreds.json'
-                }
+                        withCredentials([usernamePassword(credentialsId: '6839cbe8-39fa-40c0-86ce-90706f0bae5d', passwordVariable: 'ClientSecret', usernameVariable: 'ClientId')]) {
+                            sh 'mkdir -p settings'
+                            sh 'echo "{\\"ClientId\\": \\"$ClientId\\", \\"ClientSecret\\": \\"$ClientSecret\\",\\"BaseUrl\\": \\"$apiUrl\\"}" > settings/servercreds.json'
+                        }
             }
             
             docker.image('google/dart:latest').inside {

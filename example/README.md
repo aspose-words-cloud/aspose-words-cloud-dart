@@ -5,7 +5,7 @@ import 'dart:convert';
 import 'dart:io';
 
 // Configure words api client
-var configuration = Configuration('AppKey', 'AppSid');
+var configuration = Configuration('ClientSecret', 'ClientId');
 var wordsApi = WordsApi(configuration);
 
 // Upload file to cloud

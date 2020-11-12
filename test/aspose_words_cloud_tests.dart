@@ -84,7 +84,7 @@ void main() {
   setUpAll(() async {
     final file = File('${Directory.current.path}/settings/servercreds.json');
     if (await file.exists() == false) {
-      throw Exception('Please put AppKey and AppSid credentials to "SDK_ROOT/settings/servercreds.json".');
+      throw Exception('Please put ClientSecret and ClientId credentials to "SDK_ROOT/settings/servercreds.json".');
     }
 
     final jsonString = await file.readAsString();

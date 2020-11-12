@@ -73,11 +73,11 @@ class ApiClient {
 
   Future<void> _updateAuthToken() async {
     final url = configuration.baseUrl + '/connect/token';
-    final data = 'grant_type=client_credentials&client_id=${configuration.appSid}&client_secret=${configuration.appKey}';
+    final data = 'grant_type=client_credentials&client_id=${configuration.clientId}&client_secret=${configuration.clientSecret}';
     final headers = {'Content-Type' : 'application/x-www-form-urlencoded'};
     final response = await http.post(url, headers: headers, body: data);
     if (response.statusCode == 400) {
-      throw ApiException(response.statusCode, 'Invalid server credentials. Please check your AppKey and AppSid.');
+      throw ApiException(response.statusCode, 'Invalid server credentials. Please check your ClientSecret and ClientId.');
     }
     else {
       _handleResponse(response.statusCode, response.reasonPhrase, ByteData.view(response.bodyBytes.buffer));

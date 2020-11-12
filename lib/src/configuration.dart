@@ -28,16 +28,16 @@
 library aspose_words_cloud;
 
 class Configuration {
-  final String appKey;
-  final String appSid;
+  final String clientId;
+  final String clientSecret;
   final String baseUrl;
   final bool debugMode;
 
-  Configuration(final this.appKey, final this.appSid, {final this.baseUrl = 'https://api.aspose.cloud', final this.debugMode = false});
+  Configuration(final this.clientId, final this.clientSecret, {final this.baseUrl = 'https://api.aspose.cloud', final this.debugMode = false});
 
   Configuration.fromJson(final Map<String, dynamic> json)
-    : appKey = json['AppKey'] as String,
-      appSid = json['AppSid'] as String,
+    : clientId = json['ClientId'] as String,
+      clientSecret = json['ClientSecret'] as String,
       baseUrl = json['BaseUrl'] as String,
       debugMode = json['DebugMode'] as bool;
 
