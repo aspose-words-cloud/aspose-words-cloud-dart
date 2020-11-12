@@ -43,7 +43,7 @@ class ReadmeTests
   Future<void> testReadme1() async
   {
     // Configure words api client
-    var configuration = Configuration(context.configuration.clientSecret, context.configuration.clientId, baseUrl: context.configuration.baseUrl);
+    var configuration = Configuration(context.configuration.clientId, context.configuration.clientSecret, baseUrl: context.configuration.baseUrl);
     var wordsApi = WordsApi(configuration);
 
     // Upload file to cloud
