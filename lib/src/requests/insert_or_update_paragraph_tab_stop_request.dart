@@ -36,16 +36,16 @@ import '../api_request_part.dart';
 
 /// Request model for InsertOrUpdateParagraphTabStop operation.
 class InsertOrUpdateParagraphTabStopRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Paragraph tab stop.
+  /// The properties of the paragraph tab stop.
   final TabStopInsert dto;
 
   /// Object index.
   final int index;
 
-  /// Path to the node which contains paragraph.
+  /// The path to the node in the document tree.
   final String nodePath;
 
   /// Original document folder.

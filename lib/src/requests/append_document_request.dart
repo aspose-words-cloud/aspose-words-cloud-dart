@@ -36,10 +36,10 @@ import '../api_request_part.dart';
 
 /// Request model for AppendDocument operation.
 class AppendDocumentRequest implements RequestBase {
-  /// Original document name.
+  /// The filename of the input document.
   final String name;
 
-  /// DocumentEntryList with a list of documents to append.
+  /// The collection of documents to append.
   final DocumentEntryList documentList;
 
   /// Original document folder.

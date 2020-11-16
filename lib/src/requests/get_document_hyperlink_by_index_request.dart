@@ -36,10 +36,10 @@ import '../api_request_part.dart';
 
 /// Request model for GetDocumentHyperlinkByIndex operation.
 class GetDocumentHyperlinkByIndexRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// The hyperlink index.
+  /// The index of the hyperlink.
   final int hyperlinkIndex;
 
   /// Original document folder.

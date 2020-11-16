@@ -31,7 +31,7 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for markdown save options.
 class MarkdownSaveOptionsData extends TxtSaveOptionsBaseData {
-  /// Gets or sets a value that specifies how to align contents in tables when exporting into the Markdown format.
+  /// Gets or sets the value, that specifies how to align contents in tables when exporting into the Markdown format.
   /// The default value is Auto.
   MarkdownSaveOptionsData_TableContentAlignmentEnum tableContentAlignment;
 
@@ -72,7 +72,7 @@ class MarkdownSaveOptionsData extends TxtSaveOptionsBaseData {
   }
 }
 
-/// Gets or sets a value that specifies how to align contents in tables when exporting into the Markdown format.
+/// Gets or sets the value, that specifies how to align contents in tables when exporting into the Markdown format.
 /// The default value is Auto.
 enum MarkdownSaveOptionsData_TableContentAlignmentEnum
 { 

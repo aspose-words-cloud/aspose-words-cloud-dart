@@ -29,10 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:
-/// GET https://api.aspose.cloud/v4.0/words/Test.doc/footnotes.
+/// The REST response with a collection of footnotes.
 class FootnotesResponse extends WordsResponse {
-  /// Gets or sets collection of footnotes.
+  /// Gets or sets the collection of footnotes.
   FootnoteCollection footnotes;
 
   @override

@@ -35,13 +35,13 @@ import '../api_request_part.dart';
 
 /// Request model for DeleteFootnote operation.
 class DeleteFootnoteRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
   /// Object index.
   final int index;
 
-  /// Path to the node, which contains collection of footnotes.
+  /// The path to the node in the document tree.
   final String nodePath;
 
   /// Original document folder.

@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Collection of document properties.
+/// The collection of document properties.
 class DocumentProperties extends LinkElement {
-  /// Gets or sets collection of document properties.
+  /// Gets or sets the collection of document properties.
   List<DocumentProperty> list;
 
   @override

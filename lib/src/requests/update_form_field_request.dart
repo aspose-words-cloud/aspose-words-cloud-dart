@@ -36,16 +36,16 @@ import '../api_request_part.dart';
 
 /// Request model for UpdateFormField operation.
 class UpdateFormFieldRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// From field data.
+  /// The new form field properties.
   final FormField formField;
 
   /// Object index.
   final int index;
 
-  /// Path to the node that contains collection of formfields.
+  /// The path to the node in the document tree.
   final String nodePath;
 
   /// Original document folder.

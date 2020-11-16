@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Collection of comments.
+/// The collection of comments.
 class CommentsCollection extends LinkElement {
-  /// Gets or sets collection of comments.
+  /// Gets or sets the collection of comments.
   List<Comment> commentList;
 
   @override

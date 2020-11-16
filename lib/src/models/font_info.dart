@@ -29,18 +29,18 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Font info.
+/// DTO container with font info.
 class FontInfo implements ModelBase {
-  /// Gets or sets path to the font file if any.
+  /// Gets or sets the path to the font file if any.
   String filePath;
 
-  /// Gets or sets family name of the font.
+  /// Gets or sets the family name of the font.
   String fontFamilyName;
 
-  /// Gets or sets full name of the font.
+  /// Gets or sets the full name of the font.
   String fullFontName;
 
-  /// Gets or sets version string of the font.
+  /// Gets or sets the version string of the font.
   String version;
 
   @override

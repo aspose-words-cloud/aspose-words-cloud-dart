@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// container class for wml save options.
+/// Container class for wml save options.
 class WordMLSaveOptionsData extends SaveOptionsData {
-  /// Gets or sets specifies whether or not use pretty formats output.
+  /// Gets or sets a value indicating whether to use pretty formats output.
   bool prettyFormat;
 
   @override

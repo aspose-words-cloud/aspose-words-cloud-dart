@@ -31,8 +31,7 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for mhtml save options.
 class MhtmlSaveOptionsData extends HtmlSaveOptionsData {
-  /// Gets or sets specifies whether to use CID (Content-ID) URLs to reference resources (images, fonts, CSS) included in MHTML documents.
-  /// Default value is false.
+  /// Gets or sets a value indicating whether to use CID (Content-ID) URLs to reference resources (images, fonts, CSS) included in MHTML documents. The default value is false.
   bool exportCidUrlsForMhtmlResources;
 
   @override

@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Paragraph element.
+/// DTO container with a paragraph's text.
 class ParagraphInsert implements ModelBase {
-  /// Gets or sets paragraph's text.
+  /// Gets or sets the paragraph's text.
   String text;
 
   @override

@@ -29,10 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:
-/// GET https://api.aspose.cloud/v4.0/words/Test.doc/officeMathObjects/0.
+/// The REST response with a OfficeMath object.
 class OfficeMathObjectResponse extends WordsResponse {
-  /// Gets or sets officeMathObject information.
+  /// Gets or sets the OfficeMath object.
   OfficeMathObject officeMathObject;
 
   @override

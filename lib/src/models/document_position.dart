@@ -29,12 +29,12 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Represents a position in the document tree.
+/// DTO container with a position in the document tree.
 class DocumentPosition implements ModelBase {
-  /// Gets or sets link to  node.
+  /// Gets or sets the link to a node.
   NodeLink node;
 
-  /// Gets or sets offset into the node.
+  /// Gets or sets the offset in the node.
   int offset;
 
   @override

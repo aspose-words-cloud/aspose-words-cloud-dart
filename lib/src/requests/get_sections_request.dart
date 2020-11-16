@@ -36,7 +36,7 @@ import '../api_request_part.dart';
 
 /// Request model for GetSections operation.
 class GetSectionsRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
   /// Original document folder.

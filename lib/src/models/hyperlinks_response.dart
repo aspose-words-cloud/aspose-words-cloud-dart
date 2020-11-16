@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:  GET /{name}/hyperlinks .
+/// The REST response with a collection of hyperlinks.
 class HyperlinksResponse extends WordsResponse {
-  /// Gets or sets collection of hyperlinks.
+  /// Gets or sets the collection of hyperlinks.
   Hyperlinks hyperlinks;
 
   @override

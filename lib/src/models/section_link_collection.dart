@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Collection of links to sections.
+/// The collection of section's links.
 class SectionLinkCollection extends LinkElement {
-  /// Gets or sets collection of section's links.
+  /// Gets or sets the collection of section's links.
   List<SectionLink> sectionLinkList;
 
   @override

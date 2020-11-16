@@ -31,7 +31,7 @@ import '../../aspose_words_cloud.dart';
 
 /// Represents a collection of merge fields within a document.
 class FieldNames extends LinkElement {
-  /// Gets or sets collection of fields names.
+  /// Gets or sets the collection of fields names.
   List<String> names;
 
   @override

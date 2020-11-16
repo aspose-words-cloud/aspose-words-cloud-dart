@@ -29,18 +29,18 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// container class for details of encryption.
+/// Container class for details of encryption.
 class PdfEncryptionDetailsData implements ModelBase {
-  /// Gets or sets specifies the encryption algorithm to use.
+  /// Gets or sets the encryption algorithm to use.
   String encryptionAlgorithm;
 
-  /// Gets or sets specifies the owner password for the encrypted PDF document.
+  /// Gets or sets the owner password for the encrypted PDF document.
   String ownerPassword;
 
-  /// Gets or sets specifies the operations that are allowed to a user on an encrypted PDF document.
+  /// Gets or sets the operations that are allowed to a user on the encrypted PDF document.
   String permissions;
 
-  /// Gets or sets specifies the user password required for opening the encrypted PDF document.
+  /// Gets or sets the user password required for opening the encrypted PDF document.
   String userPassword;
 
   @override

@@ -35,7 +35,7 @@ import '../api_request_part.dart';
 
 /// Request model for RenderTable operation.
 class RenderTableRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
   /// The destination format.
@@ -44,7 +44,7 @@ class RenderTableRequest implements RequestBase {
   /// Object index.
   final int index;
 
-  /// Path to the node, which contains tables.
+  /// The path to the node in the document tree.
   final String nodePath;
 
   /// Original document folder.

@@ -31,10 +31,10 @@ import '../../aspose_words_cloud.dart';
 
 /// Contains data for load web document.
 class LoadWebDocumentData implements ModelBase {
-  /// Gets or sets web document url.
+  /// Gets or sets the web document URL.
   String loadingDocumentUrl;
 
-  /// Gets or sets save options.
+  /// Gets or sets the save options.
   SaveOptionsData saveOptions;
 
   @override

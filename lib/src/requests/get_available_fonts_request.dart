@@ -36,7 +36,7 @@ import '../api_request_part.dart';
 
 /// Request model for GetAvailableFonts operation.
 class GetAvailableFontsRequest implements RequestBase {
-  /// Folder in filestorage with custom fonts.
+  /// The folder in cloud storage with custom fonts.
   final String fontsLocation;
 
   GetAvailableFontsRequest({final this.fontsLocation});

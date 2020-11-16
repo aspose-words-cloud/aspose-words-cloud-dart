@@ -36,16 +36,16 @@ import '../api_request_part.dart';
 
 /// Request model for UpdateField operation.
 class UpdateFieldRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Field data.
+  /// The properties of the field.
   final FieldUpdate field;
 
   /// Object index.
   final int index;
 
-  /// Path to the node, which contains collection of fields.
+  /// The path to the node in the document tree.
   final String nodePath;
 
   /// Original document folder.

@@ -36,10 +36,10 @@ import '../api_request_part.dart';
 
 /// Request model for InsertList operation.
 class InsertListRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// List to insert.
+  /// The properties of the list.
   final ListInsert listInsert;
 
   /// Original document folder.

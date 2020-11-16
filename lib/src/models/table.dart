@@ -29,12 +29,12 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Table element.
+/// DTO container with a table element.
 class Table extends NodeLink {
   /// Gets or sets table properties.
   TableProperties tableProperties;
 
-  /// Gets or sets collection of table's rows.
+  /// Gets or sets the collection of table's rows.
   List<TableRow> tableRowList;
 
   @override

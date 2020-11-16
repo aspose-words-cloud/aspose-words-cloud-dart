@@ -36,13 +36,13 @@ import '../api_request_part.dart';
 
 /// Request model for InsertTableCell operation.
 class InsertTableCellRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Table cell parameters/.
+  /// The properties of the cell.
   final TableCellInsert cell;
 
-  /// Path to table row.
+  /// The path to the table row in the document tree.
   final String tableRowPath;
 
   /// Original document folder.

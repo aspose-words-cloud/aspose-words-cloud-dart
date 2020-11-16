@@ -36,13 +36,13 @@ import '../api_request_part.dart';
 
 /// Request model for InsertTable operation.
 class InsertTableRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Table parameters/.
+  /// The properties of the table.
   final TableInsert table;
 
-  /// Path to the node, which contains tables.
+  /// The path to the node in the document tree.
   final String nodePath;
 
   /// Original document folder.

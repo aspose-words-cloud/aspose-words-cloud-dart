@@ -36,13 +36,13 @@ import '../api_request_part.dart';
 
 /// Request model for UpdateTableRowFormat operation.
 class UpdateTableRowFormatRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Table row format.
+  /// The row format.
   final TableRowFormat format;
 
-  /// Path to table.
+  /// The path to the table in the document tree.
   final String tablePath;
 
   /// Object index.

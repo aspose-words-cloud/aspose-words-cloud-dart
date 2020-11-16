@@ -29,49 +29,48 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Font element.
+/// DTO container with a font element.
 class Font extends LinkElement {
-  /// Gets or sets true if the font is formatted as all capital letters.
+  /// Gets or sets a value indicating whether the font is formatted as all capital letters.
   bool allCaps;
 
-  /// Gets or sets specifies whether the contents of this run shall have right-to-left characteristics.
+  /// Gets or sets a value indicating whether the contents of this run shall have right-to-left characteristics.
   bool bidi;
 
-  /// Gets or sets true if the font is formatted as bold.
+  /// Gets or sets a value indicating whether the font is formatted as bold.
   bool bold;
 
-  /// Gets or sets true if the right-to-left text is formatted as bold.
+  /// Gets or sets a value indicating whether the right-to-left text is formatted as bold.
   bool boldBi;
 
-  /// Gets or sets border object that specifies border for the font.
+  /// Gets or sets the border object, that specifies border for the font.
   Border border;
 
   /// Gets or sets the color of the font.
   XmlColor color;
 
-  /// Gets or sets specifies whether the contents of this run shall be treated as complex script text regardless
-  /// of their Unicode character values when determining the formatting for this run.
+  /// Gets or sets a value indicating whether the contents of this run shall be treated as complex script text regardless of their Unicode character values when determining the formatting for this run.
   bool complexScript;
 
-  /// Gets or sets true if the font is formatted as double strikethrough text.
+  /// Gets or sets a value indicating whether the font is formatted as double strikethrough text.
   bool doubleStrikeThrough;
 
-  /// Gets or sets true if the font is formatted as embossed.
+  /// Gets or sets a value indicating whether the font is formatted as embossed.
   bool emboss;
 
-  /// Gets or sets true if the font is formatted as engraved.
+  /// Gets or sets a value indicating whether the font is formatted as engraved.
   bool engrave;
 
-  /// Gets or sets true if the font is formatted as hidden text.
+  /// Gets or sets a value indicating whether the font is formatted as hidden text.
   bool hidden;
 
   /// Gets or sets the highlight (marker) color.
   XmlColor highlightColor;
 
-  /// Gets or sets true if the font is formatted as italic.
+  /// Gets or sets a value indicating whether the font is formatted as italic.
   bool italic;
 
-  /// Gets or sets true if the right-to-left text is formatted as italic.
+  /// Gets or sets a value indicating whether the right-to-left text is formatted as italic.
   bool italicBi;
 
   /// Gets or sets the font size at which kerning starts.
@@ -89,22 +88,22 @@ class Font extends LinkElement {
   /// Gets or sets the name of the font.
   String name;
 
-  /// Gets or sets returns or sets the font used for Latin text (characters with character codes from 0 (zero) through 127).
+  /// Gets or sets the font used for Latin text (characters with character codes from 0 (zero) through 127).
   String nameAscii;
 
-  /// Gets or sets returns or sets the name of the font in a right-to-left language document.
+  /// Gets or sets the name of the font in a right-to-left language document.
   String nameBi;
 
-  /// Gets or sets returns or sets an East Asian font name.
+  /// Gets or sets the East Asian font name.
   String nameFarEast;
 
-  /// Gets or sets returns or sets the font used for characters with character codes from 128 through 255.
+  /// Gets or sets the font used for characters with character codes from 128 through 255.
   String nameOther;
 
-  /// Gets or sets true when the formatted characters are not to be spell checked.
+  /// Gets or sets a value indicating whether the formatted characters are not to be spell checked.
   bool noProofing;
 
-  /// Gets or sets true if the font is formatted as outline.
+  /// Gets or sets a value indicating whether the font is formatted as outline.
   bool outline;
 
   /// Gets or sets the position of text (in points) relative to the base line.
@@ -114,7 +113,7 @@ class Font extends LinkElement {
   /// Gets or sets character width scaling in percent.
   int scaling;
 
-  /// Gets or sets true if the font is formatted as shadowed.
+  /// Gets or sets a value indicating whether the font is formatted as shadowed.
   bool shadow;
 
   /// Gets or sets the font size in points.
@@ -123,13 +122,13 @@ class Font extends LinkElement {
   /// Gets or sets the font size in points used in a right-to-left document.
   double sizeBi;
 
-  /// Gets or sets true if the font is formatted as small capital letters.
+  /// Gets or sets a value indicating whether the font is formatted as small capital letters.
   bool smallCaps;
 
-  /// Gets or sets returns or sets the spacing (in points) between characters.
+  /// Gets or sets the spacing (in points) between characters.
   double spacing;
 
-  /// Gets or sets true if the font is formatted as strikethrough text.
+  /// Gets or sets a value indicating whether the font is formatted as strikethrough text.
   bool strikeThrough;
 
   /// Gets or sets the locale independent style identifier of the character style applied to this formatting.
@@ -138,10 +137,10 @@ class Font extends LinkElement {
   /// Gets or sets the name of the character style applied to this formatting.
   String styleName;
 
-  /// Gets or sets true if the font is formatted as subscript.
+  /// Gets or sets a value indicating whether the font is formatted as subscript.
   bool subscript;
 
-  /// Gets or sets true if the font is formatted as superscript.
+  /// Gets or sets a value indicating whether the font is formatted as superscript.
   bool superscript;
 
   /// Gets or sets the font animation effect.

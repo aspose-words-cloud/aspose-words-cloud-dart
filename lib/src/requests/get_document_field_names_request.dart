@@ -36,7 +36,7 @@ import '../api_request_part.dart';
 
 /// Request model for GetDocumentFieldNames operation.
 class GetDocumentFieldNamesRequest implements RequestBase {
-  /// The template name.
+  /// The filename of the input document.
   final String name;
 
   /// Original document folder.
@@ -51,7 +51,7 @@ class GetDocumentFieldNamesRequest implements RequestBase {
   /// Password for opening an encrypted document.
   final String password;
 
-  /// If true, result includes "mustache" field names.
+  /// The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
   final bool useNonMergeFields;
 
   GetDocumentFieldNamesRequest(final this.name, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.useNonMergeFields});

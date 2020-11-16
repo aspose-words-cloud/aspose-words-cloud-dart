@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// container class for ps save options.
+/// Container class for ps save options.
 class PsSaveOptionsData extends FixedPageSaveOptionsData {
-  /// Gets or sets determines whether the document should be saved using a booklet printing layout.
+  /// Gets or sets a value indicating whether the document should be saved using a booklet printing layout.
   bool useBookFoldPrintingSettings;
 
   @override

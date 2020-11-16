@@ -31,28 +31,28 @@ import '../../aspose_words_cloud.dart';
 
 /// Drawing object element for insert.
 class DrawingObjectInsert implements ModelBase {
-  /// Gets or sets height of the drawing object in points.
+  /// Gets or sets the height of the DrawingObject in points.
   double height;
 
-  /// Gets or sets distance in points from the origin to the left side of the image.
+  /// Gets or sets the distance in points from the origin to the left side of the image.
   double left;
 
-  /// Gets or sets drawing object will be inserted before specified position.
+  /// Gets or sets the position, before which the DrawingObject will be inserted.
   DocumentPosition position;
 
-  /// Gets or sets specifies where the distance to the image is measured from.
+  /// Gets or sets the relative horizontal position, from which the distance to the image is measured.
   DrawingObjectInsert_RelativeHorizontalPositionEnum relativeHorizontalPosition;
 
-  /// Gets or sets specifies where the distance to the image measured from.
+  /// Gets or sets the relative vertical position, from which the distance to the image is measured.
   DrawingObjectInsert_RelativeVerticalPositionEnum relativeVerticalPosition;
 
-  /// Gets or sets distance in points from the origin to the top side of the image.
+  /// Gets or sets the distance in points from the origin to the top side of the image.
   double top;
 
-  /// Gets or sets width of the drawing objects in points.
+  /// Gets or sets the width of the DrawingObjects in points.
   double width;
 
-  /// Gets or sets specifies how to wrap text around the image.
+  /// Gets or sets the option indicating how to wrap text around the image.
   DrawingObjectInsert_WrapTypeEnum wrapType;
 
   @override
@@ -211,7 +211,7 @@ class DrawingObjectInsert implements ModelBase {
   }
 }
 
-/// Gets or sets specifies where the distance to the image is measured from.
+/// Gets or sets the relative horizontal position, from which the distance to the image is measured.
 enum DrawingObjectInsert_RelativeHorizontalPositionEnum
 { 
   margin,
@@ -225,7 +225,7 @@ enum DrawingObjectInsert_RelativeHorizontalPositionEnum
   outsideMargin
 }
 
-/// Gets or sets specifies where the distance to the image measured from.
+/// Gets or sets the relative vertical position, from which the distance to the image is measured.
 enum DrawingObjectInsert_RelativeVerticalPositionEnum
 { 
   margin,
@@ -240,7 +240,7 @@ enum DrawingObjectInsert_RelativeVerticalPositionEnum
   outsideMargin
 }
 
-/// Gets or sets specifies how to wrap text around the image.
+/// Gets or sets the option indicating how to wrap text around the image.
 enum DrawingObjectInsert_WrapTypeEnum
 { 
   inline,

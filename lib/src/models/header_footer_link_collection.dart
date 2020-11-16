@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Collection of links to header/footers.
+/// The collection of HeaderFooter's links.
 class HeaderFooterLinkCollection extends LinkElement {
-  /// Gets or sets collection of section's links.
+  /// Gets or sets the collection of HeaderFooter's links.
   List<HeaderFooterLink> list;
 
   @override

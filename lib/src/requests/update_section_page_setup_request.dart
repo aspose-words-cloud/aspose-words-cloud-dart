@@ -36,13 +36,13 @@ import '../api_request_part.dart';
 
 /// Request model for UpdateSectionPageSetup operation.
 class UpdateSectionPageSetupRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Section index.
+  /// The index of the section.
   final int sectionIndex;
 
-  /// Page setup properties dto.
+  /// The properties of the page setup.
   final PageSetup pageSetup;
 
   /// Original document folder.

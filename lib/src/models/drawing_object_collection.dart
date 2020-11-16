@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Represents drawing objects collection DTO.
+/// DTO container with a collection of DrawingObjects links.
 class DrawingObjectCollection extends LinkElement {
-  /// Gets or sets collection of DrawingObjects links.
+  /// Gets or sets the collection of DrawingObjects links.
   List<LinkElement> list;
 
   @override

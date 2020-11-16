@@ -31,7 +31,7 @@ import '../../aspose_words_cloud.dart';
 
 /// HeaderFooter link element.
 class HeaderFooterLink extends LinkElement {
-  /// Gets or sets paragraph's text.
+  /// Gets or sets the paragraph's text.
   HeaderFooterLink_TypeEnum type;
 
   @override
@@ -75,7 +75,7 @@ class HeaderFooterLink extends LinkElement {
   }
 }
 
-/// Gets or sets paragraph's text.
+/// Gets or sets the paragraph's text.
 enum HeaderFooterLink_TypeEnum
 { 
   headerEven,

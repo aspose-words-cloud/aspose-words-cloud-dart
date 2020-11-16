@@ -31,7 +31,7 @@ import '../../aspose_words_cloud.dart';
 
 /// FormField dropdownlist element.
 class FormFieldDropDown extends FormField {
-  /// Gets or sets provides access to the items of a dropdown form field.
+  /// Gets or sets the items array of a dropdown form field.
   List<String> dropDownItems;
 
   /// Gets or sets the index specifying the currently selected item in a dropdown form field.

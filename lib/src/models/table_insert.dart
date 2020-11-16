@@ -29,15 +29,15 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Table element.
+/// DTO container with a table element.
 class TableInsert implements ModelBase {
-  /// Gets or sets count of columns. Default is 2.
+  /// Gets or sets the number of columns. The default value is 2.
   int columnsCount;
 
-  /// Gets or sets table will be inserted before specified position.
+  /// Gets or sets the position to insert the table. The table will be inserted before the specified position.
   DocumentPosition position;
 
-  /// Gets or sets count of rows. Default is 2.
+  /// Gets or sets the number of rows. The default value is 2.
   int rowsCount;
 
   @override

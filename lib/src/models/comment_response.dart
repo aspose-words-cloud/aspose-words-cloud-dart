@@ -29,10 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:
-/// GET https://api.aspose.cloud/v4.0/words/Test.doc/comments/0.
+/// The REST response with a comment.
 class CommentResponse extends WordsResponse {
-  /// Gets or sets comment information.
+  /// Gets or sets the comment.
   Comment comment;
 
   @override

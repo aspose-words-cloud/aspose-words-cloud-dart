@@ -29,7 +29,7 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// container class for png save options.
+/// Container class for png save options.
 class PngSaveOptionsData extends ImageSaveOptionsData {
 
   @override

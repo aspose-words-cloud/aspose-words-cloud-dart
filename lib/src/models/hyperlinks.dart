@@ -31,7 +31,7 @@ import '../../aspose_words_cloud.dart';
 
 /// Collection of Hyperlink.
 class Hyperlinks extends LinkElement {
-  /// Gets or sets array of Hyperlink.
+  /// Gets or sets the array of Hyperlink.
   List<Hyperlink> hyperlinkList;
 
   @override

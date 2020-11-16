@@ -36,10 +36,10 @@ import '../api_request_part.dart';
 
 /// Request model for ReplaceText operation.
 class ReplaceTextRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// ReplaceTextResponse with the replace operation settings.
+  /// The text replacement parameters.
   final ReplaceTextParameters replaceText;
 
   /// Original document folder.

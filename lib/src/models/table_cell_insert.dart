@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Table cell element.
+/// DTO container with a table cell.
 class TableCellInsert implements ModelBase {
-  /// Gets or sets table cell will be inserted after cell with specified 0-based index.
+  /// Gets or sets the 0-based index, the table cell will be inserted after.
   int insertAfter;
 
   @override

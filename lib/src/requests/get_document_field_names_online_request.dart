@@ -39,7 +39,7 @@ class GetDocumentFieldNamesOnlineRequest implements RequestBase {
   /// File with template.
   final ByteData template;
 
-  /// Use non merge fields or not.
+  /// The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
   final bool useNonMergeFields;
 
   GetDocumentFieldNamesOnlineRequest(final this.template, {final this.useNonMergeFields});

@@ -29,7 +29,7 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Paragraph format shading element.
+/// DTO container with a paragraph format shading element.
 class Shading implements ModelBase {
   /// Gets or sets the color that's applied to the background of the Shading object.
   XmlColor backgroundPatternColor;

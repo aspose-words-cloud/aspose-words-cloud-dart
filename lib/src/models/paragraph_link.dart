@@ -31,7 +31,7 @@ import '../../aspose_words_cloud.dart';
 
 /// Paragraph link element.
 class ParagraphLink extends NodeLink {
-  /// Gets or sets paragraph's text.
+  /// Gets or sets the paragraph's text.
   String text;
 
   @override

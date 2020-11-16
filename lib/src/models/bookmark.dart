@@ -34,7 +34,7 @@ class Bookmark extends LinkElement {
   /// Gets or sets the name of the bookmark.
   String name;
 
-  /// Gets or sets the text enclosed in the bookmark.
+  /// Gets or sets text, enclosed in the bookmark.
   String text;
 
   @override

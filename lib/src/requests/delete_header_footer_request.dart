@@ -35,10 +35,10 @@ import '../api_request_part.dart';
 
 /// Request model for DeleteHeaderFooter operation.
 class DeleteHeaderFooterRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Path to parent section.
+  /// The path to the section in the document tree.
   final String sectionPath;
 
   /// Object index.

@@ -36,10 +36,10 @@ import '../api_request_part.dart';
 
 /// Request model for GetBookmarkByName operation.
 class GetBookmarkByNameRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// The bookmark name.
+  /// The name of the bookmark.
   final String bookmarkName;
 
   /// Original document folder.

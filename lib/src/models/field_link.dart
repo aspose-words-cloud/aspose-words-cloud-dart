@@ -31,7 +31,7 @@ import '../../aspose_words_cloud.dart';
 
 /// Field link.
 class FieldLink extends NodeLink {
-  /// Gets or sets field code.
+  /// Gets or sets the field code.
   String fieldCode;
 
   @override

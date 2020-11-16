@@ -36,13 +36,13 @@ import '../api_request_part.dart';
 
 /// Request model for UpdateRun operation.
 class UpdateRunRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Run data.
+  /// The properties of the Run object.
   final RunUpdate run;
 
-  /// Path to parent paragraph.
+  /// The path to the paragraph in the document tree.
   final String paragraphPath;
 
   /// Object index.

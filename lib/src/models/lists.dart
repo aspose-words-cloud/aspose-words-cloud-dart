@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Represents an array of document lists.
+/// DTO container with an array of document lists.
 class Lists extends LinkElement {
-  /// Gets or sets array of document lists.
+  /// Gets or sets the array of document lists.
   List<ListInfo> listInfo;
 
   @override

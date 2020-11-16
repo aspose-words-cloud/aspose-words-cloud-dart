@@ -29,21 +29,21 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Section element.
+/// DTO container with a section element.
 class Section extends LinkElement {
-  /// Gets or sets child nodes.
+  /// Gets or sets the list of child nodes.
   List<NodeLink> childNodes;
 
-  /// Gets or sets link to HeaderFooters resource.
+  /// Gets or sets the link to HeaderFooters resource.
   LinkElement headerFooters;
 
-  /// Gets or sets link to PageSetup resource.
+  /// Gets or sets the link to PageSetup resource.
   LinkElement pageSetup;
 
-  /// Gets or sets link to Paragraphs resource.
+  /// Gets or sets the link to Paragraphs resource.
   LinkElement paragraphs;
 
-  /// Gets or sets link to Tables resource.
+  /// Gets or sets the link to Tables resource.
   LinkElement tables;
 
   @override

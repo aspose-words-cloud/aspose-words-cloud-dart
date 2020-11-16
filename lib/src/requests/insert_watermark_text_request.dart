@@ -36,10 +36,10 @@ import '../api_request_part.dart';
 
 /// Request model for InsertWatermarkText operation.
 class InsertWatermarkTextRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// WatermarkText with the watermark data.
+  /// The watermark text to insert.
   final WatermarkText watermarkText;
 
   /// Original document folder.

@@ -36,10 +36,10 @@ import '../api_request_part.dart';
 
 /// Request model for InsertPageNumbers operation.
 class InsertPageNumbersRequest implements RequestBase {
-  /// A document name.
+  /// The filename of the input document.
   final String name;
 
-  /// PageNumber with the page numbers settings.
+  /// The page numbers settings.
   final PageNumber pageNumber;
 
   /// Original document folder.

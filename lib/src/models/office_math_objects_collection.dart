@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Collection of OfficeMath objects.
+/// DTO container with a collection of OfficeMath objects.
 class OfficeMathObjectsCollection extends LinkElement {
-  /// Gets or sets collection of OfficeMath objects.
+  /// Gets or sets the collection of OfficeMath objects.
   List<OfficeMathObject> list;
 
   @override

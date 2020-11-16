@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Range element.
+/// DTO container with a Range element.
 class RangeDocument implements ModelBase {
-  /// Gets or sets name for new document.
+  /// Gets or sets the name for a new document.
   String documentName;
 
   @override

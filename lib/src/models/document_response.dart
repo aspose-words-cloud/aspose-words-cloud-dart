@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Represents the response with document description.
+/// The REST response with a document description.
 class DocumentResponse extends WordsResponse {
-  /// Gets or sets document description.
+  /// Gets or sets the document description.
   Document document;
 
   @override

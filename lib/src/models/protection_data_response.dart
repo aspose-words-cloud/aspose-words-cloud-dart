@@ -29,12 +29,12 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Response for the request of data about protection.
+/// The REST response with data on document's protection.
 class ProtectionDataResponse extends WordsResponse {
-  /// Gets or sets link to the document.
+  /// Gets or sets the link to the document.
   FileLink documentLink;
 
-  /// Gets or sets protection's data of the document.
+  /// Gets or sets the protection properties of the document.
   ProtectionData protectionData;
 
   @override

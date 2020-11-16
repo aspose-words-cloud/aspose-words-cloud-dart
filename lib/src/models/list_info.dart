@@ -29,18 +29,18 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Represents a single document list.
+/// DTO container with a single document list.
 class ListInfo extends LinkElement {
-  /// Gets or sets a value indicating whether returns true if this list is a definition of a list style.
+  /// Gets or sets a value indicating whether this list is a definition of a list style.
   bool isListStyleDefinition;
 
-  /// Gets or sets a value indicating whether returns true if this list is a reference to a list style.
+  /// Gets or sets a value indicating whether this list is a reference to a list style.
   bool isListStyleReference;
 
-  /// Gets or sets a value indicating whether returns true when the list contains 9 levels; false when 1 level.
+  /// Gets or sets a value indicating whether the list contains 9 levels; false when 1 level.
   bool isMultiLevel;
 
-  /// Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.
+  /// Gets or sets a value indicating whether list should be restarted at each section. The default value is false.
   bool isRestartAtEachSection;
 
   /// Gets or sets the unique identifier of the list.

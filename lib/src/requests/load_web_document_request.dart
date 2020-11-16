@@ -36,7 +36,7 @@ import '../api_request_part.dart';
 
 /// Request model for LoadWebDocument operation.
 class LoadWebDocumentRequest implements RequestBase {
-  /// Parameters of loading.
+  /// The properties of data downloading.
   final LoadWebDocumentData data;
 
   /// Original document storage.

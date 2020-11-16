@@ -29,27 +29,24 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// container class for outline options.
+/// Container class for outline options.
 class OutlineOptionsData implements ModelBase {
-  /// Gets or sets allows to specify individual bookmarks outline level.
+  /// Gets or sets the individual bookmarks outline level.
   List<BookmarksOutlineLevelData> bookmarksOutlineLevels;
 
-  /// Gets or sets a value determining whether or not to create missing outline levels
-  /// when the document is exported.
-  /// Default value for this property is false.
+  /// Gets or sets a value indicating whether to create missing outline levels when the document is exported. The default value is false.
   bool createMissingOutlineLevels;
 
-  /// Gets or sets specifies whether or not to create outlines for headings (paragraphs formatted
-  /// with the Heading styles) inside tables.
+  /// Gets or sets a value indicating whether to create outlines for headings (paragraphs formatted with the Heading styles) inside tables.
   bool createOutlinesForHeadingsInTables;
 
-  /// Gets or sets specifies the default level in the document outline at which to display Word bookmarks.
+  /// Gets or sets the default level in the document outline at which to display Word bookmarks.
   int defaultBookmarksOutlineLevel;
 
-  /// Gets or sets specifies how many levels in the document outline to show expanded when the file is viewed.
+  /// Gets or sets the number of levels in the document outline to show expanded when the file is viewed.
   int expandedOutlineLevels;
 
-  /// Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the document outline.
+  /// Gets or sets the number of levels of headings (paragraphs formatted with the Heading styles) to include in the document outline.
   int headingsOutlineLevels;
 
   @override

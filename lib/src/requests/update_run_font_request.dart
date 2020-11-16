@@ -36,13 +36,13 @@ import '../api_request_part.dart';
 
 /// Request model for UpdateRunFont operation.
 class UpdateRunFontRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Font dto object.
+  /// The font properties of a Run object.
   final Font fontDto;
 
-  /// Path to parent paragraph.
+  /// The path to the paragraph in the document tree.
   final String paragraphPath;
 
   /// Object index.

@@ -36,10 +36,10 @@ import '../api_request_part.dart';
 
 /// Request model for CopyStyle operation.
 class CopyStyleRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Style to copy.
+  /// The properties of the style.
   final StyleCopy styleCopy;
 
   /// Original document folder.

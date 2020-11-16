@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Table cell element.
+/// DTO container with a table cell element.
 class TableCell extends NodeLink {
-  /// Gets or sets child nodes.
+  /// Gets or sets the list of child nodes.
   List<NodeLink> childNodes;
 
   @override

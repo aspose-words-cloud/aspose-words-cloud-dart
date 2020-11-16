@@ -35,10 +35,10 @@ import '../api_request_part.dart';
 
 /// Request model for DeleteHeadersFooters operation.
 class DeleteHeadersFootersRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Path to parent section.
+  /// The path to the section in the document tree.
   final String sectionPath;
 
   /// Original document folder.
@@ -62,7 +62,7 @@ class DeleteHeadersFootersRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  /// List of types of headers and footers.
+  /// The list of HeaderFooter types.
   final String headersFootersTypes;
 
   DeleteHeadersFootersRequest(final this.name, final this.sectionPath, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime, final this.headersFootersTypes});

@@ -36,10 +36,10 @@ import '../api_request_part.dart';
 
 /// Request model for GetFormFields operation.
 class GetFormFieldsRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Path to the node containing collection of form fields.
+  /// The path to the node in the document tree.
   final String nodePath;
 
   /// Original document folder.

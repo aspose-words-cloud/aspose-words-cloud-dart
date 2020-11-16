@@ -36,10 +36,10 @@ import '../api_request_part.dart';
 
 /// Request model for InsertStyle operation.
 class InsertStyleRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Style to insert.
+  /// The properties of the style.
   final StyleInsert styleInsert;
 
   /// Original document folder.

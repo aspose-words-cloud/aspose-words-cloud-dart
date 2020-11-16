@@ -36,15 +36,13 @@ import '../api_request_part.dart';
 
 /// Request model for SaveAsRange operation.
 class SaveAsRangeRequest implements RequestBase {
-  /// The document.
+  /// The filename of the input document.
   final String name;
 
   /// The range start identifier.
-  /// Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id".
-  /// It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
   final String rangeStartIdentifier;
 
-  /// Parameters of a new document.
+  /// The parameters of a new document.
   final RangeDocument documentParameters;
 
   /// The range end identifier.

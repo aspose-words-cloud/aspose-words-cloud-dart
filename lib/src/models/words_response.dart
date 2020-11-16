@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Base class for all responses.
+/// The base class for all responses.
 class WordsResponse implements ModelBase {
-  /// Gets or sets request Id.
+  /// Gets or sets the request Id.
   String requestId;
 
   @override

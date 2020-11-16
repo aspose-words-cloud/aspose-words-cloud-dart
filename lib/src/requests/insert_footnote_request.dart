@@ -36,13 +36,13 @@ import '../api_request_part.dart';
 
 /// Request model for InsertFootnote operation.
 class InsertFootnoteRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Footnote data.
+  /// The properties of the footnote.
   final FootnoteInsert footnoteDto;
 
-  /// Path to the node, which contains collection of footnotes.
+  /// The path to the node in the document tree.
   final String nodePath;
 
   /// Original document folder.

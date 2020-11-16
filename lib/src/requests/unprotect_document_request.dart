@@ -36,10 +36,10 @@ import '../api_request_part.dart';
 
 /// Request model for UnprotectDocument operation.
 class UnprotectDocumentRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// ProtectionRequest with protection settings.
+  /// The protection settings.
   final ProtectionRequest protectionRequest;
 
   /// Original document folder.

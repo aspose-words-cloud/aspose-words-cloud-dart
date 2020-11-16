@@ -36,13 +36,13 @@ import '../api_request_part.dart';
 
 /// Request model for CreateOrUpdateDocumentProperty operation.
 class CreateOrUpdateDocumentPropertyRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// The property name.
+  /// The name of the property.
   final String propertyName;
 
-  /// The property with new value.
+  /// The property with a new value.
   final DocumentPropertyCreateOrUpdate property;
 
   /// Original document folder.

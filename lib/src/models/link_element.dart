@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Reference to document.
+/// Reference to a document.
 class LinkElement implements ModelBase {
-  /// Gets or sets link to the document.
+  /// Gets or sets the link to the document.
   WordsApiLink link;
 
   @override

@@ -35,10 +35,10 @@ import '../api_request_part.dart';
 
 /// Request model for DeleteTableCell operation.
 class DeleteTableCellRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Path to table row.
+  /// The path to the table row in the document tree.
   final String tableRowPath;
 
   /// Object index.

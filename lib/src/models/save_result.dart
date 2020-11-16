@@ -31,13 +31,13 @@ import '../../aspose_words_cloud.dart';
 
 /// Result of saving.
 class SaveResult implements ModelBase {
-  /// Gets or sets links to additional items (css, images etc).
+  /// Gets or sets the list of links to additional items (css, images etc).
   List<FileLink> additionalItems;
 
-  /// Gets or sets link to destination document.
+  /// Gets or sets the link to destination document.
   FileLink destDocument;
 
-  /// Gets or sets link to source document.
+  /// Gets or sets the link to source document.
   FileLink sourceDocument;
 
   @override

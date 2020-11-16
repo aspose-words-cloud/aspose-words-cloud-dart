@@ -29,7 +29,7 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Provides information for the words api resource link.
+/// Provides information for the words API resource link.
 class WordsApiLink extends Link {
 
   @override

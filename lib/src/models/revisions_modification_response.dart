@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// response of the modification operations for the revisions collection (now these are acceptAll and rejectAll).
+/// The REST response with a result of the modification operations for the revisions collection (now these are acceptAll and rejectAll).
 class RevisionsModificationResponse extends WordsResponse {
-  /// Gets or sets result of the modification operations for the revisions collection.
+  /// Gets or sets the result of the modification operations for the revisions collection.
   ModificationOperationResult result;
 
   @override

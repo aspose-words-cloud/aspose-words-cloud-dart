@@ -29,18 +29,18 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// container class for docx/docm/dotx/dotm/flatopc save options.
+/// Container class for docx/docm/dotx/dotm/flatopc save options.
 class OoxmlSaveOptionsData extends SaveOptionsData {
-  /// Gets or sets specifies the OOXML version for the output document.
+  /// Gets or sets the oOXML version for the output document.
   String compliance;
 
-  /// Gets or sets compression level.
+  /// Gets or sets the compression level.
   OoxmlSaveOptionsData_CompressionLevelEnum compressionLevel;
 
-  /// Gets or sets specifies a password to encrypt document using ECMA376 Standard encryption algorithm.
+  /// Gets or sets the password to encrypt document using ECMA376 Standard encryption algorithm.
   String password;
 
-  /// Gets or sets specifies whether or not use pretty formats output.
+  /// Gets or sets a value indicating whether to use pretty formats output.
   bool prettyFormat;
 
   @override
@@ -110,7 +110,7 @@ class OoxmlSaveOptionsData extends SaveOptionsData {
   }
 }
 
-/// Gets or sets compression level.
+/// Gets or sets the compression level.
 enum OoxmlSaveOptionsData_CompressionLevelEnum
 { 
   normal,

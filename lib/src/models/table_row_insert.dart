@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Table row element.
+/// DTO container with a table row element.
 class TableRowInsert implements ModelBase {
-  /// Gets or sets count of columns. Default is 1.
+  /// Gets or sets the count of columns. The default value is 1.
   int columnsCount;
 
   /// Gets or sets table row will be inserted after row with specified 0-based index.

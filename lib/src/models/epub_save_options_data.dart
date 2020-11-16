@@ -31,7 +31,7 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for epub save options.
 class EpubSaveOptionsData extends HtmlSaveOptionsData {
-  /// Gets or sets specifies the maximum level of headings populated to the navigation map when exporting.
+  /// Gets or sets the maximum level of headings populated to the navigation map when exporting.
   int epubNavigationMapLevel;
 
   @override

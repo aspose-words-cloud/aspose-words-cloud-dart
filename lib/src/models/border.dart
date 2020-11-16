@@ -37,7 +37,7 @@ class Border extends LinkElement {
   /// Gets or sets the border color.
   XmlColor color;
 
-  /// Gets or sets distance of the border from text or from the page edge in points.
+  /// Gets or sets the distance of the border from text or from the page edge in points.
   double distanceFromText;
 
   /// Gets or sets the border style.

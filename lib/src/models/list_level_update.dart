@@ -34,35 +34,31 @@ class ListLevelUpdate implements ModelBase {
   /// Gets or sets the justification of the actual number of the list item.
   ListLevelUpdate_AlignmentEnum alignment;
 
-  /// Gets or sets a value indicating whether true if the level turns all inherited numbers to Arabic, false if it preserves
-  /// their number style.
+  /// Gets or sets a value indicating whether the level turns all inherited numbers to Arabic, false if it preserves their number style.
   bool isLegal;
 
-  /// Gets or sets returns or sets the number format for the list level.
+  /// Gets or sets the number format for the list level.
   String numberFormat;
 
-  /// Gets or sets returns or sets the position (in points) of the number or bullet for the list
-  /// level.
+  /// Gets or sets the position (in points) of the number or bullet for the list level.
   double numberPosition;
 
-  /// Gets or sets returns or sets the number style for this list level.
+  /// Gets or sets the number style for this list level.
   ListLevelUpdate_NumberStyleEnum numberStyle;
 
-  /// Gets or sets or returns the list level that must appear before the specified list level
-  /// restarts numbering.
+  /// Gets or sets the list level that must appear before the specified list level restarts numbering.
   int restartAfterLevel;
 
-  /// Gets or sets returns or sets the starting number for this list level.
+  /// Gets or sets the starting number for this list level.
   int startAt;
 
-  /// Gets or sets returns or sets the tab position (in points) for the list level.
+  /// Gets or sets the tab position (in points) for the list level.
   double tabPosition;
 
-  /// Gets or sets returns or sets the position (in points) for the second line of wrapping text
-  /// for the list level.
+  /// Gets or sets the position (in points) for the second line of wrapping text for the list level.
   double textPosition;
 
-  /// Gets or sets returns or sets the character inserted after the number for the list level.
+  /// Gets or sets the character to be inserted after the number for the list level.
   ListLevelUpdate_TrailingCharacterEnum trailingCharacter;
 
   @override
@@ -334,7 +330,7 @@ enum ListLevelUpdate_AlignmentEnum
   right
 }
 
-/// Gets or sets returns or sets the number style for this list level.
+/// Gets or sets the number style for this list level.
 enum ListLevelUpdate_NumberStyleEnum
 { 
   arabic,
@@ -401,7 +397,7 @@ enum ListLevelUpdate_NumberStyleEnum
   custom
 }
 
-/// Gets or sets returns or sets the character inserted after the number for the list level.
+/// Gets or sets the character to be inserted after the number for the list level.
 enum ListLevelUpdate_TrailingCharacterEnum
 { 
   tab,

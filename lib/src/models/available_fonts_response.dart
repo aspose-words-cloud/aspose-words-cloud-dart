@@ -29,15 +29,15 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// The list of fonts, available for document processing.
+/// The REST response with data on system, additional and custom fonts, available for document processing.
 class AvailableFontsResponse extends WordsResponse {
-  /// Gets or sets the list of addititional fonts, provided by aspose team.
+  /// Gets or sets the list of additional fonts, provided by Aspose team.
   List<FontInfo> additionalFonts;
 
-  /// Gets or sets custom user fonts (from user file storage). To use them, you should specify "fontsLocation" parameter in any request.
+  /// Gets or sets the list of custom user fonts from user cloud storage. To use them, you should specify "fontsLocation" parameter in any request.
   List<FontInfo> customFonts;
 
-  /// Gets or sets the list of system fonts, availiable on the server.
+  /// Gets or sets the list of system fonts, available on the server.
   List<FontInfo> systemFonts;
 
   @override

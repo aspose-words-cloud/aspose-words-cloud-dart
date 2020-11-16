@@ -36,10 +36,10 @@ import '../api_request_part.dart';
 
 /// Request model for Classify operation.
 class ClassifyRequest implements RequestBase {
-  /// Text to classify.
+  /// The text to classify.
   final String text;
 
-  /// Number of the best classes to return.
+  /// The number of the best classes to return.
   final String bestClassesCount;
 
   ClassifyRequest(final this.text, {final this.bestClassesCount});

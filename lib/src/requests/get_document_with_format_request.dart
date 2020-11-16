@@ -35,7 +35,7 @@ import '../api_request_part.dart';
 
 /// Request model for GetDocumentWithFormat operation.
 class GetDocumentWithFormatRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
   /// The destination format.
@@ -53,7 +53,7 @@ class GetDocumentWithFormatRequest implements RequestBase {
   /// Password for opening an encrypted document.
   final String password;
 
-  /// Path to save the result.
+  /// The path to the output document.
   final String outPath;
 
   /// Folder in filestorage with custom fonts.

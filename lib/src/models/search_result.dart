@@ -31,10 +31,10 @@ import '../../aspose_words_cloud.dart';
 
 /// Result of search operation.
 class SearchResult implements ModelBase {
-  /// Gets or sets link to result range end node.
+  /// Gets or sets the link to result range end node.
   DocumentPosition rangeEnd;
 
-  /// Gets or sets link to result range start node.
+  /// Gets or sets the link to result range start node.
   DocumentPosition rangeStart;
 
   @override

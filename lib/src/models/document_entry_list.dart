@@ -31,10 +31,10 @@ import '../../aspose_words_cloud.dart';
 
 /// Represents a list of documents which will be appended to the original resource document.
 class DocumentEntryList implements ModelBase {
-  /// Gets or sets parameter that indicates to apply headers and footers from base document to appending documents. Default is true.
+  /// Gets or sets a value indicating whether to apply headers and footers from base document to appending documents. The default value is true.
   bool applyBaseDocumentHeadersAndFootersToAppendingDocuments;
 
-  /// Gets or sets list of documents.
+  /// Gets or sets the list of documents.
   List<DocumentEntry> documentEntries;
 
   @override

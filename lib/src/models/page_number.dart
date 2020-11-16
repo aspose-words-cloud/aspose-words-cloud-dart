@@ -34,7 +34,7 @@ class PageNumber implements ModelBase {
   /// Gets or sets text alignment, possible values are left, right, center or justify.
   String alignment;
 
-  /// Gets or sets page number format, e.g. "{PAGE} of {NUMPAGES}".
+  /// Gets or sets the page number format, e.g. "{PAGE} of {NUMPAGES}".
   String format;
 
   /// Gets or sets a value indicating whether if true the page number is added at the top of the page, else at the bottom.

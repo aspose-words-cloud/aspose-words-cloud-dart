@@ -36,10 +36,10 @@ import '../api_request_part.dart';
 
 /// Request model for SaveAsTiff operation.
 class SaveAsTiffRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Tiff save options.
+  /// The save options to TIFF format.
   final TiffSaveOptionsData saveOptions;
 
   /// Original document folder.
@@ -54,16 +54,16 @@ class SaveAsTiffRequest implements RequestBase {
   /// Password for opening an encrypted document.
   final String password;
 
-  /// Use antialiasing flag.
+  /// The flag indicating whether to use antialiasing.
   final bool useAntiAliasing;
 
-  /// Use high quality flag.
+  /// The flag indicating whether to use high quality.
   final bool useHighQualityRendering;
 
-  /// Brightness for the generated images.
+  /// The level of brightness for the generated images.
   final double imageBrightness;
 
-  /// Color mode for the generated images.
+  /// The color mode for the generated images.
   final String imageColorMode;
 
   /// The contrast for the generated images.
@@ -72,37 +72,37 @@ class SaveAsTiffRequest implements RequestBase {
   /// The images numeral format.
   final String numeralFormat;
 
-  /// Number of pages to render.
+  /// The number of pages to render.
   final int pageCount;
 
-  /// Page index to start rendering.
+  /// The index of the page to start rendering.
   final int pageIndex;
 
-  /// Background image color.
+  /// The background image color.
   final String paperColor;
 
-  /// The pixel format of generated images.
+  /// The pixel format of the generated images.
   final String pixelFormat;
 
-  /// The resolution of generated images.
+  /// The resolution of the generated images.
   final double resolution;
 
-  /// Zoom factor for generated images.
+  /// The zoom factor for the generated images.
   final double scale;
 
   /// The compression tipe.
   final String tiffCompression;
 
-  /// Optional, default is Fallback.
+  /// The optional dml rendering mode. The default value is Fallback.
   final String dmlRenderingMode;
 
-  /// Optional, default is Simplified.
+  /// The optional dml effects rendering mode. The default value is Simplified.
   final String dmlEffectsRenderingMode;
 
-  /// Optional, Tiff binarization method, possible values are: FloydSteinbergDithering, Threshold.
+  /// The optional TIFF binarization method. Possible values are: FloydSteinbergDithering, Threshold.
   final String tiffBinarizationMethod;
 
-  /// Optional. A value determining zip output or not.
+  /// The flag indicating whether to ZIP the output.
   final bool zipOutput;
 
   /// Folder in filestorage with custom fonts.

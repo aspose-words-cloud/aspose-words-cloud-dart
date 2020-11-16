@@ -36,13 +36,13 @@ import '../api_request_part.dart';
 
 /// Request model for InsertHeaderFooter operation.
 class InsertHeaderFooterRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Type of header/footer.
+  /// The type of a HeaderFooter object.
   final String headerFooterType;
 
-  /// Path to parent section.
+  /// The path to the section in the document tree.
   final String sectionPath;
 
   /// Original document folder.

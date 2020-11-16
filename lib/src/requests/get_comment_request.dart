@@ -36,10 +36,10 @@ import '../api_request_part.dart';
 
 /// Request model for GetComment operation.
 class GetCommentRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// The comment index.
+  /// The index of the comment.
   final int commentIndex;
 
   /// Original document folder.

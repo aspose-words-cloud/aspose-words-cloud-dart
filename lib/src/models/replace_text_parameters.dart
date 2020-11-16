@@ -40,10 +40,10 @@ class ReplaceTextParameters implements ModelBase {
   /// Gets or sets a value indicating whether flag, means that OldValue contains regex expression.
   bool isOldValueRegex;
 
-  /// Gets or sets new text value to replace by.
+  /// Gets or sets the new text value to replace by.
   String newValue;
 
-  /// Gets or sets old text value (or regex pattern IsOldValueRegex) to replace.
+  /// Gets or sets the old text value (or regex pattern IsOldValueRegex) to replace.
   String oldValue;
 
   @override

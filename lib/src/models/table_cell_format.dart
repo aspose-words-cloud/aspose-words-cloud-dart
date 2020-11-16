@@ -29,42 +29,42 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Represents all formatting for a table row.
+/// DTO container with all formatting for a table row.
 class TableCellFormat extends LinkElement {
-  /// Gets or sets returns or sets the amount of space (in points) to add below the contents of cell.
+  /// Gets or sets the amount of space (in points) to add below the contents of the cell.
   double bottomPadding;
 
-  /// Gets or sets if true, fits text in the cell, compressing each paragraph to the width of the cell.
+  /// Gets or sets a value indicating whether to fit text in the cell, compress each paragraph to the width of the cell.
   bool fitText;
 
-  /// Gets or sets specifies how the cell is merged horizontally with other cells in the row.
+  /// Gets or sets the option that controls how the cell is merged horizontally with other cells in the row.
   TableCellFormat_HorizontalMergeEnum horizontalMerge;
 
-  /// Gets or sets returns or sets the amount of space (in points) to add to the left of the contents of cell.
+  /// Gets or sets the amount of space (in points) to add to the left of the contents of the cell.
   double leftPadding;
 
-  /// Gets or sets returns or sets the orientation of text in a table cell.
+  /// Gets or sets the orientation of text in a table cell.
   TableCellFormat_OrientationEnum orientation;
 
-  /// Gets or sets returns or sets the preferred width of the cell.
+  /// Gets or sets the preferred width of the cell.
   PreferredWidth preferredWidth;
 
-  /// Gets or sets returns or sets the amount of space (in points) to add to the right of the contents of cell.
+  /// Gets or sets the amount of space (in points) to add to the right of the contents of the cell.
   double rightPadding;
 
-  /// Gets or sets returns or sets the amount of space (in points) to add above the contents of cell.
+  /// Gets or sets the amount of space (in points) to add above the contents of the cell.
   double topPadding;
 
-  /// Gets or sets returns or sets the vertical alignment of text in the cell.
+  /// Gets or sets the vertical alignment of text in the cell.
   TableCellFormat_VerticalAlignmentEnum verticalAlignment;
 
-  /// Gets or sets specifies how the cell is merged with other cells vertically.
+  /// Gets or sets the option that controls how the cell is merged with other cells vertically.
   TableCellFormat_VerticalMergeEnum verticalMerge;
 
   /// Gets or sets the width of the cell in points.
   double width;
 
-  /// Gets or sets if true, wrap text for the cell.
+  /// Gets or sets a value indicating whether to wrap text in the cell.
   bool wrapText;
 
   @override
@@ -249,7 +249,7 @@ class TableCellFormat extends LinkElement {
   }
 }
 
-/// Gets or sets specifies how the cell is merged horizontally with other cells in the row.
+/// Gets or sets the option that controls how the cell is merged horizontally with other cells in the row.
 enum TableCellFormat_HorizontalMergeEnum
 { 
   none,
@@ -257,7 +257,7 @@ enum TableCellFormat_HorizontalMergeEnum
   previous
 }
 
-/// Gets or sets returns or sets the orientation of text in a table cell.
+/// Gets or sets the orientation of text in a table cell.
 enum TableCellFormat_OrientationEnum
 { 
   horizontal,
@@ -268,7 +268,7 @@ enum TableCellFormat_OrientationEnum
   verticalRotatedFarEast
 }
 
-/// Gets or sets returns or sets the vertical alignment of text in the cell.
+/// Gets or sets the vertical alignment of text in the cell.
 enum TableCellFormat_VerticalAlignmentEnum
 { 
   top,
@@ -276,7 +276,7 @@ enum TableCellFormat_VerticalAlignmentEnum
   bottom
 }
 
-/// Gets or sets specifies how the cell is merged with other cells vertically.
+/// Gets or sets the option that controls how the cell is merged with other cells vertically.
 enum TableCellFormat_VerticalMergeEnum
 { 
   none,

@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:  GET /{name}/mailMergeFieldNames.
+/// The REST response with a collection of mail merge fields.
 class FieldNamesResponse extends WordsResponse {
-  /// Gets or sets collection of mail merge fields.
+  /// Gets or sets the collection of mail merge fields.
   FieldNames fieldNames;
 
   @override

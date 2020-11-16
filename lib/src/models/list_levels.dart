@@ -29,7 +29,7 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Represents a single document list.
+/// DTO container with a single document list.
 class ListLevels extends LinkElement {
   /// Gets or sets the collection of list levels for this list.
   List<ListLevel> listLevel;

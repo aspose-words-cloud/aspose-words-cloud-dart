@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Collection of search results.
+/// The collection of search results.
 class SearchResultsCollection extends LinkElement {
-  /// Gets or sets collection of comments.
+  /// Gets or sets the collection of comments.
   List<SearchResult> resultsList;
 
   @override

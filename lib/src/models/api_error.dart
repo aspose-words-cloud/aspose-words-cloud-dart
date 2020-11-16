@@ -31,19 +31,19 @@ import '../../aspose_words_cloud.dart';
 
 /// Api error.
 class ApiError implements ModelBase {
-  /// Gets or sets api error code.
+  /// Gets or sets the API error code.
   String code;
 
-  /// Gets or sets server datetime.
+  /// Gets or sets the server DateTime.
   DateTime dateTime;
 
-  /// Gets or sets error description.
+  /// Gets or sets the error description.
   String description;
 
-  /// Gets or sets inner error.
+  /// Gets or sets the inner error.
   ApiError innerError;
 
-  /// Gets or sets error message.
+  /// Gets or sets the error message.
   String message;
 
   @override

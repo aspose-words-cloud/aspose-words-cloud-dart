@@ -36,7 +36,7 @@ import '../api_request_part.dart';
 
 /// Request model for InsertWatermarkImage operation.
 class InsertWatermarkImageRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
   /// File with image.
@@ -63,10 +63,10 @@ class InsertWatermarkImageRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  /// The watermark rotation angle.
+  /// The rotation angle of the watermark.
   final double rotationAngle;
 
-  /// The image file server full name. If the name is empty the image is expected in request content.
+  /// The filename of the image. If the parameter value is missing — the image data is expected in the request content.
   final String image;
 
   InsertWatermarkImageRequest(final this.name, {final this.imageFile, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime, final this.rotationAngle, final this.image});

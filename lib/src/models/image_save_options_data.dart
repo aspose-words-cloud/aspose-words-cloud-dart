@@ -31,47 +31,47 @@ import '../../aspose_words_cloud.dart';
 
 /// Container abstract class for image save options.
 class ImageSaveOptionsData extends FixedPageSaveOptionsData {
-  /// Gets or sets allows to specify additional System.Drawing.Graphics quality options.
+  /// Gets or sets the additional System.Drawing.Graphics quality options.
   GraphicsQualityOptionsData graphicsQualityOptions;
 
-  /// Gets or sets the horizontal resolution for the generated images, in dots per inch.
+  /// Gets or sets the horizontal resolution in dots per inch for the generated images.
   /// This property has effect only when saving to raster image formats.
   /// The default value is 96.
   double horizontalResolution;
 
-  /// Gets or sets brightness of image.
+  /// Gets or sets the brightness level of the image.
   double imageBrightness;
 
-  /// Gets or sets color mode of image.
+  /// Gets or sets the color mode of the image.
   String imageColorMode;
 
-  /// Gets or sets contrast of image.
+  /// Gets or sets the contrast level of the image.
   double imageContrast;
 
-  /// Gets or sets background (paper) color of image.
+  /// Gets or sets the background (paper) color of the image.
   String paperColor;
 
-  /// Gets or sets pixel format of image.
+  /// Gets or sets the pixel format of the image.
   String pixelFormat;
 
-  /// Gets or sets both horizontal and vertical resolution for the generated images, in dots per inch.
+  /// Gets or sets both horizontal and vertical resolution in dots per inch for the generated images.
   /// This property has effect only when saving to raster image formats.
   /// The default value is 96.
   double resolution;
 
-  /// Gets or sets zoom factor of image.
+  /// Gets or sets the zoom factor of the image.
   double scale;
 
-  /// Gets or sets determine whether or not to use anti-aliasing for rendering.
+  /// Gets or sets a value indicating whether to use anti-aliasing for rendering.
   bool useAntiAliasing;
 
-  /// Gets or sets a value determining whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.
+  /// Gets or sets a value indicating whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.
   bool useGdiEmfRenderer;
 
-  /// Gets or sets determine whether or not to use high quality (i.e. slow) rendering algorithms.
+  /// Gets or sets a value indicating whether to use high quality (i.e. slow) rendering algorithms.
   bool useHighQualityRendering;
 
-  /// Gets or sets the vertical resolution for the generated images, in dots per inch.
+  /// Gets or sets the vertical resolution in dots per inch for the generated images.
   /// This property has effect only when saving to raster image formats.
   /// The default value is 96.
   double verticalResolution;

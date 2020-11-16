@@ -36,7 +36,7 @@ import '../api_request_part.dart';
 
 /// Request model for UpdateDrawingObject operation.
 class UpdateDrawingObjectRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
   /// Drawing object parameters.
@@ -48,7 +48,7 @@ class UpdateDrawingObjectRequest implements RequestBase {
   /// Object index.
   final int index;
 
-  /// Path to the node, which contains collection of drawing objects.
+  /// The path to the node in the document tree.
   final String nodePath;
 
   /// Original document folder.

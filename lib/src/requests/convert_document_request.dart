@@ -38,16 +38,16 @@ class ConvertDocumentRequest implements RequestBase {
   /// Converting document.
   final ByteData document;
 
-  /// Format to convert.
+  /// The format to convert.
   final String format;
 
   /// Original document storage.
   final String storage;
 
-  /// Path for saving operation result to the local storage.
+  /// The path to the output document on a local storage.
   final String outPath;
 
-  /// This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "sourceFilename" will be used instead.
+  /// The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "sourceFilename" will be used instead.
   final String fileNameFieldValue;
 
   /// Folder in filestorage with custom fonts.

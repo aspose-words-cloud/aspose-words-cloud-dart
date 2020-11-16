@@ -31,10 +31,10 @@ import '../../aspose_words_cloud.dart';
 
 /// Utility class for Color serialization.
 class XmlColor implements ModelBase {
-  /// Gets or sets alpha component of color structure.
+  /// Gets or sets the Alpha component of color structure.
   int alpha;
 
-  /// Gets or sets hTML string color representation.
+  /// Gets or sets the HTML string color representation.
   String web;
 
   @override

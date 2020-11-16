@@ -31,7 +31,7 @@ import '../../aspose_words_cloud.dart';
 
 /// Allows to specify additional System.Drawing.Graphics quality options.
 class GraphicsQualityOptionsData implements ModelBase {
-  /// Gets or sets a value that specifies how composited images are drawn to this Graphics.
+  /// Gets or sets the value, that specifies how composited images are drawn to this Graphics.
   GraphicsQualityOptionsData_CompositingModeEnum compositingMode;
 
   /// Gets or sets the rendering quality of composited images drawn to this Graphics.
@@ -201,7 +201,7 @@ class GraphicsQualityOptionsData implements ModelBase {
   }
 }
 
-/// Gets or sets a value that specifies how composited images are drawn to this Graphics.
+/// Gets or sets the value, that specifies how composited images are drawn to this Graphics.
 enum GraphicsQualityOptionsData_CompositingModeEnum
 { 
   sourceOver,

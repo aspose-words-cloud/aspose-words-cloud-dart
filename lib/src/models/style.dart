@@ -29,36 +29,33 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Represents a single document style.
+/// DTO container with a single document style.
 class Style extends LinkElement {
-  /// Gets or sets all aliases of this style. If style has no aliases then empty array of string
-  /// is returned.
+  /// Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.
   List<String> aliases;
 
-  /// Gets or sets /sets the name of the style this style is based on.
+  /// Gets or sets the name of the style this style is based on.
   String baseStyleName;
 
-  /// Gets or sets a value indicating whether true if this style is one of the built-in styles in MS Word.
+  /// Gets or sets a value indicating whether this style is one of the built-in styles in MS Word.
   bool builtIn;
 
   /// Gets or sets the character formatting of the style.
   Font font;
 
-  /// Gets or sets a value indicating whether true when the style is one of the built-in Heading styles.
+  /// Gets or sets a value indicating whether the style is one of the built-in Heading styles.
   bool isHeading;
 
-  /// Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.
+  /// Gets or sets a value indicating whether this style is shown in the Quick Style gallery inside MS Word UI.
   bool isQuickStyle;
 
-  /// Gets or sets the name of the Style linked to this one. Returns Empty string if no styles
-  /// are linked.
+  /// Gets or sets the name of the Style linked to this one. Returns Empty string if no styles are linked.
   String linkedStyleName;
 
   /// Gets or sets the name of the style.
   String name;
 
-  /// Gets or sets /sets the name of the style to be applied automatically to a new paragraph
-  /// inserted after a paragraph formatted with the specified style.
+  /// Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
   String nextParagraphStyleName;
 
   /// Gets or sets the locale independent style identifier for a built-in style.

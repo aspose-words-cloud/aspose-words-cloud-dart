@@ -31,7 +31,7 @@ import '../../aspose_words_cloud.dart';
 
 /// Child nodes of Story or InlineStory.
 class StoryChildNodes implements ModelBase {
-  /// Gets or sets child nodes.
+  /// Gets or sets the list of child nodes.
   List<NodeLink> childNodes;
 
   @override

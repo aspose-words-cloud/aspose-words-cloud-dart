@@ -36,13 +36,13 @@ import '../api_request_part.dart';
 
 /// Request model for UpdateStyle operation.
 class UpdateStyleRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Style properties to update.
+  /// The properties of the style.
   final StyleUpdate styleUpdate;
 
-  /// Style name.
+  /// The name of the style.
   final String styleName;
 
   /// Original document folder.

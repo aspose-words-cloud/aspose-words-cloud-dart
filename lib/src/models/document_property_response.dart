@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:  GET documentProperties/{propertyName}.
+/// The REST response with a document property.
 class DocumentPropertyResponse extends WordsResponse {
-  /// Gets or sets document property.
+  /// Gets or sets the document property.
   DocumentProperty documentProperty;
 
   @override

@@ -36,13 +36,13 @@ import '../api_request_part.dart';
 
 /// Request model for InsertField operation.
 class InsertFieldRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Field data.
+  /// The properties of the field.
   final FieldInsert field;
 
-  /// Path to the node, which contains collection of fields.
+  /// The path to the node in the document tree.
   final String nodePath;
 
   /// Original document folder.
@@ -66,7 +66,7 @@ class InsertFieldRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  /// Field will be inserted before node with id="nodeId".
+  /// The index of the node. A new field will be inserted before the node with the specified node Id.
   final String insertBeforeNode;
 
   InsertFieldRequest(final this.name, final this.field, {final this.nodePath, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime, final this.insertBeforeNode});

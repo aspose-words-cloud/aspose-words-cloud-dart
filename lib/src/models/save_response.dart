@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Save response.
+/// The REST response with a save result.
 class SaveResponse extends WordsResponse {
-  /// Gets or sets save result.
+  /// Gets or sets the save result.
   SaveResult saveResult;
 
   @override

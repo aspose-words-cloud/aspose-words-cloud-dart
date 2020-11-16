@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Response for Api error.
+/// The REST response with an API error.
 class WordsApiErrorResponse extends WordsResponse {
-  /// Gets or sets error.
+  /// Gets or sets the API error.
   ApiError error;
 
   @override

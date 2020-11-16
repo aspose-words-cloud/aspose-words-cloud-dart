@@ -31,13 +31,13 @@ import '../../aspose_words_cloud.dart';
 
 /// Result of splitting document.
 class SplitDocumentResult implements ModelBase {
-  /// Gets or sets array of pages.
+  /// Gets or sets the list of pages.
   List<FileLink> pages;
 
-  /// Gets or sets linkt to the source document.
+  /// Gets or sets the link to the source document.
   FileLink sourceDocument;
 
-  /// Gets or sets link to the file archive with pages.
+  /// Gets or sets the link to the file archive with pages.
   FileLink zippedPages;
 
   @override

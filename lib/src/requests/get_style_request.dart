@@ -36,10 +36,10 @@ import '../api_request_part.dart';
 
 /// Request model for GetStyle operation.
 class GetStyleRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Style name.
+  /// The name of the style.
   final String styleName;
 
   /// Original document folder.

@@ -35,10 +35,10 @@ class TiffSaveOptionsData extends ImageSaveOptionsData {
   /// Default value is 128.
   int thresholdForFloydSteinbergDithering;
 
-  /// Gets or sets specifies method used while converting images to 1 bpp format.
+  /// Gets or sets the method used while converting images to 1 bpp format.
   String tiffBinarizationMethod;
 
-  /// Gets or sets type of compression.
+  /// Gets or sets the type of compression.
   String tiffCompression;
 
   @override

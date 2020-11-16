@@ -36,7 +36,7 @@ import '../api_request_part.dart';
 
 /// Request model for GetDocument operation.
 class GetDocumentRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String documentName;
 
   /// Original document folder.

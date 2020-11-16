@@ -36,10 +36,10 @@ import '../api_request_part.dart';
 
 /// Request model for InsertComment operation.
 class InsertCommentRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// The comment data.
+  /// The properties of the comment.
   final CommentInsert comment;
 
   /// Original document folder.

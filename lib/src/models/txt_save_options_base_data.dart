@@ -31,18 +31,18 @@ import '../../aspose_words_cloud.dart';
 
 /// Base class for save options of text formats.
 class TxtSaveOptionsBaseData extends SaveOptionsData {
-  /// Gets or sets specifies the encoding to use when exporting in plain text format.
+  /// Gets or sets the character encoding to use when exporting in plain text format.
   String encoding;
 
-  /// Gets or sets specifies whether to output headers and footers when exporting in plain text format.
+  /// Gets or sets the option that controls whether to output headers and footers when exporting in plain text format.
   /// default value is TxtExportHeadersFootersMode.PrimaryOnly.
   TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum exportHeadersFootersMode;
 
-  /// Gets or sets allows to specify whether the page breaks should be preserved during export.
+  /// Gets or sets a value indicating whether the page breaks should be preserved during export.
   /// The default value is false.
   bool forcePageBreaks;
 
-  /// Gets or sets specifies the string to use as a paragraph break when exporting in plain text format.
+  /// Gets or sets the string to use as a paragraph break when exporting in plain text format.
   String paragraphBreak;
 
   @override
@@ -110,7 +110,7 @@ class TxtSaveOptionsBaseData extends SaveOptionsData {
   }
 }
 
-/// Gets or sets specifies whether to output headers and footers when exporting in plain text format.
+/// Gets or sets the option that controls whether to output headers and footers when exporting in plain text format.
 /// default value is TxtExportHeadersFootersMode.PrimaryOnly.
 enum TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum
 { 

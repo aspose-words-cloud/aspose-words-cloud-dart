@@ -31,10 +31,10 @@ import '../../aspose_words_cloud.dart';
 
 /// Field.
 class FieldBase implements ModelBase {
-  /// Gets or sets field code.
+  /// Gets or sets the field code.
   String fieldCode;
 
-  /// Gets or sets LCID of the field.
+  /// Gets or sets the LCID of the field.
   String localeId;
 
   @override

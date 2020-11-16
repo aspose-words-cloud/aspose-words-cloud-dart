@@ -36,13 +36,13 @@ import '../api_request_part.dart';
 
 /// Request model for InsertFormField operation.
 class InsertFormFieldRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// From field data.
+  /// The properties of the form field.
   final FormField formField;
 
-  /// Path to the node that contains collection of formfields.
+  /// The path to the node in the document tree.
   final String nodePath;
 
   /// Original document folder.
@@ -66,7 +66,7 @@ class InsertFormFieldRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  /// Form field will be inserted before node with index.
+  /// The index of the node. A new form field will be inserted before the node with the specified node Id.
   final String insertBeforeNode;
 
   InsertFormFieldRequest(final this.name, final this.formField, {final this.nodePath, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime, final this.insertBeforeNode});

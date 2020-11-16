@@ -35,10 +35,10 @@ import '../api_request_part.dart';
 
 /// Request model for DeleteDocumentProperty operation.
 class DeleteDocumentPropertyRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// The property name.
+  /// The name of the property.
   final String propertyName;
 
   /// Original document folder.

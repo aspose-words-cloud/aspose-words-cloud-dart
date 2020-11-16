@@ -31,31 +31,31 @@ import '../../aspose_words_cloud.dart';
 
 /// FromField.
 class FormField extends NodeLink {
-  /// Gets or sets true if references to the specified form field are automatically updated whenever the field is exited.
+  /// Gets or sets a value indicating whether references to the specified form field are automatically updated whenever the field is exited.
   bool calculateOnExit;
 
-  /// Gets or sets true if a form field is enabled.
+  /// Gets or sets a value indicating whether a form field is enabled.
   bool enabled;
 
-  /// Gets or sets returns or sets an entry macro name for the form field.
+  /// Gets or sets the entry macro name for the form field.
   String entryMacro;
 
-  /// Gets or sets returns or sets an exit macro name for the form field.
+  /// Gets or sets the exit macro name for the form field.
   String exitMacro;
 
-  /// Gets or sets returns or sets the text that's displayed in a message box when the form field has the focus and the user presses F1.
+  /// Gets or sets text, displayed in a message box when the form field has the focus and the user presses F1.
   String helpText;
 
   /// Gets or sets the form field name.
   String name;
 
-  /// Gets or sets specifies the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.
+  /// Gets or sets a value indicating whether the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.
   bool ownHelp;
 
-  /// Gets or sets specifies the source of the text that's displayed in the status bar when a form field has the focus.
+  /// Gets or sets a value indicating whether the source of the text that's displayed in the status bar when a form field has the focus.
   bool ownStatus;
 
-  /// Gets or sets returns or sets the text that's displayed in the status bar when a form field has the focus.
+  /// Gets or sets text, displayed in the status bar when a form field has the focus.
   String statusText;
 
   @override

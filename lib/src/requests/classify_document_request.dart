@@ -36,7 +36,7 @@ import '../api_request_part.dart';
 
 /// Request model for ClassifyDocument operation.
 class ClassifyDocumentRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String documentName;
 
   /// Original document folder.
@@ -51,10 +51,10 @@ class ClassifyDocumentRequest implements RequestBase {
   /// Password for opening an encrypted document.
   final String password;
 
-  /// Count of the best classes to return.
+  /// The number of the best classes to return.
   final String bestClassesCount;
 
-  /// Taxonomy to use for classification return.
+  /// The taxonomy to use.
   final String taxonomy;
 
   ClassifyDocumentRequest(final this.documentName, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.bestClassesCount, final this.taxonomy});

@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Response for "drawingObjects/n" resource.
+/// The REST response with a DrawingObject.
 class DrawingObjectResponse extends WordsResponse {
-  /// Gets or sets drawing object.
+  /// Gets or sets the DrawingObject.
   DrawingObject drawingObject;
 
   @override

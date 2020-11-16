@@ -36,10 +36,10 @@ import '../api_request_part.dart';
 
 /// Request model for CompareDocument operation.
 class CompareDocumentRequest implements RequestBase {
-  /// Original document name.
+  /// The filename of the input document.
   final String name;
 
-  /// CompareData with a document to compare.
+  /// The properties of the document to compare with.
   final CompareData compareData;
 
   /// Original document folder.

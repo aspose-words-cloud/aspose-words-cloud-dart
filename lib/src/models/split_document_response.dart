@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:  POST /{name}/split .
+/// The REST response with a result of document splitting.
 class SplitDocumentResponse extends WordsResponse {
-  /// Gets or sets resylt of splitting document.
+  /// Gets or sets the result of document splitting.
   SplitDocumentResult splitResult;
 
   @override

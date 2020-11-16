@@ -35,7 +35,7 @@ import '../api_request_part.dart';
 
 /// Request model for OptimizeDocument operation.
 class OptimizeDocumentRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
   /// The document optimization options.

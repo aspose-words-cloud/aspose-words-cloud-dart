@@ -36,13 +36,13 @@ import '../api_request_part.dart';
 
 /// Request model for UpdateBookmark operation.
 class UpdateBookmarkRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// BookmarkData with new bookmark data.
+  /// The properties of the bookmark.
   final BookmarkData bookmarkData;
 
-  /// The bookmark name.
+  /// The name of the bookmark.
   final String bookmarkName;
 
   /// Original document folder.

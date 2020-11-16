@@ -29,19 +29,18 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// OfficeMath object.
+/// DTO container with an OfficeMath object.
 class OfficeMathObject extends OfficeMathLink {
-  /// Gets or sets content of footnote.
+  /// Gets or sets the content of a footnote.
   StoryChildNodes content;
 
-  /// Gets or sets /sets Office Math display format type which represents whether an equation is displayed inline with the text
-  /// or displayed on its own line.
+  /// Gets or sets the display format type of the OfficeMath object. This display format defines whether an equation is displayed inline with the text or displayed on its own line.
   OfficeMathObject_DisplayTypeEnum displayType;
 
-  /// Gets or sets /sets Office Math justification.
+  /// Gets or sets the justification of the OfficeMath object.
   OfficeMathObject_JustificationEnum justification;
 
-  /// Gets or sets type Aspose.Words.Math.OfficeMath.MathObjectType of this Office Math object.
+  /// Gets or sets the type of the OfficeMath object.
   OfficeMathObject_MathObjectTypeEnum mathObjectType;
 
   @override
@@ -188,15 +187,14 @@ class OfficeMathObject extends OfficeMathLink {
   }
 }
 
-/// Gets or sets /sets Office Math display format type which represents whether an equation is displayed inline with the text
-/// or displayed on its own line.
+/// Gets or sets the display format type of the OfficeMath object. This display format defines whether an equation is displayed inline with the text or displayed on its own line.
 enum OfficeMathObject_DisplayTypeEnum
 { 
   display,
   inline
 }
 
-/// Gets or sets /sets Office Math justification.
+/// Gets or sets the justification of the OfficeMath object.
 enum OfficeMathObject_JustificationEnum
 { 
   centerGroup,
@@ -207,7 +205,7 @@ enum OfficeMathObject_JustificationEnum
   inline
 }
 
-/// Gets or sets type Aspose.Words.Math.OfficeMath.MathObjectType of this Office Math object.
+/// Gets or sets the type of the OfficeMath object.
 enum OfficeMathObject_MathObjectTypeEnum
 { 
   oMath,

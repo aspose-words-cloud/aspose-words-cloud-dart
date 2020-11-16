@@ -36,7 +36,7 @@ import '../api_request_part.dart';
 
 /// Request model for GetDocumentStatistics operation.
 class GetDocumentStatisticsRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
   /// Original document folder.
@@ -51,13 +51,13 @@ class GetDocumentStatisticsRequest implements RequestBase {
   /// Password for opening an encrypted document.
   final String password;
 
-  /// Support including/excluding comments from the WordCount. Default value is "false".
+  /// The flag indicating whether to include comments from the WordCount. The default value is "false".
   final bool includeComments;
 
-  /// Support including/excluding footnotes from the WordCount. Default value is "false".
+  /// The flag indicating whether to include footnotes from the WordCount. The default value is "false".
   final bool includeFootnotes;
 
-  /// Support including/excluding shape's text from the WordCount. Default value is "false".
+  /// The flag indicating whether to include shape's text from the WordCount. The default value is "false".
   final bool includeTextInShapes;
 
   GetDocumentStatisticsRequest(final this.name, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.includeComments, final this.includeFootnotes, final this.includeTextInShapes});

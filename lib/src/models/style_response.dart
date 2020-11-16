@@ -29,10 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:
-/// GET https://api.aspose.cloud/v4.0/words/Test.doc/styles/{0}.
+/// The REST response with a style.
 class StyleResponse extends WordsResponse {
-  /// Gets or sets style which are contained in document.
+  /// Gets or sets the style, containded in the document.
   Style style;
 
   @override

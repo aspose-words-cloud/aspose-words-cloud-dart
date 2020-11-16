@@ -36,13 +36,13 @@ import '../api_request_part.dart';
 
 /// Request model for InsertRun operation.
 class InsertRunRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Path to parent paragraph.
+  /// The path to the paragraph in the document tree.
   final String paragraphPath;
 
-  /// Run data.
+  /// The properties of the Run object.
   final RunInsert run;
 
   /// Original document folder.
@@ -66,7 +66,7 @@ class InsertRunRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  /// Paragraph will be inserted before node with index.
+  /// The index of the node. A new Run object will be inserted before the node with the specified node Id.
   final String insertBeforeNode;
 
   InsertRunRequest(final this.name, final this.paragraphPath, final this.run, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime, final this.insertBeforeNode});

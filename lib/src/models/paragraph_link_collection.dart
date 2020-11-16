@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Collection of links to paragraphs.
+/// The collection of paragraph's links.
 class ParagraphLinkCollection extends LinkElement {
-  /// Gets or sets collection of paragraph's links.
+  /// Gets or sets the collection of paragraph's links.
   List<ParagraphLink> paragraphLinkList;
 
   @override

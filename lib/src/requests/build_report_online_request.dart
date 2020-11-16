@@ -44,7 +44,7 @@ class BuildReportOnlineRequest implements RequestBase {
   /// An object providing a settings of report engine.
   final ReportEngineSettings reportEngineSettings;
 
-  /// This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
+  /// The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "template" will be used instead.
   final String documentFileName;
 
   BuildReportOnlineRequest(final this.template, final this.data, final this.reportEngineSettings, {final this.documentFileName});

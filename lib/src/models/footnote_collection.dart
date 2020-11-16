@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Collection of footnotes.
+/// DTO container with a collection of footnotes.
 class FootnoteCollection extends LinkElement {
-  /// Gets or sets collection of foonotes links.
+  /// Gets or sets the collection of footnotes.
   List<Footnote> list;
 
   @override

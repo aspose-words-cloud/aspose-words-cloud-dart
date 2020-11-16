@@ -36,16 +36,16 @@ import '../api_request_part.dart';
 
 /// Request model for UpdateListLevel operation.
 class UpdateListLevelRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// List object.
+  /// The properties of the List element.
   final ListLevelUpdate listUpdate;
 
-  /// List unique identifier.
+  /// The list Id.
   final int listId;
 
-  /// List level identifier.
+  /// The list level.
   final int listLevel;
 
   /// Original document folder.

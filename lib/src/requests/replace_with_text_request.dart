@@ -36,15 +36,13 @@ import '../api_request_part.dart';
 
 /// Request model for ReplaceWithText operation.
 class ReplaceWithTextRequest implements RequestBase {
-  /// The document.
+  /// The filename of the input document.
   final String name;
 
   /// The range start identifier.
-  /// Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id".
-  /// It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
   final String rangeStartIdentifier;
 
-  /// Model with text for replacement.
+  /// The text replacement properties.
   final ReplaceRange rangeText;
 
   /// The range end identifier.

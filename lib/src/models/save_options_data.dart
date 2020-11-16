@@ -31,39 +31,36 @@ import '../../aspose_words_cloud.dart';
 
 /// base container class for save options data.
 class SaveOptionsData implements ModelBase {
-  /// Gets or sets a value determining how 3D effects are rendered.
+  /// Gets or sets the value determining how 3D effects are rendered.
   SaveOptionsData_Dml3DEffectsRenderingModeEnum dml3DEffectsRenderingMode;
 
-  /// Gets or sets a value determining how DrawingML effects are rendered.
+  /// Gets or sets the value determining how DrawingML effects are rendered.
   /// { Simplified | None | Fine }.
   String dmlEffectsRenderingMode;
 
-  /// Gets or sets a value determining how DrawingML shapes are rendered.
-  /// { Fallback | DrawingML }.
+  /// Gets or sets the option that controls how DrawingML shapes are rendered.
   String dmlRenderingMode;
 
-  /// Gets or sets name of destination file.
+  /// Gets or sets the name of destination file.
   String fileName;
 
-  /// Gets or sets format of save.
+  /// Gets or sets the format of save.
   String saveFormat;
 
-  /// Gets or sets a value determining if fields should be updated before saving the document to a fixed page format.
-  /// Default value for this property is. true.
+  /// Gets or sets a value indicating whether fields should be updated before saving the document to a fixed page format. The default value is true.
   bool updateFields;
 
-  /// Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastPrinted
-  /// property is updated before saving.
+  /// Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastPrinted property is updated before saving.
   bool updateLastPrintedProperty;
 
-  /// Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
+  /// Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
   bool updateLastSavedTimeProperty;
 
-  /// Gets or sets value determining whether content of StructuredDocumentTag is updated before saving.
+  /// Gets or sets a value indicating whether content of StructuredDocumentTag is updated before saving.
   bool updateSdtContent;
 
-  /// Gets or sets controls zip output or not.
-  /// Default value is false.
+  /// Gets or sets a value indicating whether to zip output or not.
+  /// The default value is false.
   bool zipOutput;
 
   @override
@@ -187,7 +184,7 @@ class SaveOptionsData implements ModelBase {
   }
 }
 
-/// Gets or sets a value determining how 3D effects are rendered.
+/// Gets or sets the value determining how 3D effects are rendered.
 enum SaveOptionsData_Dml3DEffectsRenderingModeEnum
 { 
   basic,

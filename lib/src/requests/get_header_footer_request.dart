@@ -36,10 +36,10 @@ import '../api_request_part.dart';
 
 /// Request model for GetHeaderFooter operation.
 class GetHeaderFooterRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Header/footer index.
+  /// The index of the HeaderFooter object.
   final int headerFooterIndex;
 
   /// Original document folder.
@@ -54,7 +54,7 @@ class GetHeaderFooterRequest implements RequestBase {
   /// Password for opening an encrypted document.
   final String password;
 
-  /// List of types of headers and footers.
+  /// The list of HeaderFooter types.
   final String filterByType;
 
   GetHeaderFooterRequest(final this.name, final this.headerFooterIndex, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.filterByType});

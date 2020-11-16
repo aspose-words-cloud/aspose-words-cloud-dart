@@ -31,13 +31,13 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for compare documents.
 class CompareData implements ModelBase {
-  /// Gets or sets initials of the author to use for revisions.
+  /// Gets or sets the initials of the author to use for revisions.
   String author;
 
   /// Gets or sets the compare options.
   CompareOptions compareOptions;
 
-  /// Gets or sets path to document to compare at the server.
+  /// Gets or sets the path to document to compare at the server.
   String comparingWithDocument;
 
   /// Gets or sets the date and time to use for revisions.

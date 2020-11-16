@@ -36,13 +36,13 @@ import '../api_request_part.dart';
 
 /// Request model for ApplyStyleToDocumentElement operation.
 class ApplyStyleToDocumentElementRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Style to apply.
+  /// The style to apply.
   final StyleApply styleApply;
 
-  /// The path to the node that supports a style. Supported node types: ParagraphFormat, List, ListLevel, Table.
+  /// The path to the node in the document tree, that supports styles: ParagraphFormat, List, ListLevel, Table.
   final String styledNodePath;
 
   /// Original document folder.

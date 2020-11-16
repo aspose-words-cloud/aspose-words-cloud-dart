@@ -31,17 +31,16 @@ import '../../aspose_words_cloud.dart';
 
 /// Represents a single document style properties to update.
 class StyleUpdate implements ModelBase {
-  /// Gets or sets /sets the name of the style this style is based on.
+  /// Gets or sets the name of the style this style is based on.
   String baseStyleName;
 
-  /// Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.
+  /// Gets or sets a value indicating whether this style is shown in the Quick Style gallery inside MS Word UI.
   bool isQuickStyle;
 
   /// Gets or sets the name of the style.
   String name;
 
-  /// Gets or sets /sets the name of the style to be applied automatically to a new paragraph
-  /// inserted after a paragraph formatted with the specified style.
+  /// Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
   String nextParagraphStyleName;
 
   @override

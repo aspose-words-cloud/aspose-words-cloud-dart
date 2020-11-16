@@ -39,10 +39,10 @@ class CreateDocumentRequest implements RequestBase {
   /// Original document storage.
   final String storage;
 
-  /// The document name.
+  /// The filename of the document.
   final String fileName;
 
-  /// The document folder.
+  /// The path to the document folder.
   final String folder;
 
   CreateDocumentRequest({final this.storage, final this.fileName, final this.folder});

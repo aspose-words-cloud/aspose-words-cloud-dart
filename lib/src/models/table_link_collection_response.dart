@@ -29,10 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:
-/// GET https://api.aspose.cloud/v4.0/words/Test.doc/tables.
+/// The REST response with a collection of tables.
 class TableLinkCollectionResponse extends WordsResponse {
-  /// Gets or sets collection of tables.
+  /// Gets or sets the collection of tables.
   TableLinkCollection tables;
 
   @override

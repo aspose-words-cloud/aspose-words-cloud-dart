@@ -36,10 +36,10 @@ import '../api_request_part.dart';
 
 /// Request model for SaveAs operation.
 class SaveAsRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Save options.
+  /// The save options.
   final SaveOptionsData saveOptionsData;
 
   /// Original document folder.

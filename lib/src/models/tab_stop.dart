@@ -29,7 +29,7 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Paragraph format tab stop.
+/// DTO container with paragraph format tab stop.
 class TabStop extends TabStopBase {
   /// Gets or sets a value indicating whether this tab stop clears any existing tab stops in this position.
   bool isClear;

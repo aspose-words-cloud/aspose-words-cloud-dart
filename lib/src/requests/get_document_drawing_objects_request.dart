@@ -36,10 +36,10 @@ import '../api_request_part.dart';
 
 /// Request model for GetDocumentDrawingObjects operation.
 class GetDocumentDrawingObjectsRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Path to the node, which contains collection of drawing objects.
+  /// The path to the node in the document tree.
   final String nodePath;
 
   /// Original document folder.

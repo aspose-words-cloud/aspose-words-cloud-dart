@@ -35,10 +35,10 @@ import '../api_request_part.dart';
 
 /// Request model for RenderPage operation.
 class RenderPageRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Comment index.
+  /// The index of the page.
   final int pageIndex;
 
   /// The destination format.

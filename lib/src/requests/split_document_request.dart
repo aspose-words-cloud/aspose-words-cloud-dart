@@ -36,10 +36,10 @@ import '../api_request_part.dart';
 
 /// Request model for SplitDocument operation.
 class SplitDocumentRequest implements RequestBase {
-  /// Original document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Format to split.
+  /// The format to split.
   final String format;
 
   /// Original document folder.
@@ -57,13 +57,13 @@ class SplitDocumentRequest implements RequestBase {
   /// Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
   final String destFileName;
 
-  /// Start page.
+  /// The start page.
   final int from;
 
-  /// End page.
+  /// The end page.
   final int to;
 
-  /// ZipOutput or not.
+  /// The flag indicating whether to ZIP the output.
   final bool zipOutput;
 
   /// Folder in filestorage with custom fonts.

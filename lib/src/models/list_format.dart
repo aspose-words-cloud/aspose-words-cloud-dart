@@ -29,7 +29,7 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Paragraph list format element.
+/// DTO container with a paragraph list format element.
 class ListFormat extends LinkElement {
   /// Gets or sets a value indicating whether the paragraph has bulleted or numbered formatting applied to it.
   bool isListItem;

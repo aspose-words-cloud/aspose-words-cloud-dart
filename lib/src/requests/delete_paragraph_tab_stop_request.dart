@@ -36,16 +36,16 @@ import '../api_request_part.dart';
 
 /// Request model for DeleteParagraphTabStop operation.
 class DeleteParagraphTabStopRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// a tab stop position to remove.
+  /// The position of a tab stop to remove.
   final double position;
 
   /// Object index.
   final int index;
 
-  /// Path to the node which contains paragraph.
+  /// The path to the node in the document tree.
   final String nodePath;
 
   /// Original document folder.

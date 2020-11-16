@@ -36,7 +36,7 @@ import '../api_request_part.dart';
 
 /// Request model for GetBookmarks operation.
 class GetBookmarksRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
   /// Original document folder.

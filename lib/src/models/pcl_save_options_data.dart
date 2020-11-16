@@ -31,10 +31,10 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for pcl save options.
 class PclSaveOptionsData extends FixedPageSaveOptionsData {
-  /// Gets or sets name of the font that will be used if no expected font is found in printer and built-in fonts collections.
+  /// Gets or sets the font name, that will be used if no expected font is found in printer and built-in fonts collections.
   String falllbackFontName;
 
-  /// Gets or sets a value determining whether or not complex transformed elements should be rasterized before saving to PCL document.  Default is true.
+  /// Gets or sets a value indicating whether complex transformed elements should be rasterized before saving to PCL document.. The default value is true.
   bool rasterizeTransformedElements;
 
   @override

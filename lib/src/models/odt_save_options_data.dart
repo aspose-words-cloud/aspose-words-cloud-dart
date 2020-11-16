@@ -29,19 +29,19 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// container class for odt/ott save options.
+/// Container class for odt/ott save options.
 class OdtSaveOptionsData extends SaveOptionsData {
-  /// Gets or sets specifies whether export should correspond to ODT specification 1.1 strictly.
+  /// Gets or sets a value indicating whether export should correspond to ODT specification 1.1 strictly.
   bool isStrictSchema11;
 
-  /// Gets or sets allows to specify units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters.
+  /// Gets or sets the units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters.
   /// Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.
   OdtSaveOptionsData_MeasureUnitEnum measureUnit;
 
-  /// Gets or sets a password to encrypt document.
+  /// Gets or sets the password to encrypt document.
   String password;
 
-  /// Gets or sets specifies whether or not use pretty formats output.
+  /// Gets or sets a value indicating whether to use pretty formats output.
   bool prettyFormat;
 
   @override
@@ -107,7 +107,7 @@ class OdtSaveOptionsData extends SaveOptionsData {
   }
 }
 
-/// Gets or sets allows to specify units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters.
+/// Gets or sets the units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters.
 /// Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.
 enum OdtSaveOptionsData_MeasureUnitEnum
 { 

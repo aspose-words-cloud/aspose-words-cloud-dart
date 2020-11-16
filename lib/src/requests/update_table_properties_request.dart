@@ -36,16 +36,16 @@ import '../api_request_part.dart';
 
 /// Request model for UpdateTableProperties operation.
 class UpdateTablePropertiesRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// The properties.
+  /// The properties of the table.
   final TableProperties properties;
 
   /// Object index.
   final int index;
 
-  /// Path to the node, which contains tables.
+  /// The path to the node in the document tree.
   final String nodePath;
 
   /// Original document folder.

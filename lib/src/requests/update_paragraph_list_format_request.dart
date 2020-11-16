@@ -36,16 +36,16 @@ import '../api_request_part.dart';
 
 /// Request model for UpdateParagraphListFormat operation.
 class UpdateParagraphListFormatRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Paragraph format object.
+  /// The formatting properties of a paragraph list.
   final ListFormatUpdate dto;
 
   /// Object index.
   final int index;
 
-  /// Path to the node which contains paragraphs.
+  /// The path to the node in the document tree.
   final String nodePath;
 
   /// Original document folder.

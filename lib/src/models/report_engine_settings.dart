@@ -31,10 +31,10 @@ import '../../aspose_words_cloud.dart';
 
 /// Report engine settings.
 class ReportEngineSettings implements ModelBase {
-  /// Gets or sets options for parsing CSV data.
+  /// Gets or sets the options for parsing CSV data.
   CsvDataLoadOptions csvDataLoadOptions;
 
-  /// Gets or sets a name to reference the data source object in the template.
+  /// Gets or sets the name to reference the data source object in the template.
   String dataSourceName;
 
   /// Gets or sets type of datasource.

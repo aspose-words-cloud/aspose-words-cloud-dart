@@ -31,10 +31,10 @@ import '../../aspose_words_cloud.dart';
 
 /// Hyperlink element.
 class Hyperlink extends LinkElement {
-  /// Gets or sets hypelink's display text.
+  /// Gets or sets the hypelink's display text.
   String displayText;
 
-  /// Gets or sets value.
+  /// Gets or sets the value.
   String value;
 
   @override

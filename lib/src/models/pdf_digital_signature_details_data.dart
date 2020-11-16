@@ -29,21 +29,21 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// container class for details of digital signature.
+/// Container class for details of digital signature.
 class PdfDigitalSignatureDetailsData implements ModelBase {
-  /// Gets or sets certificate's filename using for signing.
+  /// Gets or sets the certificate's filename using for signing.
   String certificateFilename;
 
-  /// Gets or sets hash algorithm.
+  /// Gets or sets the hash algorithm.
   String hashAlgorithm;
 
-  /// Gets or sets location of the signing.
+  /// Gets or sets the location of the signing.
   String location;
 
-  /// Gets or sets reason for the signing.
+  /// Gets or sets the reason for the signing.
   String reason;
 
-  /// Gets or sets date of the signing.
+  /// Gets or sets the date of the signing.
   DateTime signatureDate;
 
   @override

@@ -31,19 +31,19 @@ import '../../aspose_words_cloud.dart';
 
 /// Container for the document's statistical data.
 class DocumentStatData implements ModelBase {
-  /// Gets or sets detailed statistics of footnotes.
+  /// Gets or sets the detailed statistics on footnotes.
   FootnotesStatData footnotesStatData;
 
-  /// Gets or sets total count of pages in the document.
+  /// Gets or sets the total count of pages in the document.
   int pageCount;
 
-  /// Gets or sets detailed statistics of all pages.
+  /// Gets or sets the detailed statistics on all pages.
   List<PageStatData> pageStatData;
 
-  /// Gets or sets total count of paragraphs in the document.
+  /// Gets or sets the total count of paragraphs in the document.
   int paragraphCount;
 
-  /// Gets or sets total count of words in the document.
+  /// Gets or sets the total count of words in the document.
   int wordCount;
 
   @override

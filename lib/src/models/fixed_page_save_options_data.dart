@@ -31,28 +31,28 @@ import '../../aspose_words_cloud.dart';
 
 /// Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
 class FixedPageSaveOptionsData extends SaveOptionsData {
-  /// Gets or sets a value determining how colors are rendered.
+  /// Gets or sets the value determining how colors are rendered.
   /// { Normal | Grayscale}.
   String colorMode;
 
-  /// Gets or sets determines the quality of the JPEG images inside PDF document.
+  /// Gets or sets the quality of the JPEG images inside PDF document.
   int jpegQuality;
 
-  /// Gets or sets allows to specify metafile rendering options.
+  /// Gets or sets the metafile rendering options.
   MetafileRenderingOptionsData metafileRenderingOptions;
 
-  /// Gets or sets indicates the symbol set that is used to represent numbers while rendering to fixed page formats.
+  /// Gets or sets the symbol set, that is used to represent numbers while rendering to fixed page formats.
   String numeralFormat;
 
-  /// Gets or sets flag indicates whether it is required to optimize output of XPS.
+  /// Gets or sets a value indicating whether it is required to optimize output of XPS.
   /// If this flag is set redundant nested canvases and empty canvases are removed, also neighbor glyphs with the same formatting are concatenated.
-  /// Note: The accuracy of the content display may be affected if this property is set to true.  Default is false.
+  /// Note: The accuracy of the content display may be affected if this property is set to true.. The default value is false.
   bool optimizeOutput;
 
-  /// Gets or sets determines number of pages to render.
+  /// Gets or sets the number of pages to render.
   int pageCount;
 
-  /// Gets or sets determines 0-based index of the first page to render.
+  /// Gets or sets the 0-based index of the first page to render.
   int pageIndex;
 
   @override

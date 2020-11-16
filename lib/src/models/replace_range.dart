@@ -29,12 +29,12 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Range element.
+/// DTO container with a range element.
 class ReplaceRange implements ModelBase {
-  /// Gets or sets range's text.
+  /// Gets or sets the range's text.
   String text;
 
-  /// Gets or sets range's text type.
+  /// Gets or sets the range's text type.
   ReplaceRange_TextTypeEnum textType;
 
   @override
@@ -78,7 +78,7 @@ class ReplaceRange implements ModelBase {
   }
 }
 
-/// Gets or sets range's text type.
+/// Gets or sets the range's text type.
 enum ReplaceRange_TextTypeEnum
 { 
   text,

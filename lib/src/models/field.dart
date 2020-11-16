@@ -29,12 +29,12 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Field.
+/// DTO container with a field.
 class Field extends FieldLink {
-  /// Gets or sets LCID of the field.
+  /// Gets or sets the LCID of the field.
   String localeId;
 
-  /// Gets or sets field result.
+  /// Gets or sets the field result.
   String result;
 
   @override

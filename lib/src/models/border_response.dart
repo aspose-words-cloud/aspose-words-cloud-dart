@@ -29,10 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:
-/// GET {nodeWithBorders}/borders.
+/// The REST response with a border.
 class BorderResponse extends WordsResponse {
-  /// Gets or sets table.
+  /// Gets or sets the border.
   Border border;
 
   @override

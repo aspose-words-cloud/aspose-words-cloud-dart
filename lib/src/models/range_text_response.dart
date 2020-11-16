@@ -29,10 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:
-/// GET https://api.aspose.cloud/v4.0/words/Test.doc/range/{0}/{1}/.
+/// The REST response with a range's text.
 class RangeTextResponse extends WordsResponse {
-  /// Gets or sets text from range.
+  /// Gets or sets the range's text.
   String text;
 
   @override

@@ -31,7 +31,7 @@ import '../../aspose_words_cloud.dart';
 
 /// Run link element.
 class RunLink extends NodeLink {
-  /// Gets or sets run's text.
+  /// Gets or sets the run's text.
   String text;
 
   @override

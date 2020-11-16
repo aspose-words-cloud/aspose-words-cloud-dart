@@ -31,7 +31,7 @@ import '../../aspose_words_cloud.dart';
 
 /// Represents an array of bookmarks.
 class Bookmarks extends LinkElement {
-  /// Gets or sets array of bookmarks.
+  /// Gets or sets the array of bookmarks.
   List<Bookmark> bookmarkList;
 
   @override

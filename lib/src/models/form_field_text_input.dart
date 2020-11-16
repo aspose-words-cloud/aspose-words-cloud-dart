@@ -31,16 +31,16 @@ import '../../aspose_words_cloud.dart';
 
 /// FormField text input element.
 class FormFieldTextInput extends FormField {
-  /// Gets or sets maximum length for the text field. Zero when the length is not limited.
+  /// Gets or sets the maximum length for the text field. Zero when the length is not limited.
   int maxLength;
 
-  /// Gets or sets the default string or a calculation expression of a text form field.
+  /// Gets or sets the default string or a calculation expression of the text form field.
   String textInputDefault;
 
-  /// Gets or sets returns or sets the text formatting for a text form field.
+  /// Gets or sets text formatting for the text form field.
   String textInputFormat;
 
-  /// Gets or sets the type of a text form field.
+  /// Gets or sets the type of the text form field.
   FormFieldTextInput_TextInputTypeEnum textInputType;
 
   @override
@@ -114,7 +114,7 @@ class FormFieldTextInput extends FormField {
   }
 }
 
-/// Gets or sets the type of a text form field.
+/// Gets or sets the type of the text form field.
 enum FormFieldTextInput_TextInputTypeEnum
 { 
   regular,

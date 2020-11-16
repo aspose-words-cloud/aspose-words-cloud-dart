@@ -34,7 +34,7 @@ class StringFormatData implements ModelBase {
   /// Gets or sets horizontal alignment of the string.
   StringFormatData_AlignmentEnum alignment;
 
-  /// Gets or sets a System.Drawing.StringFormatFlags enumeration that contains formatting information.
+  /// Gets or sets the System.Drawing.StringFormatFlags enumeration, that contains formatting information.
   StringFormatData_FormatFlagsEnum formatFlags;
 
   /// Gets or sets the System.Drawing.Text.HotkeyPrefix object for this System.Drawing.StringFormat object.
@@ -185,7 +185,7 @@ enum StringFormatData_AlignmentEnum
   far
 }
 
-/// Gets or sets a System.Drawing.StringFormatFlags enumeration that contains formatting information.
+/// Gets or sets the System.Drawing.StringFormatFlags enumeration, that contains formatting information.
 enum StringFormatData_FormatFlagsEnum
 { 
   directionRightToLeft,

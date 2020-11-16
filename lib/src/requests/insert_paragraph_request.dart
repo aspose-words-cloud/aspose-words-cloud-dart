@@ -36,13 +36,13 @@ import '../api_request_part.dart';
 
 /// Request model for InsertParagraph operation.
 class InsertParagraphRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Paragraph data.
+  /// The properties of the paragraph.
   final ParagraphInsert paragraph;
 
-  /// Path to the node which contains paragraphs.
+  /// The path to the node in the document tree.
   final String nodePath;
 
   /// Original document folder.
@@ -66,7 +66,7 @@ class InsertParagraphRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  /// Paragraph will be inserted before node with index.
+  /// The index of the node. A new paragraph will be inserted before the node with the specified index.
   final String insertBeforeNode;
 
   InsertParagraphRequest(final this.name, final this.paragraph, {final this.nodePath, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime, final this.insertBeforeNode});

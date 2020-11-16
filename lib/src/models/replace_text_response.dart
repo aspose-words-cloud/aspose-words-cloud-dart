@@ -29,12 +29,12 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Response for "Replace text" action.
+/// The REST response with a number of occurrences of the captured text in the document.
 class ReplaceTextResponse extends WordsResponse {
-  /// Gets or sets link to the document.
+  /// Gets or sets the link to the document.
   FileLink documentLink;
 
-  /// Gets or sets number of occurrences of the captured text in the document.
+  /// Gets or sets the number of occurrences of the captured text in the document.
   int matches;
 
   @override

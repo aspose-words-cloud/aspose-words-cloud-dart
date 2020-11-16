@@ -29,12 +29,12 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Table row element.
+/// DTO container with a table row element.
 class TableRow extends NodeLink {
-  /// Gets or sets provides access to the formatting properties of the row.
+  /// Gets or sets the formatting properties of a row.
   TableRowFormat rowFormat;
 
-  /// Gets or sets collection of table's rows.
+  /// Gets or sets the collection of rows.
   List<TableCell> tableCellList;
 
   @override

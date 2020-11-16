@@ -31,14 +31,14 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for text save options.
 class TextSaveOptionsData extends TxtSaveOptionsBaseData {
-  /// Gets or sets specifies whether to add bi-directional marks before each BiDi run when exporting in plain text format.
+  /// Gets or sets a value indicating whether to add bi-directional marks before each BiDi run when exporting in plain text format.
   /// The default value is true.
   bool addBidiMarks;
 
-  /// Gets or sets specifies whether the program should attempt to preserve layout of tables when saving in the plain text format.
+  /// Gets or sets a value indicating whether the program should attempt to preserve layout of tables when saving in the plain text format.
   bool preserveTableLayout;
 
-  /// Gets or sets specifies whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.
+  /// Gets or sets a value indicating whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.
   bool simplifyListLabels;
 
   @override

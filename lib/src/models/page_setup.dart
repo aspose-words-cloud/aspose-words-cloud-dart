@@ -31,63 +31,60 @@ import '../../aspose_words_cloud.dart';
 
 /// Represents the page setup properties of a section.
 class PageSetup extends LinkElement {
-  /// Gets or sets specifies that this section contains bidirectional (complex scripts) text.
+  /// Gets or sets a value indicating whether this section contains bidirectional (complex scripts) text.
   bool bidi;
 
-  /// Gets or sets specifies where the page border is positioned relative to intersecting texts and objects.
+  /// Gets or sets a value indicating whether the page border is positioned relative to intersecting texts and objects.
   bool borderAlwaysInFront;
 
-  /// Gets or sets specifies which pages the page border is printed on.
+  /// Gets or sets the option that controls which pages the page border is printed on.
   PageSetup_BorderAppliesToEnum borderAppliesTo;
 
-  /// Gets or sets a value that indicates whether the specified page border is measured from the edge of the page or from
-  /// the text it surrounds.
+  /// Gets or sets the value, that indicates whether the specified page border is measured from the edge of the page or from the text it surrounds.
   PageSetup_BorderDistanceFromEnum borderDistanceFrom;
 
-  /// Gets or sets returns or sets the distance (in points) between the bottom edge of the page and the bottom boundary of the body
-  /// text.
+  /// Gets or sets the distance (in points) between the bottom edge of the page and the bottom boundary of the body text.
   double bottomMargin;
 
-  /// Gets or sets true if a different header or footer is used on the first page.
+  /// Gets or sets a value indicating whether a different header or footer is used on the first page.
   bool differentFirstPageHeaderFooter;
 
   /// Gets or sets the paper tray (bin) to use for the first page of a section.
   /// The value is implementation (printer) specific.
   int firstPageTray;
 
-  /// Gets or sets returns or sets the distance (in points) between the footer and the bottom of the page.
+  /// Gets or sets the distance (in points) between the footer and the bottom of the page.
   double footerDistance;
 
   /// Gets or sets the amount of extra space added to the margin for document binding.
   double gutter;
 
-  /// Gets or sets returns or sets the distance (in points) between the header and the top of the page.
+  /// Gets or sets the distance (in points) between the header and the top of the page.
   double headerDistance;
 
-  /// Gets or sets returns or sets the distance (in points) between the left edge of the page and the left boundary of the body text.
+  /// Gets or sets the distance (in points) between the left edge of the page and the left boundary of the body text.
   double leftMargin;
 
-  /// Gets or sets returns or sets the numeric increment for line numbers.
+  /// Gets or sets the numeric increment for line numbers.
   int lineNumberCountBy;
 
-  /// Gets or sets distance between the right edge of line numbers and the left edge of the document.
+  /// Gets or sets the distance between the right edge of line numbers and the left edge of the document.
   double lineNumberDistanceFromText;
 
-  /// Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new
-  /// page or section or runs continuously.
+  /// Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new page or section or runs continuously.
   PageSetup_LineNumberRestartModeEnum lineNumberRestartMode;
 
   /// Gets or sets the starting line number.
   int lineStartingNumber;
 
-  /// Gets or sets returns or sets the orientation of the page.
+  /// Gets or sets the orientation of the page.
   PageSetup_OrientationEnum orientation;
 
   /// Gets or sets the paper tray (bin) to be used for all but the first page of a section.
   /// The value is implementation (printer) specific.
   int otherPagesTray;
 
-  /// Gets or sets returns or sets the height of the page in points.
+  /// Gets or sets the height of the page in points.
   double pageHeight;
 
   /// Gets or sets the page number format.
@@ -96,34 +93,31 @@ class PageSetup extends LinkElement {
   /// Gets or sets the starting page number of the section.
   int pageStartingNumber;
 
-  /// Gets or sets returns or sets the width of the page in points.
+  /// Gets or sets the width of the page in points.
   double pageWidth;
 
-  /// Gets or sets returns or sets the paper size.
+  /// Gets or sets the paper size.
   PageSetup_PaperSizeEnum paperSize;
 
-  /// Gets or sets true if page numbering restarts at the beginning of the section.
+  /// Gets or sets a value indicating whether page numbering restarts at the beginning of the section.
   bool restartPageNumbering;
 
-  /// Gets or sets returns or sets the distance (in points) between the right edge of the page and the right boundary of the body
-  /// text.
+  /// Gets or sets the distance (in points) between the right edge of the page and the right boundary of the body text.
   double rightMargin;
 
-  /// Gets or sets whether Microsoft Word uses gutters for the section based on a right-to-left language or a
-  /// left-to-right language.
+  /// Gets or sets a value indicating whether Microsoft Word uses gutters for the section based on a right-to-left language or a left-to-right language.
   bool rtlGutter;
 
-  /// Gets or sets returns or sets the type of section break for the specified object.
+  /// Gets or sets the type of section break for the specified object.
   PageSetup_SectionStartEnum sectionStart;
 
-  /// Gets or sets true if endnotes are printed at the end of the next section that doesn't suppress endnotes.
-  /// Suppressed endnotes are printed before the endnotes in that section.
+  /// Gets or sets a value indicating whether endnotes are printed at the end of the next section that doesn't suppress endnotes. Suppressed endnotes are printed before the endnotes in that section.
   bool suppressEndnotes;
 
-  /// Gets or sets returns or sets the distance (in points) between the top edge of the page and the top boundary of the body text.
+  /// Gets or sets the distance (in points) between the top edge of the page and the top boundary of the body text.
   double topMargin;
 
-  /// Gets or sets returns or sets the vertical alignment of text on each page in a document or section.
+  /// Gets or sets the vertical alignment of text on each page in the document.or section.
   PageSetup_VerticalAlignmentEnum verticalAlignment;
 
   @override
@@ -659,7 +653,7 @@ class PageSetup extends LinkElement {
   }
 }
 
-/// Gets or sets specifies which pages the page border is printed on.
+/// Gets or sets the option that controls which pages the page border is printed on.
 enum PageSetup_BorderAppliesToEnum
 { 
   allPages,
@@ -667,16 +661,14 @@ enum PageSetup_BorderAppliesToEnum
   otherPages
 }
 
-/// Gets or sets a value that indicates whether the specified page border is measured from the edge of the page or from
-/// the text it surrounds.
+/// Gets or sets the value, that indicates whether the specified page border is measured from the edge of the page or from the text it surrounds.
 enum PageSetup_BorderDistanceFromEnum
 { 
   text,
   pageEdge
 }
 
-/// Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new
-/// page or section or runs continuously.
+/// Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new page or section or runs continuously.
 enum PageSetup_LineNumberRestartModeEnum
 { 
   restartPage,
@@ -684,7 +676,7 @@ enum PageSetup_LineNumberRestartModeEnum
   continuous
 }
 
-/// Gets or sets returns or sets the orientation of the page.
+/// Gets or sets the orientation of the page.
 enum PageSetup_OrientationEnum
 { 
   portrait,
@@ -758,7 +750,7 @@ enum PageSetup_PageNumberStyleEnum
   custom
 }
 
-/// Gets or sets returns or sets the paper size.
+/// Gets or sets the paper size.
 enum PageSetup_PaperSizeEnum
 { 
   a3,
@@ -780,7 +772,7 @@ enum PageSetup_PaperSizeEnum
   custom
 }
 
-/// Gets or sets returns or sets the type of section break for the specified object.
+/// Gets or sets the type of section break for the specified object.
 enum PageSetup_SectionStartEnum
 { 
   continuous,
@@ -790,7 +782,7 @@ enum PageSetup_SectionStartEnum
   oddPage
 }
 
-/// Gets or sets returns or sets the vertical alignment of text on each page in a document or section.
+/// Gets or sets the vertical alignment of text on each page in the document.or section.
 enum PageSetup_VerticalAlignmentEnum
 { 
   top,

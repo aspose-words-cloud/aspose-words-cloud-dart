@@ -31,16 +31,16 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for xps save options.
 class XpsSaveOptionsData extends FixedPageSaveOptionsData {
-  /// Gets or sets specifies the level in the XPS document outline at which to display Word bookmarks.
+  /// Gets or sets the level in the XPS document outline at which to display Word bookmarks.
   int bookmarksOutlineLevel;
 
-  /// Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the XPS document outline.
+  /// Gets or sets the number of heading levels (paragraphs formatted with the Heading styles) to include in the XPS document outline.
   int headingsOutlineLevels;
 
-  /// Gets or sets allows to specify outline options.
+  /// Gets or sets the outline options.
   OutlineOptionsData outlineOptions;
 
-  /// Gets or sets determines whether the document should be saved using a booklet printing layout.
+  /// Gets or sets a value indicating whether the document should be saved using a booklet printing layout.
   bool useBookFoldPrintingSettings;
 
   @override

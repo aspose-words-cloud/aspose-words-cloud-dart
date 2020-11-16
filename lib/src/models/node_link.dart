@@ -31,7 +31,7 @@ import '../../aspose_words_cloud.dart';
 
 /// Reference to node.
 class NodeLink extends LinkElement {
-  /// Gets or sets node id.
+  /// Gets or sets the node id.
   String nodeId;
 
   @override

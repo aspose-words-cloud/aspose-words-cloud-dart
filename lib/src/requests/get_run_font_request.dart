@@ -36,10 +36,10 @@ import '../api_request_part.dart';
 
 /// Request model for GetRunFont operation.
 class GetRunFontRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Path to parent paragraph.
+  /// The path to the paragraph in the document tree.
   final String paragraphPath;
 
   /// Object index.

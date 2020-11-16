@@ -31,14 +31,14 @@ import '../../aspose_words_cloud.dart';
 
 /// Words document property DTO.
 class DocumentProperty extends LinkElement {
-  /// Gets or sets a value indicating whether flag indicates whether the property is built-in or not.
+  /// Gets or sets a value indicating whether the property is built-in or not.
   /// If true the property is built-in, if false the property is custom.
   bool builtIn;
 
-  /// Gets or sets name of the document property.
+  /// Gets or sets the name of the document property.
   String name;
 
-  /// Gets or sets string value of the document property.
+  /// Gets or sets the value of the document property.
   String value;
 
   @override

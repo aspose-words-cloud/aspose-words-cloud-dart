@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Represents DTO for collection of fields.
+/// DTO container with a collection of fields.
 class FieldCollection extends LinkElement {
-  /// Gets or sets collection of fields.
+  /// Gets or sets the collection of fields.
   List<Field> list;
 
   @override

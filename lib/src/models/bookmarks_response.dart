@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:  GET bookmarks.
+/// The REST response with a collection of bookmarks.
 class BookmarksResponse extends WordsResponse {
-  /// Gets or sets bookmarks which are contained in document.
+  /// Gets or sets the collection of bookmarks.
   Bookmarks bookmarks;
 
   @override

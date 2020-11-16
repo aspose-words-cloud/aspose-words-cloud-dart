@@ -29,7 +29,7 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Preferred width.
+/// DTO container with a preferred width value.
 class PreferredWidth implements ModelBase {
   /// Gets or sets the unit of measure used for this preferred width value.
   PreferredWidth_TypeEnum type;

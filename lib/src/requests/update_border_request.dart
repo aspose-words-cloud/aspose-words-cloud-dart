@@ -36,16 +36,16 @@ import '../api_request_part.dart';
 
 /// Request model for UpdateBorder operation.
 class UpdateBorderRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Border properties.
+  /// The new border properties to update.
   final Border borderProperties;
 
   /// Border type.
   final String borderType;
 
-  /// Path to the node with border(node should be paragraph, cell or row).
+  /// The path to the node in the document tree.
   final String nodePath;
 
   /// Original document folder.

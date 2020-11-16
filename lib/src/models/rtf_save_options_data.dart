@@ -29,15 +29,15 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// container class for rtf save options.
+/// Container class for rtf save options.
 class RtfSaveOptionsData extends SaveOptionsData {
-  /// Gets or sets allows to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.
+  /// Gets or sets a value indicating whether to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.
   bool exportCompactSize;
 
-  /// Gets or sets specifies whether the keywords for "old readers" are written to RTF or not.
+  /// Gets or sets a value indicating whether the keywords for "old readers" are written to RTF or not.
   bool exportImagesForOldReaders;
 
-  /// Gets or sets specifies whether or not use pretty formats output.
+  /// Gets or sets a value indicating whether to use pretty formats output.
   bool prettyFormat;
 
   /// Gets or sets a value indicating whether when true all images will be saved as WMF. This option might help to avoid WordPad warning messages.

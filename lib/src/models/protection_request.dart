@@ -31,13 +31,13 @@ import '../../aspose_words_cloud.dart';
 
 /// Request on changing of protection.
 class ProtectionRequest implements ModelBase {
-  /// Gets or sets new password.
+  /// Gets or sets the new password.
   String newPassword;
 
-  /// Gets or sets current password.
+  /// Gets or sets the current password.
   String password;
 
-  /// Gets or sets new type of protection.
+  /// Gets or sets the new type of protection.
   String protectionType;
 
   @override

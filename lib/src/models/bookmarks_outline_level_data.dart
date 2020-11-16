@@ -29,12 +29,12 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// container class for individual bookmarks outline level.
+/// Container class for individual bookmarks outline level.
 class BookmarksOutlineLevelData implements ModelBase {
-  /// Gets or sets specify the bookmark's level.
+  /// Gets or sets the bookmark's level.
   int bookmarksOutlineLevel;
 
-  /// Gets or sets specify the bookmark's name.
+  /// Gets or sets the bookmark's name.
   String name;
 
   @override

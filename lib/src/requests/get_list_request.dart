@@ -36,10 +36,10 @@ import '../api_request_part.dart';
 
 /// Request model for GetList operation.
 class GetListRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// List unique identifier.
+  /// The list Id.
   final int listId;
 
   /// Original document folder.

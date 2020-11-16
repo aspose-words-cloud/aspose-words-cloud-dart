@@ -31,20 +31,19 @@ import '../../aspose_words_cloud.dart';
 
 /// Represents Words document DTO.
 class Document implements ModelBase {
-  /// Gets or sets returns document properties.
+  /// Gets or sets the document properties.
   DocumentProperties documentProperties;
 
   /// Gets or sets the name of the file.
   String fileName;
 
-  /// Gets or sets a value indicating whether returns true if the document is encrypted and requires a password to open.
+  /// Gets or sets a value indicating whether the document is encrypted and requires a password to open.
   bool isEncrypted;
 
-  /// Gets or sets a value indicating whether returns true if the document contains a digital signature. This property merely informs that a
-  /// digital signature is present on a document, but it does not specify whether the signature is valid or not.
+  /// Gets or sets a value indicating whether the document contains a digital signature. This property merely informs that a digital signature is present on a document, but it does not specify whether the signature is valid or not.
   bool isSigned;
 
-  /// Gets or sets a list of links that originate from this document.
+  /// Gets or sets the list of links that originate from this document.
   List<Link> links;
 
   /// Gets or sets the original format of the document.
