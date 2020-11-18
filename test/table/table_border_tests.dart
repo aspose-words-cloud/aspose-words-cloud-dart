@@ -126,7 +126,7 @@ class TableBorderTests
     final remoteFileName = 'TestUpdateBorder.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     var requestBorderPropertiesColor = XmlColor();
-    requestBorderPropertiesColor.alpha = 2;
+    requestBorderPropertiesColor.web = '#AABBCC';
 
     var requestBorderProperties = Border();
     requestBorderProperties.borderType = Border_BorderTypeEnum.left;
@@ -147,7 +147,7 @@ class TableBorderTests
     var result = await context.getApi().updateBorder(request);
     expect(result.border, isNotNull);
     expect(result.border.color, isNotNull);
-    expect(result.border.color.web, '#000002');
+    expect(result.border.color.web, '#AABBCC');
     expect(result.border.distanceFromText, 6.0);
     expect(result.border.lineWidth, 2.0);
     expect(result.border.shadow, isTrue);
