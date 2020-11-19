@@ -1,6 +1,6 @@
 parameters {
     string(name: 'tagVersion', description: 'new version number for tag')
-    string(name: 'testServerUrl', defaultValue: 'https://api-qa.aspose.cloud', description: 'server url')
+    string(name: 'apiUrl', defaultValue: 'https://api-qa.aspose.cloud', description: 'server url')
 }
 
 def runtests()
