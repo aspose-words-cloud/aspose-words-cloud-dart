@@ -29,29 +29,32 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:
-/// GET https://api.aspose.cloud/v4.0/words/Test.doc/sections/{0}/PageSetup.
+/// The REST response with a page setup of a section.
 class SectionPageSetupResponse extends WordsResponse {
-  /// Gets or sets section.
+  /// Gets or sets the page setup of a section.
   PageSetup pageSetup;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize SectionPageSetupResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('PageSetup')) {
-      this.pageSetup = new PageSetup();
-      this.pageSetup.deserialize(json['PageSetup']);
+      pageSetup = PageSetup();
+      pageSetup.deserialize(json['PageSetup'] as Map<String, dynamic>);
     } else {
-      this.pageSetup = null;
+      pageSetup = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.pageSetup != null) {
-      _result['PageSetup'] = this.pageSetup.serialize();
+    if (pageSetup != null) {
+      _result['PageSetup'] = pageSetup.serialize();
     }
     return _result;
   }

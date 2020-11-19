@@ -29,18 +29,18 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Represents a single document list.
+/// DTO container with a single document list.
 class ListInfo extends LinkElement {
-  /// Gets or sets a value indicating whether returns true if this list is a definition of a list style.
+  /// Gets or sets a value indicating whether this list is a definition of a list style.
   bool isListStyleDefinition;
 
-  /// Gets or sets a value indicating whether returns true if this list is a reference to a list style.
+  /// Gets or sets a value indicating whether this list is a reference to a list style.
   bool isListStyleReference;
 
-  /// Gets or sets a value indicating whether returns true when the list contains 9 levels; false when 1 level.
+  /// Gets or sets a value indicating whether the list contains 9 levels; false when 1 level.
   bool isMultiLevel;
 
-  /// Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.
+  /// Gets or sets a value indicating whether list should be restarted at each section. The default value is false.
   bool isRestartAtEachSection;
 
   /// Gets or sets the unique identifier of the list.
@@ -54,82 +54,86 @@ class ListInfo extends LinkElement {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ListInfo data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('IsListStyleDefinition')) {
-      this.isListStyleDefinition = json['IsListStyleDefinition'];
+      isListStyleDefinition = json['IsListStyleDefinition'] as bool;
     } else {
-      this.isListStyleDefinition = null;
+      isListStyleDefinition = null;
     }
 
     if (json.containsKey('IsListStyleReference')) {
-      this.isListStyleReference = json['IsListStyleReference'];
+      isListStyleReference = json['IsListStyleReference'] as bool;
     } else {
-      this.isListStyleReference = null;
+      isListStyleReference = null;
     }
 
     if (json.containsKey('IsMultiLevel')) {
-      this.isMultiLevel = json['IsMultiLevel'];
+      isMultiLevel = json['IsMultiLevel'] as bool;
     } else {
-      this.isMultiLevel = null;
+      isMultiLevel = null;
     }
 
     if (json.containsKey('IsRestartAtEachSection')) {
-      this.isRestartAtEachSection = json['IsRestartAtEachSection'];
+      isRestartAtEachSection = json['IsRestartAtEachSection'] as bool;
     } else {
-      this.isRestartAtEachSection = null;
+      isRestartAtEachSection = null;
     }
 
     if (json.containsKey('ListId')) {
-      this.listId = json['ListId'];
+      listId = json['ListId'] as int;
     } else {
-      this.listId = null;
+      listId = null;
     }
 
     if (json.containsKey('ListLevels')) {
-      this.listLevels = new ListLevels();
-      this.listLevels.deserialize(json['ListLevels']);
+      listLevels = ListLevels();
+      listLevels.deserialize(json['ListLevels'] as Map<String, dynamic>);
     } else {
-      this.listLevels = null;
+      listLevels = null;
     }
 
     if (json.containsKey('Style')) {
-      this.style = new Style();
-      this.style.deserialize(json['Style']);
+      style = Style();
+      style.deserialize(json['Style'] as Map<String, dynamic>);
     } else {
-      this.style = null;
+      style = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.isListStyleDefinition != null) {
-      _result['IsListStyleDefinition'] = this.isListStyleDefinition;
+    if (isListStyleDefinition != null) {
+      _result['IsListStyleDefinition'] = isListStyleDefinition;
     }
 
-    if (this.isListStyleReference != null) {
-      _result['IsListStyleReference'] = this.isListStyleReference;
+    if (isListStyleReference != null) {
+      _result['IsListStyleReference'] = isListStyleReference;
     }
 
-    if (this.isMultiLevel != null) {
-      _result['IsMultiLevel'] = this.isMultiLevel;
+    if (isMultiLevel != null) {
+      _result['IsMultiLevel'] = isMultiLevel;
     }
 
-    if (this.isRestartAtEachSection != null) {
-      _result['IsRestartAtEachSection'] = this.isRestartAtEachSection;
+    if (isRestartAtEachSection != null) {
+      _result['IsRestartAtEachSection'] = isRestartAtEachSection;
     }
 
-    if (this.listId != null) {
-      _result['ListId'] = this.listId;
+    if (listId != null) {
+      _result['ListId'] = listId;
     }
 
-    if (this.listLevels != null) {
-      _result['ListLevels'] = this.listLevels.serialize();
+    if (listLevels != null) {
+      _result['ListLevels'] = listLevels.serialize();
     }
 
-    if (this.style != null) {
-      _result['Style'] = this.style.serialize();
+    if (style != null) {
+      _result['Style'] = style.serialize();
     }
     return _result;
   }

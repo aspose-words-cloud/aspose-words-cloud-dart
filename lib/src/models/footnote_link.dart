@@ -34,12 +34,16 @@ class FootnoteLink extends NodeLink {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FootnoteLink data model.');
+    }
+
     super.deserialize(json);
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     return _result;
   }

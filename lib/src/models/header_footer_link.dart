@@ -31,33 +31,37 @@ import '../../aspose_words_cloud.dart';
 
 /// HeaderFooter link element.
 class HeaderFooterLink extends LinkElement {
-  /// Gets or sets paragraph's text.
+  /// Gets or sets the paragraph's text.
   HeaderFooterLink_TypeEnum type;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize HeaderFooterLink data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Type')) {
-      switch (json['Type']) {
-        case 'HeaderEven': this.type = HeaderFooterLink_TypeEnum.headerEven; break;
-        case 'HeaderPrimary': this.type = HeaderFooterLink_TypeEnum.headerPrimary; break;
-        case 'FooterEven': this.type = HeaderFooterLink_TypeEnum.footerEven; break;
-        case 'FooterPrimary': this.type = HeaderFooterLink_TypeEnum.footerPrimary; break;
-        case 'HeaderFirst': this.type = HeaderFooterLink_TypeEnum.headerFirst; break;
-        case 'FooterFirst': this.type = HeaderFooterLink_TypeEnum.footerFirst; break;
-        default: this.type = null; break;
+      switch (json['Type'] as String) {
+        case 'HeaderEven': type = HeaderFooterLink_TypeEnum.headerEven; break;
+        case 'HeaderPrimary': type = HeaderFooterLink_TypeEnum.headerPrimary; break;
+        case 'FooterEven': type = HeaderFooterLink_TypeEnum.footerEven; break;
+        case 'FooterPrimary': type = HeaderFooterLink_TypeEnum.footerPrimary; break;
+        case 'HeaderFirst': type = HeaderFooterLink_TypeEnum.headerFirst; break;
+        case 'FooterFirst': type = HeaderFooterLink_TypeEnum.footerFirst; break;
+        default: type = null; break;
       }
     } else {
-      this.type = null;
+      type = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.type != null) {
-      switch (this.type) {
+    if (type != null) {
+      switch (type) {
         case HeaderFooterLink_TypeEnum.headerEven: _result['Type'] = 'HeaderEven'; break;
         case HeaderFooterLink_TypeEnum.headerPrimary: _result['Type'] = 'HeaderPrimary'; break;
         case HeaderFooterLink_TypeEnum.footerEven: _result['Type'] = 'FooterEven'; break;
@@ -71,7 +75,7 @@ class HeaderFooterLink extends LinkElement {
   }
 }
 
-/// Gets or sets paragraph's text.
+/// Gets or sets the paragraph's text.
 enum HeaderFooterLink_TypeEnum
 { 
   headerEven,

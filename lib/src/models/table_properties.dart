@@ -29,15 +29,15 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Represents the table properties.
+/// DTO container with table properties.
 class TableProperties extends LinkElement {
-  /// Gets or sets specifies how an inline table is aligned in the document.
+  /// Gets or sets the option that controls how an inline table is aligned in the document.
   TableProperties_AlignmentEnum alignment;
 
-  /// Gets or sets allows Microsoft Word and Aspose.Words to automatically resize cells in a table to fit their contents.
+  /// Gets or sets a value indicating whether to automatically resize cells in a table to fit their contents.
   bool allowAutoFit;
 
-  /// Gets or sets whether this is a right-to-left table.
+  /// Gets or sets a value indicating whether this is a right-to-left table.
   bool bidi;
 
   /// Gets or sets the amount of space (in points) to add below the contents of cells.
@@ -46,7 +46,7 @@ class TableProperties extends LinkElement {
   /// Gets or sets the amount of space (in points) between the cells.
   double cellSpacing;
 
-  /// Gets or sets the value that represents the left indent of the table.
+  /// Gets or sets the value, that represents the left indent of the table.
   double leftIndent;
 
   /// Gets or sets the amount of space (in points) to add to the left of the contents of cells.
@@ -65,10 +65,10 @@ class TableProperties extends LinkElement {
   /// Gets or sets the name of the table style applied to this table.
   String styleName;
 
-  /// Gets or sets bit flags that specify how a table style is applied to this table.
+  /// Gets or sets the bit flags, that specify how a table style is applied to this table.
   TableProperties_StyleOptionsEnum styleOptions;
 
-  /// Gets or sets get or sets TextWrapping for table.
+  /// Gets or sets the option that controls text wrapping for the table.
   TableProperties_TextWrappingEnum textWrapping;
 
   /// Gets or sets the amount of space (in points) to add above the contents of cells.
@@ -76,495 +76,499 @@ class TableProperties extends LinkElement {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize TableProperties data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Alignment')) {
-      switch (json['Alignment']) {
-        case 'Left': this.alignment = TableProperties_AlignmentEnum.left; break;
-        case 'Center': this.alignment = TableProperties_AlignmentEnum.center; break;
-        case 'Right': this.alignment = TableProperties_AlignmentEnum.right; break;
-        default: this.alignment = null; break;
+      switch (json['Alignment'] as String) {
+        case 'Left': alignment = TableProperties_AlignmentEnum.left; break;
+        case 'Center': alignment = TableProperties_AlignmentEnum.center; break;
+        case 'Right': alignment = TableProperties_AlignmentEnum.right; break;
+        default: alignment = null; break;
       }
     } else {
-      this.alignment = null;
+      alignment = null;
     }
 
     if (json.containsKey('AllowAutoFit')) {
-      this.allowAutoFit = json['AllowAutoFit'];
+      allowAutoFit = json['AllowAutoFit'] as bool;
     } else {
-      this.allowAutoFit = null;
+      allowAutoFit = null;
     }
 
     if (json.containsKey('Bidi')) {
-      this.bidi = json['Bidi'];
+      bidi = json['Bidi'] as bool;
     } else {
-      this.bidi = null;
+      bidi = null;
     }
 
     if (json.containsKey('BottomPadding')) {
-      this.bottomPadding = json['BottomPadding'];
+      bottomPadding = json['BottomPadding'] as double;
     } else {
-      this.bottomPadding = null;
+      bottomPadding = null;
     }
 
     if (json.containsKey('CellSpacing')) {
-      this.cellSpacing = json['CellSpacing'];
+      cellSpacing = json['CellSpacing'] as double;
     } else {
-      this.cellSpacing = null;
+      cellSpacing = null;
     }
 
     if (json.containsKey('LeftIndent')) {
-      this.leftIndent = json['LeftIndent'];
+      leftIndent = json['LeftIndent'] as double;
     } else {
-      this.leftIndent = null;
+      leftIndent = null;
     }
 
     if (json.containsKey('LeftPadding')) {
-      this.leftPadding = json['LeftPadding'];
+      leftPadding = json['LeftPadding'] as double;
     } else {
-      this.leftPadding = null;
+      leftPadding = null;
     }
 
     if (json.containsKey('PreferredWidth')) {
-      this.preferredWidth = new PreferredWidth();
-      this.preferredWidth.deserialize(json['PreferredWidth']);
+      preferredWidth = PreferredWidth();
+      preferredWidth.deserialize(json['PreferredWidth'] as Map<String, dynamic>);
     } else {
-      this.preferredWidth = null;
+      preferredWidth = null;
     }
 
     if (json.containsKey('RightPadding')) {
-      this.rightPadding = json['RightPadding'];
+      rightPadding = json['RightPadding'] as double;
     } else {
-      this.rightPadding = null;
+      rightPadding = null;
     }
 
     if (json.containsKey('StyleIdentifier')) {
-      switch (json['StyleIdentifier']) {
-        case 'Normal': this.styleIdentifier = TableProperties_StyleIdentifierEnum.normal; break;
-        case 'Heading1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.heading1; break;
-        case 'Heading2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.heading2; break;
-        case 'Heading3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.heading3; break;
-        case 'Heading4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.heading4; break;
-        case 'Heading5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.heading5; break;
-        case 'Heading6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.heading6; break;
-        case 'Heading7': this.styleIdentifier = TableProperties_StyleIdentifierEnum.heading7; break;
-        case 'Heading8': this.styleIdentifier = TableProperties_StyleIdentifierEnum.heading8; break;
-        case 'Heading9': this.styleIdentifier = TableProperties_StyleIdentifierEnum.heading9; break;
-        case 'Index1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.index1; break;
-        case 'Index2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.index2; break;
-        case 'Index3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.index3; break;
-        case 'Index4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.index4; break;
-        case 'Index5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.index5; break;
-        case 'Index6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.index6; break;
-        case 'Index7': this.styleIdentifier = TableProperties_StyleIdentifierEnum.index7; break;
-        case 'Index8': this.styleIdentifier = TableProperties_StyleIdentifierEnum.index8; break;
-        case 'Index9': this.styleIdentifier = TableProperties_StyleIdentifierEnum.index9; break;
-        case 'Toc1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.toc1; break;
-        case 'Toc2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.toc2; break;
-        case 'Toc3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.toc3; break;
-        case 'Toc4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.toc4; break;
-        case 'Toc5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.toc5; break;
-        case 'Toc6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.toc6; break;
-        case 'Toc7': this.styleIdentifier = TableProperties_StyleIdentifierEnum.toc7; break;
-        case 'Toc8': this.styleIdentifier = TableProperties_StyleIdentifierEnum.toc8; break;
-        case 'Toc9': this.styleIdentifier = TableProperties_StyleIdentifierEnum.toc9; break;
-        case 'NormalIndent': this.styleIdentifier = TableProperties_StyleIdentifierEnum.normalIndent; break;
-        case 'FootnoteText': this.styleIdentifier = TableProperties_StyleIdentifierEnum.footnoteText; break;
-        case 'CommentText': this.styleIdentifier = TableProperties_StyleIdentifierEnum.commentText; break;
-        case 'Header': this.styleIdentifier = TableProperties_StyleIdentifierEnum.header; break;
-        case 'Footer': this.styleIdentifier = TableProperties_StyleIdentifierEnum.footer; break;
-        case 'IndexHeading': this.styleIdentifier = TableProperties_StyleIdentifierEnum.indexHeading; break;
-        case 'Caption': this.styleIdentifier = TableProperties_StyleIdentifierEnum.caption; break;
-        case 'TableOfFigures': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableOfFigures; break;
-        case 'EnvelopeAddress': this.styleIdentifier = TableProperties_StyleIdentifierEnum.envelopeAddress; break;
-        case 'EnvelopeReturn': this.styleIdentifier = TableProperties_StyleIdentifierEnum.envelopeReturn; break;
-        case 'FootnoteReference': this.styleIdentifier = TableProperties_StyleIdentifierEnum.footnoteReference; break;
-        case 'CommentReference': this.styleIdentifier = TableProperties_StyleIdentifierEnum.commentReference; break;
-        case 'LineNumber': this.styleIdentifier = TableProperties_StyleIdentifierEnum.lineNumber; break;
-        case 'PageNumber': this.styleIdentifier = TableProperties_StyleIdentifierEnum.pageNumber; break;
-        case 'EndnoteReference': this.styleIdentifier = TableProperties_StyleIdentifierEnum.endnoteReference; break;
-        case 'EndnoteText': this.styleIdentifier = TableProperties_StyleIdentifierEnum.endnoteText; break;
-        case 'TableOfAuthorities': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableOfAuthorities; break;
-        case 'Macro': this.styleIdentifier = TableProperties_StyleIdentifierEnum.macro; break;
-        case 'ToaHeading': this.styleIdentifier = TableProperties_StyleIdentifierEnum.toaHeading; break;
-        case 'List': this.styleIdentifier = TableProperties_StyleIdentifierEnum.list; break;
-        case 'ListBullet': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listBullet; break;
-        case 'ListNumber': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listNumber; break;
-        case 'List2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.list2; break;
-        case 'List3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.list3; break;
-        case 'List4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.list4; break;
-        case 'List5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.list5; break;
-        case 'ListBullet2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listBullet2; break;
-        case 'ListBullet3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listBullet3; break;
-        case 'ListBullet4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listBullet4; break;
-        case 'ListBullet5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listBullet5; break;
-        case 'ListNumber2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listNumber2; break;
-        case 'ListNumber3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listNumber3; break;
-        case 'ListNumber4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listNumber4; break;
-        case 'ListNumber5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listNumber5; break;
-        case 'Title': this.styleIdentifier = TableProperties_StyleIdentifierEnum.title; break;
-        case 'Closing': this.styleIdentifier = TableProperties_StyleIdentifierEnum.closing; break;
-        case 'Signature': this.styleIdentifier = TableProperties_StyleIdentifierEnum.signature; break;
-        case 'DefaultParagraphFont': this.styleIdentifier = TableProperties_StyleIdentifierEnum.defaultParagraphFont; break;
-        case 'BodyText': this.styleIdentifier = TableProperties_StyleIdentifierEnum.bodyText; break;
-        case 'BodyTextInd': this.styleIdentifier = TableProperties_StyleIdentifierEnum.bodyTextInd; break;
-        case 'ListContinue': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listContinue; break;
-        case 'ListContinue2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listContinue2; break;
-        case 'ListContinue3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listContinue3; break;
-        case 'ListContinue4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listContinue4; break;
-        case 'ListContinue5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listContinue5; break;
-        case 'MessageHeader': this.styleIdentifier = TableProperties_StyleIdentifierEnum.messageHeader; break;
-        case 'Subtitle': this.styleIdentifier = TableProperties_StyleIdentifierEnum.subtitle; break;
-        case 'Salutation': this.styleIdentifier = TableProperties_StyleIdentifierEnum.salutation; break;
-        case 'Date': this.styleIdentifier = TableProperties_StyleIdentifierEnum.date; break;
-        case 'BodyText1I': this.styleIdentifier = TableProperties_StyleIdentifierEnum.bodyText1I; break;
-        case 'BodyText1I2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.bodyText1I2; break;
-        case 'NoteHeading': this.styleIdentifier = TableProperties_StyleIdentifierEnum.noteHeading; break;
-        case 'BodyText2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.bodyText2; break;
-        case 'BodyText3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.bodyText3; break;
-        case 'BodyTextInd2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.bodyTextInd2; break;
-        case 'BodyTextInd3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.bodyTextInd3; break;
-        case 'BlockText': this.styleIdentifier = TableProperties_StyleIdentifierEnum.blockText; break;
-        case 'Hyperlink': this.styleIdentifier = TableProperties_StyleIdentifierEnum.hyperlink; break;
-        case 'FollowedHyperlink': this.styleIdentifier = TableProperties_StyleIdentifierEnum.followedHyperlink; break;
-        case 'Strong': this.styleIdentifier = TableProperties_StyleIdentifierEnum.strong; break;
-        case 'Emphasis': this.styleIdentifier = TableProperties_StyleIdentifierEnum.emphasis; break;
-        case 'DocumentMap': this.styleIdentifier = TableProperties_StyleIdentifierEnum.documentMap; break;
-        case 'PlainText': this.styleIdentifier = TableProperties_StyleIdentifierEnum.plainText; break;
-        case 'EmailSignature': this.styleIdentifier = TableProperties_StyleIdentifierEnum.emailSignature; break;
-        case 'HtmlTopOfForm': this.styleIdentifier = TableProperties_StyleIdentifierEnum.htmlTopOfForm; break;
-        case 'HtmlBottomOfForm': this.styleIdentifier = TableProperties_StyleIdentifierEnum.htmlBottomOfForm; break;
-        case 'NormalWeb': this.styleIdentifier = TableProperties_StyleIdentifierEnum.normalWeb; break;
-        case 'HtmlAcronym': this.styleIdentifier = TableProperties_StyleIdentifierEnum.htmlAcronym; break;
-        case 'HtmlAddress': this.styleIdentifier = TableProperties_StyleIdentifierEnum.htmlAddress; break;
-        case 'HtmlCite': this.styleIdentifier = TableProperties_StyleIdentifierEnum.htmlCite; break;
-        case 'HtmlCode': this.styleIdentifier = TableProperties_StyleIdentifierEnum.htmlCode; break;
-        case 'HtmlDefinition': this.styleIdentifier = TableProperties_StyleIdentifierEnum.htmlDefinition; break;
-        case 'HtmlKeyboard': this.styleIdentifier = TableProperties_StyleIdentifierEnum.htmlKeyboard; break;
-        case 'HtmlPreformatted': this.styleIdentifier = TableProperties_StyleIdentifierEnum.htmlPreformatted; break;
-        case 'HtmlSample': this.styleIdentifier = TableProperties_StyleIdentifierEnum.htmlSample; break;
-        case 'HtmlTypewriter': this.styleIdentifier = TableProperties_StyleIdentifierEnum.htmlTypewriter; break;
-        case 'HtmlVariable': this.styleIdentifier = TableProperties_StyleIdentifierEnum.htmlVariable; break;
-        case 'TableNormal': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableNormal; break;
-        case 'CommentSubject': this.styleIdentifier = TableProperties_StyleIdentifierEnum.commentSubject; break;
-        case 'NoList': this.styleIdentifier = TableProperties_StyleIdentifierEnum.noList; break;
-        case 'OutlineList1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.outlineList1; break;
-        case 'OutlineList2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.outlineList2; break;
-        case 'OutlineList3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.outlineList3; break;
-        case 'TableSimple1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableSimple1; break;
-        case 'TableSimple2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableSimple2; break;
-        case 'TableSimple3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableSimple3; break;
-        case 'TableClassic1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableClassic1; break;
-        case 'TableClassic2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableClassic2; break;
-        case 'TableClassic3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableClassic3; break;
-        case 'TableClassic4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableClassic4; break;
-        case 'TableColorful1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableColorful1; break;
-        case 'TableColorful2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableColorful2; break;
-        case 'TableColorful3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableColorful3; break;
-        case 'TableColumns1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableColumns1; break;
-        case 'TableColumns2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableColumns2; break;
-        case 'TableColumns3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableColumns3; break;
-        case 'TableColumns4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableColumns4; break;
-        case 'TableColumns5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableColumns5; break;
-        case 'TableGrid1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableGrid1; break;
-        case 'TableGrid2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableGrid2; break;
-        case 'TableGrid3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableGrid3; break;
-        case 'TableGrid4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableGrid4; break;
-        case 'TableGrid5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableGrid5; break;
-        case 'TableGrid6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableGrid6; break;
-        case 'TableGrid7': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableGrid7; break;
-        case 'TableGrid8': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableGrid8; break;
-        case 'TableList1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableList1; break;
-        case 'TableList2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableList2; break;
-        case 'TableList3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableList3; break;
-        case 'TableList4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableList4; break;
-        case 'TableList5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableList5; break;
-        case 'TableList6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableList6; break;
-        case 'TableList7': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableList7; break;
-        case 'TableList8': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableList8; break;
-        case 'Table3DEffects1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.table3DEffects1; break;
-        case 'Table3DEffects2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.table3DEffects2; break;
-        case 'Table3DEffects3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.table3DEffects3; break;
-        case 'TableContemporary': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableContemporary; break;
-        case 'TableElegant': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableElegant; break;
-        case 'TableProfessional': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableProfessional; break;
-        case 'TableSubtle1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableSubtle1; break;
-        case 'TableSubtle2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableSubtle2; break;
-        case 'TableWeb1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableWeb1; break;
-        case 'TableWeb2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableWeb2; break;
-        case 'TableWeb3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableWeb3; break;
-        case 'BalloonText': this.styleIdentifier = TableProperties_StyleIdentifierEnum.balloonText; break;
-        case 'TableGrid': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableGrid; break;
-        case 'TableTheme': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableTheme; break;
-        case 'PlaceholderText': this.styleIdentifier = TableProperties_StyleIdentifierEnum.placeholderText; break;
-        case 'NoSpacing': this.styleIdentifier = TableProperties_StyleIdentifierEnum.noSpacing; break;
-        case 'LightShading': this.styleIdentifier = TableProperties_StyleIdentifierEnum.lightShading; break;
-        case 'LightList': this.styleIdentifier = TableProperties_StyleIdentifierEnum.lightList; break;
-        case 'LightGrid': this.styleIdentifier = TableProperties_StyleIdentifierEnum.lightGrid; break;
-        case 'MediumShading1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumShading1; break;
-        case 'MediumShading2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumShading2; break;
-        case 'MediumList1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumList1; break;
-        case 'MediumList2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumList2; break;
-        case 'MediumGrid1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid1; break;
-        case 'MediumGrid2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid2; break;
-        case 'MediumGrid3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid3; break;
-        case 'DarkList': this.styleIdentifier = TableProperties_StyleIdentifierEnum.darkList; break;
-        case 'ColorfulShading': this.styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulShading; break;
-        case 'ColorfulList': this.styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulList; break;
-        case 'ColorfulGrid': this.styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulGrid; break;
-        case 'LightShadingAccent1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.lightShadingAccent1; break;
-        case 'LightListAccent1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.lightListAccent1; break;
-        case 'LightGridAccent1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.lightGridAccent1; break;
-        case 'MediumShading1Accent1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumShading1Accent1; break;
-        case 'MediumShading2Accent1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumShading2Accent1; break;
-        case 'MediumList1Accent1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumList1Accent1; break;
-        case 'Revision': this.styleIdentifier = TableProperties_StyleIdentifierEnum.revision; break;
-        case 'ListParagraph': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listParagraph; break;
-        case 'Quote': this.styleIdentifier = TableProperties_StyleIdentifierEnum.quote; break;
-        case 'IntenseQuote': this.styleIdentifier = TableProperties_StyleIdentifierEnum.intenseQuote; break;
-        case 'MediumList2Accent1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumList2Accent1; break;
-        case 'MediumGrid1Accent1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid1Accent1; break;
-        case 'MediumGrid2Accent1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid2Accent1; break;
-        case 'MediumGrid3Accent1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid3Accent1; break;
-        case 'DarkListAccent1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.darkListAccent1; break;
-        case 'ColorfulShadingAccent1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulShadingAccent1; break;
-        case 'ColorfulListAccent1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulListAccent1; break;
-        case 'ColorfulGridAccent1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulGridAccent1; break;
-        case 'LightShadingAccent2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.lightShadingAccent2; break;
-        case 'LightListAccent2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.lightListAccent2; break;
-        case 'LightGridAccent2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.lightGridAccent2; break;
-        case 'MediumShading1Accent2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumShading1Accent2; break;
-        case 'MediumShading2Accent2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumShading2Accent2; break;
-        case 'MediumList1Accent2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumList1Accent2; break;
-        case 'MediumList2Accent2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumList2Accent2; break;
-        case 'MediumGrid1Accent2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid1Accent2; break;
-        case 'MediumGrid2Accent2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid2Accent2; break;
-        case 'MediumGrid3Accent2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid3Accent2; break;
-        case 'DarkListAccent2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.darkListAccent2; break;
-        case 'ColorfulShadingAccent2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulShadingAccent2; break;
-        case 'ColorfulListAccent2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulListAccent2; break;
-        case 'ColorfulGridAccent2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulGridAccent2; break;
-        case 'LightShadingAccent3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.lightShadingAccent3; break;
-        case 'LightListAccent3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.lightListAccent3; break;
-        case 'LightGridAccent3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.lightGridAccent3; break;
-        case 'MediumShading1Accent3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumShading1Accent3; break;
-        case 'MediumShading2Accent3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumShading2Accent3; break;
-        case 'MediumList1Accent3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumList1Accent3; break;
-        case 'MediumList2Accent3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumList2Accent3; break;
-        case 'MediumGrid1Accent3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid1Accent3; break;
-        case 'MediumGrid2Accent3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid2Accent3; break;
-        case 'MediumGrid3Accent3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid3Accent3; break;
-        case 'DarkListAccent3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.darkListAccent3; break;
-        case 'ColorfulShadingAccent3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulShadingAccent3; break;
-        case 'ColorfulListAccent3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulListAccent3; break;
-        case 'ColorfulGridAccent3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulGridAccent3; break;
-        case 'LightShadingAccent4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.lightShadingAccent4; break;
-        case 'LightListAccent4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.lightListAccent4; break;
-        case 'LightGridAccent4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.lightGridAccent4; break;
-        case 'MediumShading1Accent4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumShading1Accent4; break;
-        case 'MediumShading2Accent4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumShading2Accent4; break;
-        case 'MediumList1Accent4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumList1Accent4; break;
-        case 'MediumList2Accent4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumList2Accent4; break;
-        case 'MediumGrid1Accent4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid1Accent4; break;
-        case 'MediumGrid2Accent4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid2Accent4; break;
-        case 'MediumGrid3Accent4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid3Accent4; break;
-        case 'DarkListAccent4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.darkListAccent4; break;
-        case 'ColorfulShadingAccent4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulShadingAccent4; break;
-        case 'ColorfulListAccent4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulListAccent4; break;
-        case 'ColorfulGridAccent4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulGridAccent4; break;
-        case 'LightShadingAccent5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.lightShadingAccent5; break;
-        case 'LightListAccent5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.lightListAccent5; break;
-        case 'LightGridAccent5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.lightGridAccent5; break;
-        case 'MediumShading1Accent5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumShading1Accent5; break;
-        case 'MediumShading2Accent5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumShading2Accent5; break;
-        case 'MediumList1Accent5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumList1Accent5; break;
-        case 'MediumList2Accent5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumList2Accent5; break;
-        case 'MediumGrid1Accent5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid1Accent5; break;
-        case 'MediumGrid2Accent5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid2Accent5; break;
-        case 'MediumGrid3Accent5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid3Accent5; break;
-        case 'DarkListAccent5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.darkListAccent5; break;
-        case 'ColorfulShadingAccent5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulShadingAccent5; break;
-        case 'ColorfulListAccent5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulListAccent5; break;
-        case 'ColorfulGridAccent5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulGridAccent5; break;
-        case 'LightShadingAccent6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.lightShadingAccent6; break;
-        case 'LightListAccent6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.lightListAccent6; break;
-        case 'LightGridAccent6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.lightGridAccent6; break;
-        case 'MediumShading1Accent6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumShading1Accent6; break;
-        case 'MediumShading2Accent6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumShading2Accent6; break;
-        case 'MediumList1Accent6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumList1Accent6; break;
-        case 'MediumList2Accent6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumList2Accent6; break;
-        case 'MediumGrid1Accent6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid1Accent6; break;
-        case 'MediumGrid2Accent6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid2Accent6; break;
-        case 'MediumGrid3Accent6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid3Accent6; break;
-        case 'DarkListAccent6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.darkListAccent6; break;
-        case 'ColorfulShadingAccent6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulShadingAccent6; break;
-        case 'ColorfulListAccent6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulListAccent6; break;
-        case 'ColorfulGridAccent6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulGridAccent6; break;
-        case 'SubtleEmphasis': this.styleIdentifier = TableProperties_StyleIdentifierEnum.subtleEmphasis; break;
-        case 'IntenseEmphasis': this.styleIdentifier = TableProperties_StyleIdentifierEnum.intenseEmphasis; break;
-        case 'SubtleReference': this.styleIdentifier = TableProperties_StyleIdentifierEnum.subtleReference; break;
-        case 'IntenseReference': this.styleIdentifier = TableProperties_StyleIdentifierEnum.intenseReference; break;
-        case 'BookTitle': this.styleIdentifier = TableProperties_StyleIdentifierEnum.bookTitle; break;
-        case 'Bibliography': this.styleIdentifier = TableProperties_StyleIdentifierEnum.bibliography; break;
-        case 'TocHeading': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tocHeading; break;
-        case 'PlainTable1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.plainTable1; break;
-        case 'PlainTable2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.plainTable2; break;
-        case 'PlainTable3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.plainTable3; break;
-        case 'PlainTable4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.plainTable4; break;
-        case 'PlainTable5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.plainTable5; break;
-        case 'TableGridLight': this.styleIdentifier = TableProperties_StyleIdentifierEnum.tableGridLight; break;
-        case 'GridTable1Light': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable1Light; break;
-        case 'GridTable2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable2; break;
-        case 'GridTable3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable3; break;
-        case 'GridTable4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable4; break;
-        case 'GridTable5Dark': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable5Dark; break;
-        case 'GridTable6Colorful': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable6Colorful; break;
-        case 'GridTable7Colorful': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable7Colorful; break;
-        case 'GridTable1LightAccent1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable1LightAccent1; break;
-        case 'GridTable2Accent1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable2Accent1; break;
-        case 'GridTable3Accent1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable3Accent1; break;
-        case 'GridTable4Accent1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable4Accent1; break;
-        case 'GridTable5DarkAccent1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable5DarkAccent1; break;
-        case 'GridTable6ColorfulAccent1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable6ColorfulAccent1; break;
-        case 'GridTable7ColorfulAccent1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable7ColorfulAccent1; break;
-        case 'GridTable1LightAccent2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable1LightAccent2; break;
-        case 'GridTable2Accent2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable2Accent2; break;
-        case 'GridTable3Accent2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable3Accent2; break;
-        case 'GridTable4Accent2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable4Accent2; break;
-        case 'GridTable5DarkAccent2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable5DarkAccent2; break;
-        case 'GridTable6ColorfulAccent2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable6ColorfulAccent2; break;
-        case 'GridTable7ColorfulAccent2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable7ColorfulAccent2; break;
-        case 'GridTable1LightAccent3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable1LightAccent3; break;
-        case 'GridTable2Accent3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable2Accent3; break;
-        case 'GridTable3Accent3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable3Accent3; break;
-        case 'GridTable4Accent3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable4Accent3; break;
-        case 'GridTable5DarkAccent3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable5DarkAccent3; break;
-        case 'GridTable6ColorfulAccent3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable6ColorfulAccent3; break;
-        case 'GridTable7ColorfulAccent3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable7ColorfulAccent3; break;
-        case 'GridTable1LightAccent4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable1LightAccent4; break;
-        case 'GridTable2Accent4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable2Accent4; break;
-        case 'GridTable3Accent4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable3Accent4; break;
-        case 'GridTable4Accent4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable4Accent4; break;
-        case 'GridTable5DarkAccent4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable5DarkAccent4; break;
-        case 'GridTable6ColorfulAccent4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable6ColorfulAccent4; break;
-        case 'GridTable7ColorfulAccent4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable7ColorfulAccent4; break;
-        case 'GridTable1LightAccent5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable1LightAccent5; break;
-        case 'GridTable2Accent5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable2Accent5; break;
-        case 'GridTable3Accent5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable3Accent5; break;
-        case 'GridTable4Accent5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable4Accent5; break;
-        case 'GridTable5DarkAccent5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable5DarkAccent5; break;
-        case 'GridTable6ColorfulAccent5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable6ColorfulAccent5; break;
-        case 'GridTable7ColorfulAccent5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable7ColorfulAccent5; break;
-        case 'GridTable1LightAccent6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable1LightAccent6; break;
-        case 'GridTable2Accent6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable2Accent6; break;
-        case 'GridTable3Accent6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable3Accent6; break;
-        case 'GridTable4Accent6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable4Accent6; break;
-        case 'GridTable5DarkAccent6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable5DarkAccent6; break;
-        case 'GridTable6ColorfulAccent6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable6ColorfulAccent6; break;
-        case 'GridTable7ColorfulAccent6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable7ColorfulAccent6; break;
-        case 'ListTable1Light': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable1Light; break;
-        case 'ListTable2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable2; break;
-        case 'ListTable3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable3; break;
-        case 'ListTable4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable4; break;
-        case 'ListTable5Dark': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable5Dark; break;
-        case 'ListTable6Colorful': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable6Colorful; break;
-        case 'ListTable7Colorful': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable7Colorful; break;
-        case 'ListTable1LightAccent1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable1LightAccent1; break;
-        case 'ListTable2Accent1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable2Accent1; break;
-        case 'ListTable3Accent1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable3Accent1; break;
-        case 'ListTable4Accent1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable4Accent1; break;
-        case 'ListTable5DarkAccent1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable5DarkAccent1; break;
-        case 'ListTable6ColorfulAccent1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable6ColorfulAccent1; break;
-        case 'ListTable7ColorfulAccent1': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable7ColorfulAccent1; break;
-        case 'ListTable1LightAccent2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable1LightAccent2; break;
-        case 'ListTable2Accent2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable2Accent2; break;
-        case 'ListTable3Accent2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable3Accent2; break;
-        case 'ListTable4Accent2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable4Accent2; break;
-        case 'ListTable5DarkAccent2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable5DarkAccent2; break;
-        case 'ListTable6ColorfulAccent2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable6ColorfulAccent2; break;
-        case 'ListTable7ColorfulAccent2': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable7ColorfulAccent2; break;
-        case 'ListTable1LightAccent3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable1LightAccent3; break;
-        case 'ListTable2Accent3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable2Accent3; break;
-        case 'ListTable3Accent3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable3Accent3; break;
-        case 'ListTable4Accent3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable4Accent3; break;
-        case 'ListTable5DarkAccent3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable5DarkAccent3; break;
-        case 'ListTable6ColorfulAccent3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable6ColorfulAccent3; break;
-        case 'ListTable7ColorfulAccent3': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable7ColorfulAccent3; break;
-        case 'ListTable1LightAccent4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable1LightAccent4; break;
-        case 'ListTable2Accent4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable2Accent4; break;
-        case 'ListTable3Accent4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable3Accent4; break;
-        case 'ListTable4Accent4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable4Accent4; break;
-        case 'ListTable5DarkAccent4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable5DarkAccent4; break;
-        case 'ListTable6ColorfulAccent4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable6ColorfulAccent4; break;
-        case 'ListTable7ColorfulAccent4': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable7ColorfulAccent4; break;
-        case 'ListTable1LightAccent5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable1LightAccent5; break;
-        case 'ListTable2Accent5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable2Accent5; break;
-        case 'ListTable3Accent5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable3Accent5; break;
-        case 'ListTable4Accent5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable4Accent5; break;
-        case 'ListTable5DarkAccent5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable5DarkAccent5; break;
-        case 'ListTable6ColorfulAccent5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable6ColorfulAccent5; break;
-        case 'ListTable7ColorfulAccent5': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable7ColorfulAccent5; break;
-        case 'ListTable1LightAccent6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable1LightAccent6; break;
-        case 'ListTable2Accent6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable2Accent6; break;
-        case 'ListTable3Accent6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable3Accent6; break;
-        case 'ListTable4Accent6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable4Accent6; break;
-        case 'ListTable5DarkAccent6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable5DarkAccent6; break;
-        case 'ListTable6ColorfulAccent6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable6ColorfulAccent6; break;
-        case 'ListTable7ColorfulAccent6': this.styleIdentifier = TableProperties_StyleIdentifierEnum.listTable7ColorfulAccent6; break;
-        case 'User': this.styleIdentifier = TableProperties_StyleIdentifierEnum.user; break;
-        case 'Nil': this.styleIdentifier = TableProperties_StyleIdentifierEnum.nil; break;
-        default: this.styleIdentifier = null; break;
+      switch (json['StyleIdentifier'] as String) {
+        case 'Normal': styleIdentifier = TableProperties_StyleIdentifierEnum.normal; break;
+        case 'Heading1': styleIdentifier = TableProperties_StyleIdentifierEnum.heading1; break;
+        case 'Heading2': styleIdentifier = TableProperties_StyleIdentifierEnum.heading2; break;
+        case 'Heading3': styleIdentifier = TableProperties_StyleIdentifierEnum.heading3; break;
+        case 'Heading4': styleIdentifier = TableProperties_StyleIdentifierEnum.heading4; break;
+        case 'Heading5': styleIdentifier = TableProperties_StyleIdentifierEnum.heading5; break;
+        case 'Heading6': styleIdentifier = TableProperties_StyleIdentifierEnum.heading6; break;
+        case 'Heading7': styleIdentifier = TableProperties_StyleIdentifierEnum.heading7; break;
+        case 'Heading8': styleIdentifier = TableProperties_StyleIdentifierEnum.heading8; break;
+        case 'Heading9': styleIdentifier = TableProperties_StyleIdentifierEnum.heading9; break;
+        case 'Index1': styleIdentifier = TableProperties_StyleIdentifierEnum.index1; break;
+        case 'Index2': styleIdentifier = TableProperties_StyleIdentifierEnum.index2; break;
+        case 'Index3': styleIdentifier = TableProperties_StyleIdentifierEnum.index3; break;
+        case 'Index4': styleIdentifier = TableProperties_StyleIdentifierEnum.index4; break;
+        case 'Index5': styleIdentifier = TableProperties_StyleIdentifierEnum.index5; break;
+        case 'Index6': styleIdentifier = TableProperties_StyleIdentifierEnum.index6; break;
+        case 'Index7': styleIdentifier = TableProperties_StyleIdentifierEnum.index7; break;
+        case 'Index8': styleIdentifier = TableProperties_StyleIdentifierEnum.index8; break;
+        case 'Index9': styleIdentifier = TableProperties_StyleIdentifierEnum.index9; break;
+        case 'Toc1': styleIdentifier = TableProperties_StyleIdentifierEnum.toc1; break;
+        case 'Toc2': styleIdentifier = TableProperties_StyleIdentifierEnum.toc2; break;
+        case 'Toc3': styleIdentifier = TableProperties_StyleIdentifierEnum.toc3; break;
+        case 'Toc4': styleIdentifier = TableProperties_StyleIdentifierEnum.toc4; break;
+        case 'Toc5': styleIdentifier = TableProperties_StyleIdentifierEnum.toc5; break;
+        case 'Toc6': styleIdentifier = TableProperties_StyleIdentifierEnum.toc6; break;
+        case 'Toc7': styleIdentifier = TableProperties_StyleIdentifierEnum.toc7; break;
+        case 'Toc8': styleIdentifier = TableProperties_StyleIdentifierEnum.toc8; break;
+        case 'Toc9': styleIdentifier = TableProperties_StyleIdentifierEnum.toc9; break;
+        case 'NormalIndent': styleIdentifier = TableProperties_StyleIdentifierEnum.normalIndent; break;
+        case 'FootnoteText': styleIdentifier = TableProperties_StyleIdentifierEnum.footnoteText; break;
+        case 'CommentText': styleIdentifier = TableProperties_StyleIdentifierEnum.commentText; break;
+        case 'Header': styleIdentifier = TableProperties_StyleIdentifierEnum.header; break;
+        case 'Footer': styleIdentifier = TableProperties_StyleIdentifierEnum.footer; break;
+        case 'IndexHeading': styleIdentifier = TableProperties_StyleIdentifierEnum.indexHeading; break;
+        case 'Caption': styleIdentifier = TableProperties_StyleIdentifierEnum.caption; break;
+        case 'TableOfFigures': styleIdentifier = TableProperties_StyleIdentifierEnum.tableOfFigures; break;
+        case 'EnvelopeAddress': styleIdentifier = TableProperties_StyleIdentifierEnum.envelopeAddress; break;
+        case 'EnvelopeReturn': styleIdentifier = TableProperties_StyleIdentifierEnum.envelopeReturn; break;
+        case 'FootnoteReference': styleIdentifier = TableProperties_StyleIdentifierEnum.footnoteReference; break;
+        case 'CommentReference': styleIdentifier = TableProperties_StyleIdentifierEnum.commentReference; break;
+        case 'LineNumber': styleIdentifier = TableProperties_StyleIdentifierEnum.lineNumber; break;
+        case 'PageNumber': styleIdentifier = TableProperties_StyleIdentifierEnum.pageNumber; break;
+        case 'EndnoteReference': styleIdentifier = TableProperties_StyleIdentifierEnum.endnoteReference; break;
+        case 'EndnoteText': styleIdentifier = TableProperties_StyleIdentifierEnum.endnoteText; break;
+        case 'TableOfAuthorities': styleIdentifier = TableProperties_StyleIdentifierEnum.tableOfAuthorities; break;
+        case 'Macro': styleIdentifier = TableProperties_StyleIdentifierEnum.macro; break;
+        case 'ToaHeading': styleIdentifier = TableProperties_StyleIdentifierEnum.toaHeading; break;
+        case 'List': styleIdentifier = TableProperties_StyleIdentifierEnum.list; break;
+        case 'ListBullet': styleIdentifier = TableProperties_StyleIdentifierEnum.listBullet; break;
+        case 'ListNumber': styleIdentifier = TableProperties_StyleIdentifierEnum.listNumber; break;
+        case 'List2': styleIdentifier = TableProperties_StyleIdentifierEnum.list2; break;
+        case 'List3': styleIdentifier = TableProperties_StyleIdentifierEnum.list3; break;
+        case 'List4': styleIdentifier = TableProperties_StyleIdentifierEnum.list4; break;
+        case 'List5': styleIdentifier = TableProperties_StyleIdentifierEnum.list5; break;
+        case 'ListBullet2': styleIdentifier = TableProperties_StyleIdentifierEnum.listBullet2; break;
+        case 'ListBullet3': styleIdentifier = TableProperties_StyleIdentifierEnum.listBullet3; break;
+        case 'ListBullet4': styleIdentifier = TableProperties_StyleIdentifierEnum.listBullet4; break;
+        case 'ListBullet5': styleIdentifier = TableProperties_StyleIdentifierEnum.listBullet5; break;
+        case 'ListNumber2': styleIdentifier = TableProperties_StyleIdentifierEnum.listNumber2; break;
+        case 'ListNumber3': styleIdentifier = TableProperties_StyleIdentifierEnum.listNumber3; break;
+        case 'ListNumber4': styleIdentifier = TableProperties_StyleIdentifierEnum.listNumber4; break;
+        case 'ListNumber5': styleIdentifier = TableProperties_StyleIdentifierEnum.listNumber5; break;
+        case 'Title': styleIdentifier = TableProperties_StyleIdentifierEnum.title; break;
+        case 'Closing': styleIdentifier = TableProperties_StyleIdentifierEnum.closing; break;
+        case 'Signature': styleIdentifier = TableProperties_StyleIdentifierEnum.signature; break;
+        case 'DefaultParagraphFont': styleIdentifier = TableProperties_StyleIdentifierEnum.defaultParagraphFont; break;
+        case 'BodyText': styleIdentifier = TableProperties_StyleIdentifierEnum.bodyText; break;
+        case 'BodyTextInd': styleIdentifier = TableProperties_StyleIdentifierEnum.bodyTextInd; break;
+        case 'ListContinue': styleIdentifier = TableProperties_StyleIdentifierEnum.listContinue; break;
+        case 'ListContinue2': styleIdentifier = TableProperties_StyleIdentifierEnum.listContinue2; break;
+        case 'ListContinue3': styleIdentifier = TableProperties_StyleIdentifierEnum.listContinue3; break;
+        case 'ListContinue4': styleIdentifier = TableProperties_StyleIdentifierEnum.listContinue4; break;
+        case 'ListContinue5': styleIdentifier = TableProperties_StyleIdentifierEnum.listContinue5; break;
+        case 'MessageHeader': styleIdentifier = TableProperties_StyleIdentifierEnum.messageHeader; break;
+        case 'Subtitle': styleIdentifier = TableProperties_StyleIdentifierEnum.subtitle; break;
+        case 'Salutation': styleIdentifier = TableProperties_StyleIdentifierEnum.salutation; break;
+        case 'Date': styleIdentifier = TableProperties_StyleIdentifierEnum.date; break;
+        case 'BodyText1I': styleIdentifier = TableProperties_StyleIdentifierEnum.bodyText1I; break;
+        case 'BodyText1I2': styleIdentifier = TableProperties_StyleIdentifierEnum.bodyText1I2; break;
+        case 'NoteHeading': styleIdentifier = TableProperties_StyleIdentifierEnum.noteHeading; break;
+        case 'BodyText2': styleIdentifier = TableProperties_StyleIdentifierEnum.bodyText2; break;
+        case 'BodyText3': styleIdentifier = TableProperties_StyleIdentifierEnum.bodyText3; break;
+        case 'BodyTextInd2': styleIdentifier = TableProperties_StyleIdentifierEnum.bodyTextInd2; break;
+        case 'BodyTextInd3': styleIdentifier = TableProperties_StyleIdentifierEnum.bodyTextInd3; break;
+        case 'BlockText': styleIdentifier = TableProperties_StyleIdentifierEnum.blockText; break;
+        case 'Hyperlink': styleIdentifier = TableProperties_StyleIdentifierEnum.hyperlink; break;
+        case 'FollowedHyperlink': styleIdentifier = TableProperties_StyleIdentifierEnum.followedHyperlink; break;
+        case 'Strong': styleIdentifier = TableProperties_StyleIdentifierEnum.strong; break;
+        case 'Emphasis': styleIdentifier = TableProperties_StyleIdentifierEnum.emphasis; break;
+        case 'DocumentMap': styleIdentifier = TableProperties_StyleIdentifierEnum.documentMap; break;
+        case 'PlainText': styleIdentifier = TableProperties_StyleIdentifierEnum.plainText; break;
+        case 'EmailSignature': styleIdentifier = TableProperties_StyleIdentifierEnum.emailSignature; break;
+        case 'HtmlTopOfForm': styleIdentifier = TableProperties_StyleIdentifierEnum.htmlTopOfForm; break;
+        case 'HtmlBottomOfForm': styleIdentifier = TableProperties_StyleIdentifierEnum.htmlBottomOfForm; break;
+        case 'NormalWeb': styleIdentifier = TableProperties_StyleIdentifierEnum.normalWeb; break;
+        case 'HtmlAcronym': styleIdentifier = TableProperties_StyleIdentifierEnum.htmlAcronym; break;
+        case 'HtmlAddress': styleIdentifier = TableProperties_StyleIdentifierEnum.htmlAddress; break;
+        case 'HtmlCite': styleIdentifier = TableProperties_StyleIdentifierEnum.htmlCite; break;
+        case 'HtmlCode': styleIdentifier = TableProperties_StyleIdentifierEnum.htmlCode; break;
+        case 'HtmlDefinition': styleIdentifier = TableProperties_StyleIdentifierEnum.htmlDefinition; break;
+        case 'HtmlKeyboard': styleIdentifier = TableProperties_StyleIdentifierEnum.htmlKeyboard; break;
+        case 'HtmlPreformatted': styleIdentifier = TableProperties_StyleIdentifierEnum.htmlPreformatted; break;
+        case 'HtmlSample': styleIdentifier = TableProperties_StyleIdentifierEnum.htmlSample; break;
+        case 'HtmlTypewriter': styleIdentifier = TableProperties_StyleIdentifierEnum.htmlTypewriter; break;
+        case 'HtmlVariable': styleIdentifier = TableProperties_StyleIdentifierEnum.htmlVariable; break;
+        case 'TableNormal': styleIdentifier = TableProperties_StyleIdentifierEnum.tableNormal; break;
+        case 'CommentSubject': styleIdentifier = TableProperties_StyleIdentifierEnum.commentSubject; break;
+        case 'NoList': styleIdentifier = TableProperties_StyleIdentifierEnum.noList; break;
+        case 'OutlineList1': styleIdentifier = TableProperties_StyleIdentifierEnum.outlineList1; break;
+        case 'OutlineList2': styleIdentifier = TableProperties_StyleIdentifierEnum.outlineList2; break;
+        case 'OutlineList3': styleIdentifier = TableProperties_StyleIdentifierEnum.outlineList3; break;
+        case 'TableSimple1': styleIdentifier = TableProperties_StyleIdentifierEnum.tableSimple1; break;
+        case 'TableSimple2': styleIdentifier = TableProperties_StyleIdentifierEnum.tableSimple2; break;
+        case 'TableSimple3': styleIdentifier = TableProperties_StyleIdentifierEnum.tableSimple3; break;
+        case 'TableClassic1': styleIdentifier = TableProperties_StyleIdentifierEnum.tableClassic1; break;
+        case 'TableClassic2': styleIdentifier = TableProperties_StyleIdentifierEnum.tableClassic2; break;
+        case 'TableClassic3': styleIdentifier = TableProperties_StyleIdentifierEnum.tableClassic3; break;
+        case 'TableClassic4': styleIdentifier = TableProperties_StyleIdentifierEnum.tableClassic4; break;
+        case 'TableColorful1': styleIdentifier = TableProperties_StyleIdentifierEnum.tableColorful1; break;
+        case 'TableColorful2': styleIdentifier = TableProperties_StyleIdentifierEnum.tableColorful2; break;
+        case 'TableColorful3': styleIdentifier = TableProperties_StyleIdentifierEnum.tableColorful3; break;
+        case 'TableColumns1': styleIdentifier = TableProperties_StyleIdentifierEnum.tableColumns1; break;
+        case 'TableColumns2': styleIdentifier = TableProperties_StyleIdentifierEnum.tableColumns2; break;
+        case 'TableColumns3': styleIdentifier = TableProperties_StyleIdentifierEnum.tableColumns3; break;
+        case 'TableColumns4': styleIdentifier = TableProperties_StyleIdentifierEnum.tableColumns4; break;
+        case 'TableColumns5': styleIdentifier = TableProperties_StyleIdentifierEnum.tableColumns5; break;
+        case 'TableGrid1': styleIdentifier = TableProperties_StyleIdentifierEnum.tableGrid1; break;
+        case 'TableGrid2': styleIdentifier = TableProperties_StyleIdentifierEnum.tableGrid2; break;
+        case 'TableGrid3': styleIdentifier = TableProperties_StyleIdentifierEnum.tableGrid3; break;
+        case 'TableGrid4': styleIdentifier = TableProperties_StyleIdentifierEnum.tableGrid4; break;
+        case 'TableGrid5': styleIdentifier = TableProperties_StyleIdentifierEnum.tableGrid5; break;
+        case 'TableGrid6': styleIdentifier = TableProperties_StyleIdentifierEnum.tableGrid6; break;
+        case 'TableGrid7': styleIdentifier = TableProperties_StyleIdentifierEnum.tableGrid7; break;
+        case 'TableGrid8': styleIdentifier = TableProperties_StyleIdentifierEnum.tableGrid8; break;
+        case 'TableList1': styleIdentifier = TableProperties_StyleIdentifierEnum.tableList1; break;
+        case 'TableList2': styleIdentifier = TableProperties_StyleIdentifierEnum.tableList2; break;
+        case 'TableList3': styleIdentifier = TableProperties_StyleIdentifierEnum.tableList3; break;
+        case 'TableList4': styleIdentifier = TableProperties_StyleIdentifierEnum.tableList4; break;
+        case 'TableList5': styleIdentifier = TableProperties_StyleIdentifierEnum.tableList5; break;
+        case 'TableList6': styleIdentifier = TableProperties_StyleIdentifierEnum.tableList6; break;
+        case 'TableList7': styleIdentifier = TableProperties_StyleIdentifierEnum.tableList7; break;
+        case 'TableList8': styleIdentifier = TableProperties_StyleIdentifierEnum.tableList8; break;
+        case 'Table3DEffects1': styleIdentifier = TableProperties_StyleIdentifierEnum.table3DEffects1; break;
+        case 'Table3DEffects2': styleIdentifier = TableProperties_StyleIdentifierEnum.table3DEffects2; break;
+        case 'Table3DEffects3': styleIdentifier = TableProperties_StyleIdentifierEnum.table3DEffects3; break;
+        case 'TableContemporary': styleIdentifier = TableProperties_StyleIdentifierEnum.tableContemporary; break;
+        case 'TableElegant': styleIdentifier = TableProperties_StyleIdentifierEnum.tableElegant; break;
+        case 'TableProfessional': styleIdentifier = TableProperties_StyleIdentifierEnum.tableProfessional; break;
+        case 'TableSubtle1': styleIdentifier = TableProperties_StyleIdentifierEnum.tableSubtle1; break;
+        case 'TableSubtle2': styleIdentifier = TableProperties_StyleIdentifierEnum.tableSubtle2; break;
+        case 'TableWeb1': styleIdentifier = TableProperties_StyleIdentifierEnum.tableWeb1; break;
+        case 'TableWeb2': styleIdentifier = TableProperties_StyleIdentifierEnum.tableWeb2; break;
+        case 'TableWeb3': styleIdentifier = TableProperties_StyleIdentifierEnum.tableWeb3; break;
+        case 'BalloonText': styleIdentifier = TableProperties_StyleIdentifierEnum.balloonText; break;
+        case 'TableGrid': styleIdentifier = TableProperties_StyleIdentifierEnum.tableGrid; break;
+        case 'TableTheme': styleIdentifier = TableProperties_StyleIdentifierEnum.tableTheme; break;
+        case 'PlaceholderText': styleIdentifier = TableProperties_StyleIdentifierEnum.placeholderText; break;
+        case 'NoSpacing': styleIdentifier = TableProperties_StyleIdentifierEnum.noSpacing; break;
+        case 'LightShading': styleIdentifier = TableProperties_StyleIdentifierEnum.lightShading; break;
+        case 'LightList': styleIdentifier = TableProperties_StyleIdentifierEnum.lightList; break;
+        case 'LightGrid': styleIdentifier = TableProperties_StyleIdentifierEnum.lightGrid; break;
+        case 'MediumShading1': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumShading1; break;
+        case 'MediumShading2': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumShading2; break;
+        case 'MediumList1': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumList1; break;
+        case 'MediumList2': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumList2; break;
+        case 'MediumGrid1': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid1; break;
+        case 'MediumGrid2': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid2; break;
+        case 'MediumGrid3': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid3; break;
+        case 'DarkList': styleIdentifier = TableProperties_StyleIdentifierEnum.darkList; break;
+        case 'ColorfulShading': styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulShading; break;
+        case 'ColorfulList': styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulList; break;
+        case 'ColorfulGrid': styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulGrid; break;
+        case 'LightShadingAccent1': styleIdentifier = TableProperties_StyleIdentifierEnum.lightShadingAccent1; break;
+        case 'LightListAccent1': styleIdentifier = TableProperties_StyleIdentifierEnum.lightListAccent1; break;
+        case 'LightGridAccent1': styleIdentifier = TableProperties_StyleIdentifierEnum.lightGridAccent1; break;
+        case 'MediumShading1Accent1': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumShading1Accent1; break;
+        case 'MediumShading2Accent1': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumShading2Accent1; break;
+        case 'MediumList1Accent1': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumList1Accent1; break;
+        case 'Revision': styleIdentifier = TableProperties_StyleIdentifierEnum.revision; break;
+        case 'ListParagraph': styleIdentifier = TableProperties_StyleIdentifierEnum.listParagraph; break;
+        case 'Quote': styleIdentifier = TableProperties_StyleIdentifierEnum.quote; break;
+        case 'IntenseQuote': styleIdentifier = TableProperties_StyleIdentifierEnum.intenseQuote; break;
+        case 'MediumList2Accent1': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumList2Accent1; break;
+        case 'MediumGrid1Accent1': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid1Accent1; break;
+        case 'MediumGrid2Accent1': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid2Accent1; break;
+        case 'MediumGrid3Accent1': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid3Accent1; break;
+        case 'DarkListAccent1': styleIdentifier = TableProperties_StyleIdentifierEnum.darkListAccent1; break;
+        case 'ColorfulShadingAccent1': styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulShadingAccent1; break;
+        case 'ColorfulListAccent1': styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulListAccent1; break;
+        case 'ColorfulGridAccent1': styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulGridAccent1; break;
+        case 'LightShadingAccent2': styleIdentifier = TableProperties_StyleIdentifierEnum.lightShadingAccent2; break;
+        case 'LightListAccent2': styleIdentifier = TableProperties_StyleIdentifierEnum.lightListAccent2; break;
+        case 'LightGridAccent2': styleIdentifier = TableProperties_StyleIdentifierEnum.lightGridAccent2; break;
+        case 'MediumShading1Accent2': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumShading1Accent2; break;
+        case 'MediumShading2Accent2': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumShading2Accent2; break;
+        case 'MediumList1Accent2': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumList1Accent2; break;
+        case 'MediumList2Accent2': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumList2Accent2; break;
+        case 'MediumGrid1Accent2': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid1Accent2; break;
+        case 'MediumGrid2Accent2': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid2Accent2; break;
+        case 'MediumGrid3Accent2': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid3Accent2; break;
+        case 'DarkListAccent2': styleIdentifier = TableProperties_StyleIdentifierEnum.darkListAccent2; break;
+        case 'ColorfulShadingAccent2': styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulShadingAccent2; break;
+        case 'ColorfulListAccent2': styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulListAccent2; break;
+        case 'ColorfulGridAccent2': styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulGridAccent2; break;
+        case 'LightShadingAccent3': styleIdentifier = TableProperties_StyleIdentifierEnum.lightShadingAccent3; break;
+        case 'LightListAccent3': styleIdentifier = TableProperties_StyleIdentifierEnum.lightListAccent3; break;
+        case 'LightGridAccent3': styleIdentifier = TableProperties_StyleIdentifierEnum.lightGridAccent3; break;
+        case 'MediumShading1Accent3': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumShading1Accent3; break;
+        case 'MediumShading2Accent3': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumShading2Accent3; break;
+        case 'MediumList1Accent3': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumList1Accent3; break;
+        case 'MediumList2Accent3': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumList2Accent3; break;
+        case 'MediumGrid1Accent3': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid1Accent3; break;
+        case 'MediumGrid2Accent3': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid2Accent3; break;
+        case 'MediumGrid3Accent3': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid3Accent3; break;
+        case 'DarkListAccent3': styleIdentifier = TableProperties_StyleIdentifierEnum.darkListAccent3; break;
+        case 'ColorfulShadingAccent3': styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulShadingAccent3; break;
+        case 'ColorfulListAccent3': styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulListAccent3; break;
+        case 'ColorfulGridAccent3': styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulGridAccent3; break;
+        case 'LightShadingAccent4': styleIdentifier = TableProperties_StyleIdentifierEnum.lightShadingAccent4; break;
+        case 'LightListAccent4': styleIdentifier = TableProperties_StyleIdentifierEnum.lightListAccent4; break;
+        case 'LightGridAccent4': styleIdentifier = TableProperties_StyleIdentifierEnum.lightGridAccent4; break;
+        case 'MediumShading1Accent4': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumShading1Accent4; break;
+        case 'MediumShading2Accent4': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumShading2Accent4; break;
+        case 'MediumList1Accent4': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumList1Accent4; break;
+        case 'MediumList2Accent4': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumList2Accent4; break;
+        case 'MediumGrid1Accent4': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid1Accent4; break;
+        case 'MediumGrid2Accent4': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid2Accent4; break;
+        case 'MediumGrid3Accent4': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid3Accent4; break;
+        case 'DarkListAccent4': styleIdentifier = TableProperties_StyleIdentifierEnum.darkListAccent4; break;
+        case 'ColorfulShadingAccent4': styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulShadingAccent4; break;
+        case 'ColorfulListAccent4': styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulListAccent4; break;
+        case 'ColorfulGridAccent4': styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulGridAccent4; break;
+        case 'LightShadingAccent5': styleIdentifier = TableProperties_StyleIdentifierEnum.lightShadingAccent5; break;
+        case 'LightListAccent5': styleIdentifier = TableProperties_StyleIdentifierEnum.lightListAccent5; break;
+        case 'LightGridAccent5': styleIdentifier = TableProperties_StyleIdentifierEnum.lightGridAccent5; break;
+        case 'MediumShading1Accent5': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumShading1Accent5; break;
+        case 'MediumShading2Accent5': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumShading2Accent5; break;
+        case 'MediumList1Accent5': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumList1Accent5; break;
+        case 'MediumList2Accent5': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumList2Accent5; break;
+        case 'MediumGrid1Accent5': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid1Accent5; break;
+        case 'MediumGrid2Accent5': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid2Accent5; break;
+        case 'MediumGrid3Accent5': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid3Accent5; break;
+        case 'DarkListAccent5': styleIdentifier = TableProperties_StyleIdentifierEnum.darkListAccent5; break;
+        case 'ColorfulShadingAccent5': styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulShadingAccent5; break;
+        case 'ColorfulListAccent5': styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulListAccent5; break;
+        case 'ColorfulGridAccent5': styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulGridAccent5; break;
+        case 'LightShadingAccent6': styleIdentifier = TableProperties_StyleIdentifierEnum.lightShadingAccent6; break;
+        case 'LightListAccent6': styleIdentifier = TableProperties_StyleIdentifierEnum.lightListAccent6; break;
+        case 'LightGridAccent6': styleIdentifier = TableProperties_StyleIdentifierEnum.lightGridAccent6; break;
+        case 'MediumShading1Accent6': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumShading1Accent6; break;
+        case 'MediumShading2Accent6': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumShading2Accent6; break;
+        case 'MediumList1Accent6': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumList1Accent6; break;
+        case 'MediumList2Accent6': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumList2Accent6; break;
+        case 'MediumGrid1Accent6': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid1Accent6; break;
+        case 'MediumGrid2Accent6': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid2Accent6; break;
+        case 'MediumGrid3Accent6': styleIdentifier = TableProperties_StyleIdentifierEnum.mediumGrid3Accent6; break;
+        case 'DarkListAccent6': styleIdentifier = TableProperties_StyleIdentifierEnum.darkListAccent6; break;
+        case 'ColorfulShadingAccent6': styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulShadingAccent6; break;
+        case 'ColorfulListAccent6': styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulListAccent6; break;
+        case 'ColorfulGridAccent6': styleIdentifier = TableProperties_StyleIdentifierEnum.colorfulGridAccent6; break;
+        case 'SubtleEmphasis': styleIdentifier = TableProperties_StyleIdentifierEnum.subtleEmphasis; break;
+        case 'IntenseEmphasis': styleIdentifier = TableProperties_StyleIdentifierEnum.intenseEmphasis; break;
+        case 'SubtleReference': styleIdentifier = TableProperties_StyleIdentifierEnum.subtleReference; break;
+        case 'IntenseReference': styleIdentifier = TableProperties_StyleIdentifierEnum.intenseReference; break;
+        case 'BookTitle': styleIdentifier = TableProperties_StyleIdentifierEnum.bookTitle; break;
+        case 'Bibliography': styleIdentifier = TableProperties_StyleIdentifierEnum.bibliography; break;
+        case 'TocHeading': styleIdentifier = TableProperties_StyleIdentifierEnum.tocHeading; break;
+        case 'PlainTable1': styleIdentifier = TableProperties_StyleIdentifierEnum.plainTable1; break;
+        case 'PlainTable2': styleIdentifier = TableProperties_StyleIdentifierEnum.plainTable2; break;
+        case 'PlainTable3': styleIdentifier = TableProperties_StyleIdentifierEnum.plainTable3; break;
+        case 'PlainTable4': styleIdentifier = TableProperties_StyleIdentifierEnum.plainTable4; break;
+        case 'PlainTable5': styleIdentifier = TableProperties_StyleIdentifierEnum.plainTable5; break;
+        case 'TableGridLight': styleIdentifier = TableProperties_StyleIdentifierEnum.tableGridLight; break;
+        case 'GridTable1Light': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable1Light; break;
+        case 'GridTable2': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable2; break;
+        case 'GridTable3': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable3; break;
+        case 'GridTable4': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable4; break;
+        case 'GridTable5Dark': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable5Dark; break;
+        case 'GridTable6Colorful': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable6Colorful; break;
+        case 'GridTable7Colorful': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable7Colorful; break;
+        case 'GridTable1LightAccent1': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable1LightAccent1; break;
+        case 'GridTable2Accent1': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable2Accent1; break;
+        case 'GridTable3Accent1': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable3Accent1; break;
+        case 'GridTable4Accent1': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable4Accent1; break;
+        case 'GridTable5DarkAccent1': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable5DarkAccent1; break;
+        case 'GridTable6ColorfulAccent1': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable6ColorfulAccent1; break;
+        case 'GridTable7ColorfulAccent1': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable7ColorfulAccent1; break;
+        case 'GridTable1LightAccent2': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable1LightAccent2; break;
+        case 'GridTable2Accent2': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable2Accent2; break;
+        case 'GridTable3Accent2': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable3Accent2; break;
+        case 'GridTable4Accent2': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable4Accent2; break;
+        case 'GridTable5DarkAccent2': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable5DarkAccent2; break;
+        case 'GridTable6ColorfulAccent2': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable6ColorfulAccent2; break;
+        case 'GridTable7ColorfulAccent2': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable7ColorfulAccent2; break;
+        case 'GridTable1LightAccent3': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable1LightAccent3; break;
+        case 'GridTable2Accent3': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable2Accent3; break;
+        case 'GridTable3Accent3': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable3Accent3; break;
+        case 'GridTable4Accent3': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable4Accent3; break;
+        case 'GridTable5DarkAccent3': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable5DarkAccent3; break;
+        case 'GridTable6ColorfulAccent3': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable6ColorfulAccent3; break;
+        case 'GridTable7ColorfulAccent3': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable7ColorfulAccent3; break;
+        case 'GridTable1LightAccent4': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable1LightAccent4; break;
+        case 'GridTable2Accent4': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable2Accent4; break;
+        case 'GridTable3Accent4': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable3Accent4; break;
+        case 'GridTable4Accent4': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable4Accent4; break;
+        case 'GridTable5DarkAccent4': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable5DarkAccent4; break;
+        case 'GridTable6ColorfulAccent4': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable6ColorfulAccent4; break;
+        case 'GridTable7ColorfulAccent4': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable7ColorfulAccent4; break;
+        case 'GridTable1LightAccent5': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable1LightAccent5; break;
+        case 'GridTable2Accent5': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable2Accent5; break;
+        case 'GridTable3Accent5': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable3Accent5; break;
+        case 'GridTable4Accent5': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable4Accent5; break;
+        case 'GridTable5DarkAccent5': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable5DarkAccent5; break;
+        case 'GridTable6ColorfulAccent5': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable6ColorfulAccent5; break;
+        case 'GridTable7ColorfulAccent5': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable7ColorfulAccent5; break;
+        case 'GridTable1LightAccent6': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable1LightAccent6; break;
+        case 'GridTable2Accent6': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable2Accent6; break;
+        case 'GridTable3Accent6': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable3Accent6; break;
+        case 'GridTable4Accent6': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable4Accent6; break;
+        case 'GridTable5DarkAccent6': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable5DarkAccent6; break;
+        case 'GridTable6ColorfulAccent6': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable6ColorfulAccent6; break;
+        case 'GridTable7ColorfulAccent6': styleIdentifier = TableProperties_StyleIdentifierEnum.gridTable7ColorfulAccent6; break;
+        case 'ListTable1Light': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable1Light; break;
+        case 'ListTable2': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable2; break;
+        case 'ListTable3': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable3; break;
+        case 'ListTable4': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable4; break;
+        case 'ListTable5Dark': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable5Dark; break;
+        case 'ListTable6Colorful': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable6Colorful; break;
+        case 'ListTable7Colorful': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable7Colorful; break;
+        case 'ListTable1LightAccent1': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable1LightAccent1; break;
+        case 'ListTable2Accent1': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable2Accent1; break;
+        case 'ListTable3Accent1': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable3Accent1; break;
+        case 'ListTable4Accent1': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable4Accent1; break;
+        case 'ListTable5DarkAccent1': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable5DarkAccent1; break;
+        case 'ListTable6ColorfulAccent1': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable6ColorfulAccent1; break;
+        case 'ListTable7ColorfulAccent1': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable7ColorfulAccent1; break;
+        case 'ListTable1LightAccent2': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable1LightAccent2; break;
+        case 'ListTable2Accent2': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable2Accent2; break;
+        case 'ListTable3Accent2': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable3Accent2; break;
+        case 'ListTable4Accent2': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable4Accent2; break;
+        case 'ListTable5DarkAccent2': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable5DarkAccent2; break;
+        case 'ListTable6ColorfulAccent2': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable6ColorfulAccent2; break;
+        case 'ListTable7ColorfulAccent2': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable7ColorfulAccent2; break;
+        case 'ListTable1LightAccent3': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable1LightAccent3; break;
+        case 'ListTable2Accent3': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable2Accent3; break;
+        case 'ListTable3Accent3': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable3Accent3; break;
+        case 'ListTable4Accent3': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable4Accent3; break;
+        case 'ListTable5DarkAccent3': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable5DarkAccent3; break;
+        case 'ListTable6ColorfulAccent3': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable6ColorfulAccent3; break;
+        case 'ListTable7ColorfulAccent3': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable7ColorfulAccent3; break;
+        case 'ListTable1LightAccent4': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable1LightAccent4; break;
+        case 'ListTable2Accent4': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable2Accent4; break;
+        case 'ListTable3Accent4': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable3Accent4; break;
+        case 'ListTable4Accent4': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable4Accent4; break;
+        case 'ListTable5DarkAccent4': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable5DarkAccent4; break;
+        case 'ListTable6ColorfulAccent4': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable6ColorfulAccent4; break;
+        case 'ListTable7ColorfulAccent4': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable7ColorfulAccent4; break;
+        case 'ListTable1LightAccent5': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable1LightAccent5; break;
+        case 'ListTable2Accent5': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable2Accent5; break;
+        case 'ListTable3Accent5': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable3Accent5; break;
+        case 'ListTable4Accent5': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable4Accent5; break;
+        case 'ListTable5DarkAccent5': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable5DarkAccent5; break;
+        case 'ListTable6ColorfulAccent5': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable6ColorfulAccent5; break;
+        case 'ListTable7ColorfulAccent5': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable7ColorfulAccent5; break;
+        case 'ListTable1LightAccent6': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable1LightAccent6; break;
+        case 'ListTable2Accent6': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable2Accent6; break;
+        case 'ListTable3Accent6': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable3Accent6; break;
+        case 'ListTable4Accent6': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable4Accent6; break;
+        case 'ListTable5DarkAccent6': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable5DarkAccent6; break;
+        case 'ListTable6ColorfulAccent6': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable6ColorfulAccent6; break;
+        case 'ListTable7ColorfulAccent6': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable7ColorfulAccent6; break;
+        case 'User': styleIdentifier = TableProperties_StyleIdentifierEnum.user; break;
+        case 'Nil': styleIdentifier = TableProperties_StyleIdentifierEnum.nil; break;
+        default: styleIdentifier = null; break;
       }
     } else {
-      this.styleIdentifier = null;
+      styleIdentifier = null;
     }
 
     if (json.containsKey('StyleName')) {
-      this.styleName = json['StyleName'];
+      styleName = json['StyleName'] as String;
     } else {
-      this.styleName = null;
+      styleName = null;
     }
 
     if (json.containsKey('StyleOptions')) {
-      switch (json['StyleOptions']) {
-        case 'None': this.styleOptions = TableProperties_StyleOptionsEnum.none; break;
-        case 'FirstRow': this.styleOptions = TableProperties_StyleOptionsEnum.firstRow; break;
-        case 'LastRow': this.styleOptions = TableProperties_StyleOptionsEnum.lastRow; break;
-        case 'FirstColumn': this.styleOptions = TableProperties_StyleOptionsEnum.firstColumn; break;
-        case 'LastColumn': this.styleOptions = TableProperties_StyleOptionsEnum.lastColumn; break;
-        case 'RowBands': this.styleOptions = TableProperties_StyleOptionsEnum.rowBands; break;
-        case 'Default': this.styleOptions = TableProperties_StyleOptionsEnum.default_; break;
-        case 'ColumnBands': this.styleOptions = TableProperties_StyleOptionsEnum.columnBands; break;
-        case 'Default2003': this.styleOptions = TableProperties_StyleOptionsEnum.default2003; break;
-        default: this.styleOptions = null; break;
+      switch (json['StyleOptions'] as String) {
+        case 'None': styleOptions = TableProperties_StyleOptionsEnum.none; break;
+        case 'FirstRow': styleOptions = TableProperties_StyleOptionsEnum.firstRow; break;
+        case 'LastRow': styleOptions = TableProperties_StyleOptionsEnum.lastRow; break;
+        case 'FirstColumn': styleOptions = TableProperties_StyleOptionsEnum.firstColumn; break;
+        case 'LastColumn': styleOptions = TableProperties_StyleOptionsEnum.lastColumn; break;
+        case 'RowBands': styleOptions = TableProperties_StyleOptionsEnum.rowBands; break;
+        case 'Default': styleOptions = TableProperties_StyleOptionsEnum.defaultValue; break;
+        case 'ColumnBands': styleOptions = TableProperties_StyleOptionsEnum.columnBands; break;
+        case 'Default2003': styleOptions = TableProperties_StyleOptionsEnum.default2003; break;
+        default: styleOptions = null; break;
       }
     } else {
-      this.styleOptions = null;
+      styleOptions = null;
     }
 
     if (json.containsKey('TextWrapping')) {
-      switch (json['TextWrapping']) {
-        case 'Default': this.textWrapping = TableProperties_TextWrappingEnum.default_; break;
-        case 'None': this.textWrapping = TableProperties_TextWrappingEnum.none; break;
-        case 'Around': this.textWrapping = TableProperties_TextWrappingEnum.around; break;
-        default: this.textWrapping = null; break;
+      switch (json['TextWrapping'] as String) {
+        case 'Default': textWrapping = TableProperties_TextWrappingEnum.defaultValue; break;
+        case 'None': textWrapping = TableProperties_TextWrappingEnum.none; break;
+        case 'Around': textWrapping = TableProperties_TextWrappingEnum.around; break;
+        default: textWrapping = null; break;
       }
     } else {
-      this.textWrapping = null;
+      textWrapping = null;
     }
 
     if (json.containsKey('TopPadding')) {
-      this.topPadding = json['TopPadding'];
+      topPadding = json['TopPadding'] as double;
     } else {
-      this.topPadding = null;
+      topPadding = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.alignment != null) {
-      switch (this.alignment) {
+    if (alignment != null) {
+      switch (alignment) {
         case TableProperties_AlignmentEnum.left: _result['Alignment'] = 'Left'; break;
         case TableProperties_AlignmentEnum.center: _result['Alignment'] = 'Center'; break;
         case TableProperties_AlignmentEnum.right: _result['Alignment'] = 'Right'; break;
@@ -572,40 +576,40 @@ class TableProperties extends LinkElement {
       }
     }
 
-    if (this.allowAutoFit != null) {
-      _result['AllowAutoFit'] = this.allowAutoFit;
+    if (allowAutoFit != null) {
+      _result['AllowAutoFit'] = allowAutoFit;
     }
 
-    if (this.bidi != null) {
-      _result['Bidi'] = this.bidi;
+    if (bidi != null) {
+      _result['Bidi'] = bidi;
     }
 
-    if (this.bottomPadding != null) {
-      _result['BottomPadding'] = this.bottomPadding;
+    if (bottomPadding != null) {
+      _result['BottomPadding'] = bottomPadding;
     }
 
-    if (this.cellSpacing != null) {
-      _result['CellSpacing'] = this.cellSpacing;
+    if (cellSpacing != null) {
+      _result['CellSpacing'] = cellSpacing;
     }
 
-    if (this.leftIndent != null) {
-      _result['LeftIndent'] = this.leftIndent;
+    if (leftIndent != null) {
+      _result['LeftIndent'] = leftIndent;
     }
 
-    if (this.leftPadding != null) {
-      _result['LeftPadding'] = this.leftPadding;
+    if (leftPadding != null) {
+      _result['LeftPadding'] = leftPadding;
     }
 
-    if (this.preferredWidth != null) {
-      _result['PreferredWidth'] = this.preferredWidth.serialize();
+    if (preferredWidth != null) {
+      _result['PreferredWidth'] = preferredWidth.serialize();
     }
 
-    if (this.rightPadding != null) {
-      _result['RightPadding'] = this.rightPadding;
+    if (rightPadding != null) {
+      _result['RightPadding'] = rightPadding;
     }
 
-    if (this.styleIdentifier != null) {
-      switch (this.styleIdentifier) {
+    if (styleIdentifier != null) {
+      switch (styleIdentifier) {
         case TableProperties_StyleIdentifierEnum.normal: _result['StyleIdentifier'] = 'Normal'; break;
         case TableProperties_StyleIdentifierEnum.heading1: _result['StyleIdentifier'] = 'Heading1'; break;
         case TableProperties_StyleIdentifierEnum.heading2: _result['StyleIdentifier'] = 'Heading2'; break;
@@ -983,42 +987,42 @@ class TableProperties extends LinkElement {
       }
     }
 
-    if (this.styleName != null) {
-      _result['StyleName'] = this.styleName;
+    if (styleName != null) {
+      _result['StyleName'] = styleName;
     }
 
-    if (this.styleOptions != null) {
-      switch (this.styleOptions) {
+    if (styleOptions != null) {
+      switch (styleOptions) {
         case TableProperties_StyleOptionsEnum.none: _result['StyleOptions'] = 'None'; break;
         case TableProperties_StyleOptionsEnum.firstRow: _result['StyleOptions'] = 'FirstRow'; break;
         case TableProperties_StyleOptionsEnum.lastRow: _result['StyleOptions'] = 'LastRow'; break;
         case TableProperties_StyleOptionsEnum.firstColumn: _result['StyleOptions'] = 'FirstColumn'; break;
         case TableProperties_StyleOptionsEnum.lastColumn: _result['StyleOptions'] = 'LastColumn'; break;
         case TableProperties_StyleOptionsEnum.rowBands: _result['StyleOptions'] = 'RowBands'; break;
-        case TableProperties_StyleOptionsEnum.default_: _result['StyleOptions'] = 'Default'; break;
+        case TableProperties_StyleOptionsEnum.defaultValue: _result['StyleOptions'] = 'Default'; break;
         case TableProperties_StyleOptionsEnum.columnBands: _result['StyleOptions'] = 'ColumnBands'; break;
         case TableProperties_StyleOptionsEnum.default2003: _result['StyleOptions'] = 'Default2003'; break;
         default: break;
       }
     }
 
-    if (this.textWrapping != null) {
-      switch (this.textWrapping) {
-        case TableProperties_TextWrappingEnum.default_: _result['TextWrapping'] = 'Default'; break;
+    if (textWrapping != null) {
+      switch (textWrapping) {
+        case TableProperties_TextWrappingEnum.defaultValue: _result['TextWrapping'] = 'Default'; break;
         case TableProperties_TextWrappingEnum.none: _result['TextWrapping'] = 'None'; break;
         case TableProperties_TextWrappingEnum.around: _result['TextWrapping'] = 'Around'; break;
         default: break;
       }
     }
 
-    if (this.topPadding != null) {
-      _result['TopPadding'] = this.topPadding;
+    if (topPadding != null) {
+      _result['TopPadding'] = topPadding;
     }
     return _result;
   }
 }
 
-/// Gets or sets specifies how an inline table is aligned in the document.
+/// Gets or sets the option that controls how an inline table is aligned in the document.
 enum TableProperties_AlignmentEnum
 { 
   left,
@@ -1404,7 +1408,7 @@ enum TableProperties_StyleIdentifierEnum
   nil
 }
 
-/// Gets or sets bit flags that specify how a table style is applied to this table.
+/// Gets or sets the bit flags, that specify how a table style is applied to this table.
 enum TableProperties_StyleOptionsEnum
 { 
   none,
@@ -1413,15 +1417,15 @@ enum TableProperties_StyleOptionsEnum
   firstColumn,
   lastColumn,
   rowBands,
-  default_,
+  defaultValue,
   columnBands,
   default2003
 }
 
-/// Gets or sets get or sets TextWrapping for table.
+/// Gets or sets the option that controls text wrapping for the table.
 enum TableProperties_TextWrappingEnum
 { 
-  default_,
+  defaultValue,
   none,
   around
 }

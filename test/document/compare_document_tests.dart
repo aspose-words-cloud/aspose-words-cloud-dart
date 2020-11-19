@@ -26,8 +26,9 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
-import '../test_context.dart';
 import 'package:test/test.dart';
+
+import '../test_context.dart';
 
 /// Example of document comparison.
 class CompareDocumentTests
@@ -36,33 +37,35 @@ class CompareDocumentTests
   String remoteFolder;
   String localFolder;
 
-  CompareDocumentTests(final TestContext this.context) {
-    remoteFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/CompareDocument';
+  CompareDocumentTests(final this.context) {
+    remoteFolder = context.remoteBaseTestDataFolder + '/DocumentActions/CompareDocument';
     localFolder = 'DocumentActions/CompareDocument';
   }
 
   /// Test for document comparison.
   Future<void> testCompareDocument() async
   {
-    final String localName1 = 'compareTestDoc1.doc';
-    final String localName2 = 'compareTestDoc2.doc';
-    final String remoteName1 = 'TestCompareDocument1.doc';
-    final String remoteName2 = 'TestCompareDocument2.doc';
-    await this.context.uploadFile(localFolder + '/' + localName1, remoteFolder + '/' + remoteName1);
+    final localName1 = 'compareTestDoc1.doc';
+    final localName2 = 'compareTestDoc2.doc';
+    final remoteName1 = 'TestCompareDocument1.doc';
+    final remoteName2 = 'TestCompareDocument2.doc';
+    await context.uploadFile(localFolder + '/' + localName1, remoteFolder + '/' + remoteName1);
 
-    await this.context.uploadFile(localFolder + '/' + localName2, remoteFolder + '/' + remoteName2);
-    var requestCompareData = new CompareData();
+    await context.uploadFile(localFolder + '/' + localName2, remoteFolder + '/' + remoteName2);
+    var requestCompareData = CompareData();
     requestCompareData.author = 'author';
     requestCompareData.comparingWithDocument = remoteFolder + '/' + remoteName2;
-    requestCompareData.dateTime = new DateTime(2015, 10, 26, 0, 0, 0);
+    requestCompareData.dateTime = DateTime(2015, 10, 26, 0, 0, 0);
 
-    final request = new CompareDocumentRequest(
+    final request = CompareDocumentRequest(
       remoteName1,
       requestCompareData,
       folder: remoteFolder,
-      destFileName: this.context.baseTestOutPath + '/TestCompareDocumentOut.doc'
+      destFileName: context.baseTestOutPath + '/TestCompareDocumentOut.doc'
     );
 
-    var result = await this.context.getApi().compareDocument(request);
+    var result = await context.getApi().compareDocument(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'TestCompareDocumentOut.doc');
   }
 }

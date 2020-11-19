@@ -27,7 +27,9 @@
 
 import 'dart:io';
 import 'dart:typed_data';
+
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+
 import 'test_context.dart';
 
 /// Example of how to use batch requests.
@@ -35,25 +37,25 @@ class ReadmeTests
 {
   final TestContext context;
 
-  ReadmeTests(final TestContext this.context);
+  ReadmeTests(final this.context);
 
   /// Checking example from readme.
   Future<void> testReadme1() async
   {
     // Configure words api client
-    var configuration = new Configuration(this.context.configuration.appKey, this.context.configuration.appSid, baseUrl: this.context.configuration.baseUrl);
-    var wordsApi = new WordsApi(configuration);
+    var configuration = Configuration(context.configuration.clientId, context.configuration.clientSecret, baseUrl: context.configuration.baseUrl);
+    var wordsApi = WordsApi(configuration);
 
     // Upload file to cloud
-    var localFileContent = await (new File('./test_data/Common/test_doc.docx').readAsBytes());
-    var uploadRequest = new UploadFileRequest(ByteData.view(localFileContent.buffer), 'fileStoredInCloud.docx');
+    var localFileContent = await (File('./test_data/Common/test_doc.docx').readAsBytes());
+    var uploadRequest = UploadFileRequest(ByteData.view(localFileContent.buffer), 'fileStoredInCloud.docx');
     await wordsApi.uploadFile(uploadRequest);
 
     // Save file as pdf in cloud
-    var saveOptionsData = new SaveOptionsData()
-      ..saveFormat = "pdf"
-      ..fileName = "destStoredInCloud.pdf";
-    var saveAsRequest = new SaveAsRequest("fileStoredInCloud.docx", saveOptionsData);
+    var saveOptionsData = SaveOptionsData()
+      ..saveFormat = 'pdf'
+      ..fileName = 'destStoredInCloud.pdf';
+    var saveAsRequest = SaveAsRequest('fileStoredInCloud.docx', saveOptionsData);
     await wordsApi.saveAs(saveAsRequest);
   }
 }

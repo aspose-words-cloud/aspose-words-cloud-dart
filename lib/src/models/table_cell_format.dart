@@ -29,158 +29,162 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Represents all formatting for a table row.
+/// DTO container with all formatting for a table row.
 class TableCellFormat extends LinkElement {
-  /// Gets or sets returns or sets the amount of space (in points) to add below the contents of cell.
+  /// Gets or sets the amount of space (in points) to add below the contents of the cell.
   double bottomPadding;
 
-  /// Gets or sets if true, fits text in the cell, compressing each paragraph to the width of the cell.
+  /// Gets or sets a value indicating whether to fit text in the cell, compress each paragraph to the width of the cell.
   bool fitText;
 
-  /// Gets or sets specifies how the cell is merged horizontally with other cells in the row.
+  /// Gets or sets the option that controls how the cell is merged horizontally with other cells in the row.
   TableCellFormat_HorizontalMergeEnum horizontalMerge;
 
-  /// Gets or sets returns or sets the amount of space (in points) to add to the left of the contents of cell.
+  /// Gets or sets the amount of space (in points) to add to the left of the contents of the cell.
   double leftPadding;
 
-  /// Gets or sets returns or sets the orientation of text in a table cell.
+  /// Gets or sets the orientation of text in a table cell.
   TableCellFormat_OrientationEnum orientation;
 
-  /// Gets or sets returns or sets the preferred width of the cell.
+  /// Gets or sets the preferred width of the cell.
   PreferredWidth preferredWidth;
 
-  /// Gets or sets returns or sets the amount of space (in points) to add to the right of the contents of cell.
+  /// Gets or sets the amount of space (in points) to add to the right of the contents of the cell.
   double rightPadding;
 
-  /// Gets or sets returns or sets the amount of space (in points) to add above the contents of cell.
+  /// Gets or sets the amount of space (in points) to add above the contents of the cell.
   double topPadding;
 
-  /// Gets or sets returns or sets the vertical alignment of text in the cell.
+  /// Gets or sets the vertical alignment of text in the cell.
   TableCellFormat_VerticalAlignmentEnum verticalAlignment;
 
-  /// Gets or sets specifies how the cell is merged with other cells vertically.
+  /// Gets or sets the option that controls how the cell is merged with other cells vertically.
   TableCellFormat_VerticalMergeEnum verticalMerge;
 
   /// Gets or sets the width of the cell in points.
   double width;
 
-  /// Gets or sets if true, wrap text for the cell.
+  /// Gets or sets a value indicating whether to wrap text in the cell.
   bool wrapText;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize TableCellFormat data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('BottomPadding')) {
-      this.bottomPadding = json['BottomPadding'];
+      bottomPadding = json['BottomPadding'] as double;
     } else {
-      this.bottomPadding = null;
+      bottomPadding = null;
     }
 
     if (json.containsKey('FitText')) {
-      this.fitText = json['FitText'];
+      fitText = json['FitText'] as bool;
     } else {
-      this.fitText = null;
+      fitText = null;
     }
 
     if (json.containsKey('HorizontalMerge')) {
-      switch (json['HorizontalMerge']) {
-        case 'None': this.horizontalMerge = TableCellFormat_HorizontalMergeEnum.none; break;
-        case 'First': this.horizontalMerge = TableCellFormat_HorizontalMergeEnum.first; break;
-        case 'Previous': this.horizontalMerge = TableCellFormat_HorizontalMergeEnum.previous; break;
-        default: this.horizontalMerge = null; break;
+      switch (json['HorizontalMerge'] as String) {
+        case 'None': horizontalMerge = TableCellFormat_HorizontalMergeEnum.none; break;
+        case 'First': horizontalMerge = TableCellFormat_HorizontalMergeEnum.first; break;
+        case 'Previous': horizontalMerge = TableCellFormat_HorizontalMergeEnum.previous; break;
+        default: horizontalMerge = null; break;
       }
     } else {
-      this.horizontalMerge = null;
+      horizontalMerge = null;
     }
 
     if (json.containsKey('LeftPadding')) {
-      this.leftPadding = json['LeftPadding'];
+      leftPadding = json['LeftPadding'] as double;
     } else {
-      this.leftPadding = null;
+      leftPadding = null;
     }
 
     if (json.containsKey('Orientation')) {
-      switch (json['Orientation']) {
-        case 'Horizontal': this.orientation = TableCellFormat_OrientationEnum.horizontal; break;
-        case 'Downward': this.orientation = TableCellFormat_OrientationEnum.downward; break;
-        case 'Upward': this.orientation = TableCellFormat_OrientationEnum.upward; break;
-        case 'HorizontalRotatedFarEast': this.orientation = TableCellFormat_OrientationEnum.horizontalRotatedFarEast; break;
-        case 'VerticalFarEast': this.orientation = TableCellFormat_OrientationEnum.verticalFarEast; break;
-        case 'VerticalRotatedFarEast': this.orientation = TableCellFormat_OrientationEnum.verticalRotatedFarEast; break;
-        default: this.orientation = null; break;
+      switch (json['Orientation'] as String) {
+        case 'Horizontal': orientation = TableCellFormat_OrientationEnum.horizontal; break;
+        case 'Downward': orientation = TableCellFormat_OrientationEnum.downward; break;
+        case 'Upward': orientation = TableCellFormat_OrientationEnum.upward; break;
+        case 'HorizontalRotatedFarEast': orientation = TableCellFormat_OrientationEnum.horizontalRotatedFarEast; break;
+        case 'VerticalFarEast': orientation = TableCellFormat_OrientationEnum.verticalFarEast; break;
+        case 'VerticalRotatedFarEast': orientation = TableCellFormat_OrientationEnum.verticalRotatedFarEast; break;
+        default: orientation = null; break;
       }
     } else {
-      this.orientation = null;
+      orientation = null;
     }
 
     if (json.containsKey('PreferredWidth')) {
-      this.preferredWidth = new PreferredWidth();
-      this.preferredWidth.deserialize(json['PreferredWidth']);
+      preferredWidth = PreferredWidth();
+      preferredWidth.deserialize(json['PreferredWidth'] as Map<String, dynamic>);
     } else {
-      this.preferredWidth = null;
+      preferredWidth = null;
     }
 
     if (json.containsKey('RightPadding')) {
-      this.rightPadding = json['RightPadding'];
+      rightPadding = json['RightPadding'] as double;
     } else {
-      this.rightPadding = null;
+      rightPadding = null;
     }
 
     if (json.containsKey('TopPadding')) {
-      this.topPadding = json['TopPadding'];
+      topPadding = json['TopPadding'] as double;
     } else {
-      this.topPadding = null;
+      topPadding = null;
     }
 
     if (json.containsKey('VerticalAlignment')) {
-      switch (json['VerticalAlignment']) {
-        case 'Top': this.verticalAlignment = TableCellFormat_VerticalAlignmentEnum.top; break;
-        case 'Center': this.verticalAlignment = TableCellFormat_VerticalAlignmentEnum.center; break;
-        case 'Bottom': this.verticalAlignment = TableCellFormat_VerticalAlignmentEnum.bottom; break;
-        default: this.verticalAlignment = null; break;
+      switch (json['VerticalAlignment'] as String) {
+        case 'Top': verticalAlignment = TableCellFormat_VerticalAlignmentEnum.top; break;
+        case 'Center': verticalAlignment = TableCellFormat_VerticalAlignmentEnum.center; break;
+        case 'Bottom': verticalAlignment = TableCellFormat_VerticalAlignmentEnum.bottom; break;
+        default: verticalAlignment = null; break;
       }
     } else {
-      this.verticalAlignment = null;
+      verticalAlignment = null;
     }
 
     if (json.containsKey('VerticalMerge')) {
-      switch (json['VerticalMerge']) {
-        case 'None': this.verticalMerge = TableCellFormat_VerticalMergeEnum.none; break;
-        case 'First': this.verticalMerge = TableCellFormat_VerticalMergeEnum.first; break;
-        case 'Previous': this.verticalMerge = TableCellFormat_VerticalMergeEnum.previous; break;
-        default: this.verticalMerge = null; break;
+      switch (json['VerticalMerge'] as String) {
+        case 'None': verticalMerge = TableCellFormat_VerticalMergeEnum.none; break;
+        case 'First': verticalMerge = TableCellFormat_VerticalMergeEnum.first; break;
+        case 'Previous': verticalMerge = TableCellFormat_VerticalMergeEnum.previous; break;
+        default: verticalMerge = null; break;
       }
     } else {
-      this.verticalMerge = null;
+      verticalMerge = null;
     }
 
     if (json.containsKey('Width')) {
-      this.width = json['Width'];
+      width = json['Width'] as double;
     } else {
-      this.width = null;
+      width = null;
     }
 
     if (json.containsKey('WrapText')) {
-      this.wrapText = json['WrapText'];
+      wrapText = json['WrapText'] as bool;
     } else {
-      this.wrapText = null;
+      wrapText = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.bottomPadding != null) {
-      _result['BottomPadding'] = this.bottomPadding;
+    if (bottomPadding != null) {
+      _result['BottomPadding'] = bottomPadding;
     }
 
-    if (this.fitText != null) {
-      _result['FitText'] = this.fitText;
+    if (fitText != null) {
+      _result['FitText'] = fitText;
     }
 
-    if (this.horizontalMerge != null) {
-      switch (this.horizontalMerge) {
+    if (horizontalMerge != null) {
+      switch (horizontalMerge) {
         case TableCellFormat_HorizontalMergeEnum.none: _result['HorizontalMerge'] = 'None'; break;
         case TableCellFormat_HorizontalMergeEnum.first: _result['HorizontalMerge'] = 'First'; break;
         case TableCellFormat_HorizontalMergeEnum.previous: _result['HorizontalMerge'] = 'Previous'; break;
@@ -188,12 +192,12 @@ class TableCellFormat extends LinkElement {
       }
     }
 
-    if (this.leftPadding != null) {
-      _result['LeftPadding'] = this.leftPadding;
+    if (leftPadding != null) {
+      _result['LeftPadding'] = leftPadding;
     }
 
-    if (this.orientation != null) {
-      switch (this.orientation) {
+    if (orientation != null) {
+      switch (orientation) {
         case TableCellFormat_OrientationEnum.horizontal: _result['Orientation'] = 'Horizontal'; break;
         case TableCellFormat_OrientationEnum.downward: _result['Orientation'] = 'Downward'; break;
         case TableCellFormat_OrientationEnum.upward: _result['Orientation'] = 'Upward'; break;
@@ -204,20 +208,20 @@ class TableCellFormat extends LinkElement {
       }
     }
 
-    if (this.preferredWidth != null) {
-      _result['PreferredWidth'] = this.preferredWidth.serialize();
+    if (preferredWidth != null) {
+      _result['PreferredWidth'] = preferredWidth.serialize();
     }
 
-    if (this.rightPadding != null) {
-      _result['RightPadding'] = this.rightPadding;
+    if (rightPadding != null) {
+      _result['RightPadding'] = rightPadding;
     }
 
-    if (this.topPadding != null) {
-      _result['TopPadding'] = this.topPadding;
+    if (topPadding != null) {
+      _result['TopPadding'] = topPadding;
     }
 
-    if (this.verticalAlignment != null) {
-      switch (this.verticalAlignment) {
+    if (verticalAlignment != null) {
+      switch (verticalAlignment) {
         case TableCellFormat_VerticalAlignmentEnum.top: _result['VerticalAlignment'] = 'Top'; break;
         case TableCellFormat_VerticalAlignmentEnum.center: _result['VerticalAlignment'] = 'Center'; break;
         case TableCellFormat_VerticalAlignmentEnum.bottom: _result['VerticalAlignment'] = 'Bottom'; break;
@@ -225,8 +229,8 @@ class TableCellFormat extends LinkElement {
       }
     }
 
-    if (this.verticalMerge != null) {
-      switch (this.verticalMerge) {
+    if (verticalMerge != null) {
+      switch (verticalMerge) {
         case TableCellFormat_VerticalMergeEnum.none: _result['VerticalMerge'] = 'None'; break;
         case TableCellFormat_VerticalMergeEnum.first: _result['VerticalMerge'] = 'First'; break;
         case TableCellFormat_VerticalMergeEnum.previous: _result['VerticalMerge'] = 'Previous'; break;
@@ -234,18 +238,18 @@ class TableCellFormat extends LinkElement {
       }
     }
 
-    if (this.width != null) {
-      _result['Width'] = this.width;
+    if (width != null) {
+      _result['Width'] = width;
     }
 
-    if (this.wrapText != null) {
-      _result['WrapText'] = this.wrapText;
+    if (wrapText != null) {
+      _result['WrapText'] = wrapText;
     }
     return _result;
   }
 }
 
-/// Gets or sets specifies how the cell is merged horizontally with other cells in the row.
+/// Gets or sets the option that controls how the cell is merged horizontally with other cells in the row.
 enum TableCellFormat_HorizontalMergeEnum
 { 
   none,
@@ -253,7 +257,7 @@ enum TableCellFormat_HorizontalMergeEnum
   previous
 }
 
-/// Gets or sets returns or sets the orientation of text in a table cell.
+/// Gets or sets the orientation of text in a table cell.
 enum TableCellFormat_OrientationEnum
 { 
   horizontal,
@@ -264,7 +268,7 @@ enum TableCellFormat_OrientationEnum
   verticalRotatedFarEast
 }
 
-/// Gets or sets returns or sets the vertical alignment of text in the cell.
+/// Gets or sets the vertical alignment of text in the cell.
 enum TableCellFormat_VerticalAlignmentEnum
 { 
   top,
@@ -272,7 +276,7 @@ enum TableCellFormat_VerticalAlignmentEnum
   bottom
 }
 
-/// Gets or sets specifies how the cell is merged with other cells vertically.
+/// Gets or sets the option that controls how the cell is merged with other cells vertically.
 enum TableCellFormat_VerticalMergeEnum
 { 
   none,

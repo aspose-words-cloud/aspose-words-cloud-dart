@@ -29,17 +29,21 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Provides information for the words api resource link.
+/// Provides information for the words API resource link.
 class WordsApiLink extends Link {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize WordsApiLink data model.');
+    }
+
     super.deserialize(json);
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     return _result;
   }

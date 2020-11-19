@@ -29,29 +29,32 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:
-/// GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/format.
+/// The REST response with the formatting properties of a paragraph.
 class ParagraphFormatResponse extends WordsResponse {
-  /// Gets or sets represents all the formatting for a paragraph.
+  /// Gets or sets the formatting properties of a paragraph.
   ParagraphFormat paragraphFormat;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ParagraphFormatResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('ParagraphFormat')) {
-      this.paragraphFormat = new ParagraphFormat();
-      this.paragraphFormat.deserialize(json['ParagraphFormat']);
+      paragraphFormat = ParagraphFormat();
+      paragraphFormat.deserialize(json['ParagraphFormat'] as Map<String, dynamic>);
     } else {
-      this.paragraphFormat = null;
+      paragraphFormat = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.paragraphFormat != null) {
-      _result['ParagraphFormat'] = this.paragraphFormat.serialize();
+    if (paragraphFormat != null) {
+      _result['ParagraphFormat'] = paragraphFormat.serialize();
     }
     return _result;
   }

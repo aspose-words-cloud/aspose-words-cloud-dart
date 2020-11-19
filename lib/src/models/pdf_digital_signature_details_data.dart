@@ -29,77 +29,81 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// container class for details of digital signature.
+/// Container class for details of digital signature.
 class PdfDigitalSignatureDetailsData implements ModelBase {
-  /// Gets or sets certificate's filename using for signing.
+  /// Gets or sets the certificate's filename using for signing.
   String certificateFilename;
 
-  /// Gets or sets hash algorithm.
+  /// Gets or sets the hash algorithm.
   String hashAlgorithm;
 
-  /// Gets or sets location of the signing.
+  /// Gets or sets the location of the signing.
   String location;
 
-  /// Gets or sets reason for the signing.
+  /// Gets or sets the reason for the signing.
   String reason;
 
-  /// Gets or sets date of the signing.
+  /// Gets or sets the date of the signing.
   DateTime signatureDate;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize PdfDigitalSignatureDetailsData data model.');
+    }
+
     if (json.containsKey('CertificateFilename')) {
-      this.certificateFilename = json['CertificateFilename'];
+      certificateFilename = json['CertificateFilename'] as String;
     } else {
-      this.certificateFilename = null;
+      certificateFilename = null;
     }
 
     if (json.containsKey('HashAlgorithm')) {
-      this.hashAlgorithm = json['HashAlgorithm'];
+      hashAlgorithm = json['HashAlgorithm'] as String;
     } else {
-      this.hashAlgorithm = null;
+      hashAlgorithm = null;
     }
 
     if (json.containsKey('Location')) {
-      this.location = json['Location'];
+      location = json['Location'] as String;
     } else {
-      this.location = null;
+      location = null;
     }
 
     if (json.containsKey('Reason')) {
-      this.reason = json['Reason'];
+      reason = json['Reason'] as String;
     } else {
-      this.reason = null;
+      reason = null;
     }
 
     if (json.containsKey('SignatureDate')) {
-      this.signatureDate = DateTime.parse(json['SignatureDate']);
+      signatureDate = DateTime.parse(json['SignatureDate'] as String);
     } else {
-      this.signatureDate = null;
+      signatureDate = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.certificateFilename != null) {
-      _result['CertificateFilename'] = this.certificateFilename;
+    var _result = <String, dynamic>{};
+    if (certificateFilename != null) {
+      _result['CertificateFilename'] = certificateFilename;
     }
 
-    if (this.hashAlgorithm != null) {
-      _result['HashAlgorithm'] = this.hashAlgorithm;
+    if (hashAlgorithm != null) {
+      _result['HashAlgorithm'] = hashAlgorithm;
     }
 
-    if (this.location != null) {
-      _result['Location'] = this.location;
+    if (location != null) {
+      _result['Location'] = location;
     }
 
-    if (this.reason != null) {
-      _result['Reason'] = this.reason;
+    if (reason != null) {
+      _result['Reason'] = reason;
     }
 
-    if (this.signatureDate != null) {
-      _result['SignatureDate'] = this.signatureDate.toIso8601String();
+    if (signatureDate != null) {
+      _result['SignatureDate'] = signatureDate.toIso8601String();
     }
     return _result;
   }

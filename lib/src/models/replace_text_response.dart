@@ -29,41 +29,45 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Response for "Replace text" action.
+/// The REST response with a number of occurrences of the captured text in the document.
 class ReplaceTextResponse extends WordsResponse {
-  /// Gets or sets link to the document.
+  /// Gets or sets the link to the document.
   FileLink documentLink;
 
-  /// Gets or sets number of occurrences of the captured text in the document.
+  /// Gets or sets the number of occurrences of the captured text in the document.
   int matches;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ReplaceTextResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('DocumentLink')) {
-      this.documentLink = new FileLink();
-      this.documentLink.deserialize(json['DocumentLink']);
+      documentLink = FileLink();
+      documentLink.deserialize(json['DocumentLink'] as Map<String, dynamic>);
     } else {
-      this.documentLink = null;
+      documentLink = null;
     }
 
     if (json.containsKey('Matches')) {
-      this.matches = json['Matches'];
+      matches = json['Matches'] as int;
     } else {
-      this.matches = null;
+      matches = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.documentLink != null) {
-      _result['DocumentLink'] = this.documentLink.serialize();
+    if (documentLink != null) {
+      _result['DocumentLink'] = documentLink.serialize();
     }
 
-    if (this.matches != null) {
-      _result['Matches'] = this.matches;
+    if (matches != null) {
+      _result['Matches'] = matches;
     }
     return _result;
   }

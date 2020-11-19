@@ -31,25 +31,29 @@ import '../../aspose_words_cloud.dart';
 
 /// Reference to node.
 class NodeLink extends LinkElement {
-  /// Gets or sets node id.
+  /// Gets or sets the node id.
   String nodeId;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize NodeLink data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('NodeId')) {
-      this.nodeId = json['NodeId'];
+      nodeId = json['NodeId'] as String;
     } else {
-      this.nodeId = null;
+      nodeId = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.nodeId != null) {
-      _result['NodeId'] = this.nodeId;
+    if (nodeId != null) {
+      _result['NodeId'] = nodeId;
     }
     return _result;
   }

@@ -29,42 +29,45 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// container class for xaml fixed save options.
+/// Container class for xaml fixed save options.
 class XamlFixedSaveOptionsData extends FixedPageSaveOptionsData {
-  /// Gets or sets specifies the physical folder where resources (images and fonts) are saved when exporting a document to fixed page Xaml format.
-  /// Default is null.
+  /// Gets or sets the physical folder where resources (images and fonts) are saved when exporting a document to fixed page Xaml format.
+  /// The default value is null.
   String resourcesFolder;
 
-  /// Gets or sets specifies the name of the folder used to construct image URIs written into an fixed page Xaml document.
-  /// Default is null.
+  /// Gets or sets the name of the folder used to construct image URIs written into an fixed page Xaml document. The default value is null.
   String resourcesFolderAlias;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize XamlFixedSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('ResourcesFolder')) {
-      this.resourcesFolder = json['ResourcesFolder'];
+      resourcesFolder = json['ResourcesFolder'] as String;
     } else {
-      this.resourcesFolder = null;
+      resourcesFolder = null;
     }
 
     if (json.containsKey('ResourcesFolderAlias')) {
-      this.resourcesFolderAlias = json['ResourcesFolderAlias'];
+      resourcesFolderAlias = json['ResourcesFolderAlias'] as String;
     } else {
-      this.resourcesFolderAlias = null;
+      resourcesFolderAlias = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.resourcesFolder != null) {
-      _result['ResourcesFolder'] = this.resourcesFolder;
+    if (resourcesFolder != null) {
+      _result['ResourcesFolder'] = resourcesFolder;
     }
 
-    if (this.resourcesFolderAlias != null) {
-      _result['ResourcesFolderAlias'] = this.resourcesFolderAlias;
+    if (resourcesFolderAlias != null) {
+      _result['ResourcesFolderAlias'] = resourcesFolderAlias;
     }
     return _result;
   }

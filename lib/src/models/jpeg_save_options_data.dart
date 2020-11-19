@@ -29,17 +29,21 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// container class for jpeg save options.
+/// Container class for jpeg save options.
 class JpegSaveOptionsData extends ImageSaveOptionsData {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize JpegSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     return _result;
   }

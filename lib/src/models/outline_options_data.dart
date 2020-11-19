@@ -29,99 +29,100 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// container class for outline options.
+/// Container class for outline options.
 class OutlineOptionsData implements ModelBase {
-  /// Gets or sets allows to specify individual bookmarks outline level.
+  /// Gets or sets the individual bookmarks outline level.
   List<BookmarksOutlineLevelData> bookmarksOutlineLevels;
 
-  /// Gets or sets a value determining whether or not to create missing outline levels
-  /// when the document is exported.
-  /// Default value for this property is false.
+  /// Gets or sets a value indicating whether to create missing outline levels when the document is exported. The default value is false.
   bool createMissingOutlineLevels;
 
-  /// Gets or sets specifies whether or not to create outlines for headings (paragraphs formatted
-  /// with the Heading styles) inside tables.
+  /// Gets or sets a value indicating whether to create outlines for headings (paragraphs formatted with the Heading styles) inside tables.
   bool createOutlinesForHeadingsInTables;
 
-  /// Gets or sets specifies the default level in the document outline at which to display Word bookmarks.
+  /// Gets or sets the default level in the document outline at which to display Word bookmarks.
   int defaultBookmarksOutlineLevel;
 
-  /// Gets or sets specifies how many levels in the document outline to show expanded when the file is viewed.
+  /// Gets or sets the number of levels in the document outline to show expanded when the file is viewed.
   int expandedOutlineLevels;
 
-  /// Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the document outline.
+  /// Gets or sets the number of levels of headings (paragraphs formatted with the Heading styles) to include in the document outline.
   int headingsOutlineLevels;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize OutlineOptionsData data model.');
+    }
+
     if (json.containsKey('BookmarksOutlineLevels')) {
       // Array processing
-      this.bookmarksOutlineLevels = new List<BookmarksOutlineLevelData>();
+      bookmarksOutlineLevels = <BookmarksOutlineLevelData>[];
       for(final _element in json['BookmarksOutlineLevels']) {
-        var _elementValue = new BookmarksOutlineLevelData();
-        _elementValue.deserialize(_element);
-        this.bookmarksOutlineLevels.add(_elementValue);
+        var _elementValue = BookmarksOutlineLevelData();
+        _elementValue.deserialize(_element as Map<String, dynamic>);
+        bookmarksOutlineLevels.add(_elementValue);
       }
     } else {
-      this.bookmarksOutlineLevels = null;
+      bookmarksOutlineLevels = null;
     }
 
     if (json.containsKey('CreateMissingOutlineLevels')) {
-      this.createMissingOutlineLevels = json['CreateMissingOutlineLevels'];
+      createMissingOutlineLevels = json['CreateMissingOutlineLevels'] as bool;
     } else {
-      this.createMissingOutlineLevels = null;
+      createMissingOutlineLevels = null;
     }
 
     if (json.containsKey('CreateOutlinesForHeadingsInTables')) {
-      this.createOutlinesForHeadingsInTables = json['CreateOutlinesForHeadingsInTables'];
+      createOutlinesForHeadingsInTables = json['CreateOutlinesForHeadingsInTables'] as bool;
     } else {
-      this.createOutlinesForHeadingsInTables = null;
+      createOutlinesForHeadingsInTables = null;
     }
 
     if (json.containsKey('DefaultBookmarksOutlineLevel')) {
-      this.defaultBookmarksOutlineLevel = json['DefaultBookmarksOutlineLevel'];
+      defaultBookmarksOutlineLevel = json['DefaultBookmarksOutlineLevel'] as int;
     } else {
-      this.defaultBookmarksOutlineLevel = null;
+      defaultBookmarksOutlineLevel = null;
     }
 
     if (json.containsKey('ExpandedOutlineLevels')) {
-      this.expandedOutlineLevels = json['ExpandedOutlineLevels'];
+      expandedOutlineLevels = json['ExpandedOutlineLevels'] as int;
     } else {
-      this.expandedOutlineLevels = null;
+      expandedOutlineLevels = null;
     }
 
     if (json.containsKey('HeadingsOutlineLevels')) {
-      this.headingsOutlineLevels = json['HeadingsOutlineLevels'];
+      headingsOutlineLevels = json['HeadingsOutlineLevels'] as int;
     } else {
-      this.headingsOutlineLevels = null;
+      headingsOutlineLevels = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.bookmarksOutlineLevels != null) {
-      _result['BookmarksOutlineLevels'] = this.bookmarksOutlineLevels.map((_element) => _element.serialize()).toList();
+    var _result = <String, dynamic>{};
+    if (bookmarksOutlineLevels != null) {
+      _result['BookmarksOutlineLevels'] = bookmarksOutlineLevels.map((_element) => _element.serialize()).toList();
     }
 
-    if (this.createMissingOutlineLevels != null) {
-      _result['CreateMissingOutlineLevels'] = this.createMissingOutlineLevels;
+    if (createMissingOutlineLevels != null) {
+      _result['CreateMissingOutlineLevels'] = createMissingOutlineLevels;
     }
 
-    if (this.createOutlinesForHeadingsInTables != null) {
-      _result['CreateOutlinesForHeadingsInTables'] = this.createOutlinesForHeadingsInTables;
+    if (createOutlinesForHeadingsInTables != null) {
+      _result['CreateOutlinesForHeadingsInTables'] = createOutlinesForHeadingsInTables;
     }
 
-    if (this.defaultBookmarksOutlineLevel != null) {
-      _result['DefaultBookmarksOutlineLevel'] = this.defaultBookmarksOutlineLevel;
+    if (defaultBookmarksOutlineLevel != null) {
+      _result['DefaultBookmarksOutlineLevel'] = defaultBookmarksOutlineLevel;
     }
 
-    if (this.expandedOutlineLevels != null) {
-      _result['ExpandedOutlineLevels'] = this.expandedOutlineLevels;
+    if (expandedOutlineLevels != null) {
+      _result['ExpandedOutlineLevels'] = expandedOutlineLevels;
     }
 
-    if (this.headingsOutlineLevels != null) {
-      _result['HeadingsOutlineLevels'] = this.headingsOutlineLevels;
+    if (headingsOutlineLevels != null) {
+      _result['HeadingsOutlineLevels'] = headingsOutlineLevels;
     }
     return _result;
   }

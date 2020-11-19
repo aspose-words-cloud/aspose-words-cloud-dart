@@ -36,13 +36,13 @@ import '../api_request_part.dart';
 
 /// Request model for InsertParagraph operation.
 class InsertParagraphRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Paragraph data.
+  /// The properties of the paragraph.
   final ParagraphInsert paragraph;
 
-  /// Path to the node which contains paragraphs.
+  /// The path to the node in the document tree.
   final String nodePath;
 
   /// Original document folder.
@@ -66,72 +66,72 @@ class InsertParagraphRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  /// Paragraph will be inserted before node with index.
+  /// The index of the node. A new paragraph will be inserted before the node with the specified index.
   final String insertBeforeNode;
 
-  InsertParagraphRequest(final String this.name, final ParagraphInsert this.paragraph, {final String this.nodePath = null, final String this.folder = null, final String this.storage = null, final String this.loadEncoding = null, final String this.password = null, final String this.destFileName = null, final String this.revisionAuthor = null, final String this.revisionDateTime = null, final String this.insertBeforeNode = null});
+  InsertParagraphRequest(final this.name, final this.paragraph, {final this.nodePath, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime, final this.insertBeforeNode});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/{name}/{nodePath}/paragraphs';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.name == null) {
-      throw new ApiException(400, 'Parameter name is required.');
+    var _path = '/words/{name}/{nodePath}/paragraphs';
+    var _queryParams = <String, String>{};
+    var _headers = <String, String>{};
+    var _bodyParts = <ApiRequestPart>[];
+    if (name == null) {
+      throw ApiException(400, 'Parameter name is required.');
     }
-    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
-    path = path.replaceAll('{nodePath}', apiClient.serializeToString(this.nodePath) ?? '');
-    if (this.folder != null) {
-      queryParams['folder'] = apiClient.serializeToString(this.folder);
-    }
-
-    if (this.storage != null) {
-      queryParams['storage'] = apiClient.serializeToString(this.storage);
+    _path = _path.replaceAll('{name}', apiClient.serializeToString(name));
+    _path = _path.replaceAll('{nodePath}', apiClient.serializeToString(nodePath) ?? '');
+    if (folder != null) {
+      _queryParams['folder'] = apiClient.serializeToString(folder);
     }
 
-    if (this.loadEncoding != null) {
-      queryParams['loadEncoding'] = apiClient.serializeToString(this.loadEncoding);
+    if (storage != null) {
+      _queryParams['storage'] = apiClient.serializeToString(storage);
     }
 
-    if (this.password != null) {
-      queryParams['password'] = apiClient.serializeToString(this.password);
+    if (loadEncoding != null) {
+      _queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
     }
 
-    if (this.destFileName != null) {
-      queryParams['destFileName'] = apiClient.serializeToString(this.destFileName);
+    if (password != null) {
+      _queryParams['password'] = apiClient.serializeToString(password);
     }
 
-    if (this.revisionAuthor != null) {
-      queryParams['revisionAuthor'] = apiClient.serializeToString(this.revisionAuthor);
+    if (destFileName != null) {
+      _queryParams['destFileName'] = apiClient.serializeToString(destFileName);
     }
 
-    if (this.revisionDateTime != null) {
-      queryParams['revisionDateTime'] = apiClient.serializeToString(this.revisionDateTime);
+    if (revisionAuthor != null) {
+      _queryParams['revisionAuthor'] = apiClient.serializeToString(revisionAuthor);
     }
 
-    if (this.insertBeforeNode != null) {
-      queryParams['insertBeforeNode'] = apiClient.serializeToString(this.insertBeforeNode);
+    if (revisionDateTime != null) {
+      _queryParams['revisionDateTime'] = apiClient.serializeToString(revisionDateTime);
     }
 
-    if (this.paragraph != null) {
-      bodyParts.add(new ApiRequestPart(apiClient.serializeBody(this.paragraph), 'application/json'));
+    if (insertBeforeNode != null) {
+      _queryParams['insertBeforeNode'] = apiClient.serializeToString(insertBeforeNode);
+    }
+
+    if (paragraph != null) {
+      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(paragraph), 'application/json'));
     }
     else {
-      throw new ApiException(400, 'Parameter paragraph is required.');
+      throw ApiException(400, 'Parameter paragraph is required.');
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('POST', url, headers, body);
+    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    return ApiRequestData('POST', _url, _headers, _body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = new ParagraphResponse();
+    var _result = ParagraphResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
-    _result.deserialize(_json);
+    _result.deserialize(_json as Map<String, dynamic>);
     return _result;
   }
 }

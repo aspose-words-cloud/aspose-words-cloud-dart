@@ -31,63 +31,66 @@ import '../../aspose_words_cloud.dart';
 
 /// Represents a single document style properties to update.
 class StyleUpdate implements ModelBase {
-  /// Gets or sets /sets the name of the style this style is based on.
+  /// Gets or sets the name of the style this style is based on.
   String baseStyleName;
 
-  /// Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.
+  /// Gets or sets a value indicating whether this style is shown in the Quick Style gallery inside MS Word UI.
   bool isQuickStyle;
 
   /// Gets or sets the name of the style.
   String name;
 
-  /// Gets or sets /sets the name of the style to be applied automatically to a new paragraph
-  /// inserted after a paragraph formatted with the specified style.
+  /// Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
   String nextParagraphStyleName;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize StyleUpdate data model.');
+    }
+
     if (json.containsKey('BaseStyleName')) {
-      this.baseStyleName = json['BaseStyleName'];
+      baseStyleName = json['BaseStyleName'] as String;
     } else {
-      this.baseStyleName = null;
+      baseStyleName = null;
     }
 
     if (json.containsKey('IsQuickStyle')) {
-      this.isQuickStyle = json['IsQuickStyle'];
+      isQuickStyle = json['IsQuickStyle'] as bool;
     } else {
-      this.isQuickStyle = null;
+      isQuickStyle = null;
     }
 
     if (json.containsKey('Name')) {
-      this.name = json['Name'];
+      name = json['Name'] as String;
     } else {
-      this.name = null;
+      name = null;
     }
 
     if (json.containsKey('NextParagraphStyleName')) {
-      this.nextParagraphStyleName = json['NextParagraphStyleName'];
+      nextParagraphStyleName = json['NextParagraphStyleName'] as String;
     } else {
-      this.nextParagraphStyleName = null;
+      nextParagraphStyleName = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.baseStyleName != null) {
-      _result['BaseStyleName'] = this.baseStyleName;
+    var _result = <String, dynamic>{};
+    if (baseStyleName != null) {
+      _result['BaseStyleName'] = baseStyleName;
     }
 
-    if (this.isQuickStyle != null) {
-      _result['IsQuickStyle'] = this.isQuickStyle;
+    if (isQuickStyle != null) {
+      _result['IsQuickStyle'] = isQuickStyle;
     }
 
-    if (this.name != null) {
-      _result['Name'] = this.name;
+    if (name != null) {
+      _result['Name'] = name;
     }
 
-    if (this.nextParagraphStyleName != null) {
-      _result['NextParagraphStyleName'] = this.nextParagraphStyleName;
+    if (nextParagraphStyleName != null) {
+      _result['NextParagraphStyleName'] = nextParagraphStyleName;
     }
     return _result;
   }

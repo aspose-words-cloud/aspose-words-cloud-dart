@@ -31,36 +31,40 @@ import '../../aspose_words_cloud.dart';
 
 /// Container for the footnotes statistical data.
 class FootnotesStatData implements ModelBase {
-  /// Gets or sets total count of paragraphs in footnotes.
+  /// Gets or sets the total count of paragraphs in footnotes.
   int paragraphCount;
 
-  /// Gets or sets total count of words in footnotes.
+  /// Gets or sets the total count of words in footnotes.
   int wordCount;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FootnotesStatData data model.');
+    }
+
     if (json.containsKey('ParagraphCount')) {
-      this.paragraphCount = json['ParagraphCount'];
+      paragraphCount = json['ParagraphCount'] as int;
     } else {
-      this.paragraphCount = null;
+      paragraphCount = null;
     }
 
     if (json.containsKey('WordCount')) {
-      this.wordCount = json['WordCount'];
+      wordCount = json['WordCount'] as int;
     } else {
-      this.wordCount = null;
+      wordCount = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.paragraphCount != null) {
-      _result['ParagraphCount'] = this.paragraphCount;
+    var _result = <String, dynamic>{};
+    if (paragraphCount != null) {
+      _result['ParagraphCount'] = paragraphCount;
     }
 
-    if (this.wordCount != null) {
-      _result['WordCount'] = this.wordCount;
+    if (wordCount != null) {
+      _result['WordCount'] = wordCount;
     }
     return _result;
   }

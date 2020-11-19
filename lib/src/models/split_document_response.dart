@@ -29,28 +29,32 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:  POST /{name}/split .
+/// The REST response with a result of document splitting.
 class SplitDocumentResponse extends WordsResponse {
-  /// Gets or sets resylt of splitting document.
+  /// Gets or sets the result of document splitting.
   SplitDocumentResult splitResult;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize SplitDocumentResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('SplitResult')) {
-      this.splitResult = new SplitDocumentResult();
-      this.splitResult.deserialize(json['SplitResult']);
+      splitResult = SplitDocumentResult();
+      splitResult.deserialize(json['SplitResult'] as Map<String, dynamic>);
     } else {
-      this.splitResult = null;
+      splitResult = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.splitResult != null) {
-      _result['SplitResult'] = this.splitResult.serialize();
+    if (splitResult != null) {
+      _result['SplitResult'] = splitResult.serialize();
     }
     return _result;
   }

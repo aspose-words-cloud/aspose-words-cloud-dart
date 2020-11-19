@@ -29,68 +29,72 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// container class for doc/dot save options.
+/// Container class for doc/dot save options.
 class DocSaveOptionsData extends SaveOptionsData {
-  /// Gets or sets When false, small metafiles are not compressed for performance reason.
-  /// Default value is true, all metafiles are compressed regardless of its size.
+  /// Gets or sets a value indicating when False, that small metafiles are not compressed for performance reason.
+  /// The default value is true, all metafiles are compressed regardless of its size.
   bool alwaysCompressMetafiles;
 
-  /// Gets or sets password.
+  /// Gets or sets the password.
   String password;
 
-  /// Gets or sets When false, PictureBullet data is not saved to output document.
-  /// Default value is true.
+  /// Gets or sets a value indicating when False, that PictureBullet data is not saved to the output document.
+  /// The default value is true.
   bool savePictureBullet;
 
-  /// Gets or sets determine whether or not save RoutingSlip data saved to output document.
+  /// Gets or sets a value indicating whether to save RoutingSlip data to output document.
   bool saveRoutingSlip;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize DocSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('AlwaysCompressMetafiles')) {
-      this.alwaysCompressMetafiles = json['AlwaysCompressMetafiles'];
+      alwaysCompressMetafiles = json['AlwaysCompressMetafiles'] as bool;
     } else {
-      this.alwaysCompressMetafiles = null;
+      alwaysCompressMetafiles = null;
     }
 
     if (json.containsKey('Password')) {
-      this.password = json['Password'];
+      password = json['Password'] as String;
     } else {
-      this.password = null;
+      password = null;
     }
 
     if (json.containsKey('SavePictureBullet')) {
-      this.savePictureBullet = json['SavePictureBullet'];
+      savePictureBullet = json['SavePictureBullet'] as bool;
     } else {
-      this.savePictureBullet = null;
+      savePictureBullet = null;
     }
 
     if (json.containsKey('SaveRoutingSlip')) {
-      this.saveRoutingSlip = json['SaveRoutingSlip'];
+      saveRoutingSlip = json['SaveRoutingSlip'] as bool;
     } else {
-      this.saveRoutingSlip = null;
+      saveRoutingSlip = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.alwaysCompressMetafiles != null) {
-      _result['AlwaysCompressMetafiles'] = this.alwaysCompressMetafiles;
+    if (alwaysCompressMetafiles != null) {
+      _result['AlwaysCompressMetafiles'] = alwaysCompressMetafiles;
     }
 
-    if (this.password != null) {
-      _result['Password'] = this.password;
+    if (password != null) {
+      _result['Password'] = password;
     }
 
-    if (this.savePictureBullet != null) {
-      _result['SavePictureBullet'] = this.savePictureBullet;
+    if (savePictureBullet != null) {
+      _result['SavePictureBullet'] = savePictureBullet;
     }
 
-    if (this.saveRoutingSlip != null) {
-      _result['SaveRoutingSlip'] = this.saveRoutingSlip;
+    if (saveRoutingSlip != null) {
+      _result['SaveRoutingSlip'] = saveRoutingSlip;
     }
     return _result;
   }

@@ -29,42 +29,46 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Response for the request of the document's statistical data.
+/// The REST response with document's statistical data.
 class StatDataResponse extends WordsResponse {
-  /// Gets or sets link to the document.
+  /// Gets or sets the link to the document.
   FileLink documentLink;
 
-  /// Gets or sets statistical data of the document.
+  /// Gets or sets the statistical data of the document.
   DocumentStatData statData;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize StatDataResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('DocumentLink')) {
-      this.documentLink = new FileLink();
-      this.documentLink.deserialize(json['DocumentLink']);
+      documentLink = FileLink();
+      documentLink.deserialize(json['DocumentLink'] as Map<String, dynamic>);
     } else {
-      this.documentLink = null;
+      documentLink = null;
     }
 
     if (json.containsKey('StatData')) {
-      this.statData = new DocumentStatData();
-      this.statData.deserialize(json['StatData']);
+      statData = DocumentStatData();
+      statData.deserialize(json['StatData'] as Map<String, dynamic>);
     } else {
-      this.statData = null;
+      statData = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.documentLink != null) {
-      _result['DocumentLink'] = this.documentLink.serialize();
+    if (documentLink != null) {
+      _result['DocumentLink'] = documentLink.serialize();
     }
 
-    if (this.statData != null) {
-      _result['StatData'] = this.statData.serialize();
+    if (statData != null) {
+      _result['StatData'] = statData.serialize();
     }
     return _result;
   }

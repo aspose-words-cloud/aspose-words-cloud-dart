@@ -29,29 +29,32 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:
-/// GET https://api.aspose.cloud/v4.0/words/Test.doc/OfficeMathObjects.
+/// The REST response with a collection of OfficeMath objects.
 class OfficeMathObjectsResponse extends WordsResponse {
-  /// Gets or sets collection of OfficeMath objects.
+  /// Gets or sets the collection of OfficeMath objects.
   OfficeMathObjectsCollection officeMathObjects;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize OfficeMathObjectsResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('OfficeMathObjects')) {
-      this.officeMathObjects = new OfficeMathObjectsCollection();
-      this.officeMathObjects.deserialize(json['OfficeMathObjects']);
+      officeMathObjects = OfficeMathObjectsCollection();
+      officeMathObjects.deserialize(json['OfficeMathObjects'] as Map<String, dynamic>);
     } else {
-      this.officeMathObjects = null;
+      officeMathObjects = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.officeMathObjects != null) {
-      _result['OfficeMathObjects'] = this.officeMathObjects.serialize();
+    if (officeMathObjects != null) {
+      _result['OfficeMathObjects'] = officeMathObjects.serialize();
     }
     return _result;
   }

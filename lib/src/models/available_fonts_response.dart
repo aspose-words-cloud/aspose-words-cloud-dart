@@ -29,71 +29,75 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// The list of fonts, available for document processing.
+/// The REST response with data on system, additional and custom fonts, available for document processing.
 class AvailableFontsResponse extends WordsResponse {
-  /// Gets or sets the list of addititional fonts, provided by aspose team.
+  /// Gets or sets the list of additional fonts, provided by Aspose team.
   List<FontInfo> additionalFonts;
 
-  /// Gets or sets custom user fonts (from user file storage). To use them, you should specify "fontsLocation" parameter in any request.
+  /// Gets or sets the list of custom user fonts from user cloud storage. To use them, you should specify "fontsLocation" parameter in any request.
   List<FontInfo> customFonts;
 
-  /// Gets or sets the list of system fonts, availiable on the server.
+  /// Gets or sets the list of system fonts, available on the server.
   List<FontInfo> systemFonts;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize AvailableFontsResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('AdditionalFonts')) {
       // Array processing
-      this.additionalFonts = new List<FontInfo>();
+      additionalFonts = <FontInfo>[];
       for(final _element in json['AdditionalFonts']) {
-        var _elementValue = new FontInfo();
-        _elementValue.deserialize(_element);
-        this.additionalFonts.add(_elementValue);
+        var _elementValue = FontInfo();
+        _elementValue.deserialize(_element as Map<String, dynamic>);
+        additionalFonts.add(_elementValue);
       }
     } else {
-      this.additionalFonts = null;
+      additionalFonts = null;
     }
 
     if (json.containsKey('CustomFonts')) {
       // Array processing
-      this.customFonts = new List<FontInfo>();
+      customFonts = <FontInfo>[];
       for(final _element in json['CustomFonts']) {
-        var _elementValue = new FontInfo();
-        _elementValue.deserialize(_element);
-        this.customFonts.add(_elementValue);
+        var _elementValue = FontInfo();
+        _elementValue.deserialize(_element as Map<String, dynamic>);
+        customFonts.add(_elementValue);
       }
     } else {
-      this.customFonts = null;
+      customFonts = null;
     }
 
     if (json.containsKey('SystemFonts')) {
       // Array processing
-      this.systemFonts = new List<FontInfo>();
+      systemFonts = <FontInfo>[];
       for(final _element in json['SystemFonts']) {
-        var _elementValue = new FontInfo();
-        _elementValue.deserialize(_element);
-        this.systemFonts.add(_elementValue);
+        var _elementValue = FontInfo();
+        _elementValue.deserialize(_element as Map<String, dynamic>);
+        systemFonts.add(_elementValue);
       }
     } else {
-      this.systemFonts = null;
+      systemFonts = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.additionalFonts != null) {
-      _result['AdditionalFonts'] = this.additionalFonts.map((_element) => _element.serialize()).toList();
+    if (additionalFonts != null) {
+      _result['AdditionalFonts'] = additionalFonts.map((_element) => _element.serialize()).toList();
     }
 
-    if (this.customFonts != null) {
-      _result['CustomFonts'] = this.customFonts.map((_element) => _element.serialize()).toList();
+    if (customFonts != null) {
+      _result['CustomFonts'] = customFonts.map((_element) => _element.serialize()).toList();
     }
 
-    if (this.systemFonts != null) {
-      _result['SystemFonts'] = this.systemFonts.map((_element) => _element.serialize()).toList();
+    if (systemFonts != null) {
+      _result['SystemFonts'] = systemFonts.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

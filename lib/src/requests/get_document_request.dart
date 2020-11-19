@@ -36,7 +36,7 @@ import '../api_request_part.dart';
 
 /// Request model for GetDocument operation.
 class GetDocumentRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String documentName;
 
   /// Original document folder.
@@ -51,45 +51,45 @@ class GetDocumentRequest implements RequestBase {
   /// Password for opening an encrypted document.
   final String password;
 
-  GetDocumentRequest(final String this.documentName, {final String this.folder = null, final String this.storage = null, final String this.loadEncoding = null, final String this.password = null});
+  GetDocumentRequest(final this.documentName, {final this.folder, final this.storage, final this.loadEncoding, final this.password});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/{documentName}';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.documentName == null) {
-      throw new ApiException(400, 'Parameter documentName is required.');
+    var _path = '/words/{documentName}';
+    var _queryParams = <String, String>{};
+    var _headers = <String, String>{};
+    var _bodyParts = <ApiRequestPart>[];
+    if (documentName == null) {
+      throw ApiException(400, 'Parameter documentName is required.');
     }
-    path = path.replaceAll('{documentName}', apiClient.serializeToString(this.documentName));
-    if (this.folder != null) {
-      queryParams['folder'] = apiClient.serializeToString(this.folder);
-    }
-
-    if (this.storage != null) {
-      queryParams['storage'] = apiClient.serializeToString(this.storage);
+    _path = _path.replaceAll('{documentName}', apiClient.serializeToString(documentName));
+    if (folder != null) {
+      _queryParams['folder'] = apiClient.serializeToString(folder);
     }
 
-    if (this.loadEncoding != null) {
-      queryParams['loadEncoding'] = apiClient.serializeToString(this.loadEncoding);
+    if (storage != null) {
+      _queryParams['storage'] = apiClient.serializeToString(storage);
     }
 
-    if (this.password != null) {
-      queryParams['password'] = apiClient.serializeToString(this.password);
+    if (loadEncoding != null) {
+      _queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('GET', url, headers, body);
+    if (password != null) {
+      _queryParams['password'] = apiClient.serializeToString(password);
+    }
+
+    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    return ApiRequestData('GET', _url, _headers, _body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = new DocumentResponse();
+    var _result = DocumentResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
-    _result.deserialize(_json);
+    _result.deserialize(_json as Map<String, dynamic>);
     return _result;
   }
 }

@@ -29,27 +29,31 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// container class for wml save options.
+/// Container class for wml save options.
 class WordMLSaveOptionsData extends SaveOptionsData {
-  /// Gets or sets specifies whether or not use pretty formats output.
+  /// Gets or sets a value indicating whether to use pretty formats output.
   bool prettyFormat;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize WordMLSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('PrettyFormat')) {
-      this.prettyFormat = json['PrettyFormat'];
+      prettyFormat = json['PrettyFormat'] as bool;
     } else {
-      this.prettyFormat = null;
+      prettyFormat = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.prettyFormat != null) {
-      _result['PrettyFormat'] = this.prettyFormat;
+    if (prettyFormat != null) {
+      _result['PrettyFormat'] = prettyFormat;
     }
     return _result;
   }

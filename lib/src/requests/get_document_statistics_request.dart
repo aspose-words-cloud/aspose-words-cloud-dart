@@ -36,7 +36,7 @@ import '../api_request_part.dart';
 
 /// Request model for GetDocumentStatistics operation.
 class GetDocumentStatisticsRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
   /// Original document folder.
@@ -51,66 +51,66 @@ class GetDocumentStatisticsRequest implements RequestBase {
   /// Password for opening an encrypted document.
   final String password;
 
-  /// Support including/excluding comments from the WordCount. Default value is "false".
+  /// The flag indicating whether to include comments from the WordCount. The default value is "false".
   final bool includeComments;
 
-  /// Support including/excluding footnotes from the WordCount. Default value is "false".
+  /// The flag indicating whether to include footnotes from the WordCount. The default value is "false".
   final bool includeFootnotes;
 
-  /// Support including/excluding shape's text from the WordCount. Default value is "false".
+  /// The flag indicating whether to include shape's text from the WordCount. The default value is "false".
   final bool includeTextInShapes;
 
-  GetDocumentStatisticsRequest(final String this.name, {final String this.folder = null, final String this.storage = null, final String this.loadEncoding = null, final String this.password = null, final bool this.includeComments = null, final bool this.includeFootnotes = null, final bool this.includeTextInShapes = null});
+  GetDocumentStatisticsRequest(final this.name, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.includeComments, final this.includeFootnotes, final this.includeTextInShapes});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/{name}/statistics';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.name == null) {
-      throw new ApiException(400, 'Parameter name is required.');
+    var _path = '/words/{name}/statistics';
+    var _queryParams = <String, String>{};
+    var _headers = <String, String>{};
+    var _bodyParts = <ApiRequestPart>[];
+    if (name == null) {
+      throw ApiException(400, 'Parameter name is required.');
     }
-    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
-    if (this.folder != null) {
-      queryParams['folder'] = apiClient.serializeToString(this.folder);
-    }
-
-    if (this.storage != null) {
-      queryParams['storage'] = apiClient.serializeToString(this.storage);
+    _path = _path.replaceAll('{name}', apiClient.serializeToString(name));
+    if (folder != null) {
+      _queryParams['folder'] = apiClient.serializeToString(folder);
     }
 
-    if (this.loadEncoding != null) {
-      queryParams['loadEncoding'] = apiClient.serializeToString(this.loadEncoding);
+    if (storage != null) {
+      _queryParams['storage'] = apiClient.serializeToString(storage);
     }
 
-    if (this.password != null) {
-      queryParams['password'] = apiClient.serializeToString(this.password);
+    if (loadEncoding != null) {
+      _queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
     }
 
-    if (this.includeComments != null) {
-      queryParams['includeComments'] = apiClient.serializeToString(this.includeComments);
+    if (password != null) {
+      _queryParams['password'] = apiClient.serializeToString(password);
     }
 
-    if (this.includeFootnotes != null) {
-      queryParams['includeFootnotes'] = apiClient.serializeToString(this.includeFootnotes);
+    if (includeComments != null) {
+      _queryParams['includeComments'] = apiClient.serializeToString(includeComments);
     }
 
-    if (this.includeTextInShapes != null) {
-      queryParams['includeTextInShapes'] = apiClient.serializeToString(this.includeTextInShapes);
+    if (includeFootnotes != null) {
+      _queryParams['includeFootnotes'] = apiClient.serializeToString(includeFootnotes);
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('GET', url, headers, body);
+    if (includeTextInShapes != null) {
+      _queryParams['includeTextInShapes'] = apiClient.serializeToString(includeTextInShapes);
+    }
+
+    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    return ApiRequestData('GET', _url, _headers, _body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = new StatDataResponse();
+    var _result = StatDataResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
-    _result.deserialize(_json);
+    _result.deserialize(_json as Map<String, dynamic>);
     return _result;
   }
 }

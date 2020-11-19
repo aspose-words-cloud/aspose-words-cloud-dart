@@ -29,38 +29,42 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// container class for individual bookmarks outline level.
+/// Container class for individual bookmarks outline level.
 class BookmarksOutlineLevelData implements ModelBase {
-  /// Gets or sets specify the bookmark's level.
+  /// Gets or sets the bookmark's level.
   int bookmarksOutlineLevel;
 
-  /// Gets or sets specify the bookmark's name.
+  /// Gets or sets the bookmark's name.
   String name;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize BookmarksOutlineLevelData data model.');
+    }
+
     if (json.containsKey('BookmarksOutlineLevel')) {
-      this.bookmarksOutlineLevel = json['BookmarksOutlineLevel'];
+      bookmarksOutlineLevel = json['BookmarksOutlineLevel'] as int;
     } else {
-      this.bookmarksOutlineLevel = null;
+      bookmarksOutlineLevel = null;
     }
 
     if (json.containsKey('Name')) {
-      this.name = json['Name'];
+      name = json['Name'] as String;
     } else {
-      this.name = null;
+      name = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.bookmarksOutlineLevel != null) {
-      _result['BookmarksOutlineLevel'] = this.bookmarksOutlineLevel;
+    var _result = <String, dynamic>{};
+    if (bookmarksOutlineLevel != null) {
+      _result['BookmarksOutlineLevel'] = bookmarksOutlineLevel;
     }
 
-    if (this.name != null) {
-      _result['Name'] = this.name;
+    if (name != null) {
+      _result['Name'] = name;
     }
     return _result;
   }

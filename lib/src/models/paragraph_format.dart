@@ -31,38 +31,42 @@ import '../../aspose_words_cloud.dart';
 
 /// Paragraph format element.
 class ParagraphFormat extends ParagraphFormatBase {
-  /// Gets or sets True when the paragraph style is one of the built-in Heading styles.
+  /// Gets or sets a value indicating whether the paragraph style is one of the built-in Heading styles.
   bool isHeading;
 
-  /// Gets or sets True when the paragraph is an item in a bulleted or numbered list.
+  /// Gets or sets a value indicating whether the paragraph is an item in a bulleted or numbered list.
   bool isListItem;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ParagraphFormat data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('IsHeading')) {
-      this.isHeading = json['IsHeading'];
+      isHeading = json['IsHeading'] as bool;
     } else {
-      this.isHeading = null;
+      isHeading = null;
     }
 
     if (json.containsKey('IsListItem')) {
-      this.isListItem = json['IsListItem'];
+      isListItem = json['IsListItem'] as bool;
     } else {
-      this.isListItem = null;
+      isListItem = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.isHeading != null) {
-      _result['IsHeading'] = this.isHeading;
+    if (isHeading != null) {
+      _result['IsHeading'] = isHeading;
     }
 
-    if (this.isListItem != null) {
-      _result['IsListItem'] = this.isListItem;
+    if (isListItem != null) {
+      _result['IsListItem'] = isListItem;
     }
     return _result;
   }

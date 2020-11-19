@@ -27,809 +27,808 @@
 
 library aspose_words_cloud;
 
+import 'dart:typed_data';
+
 import '../aspose_words_cloud.dart';
 import './api_client.dart';
-import 'dart:typed_data';
 
 /// Aspose.Words for Cloud API.
 class WordsApi {
   final ApiClient _apiClient;
-  WordsApi(final Configuration configuration) : this._apiClient = new ApiClient(configuration);
+  WordsApi(final Configuration configuration) : _apiClient = ApiClient(configuration);
 
-  /// Accepts all revisions in document.
+  /// Accepts all revisions in the document.
   Future< RevisionsModificationResponse > acceptAllRevisions(AcceptAllRevisionsRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as RevisionsModificationResponse;
   }
 
-  /// Appends documents to original document.
+  /// Appends documents to the original document.
   Future< DocumentResponse > appendDocument(AppendDocumentRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as DocumentResponse;
   }
 
-  /// Apply a style to the document node.
+  /// Applies a style to the document node.
   Future< WordsResponse > applyStyleToDocumentElement(ApplyStyleToDocumentElementRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as WordsResponse;
   }
 
-  /// Executes document "build report" operation.
+  /// Executes the report generation process using the specified document template and the external data source in XML, JSON or CSV format.
   Future< DocumentResponse > buildReport(BuildReportRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as DocumentResponse;
   }
 
-  /// Executes document "build report" online operation.
+  /// Executes the report generation process online using the specified document template and the external data source in XML, JSON or CSV format.
   Future< ByteData > buildReportOnline(BuildReportOnlineRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ByteData;
   }
 
-  /// Classifies raw text.
+  /// Runs a multi-class text classification for the specified raw text.
   Future< ClassificationResponse > classify(ClassifyRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ClassificationResponse;
   }
 
-  /// Classifies document.
+  /// Runs a multi-class text classification for the document.
   Future< ClassificationResponse > classifyDocument(ClassifyDocumentRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ClassificationResponse;
   }
 
-  /// Compares document with original document.
+  /// Compares two documents.
   Future< DocumentResponse > compareDocument(CompareDocumentRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as DocumentResponse;
   }
 
-  /// Converts document from the request's content to the specified format.
+  /// Converts a document on a local drive to the specified format.
   Future< ByteData > convertDocument(ConvertDocumentRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ByteData;
   }
 
   /// Copy file.
   Future< void > copyFile(CopyFileRequest request) async {
-  await this._apiClient.call(request);
+  await _apiClient.call(request);
   }
 
   /// Copy folder.
   Future< void > copyFolder(CopyFolderRequest request) async {
-  await this._apiClient.call(request);
+  await _apiClient.call(request);
   }
 
-  /// Copy and insert a new style to the document, returns a copied style.
+  /// Makes a copy of the style in the document.
   Future< StyleResponse > copyStyle(CopyStyleRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as StyleResponse;
   }
 
-  /// Creates new document.
-  /// Document is created with format which is recognized from file extensions.
   /// Supported extensions: ".doc", ".docx", ".docm", ".dot", ".dotm", ".dotx", ".flatopc", ".fopc", ".flatopc_macro", ".fopc_macro", ".flatopc_template", ".fopc_template", ".flatopc_template_macro", ".fopc_template_macro", ".wordml", ".wml", ".rtf".
   Future< DocumentResponse > createDocument(CreateDocumentRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as DocumentResponse;
   }
 
   /// Create the folder.
   Future< void > createFolder(CreateFolderRequest request) async {
-  await this._apiClient.call(request);
+  await _apiClient.call(request);
   }
 
-  /// Adds new or update existing document property.
+  /// Adds a new or updates an existing document property.
   Future< DocumentPropertyResponse > createOrUpdateDocumentProperty(CreateOrUpdateDocumentPropertyRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as DocumentPropertyResponse;
   }
 
-  /// Remove all tab stops.
+  /// Removes paragraph tab stops from the document node.
   Future< TabStopsResponse > deleteAllParagraphTabStops(DeleteAllParagraphTabStopsRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as TabStopsResponse;
   }
 
-  /// 'nodePath' should refer to paragraph, cell or row.
+  /// The 'nodePath' parameter should refer to a paragraph, a cell or a row.
   Future< BorderResponse > deleteBorder(DeleteBorderRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as BorderResponse;
   }
 
-  /// 'nodePath' should refer to paragraph, cell or row.
+  /// The 'nodePath' parameter should refer to a paragraph, a cell or a row.
   Future< BordersResponse > deleteBorders(DeleteBordersRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as BordersResponse;
   }
 
-  /// Removes comment from document.
+  /// Removes a comment from the document.
   Future< void > deleteComment(DeleteCommentRequest request) async {
-  await this._apiClient.call(request);
+  await _apiClient.call(request);
   }
 
-  /// Deletes document property.
+  /// Removes a document property.
   Future< void > deleteDocumentProperty(DeleteDocumentPropertyRequest request) async {
-  await this._apiClient.call(request);
+  await _apiClient.call(request);
   }
 
-  /// Removes drawing object from document.
+  /// Removes a DrawingObject from the document node.
   Future< void > deleteDrawingObject(DeleteDrawingObjectRequest request) async {
-  await this._apiClient.call(request);
+  await _apiClient.call(request);
   }
 
-  /// Deletes field from document.
+  /// Removes a field from the document node.
   Future< void > deleteField(DeleteFieldRequest request) async {
-  await this._apiClient.call(request);
+  await _apiClient.call(request);
   }
 
-  /// Removes fields from section paragraph.
+  /// Removes fields from the document node.
   Future< void > deleteFields(DeleteFieldsRequest request) async {
-  await this._apiClient.call(request);
+  await _apiClient.call(request);
   }
 
   /// Delete file.
   Future< void > deleteFile(DeleteFileRequest request) async {
-  await this._apiClient.call(request);
+  await _apiClient.call(request);
   }
 
   /// Delete folder.
   Future< void > deleteFolder(DeleteFolderRequest request) async {
-  await this._apiClient.call(request);
+  await _apiClient.call(request);
   }
 
-  /// Removes footnote from document.
+  /// Removes a footnote from the document node.
   Future< void > deleteFootnote(DeleteFootnoteRequest request) async {
-  await this._apiClient.call(request);
+  await _apiClient.call(request);
   }
 
-  /// Removes form field from document.
+  /// Removes a form field from the document node.
   Future< void > deleteFormField(DeleteFormFieldRequest request) async {
-  await this._apiClient.call(request);
+  await _apiClient.call(request);
   }
 
-  /// Deletes header/footer from document.
+  /// Removes a HeaderFooter object from the document section.
   Future< void > deleteHeaderFooter(DeleteHeaderFooterRequest request) async {
-  await this._apiClient.call(request);
+  await _apiClient.call(request);
   }
 
-  /// Deletes document headers and footers.
+  /// Removes HeaderFooter objects from the document section.
   Future< void > deleteHeadersFooters(DeleteHeadersFootersRequest request) async {
-  await this._apiClient.call(request);
+  await _apiClient.call(request);
   }
 
-  /// Removes macros from document.
+  /// Removes macros from the document.
   Future< void > deleteMacros(DeleteMacrosRequest request) async {
-  await this._apiClient.call(request);
+  await _apiClient.call(request);
   }
 
-  /// Removes OfficeMath object from document.
+  /// Removes an OfficeMath object from the document node.
   Future< void > deleteOfficeMathObject(DeleteOfficeMathObjectRequest request) async {
-  await this._apiClient.call(request);
+  await _apiClient.call(request);
   }
 
-  /// Removes paragraph from section.
+  /// Removes a paragraph from the document node.
   Future< void > deleteParagraph(DeleteParagraphRequest request) async {
-  await this._apiClient.call(request);
+  await _apiClient.call(request);
   }
 
-  /// Delete paragraph list format, returns updated list format properties.
+  /// Removes the formatting properties of a paragraph list from the document node.
   Future< ParagraphListFormatResponse > deleteParagraphListFormat(DeleteParagraphListFormatRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ParagraphListFormatResponse;
   }
 
-  /// Remove the i-th tab stop.
+  /// Removes a paragraph tab stop from the document node.
   Future< TabStopsResponse > deleteParagraphTabStop(DeleteParagraphTabStopRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as TabStopsResponse;
   }
 
-  /// Removes run from document.
+  /// Removes a Run object from the paragraph.
   Future< void > deleteRun(DeleteRunRequest request) async {
-  await this._apiClient.call(request);
+  await _apiClient.call(request);
   }
 
-  /// Removes section from document.
+  /// Removes a section from the document.
   Future< void > deleteSection(DeleteSectionRequest request) async {
-  await this._apiClient.call(request);
+  await _apiClient.call(request);
   }
 
-  /// Deletes a table.
+  /// Removes a table from the document node.
   Future< void > deleteTable(DeleteTableRequest request) async {
-  await this._apiClient.call(request);
+  await _apiClient.call(request);
   }
 
-  /// Deletes a table cell.
+  /// Removes a cell from the table row.
   Future< void > deleteTableCell(DeleteTableCellRequest request) async {
-  await this._apiClient.call(request);
+  await _apiClient.call(request);
   }
 
-  /// Deletes a table row.
+  /// Removes a row from the table.
   Future< void > deleteTableRow(DeleteTableRowRequest request) async {
-  await this._apiClient.call(request);
+  await _apiClient.call(request);
   }
 
-  /// Deletes watermark (for deleting last watermark from the document).
+  /// Removes a watermark from the document.
   Future< DocumentResponse > deleteWatermark(DeleteWatermarkRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as DocumentResponse;
   }
 
   /// Download file.
   Future< ByteData > downloadFile(DownloadFileRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ByteData;
   }
 
-  /// Executes document mail merge operation.
+  /// Executes a Mail Merge operation.
   Future< DocumentResponse > executeMailMerge(ExecuteMailMergeRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as DocumentResponse;
   }
 
-  /// Executes document mail merge online.
+  /// Executes a Mail Merge operation online.
   Future< ByteData > executeMailMergeOnline(ExecuteMailMergeOnlineRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ByteData;
   }
 
-  /// Gets the list of fonts, available for document processing.
+  /// Reads available fonts from the document.
   Future< AvailableFontsResponse > getAvailableFonts(GetAvailableFontsRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as AvailableFontsResponse;
   }
 
-  /// Reads document bookmark data by its name.
+  /// Reads a bookmark, specified by name, from the document.
   Future< BookmarkResponse > getBookmarkByName(GetBookmarkByNameRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as BookmarkResponse;
   }
 
-  /// Reads document bookmarks common info.
+  /// Reads bookmarks from the document.
   Future< BookmarksResponse > getBookmarks(GetBookmarksRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as BookmarksResponse;
   }
 
-  /// 'nodePath' should refer to paragraph, cell or row.
+  /// The 'nodePath' parameter should refer to a paragraph, a cell or a row.
   Future< BorderResponse > getBorder(GetBorderRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as BorderResponse;
   }
 
-  /// 'nodePath' should refer to paragraph, cell or row.
+  /// Reads borders from the document node.
   Future< BordersResponse > getBorders(GetBordersRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as BordersResponse;
   }
 
-  /// Gets comment from document.
+  /// Reads a comment from the document.
   Future< CommentResponse > getComment(GetCommentRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as CommentResponse;
   }
 
-  /// Gets comments from document.
+  /// Reads comments from the document.
   Future< CommentsResponse > getComments(GetCommentsRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as CommentsResponse;
   }
 
-  /// Reads document common info.
+  /// Reads common information from the document.
   Future< DocumentResponse > getDocument(GetDocumentRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as DocumentResponse;
   }
 
-  /// Reads document drawing object common info by its index or convert to format specified.
+  /// Reads a DrawingObject from the document node.
   Future< DrawingObjectResponse > getDocumentDrawingObjectByIndex(GetDocumentDrawingObjectByIndexRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as DrawingObjectResponse;
   }
 
-  /// Reads drawing object image data.
+  /// Reads image data of a DrawingObject from the document node.
   Future< ByteData > getDocumentDrawingObjectImageData(GetDocumentDrawingObjectImageDataRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ByteData;
   }
 
-  /// Gets drawing object OLE data.
+  /// Reads OLE data of a DrawingObject from the document node.
   Future< ByteData > getDocumentDrawingObjectOleData(GetDocumentDrawingObjectOleDataRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ByteData;
   }
 
-  /// Reads document drawing objects common info.
+  /// Reads DrawingObjects from the document node.
   Future< DrawingObjectsResponse > getDocumentDrawingObjects(GetDocumentDrawingObjectsRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as DrawingObjectsResponse;
   }
 
-  /// Reads document field names.
+  /// Reads merge field names from the document.
   Future< FieldNamesResponse > getDocumentFieldNames(GetDocumentFieldNamesRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as FieldNamesResponse;
   }
 
-  /// Reads document field names.
+  /// Reads merge field names from the document.
   Future< FieldNamesResponse > getDocumentFieldNamesOnline(GetDocumentFieldNamesOnlineRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as FieldNamesResponse;
   }
 
-  /// Reads document hyperlink by its index.
+  /// Reads a hyperlink from the document.
   Future< HyperlinkResponse > getDocumentHyperlinkByIndex(GetDocumentHyperlinkByIndexRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as HyperlinkResponse;
   }
 
-  /// Reads document hyperlinks common info.
+  /// Reads hyperlinks from the document.
   Future< HyperlinksResponse > getDocumentHyperlinks(GetDocumentHyperlinksRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as HyperlinksResponse;
   }
 
-  /// Reads document properties info.
+  /// Reads document properties.
   Future< DocumentPropertiesResponse > getDocumentProperties(GetDocumentPropertiesRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as DocumentPropertiesResponse;
   }
 
-  /// Reads document property info by the property name.
+  /// Reads a document property.
   Future< DocumentPropertyResponse > getDocumentProperty(GetDocumentPropertyRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as DocumentPropertyResponse;
   }
 
-  /// Reads document protection common info.
+  /// Reads protection properties from the document.
   Future< ProtectionDataResponse > getDocumentProtection(GetDocumentProtectionRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ProtectionDataResponse;
   }
 
   /// Reads document statistics.
   Future< StatDataResponse > getDocumentStatistics(GetDocumentStatisticsRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as StatDataResponse;
   }
 
-  /// Exports the document into the specified format.
+  /// Converts a document in cloud storage to the specified format.
   Future< ByteData > getDocumentWithFormat(GetDocumentWithFormatRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ByteData;
   }
 
-  /// Gets field from document.
+  /// Reads a field from the document node.
   Future< FieldResponse > getField(GetFieldRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as FieldResponse;
   }
 
-  /// Get fields from document.
+  /// Reads fields from the document node.
   Future< FieldsResponse > getFields(GetFieldsRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as FieldsResponse;
   }
 
   /// Get all files and folders within a folder.
   Future< FilesList > getFilesList(GetFilesListRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as FilesList;
   }
 
-  /// Reads footnote by index.
+  /// Reads a footnote from the document node.
   Future< FootnoteResponse > getFootnote(GetFootnoteRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as FootnoteResponse;
   }
 
-  /// Gets footnotes from document.
+  /// Reads footnotes from the document node.
   Future< FootnotesResponse > getFootnotes(GetFootnotesRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as FootnotesResponse;
   }
 
-  /// Returns representation of an one of the form field.
+  /// Reads a form field from the document node.
   Future< FormFieldResponse > getFormField(GetFormFieldRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as FormFieldResponse;
   }
 
-  /// Gets form fields from document.
+  /// Reads form fields from the document node.
   Future< FormFieldsResponse > getFormFields(GetFormFieldsRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as FormFieldsResponse;
   }
 
-  /// Returns a header/footer from the document by index.
+  /// Reads a HeaderFooter object from the document.
   Future< HeaderFooterResponse > getHeaderFooter(GetHeaderFooterRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as HeaderFooterResponse;
   }
 
-  /// Returns a header/footer from the document section.
+  /// Reads a HeaderFooter object from the document section.
   Future< HeaderFooterResponse > getHeaderFooterOfSection(GetHeaderFooterOfSectionRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as HeaderFooterResponse;
   }
 
-  /// Returns a list of header/footers from the document.
+  /// Reads HeaderFooter objects from the document section.
   Future< HeaderFootersResponse > getHeaderFooters(GetHeaderFootersRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as HeaderFootersResponse;
   }
 
-  /// This resource represents one of the lists contained in the document.
+  /// Reads a list from the document.
   Future< ListResponse > getList(GetListRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ListResponse;
   }
 
-  /// Returns a list of lists that are contained in the document.
+  /// Reads lists from the document.
   Future< ListsResponse > getLists(GetListsRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ListsResponse;
   }
 
-  /// Reads OfficeMath object by index.
+  /// Reads an OfficeMath object from the document node.
   Future< OfficeMathObjectResponse > getOfficeMathObject(GetOfficeMathObjectRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as OfficeMathObjectResponse;
   }
 
-  /// Gets OfficeMath objects from document.
+  /// Reads OfficeMath objects from the document node.
   Future< OfficeMathObjectsResponse > getOfficeMathObjects(GetOfficeMathObjectsRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as OfficeMathObjectsResponse;
   }
 
-  /// This resource represents one of the paragraphs contained in the document.
+  /// Reads a paragraph from the document node.
   Future< ParagraphResponse > getParagraph(GetParagraphRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ParagraphResponse;
   }
 
-  /// Represents all the formatting for a paragraph.
+  /// Reads the formatting properties of a paragraph from the document node.
   Future< ParagraphFormatResponse > getParagraphFormat(GetParagraphFormatRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ParagraphFormatResponse;
   }
 
-  /// Represents list format for a paragraph.
+  /// Reads the formatting properties of a paragraph list from the document node.
   Future< ParagraphListFormatResponse > getParagraphListFormat(GetParagraphListFormatRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ParagraphListFormatResponse;
   }
 
-  /// Returns a list of paragraphs that are contained in the document.
+  /// Reads paragraphs from the document node.
   Future< ParagraphLinkCollectionResponse > getParagraphs(GetParagraphsRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ParagraphLinkCollectionResponse;
   }
 
-  /// Get all tab stops for the paragraph.
+  /// Reads paragraph tab stops from the document node.
   Future< TabStopsResponse > getParagraphTabStops(GetParagraphTabStopsRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as TabStopsResponse;
   }
 
-  /// Gets the text from the range.
+  /// Reads range text from the document.
   Future< RangeTextResponse > getRangeText(GetRangeTextRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as RangeTextResponse;
   }
 
-  /// This resource represents run of text contained in the document.
+  /// Reads a Run object from the paragraph.
   Future< RunResponse > getRun(GetRunRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as RunResponse;
   }
 
-  /// This resource represents font of run.
+  /// Reads the font properties of a Run object from the paragraph.
   Future< FontResponse > getRunFont(GetRunFontRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as FontResponse;
   }
 
-  /// This resource represents collection of runs in the paragraph.
+  /// Reads Run objects from the paragraph.
   Future< RunsResponse > getRuns(GetRunsRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as RunsResponse;
   }
 
-  /// Gets document section by index.
+  /// Reads a section from the document.
   Future< SectionResponse > getSection(GetSectionRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as SectionResponse;
   }
 
-  /// Gets page setup of section.
+  /// Reads the page setup of a section from the document.
   Future< SectionPageSetupResponse > getSectionPageSetup(GetSectionPageSetupRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as SectionPageSetupResponse;
   }
 
-  /// Returns a list of sections that are contained in the document.
+  /// Reads sections from the document.
   Future< SectionLinkCollectionResponse > getSections(GetSectionsRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as SectionLinkCollectionResponse;
   }
 
-  /// This resource represents one of the styles contained in the document.
+  /// Reads a style from the document.
   Future< StyleResponse > getStyle(GetStyleRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as StyleResponse;
   }
 
-  /// Gets a style from the document node.
+  /// Reads a style from the document node.
   Future< StyleResponse > getStyleFromDocumentElement(GetStyleFromDocumentElementRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as StyleResponse;
   }
 
-  /// Returns a list of styles contained in the document.
+  /// Reads styles from the document.
   Future< StylesResponse > getStyles(GetStylesRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as StylesResponse;
   }
 
-  /// Returns a table.
+  /// Reads a table from the document node.
   Future< TableResponse > getTable(GetTableRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as TableResponse;
   }
 
-  /// Returns a table cell.
+  /// Reads a cell from the table row.
   Future< TableCellResponse > getTableCell(GetTableCellRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as TableCellResponse;
   }
 
-  /// Returns a table cell format.
+  /// Reads the formatting properties of a table cell.
   Future< TableCellFormatResponse > getTableCellFormat(GetTableCellFormatRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as TableCellFormatResponse;
   }
 
-  /// Returns a table properties.
+  /// Reads properties of a table from the document node.
   Future< TablePropertiesResponse > getTableProperties(GetTablePropertiesRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as TablePropertiesResponse;
   }
 
-  /// Returns a table row.
+  /// Reads a row from the table.
   Future< TableRowResponse > getTableRow(GetTableRowRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as TableRowResponse;
   }
 
-  /// Returns a table row format.
+  /// Reads the formatting properties of a table row.
   Future< TableRowFormatResponse > getTableRowFormat(GetTableRowFormatRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as TableRowFormatResponse;
   }
 
-  /// Returns a list of tables that are contained in the document.
+  /// Reads tables from the document node.
   Future< TableLinkCollectionResponse > getTables(GetTablesRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as TableLinkCollectionResponse;
   }
 
-  /// Adds comment to document, returns inserted comment data.
+  /// Inserts a new comment to the document.
   Future< CommentResponse > insertComment(InsertCommentRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as CommentResponse;
   }
 
-  /// Adds drawing object to document, returns added  drawing object's data.
+  /// Inserts a new DrawingObject to the document node.
   Future< DrawingObjectResponse > insertDrawingObject(InsertDrawingObjectRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as DrawingObjectResponse;
   }
 
-  /// Adds field to document, returns inserted field's data.
+  /// Inserts a new field to the document node.
   Future< FieldResponse > insertField(InsertFieldRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as FieldResponse;
   }
 
-  /// Adds footnote to document, returns added footnote's data.
+  /// Inserts a new footnote to the document node.
   Future< FootnoteResponse > insertFootnote(InsertFootnoteRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as FootnoteResponse;
   }
 
-  /// Adds form field to paragraph, returns added form field's data.
+  /// Inserts a new form field to the document node.
   Future< FormFieldResponse > insertFormField(InsertFormFieldRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as FormFieldResponse;
   }
 
-  /// Inserts to document header or footer.
+  /// Inserts a new HeaderFooter object to the document section.
   Future< HeaderFooterResponse > insertHeaderFooter(InsertHeaderFooterRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as HeaderFooterResponse;
   }
 
-  /// Adds list to document, returns added list's data.
+  /// Inserts a new list to the document.
   Future< ListResponse > insertList(InsertListRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ListResponse;
   }
 
-  /// Insert or resplace tab stop if a tab stop with the position exists.
+  /// Inserts a new or updates an existing paragraph tab stop in the document node.
   Future< TabStopsResponse > insertOrUpdateParagraphTabStop(InsertOrUpdateParagraphTabStopRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as TabStopsResponse;
   }
 
-  /// Inserts document page numbers.
+  /// Inserts page numbers to the document.
   Future< DocumentResponse > insertPageNumbers(InsertPageNumbersRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as DocumentResponse;
   }
 
-  /// Adds paragraph to document, returns added paragraph's data.
+  /// Inserts a new paragraph to the document node.
   Future< ParagraphResponse > insertParagraph(InsertParagraphRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ParagraphResponse;
   }
 
-  /// Adds run to document, returns added paragraph's data.
+  /// Inserts a new Run object to the paragraph.
   Future< RunResponse > insertRun(InsertRunRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as RunResponse;
   }
 
-  /// Adds a style to the document, returns an added style.
+  /// Inserts a new style to the document.
   Future< StyleResponse > insertStyle(InsertStyleRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as StyleResponse;
   }
 
-  /// Adds table to document, returns added table's data.
+  /// Inserts a new table to the document node.
   Future< TableResponse > insertTable(InsertTableRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as TableResponse;
   }
 
-  /// Adds table cell to table, returns added cell's data.
+  /// Inserts a new cell to the table row.
   Future< TableCellResponse > insertTableCell(InsertTableCellRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as TableCellResponse;
   }
 
-  /// Adds table row to table, returns added row's data.
+  /// Inserts a new row to the table.
   Future< TableRowResponse > insertTableRow(InsertTableRowRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as TableRowResponse;
   }
 
-  /// Inserts document watermark image.
+  /// Inserts a new watermark image to the document.
   Future< DocumentResponse > insertWatermarkImage(InsertWatermarkImageRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as DocumentResponse;
   }
 
-  /// Inserts document watermark text.
+  /// Inserts a new watermark text to the document.
   Future< DocumentResponse > insertWatermarkText(InsertWatermarkTextRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as DocumentResponse;
   }
 
-  /// Loads new document from web into the file with any supported format of data.
+  /// Downloads a document from the Web using URL and saves it to cloud storage in the specified format.
   Future< SaveResponse > loadWebDocument(LoadWebDocumentRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as SaveResponse;
   }
 
   /// Move file.
   Future< void > moveFile(MoveFileRequest request) async {
-  await this._apiClient.call(request);
+  await _apiClient.call(request);
   }
 
   /// Move folder.
   Future< void > moveFolder(MoveFolderRequest request) async {
-  await this._apiClient.call(request);
+  await _apiClient.call(request);
   }
 
-  /// Allows to optimize the document contents as well as default Aspose.Words behavior to a particular versions of MS Word.
+  /// Applies document content optimization options, specific to a particular versions of Microsoft Word.
   Future< void > optimizeDocument(OptimizeDocumentRequest request) async {
-  await this._apiClient.call(request);
+  await _apiClient.call(request);
   }
 
-  /// Protects document.
+  /// Adds protection to the document.
   Future< ProtectionDataResponse > protectDocument(ProtectDocumentRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ProtectionDataResponse;
   }
 
-  /// Rejects all revisions in document.
+  /// Rejects all revisions in the document.
   Future< RevisionsModificationResponse > rejectAllRevisions(RejectAllRevisionsRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as RevisionsModificationResponse;
   }
 
-  /// Removes the range from the document.
+  /// Removes a range from the document.
   Future< DocumentResponse > removeRange(RemoveRangeRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as DocumentResponse;
   }
 
-  /// Renders drawing object to specified format.
+  /// Renders a DrawingObject to the specified format.
   Future< ByteData > renderDrawingObject(RenderDrawingObjectRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ByteData;
   }
 
-  /// Renders math object to specified format.
+  /// Renders an OfficeMath object to the specified format.
   Future< ByteData > renderMathObject(RenderMathObjectRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ByteData;
   }
 
-  /// Renders page to specified format.
+  /// Renders a page to the specified format.
   Future< ByteData > renderPage(RenderPageRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ByteData;
   }
 
-  /// Renders paragraph to specified format.
+  /// Renders a paragraph to the specified format.
   Future< ByteData > renderParagraph(RenderParagraphRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ByteData;
   }
 
-  /// Renders table to specified format.
+  /// Renders a table to the specified format.
   Future< ByteData > renderTable(RenderTableRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ByteData;
   }
 
-  /// Replaces document text.
+  /// Replaces text in the document.
   Future< ReplaceTextResponse > replaceText(ReplaceTextRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ReplaceTextResponse;
   }
 
-  /// Replaces the content in the range.
+  /// Replaces a range with text in the document.
   Future< DocumentResponse > replaceWithText(ReplaceWithTextRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as DocumentResponse;
   }
 
-  /// Resets font's cache.
+  /// Clears the font cache.
   Future< void > resetCache(ResetCacheRequest request) async {
-  await this._apiClient.call(request);
+  await _apiClient.call(request);
   }
 
-  /// Converts document to destination format with detailed settings and saves result to storage.
+  /// Converts a document in cloud storage to the specified format.
   Future< SaveResponse > saveAs(SaveAsRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as SaveResponse;
   }
 
-  /// Saves the selected range as a new document.
+  /// Saves a range as a new document.
   Future< DocumentResponse > saveAsRange(SaveAsRangeRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as DocumentResponse;
   }
 
-  /// Converts document to tiff with detailed settings and saves result to storage.
+  /// Converts a document in cloud storage to TIFF format using detailed conversion settings.
   Future< SaveResponse > saveAsTiff(SaveAsTiffRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as SaveResponse;
   }
 
-  /// Searches text in document.
+  /// Searches text, specified by the regular expression, in the document.
   Future< SearchResponse > search(SearchRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as SearchResponse;
   }
 
-  /// Splits document.
+  /// Splits a document into parts and saves them in the specified format.
   Future< SplitDocumentResponse > splitDocument(SplitDocumentRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as SplitDocumentResponse;
   }
 
-  /// Unprotects document.
+  /// Removes protection from the document.
   Future< ProtectionDataResponse > unprotectDocument(UnprotectDocumentRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ProtectionDataResponse;
   }
 
-  /// Updates document bookmark.
+  /// Updates a bookmark in the document.
   Future< BookmarkResponse > updateBookmark(UpdateBookmarkRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as BookmarkResponse;
   }
 
-  /// 'nodePath' should refer to paragraph, cell or row.
+  /// The 'nodePath' parameter should refer to a paragraph, a cell or a row.
   Future< BorderResponse > updateBorder(UpdateBorderRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as BorderResponse;
   }
 
-  /// Updates the comment, returns updated comment data.
+  /// Updates a comment in the document.
   Future< CommentResponse > updateComment(UpdateCommentRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as CommentResponse;
   }
 
-  /// Updates drawing object, returns updated  drawing object's data.
+  /// Updates a DrawingObject in the document node.
   Future< DrawingObjectResponse > updateDrawingObject(UpdateDrawingObjectRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as DrawingObjectResponse;
   }
 
-  /// Updates field's properties, returns updated field's data.
+  /// Updates a field in the document node.
   Future< FieldResponse > updateField(UpdateFieldRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as FieldResponse;
   }
 
-  /// Updates (reevaluate) fields in document.
+  /// Reevaluates field values in the document.
   Future< DocumentResponse > updateFields(UpdateFieldsRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as DocumentResponse;
   }
 
-  /// Updates footnote's properties, returns updated run's data.
+  /// Updates a footnote in the document node.
   Future< FootnoteResponse > updateFootnote(UpdateFootnoteRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as FootnoteResponse;
   }
 
-  /// Updates properties of form field, returns updated form field.
+  /// Updates a form field in the document node.
   Future< FormFieldResponse > updateFormField(UpdateFormFieldRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as FormFieldResponse;
   }
 
-  /// Updates list properties, returns updated list.
+  /// Updates a list in the document.
   Future< ListResponse > updateList(UpdateListRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ListResponse;
   }
 
-  /// Updates list level in document list, returns updated list.
+  /// Updates the level of a List element in the document.
   Future< ListResponse > updateListLevel(UpdateListLevelRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ListResponse;
   }
 
-  /// Updates paragraph format properties, returns updated format properties.
+  /// Updates the formatting properties of a paragraph in the document node.
   Future< ParagraphFormatResponse > updateParagraphFormat(UpdateParagraphFormatRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ParagraphFormatResponse;
   }
 
-  /// Updates paragraph list format properties, returns updated list format properties.
+  /// Updates the formatting properties of a paragraph list in the document node.
   Future< ParagraphListFormatResponse > updateParagraphListFormat(UpdateParagraphListFormatRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as ParagraphListFormatResponse;
   }
 
-  /// Updates run's properties, returns updated run's data.
+  /// Updates a Run object in the paragraph.
   Future< RunResponse > updateRun(UpdateRunRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as RunResponse;
   }
 
-  /// Updates font properties, returns updated font data.
+  /// Updates the font properties of a Run object in the paragraph.
   Future< FontResponse > updateRunFont(UpdateRunFontRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as FontResponse;
   }
 
-  /// Updates page setup of section.
+  /// Updates the page setup of a section in the document.
   Future< SectionPageSetupResponse > updateSectionPageSetup(UpdateSectionPageSetupRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as SectionPageSetupResponse;
   }
 
-  /// Updates style properties, returns an updated style.
+  /// Updates a style in the document.
   Future< StyleResponse > updateStyle(UpdateStyleRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as StyleResponse;
   }
 
-  /// Updates a table cell format.
+  /// Updates the formatting properties of a cell in the table row.
   Future< TableCellFormatResponse > updateTableCellFormat(UpdateTableCellFormatRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as TableCellFormatResponse;
   }
 
-  /// Updates a table properties.
+  /// Updates properties of a table in the document node.
   Future< TablePropertiesResponse > updateTableProperties(UpdateTablePropertiesRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as TablePropertiesResponse;
   }
 
-  /// Updates a table row format.
+  /// Updates the formatting properties of a table row.
   Future< TableRowFormatResponse > updateTableRowFormat(UpdateTableRowFormatRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as TableRowFormatResponse;
   }
 
   /// Upload file.
   Future< FilesUploadResult > uploadFile(UploadFileRequest request) async {
-    return await this._apiClient.call(request);
+    return await _apiClient.call(request) as FilesUploadResult;
   }
 
   // Batch request
   Future< List<dynamic> > batch(final List<RequestBase> requests) async {
-    return await this._apiClient.callBatch(requests);
+    return await _apiClient.callBatch(requests);
   }
 }

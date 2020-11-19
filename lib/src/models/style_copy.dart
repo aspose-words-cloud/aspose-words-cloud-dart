@@ -36,18 +36,22 @@ class StyleCopy implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize StyleCopy data model.');
+    }
+
     if (json.containsKey('StyleName')) {
-      this.styleName = json['StyleName'];
+      styleName = json['StyleName'] as String;
     } else {
-      this.styleName = null;
+      styleName = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.styleName != null) {
-      _result['StyleName'] = this.styleName;
+    var _result = <String, dynamic>{};
+    if (styleName != null) {
+      _result['StyleName'] = styleName;
     }
     return _result;
   }

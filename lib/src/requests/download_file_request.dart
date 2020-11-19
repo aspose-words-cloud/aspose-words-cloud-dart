@@ -27,7 +27,6 @@
 
 library aspose_words_cloud;
 
-import 'dart:convert';
 import 'dart:typed_data';
 import '../../aspose_words_cloud.dart';
 import '../api_client.dart';
@@ -45,29 +44,29 @@ class DownloadFileRequest implements RequestBase {
   /// File version ID to download.
   final String versionId;
 
-  DownloadFileRequest(final String this.path, {final String this.storageName = null, final String this.versionId = null});
+  DownloadFileRequest(final this.path, {final this.storageName, final this.versionId});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/storage/file/{path}';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.path == null) {
-      throw new ApiException(400, 'Parameter path is required.');
+    var _path = '/words/storage/file/{path}';
+    var _queryParams = <String, String>{};
+    var _headers = <String, String>{};
+    var _bodyParts = <ApiRequestPart>[];
+    if (path == null) {
+      throw ApiException(400, 'Parameter path is required.');
     }
-    path = path.replaceAll('{path}', apiClient.serializeToString(this.path));
-    if (this.storageName != null) {
-      queryParams['storageName'] = apiClient.serializeToString(this.storageName);
-    }
-
-    if (this.versionId != null) {
-      queryParams['versionId'] = apiClient.serializeToString(this.versionId);
+    _path = _path.replaceAll('{path}', apiClient.serializeToString(path));
+    if (storageName != null) {
+      _queryParams['storageName'] = apiClient.serializeToString(storageName);
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('GET', url, headers, body);
+    if (versionId != null) {
+      _queryParams['versionId'] = apiClient.serializeToString(versionId);
+    }
+
+    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    return ApiRequestData('GET', _url, _headers, _body);
   }
 
   @override

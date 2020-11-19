@@ -31,13 +31,13 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for compare documents.
 class CompareData implements ModelBase {
-  /// Gets or sets initials of the author to use for revisions.
+  /// Gets or sets the initials of the author to use for revisions.
   String author;
 
   /// Gets or sets the compare options.
   CompareOptions compareOptions;
 
-  /// Gets or sets path to document to compare at the server.
+  /// Gets or sets the path to document to compare at the server.
   String comparingWithDocument;
 
   /// Gets or sets the date and time to use for revisions.
@@ -45,49 +45,53 @@ class CompareData implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize CompareData data model.');
+    }
+
     if (json.containsKey('Author')) {
-      this.author = json['Author'];
+      author = json['Author'] as String;
     } else {
-      this.author = null;
+      author = null;
     }
 
     if (json.containsKey('CompareOptions')) {
-      this.compareOptions = new CompareOptions();
-      this.compareOptions.deserialize(json['CompareOptions']);
+      compareOptions = CompareOptions();
+      compareOptions.deserialize(json['CompareOptions'] as Map<String, dynamic>);
     } else {
-      this.compareOptions = null;
+      compareOptions = null;
     }
 
     if (json.containsKey('ComparingWithDocument')) {
-      this.comparingWithDocument = json['ComparingWithDocument'];
+      comparingWithDocument = json['ComparingWithDocument'] as String;
     } else {
-      this.comparingWithDocument = null;
+      comparingWithDocument = null;
     }
 
     if (json.containsKey('DateTime')) {
-      this.dateTime = DateTime.parse(json['DateTime']);
+      dateTime = DateTime.parse(json['DateTime'] as String);
     } else {
-      this.dateTime = null;
+      dateTime = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.author != null) {
-      _result['Author'] = this.author;
+    var _result = <String, dynamic>{};
+    if (author != null) {
+      _result['Author'] = author;
     }
 
-    if (this.compareOptions != null) {
-      _result['CompareOptions'] = this.compareOptions.serialize();
+    if (compareOptions != null) {
+      _result['CompareOptions'] = compareOptions.serialize();
     }
 
-    if (this.comparingWithDocument != null) {
-      _result['ComparingWithDocument'] = this.comparingWithDocument;
+    if (comparingWithDocument != null) {
+      _result['ComparingWithDocument'] = comparingWithDocument;
     }
 
-    if (this.dateTime != null) {
-      _result['DateTime'] = this.dateTime.toIso8601String();
+    if (dateTime != null) {
+      _result['DateTime'] = dateTime.toIso8601String();
     }
     return _result;
   }

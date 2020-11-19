@@ -31,38 +31,42 @@ import '../../aspose_words_cloud.dart';
 
 /// Result of search operation.
 class SearchResult implements ModelBase {
-  /// Gets or sets link to result range end node.
+  /// Gets or sets the link to result range end node.
   DocumentPosition rangeEnd;
 
-  /// Gets or sets link to result range start node.
+  /// Gets or sets the link to result range start node.
   DocumentPosition rangeStart;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize SearchResult data model.');
+    }
+
     if (json.containsKey('RangeEnd')) {
-      this.rangeEnd = new DocumentPosition();
-      this.rangeEnd.deserialize(json['RangeEnd']);
+      rangeEnd = DocumentPosition();
+      rangeEnd.deserialize(json['RangeEnd'] as Map<String, dynamic>);
     } else {
-      this.rangeEnd = null;
+      rangeEnd = null;
     }
 
     if (json.containsKey('RangeStart')) {
-      this.rangeStart = new DocumentPosition();
-      this.rangeStart.deserialize(json['RangeStart']);
+      rangeStart = DocumentPosition();
+      rangeStart.deserialize(json['RangeStart'] as Map<String, dynamic>);
     } else {
-      this.rangeStart = null;
+      rangeStart = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.rangeEnd != null) {
-      _result['RangeEnd'] = this.rangeEnd.serialize();
+    var _result = <String, dynamic>{};
+    if (rangeEnd != null) {
+      _result['RangeEnd'] = rangeEnd.serialize();
     }
 
-    if (this.rangeStart != null) {
-      _result['RangeStart'] = this.rangeStart.serialize();
+    if (rangeStart != null) {
+      _result['RangeStart'] = rangeStart.serialize();
     }
     return _result;
   }

@@ -29,27 +29,31 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// container class for ps save options.
+/// Container class for ps save options.
 class PsSaveOptionsData extends FixedPageSaveOptionsData {
-  /// Gets or sets determines whether the document should be saved using a booklet printing layout.
+  /// Gets or sets a value indicating whether the document should be saved using a booklet printing layout.
   bool useBookFoldPrintingSettings;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize PsSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('UseBookFoldPrintingSettings')) {
-      this.useBookFoldPrintingSettings = json['UseBookFoldPrintingSettings'];
+      useBookFoldPrintingSettings = json['UseBookFoldPrintingSettings'] as bool;
     } else {
-      this.useBookFoldPrintingSettings = null;
+      useBookFoldPrintingSettings = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.useBookFoldPrintingSettings != null) {
-      _result['UseBookFoldPrintingSettings'] = this.useBookFoldPrintingSettings;
+    if (useBookFoldPrintingSettings != null) {
+      _result['UseBookFoldPrintingSettings'] = useBookFoldPrintingSettings;
     }
     return _result;
   }

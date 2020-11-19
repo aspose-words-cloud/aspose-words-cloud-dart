@@ -29,78 +29,82 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// container class for options of metafile rendering.
+/// Container class for options of metafile rendering.
 class MetafileRenderingOptionsData implements ModelBase {
-  /// Gets or sets determines how EMF+ Dual metafiles should be rendered.
+  /// Gets or sets the option that controls how EMF+ Dual metafiles should be rendered.
   String emfPlusDualRenderingMode;
 
-  /// Gets or sets a value determining whether or not the raster operations should be emulated.
+  /// Gets or sets a value indicating whether the raster operations should be emulated.
   bool emulateRasterOperations;
 
-  /// Gets or sets determines how metafile images should be rendered.
+  /// Gets or sets the option that controls how metafile images should be rendered.
   String renderingMode;
 
-  /// Gets or sets a value determining whether or not to scale fonts in WMF metafile according to metafile size on the page.
+  /// Gets or sets a value indicating whether to scale fonts in WMF metafile according to metafile size on the page.
   /// The default value is true.
   bool scaleWmfFontsToMetafileSize;
 
-  /// Gets or sets determines how WMF metafiles with embedded EMF metafiles should be rendered.
+  /// Gets or sets the flag, that controls how WMF metafiles with embedded EMF metafiles should be rendered.
   bool useEmfEmbeddedToWmf;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize MetafileRenderingOptionsData data model.');
+    }
+
     if (json.containsKey('EmfPlusDualRenderingMode')) {
-      this.emfPlusDualRenderingMode = json['EmfPlusDualRenderingMode'];
+      emfPlusDualRenderingMode = json['EmfPlusDualRenderingMode'] as String;
     } else {
-      this.emfPlusDualRenderingMode = null;
+      emfPlusDualRenderingMode = null;
     }
 
     if (json.containsKey('EmulateRasterOperations')) {
-      this.emulateRasterOperations = json['EmulateRasterOperations'];
+      emulateRasterOperations = json['EmulateRasterOperations'] as bool;
     } else {
-      this.emulateRasterOperations = null;
+      emulateRasterOperations = null;
     }
 
     if (json.containsKey('RenderingMode')) {
-      this.renderingMode = json['RenderingMode'];
+      renderingMode = json['RenderingMode'] as String;
     } else {
-      this.renderingMode = null;
+      renderingMode = null;
     }
 
     if (json.containsKey('ScaleWmfFontsToMetafileSize')) {
-      this.scaleWmfFontsToMetafileSize = json['ScaleWmfFontsToMetafileSize'];
+      scaleWmfFontsToMetafileSize = json['ScaleWmfFontsToMetafileSize'] as bool;
     } else {
-      this.scaleWmfFontsToMetafileSize = null;
+      scaleWmfFontsToMetafileSize = null;
     }
 
     if (json.containsKey('UseEmfEmbeddedToWmf')) {
-      this.useEmfEmbeddedToWmf = json['UseEmfEmbeddedToWmf'];
+      useEmfEmbeddedToWmf = json['UseEmfEmbeddedToWmf'] as bool;
     } else {
-      this.useEmfEmbeddedToWmf = null;
+      useEmfEmbeddedToWmf = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.emfPlusDualRenderingMode != null) {
-      _result['EmfPlusDualRenderingMode'] = this.emfPlusDualRenderingMode;
+    var _result = <String, dynamic>{};
+    if (emfPlusDualRenderingMode != null) {
+      _result['EmfPlusDualRenderingMode'] = emfPlusDualRenderingMode;
     }
 
-    if (this.emulateRasterOperations != null) {
-      _result['EmulateRasterOperations'] = this.emulateRasterOperations;
+    if (emulateRasterOperations != null) {
+      _result['EmulateRasterOperations'] = emulateRasterOperations;
     }
 
-    if (this.renderingMode != null) {
-      _result['RenderingMode'] = this.renderingMode;
+    if (renderingMode != null) {
+      _result['RenderingMode'] = renderingMode;
     }
 
-    if (this.scaleWmfFontsToMetafileSize != null) {
-      _result['ScaleWmfFontsToMetafileSize'] = this.scaleWmfFontsToMetafileSize;
+    if (scaleWmfFontsToMetafileSize != null) {
+      _result['ScaleWmfFontsToMetafileSize'] = scaleWmfFontsToMetafileSize;
     }
 
-    if (this.useEmfEmbeddedToWmf != null) {
-      _result['UseEmfEmbeddedToWmf'] = this.useEmfEmbeddedToWmf;
+    if (useEmfEmbeddedToWmf != null) {
+      _result['UseEmfEmbeddedToWmf'] = useEmfEmbeddedToWmf;
     }
     return _result;
   }

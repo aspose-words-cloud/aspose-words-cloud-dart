@@ -29,29 +29,32 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:
-/// GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}.
+/// The REST response with a table.
 class TableResponse extends WordsResponse {
-  /// Gets or sets table.
+  /// Gets or sets the table.
   Table table;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize TableResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Table')) {
-      this.table = new Table();
-      this.table.deserialize(json['Table']);
+      table = Table();
+      table.deserialize(json['Table'] as Map<String, dynamic>);
     } else {
-      this.table = null;
+      table = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.table != null) {
-      _result['Table'] = this.table.serialize();
+    if (table != null) {
+      _result['Table'] = table.serialize();
     }
     return _result;
   }

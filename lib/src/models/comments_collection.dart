@@ -29,33 +29,37 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Collection of comments.
+/// The collection of comments.
 class CommentsCollection extends LinkElement {
-  /// Gets or sets collection of comments.
+  /// Gets or sets the collection of comments.
   List<Comment> commentList;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize CommentsCollection data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('CommentList')) {
       // Array processing
-      this.commentList = new List<Comment>();
+      commentList = <Comment>[];
       for(final _element in json['CommentList']) {
-        var _elementValue = new Comment();
-        _elementValue.deserialize(_element);
-        this.commentList.add(_elementValue);
+        var _elementValue = Comment();
+        _elementValue.deserialize(_element as Map<String, dynamic>);
+        commentList.add(_elementValue);
       }
     } else {
-      this.commentList = null;
+      commentList = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.commentList != null) {
-      _result['CommentList'] = this.commentList.map((_element) => _element.serialize()).toList();
+    if (commentList != null) {
+      _result['CommentList'] = commentList.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

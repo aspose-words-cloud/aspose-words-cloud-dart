@@ -29,33 +29,37 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Collection of footnotes.
+/// DTO container with a collection of footnotes.
 class FootnoteCollection extends LinkElement {
-  /// Gets or sets collection of foonotes links.
+  /// Gets or sets the collection of footnotes.
   List<Footnote> list;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FootnoteCollection data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('List')) {
       // Array processing
-      this.list = new List<Footnote>();
+      list = <Footnote>[];
       for(final _element in json['List']) {
-        var _elementValue = new Footnote();
-        _elementValue.deserialize(_element);
-        this.list.add(_elementValue);
+        var _elementValue = Footnote();
+        _elementValue.deserialize(_element as Map<String, dynamic>);
+        list.add(_elementValue);
       }
     } else {
-      this.list = null;
+      list = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.list != null) {
-      _result['List'] = this.list.map((_element) => _element.serialize()).toList();
+    if (list != null) {
+      _result['List'] = list.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

@@ -26,8 +26,9 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
-import '../test_context.dart';
 import 'package:test/test.dart';
+
+import '../test_context.dart';
 
 /// Example of how to get document.
 class DocumentTests
@@ -36,35 +37,39 @@ class DocumentTests
   String remoteDataFolder;
   String localFile;
 
-  DocumentTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/Document';
+  DocumentTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/Document';
     localFile = 'Common/test_multi_pages.docx';
   }
 
   /// Test for getting document.
   Future<void> testGetDocument() async
   {
-    final String remoteFileName = 'TestGetDocument.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetDocument.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetDocumentRequest(
+    final request = GetDocumentRequest(
       remoteFileName,
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getDocument(request);
+    var result = await context.getApi().getDocument(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'TestGetDocument.docx');
   }
 
   /// Test for creating word document.
   Future<void> testCreateDocument() async
   {
-    final String remoteFileName = 'TestCreateDocument.doc';
+    final remoteFileName = 'TestCreateDocument.doc';
 
-    final request = new CreateDocumentRequest(
+    final request = CreateDocumentRequest(
       fileName: remoteFileName,
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().createDocument(request);
+    var result = await context.getApi().createDocument(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'TestCreateDocument.doc');
   }
 }

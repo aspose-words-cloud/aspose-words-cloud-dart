@@ -42,33 +42,33 @@ class GetFilesListRequest implements RequestBase {
   /// Storage name.
   final String storageName;
 
-  GetFilesListRequest(final String this.path, {final String this.storageName = null});
+  GetFilesListRequest(final this.path, {final this.storageName});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/storage/folder/{path}';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.path == null) {
-      throw new ApiException(400, 'Parameter path is required.');
+    var _path = '/words/storage/folder/{path}';
+    var _queryParams = <String, String>{};
+    var _headers = <String, String>{};
+    var _bodyParts = <ApiRequestPart>[];
+    if (path == null) {
+      throw ApiException(400, 'Parameter path is required.');
     }
-    path = path.replaceAll('{path}', apiClient.serializeToString(this.path));
-    if (this.storageName != null) {
-      queryParams['storageName'] = apiClient.serializeToString(this.storageName);
+    _path = _path.replaceAll('{path}', apiClient.serializeToString(path));
+    if (storageName != null) {
+      _queryParams['storageName'] = apiClient.serializeToString(storageName);
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('GET', url, headers, body);
+    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    return ApiRequestData('GET', _url, _headers, _body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = new FilesList();
+    var _result = FilesList();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
-    _result.deserialize(_json);
+    _result.deserialize(_json as Map<String, dynamic>);
     return _result;
   }
 }

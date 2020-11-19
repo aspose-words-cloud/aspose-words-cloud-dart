@@ -26,9 +26,9 @@ node('words-linux') {
                     sh 'git clean -fdx'
                     
                     if (needToBuild) {
-                        withCredentials([usernamePassword(credentialsId: '6839cbe8-39fa-40c0-86ce-90706f0bae5d', passwordVariable: 'AppKey', usernameVariable: 'AppSid')]) {
+                        withCredentials([usernamePassword(credentialsId: '6839cbe8-39fa-40c0-86ce-90706f0bae5d', passwordVariable: 'ClientSecret', usernameVariable: 'ClientId')]) {
                             sh 'mkdir -p settings'
-                            sh 'echo "{\\"AppSid\\": \\"$AppSid\\",\\"AppKey\\": \\"$AppKey\\", \\"BaseUrl\\": \\"$apiUrl\\"}" > settings/servercreds.json'
+                            sh 'echo "{\\"ClientId\\": \\"$ClientId\\", \\"ClientSecret\\": \\"$ClientSecret\\",\\"BaseUrl\\": \\"$apiUrl\\"}" > settings/servercreds.json'
                         }
                     }
                 }
@@ -38,6 +38,10 @@ node('words-linux') {
                         stage('prepare'){
                             sh "pub get"
                             sh "pub global activate junitreport"
+                        }
+                        
+                        stage('lint'){
+                            sh "dartanalyzer --fatal-infos --fatal-warnings --options analysis_options.yaml ."
                         }
                     
                         stage('tests'){

@@ -31,188 +31,192 @@ import '../../aspose_words_cloud.dart';
 
 /// Container abstract class for image save options.
 class ImageSaveOptionsData extends FixedPageSaveOptionsData {
-  /// Gets or sets allows to specify additional System.Drawing.Graphics quality options.
+  /// Gets or sets the additional System.Drawing.Graphics quality options.
   GraphicsQualityOptionsData graphicsQualityOptions;
 
-  /// Gets or sets the horizontal resolution for the generated images, in dots per inch.
+  /// Gets or sets the horizontal resolution in dots per inch for the generated images.
   /// This property has effect only when saving to raster image formats.
   /// The default value is 96.
   double horizontalResolution;
 
-  /// Gets or sets brightness of image.
+  /// Gets or sets the brightness level of the image.
   double imageBrightness;
 
-  /// Gets or sets color mode of image.
+  /// Gets or sets the color mode of the image.
   String imageColorMode;
 
-  /// Gets or sets contrast of image.
+  /// Gets or sets the contrast level of the image.
   double imageContrast;
 
-  /// Gets or sets background (paper) color of image.
+  /// Gets or sets the background (paper) color of the image.
   String paperColor;
 
-  /// Gets or sets pixel format of image.
+  /// Gets or sets the pixel format of the image.
   String pixelFormat;
 
-  /// Gets or sets both horizontal and vertical resolution for the generated images, in dots per inch.
+  /// Gets or sets both horizontal and vertical resolution in dots per inch for the generated images.
   /// This property has effect only when saving to raster image formats.
   /// The default value is 96.
   double resolution;
 
-  /// Gets or sets zoom factor of image.
+  /// Gets or sets the zoom factor of the image.
   double scale;
 
-  /// Gets or sets determine whether or not to use anti-aliasing for rendering.
+  /// Gets or sets a value indicating whether to use anti-aliasing for rendering.
   bool useAntiAliasing;
 
-  /// Gets or sets a value determining whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.
+  /// Gets or sets a value indicating whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.
   bool useGdiEmfRenderer;
 
-  /// Gets or sets determine whether or not to use high quality (i.e. slow) rendering algorithms.
+  /// Gets or sets a value indicating whether to use high quality (i.e. slow) rendering algorithms.
   bool useHighQualityRendering;
 
-  /// Gets or sets the vertical resolution for the generated images, in dots per inch.
+  /// Gets or sets the vertical resolution in dots per inch for the generated images.
   /// This property has effect only when saving to raster image formats.
   /// The default value is 96.
   double verticalResolution;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ImageSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('GraphicsQualityOptions')) {
-      this.graphicsQualityOptions = new GraphicsQualityOptionsData();
-      this.graphicsQualityOptions.deserialize(json['GraphicsQualityOptions']);
+      graphicsQualityOptions = GraphicsQualityOptionsData();
+      graphicsQualityOptions.deserialize(json['GraphicsQualityOptions'] as Map<String, dynamic>);
     } else {
-      this.graphicsQualityOptions = null;
+      graphicsQualityOptions = null;
     }
 
     if (json.containsKey('HorizontalResolution')) {
-      this.horizontalResolution = json['HorizontalResolution'];
+      horizontalResolution = json['HorizontalResolution'] as double;
     } else {
-      this.horizontalResolution = null;
+      horizontalResolution = null;
     }
 
     if (json.containsKey('ImageBrightness')) {
-      this.imageBrightness = json['ImageBrightness'];
+      imageBrightness = json['ImageBrightness'] as double;
     } else {
-      this.imageBrightness = null;
+      imageBrightness = null;
     }
 
     if (json.containsKey('ImageColorMode')) {
-      this.imageColorMode = json['ImageColorMode'];
+      imageColorMode = json['ImageColorMode'] as String;
     } else {
-      this.imageColorMode = null;
+      imageColorMode = null;
     }
 
     if (json.containsKey('ImageContrast')) {
-      this.imageContrast = json['ImageContrast'];
+      imageContrast = json['ImageContrast'] as double;
     } else {
-      this.imageContrast = null;
+      imageContrast = null;
     }
 
     if (json.containsKey('PaperColor')) {
-      this.paperColor = json['PaperColor'];
+      paperColor = json['PaperColor'] as String;
     } else {
-      this.paperColor = null;
+      paperColor = null;
     }
 
     if (json.containsKey('PixelFormat')) {
-      this.pixelFormat = json['PixelFormat'];
+      pixelFormat = json['PixelFormat'] as String;
     } else {
-      this.pixelFormat = null;
+      pixelFormat = null;
     }
 
     if (json.containsKey('Resolution')) {
-      this.resolution = json['Resolution'];
+      resolution = json['Resolution'] as double;
     } else {
-      this.resolution = null;
+      resolution = null;
     }
 
     if (json.containsKey('Scale')) {
-      this.scale = json['Scale'];
+      scale = json['Scale'] as double;
     } else {
-      this.scale = null;
+      scale = null;
     }
 
     if (json.containsKey('UseAntiAliasing')) {
-      this.useAntiAliasing = json['UseAntiAliasing'];
+      useAntiAliasing = json['UseAntiAliasing'] as bool;
     } else {
-      this.useAntiAliasing = null;
+      useAntiAliasing = null;
     }
 
     if (json.containsKey('UseGdiEmfRenderer')) {
-      this.useGdiEmfRenderer = json['UseGdiEmfRenderer'];
+      useGdiEmfRenderer = json['UseGdiEmfRenderer'] as bool;
     } else {
-      this.useGdiEmfRenderer = null;
+      useGdiEmfRenderer = null;
     }
 
     if (json.containsKey('UseHighQualityRendering')) {
-      this.useHighQualityRendering = json['UseHighQualityRendering'];
+      useHighQualityRendering = json['UseHighQualityRendering'] as bool;
     } else {
-      this.useHighQualityRendering = null;
+      useHighQualityRendering = null;
     }
 
     if (json.containsKey('VerticalResolution')) {
-      this.verticalResolution = json['VerticalResolution'];
+      verticalResolution = json['VerticalResolution'] as double;
     } else {
-      this.verticalResolution = null;
+      verticalResolution = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.graphicsQualityOptions != null) {
-      _result['GraphicsQualityOptions'] = this.graphicsQualityOptions.serialize();
+    if (graphicsQualityOptions != null) {
+      _result['GraphicsQualityOptions'] = graphicsQualityOptions.serialize();
     }
 
-    if (this.horizontalResolution != null) {
-      _result['HorizontalResolution'] = this.horizontalResolution;
+    if (horizontalResolution != null) {
+      _result['HorizontalResolution'] = horizontalResolution;
     }
 
-    if (this.imageBrightness != null) {
-      _result['ImageBrightness'] = this.imageBrightness;
+    if (imageBrightness != null) {
+      _result['ImageBrightness'] = imageBrightness;
     }
 
-    if (this.imageColorMode != null) {
-      _result['ImageColorMode'] = this.imageColorMode;
+    if (imageColorMode != null) {
+      _result['ImageColorMode'] = imageColorMode;
     }
 
-    if (this.imageContrast != null) {
-      _result['ImageContrast'] = this.imageContrast;
+    if (imageContrast != null) {
+      _result['ImageContrast'] = imageContrast;
     }
 
-    if (this.paperColor != null) {
-      _result['PaperColor'] = this.paperColor;
+    if (paperColor != null) {
+      _result['PaperColor'] = paperColor;
     }
 
-    if (this.pixelFormat != null) {
-      _result['PixelFormat'] = this.pixelFormat;
+    if (pixelFormat != null) {
+      _result['PixelFormat'] = pixelFormat;
     }
 
-    if (this.resolution != null) {
-      _result['Resolution'] = this.resolution;
+    if (resolution != null) {
+      _result['Resolution'] = resolution;
     }
 
-    if (this.scale != null) {
-      _result['Scale'] = this.scale;
+    if (scale != null) {
+      _result['Scale'] = scale;
     }
 
-    if (this.useAntiAliasing != null) {
-      _result['UseAntiAliasing'] = this.useAntiAliasing;
+    if (useAntiAliasing != null) {
+      _result['UseAntiAliasing'] = useAntiAliasing;
     }
 
-    if (this.useGdiEmfRenderer != null) {
-      _result['UseGdiEmfRenderer'] = this.useGdiEmfRenderer;
+    if (useGdiEmfRenderer != null) {
+      _result['UseGdiEmfRenderer'] = useGdiEmfRenderer;
     }
 
-    if (this.useHighQualityRendering != null) {
-      _result['UseHighQualityRendering'] = this.useHighQualityRendering;
+    if (useHighQualityRendering != null) {
+      _result['UseHighQualityRendering'] = useHighQualityRendering;
     }
 
-    if (this.verticalResolution != null) {
-      _result['VerticalResolution'] = this.verticalResolution;
+    if (verticalResolution != null) {
+      _result['VerticalResolution'] = verticalResolution;
     }
     return _result;
   }

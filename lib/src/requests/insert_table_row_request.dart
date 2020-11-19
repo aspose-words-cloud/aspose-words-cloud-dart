@@ -36,13 +36,13 @@ import '../api_request_part.dart';
 
 /// Request model for InsertTableRow operation.
 class InsertTableRowRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Table row parameters/.
+  /// The properties of the row.
   final TableRowInsert row;
 
-  /// Path to table.
+  /// The path to the table in the document tree.
   final String tablePath;
 
   /// Original document folder.
@@ -66,69 +66,69 @@ class InsertTableRowRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  InsertTableRowRequest(final String this.name, final TableRowInsert this.row, final String this.tablePath, {final String this.folder = null, final String this.storage = null, final String this.loadEncoding = null, final String this.password = null, final String this.destFileName = null, final String this.revisionAuthor = null, final String this.revisionDateTime = null});
+  InsertTableRowRequest(final this.name, final this.row, final this.tablePath, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/{name}/{tablePath}/rows';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.name == null) {
-      throw new ApiException(400, 'Parameter name is required.');
+    var _path = '/words/{name}/{tablePath}/rows';
+    var _queryParams = <String, String>{};
+    var _headers = <String, String>{};
+    var _bodyParts = <ApiRequestPart>[];
+    if (name == null) {
+      throw ApiException(400, 'Parameter name is required.');
     }
-    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
+    _path = _path.replaceAll('{name}', apiClient.serializeToString(name));
 
-    if (this.tablePath == null) {
-      throw new ApiException(400, 'Parameter tablePath is required.');
+    if (tablePath == null) {
+      throw ApiException(400, 'Parameter tablePath is required.');
     }
-    path = path.replaceAll('{tablePath}', apiClient.serializeToString(this.tablePath));
-    if (this.folder != null) {
-      queryParams['folder'] = apiClient.serializeToString(this.folder);
-    }
-
-    if (this.storage != null) {
-      queryParams['storage'] = apiClient.serializeToString(this.storage);
+    _path = _path.replaceAll('{tablePath}', apiClient.serializeToString(tablePath));
+    if (folder != null) {
+      _queryParams['folder'] = apiClient.serializeToString(folder);
     }
 
-    if (this.loadEncoding != null) {
-      queryParams['loadEncoding'] = apiClient.serializeToString(this.loadEncoding);
+    if (storage != null) {
+      _queryParams['storage'] = apiClient.serializeToString(storage);
     }
 
-    if (this.password != null) {
-      queryParams['password'] = apiClient.serializeToString(this.password);
+    if (loadEncoding != null) {
+      _queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
     }
 
-    if (this.destFileName != null) {
-      queryParams['destFileName'] = apiClient.serializeToString(this.destFileName);
+    if (password != null) {
+      _queryParams['password'] = apiClient.serializeToString(password);
     }
 
-    if (this.revisionAuthor != null) {
-      queryParams['revisionAuthor'] = apiClient.serializeToString(this.revisionAuthor);
+    if (destFileName != null) {
+      _queryParams['destFileName'] = apiClient.serializeToString(destFileName);
     }
 
-    if (this.revisionDateTime != null) {
-      queryParams['revisionDateTime'] = apiClient.serializeToString(this.revisionDateTime);
+    if (revisionAuthor != null) {
+      _queryParams['revisionAuthor'] = apiClient.serializeToString(revisionAuthor);
     }
 
-    if (this.row != null) {
-      bodyParts.add(new ApiRequestPart(apiClient.serializeBody(this.row), 'application/json'));
+    if (revisionDateTime != null) {
+      _queryParams['revisionDateTime'] = apiClient.serializeToString(revisionDateTime);
+    }
+
+    if (row != null) {
+      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(row), 'application/json'));
     }
     else {
-      throw new ApiException(400, 'Parameter row is required.');
+      throw ApiException(400, 'Parameter row is required.');
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('POST', url, headers, body);
+    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    return ApiRequestData('POST', _url, _headers, _body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = new TableRowResponse();
+    var _result = TableRowResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
-    _result.deserialize(_json);
+    _result.deserialize(_json as Map<String, dynamic>);
     return _result;
   }
 }

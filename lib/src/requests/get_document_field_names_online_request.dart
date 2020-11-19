@@ -39,39 +39,39 @@ class GetDocumentFieldNamesOnlineRequest implements RequestBase {
   /// File with template.
   final ByteData template;
 
-  /// Use non merge fields or not.
+  /// The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
   final bool useNonMergeFields;
 
-  GetDocumentFieldNamesOnlineRequest(final ByteData this.template, {final bool this.useNonMergeFields = null});
+  GetDocumentFieldNamesOnlineRequest(final this.template, {final this.useNonMergeFields});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/mailMerge/FieldNames';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.useNonMergeFields != null) {
-      queryParams['useNonMergeFields'] = apiClient.serializeToString(this.useNonMergeFields);
+    var _path = '/words/mailMerge/FieldNames';
+    var _queryParams = <String, String>{};
+    var _headers = <String, String>{};
+    var _bodyParts = <ApiRequestPart>[];
+    if (useNonMergeFields != null) {
+      _queryParams['useNonMergeFields'] = apiClient.serializeToString(useNonMergeFields);
     }
 
-    if (this.template != null) {
-      bodyParts.add(new ApiRequestPart(apiClient.serializeBody(this.template), 'application/octet-stream', name: 'Template'));
+    if (template != null) {
+      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(template), 'application/octet-stream', name: 'Template'));
     }
     else {
-      throw new ApiException(400, 'Parameter template is required.');
+      throw ApiException(400, 'Parameter template is required.');
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('PUT', url, headers, body);
+    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = new FieldNamesResponse();
+    var _result = FieldNamesResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
-    _result.deserialize(_json);
+    _result.deserialize(_json as Map<String, dynamic>);
     return _result;
   }
 }

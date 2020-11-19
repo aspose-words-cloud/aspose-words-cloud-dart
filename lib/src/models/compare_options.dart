@@ -29,142 +29,139 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Container class for compare documents options.
+/// DTO container with compare documents options.
 class CompareOptions implements ModelBase {
-  /// Gets or sets a value indicating whether true indicates that documents comparison is case insensitive. By default comparison is case sensitive.
+  /// Gets or sets a value indicating whether documents comparison is case insensitive. By default comparison is case sensitive.
   bool ignoreCaseChanges;
 
-  /// Gets or sets a value indicating whether specifies whether to compare differences in comments. By default comments are
-  /// not ignored.
+  /// Gets or sets a value indicating whether comments content is ignored. By default comments are not ignored.
   bool ignoreComments;
 
-  /// Gets or sets a value indicating whether specifies whether to compare differences in fields. By default fields are not
-  /// ignored.
+  /// Gets or sets a value indicating whether fields content is ignored. By default fields are not ignored.
   bool ignoreFields;
 
-  /// Gets or sets a value indicating whether specifies whether to compare differences in footnotes and endnotes. By default
-  /// footnotes are not ignored.
+  /// Gets or sets a value indicating whether footnotes/endnotes content is ignored. By default footnotes/endnotes are not ignored.
   bool ignoreFootnotes;
 
-  /// Gets or sets a value indicating whether true indicates that formatting is ignored. By default document formatting is
-  /// not ignored.
+  /// Gets or sets a value indicating whether formatting is ignored. By default document formatting is not ignored.
   bool ignoreFormatting;
 
-  /// Gets or sets a value indicating whether true indicates that headers and footers content is ignored. By default headers
-  /// and footers are not ignored.
+  /// Gets or sets a value indicating whether headers and footers content is ignored. By default headers and footers are not ignored.
   bool ignoreHeadersAndFooters;
 
-  /// Gets or sets a value indicating whether specifies whether to compare the differences in data contained in tables. By
-  /// default tables are not ignored.
+  /// Gets or sets a value indicating whether tables content is ignored. By default tables are not ignored.
   bool ignoreTables;
 
-  /// Gets or sets a value indicating whether specifies whether to compare differences in the data contained within text boxes.
-  /// By default textboxes are not ignored.
+  /// Gets or sets a value indicating whether textboxes content is ignored. By default textboxes are not ignored.
   bool ignoreTextboxes;
 
-  /// Gets or sets specifies which document shall be used as a target during comparison.
+  /// Gets or sets the option that controls which document shall be used as a target during comparison.
   CompareOptions_TargetEnum target;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize CompareOptions data model.');
+    }
+
     if (json.containsKey('IgnoreCaseChanges')) {
-      this.ignoreCaseChanges = json['IgnoreCaseChanges'];
+      ignoreCaseChanges = json['IgnoreCaseChanges'] as bool;
     } else {
-      this.ignoreCaseChanges = null;
+      ignoreCaseChanges = null;
     }
 
     if (json.containsKey('IgnoreComments')) {
-      this.ignoreComments = json['IgnoreComments'];
+      ignoreComments = json['IgnoreComments'] as bool;
     } else {
-      this.ignoreComments = null;
+      ignoreComments = null;
     }
 
     if (json.containsKey('IgnoreFields')) {
-      this.ignoreFields = json['IgnoreFields'];
+      ignoreFields = json['IgnoreFields'] as bool;
     } else {
-      this.ignoreFields = null;
+      ignoreFields = null;
     }
 
     if (json.containsKey('IgnoreFootnotes')) {
-      this.ignoreFootnotes = json['IgnoreFootnotes'];
+      ignoreFootnotes = json['IgnoreFootnotes'] as bool;
     } else {
-      this.ignoreFootnotes = null;
+      ignoreFootnotes = null;
     }
 
     if (json.containsKey('IgnoreFormatting')) {
-      this.ignoreFormatting = json['IgnoreFormatting'];
+      ignoreFormatting = json['IgnoreFormatting'] as bool;
     } else {
-      this.ignoreFormatting = null;
+      ignoreFormatting = null;
     }
 
     if (json.containsKey('IgnoreHeadersAndFooters')) {
-      this.ignoreHeadersAndFooters = json['IgnoreHeadersAndFooters'];
+      ignoreHeadersAndFooters = json['IgnoreHeadersAndFooters'] as bool;
     } else {
-      this.ignoreHeadersAndFooters = null;
+      ignoreHeadersAndFooters = null;
     }
 
     if (json.containsKey('IgnoreTables')) {
-      this.ignoreTables = json['IgnoreTables'];
+      ignoreTables = json['IgnoreTables'] as bool;
     } else {
-      this.ignoreTables = null;
+      ignoreTables = null;
     }
 
     if (json.containsKey('IgnoreTextboxes')) {
-      this.ignoreTextboxes = json['IgnoreTextboxes'];
+      ignoreTextboxes = json['IgnoreTextboxes'] as bool;
     } else {
-      this.ignoreTextboxes = null;
+      ignoreTextboxes = null;
     }
 
     if (json.containsKey('Target')) {
-      switch (json['Target']) {
-        case 'Current': this.target = CompareOptions_TargetEnum.current; break;
-        case 'New': this.target = CompareOptions_TargetEnum.new_; break;
-        default: this.target = null; break;
+      switch (json['Target'] as String) {
+        case 'Current': target = CompareOptions_TargetEnum.current; break;
+        case 'New': target = CompareOptions_TargetEnum.newValue; break;
+        default: target = null; break;
       }
     } else {
-      this.target = null;
+      target = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.ignoreCaseChanges != null) {
-      _result['IgnoreCaseChanges'] = this.ignoreCaseChanges;
+    var _result = <String, dynamic>{};
+    if (ignoreCaseChanges != null) {
+      _result['IgnoreCaseChanges'] = ignoreCaseChanges;
     }
 
-    if (this.ignoreComments != null) {
-      _result['IgnoreComments'] = this.ignoreComments;
+    if (ignoreComments != null) {
+      _result['IgnoreComments'] = ignoreComments;
     }
 
-    if (this.ignoreFields != null) {
-      _result['IgnoreFields'] = this.ignoreFields;
+    if (ignoreFields != null) {
+      _result['IgnoreFields'] = ignoreFields;
     }
 
-    if (this.ignoreFootnotes != null) {
-      _result['IgnoreFootnotes'] = this.ignoreFootnotes;
+    if (ignoreFootnotes != null) {
+      _result['IgnoreFootnotes'] = ignoreFootnotes;
     }
 
-    if (this.ignoreFormatting != null) {
-      _result['IgnoreFormatting'] = this.ignoreFormatting;
+    if (ignoreFormatting != null) {
+      _result['IgnoreFormatting'] = ignoreFormatting;
     }
 
-    if (this.ignoreHeadersAndFooters != null) {
-      _result['IgnoreHeadersAndFooters'] = this.ignoreHeadersAndFooters;
+    if (ignoreHeadersAndFooters != null) {
+      _result['IgnoreHeadersAndFooters'] = ignoreHeadersAndFooters;
     }
 
-    if (this.ignoreTables != null) {
-      _result['IgnoreTables'] = this.ignoreTables;
+    if (ignoreTables != null) {
+      _result['IgnoreTables'] = ignoreTables;
     }
 
-    if (this.ignoreTextboxes != null) {
-      _result['IgnoreTextboxes'] = this.ignoreTextboxes;
+    if (ignoreTextboxes != null) {
+      _result['IgnoreTextboxes'] = ignoreTextboxes;
     }
 
-    if (this.target != null) {
-      switch (this.target) {
+    if (target != null) {
+      switch (target) {
         case CompareOptions_TargetEnum.current: _result['Target'] = 'Current'; break;
-        case CompareOptions_TargetEnum.new_: _result['Target'] = 'New'; break;
+        case CompareOptions_TargetEnum.newValue: _result['Target'] = 'New'; break;
         default: break;
       }
     }
@@ -172,10 +169,10 @@ class CompareOptions implements ModelBase {
   }
 }
 
-/// Gets or sets specifies which document shall be used as a target during comparison.
+/// Gets or sets the option that controls which document shall be used as a target during comparison.
 enum CompareOptions_TargetEnum
 { 
   current,
-  new_
+  newValue
 }
 

@@ -29,42 +29,46 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Range element.
+/// DTO container with a range element.
 class ReplaceRange implements ModelBase {
-  /// Gets or sets range's text.
+  /// Gets or sets the range's text.
   String text;
 
-  /// Gets or sets range's text type.
+  /// Gets or sets the range's text type.
   ReplaceRange_TextTypeEnum textType;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ReplaceRange data model.');
+    }
+
     if (json.containsKey('Text')) {
-      this.text = json['Text'];
+      text = json['Text'] as String;
     } else {
-      this.text = null;
+      text = null;
     }
 
     if (json.containsKey('TextType')) {
-      switch (json['TextType']) {
-        case 'Text': this.textType = ReplaceRange_TextTypeEnum.text; break;
-        case 'Html': this.textType = ReplaceRange_TextTypeEnum.html; break;
-        default: this.textType = null; break;
+      switch (json['TextType'] as String) {
+        case 'Text': textType = ReplaceRange_TextTypeEnum.text; break;
+        case 'Html': textType = ReplaceRange_TextTypeEnum.html; break;
+        default: textType = null; break;
       }
     } else {
-      this.textType = null;
+      textType = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.text != null) {
-      _result['Text'] = this.text;
+    var _result = <String, dynamic>{};
+    if (text != null) {
+      _result['Text'] = text;
     }
 
-    if (this.textType != null) {
-      switch (this.textType) {
+    if (textType != null) {
+      switch (textType) {
         case ReplaceRange_TextTypeEnum.text: _result['TextType'] = 'Text'; break;
         case ReplaceRange_TextTypeEnum.html: _result['TextType'] = 'Html'; break;
         default: break;
@@ -74,7 +78,7 @@ class ReplaceRange implements ModelBase {
   }
 }
 
-/// Gets or sets range's text type.
+/// Gets or sets the range's text type.
 enum ReplaceRange_TextTypeEnum
 { 
   text,

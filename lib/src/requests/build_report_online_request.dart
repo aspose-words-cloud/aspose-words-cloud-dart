@@ -27,7 +27,6 @@
 
 library aspose_words_cloud;
 
-import 'dart:convert';
 import 'dart:typed_data';
 import '../../aspose_words_cloud.dart';
 import '../api_client.dart';
@@ -45,45 +44,45 @@ class BuildReportOnlineRequest implements RequestBase {
   /// An object providing a settings of report engine.
   final ReportEngineSettings reportEngineSettings;
 
-  /// This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
+  /// The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "template" will be used instead.
   final String documentFileName;
 
-  BuildReportOnlineRequest(final ByteData this.template, final String this.data, final ReportEngineSettings this.reportEngineSettings, {final String this.documentFileName = null});
+  BuildReportOnlineRequest(final this.template, final this.data, final this.reportEngineSettings, {final this.documentFileName});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/buildReport';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.documentFileName != null) {
-      queryParams['documentFileName'] = apiClient.serializeToString(this.documentFileName);
+    var _path = '/words/buildReport';
+    var _queryParams = <String, String>{};
+    var _headers = <String, String>{};
+    var _bodyParts = <ApiRequestPart>[];
+    if (documentFileName != null) {
+      _queryParams['documentFileName'] = apiClient.serializeToString(documentFileName);
     }
 
-    if (this.template != null) {
-      bodyParts.add(new ApiRequestPart(apiClient.serializeBody(this.template), 'application/octet-stream', name: 'Template'));
+    if (template != null) {
+      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(template), 'application/octet-stream', name: 'Template'));
     }
     else {
-      throw new ApiException(400, 'Parameter template is required.');
+      throw ApiException(400, 'Parameter template is required.');
     }
 
-    if (this.data != null) {
-      bodyParts.add(new ApiRequestPart(apiClient.serializeBody(this.data), 'application/json', name: 'Data'));
+    if (data != null) {
+      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(data), 'application/json', name: 'Data'));
     }
     else {
-      throw new ApiException(400, 'Parameter data is required.');
+      throw ApiException(400, 'Parameter data is required.');
     }
 
-    if (this.reportEngineSettings != null) {
-      bodyParts.add(new ApiRequestPart(apiClient.serializeBody(this.reportEngineSettings), 'application/json', name: 'ReportEngineSettings'));
+    if (reportEngineSettings != null) {
+      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(reportEngineSettings), 'application/json', name: 'ReportEngineSettings'));
     }
     else {
-      throw new ApiException(400, 'Parameter reportEngineSettings is required.');
+      throw ApiException(400, 'Parameter reportEngineSettings is required.');
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('PUT', url, headers, body);
+    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override

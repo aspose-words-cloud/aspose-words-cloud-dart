@@ -29,47 +29,51 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Table row element.
+/// DTO container with a table row element.
 class TableRow extends NodeLink {
-  /// Gets or sets provides access to the formatting properties of the row.
+  /// Gets or sets the formatting properties of a row.
   TableRowFormat rowFormat;
 
-  /// Gets or sets collection of table's rows.
+  /// Gets or sets the collection of rows.
   List<TableCell> tableCellList;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize TableRow data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('RowFormat')) {
-      this.rowFormat = new TableRowFormat();
-      this.rowFormat.deserialize(json['RowFormat']);
+      rowFormat = TableRowFormat();
+      rowFormat.deserialize(json['RowFormat'] as Map<String, dynamic>);
     } else {
-      this.rowFormat = null;
+      rowFormat = null;
     }
 
     if (json.containsKey('TableCellList')) {
       // Array processing
-      this.tableCellList = new List<TableCell>();
+      tableCellList = <TableCell>[];
       for(final _element in json['TableCellList']) {
-        var _elementValue = new TableCell();
-        _elementValue.deserialize(_element);
-        this.tableCellList.add(_elementValue);
+        var _elementValue = TableCell();
+        _elementValue.deserialize(_element as Map<String, dynamic>);
+        tableCellList.add(_elementValue);
       }
     } else {
-      this.tableCellList = null;
+      tableCellList = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.rowFormat != null) {
-      _result['RowFormat'] = this.rowFormat.serialize();
+    if (rowFormat != null) {
+      _result['RowFormat'] = rowFormat.serialize();
     }
 
-    if (this.tableCellList != null) {
-      _result['TableCellList'] = this.tableCellList.map((_element) => _element.serialize()).toList();
+    if (tableCellList != null) {
+      _result['TableCellList'] = tableCellList.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

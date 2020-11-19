@@ -31,25 +31,29 @@ import '../../aspose_words_cloud.dart';
 
 /// Field link.
 class FieldLink extends NodeLink {
-  /// Gets or sets field code.
+  /// Gets or sets the field code.
   String fieldCode;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FieldLink data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('FieldCode')) {
-      this.fieldCode = json['FieldCode'];
+      fieldCode = json['FieldCode'] as String;
     } else {
-      this.fieldCode = null;
+      fieldCode = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.fieldCode != null) {
-      _result['FieldCode'] = this.fieldCode;
+    if (fieldCode != null) {
+      _result['FieldCode'] = fieldCode;
     }
     return _result;
   }

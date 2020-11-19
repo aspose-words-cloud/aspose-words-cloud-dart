@@ -29,29 +29,32 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:
-/// GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/rows/{1}/rowformat.
+/// The REST response with the formatting properties of a table row.
 class TableRowFormatResponse extends WordsResponse {
-  /// Gets or sets table.
+  /// Gets or sets the formatting properties of a table row.
   TableRowFormat rowFormat;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize TableRowFormatResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('RowFormat')) {
-      this.rowFormat = new TableRowFormat();
-      this.rowFormat.deserialize(json['RowFormat']);
+      rowFormat = TableRowFormat();
+      rowFormat.deserialize(json['RowFormat'] as Map<String, dynamic>);
     } else {
-      this.rowFormat = null;
+      rowFormat = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.rowFormat != null) {
-      _result['RowFormat'] = this.rowFormat.serialize();
+    if (rowFormat != null) {
+      _result['RowFormat'] = rowFormat.serialize();
     }
     return _result;
   }

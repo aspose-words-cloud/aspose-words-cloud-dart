@@ -36,10 +36,10 @@ import '../api_request_part.dart';
 
 /// Request model for GetStyleFromDocumentElement operation.
 class GetStyleFromDocumentElementRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// The path to the node that supports a style. Supported node types: ParagraphFormat, List, ListLevel, Table.
+  /// The path to the node in the document tree, that supports styles: ParagraphFormat, List, ListLevel, Table.
   final String styledNodePath;
 
   /// Original document folder.
@@ -54,50 +54,50 @@ class GetStyleFromDocumentElementRequest implements RequestBase {
   /// Password for opening an encrypted document.
   final String password;
 
-  GetStyleFromDocumentElementRequest(final String this.name, final String this.styledNodePath, {final String this.folder = null, final String this.storage = null, final String this.loadEncoding = null, final String this.password = null});
+  GetStyleFromDocumentElementRequest(final this.name, final this.styledNodePath, {final this.folder, final this.storage, final this.loadEncoding, final this.password});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/{name}/{styledNodePath}/style';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.name == null) {
-      throw new ApiException(400, 'Parameter name is required.');
+    var _path = '/words/{name}/{styledNodePath}/style';
+    var _queryParams = <String, String>{};
+    var _headers = <String, String>{};
+    var _bodyParts = <ApiRequestPart>[];
+    if (name == null) {
+      throw ApiException(400, 'Parameter name is required.');
     }
-    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
+    _path = _path.replaceAll('{name}', apiClient.serializeToString(name));
 
-    if (this.styledNodePath == null) {
-      throw new ApiException(400, 'Parameter styledNodePath is required.');
+    if (styledNodePath == null) {
+      throw ApiException(400, 'Parameter styledNodePath is required.');
     }
-    path = path.replaceAll('{styledNodePath}', apiClient.serializeToString(this.styledNodePath));
-    if (this.folder != null) {
-      queryParams['folder'] = apiClient.serializeToString(this.folder);
-    }
-
-    if (this.storage != null) {
-      queryParams['storage'] = apiClient.serializeToString(this.storage);
+    _path = _path.replaceAll('{styledNodePath}', apiClient.serializeToString(styledNodePath));
+    if (folder != null) {
+      _queryParams['folder'] = apiClient.serializeToString(folder);
     }
 
-    if (this.loadEncoding != null) {
-      queryParams['loadEncoding'] = apiClient.serializeToString(this.loadEncoding);
+    if (storage != null) {
+      _queryParams['storage'] = apiClient.serializeToString(storage);
     }
 
-    if (this.password != null) {
-      queryParams['password'] = apiClient.serializeToString(this.password);
+    if (loadEncoding != null) {
+      _queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('GET', url, headers, body);
+    if (password != null) {
+      _queryParams['password'] = apiClient.serializeToString(password);
+    }
+
+    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    return ApiRequestData('GET', _url, _headers, _body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = new StyleResponse();
+    var _result = StyleResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
-    _result.deserialize(_json);
+    _result.deserialize(_json as Map<String, dynamic>);
     return _result;
   }
 }

@@ -39,28 +39,32 @@ class ErrorDetails implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ErrorDetails data model.');
+    }
+
     if (json.containsKey('ErrorDateTime')) {
-      this.errorDateTime = DateTime.parse(json['ErrorDateTime']);
+      errorDateTime = DateTime.parse(json['ErrorDateTime'] as String);
     } else {
-      this.errorDateTime = null;
+      errorDateTime = null;
     }
 
     if (json.containsKey('RequestId')) {
-      this.requestId = json['RequestId'];
+      requestId = json['RequestId'] as String;
     } else {
-      this.requestId = null;
+      requestId = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.errorDateTime != null) {
-      _result['ErrorDateTime'] = this.errorDateTime.toIso8601String();
+    var _result = <String, dynamic>{};
+    if (errorDateTime != null) {
+      _result['ErrorDateTime'] = errorDateTime.toIso8601String();
     }
 
-    if (this.requestId != null) {
-      _result['RequestId'] = this.requestId;
+    if (requestId != null) {
+      _result['RequestId'] = requestId;
     }
     return _result;
   }

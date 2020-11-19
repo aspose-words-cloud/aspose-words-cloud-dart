@@ -29,9 +29,9 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Table row element.
+/// DTO container with a table row element.
 class TableRowInsert implements ModelBase {
-  /// Gets or sets count of columns. Default is 1.
+  /// Gets or sets the count of columns. The default value is 1.
   int columnsCount;
 
   /// Gets or sets table row will be inserted after row with specified 0-based index.
@@ -39,28 +39,32 @@ class TableRowInsert implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize TableRowInsert data model.');
+    }
+
     if (json.containsKey('ColumnsCount')) {
-      this.columnsCount = json['ColumnsCount'];
+      columnsCount = json['ColumnsCount'] as int;
     } else {
-      this.columnsCount = null;
+      columnsCount = null;
     }
 
     if (json.containsKey('InsertAfter')) {
-      this.insertAfter = json['InsertAfter'];
+      insertAfter = json['InsertAfter'] as int;
     } else {
-      this.insertAfter = null;
+      insertAfter = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.columnsCount != null) {
-      _result['ColumnsCount'] = this.columnsCount;
+    var _result = <String, dynamic>{};
+    if (columnsCount != null) {
+      _result['ColumnsCount'] = columnsCount;
     }
 
-    if (this.insertAfter != null) {
-      _result['InsertAfter'] = this.insertAfter;
+    if (insertAfter != null) {
+      _result['InsertAfter'] = insertAfter;
     }
     return _result;
   }

@@ -31,76 +31,80 @@ import '../../aspose_words_cloud.dart';
 
 /// Api error.
 class ApiError implements ModelBase {
-  /// Gets or sets api error code.
+  /// Gets or sets the API error code.
   String code;
 
-  /// Gets or sets server datetime.
+  /// Gets or sets the server DateTime.
   DateTime dateTime;
 
-  /// Gets or sets error description.
+  /// Gets or sets the error description.
   String description;
 
-  /// Gets or sets inner error.
+  /// Gets or sets the inner error.
   ApiError innerError;
 
-  /// Gets or sets error message.
+  /// Gets or sets the error message.
   String message;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ApiError data model.');
+    }
+
     if (json.containsKey('Code')) {
-      this.code = json['Code'];
+      code = json['Code'] as String;
     } else {
-      this.code = null;
+      code = null;
     }
 
     if (json.containsKey('DateTime')) {
-      this.dateTime = DateTime.parse(json['DateTime']);
+      dateTime = DateTime.parse(json['DateTime'] as String);
     } else {
-      this.dateTime = null;
+      dateTime = null;
     }
 
     if (json.containsKey('Description')) {
-      this.description = json['Description'];
+      description = json['Description'] as String;
     } else {
-      this.description = null;
+      description = null;
     }
 
     if (json.containsKey('InnerError')) {
-      this.innerError = new ApiError();
-      this.innerError.deserialize(json['InnerError']);
+      innerError = ApiError();
+      innerError.deserialize(json['InnerError'] as Map<String, dynamic>);
     } else {
-      this.innerError = null;
+      innerError = null;
     }
 
     if (json.containsKey('Message')) {
-      this.message = json['Message'];
+      message = json['Message'] as String;
     } else {
-      this.message = null;
+      message = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.code != null) {
-      _result['Code'] = this.code;
+    var _result = <String, dynamic>{};
+    if (code != null) {
+      _result['Code'] = code;
     }
 
-    if (this.dateTime != null) {
-      _result['DateTime'] = this.dateTime.toIso8601String();
+    if (dateTime != null) {
+      _result['DateTime'] = dateTime.toIso8601String();
     }
 
-    if (this.description != null) {
-      _result['Description'] = this.description;
+    if (description != null) {
+      _result['Description'] = description;
     }
 
-    if (this.innerError != null) {
-      _result['InnerError'] = this.innerError.serialize();
+    if (innerError != null) {
+      _result['InnerError'] = innerError.serialize();
     }
 
-    if (this.message != null) {
-      _result['Message'] = this.message;
+    if (message != null) {
+      _result['Message'] = message;
     }
     return _result;
   }

@@ -25,10 +25,10 @@
  * --------------------------------------------------------------------------------
  */
 
-import 'dart:typed_data';
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
-import 'test_context.dart';
 import 'package:test/test.dart';
+
+import 'test_context.dart';
 
 /// Example of how to use batch requests.
 class EncodingTests
@@ -36,8 +36,8 @@ class EncodingTests
   final TestContext context;
   String dataFolder;
 
-  EncodingTests(final TestContext this.context) {
-    dataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Section';
+  EncodingTests(final this.context) {
+    dataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Section';
   }
 
   /// Test for url encoding.
@@ -45,15 +45,16 @@ class EncodingTests
   {
     var localName = 'test_multi_pages.docx';
     var remoteName = '[“Test_Two,_Inc.”]-_83(b)Election([“Bill_Gates”]).docx';
-    var fullName = '${this.dataFolder}/${remoteName}';
+    var fullName = '$dataFolder/$remoteName';
     var sectionIndex = 0;
 
-    await this.context.uploadFile(
+    await context.uploadFile(
         'Common/' + localName,
         fullName
     );
 
-    var request = new GetSectionRequest(remoteName, sectionIndex, folder: this.dataFolder);
-    var actual = await this.context.getApi().getSection(request);
+    var request = GetSectionRequest(remoteName, sectionIndex, folder: dataFolder);
+    var actual = await context.getApi().getSection(request);
+    expect(actual, isNotNull);
   }
 }

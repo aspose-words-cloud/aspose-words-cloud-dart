@@ -1,3 +1,9 @@
+## [20.11.0] - Aspose Words Cloud for Dart 20.11 Release Notes
+
+- In configuration json file appSid / appKey has been replaced to clientId / clientSecret.
+- In Words API initialization methods clientId parameter precedes clientSecret parameter.
+
+
 ## [20.10.0] - Aspose Words Cloud for Dart 20.10 Release Notes
 
 - Internal API changes.

@@ -29,64 +29,68 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Font info.
+/// DTO container with font info.
 class FontInfo implements ModelBase {
-  /// Gets or sets path to the font file if any.
+  /// Gets or sets the path to the font file if any.
   String filePath;
 
-  /// Gets or sets family name of the font.
+  /// Gets or sets the family name of the font.
   String fontFamilyName;
 
-  /// Gets or sets full name of the font.
+  /// Gets or sets the full name of the font.
   String fullFontName;
 
-  /// Gets or sets version string of the font.
+  /// Gets or sets the version string of the font.
   String version;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FontInfo data model.');
+    }
+
     if (json.containsKey('FilePath')) {
-      this.filePath = json['FilePath'];
+      filePath = json['FilePath'] as String;
     } else {
-      this.filePath = null;
+      filePath = null;
     }
 
     if (json.containsKey('FontFamilyName')) {
-      this.fontFamilyName = json['FontFamilyName'];
+      fontFamilyName = json['FontFamilyName'] as String;
     } else {
-      this.fontFamilyName = null;
+      fontFamilyName = null;
     }
 
     if (json.containsKey('FullFontName')) {
-      this.fullFontName = json['FullFontName'];
+      fullFontName = json['FullFontName'] as String;
     } else {
-      this.fullFontName = null;
+      fullFontName = null;
     }
 
     if (json.containsKey('Version')) {
-      this.version = json['Version'];
+      version = json['Version'] as String;
     } else {
-      this.version = null;
+      version = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.filePath != null) {
-      _result['FilePath'] = this.filePath;
+    var _result = <String, dynamic>{};
+    if (filePath != null) {
+      _result['FilePath'] = filePath;
     }
 
-    if (this.fontFamilyName != null) {
-      _result['FontFamilyName'] = this.fontFamilyName;
+    if (fontFamilyName != null) {
+      _result['FontFamilyName'] = fontFamilyName;
     }
 
-    if (this.fullFontName != null) {
-      _result['FullFontName'] = this.fullFontName;
+    if (fullFontName != null) {
+      _result['FullFontName'] = fullFontName;
     }
 
-    if (this.version != null) {
-      _result['Version'] = this.version;
+    if (version != null) {
+      _result['Version'] = version;
     }
     return _result;
   }

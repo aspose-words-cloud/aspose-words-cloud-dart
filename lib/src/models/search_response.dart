@@ -29,42 +29,45 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:
-/// GET https://api.aspose.cloud/v4.0/words/Test.doc/search.
+/// The REST response with a regular expression pattern and a collection of search results.
 class SearchResponse extends WordsResponse {
-  /// Gets or sets a regular expression pattern used to find matches.
+  /// Gets or sets the regular expression pattern used to find matches.
   String searchingPattern;
 
-  /// Gets or sets collection of search results.
+  /// Gets or sets the collection of search results.
   SearchResultsCollection searchResults;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize SearchResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('SearchingPattern')) {
-      this.searchingPattern = json['SearchingPattern'];
+      searchingPattern = json['SearchingPattern'] as String;
     } else {
-      this.searchingPattern = null;
+      searchingPattern = null;
     }
 
     if (json.containsKey('SearchResults')) {
-      this.searchResults = new SearchResultsCollection();
-      this.searchResults.deserialize(json['SearchResults']);
+      searchResults = SearchResultsCollection();
+      searchResults.deserialize(json['SearchResults'] as Map<String, dynamic>);
     } else {
-      this.searchResults = null;
+      searchResults = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.searchingPattern != null) {
-      _result['SearchingPattern'] = this.searchingPattern;
+    if (searchingPattern != null) {
+      _result['SearchingPattern'] = searchingPattern;
     }
 
-    if (this.searchResults != null) {
-      _result['SearchResults'] = this.searchResults.serialize();
+    if (searchResults != null) {
+      _result['SearchResults'] = searchResults.serialize();
     }
     return _result;
   }

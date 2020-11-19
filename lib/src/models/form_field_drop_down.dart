@@ -31,7 +31,7 @@ import '../../aspose_words_cloud.dart';
 
 /// FormField dropdownlist element.
 class FormFieldDropDown extends FormField {
-  /// Gets or sets provides access to the items of a dropdown form field.
+  /// Gets or sets the items array of a dropdown form field.
   List<String> dropDownItems;
 
   /// Gets or sets the index specifying the currently selected item in a dropdown form field.
@@ -39,34 +39,38 @@ class FormFieldDropDown extends FormField {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FormFieldDropDown data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('DropDownItems')) {
       // Array processing
-      this.dropDownItems = new List<String>();
+      dropDownItems = <String>[];
       for(final _element in json['DropDownItems']) {
-        this.dropDownItems.add(_element);
+        dropDownItems.add(_element as String);
       }
     } else {
-      this.dropDownItems = null;
+      dropDownItems = null;
     }
 
     if (json.containsKey('DropDownSelectedIndex')) {
-      this.dropDownSelectedIndex = json['DropDownSelectedIndex'];
+      dropDownSelectedIndex = json['DropDownSelectedIndex'] as int;
     } else {
-      this.dropDownSelectedIndex = null;
+      dropDownSelectedIndex = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.dropDownItems != null) {
-      _result['DropDownItems'] = this.dropDownItems;
+    if (dropDownItems != null) {
+      _result['DropDownItems'] = dropDownItems;
     }
 
-    if (this.dropDownSelectedIndex != null) {
-      _result['DropDownSelectedIndex'] = this.dropDownSelectedIndex;
+    if (dropDownSelectedIndex != null) {
+      _result['DropDownSelectedIndex'] = dropDownSelectedIndex;
     }
     return _result;
   }

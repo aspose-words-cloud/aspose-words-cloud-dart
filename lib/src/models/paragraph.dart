@@ -29,33 +29,37 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Paragraph element.
+/// DTO container with a paragraph element.
 class Paragraph extends NodeLink {
-  /// Gets or sets child nodes.
+  /// Gets or sets the list of child nodes.
   List<NodeLink> childNodes;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize Paragraph data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('ChildNodes')) {
       // Array processing
-      this.childNodes = new List<NodeLink>();
+      childNodes = <NodeLink>[];
       for(final _element in json['ChildNodes']) {
-        var _elementValue = new NodeLink();
-        _elementValue.deserialize(_element);
-        this.childNodes.add(_elementValue);
+        var _elementValue = NodeLink();
+        _elementValue.deserialize(_element as Map<String, dynamic>);
+        childNodes.add(_elementValue);
       }
     } else {
-      this.childNodes = null;
+      childNodes = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.childNodes != null) {
-      _result['ChildNodes'] = this.childNodes.map((_element) => _element.serialize()).toList();
+    if (childNodes != null) {
+      _result['ChildNodes'] = childNodes.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

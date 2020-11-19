@@ -29,89 +29,93 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Section element.
+/// DTO container with a section element.
 class Section extends LinkElement {
-  /// Gets or sets child nodes.
+  /// Gets or sets the list of child nodes.
   List<NodeLink> childNodes;
 
-  /// Gets or sets link to HeaderFooters resource.
+  /// Gets or sets the link to HeaderFooters resource.
   LinkElement headerFooters;
 
-  /// Gets or sets link to PageSetup resource.
+  /// Gets or sets the link to PageSetup resource.
   LinkElement pageSetup;
 
-  /// Gets or sets link to Paragraphs resource.
+  /// Gets or sets the link to Paragraphs resource.
   LinkElement paragraphs;
 
-  /// Gets or sets link to Tables resource.
+  /// Gets or sets the link to Tables resource.
   LinkElement tables;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize Section data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('ChildNodes')) {
       // Array processing
-      this.childNodes = new List<NodeLink>();
+      childNodes = <NodeLink>[];
       for(final _element in json['ChildNodes']) {
-        var _elementValue = new NodeLink();
-        _elementValue.deserialize(_element);
-        this.childNodes.add(_elementValue);
+        var _elementValue = NodeLink();
+        _elementValue.deserialize(_element as Map<String, dynamic>);
+        childNodes.add(_elementValue);
       }
     } else {
-      this.childNodes = null;
+      childNodes = null;
     }
 
     if (json.containsKey('HeaderFooters')) {
-      this.headerFooters = new LinkElement();
-      this.headerFooters.deserialize(json['HeaderFooters']);
+      headerFooters = LinkElement();
+      headerFooters.deserialize(json['HeaderFooters'] as Map<String, dynamic>);
     } else {
-      this.headerFooters = null;
+      headerFooters = null;
     }
 
     if (json.containsKey('PageSetup')) {
-      this.pageSetup = new LinkElement();
-      this.pageSetup.deserialize(json['PageSetup']);
+      pageSetup = LinkElement();
+      pageSetup.deserialize(json['PageSetup'] as Map<String, dynamic>);
     } else {
-      this.pageSetup = null;
+      pageSetup = null;
     }
 
     if (json.containsKey('Paragraphs')) {
-      this.paragraphs = new LinkElement();
-      this.paragraphs.deserialize(json['Paragraphs']);
+      paragraphs = LinkElement();
+      paragraphs.deserialize(json['Paragraphs'] as Map<String, dynamic>);
     } else {
-      this.paragraphs = null;
+      paragraphs = null;
     }
 
     if (json.containsKey('Tables')) {
-      this.tables = new LinkElement();
-      this.tables.deserialize(json['Tables']);
+      tables = LinkElement();
+      tables.deserialize(json['Tables'] as Map<String, dynamic>);
     } else {
-      this.tables = null;
+      tables = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.childNodes != null) {
-      _result['ChildNodes'] = this.childNodes.map((_element) => _element.serialize()).toList();
+    if (childNodes != null) {
+      _result['ChildNodes'] = childNodes.map((_element) => _element.serialize()).toList();
     }
 
-    if (this.headerFooters != null) {
-      _result['HeaderFooters'] = this.headerFooters.serialize();
+    if (headerFooters != null) {
+      _result['HeaderFooters'] = headerFooters.serialize();
     }
 
-    if (this.pageSetup != null) {
-      _result['PageSetup'] = this.pageSetup.serialize();
+    if (pageSetup != null) {
+      _result['PageSetup'] = pageSetup.serialize();
     }
 
-    if (this.paragraphs != null) {
-      _result['Paragraphs'] = this.paragraphs.serialize();
+    if (paragraphs != null) {
+      _result['Paragraphs'] = paragraphs.serialize();
     }
 
-    if (this.tables != null) {
-      _result['Tables'] = this.tables.serialize();
+    if (tables != null) {
+      _result['Tables'] = tables.serialize();
     }
     return _result;
   }

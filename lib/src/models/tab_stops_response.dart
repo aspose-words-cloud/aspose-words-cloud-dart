@@ -29,34 +29,37 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:
-/// GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/tabstops.
+/// The REST response with an array of tab stops.
 class TabStopsResponse extends WordsResponse {
-  /// Gets or sets represents a tab stop.
+  /// Gets or sets the array of tab stops.
   List<TabStop> tabStops;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize TabStopsResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('TabStops')) {
       // Array processing
-      this.tabStops = new List<TabStop>();
+      tabStops = <TabStop>[];
       for(final _element in json['TabStops']) {
-        var _elementValue = new TabStop();
-        _elementValue.deserialize(_element);
-        this.tabStops.add(_elementValue);
+        var _elementValue = TabStop();
+        _elementValue.deserialize(_element as Map<String, dynamic>);
+        tabStops.add(_elementValue);
       }
     } else {
-      this.tabStops = null;
+      tabStops = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.tabStops != null) {
-      _result['TabStops'] = this.tabStops.map((_element) => _element.serialize()).toList();
+    if (tabStops != null) {
+      _result['TabStops'] = tabStops.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

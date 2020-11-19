@@ -31,7 +31,7 @@ import '../../aspose_words_cloud.dart';
 
 /// Allows to specify additional System.Drawing.Graphics quality options.
 class GraphicsQualityOptionsData implements ModelBase {
-  /// Gets or sets a value that specifies how composited images are drawn to this Graphics.
+  /// Gets or sets the value, that specifies how composited images are drawn to this Graphics.
   GraphicsQualityOptionsData_CompositingModeEnum compositingMode;
 
   /// Gets or sets the rendering quality of composited images drawn to this Graphics.
@@ -51,97 +51,101 @@ class GraphicsQualityOptionsData implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize GraphicsQualityOptionsData data model.');
+    }
+
     if (json.containsKey('CompositingMode')) {
-      switch (json['CompositingMode']) {
-        case 'SourceOver': this.compositingMode = GraphicsQualityOptionsData_CompositingModeEnum.sourceOver; break;
-        case 'SourceCopy': this.compositingMode = GraphicsQualityOptionsData_CompositingModeEnum.sourceCopy; break;
-        default: this.compositingMode = null; break;
+      switch (json['CompositingMode'] as String) {
+        case 'SourceOver': compositingMode = GraphicsQualityOptionsData_CompositingModeEnum.sourceOver; break;
+        case 'SourceCopy': compositingMode = GraphicsQualityOptionsData_CompositingModeEnum.sourceCopy; break;
+        default: compositingMode = null; break;
       }
     } else {
-      this.compositingMode = null;
+      compositingMode = null;
     }
 
     if (json.containsKey('CompositingQuality')) {
-      switch (json['CompositingQuality']) {
-        case 'Default': this.compositingQuality = GraphicsQualityOptionsData_CompositingQualityEnum.default_; break;
-        case 'HighSpeed': this.compositingQuality = GraphicsQualityOptionsData_CompositingQualityEnum.highSpeed; break;
-        case 'HighQuality': this.compositingQuality = GraphicsQualityOptionsData_CompositingQualityEnum.highQuality; break;
-        case 'GammaCorrected': this.compositingQuality = GraphicsQualityOptionsData_CompositingQualityEnum.gammaCorrected; break;
-        case 'AssumeLinear': this.compositingQuality = GraphicsQualityOptionsData_CompositingQualityEnum.assumeLinear; break;
-        case 'Invalid': this.compositingQuality = GraphicsQualityOptionsData_CompositingQualityEnum.invalid; break;
-        default: this.compositingQuality = null; break;
+      switch (json['CompositingQuality'] as String) {
+        case 'Default': compositingQuality = GraphicsQualityOptionsData_CompositingQualityEnum.defaultValue; break;
+        case 'HighSpeed': compositingQuality = GraphicsQualityOptionsData_CompositingQualityEnum.highSpeed; break;
+        case 'HighQuality': compositingQuality = GraphicsQualityOptionsData_CompositingQualityEnum.highQuality; break;
+        case 'GammaCorrected': compositingQuality = GraphicsQualityOptionsData_CompositingQualityEnum.gammaCorrected; break;
+        case 'AssumeLinear': compositingQuality = GraphicsQualityOptionsData_CompositingQualityEnum.assumeLinear; break;
+        case 'Invalid': compositingQuality = GraphicsQualityOptionsData_CompositingQualityEnum.invalid; break;
+        default: compositingQuality = null; break;
       }
     } else {
-      this.compositingQuality = null;
+      compositingQuality = null;
     }
 
     if (json.containsKey('InterpolationMode')) {
-      switch (json['InterpolationMode']) {
-        case 'Default': this.interpolationMode = GraphicsQualityOptionsData_InterpolationModeEnum.default_; break;
-        case 'Low': this.interpolationMode = GraphicsQualityOptionsData_InterpolationModeEnum.low; break;
-        case 'High': this.interpolationMode = GraphicsQualityOptionsData_InterpolationModeEnum.high; break;
-        case 'Bilinear': this.interpolationMode = GraphicsQualityOptionsData_InterpolationModeEnum.bilinear; break;
-        case 'Bicubic': this.interpolationMode = GraphicsQualityOptionsData_InterpolationModeEnum.bicubic; break;
-        case 'NearestNeighbor': this.interpolationMode = GraphicsQualityOptionsData_InterpolationModeEnum.nearestNeighbor; break;
-        case 'HighQualityBilinear': this.interpolationMode = GraphicsQualityOptionsData_InterpolationModeEnum.highQualityBilinear; break;
-        case 'HighQualityBicubic': this.interpolationMode = GraphicsQualityOptionsData_InterpolationModeEnum.highQualityBicubic; break;
-        case 'Invalid': this.interpolationMode = GraphicsQualityOptionsData_InterpolationModeEnum.invalid; break;
-        default: this.interpolationMode = null; break;
+      switch (json['InterpolationMode'] as String) {
+        case 'Default': interpolationMode = GraphicsQualityOptionsData_InterpolationModeEnum.defaultValue; break;
+        case 'Low': interpolationMode = GraphicsQualityOptionsData_InterpolationModeEnum.low; break;
+        case 'High': interpolationMode = GraphicsQualityOptionsData_InterpolationModeEnum.high; break;
+        case 'Bilinear': interpolationMode = GraphicsQualityOptionsData_InterpolationModeEnum.bilinear; break;
+        case 'Bicubic': interpolationMode = GraphicsQualityOptionsData_InterpolationModeEnum.bicubic; break;
+        case 'NearestNeighbor': interpolationMode = GraphicsQualityOptionsData_InterpolationModeEnum.nearestNeighbor; break;
+        case 'HighQualityBilinear': interpolationMode = GraphicsQualityOptionsData_InterpolationModeEnum.highQualityBilinear; break;
+        case 'HighQualityBicubic': interpolationMode = GraphicsQualityOptionsData_InterpolationModeEnum.highQualityBicubic; break;
+        case 'Invalid': interpolationMode = GraphicsQualityOptionsData_InterpolationModeEnum.invalid; break;
+        default: interpolationMode = null; break;
       }
     } else {
-      this.interpolationMode = null;
+      interpolationMode = null;
     }
 
     if (json.containsKey('SmoothingMode')) {
-      switch (json['SmoothingMode']) {
-        case 'Default': this.smoothingMode = GraphicsQualityOptionsData_SmoothingModeEnum.default_; break;
-        case 'HighSpeed': this.smoothingMode = GraphicsQualityOptionsData_SmoothingModeEnum.highSpeed; break;
-        case 'HighQuality': this.smoothingMode = GraphicsQualityOptionsData_SmoothingModeEnum.highQuality; break;
-        case 'None': this.smoothingMode = GraphicsQualityOptionsData_SmoothingModeEnum.none; break;
-        case 'AntiAlias': this.smoothingMode = GraphicsQualityOptionsData_SmoothingModeEnum.antiAlias; break;
-        case 'Invalid': this.smoothingMode = GraphicsQualityOptionsData_SmoothingModeEnum.invalid; break;
-        default: this.smoothingMode = null; break;
+      switch (json['SmoothingMode'] as String) {
+        case 'Default': smoothingMode = GraphicsQualityOptionsData_SmoothingModeEnum.defaultValue; break;
+        case 'HighSpeed': smoothingMode = GraphicsQualityOptionsData_SmoothingModeEnum.highSpeed; break;
+        case 'HighQuality': smoothingMode = GraphicsQualityOptionsData_SmoothingModeEnum.highQuality; break;
+        case 'None': smoothingMode = GraphicsQualityOptionsData_SmoothingModeEnum.none; break;
+        case 'AntiAlias': smoothingMode = GraphicsQualityOptionsData_SmoothingModeEnum.antiAlias; break;
+        case 'Invalid': smoothingMode = GraphicsQualityOptionsData_SmoothingModeEnum.invalid; break;
+        default: smoothingMode = null; break;
       }
     } else {
-      this.smoothingMode = null;
+      smoothingMode = null;
     }
 
     if (json.containsKey('StringFormat')) {
-      this.stringFormat = new StringFormatData();
-      this.stringFormat.deserialize(json['StringFormat']);
+      stringFormat = StringFormatData();
+      stringFormat.deserialize(json['StringFormat'] as Map<String, dynamic>);
     } else {
-      this.stringFormat = null;
+      stringFormat = null;
     }
 
     if (json.containsKey('TextRenderingHint')) {
-      switch (json['TextRenderingHint']) {
-        case 'SystemDefault': this.textRenderingHint = GraphicsQualityOptionsData_TextRenderingHintEnum.systemDefault; break;
-        case 'SingleBitPerPixelGridFit': this.textRenderingHint = GraphicsQualityOptionsData_TextRenderingHintEnum.singleBitPerPixelGridFit; break;
-        case 'SingleBitPerPixel': this.textRenderingHint = GraphicsQualityOptionsData_TextRenderingHintEnum.singleBitPerPixel; break;
-        case 'AntiAliasGridFit': this.textRenderingHint = GraphicsQualityOptionsData_TextRenderingHintEnum.antiAliasGridFit; break;
-        case 'AntiAlias': this.textRenderingHint = GraphicsQualityOptionsData_TextRenderingHintEnum.antiAlias; break;
-        case 'ClearTypeGridFit': this.textRenderingHint = GraphicsQualityOptionsData_TextRenderingHintEnum.clearTypeGridFit; break;
-        default: this.textRenderingHint = null; break;
+      switch (json['TextRenderingHint'] as String) {
+        case 'SystemDefault': textRenderingHint = GraphicsQualityOptionsData_TextRenderingHintEnum.systemDefault; break;
+        case 'SingleBitPerPixelGridFit': textRenderingHint = GraphicsQualityOptionsData_TextRenderingHintEnum.singleBitPerPixelGridFit; break;
+        case 'SingleBitPerPixel': textRenderingHint = GraphicsQualityOptionsData_TextRenderingHintEnum.singleBitPerPixel; break;
+        case 'AntiAliasGridFit': textRenderingHint = GraphicsQualityOptionsData_TextRenderingHintEnum.antiAliasGridFit; break;
+        case 'AntiAlias': textRenderingHint = GraphicsQualityOptionsData_TextRenderingHintEnum.antiAlias; break;
+        case 'ClearTypeGridFit': textRenderingHint = GraphicsQualityOptionsData_TextRenderingHintEnum.clearTypeGridFit; break;
+        default: textRenderingHint = null; break;
       }
     } else {
-      this.textRenderingHint = null;
+      textRenderingHint = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.compositingMode != null) {
-      switch (this.compositingMode) {
+    var _result = <String, dynamic>{};
+    if (compositingMode != null) {
+      switch (compositingMode) {
         case GraphicsQualityOptionsData_CompositingModeEnum.sourceOver: _result['CompositingMode'] = 'SourceOver'; break;
         case GraphicsQualityOptionsData_CompositingModeEnum.sourceCopy: _result['CompositingMode'] = 'SourceCopy'; break;
         default: break;
       }
     }
 
-    if (this.compositingQuality != null) {
-      switch (this.compositingQuality) {
-        case GraphicsQualityOptionsData_CompositingQualityEnum.default_: _result['CompositingQuality'] = 'Default'; break;
+    if (compositingQuality != null) {
+      switch (compositingQuality) {
+        case GraphicsQualityOptionsData_CompositingQualityEnum.defaultValue: _result['CompositingQuality'] = 'Default'; break;
         case GraphicsQualityOptionsData_CompositingQualityEnum.highSpeed: _result['CompositingQuality'] = 'HighSpeed'; break;
         case GraphicsQualityOptionsData_CompositingQualityEnum.highQuality: _result['CompositingQuality'] = 'HighQuality'; break;
         case GraphicsQualityOptionsData_CompositingQualityEnum.gammaCorrected: _result['CompositingQuality'] = 'GammaCorrected'; break;
@@ -151,9 +155,9 @@ class GraphicsQualityOptionsData implements ModelBase {
       }
     }
 
-    if (this.interpolationMode != null) {
-      switch (this.interpolationMode) {
-        case GraphicsQualityOptionsData_InterpolationModeEnum.default_: _result['InterpolationMode'] = 'Default'; break;
+    if (interpolationMode != null) {
+      switch (interpolationMode) {
+        case GraphicsQualityOptionsData_InterpolationModeEnum.defaultValue: _result['InterpolationMode'] = 'Default'; break;
         case GraphicsQualityOptionsData_InterpolationModeEnum.low: _result['InterpolationMode'] = 'Low'; break;
         case GraphicsQualityOptionsData_InterpolationModeEnum.high: _result['InterpolationMode'] = 'High'; break;
         case GraphicsQualityOptionsData_InterpolationModeEnum.bilinear: _result['InterpolationMode'] = 'Bilinear'; break;
@@ -166,9 +170,9 @@ class GraphicsQualityOptionsData implements ModelBase {
       }
     }
 
-    if (this.smoothingMode != null) {
-      switch (this.smoothingMode) {
-        case GraphicsQualityOptionsData_SmoothingModeEnum.default_: _result['SmoothingMode'] = 'Default'; break;
+    if (smoothingMode != null) {
+      switch (smoothingMode) {
+        case GraphicsQualityOptionsData_SmoothingModeEnum.defaultValue: _result['SmoothingMode'] = 'Default'; break;
         case GraphicsQualityOptionsData_SmoothingModeEnum.highSpeed: _result['SmoothingMode'] = 'HighSpeed'; break;
         case GraphicsQualityOptionsData_SmoothingModeEnum.highQuality: _result['SmoothingMode'] = 'HighQuality'; break;
         case GraphicsQualityOptionsData_SmoothingModeEnum.none: _result['SmoothingMode'] = 'None'; break;
@@ -178,12 +182,12 @@ class GraphicsQualityOptionsData implements ModelBase {
       }
     }
 
-    if (this.stringFormat != null) {
-      _result['StringFormat'] = this.stringFormat.serialize();
+    if (stringFormat != null) {
+      _result['StringFormat'] = stringFormat.serialize();
     }
 
-    if (this.textRenderingHint != null) {
-      switch (this.textRenderingHint) {
+    if (textRenderingHint != null) {
+      switch (textRenderingHint) {
         case GraphicsQualityOptionsData_TextRenderingHintEnum.systemDefault: _result['TextRenderingHint'] = 'SystemDefault'; break;
         case GraphicsQualityOptionsData_TextRenderingHintEnum.singleBitPerPixelGridFit: _result['TextRenderingHint'] = 'SingleBitPerPixelGridFit'; break;
         case GraphicsQualityOptionsData_TextRenderingHintEnum.singleBitPerPixel: _result['TextRenderingHint'] = 'SingleBitPerPixel'; break;
@@ -197,7 +201,7 @@ class GraphicsQualityOptionsData implements ModelBase {
   }
 }
 
-/// Gets or sets a value that specifies how composited images are drawn to this Graphics.
+/// Gets or sets the value, that specifies how composited images are drawn to this Graphics.
 enum GraphicsQualityOptionsData_CompositingModeEnum
 { 
   sourceOver,
@@ -207,7 +211,7 @@ enum GraphicsQualityOptionsData_CompositingModeEnum
 /// Gets or sets the rendering quality of composited images drawn to this Graphics.
 enum GraphicsQualityOptionsData_CompositingQualityEnum
 { 
-  default_,
+  defaultValue,
   highSpeed,
   highQuality,
   gammaCorrected,
@@ -218,7 +222,7 @@ enum GraphicsQualityOptionsData_CompositingQualityEnum
 /// Gets or sets the interpolation mode associated with this Graphics.
 enum GraphicsQualityOptionsData_InterpolationModeEnum
 { 
-  default_,
+  defaultValue,
   low,
   high,
   bilinear,
@@ -232,7 +236,7 @@ enum GraphicsQualityOptionsData_InterpolationModeEnum
 /// Gets or sets the rendering quality for this Graphics.
 enum GraphicsQualityOptionsData_SmoothingModeEnum
 { 
-  default_,
+  defaultValue,
   highSpeed,
   highQuality,
   none,

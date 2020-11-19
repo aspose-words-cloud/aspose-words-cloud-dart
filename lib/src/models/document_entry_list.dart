@@ -31,42 +31,46 @@ import '../../aspose_words_cloud.dart';
 
 /// Represents a list of documents which will be appended to the original resource document.
 class DocumentEntryList implements ModelBase {
-  /// Gets or sets parameter that indicates to apply headers and footers from base document to appending documents. Default is true.
+  /// Gets or sets a value indicating whether to apply headers and footers from base document to appending documents. The default value is true.
   bool applyBaseDocumentHeadersAndFootersToAppendingDocuments;
 
-  /// Gets or sets list of documents.
+  /// Gets or sets the list of documents.
   List<DocumentEntry> documentEntries;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize DocumentEntryList data model.');
+    }
+
     if (json.containsKey('ApplyBaseDocumentHeadersAndFootersToAppendingDocuments')) {
-      this.applyBaseDocumentHeadersAndFootersToAppendingDocuments = json['ApplyBaseDocumentHeadersAndFootersToAppendingDocuments'];
+      applyBaseDocumentHeadersAndFootersToAppendingDocuments = json['ApplyBaseDocumentHeadersAndFootersToAppendingDocuments'] as bool;
     } else {
-      this.applyBaseDocumentHeadersAndFootersToAppendingDocuments = null;
+      applyBaseDocumentHeadersAndFootersToAppendingDocuments = null;
     }
 
     if (json.containsKey('DocumentEntries')) {
       // Array processing
-      this.documentEntries = new List<DocumentEntry>();
+      documentEntries = <DocumentEntry>[];
       for(final _element in json['DocumentEntries']) {
-        var _elementValue = new DocumentEntry();
-        _elementValue.deserialize(_element);
-        this.documentEntries.add(_elementValue);
+        var _elementValue = DocumentEntry();
+        _elementValue.deserialize(_element as Map<String, dynamic>);
+        documentEntries.add(_elementValue);
       }
     } else {
-      this.documentEntries = null;
+      documentEntries = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.applyBaseDocumentHeadersAndFootersToAppendingDocuments != null) {
-      _result['ApplyBaseDocumentHeadersAndFootersToAppendingDocuments'] = this.applyBaseDocumentHeadersAndFootersToAppendingDocuments;
+    var _result = <String, dynamic>{};
+    if (applyBaseDocumentHeadersAndFootersToAppendingDocuments != null) {
+      _result['ApplyBaseDocumentHeadersAndFootersToAppendingDocuments'] = applyBaseDocumentHeadersAndFootersToAppendingDocuments;
     }
 
-    if (this.documentEntries != null) {
-      _result['DocumentEntries'] = this.documentEntries.map((_element) => _element.serialize()).toList();
+    if (documentEntries != null) {
+      _result['DocumentEntries'] = documentEntries.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

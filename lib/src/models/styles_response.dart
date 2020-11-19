@@ -29,34 +29,37 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:
-/// GET https://api.aspose.cloud/v4.0/words/Test.doc/styles.
+/// The REST response with an array of styles.
 class StylesResponse extends WordsResponse {
-  /// Gets or sets styles which are contained in document.
+  /// Gets or sets the array of styles.
   List<Style> styles;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize StylesResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Styles')) {
       // Array processing
-      this.styles = new List<Style>();
+      styles = <Style>[];
       for(final _element in json['Styles']) {
-        var _elementValue = new Style();
-        _elementValue.deserialize(_element);
-        this.styles.add(_elementValue);
+        var _elementValue = Style();
+        _elementValue.deserialize(_element as Map<String, dynamic>);
+        styles.add(_elementValue);
       }
     } else {
-      this.styles = null;
+      styles = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.styles != null) {
-      _result['Styles'] = this.styles.map((_element) => _element.serialize()).toList();
+    if (styles != null) {
+      _result['Styles'] = styles.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

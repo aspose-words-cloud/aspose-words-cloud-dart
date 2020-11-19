@@ -29,29 +29,32 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:
-/// GET {nodeWithBorders}/borders.
+/// The REST response with a border.
 class BorderResponse extends WordsResponse {
-  /// Gets or sets table.
+  /// Gets or sets the border.
   Border border;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize BorderResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Border')) {
-      this.border = new Border();
-      this.border.deserialize(json['Border']);
+      border = Border();
+      border.deserialize(json['Border'] as Map<String, dynamic>);
     } else {
-      this.border = null;
+      border = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.border != null) {
-      _result['Border'] = this.border.serialize();
+    if (border != null) {
+      _result['Border'] = border.serialize();
     }
     return _result;
   }

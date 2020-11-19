@@ -26,8 +26,9 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
-import '../test_context.dart';
 import 'package:test/test.dart';
+
+import '../test_context.dart';
 
 /// Example of how to work with watermarks.
 class WatermarkTests
@@ -36,62 +37,68 @@ class WatermarkTests
   String remoteDataFolder;
   String localFile;
 
-  WatermarkTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/Watermark';
+  WatermarkTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/Watermark';
     localFile = 'Common/test_multi_pages.docx';
   }
 
   /// Test for adding watermark image.
   Future<void> testInsertWatermarkImage() async
   {
-    final String remoteFileName = 'TestInsertWatermarkImage.docx';
-    final String remoteImagePath = remoteDataFolder + '/TestInsertWatermarkImage.png';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestInsertWatermarkImage.docx';
+    final remoteImagePath = remoteDataFolder + '/TestInsertWatermarkImage.png';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    await this.context.uploadFile('Common/aspose-cloud.png', remoteImagePath);
+    await context.uploadFile('Common/aspose-cloud.png', remoteImagePath);
 
-    final request = new InsertWatermarkImageRequest(
+    final request = InsertWatermarkImageRequest(
       remoteFileName,
       imageFile: null,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName,
+      destFileName: context.baseTestOutPath + '/' + remoteFileName,
       image: remoteImagePath
     );
 
-    var result = await this.context.getApi().insertWatermarkImage(request);
+    var result = await context.getApi().insertWatermarkImage(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'TestInsertWatermarkImage.docx');
   }
 
   /// Test for adding watermark text.
   Future<void> testInsertWatermarkText() async
   {
-    final String remoteFileName = 'TestInsertWatermarkText.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestWatermarkText = new WatermarkText();
+    final remoteFileName = 'TestInsertWatermarkText.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestWatermarkText = WatermarkText();
     requestWatermarkText.text = 'This is the text';
-    requestWatermarkText.rotationAngle = 90;
+    requestWatermarkText.rotationAngle = 90.0;
 
-    final request = new InsertWatermarkTextRequest(
+    final request = InsertWatermarkTextRequest(
       remoteFileName,
       requestWatermarkText,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await this.context.getApi().insertWatermarkText(request);
+    var result = await context.getApi().insertWatermarkText(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'TestInsertWatermarkText.docx');
   }
 
   /// Test for deleting watermark.
   Future<void> testDeleteWatermark() async
   {
-    final String remoteFileName = 'TestDeleteWatermark.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestDeleteWatermark.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new DeleteWatermarkRequest(
+    final request = DeleteWatermarkRequest(
       remoteFileName,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await this.context.getApi().deleteWatermark(request);
+    var result = await context.getApi().deleteWatermark(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'TestDeleteWatermark.docx');
   }
 }

@@ -31,82 +31,86 @@ import '../../aspose_words_cloud.dart';
 
 /// Container for the document's statistical data.
 class DocumentStatData implements ModelBase {
-  /// Gets or sets detailed statistics of footnotes.
+  /// Gets or sets the detailed statistics on footnotes.
   FootnotesStatData footnotesStatData;
 
-  /// Gets or sets total count of pages in the document.
+  /// Gets or sets the total count of pages in the document.
   int pageCount;
 
-  /// Gets or sets detailed statistics of all pages.
+  /// Gets or sets the detailed statistics on all pages.
   List<PageStatData> pageStatData;
 
-  /// Gets or sets total count of paragraphs in the document.
+  /// Gets or sets the total count of paragraphs in the document.
   int paragraphCount;
 
-  /// Gets or sets total count of words in the document.
+  /// Gets or sets the total count of words in the document.
   int wordCount;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize DocumentStatData data model.');
+    }
+
     if (json.containsKey('FootnotesStatData')) {
-      this.footnotesStatData = new FootnotesStatData();
-      this.footnotesStatData.deserialize(json['FootnotesStatData']);
+      footnotesStatData = FootnotesStatData();
+      footnotesStatData.deserialize(json['FootnotesStatData'] as Map<String, dynamic>);
     } else {
-      this.footnotesStatData = null;
+      footnotesStatData = null;
     }
 
     if (json.containsKey('PageCount')) {
-      this.pageCount = json['PageCount'];
+      pageCount = json['PageCount'] as int;
     } else {
-      this.pageCount = null;
+      pageCount = null;
     }
 
     if (json.containsKey('PageStatData')) {
       // Array processing
-      this.pageStatData = new List<PageStatData>();
+      pageStatData = <PageStatData>[];
       for(final _element in json['PageStatData']) {
-        var _elementValue = new PageStatData();
-        _elementValue.deserialize(_element);
-        this.pageStatData.add(_elementValue);
+        var _elementValue = PageStatData();
+        _elementValue.deserialize(_element as Map<String, dynamic>);
+        pageStatData.add(_elementValue);
       }
     } else {
-      this.pageStatData = null;
+      pageStatData = null;
     }
 
     if (json.containsKey('ParagraphCount')) {
-      this.paragraphCount = json['ParagraphCount'];
+      paragraphCount = json['ParagraphCount'] as int;
     } else {
-      this.paragraphCount = null;
+      paragraphCount = null;
     }
 
     if (json.containsKey('WordCount')) {
-      this.wordCount = json['WordCount'];
+      wordCount = json['WordCount'] as int;
     } else {
-      this.wordCount = null;
+      wordCount = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.footnotesStatData != null) {
-      _result['FootnotesStatData'] = this.footnotesStatData.serialize();
+    var _result = <String, dynamic>{};
+    if (footnotesStatData != null) {
+      _result['FootnotesStatData'] = footnotesStatData.serialize();
     }
 
-    if (this.pageCount != null) {
-      _result['PageCount'] = this.pageCount;
+    if (pageCount != null) {
+      _result['PageCount'] = pageCount;
     }
 
-    if (this.pageStatData != null) {
-      _result['PageStatData'] = this.pageStatData.map((_element) => _element.serialize()).toList();
+    if (pageStatData != null) {
+      _result['PageStatData'] = pageStatData.map((_element) => _element.serialize()).toList();
     }
 
-    if (this.paragraphCount != null) {
-      _result['ParagraphCount'] = this.paragraphCount;
+    if (paragraphCount != null) {
+      _result['ParagraphCount'] = paragraphCount;
     }
 
-    if (this.wordCount != null) {
-      _result['WordCount'] = this.wordCount;
+    if (wordCount != null) {
+      _result['WordCount'] = wordCount;
     }
     return _result;
   }

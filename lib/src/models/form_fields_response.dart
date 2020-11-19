@@ -29,29 +29,32 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:
-/// GET https://api.aspose.cloud/v4.0/words/Test.doc/{nodePath}/formfields.
+/// The REST response with a collection of form fields.
 class FormFieldsResponse extends WordsResponse {
-  /// Gets or sets collection of form fields.
+  /// Gets or sets the collection of form fields.
   FormFieldCollection formFields;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FormFieldsResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('FormFields')) {
-      this.formFields = new FormFieldCollection();
-      this.formFields.deserialize(json['FormFields']);
+      formFields = FormFieldCollection();
+      formFields.deserialize(json['FormFields'] as Map<String, dynamic>);
     } else {
-      this.formFields = null;
+      formFields = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.formFields != null) {
-      _result['FormFields'] = this.formFields.serialize();
+    if (formFields != null) {
+      _result['FormFields'] = formFields.serialize();
     }
     return _result;
   }

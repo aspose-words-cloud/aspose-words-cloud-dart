@@ -29,33 +29,37 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Represents a single document list.
+/// DTO container with a single document list.
 class ListLevels extends LinkElement {
   /// Gets or sets the collection of list levels for this list.
   List<ListLevel> listLevel;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ListLevels data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('ListLevel')) {
       // Array processing
-      this.listLevel = new List<ListLevel>();
+      listLevel = <ListLevel>[];
       for(final _element in json['ListLevel']) {
-        var _elementValue = new ListLevel();
-        _elementValue.deserialize(_element);
-        this.listLevel.add(_elementValue);
+        var _elementValue = ListLevel();
+        _elementValue.deserialize(_element as Map<String, dynamic>);
+        listLevel.add(_elementValue);
       }
     } else {
-      this.listLevel = null;
+      listLevel = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.listLevel != null) {
-      _result['ListLevel'] = this.listLevel.map((_element) => _element.serialize()).toList();
+    if (listLevel != null) {
+      _result['ListLevel'] = listLevel.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

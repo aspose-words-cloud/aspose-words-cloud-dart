@@ -34,33 +34,37 @@ class BookmarkData implements ModelBase {
   /// Gets or sets the name of the bookmark.
   String name;
 
-  /// Gets or sets the text enclosed in the bookmark.
+  /// Gets or sets text, enclosed in the bookmark.
   String text;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize BookmarkData data model.');
+    }
+
     if (json.containsKey('Name')) {
-      this.name = json['Name'];
+      name = json['Name'] as String;
     } else {
-      this.name = null;
+      name = null;
     }
 
     if (json.containsKey('Text')) {
-      this.text = json['Text'];
+      text = json['Text'] as String;
     } else {
-      this.text = null;
+      text = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.name != null) {
-      _result['Name'] = this.name;
+    var _result = <String, dynamic>{};
+    if (name != null) {
+      _result['Name'] = name;
     }
 
-    if (this.text != null) {
-      _result['Text'] = this.text;
+    if (text != null) {
+      _result['Text'] = text;
     }
     return _result;
   }

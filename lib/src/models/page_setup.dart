@@ -31,63 +31,60 @@ import '../../aspose_words_cloud.dart';
 
 /// Represents the page setup properties of a section.
 class PageSetup extends LinkElement {
-  /// Gets or sets specifies that this section contains bidirectional (complex scripts) text.
+  /// Gets or sets a value indicating whether this section contains bidirectional (complex scripts) text.
   bool bidi;
 
-  /// Gets or sets specifies where the page border is positioned relative to intersecting texts and objects.
+  /// Gets or sets a value indicating whether the page border is positioned relative to intersecting texts and objects.
   bool borderAlwaysInFront;
 
-  /// Gets or sets specifies which pages the page border is printed on.
+  /// Gets or sets the option that controls which pages the page border is printed on.
   PageSetup_BorderAppliesToEnum borderAppliesTo;
 
-  /// Gets or sets a value that indicates whether the specified page border is measured from the edge of the page or from
-  /// the text it surrounds.
+  /// Gets or sets the value, that indicates whether the specified page border is measured from the edge of the page or from the text it surrounds.
   PageSetup_BorderDistanceFromEnum borderDistanceFrom;
 
-  /// Gets or sets returns or sets the distance (in points) between the bottom edge of the page and the bottom boundary of the body
-  /// text.
+  /// Gets or sets the distance (in points) between the bottom edge of the page and the bottom boundary of the body text.
   double bottomMargin;
 
-  /// Gets or sets true if a different header or footer is used on the first page.
+  /// Gets or sets a value indicating whether a different header or footer is used on the first page.
   bool differentFirstPageHeaderFooter;
 
   /// Gets or sets the paper tray (bin) to use for the first page of a section.
   /// The value is implementation (printer) specific.
   int firstPageTray;
 
-  /// Gets or sets returns or sets the distance (in points) between the footer and the bottom of the page.
+  /// Gets or sets the distance (in points) between the footer and the bottom of the page.
   double footerDistance;
 
   /// Gets or sets the amount of extra space added to the margin for document binding.
   double gutter;
 
-  /// Gets or sets returns or sets the distance (in points) between the header and the top of the page.
+  /// Gets or sets the distance (in points) between the header and the top of the page.
   double headerDistance;
 
-  /// Gets or sets returns or sets the distance (in points) between the left edge of the page and the left boundary of the body text.
+  /// Gets or sets the distance (in points) between the left edge of the page and the left boundary of the body text.
   double leftMargin;
 
-  /// Gets or sets returns or sets the numeric increment for line numbers.
+  /// Gets or sets the numeric increment for line numbers.
   int lineNumberCountBy;
 
-  /// Gets or sets distance between the right edge of line numbers and the left edge of the document.
+  /// Gets or sets the distance between the right edge of line numbers and the left edge of the document.
   double lineNumberDistanceFromText;
 
-  /// Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new
-  /// page or section or runs continuously.
+  /// Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new page or section or runs continuously.
   PageSetup_LineNumberRestartModeEnum lineNumberRestartMode;
 
   /// Gets or sets the starting line number.
   int lineStartingNumber;
 
-  /// Gets or sets returns or sets the orientation of the page.
+  /// Gets or sets the orientation of the page.
   PageSetup_OrientationEnum orientation;
 
   /// Gets or sets the paper tray (bin) to be used for all but the first page of a section.
   /// The value is implementation (printer) specific.
   int otherPagesTray;
 
-  /// Gets or sets returns or sets the height of the page in points.
+  /// Gets or sets the height of the page in points.
   double pageHeight;
 
   /// Gets or sets the page number format.
@@ -96,342 +93,343 @@ class PageSetup extends LinkElement {
   /// Gets or sets the starting page number of the section.
   int pageStartingNumber;
 
-  /// Gets or sets returns or sets the width of the page in points.
+  /// Gets or sets the width of the page in points.
   double pageWidth;
 
-  /// Gets or sets returns or sets the paper size.
+  /// Gets or sets the paper size.
   PageSetup_PaperSizeEnum paperSize;
 
-  /// Gets or sets true if page numbering restarts at the beginning of the section.
+  /// Gets or sets a value indicating whether page numbering restarts at the beginning of the section.
   bool restartPageNumbering;
 
-  /// Gets or sets returns or sets the distance (in points) between the right edge of the page and the right boundary of the body
-  /// text.
+  /// Gets or sets the distance (in points) between the right edge of the page and the right boundary of the body text.
   double rightMargin;
 
-  /// Gets or sets whether Microsoft Word uses gutters for the section based on a right-to-left language or a
-  /// left-to-right language.
+  /// Gets or sets a value indicating whether Microsoft Word uses gutters for the section based on a right-to-left language or a left-to-right language.
   bool rtlGutter;
 
-  /// Gets or sets returns or sets the type of section break for the specified object.
+  /// Gets or sets the type of section break for the specified object.
   PageSetup_SectionStartEnum sectionStart;
 
-  /// Gets or sets true if endnotes are printed at the end of the next section that doesn't suppress endnotes.
-  /// Suppressed endnotes are printed before the endnotes in that section.
+  /// Gets or sets a value indicating whether endnotes are printed at the end of the next section that doesn't suppress endnotes. Suppressed endnotes are printed before the endnotes in that section.
   bool suppressEndnotes;
 
-  /// Gets or sets returns or sets the distance (in points) between the top edge of the page and the top boundary of the body text.
+  /// Gets or sets the distance (in points) between the top edge of the page and the top boundary of the body text.
   double topMargin;
 
-  /// Gets or sets returns or sets the vertical alignment of text on each page in a document or section.
+  /// Gets or sets the vertical alignment of text on each page in the document.or section.
   PageSetup_VerticalAlignmentEnum verticalAlignment;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize PageSetup data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Bidi')) {
-      this.bidi = json['Bidi'];
+      bidi = json['Bidi'] as bool;
     } else {
-      this.bidi = null;
+      bidi = null;
     }
 
     if (json.containsKey('BorderAlwaysInFront')) {
-      this.borderAlwaysInFront = json['BorderAlwaysInFront'];
+      borderAlwaysInFront = json['BorderAlwaysInFront'] as bool;
     } else {
-      this.borderAlwaysInFront = null;
+      borderAlwaysInFront = null;
     }
 
     if (json.containsKey('BorderAppliesTo')) {
-      switch (json['BorderAppliesTo']) {
-        case 'AllPages': this.borderAppliesTo = PageSetup_BorderAppliesToEnum.allPages; break;
-        case 'FirstPage': this.borderAppliesTo = PageSetup_BorderAppliesToEnum.firstPage; break;
-        case 'OtherPages': this.borderAppliesTo = PageSetup_BorderAppliesToEnum.otherPages; break;
-        default: this.borderAppliesTo = null; break;
+      switch (json['BorderAppliesTo'] as String) {
+        case 'AllPages': borderAppliesTo = PageSetup_BorderAppliesToEnum.allPages; break;
+        case 'FirstPage': borderAppliesTo = PageSetup_BorderAppliesToEnum.firstPage; break;
+        case 'OtherPages': borderAppliesTo = PageSetup_BorderAppliesToEnum.otherPages; break;
+        default: borderAppliesTo = null; break;
       }
     } else {
-      this.borderAppliesTo = null;
+      borderAppliesTo = null;
     }
 
     if (json.containsKey('BorderDistanceFrom')) {
-      switch (json['BorderDistanceFrom']) {
-        case 'Text': this.borderDistanceFrom = PageSetup_BorderDistanceFromEnum.text; break;
-        case 'PageEdge': this.borderDistanceFrom = PageSetup_BorderDistanceFromEnum.pageEdge; break;
-        default: this.borderDistanceFrom = null; break;
+      switch (json['BorderDistanceFrom'] as String) {
+        case 'Text': borderDistanceFrom = PageSetup_BorderDistanceFromEnum.text; break;
+        case 'PageEdge': borderDistanceFrom = PageSetup_BorderDistanceFromEnum.pageEdge; break;
+        default: borderDistanceFrom = null; break;
       }
     } else {
-      this.borderDistanceFrom = null;
+      borderDistanceFrom = null;
     }
 
     if (json.containsKey('BottomMargin')) {
-      this.bottomMargin = json['BottomMargin'];
+      bottomMargin = json['BottomMargin'] as double;
     } else {
-      this.bottomMargin = null;
+      bottomMargin = null;
     }
 
     if (json.containsKey('DifferentFirstPageHeaderFooter')) {
-      this.differentFirstPageHeaderFooter = json['DifferentFirstPageHeaderFooter'];
+      differentFirstPageHeaderFooter = json['DifferentFirstPageHeaderFooter'] as bool;
     } else {
-      this.differentFirstPageHeaderFooter = null;
+      differentFirstPageHeaderFooter = null;
     }
 
     if (json.containsKey('FirstPageTray')) {
-      this.firstPageTray = json['FirstPageTray'];
+      firstPageTray = json['FirstPageTray'] as int;
     } else {
-      this.firstPageTray = null;
+      firstPageTray = null;
     }
 
     if (json.containsKey('FooterDistance')) {
-      this.footerDistance = json['FooterDistance'];
+      footerDistance = json['FooterDistance'] as double;
     } else {
-      this.footerDistance = null;
+      footerDistance = null;
     }
 
     if (json.containsKey('Gutter')) {
-      this.gutter = json['Gutter'];
+      gutter = json['Gutter'] as double;
     } else {
-      this.gutter = null;
+      gutter = null;
     }
 
     if (json.containsKey('HeaderDistance')) {
-      this.headerDistance = json['HeaderDistance'];
+      headerDistance = json['HeaderDistance'] as double;
     } else {
-      this.headerDistance = null;
+      headerDistance = null;
     }
 
     if (json.containsKey('LeftMargin')) {
-      this.leftMargin = json['LeftMargin'];
+      leftMargin = json['LeftMargin'] as double;
     } else {
-      this.leftMargin = null;
+      leftMargin = null;
     }
 
     if (json.containsKey('LineNumberCountBy')) {
-      this.lineNumberCountBy = json['LineNumberCountBy'];
+      lineNumberCountBy = json['LineNumberCountBy'] as int;
     } else {
-      this.lineNumberCountBy = null;
+      lineNumberCountBy = null;
     }
 
     if (json.containsKey('LineNumberDistanceFromText')) {
-      this.lineNumberDistanceFromText = json['LineNumberDistanceFromText'];
+      lineNumberDistanceFromText = json['LineNumberDistanceFromText'] as double;
     } else {
-      this.lineNumberDistanceFromText = null;
+      lineNumberDistanceFromText = null;
     }
 
     if (json.containsKey('LineNumberRestartMode')) {
-      switch (json['LineNumberRestartMode']) {
-        case 'RestartPage': this.lineNumberRestartMode = PageSetup_LineNumberRestartModeEnum.restartPage; break;
-        case 'RestartSection': this.lineNumberRestartMode = PageSetup_LineNumberRestartModeEnum.restartSection; break;
-        case 'Continuous': this.lineNumberRestartMode = PageSetup_LineNumberRestartModeEnum.continuous; break;
-        default: this.lineNumberRestartMode = null; break;
+      switch (json['LineNumberRestartMode'] as String) {
+        case 'RestartPage': lineNumberRestartMode = PageSetup_LineNumberRestartModeEnum.restartPage; break;
+        case 'RestartSection': lineNumberRestartMode = PageSetup_LineNumberRestartModeEnum.restartSection; break;
+        case 'Continuous': lineNumberRestartMode = PageSetup_LineNumberRestartModeEnum.continuous; break;
+        default: lineNumberRestartMode = null; break;
       }
     } else {
-      this.lineNumberRestartMode = null;
+      lineNumberRestartMode = null;
     }
 
     if (json.containsKey('LineStartingNumber')) {
-      this.lineStartingNumber = json['LineStartingNumber'];
+      lineStartingNumber = json['LineStartingNumber'] as int;
     } else {
-      this.lineStartingNumber = null;
+      lineStartingNumber = null;
     }
 
     if (json.containsKey('Orientation')) {
-      switch (json['Orientation']) {
-        case 'Portrait': this.orientation = PageSetup_OrientationEnum.portrait; break;
-        case 'Landscape': this.orientation = PageSetup_OrientationEnum.landscape; break;
-        default: this.orientation = null; break;
+      switch (json['Orientation'] as String) {
+        case 'Portrait': orientation = PageSetup_OrientationEnum.portrait; break;
+        case 'Landscape': orientation = PageSetup_OrientationEnum.landscape; break;
+        default: orientation = null; break;
       }
     } else {
-      this.orientation = null;
+      orientation = null;
     }
 
     if (json.containsKey('OtherPagesTray')) {
-      this.otherPagesTray = json['OtherPagesTray'];
+      otherPagesTray = json['OtherPagesTray'] as int;
     } else {
-      this.otherPagesTray = null;
+      otherPagesTray = null;
     }
 
     if (json.containsKey('PageHeight')) {
-      this.pageHeight = json['PageHeight'];
+      pageHeight = json['PageHeight'] as double;
     } else {
-      this.pageHeight = null;
+      pageHeight = null;
     }
 
     if (json.containsKey('PageNumberStyle')) {
-      switch (json['PageNumberStyle']) {
-        case 'Arabic': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.arabic; break;
-        case 'UppercaseRoman': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.uppercaseRoman; break;
-        case 'LowercaseRoman': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.lowercaseRoman; break;
-        case 'UppercaseLetter': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.uppercaseLetter; break;
-        case 'LowercaseLetter': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.lowercaseLetter; break;
-        case 'Ordinal': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.ordinal; break;
-        case 'Number': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.number; break;
-        case 'OrdinalText': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.ordinalText; break;
-        case 'Hex': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.hex; break;
-        case 'ChicagoManual': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.chicagoManual; break;
-        case 'Kanji': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.kanji; break;
-        case 'KanjiDigit': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.kanjiDigit; break;
-        case 'AiueoHalfWidth': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.aiueoHalfWidth; break;
-        case 'IrohaHalfWidth': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.irohaHalfWidth; break;
-        case 'ArabicFullWidth': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.arabicFullWidth; break;
-        case 'ArabicHalfWidth': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.arabicHalfWidth; break;
-        case 'KanjiTraditional': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.kanjiTraditional; break;
-        case 'KanjiTraditional2': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.kanjiTraditional2; break;
-        case 'NumberInCircle': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.numberInCircle; break;
-        case 'DecimalFullWidth': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.decimalFullWidth; break;
-        case 'Aiueo': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.aiueo; break;
-        case 'Iroha': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.iroha; break;
-        case 'LeadingZero': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.leadingZero; break;
-        case 'Bullet': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.bullet; break;
-        case 'Ganada': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.ganada; break;
-        case 'Chosung': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.chosung; break;
-        case 'GB1': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.gB1; break;
-        case 'GB2': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.gB2; break;
-        case 'GB3': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.gB3; break;
-        case 'GB4': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.gB4; break;
-        case 'Zodiac1': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.zodiac1; break;
-        case 'Zodiac2': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.zodiac2; break;
-        case 'Zodiac3': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.zodiac3; break;
-        case 'TradChinNum1': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.tradChinNum1; break;
-        case 'TradChinNum2': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.tradChinNum2; break;
-        case 'TradChinNum3': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.tradChinNum3; break;
-        case 'TradChinNum4': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.tradChinNum4; break;
-        case 'SimpChinNum1': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.simpChinNum1; break;
-        case 'SimpChinNum2': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.simpChinNum2; break;
-        case 'SimpChinNum3': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.simpChinNum3; break;
-        case 'SimpChinNum4': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.simpChinNum4; break;
-        case 'HanjaRead': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.hanjaRead; break;
-        case 'HanjaReadDigit': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.hanjaReadDigit; break;
-        case 'Hangul': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.hangul; break;
-        case 'Hanja': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.hanja; break;
-        case 'Hebrew1': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.hebrew1; break;
-        case 'Arabic1': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.arabic1; break;
-        case 'Hebrew2': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.hebrew2; break;
-        case 'Arabic2': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.arabic2; break;
-        case 'HindiLetter1': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.hindiLetter1; break;
-        case 'HindiLetter2': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.hindiLetter2; break;
-        case 'HindiArabic': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.hindiArabic; break;
-        case 'HindiCardinalText': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.hindiCardinalText; break;
-        case 'ThaiLetter': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.thaiLetter; break;
-        case 'ThaiArabic': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.thaiArabic; break;
-        case 'ThaiCardinalText': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.thaiCardinalText; break;
-        case 'VietCardinalText': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.vietCardinalText; break;
-        case 'NumberInDash': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.numberInDash; break;
-        case 'LowercaseRussian': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.lowercaseRussian; break;
-        case 'UppercaseRussian': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.uppercaseRussian; break;
-        case 'None': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.none; break;
-        case 'Custom': this.pageNumberStyle = PageSetup_PageNumberStyleEnum.custom; break;
-        default: this.pageNumberStyle = null; break;
+      switch (json['PageNumberStyle'] as String) {
+        case 'Arabic': pageNumberStyle = PageSetup_PageNumberStyleEnum.arabic; break;
+        case 'UppercaseRoman': pageNumberStyle = PageSetup_PageNumberStyleEnum.uppercaseRoman; break;
+        case 'LowercaseRoman': pageNumberStyle = PageSetup_PageNumberStyleEnum.lowercaseRoman; break;
+        case 'UppercaseLetter': pageNumberStyle = PageSetup_PageNumberStyleEnum.uppercaseLetter; break;
+        case 'LowercaseLetter': pageNumberStyle = PageSetup_PageNumberStyleEnum.lowercaseLetter; break;
+        case 'Ordinal': pageNumberStyle = PageSetup_PageNumberStyleEnum.ordinal; break;
+        case 'Number': pageNumberStyle = PageSetup_PageNumberStyleEnum.number; break;
+        case 'OrdinalText': pageNumberStyle = PageSetup_PageNumberStyleEnum.ordinalText; break;
+        case 'Hex': pageNumberStyle = PageSetup_PageNumberStyleEnum.hex; break;
+        case 'ChicagoManual': pageNumberStyle = PageSetup_PageNumberStyleEnum.chicagoManual; break;
+        case 'Kanji': pageNumberStyle = PageSetup_PageNumberStyleEnum.kanji; break;
+        case 'KanjiDigit': pageNumberStyle = PageSetup_PageNumberStyleEnum.kanjiDigit; break;
+        case 'AiueoHalfWidth': pageNumberStyle = PageSetup_PageNumberStyleEnum.aiueoHalfWidth; break;
+        case 'IrohaHalfWidth': pageNumberStyle = PageSetup_PageNumberStyleEnum.irohaHalfWidth; break;
+        case 'ArabicFullWidth': pageNumberStyle = PageSetup_PageNumberStyleEnum.arabicFullWidth; break;
+        case 'ArabicHalfWidth': pageNumberStyle = PageSetup_PageNumberStyleEnum.arabicHalfWidth; break;
+        case 'KanjiTraditional': pageNumberStyle = PageSetup_PageNumberStyleEnum.kanjiTraditional; break;
+        case 'KanjiTraditional2': pageNumberStyle = PageSetup_PageNumberStyleEnum.kanjiTraditional2; break;
+        case 'NumberInCircle': pageNumberStyle = PageSetup_PageNumberStyleEnum.numberInCircle; break;
+        case 'DecimalFullWidth': pageNumberStyle = PageSetup_PageNumberStyleEnum.decimalFullWidth; break;
+        case 'Aiueo': pageNumberStyle = PageSetup_PageNumberStyleEnum.aiueo; break;
+        case 'Iroha': pageNumberStyle = PageSetup_PageNumberStyleEnum.iroha; break;
+        case 'LeadingZero': pageNumberStyle = PageSetup_PageNumberStyleEnum.leadingZero; break;
+        case 'Bullet': pageNumberStyle = PageSetup_PageNumberStyleEnum.bullet; break;
+        case 'Ganada': pageNumberStyle = PageSetup_PageNumberStyleEnum.ganada; break;
+        case 'Chosung': pageNumberStyle = PageSetup_PageNumberStyleEnum.chosung; break;
+        case 'GB1': pageNumberStyle = PageSetup_PageNumberStyleEnum.gB1; break;
+        case 'GB2': pageNumberStyle = PageSetup_PageNumberStyleEnum.gB2; break;
+        case 'GB3': pageNumberStyle = PageSetup_PageNumberStyleEnum.gB3; break;
+        case 'GB4': pageNumberStyle = PageSetup_PageNumberStyleEnum.gB4; break;
+        case 'Zodiac1': pageNumberStyle = PageSetup_PageNumberStyleEnum.zodiac1; break;
+        case 'Zodiac2': pageNumberStyle = PageSetup_PageNumberStyleEnum.zodiac2; break;
+        case 'Zodiac3': pageNumberStyle = PageSetup_PageNumberStyleEnum.zodiac3; break;
+        case 'TradChinNum1': pageNumberStyle = PageSetup_PageNumberStyleEnum.tradChinNum1; break;
+        case 'TradChinNum2': pageNumberStyle = PageSetup_PageNumberStyleEnum.tradChinNum2; break;
+        case 'TradChinNum3': pageNumberStyle = PageSetup_PageNumberStyleEnum.tradChinNum3; break;
+        case 'TradChinNum4': pageNumberStyle = PageSetup_PageNumberStyleEnum.tradChinNum4; break;
+        case 'SimpChinNum1': pageNumberStyle = PageSetup_PageNumberStyleEnum.simpChinNum1; break;
+        case 'SimpChinNum2': pageNumberStyle = PageSetup_PageNumberStyleEnum.simpChinNum2; break;
+        case 'SimpChinNum3': pageNumberStyle = PageSetup_PageNumberStyleEnum.simpChinNum3; break;
+        case 'SimpChinNum4': pageNumberStyle = PageSetup_PageNumberStyleEnum.simpChinNum4; break;
+        case 'HanjaRead': pageNumberStyle = PageSetup_PageNumberStyleEnum.hanjaRead; break;
+        case 'HanjaReadDigit': pageNumberStyle = PageSetup_PageNumberStyleEnum.hanjaReadDigit; break;
+        case 'Hangul': pageNumberStyle = PageSetup_PageNumberStyleEnum.hangul; break;
+        case 'Hanja': pageNumberStyle = PageSetup_PageNumberStyleEnum.hanja; break;
+        case 'Hebrew1': pageNumberStyle = PageSetup_PageNumberStyleEnum.hebrew1; break;
+        case 'Arabic1': pageNumberStyle = PageSetup_PageNumberStyleEnum.arabic1; break;
+        case 'Hebrew2': pageNumberStyle = PageSetup_PageNumberStyleEnum.hebrew2; break;
+        case 'Arabic2': pageNumberStyle = PageSetup_PageNumberStyleEnum.arabic2; break;
+        case 'HindiLetter1': pageNumberStyle = PageSetup_PageNumberStyleEnum.hindiLetter1; break;
+        case 'HindiLetter2': pageNumberStyle = PageSetup_PageNumberStyleEnum.hindiLetter2; break;
+        case 'HindiArabic': pageNumberStyle = PageSetup_PageNumberStyleEnum.hindiArabic; break;
+        case 'HindiCardinalText': pageNumberStyle = PageSetup_PageNumberStyleEnum.hindiCardinalText; break;
+        case 'ThaiLetter': pageNumberStyle = PageSetup_PageNumberStyleEnum.thaiLetter; break;
+        case 'ThaiArabic': pageNumberStyle = PageSetup_PageNumberStyleEnum.thaiArabic; break;
+        case 'ThaiCardinalText': pageNumberStyle = PageSetup_PageNumberStyleEnum.thaiCardinalText; break;
+        case 'VietCardinalText': pageNumberStyle = PageSetup_PageNumberStyleEnum.vietCardinalText; break;
+        case 'NumberInDash': pageNumberStyle = PageSetup_PageNumberStyleEnum.numberInDash; break;
+        case 'LowercaseRussian': pageNumberStyle = PageSetup_PageNumberStyleEnum.lowercaseRussian; break;
+        case 'UppercaseRussian': pageNumberStyle = PageSetup_PageNumberStyleEnum.uppercaseRussian; break;
+        case 'None': pageNumberStyle = PageSetup_PageNumberStyleEnum.none; break;
+        case 'Custom': pageNumberStyle = PageSetup_PageNumberStyleEnum.custom; break;
+        default: pageNumberStyle = null; break;
       }
     } else {
-      this.pageNumberStyle = null;
+      pageNumberStyle = null;
     }
 
     if (json.containsKey('PageStartingNumber')) {
-      this.pageStartingNumber = json['PageStartingNumber'];
+      pageStartingNumber = json['PageStartingNumber'] as int;
     } else {
-      this.pageStartingNumber = null;
+      pageStartingNumber = null;
     }
 
     if (json.containsKey('PageWidth')) {
-      this.pageWidth = json['PageWidth'];
+      pageWidth = json['PageWidth'] as double;
     } else {
-      this.pageWidth = null;
+      pageWidth = null;
     }
 
     if (json.containsKey('PaperSize')) {
-      switch (json['PaperSize']) {
-        case 'A3': this.paperSize = PageSetup_PaperSizeEnum.a3; break;
-        case 'A4': this.paperSize = PageSetup_PaperSizeEnum.a4; break;
-        case 'A5': this.paperSize = PageSetup_PaperSizeEnum.a5; break;
-        case 'B4': this.paperSize = PageSetup_PaperSizeEnum.b4; break;
-        case 'B5': this.paperSize = PageSetup_PaperSizeEnum.b5; break;
-        case 'Executive': this.paperSize = PageSetup_PaperSizeEnum.executive; break;
-        case 'Folio': this.paperSize = PageSetup_PaperSizeEnum.folio; break;
-        case 'Ledger': this.paperSize = PageSetup_PaperSizeEnum.ledger; break;
-        case 'Legal': this.paperSize = PageSetup_PaperSizeEnum.legal; break;
-        case 'Letter': this.paperSize = PageSetup_PaperSizeEnum.letter; break;
-        case 'EnvelopeDL': this.paperSize = PageSetup_PaperSizeEnum.envelopeDL; break;
-        case 'Quarto': this.paperSize = PageSetup_PaperSizeEnum.quarto; break;
-        case 'Statement': this.paperSize = PageSetup_PaperSizeEnum.statement; break;
-        case 'Tabloid': this.paperSize = PageSetup_PaperSizeEnum.tabloid; break;
-        case 'Paper10x14': this.paperSize = PageSetup_PaperSizeEnum.paper10x14; break;
-        case 'Paper11x17': this.paperSize = PageSetup_PaperSizeEnum.paper11x17; break;
-        case 'Custom': this.paperSize = PageSetup_PaperSizeEnum.custom; break;
-        default: this.paperSize = null; break;
+      switch (json['PaperSize'] as String) {
+        case 'A3': paperSize = PageSetup_PaperSizeEnum.a3; break;
+        case 'A4': paperSize = PageSetup_PaperSizeEnum.a4; break;
+        case 'A5': paperSize = PageSetup_PaperSizeEnum.a5; break;
+        case 'B4': paperSize = PageSetup_PaperSizeEnum.b4; break;
+        case 'B5': paperSize = PageSetup_PaperSizeEnum.b5; break;
+        case 'Executive': paperSize = PageSetup_PaperSizeEnum.executive; break;
+        case 'Folio': paperSize = PageSetup_PaperSizeEnum.folio; break;
+        case 'Ledger': paperSize = PageSetup_PaperSizeEnum.ledger; break;
+        case 'Legal': paperSize = PageSetup_PaperSizeEnum.legal; break;
+        case 'Letter': paperSize = PageSetup_PaperSizeEnum.letter; break;
+        case 'EnvelopeDL': paperSize = PageSetup_PaperSizeEnum.envelopeDL; break;
+        case 'Quarto': paperSize = PageSetup_PaperSizeEnum.quarto; break;
+        case 'Statement': paperSize = PageSetup_PaperSizeEnum.statement; break;
+        case 'Tabloid': paperSize = PageSetup_PaperSizeEnum.tabloid; break;
+        case 'Paper10x14': paperSize = PageSetup_PaperSizeEnum.paper10x14; break;
+        case 'Paper11x17': paperSize = PageSetup_PaperSizeEnum.paper11x17; break;
+        case 'Custom': paperSize = PageSetup_PaperSizeEnum.custom; break;
+        default: paperSize = null; break;
       }
     } else {
-      this.paperSize = null;
+      paperSize = null;
     }
 
     if (json.containsKey('RestartPageNumbering')) {
-      this.restartPageNumbering = json['RestartPageNumbering'];
+      restartPageNumbering = json['RestartPageNumbering'] as bool;
     } else {
-      this.restartPageNumbering = null;
+      restartPageNumbering = null;
     }
 
     if (json.containsKey('RightMargin')) {
-      this.rightMargin = json['RightMargin'];
+      rightMargin = json['RightMargin'] as double;
     } else {
-      this.rightMargin = null;
+      rightMargin = null;
     }
 
     if (json.containsKey('RtlGutter')) {
-      this.rtlGutter = json['RtlGutter'];
+      rtlGutter = json['RtlGutter'] as bool;
     } else {
-      this.rtlGutter = null;
+      rtlGutter = null;
     }
 
     if (json.containsKey('SectionStart')) {
-      switch (json['SectionStart']) {
-        case 'Continuous': this.sectionStart = PageSetup_SectionStartEnum.continuous; break;
-        case 'NewColumn': this.sectionStart = PageSetup_SectionStartEnum.newColumn; break;
-        case 'NewPage': this.sectionStart = PageSetup_SectionStartEnum.newPage; break;
-        case 'EvenPage': this.sectionStart = PageSetup_SectionStartEnum.evenPage; break;
-        case 'OddPage': this.sectionStart = PageSetup_SectionStartEnum.oddPage; break;
-        default: this.sectionStart = null; break;
+      switch (json['SectionStart'] as String) {
+        case 'Continuous': sectionStart = PageSetup_SectionStartEnum.continuous; break;
+        case 'NewColumn': sectionStart = PageSetup_SectionStartEnum.newColumn; break;
+        case 'NewPage': sectionStart = PageSetup_SectionStartEnum.newPage; break;
+        case 'EvenPage': sectionStart = PageSetup_SectionStartEnum.evenPage; break;
+        case 'OddPage': sectionStart = PageSetup_SectionStartEnum.oddPage; break;
+        default: sectionStart = null; break;
       }
     } else {
-      this.sectionStart = null;
+      sectionStart = null;
     }
 
     if (json.containsKey('SuppressEndnotes')) {
-      this.suppressEndnotes = json['SuppressEndnotes'];
+      suppressEndnotes = json['SuppressEndnotes'] as bool;
     } else {
-      this.suppressEndnotes = null;
+      suppressEndnotes = null;
     }
 
     if (json.containsKey('TopMargin')) {
-      this.topMargin = json['TopMargin'];
+      topMargin = json['TopMargin'] as double;
     } else {
-      this.topMargin = null;
+      topMargin = null;
     }
 
     if (json.containsKey('VerticalAlignment')) {
-      switch (json['VerticalAlignment']) {
-        case 'Top': this.verticalAlignment = PageSetup_VerticalAlignmentEnum.top; break;
-        case 'Center': this.verticalAlignment = PageSetup_VerticalAlignmentEnum.center; break;
-        case 'Justify': this.verticalAlignment = PageSetup_VerticalAlignmentEnum.justify; break;
-        case 'Bottom': this.verticalAlignment = PageSetup_VerticalAlignmentEnum.bottom; break;
-        default: this.verticalAlignment = null; break;
+      switch (json['VerticalAlignment'] as String) {
+        case 'Top': verticalAlignment = PageSetup_VerticalAlignmentEnum.top; break;
+        case 'Center': verticalAlignment = PageSetup_VerticalAlignmentEnum.center; break;
+        case 'Justify': verticalAlignment = PageSetup_VerticalAlignmentEnum.justify; break;
+        case 'Bottom': verticalAlignment = PageSetup_VerticalAlignmentEnum.bottom; break;
+        default: verticalAlignment = null; break;
       }
     } else {
-      this.verticalAlignment = null;
+      verticalAlignment = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.bidi != null) {
-      _result['Bidi'] = this.bidi;
+    if (bidi != null) {
+      _result['Bidi'] = bidi;
     }
 
-    if (this.borderAlwaysInFront != null) {
-      _result['BorderAlwaysInFront'] = this.borderAlwaysInFront;
+    if (borderAlwaysInFront != null) {
+      _result['BorderAlwaysInFront'] = borderAlwaysInFront;
     }
 
-    if (this.borderAppliesTo != null) {
-      switch (this.borderAppliesTo) {
+    if (borderAppliesTo != null) {
+      switch (borderAppliesTo) {
         case PageSetup_BorderAppliesToEnum.allPages: _result['BorderAppliesTo'] = 'AllPages'; break;
         case PageSetup_BorderAppliesToEnum.firstPage: _result['BorderAppliesTo'] = 'FirstPage'; break;
         case PageSetup_BorderAppliesToEnum.otherPages: _result['BorderAppliesTo'] = 'OtherPages'; break;
@@ -439,52 +437,52 @@ class PageSetup extends LinkElement {
       }
     }
 
-    if (this.borderDistanceFrom != null) {
-      switch (this.borderDistanceFrom) {
+    if (borderDistanceFrom != null) {
+      switch (borderDistanceFrom) {
         case PageSetup_BorderDistanceFromEnum.text: _result['BorderDistanceFrom'] = 'Text'; break;
         case PageSetup_BorderDistanceFromEnum.pageEdge: _result['BorderDistanceFrom'] = 'PageEdge'; break;
         default: break;
       }
     }
 
-    if (this.bottomMargin != null) {
-      _result['BottomMargin'] = this.bottomMargin;
+    if (bottomMargin != null) {
+      _result['BottomMargin'] = bottomMargin;
     }
 
-    if (this.differentFirstPageHeaderFooter != null) {
-      _result['DifferentFirstPageHeaderFooter'] = this.differentFirstPageHeaderFooter;
+    if (differentFirstPageHeaderFooter != null) {
+      _result['DifferentFirstPageHeaderFooter'] = differentFirstPageHeaderFooter;
     }
 
-    if (this.firstPageTray != null) {
-      _result['FirstPageTray'] = this.firstPageTray;
+    if (firstPageTray != null) {
+      _result['FirstPageTray'] = firstPageTray;
     }
 
-    if (this.footerDistance != null) {
-      _result['FooterDistance'] = this.footerDistance;
+    if (footerDistance != null) {
+      _result['FooterDistance'] = footerDistance;
     }
 
-    if (this.gutter != null) {
-      _result['Gutter'] = this.gutter;
+    if (gutter != null) {
+      _result['Gutter'] = gutter;
     }
 
-    if (this.headerDistance != null) {
-      _result['HeaderDistance'] = this.headerDistance;
+    if (headerDistance != null) {
+      _result['HeaderDistance'] = headerDistance;
     }
 
-    if (this.leftMargin != null) {
-      _result['LeftMargin'] = this.leftMargin;
+    if (leftMargin != null) {
+      _result['LeftMargin'] = leftMargin;
     }
 
-    if (this.lineNumberCountBy != null) {
-      _result['LineNumberCountBy'] = this.lineNumberCountBy;
+    if (lineNumberCountBy != null) {
+      _result['LineNumberCountBy'] = lineNumberCountBy;
     }
 
-    if (this.lineNumberDistanceFromText != null) {
-      _result['LineNumberDistanceFromText'] = this.lineNumberDistanceFromText;
+    if (lineNumberDistanceFromText != null) {
+      _result['LineNumberDistanceFromText'] = lineNumberDistanceFromText;
     }
 
-    if (this.lineNumberRestartMode != null) {
-      switch (this.lineNumberRestartMode) {
+    if (lineNumberRestartMode != null) {
+      switch (lineNumberRestartMode) {
         case PageSetup_LineNumberRestartModeEnum.restartPage: _result['LineNumberRestartMode'] = 'RestartPage'; break;
         case PageSetup_LineNumberRestartModeEnum.restartSection: _result['LineNumberRestartMode'] = 'RestartSection'; break;
         case PageSetup_LineNumberRestartModeEnum.continuous: _result['LineNumberRestartMode'] = 'Continuous'; break;
@@ -492,28 +490,28 @@ class PageSetup extends LinkElement {
       }
     }
 
-    if (this.lineStartingNumber != null) {
-      _result['LineStartingNumber'] = this.lineStartingNumber;
+    if (lineStartingNumber != null) {
+      _result['LineStartingNumber'] = lineStartingNumber;
     }
 
-    if (this.orientation != null) {
-      switch (this.orientation) {
+    if (orientation != null) {
+      switch (orientation) {
         case PageSetup_OrientationEnum.portrait: _result['Orientation'] = 'Portrait'; break;
         case PageSetup_OrientationEnum.landscape: _result['Orientation'] = 'Landscape'; break;
         default: break;
       }
     }
 
-    if (this.otherPagesTray != null) {
-      _result['OtherPagesTray'] = this.otherPagesTray;
+    if (otherPagesTray != null) {
+      _result['OtherPagesTray'] = otherPagesTray;
     }
 
-    if (this.pageHeight != null) {
-      _result['PageHeight'] = this.pageHeight;
+    if (pageHeight != null) {
+      _result['PageHeight'] = pageHeight;
     }
 
-    if (this.pageNumberStyle != null) {
-      switch (this.pageNumberStyle) {
+    if (pageNumberStyle != null) {
+      switch (pageNumberStyle) {
         case PageSetup_PageNumberStyleEnum.arabic: _result['PageNumberStyle'] = 'Arabic'; break;
         case PageSetup_PageNumberStyleEnum.uppercaseRoman: _result['PageNumberStyle'] = 'UppercaseRoman'; break;
         case PageSetup_PageNumberStyleEnum.lowercaseRoman: _result['PageNumberStyle'] = 'LowercaseRoman'; break;
@@ -580,16 +578,16 @@ class PageSetup extends LinkElement {
       }
     }
 
-    if (this.pageStartingNumber != null) {
-      _result['PageStartingNumber'] = this.pageStartingNumber;
+    if (pageStartingNumber != null) {
+      _result['PageStartingNumber'] = pageStartingNumber;
     }
 
-    if (this.pageWidth != null) {
-      _result['PageWidth'] = this.pageWidth;
+    if (pageWidth != null) {
+      _result['PageWidth'] = pageWidth;
     }
 
-    if (this.paperSize != null) {
-      switch (this.paperSize) {
+    if (paperSize != null) {
+      switch (paperSize) {
         case PageSetup_PaperSizeEnum.a3: _result['PaperSize'] = 'A3'; break;
         case PageSetup_PaperSizeEnum.a4: _result['PaperSize'] = 'A4'; break;
         case PageSetup_PaperSizeEnum.a5: _result['PaperSize'] = 'A5'; break;
@@ -611,20 +609,20 @@ class PageSetup extends LinkElement {
       }
     }
 
-    if (this.restartPageNumbering != null) {
-      _result['RestartPageNumbering'] = this.restartPageNumbering;
+    if (restartPageNumbering != null) {
+      _result['RestartPageNumbering'] = restartPageNumbering;
     }
 
-    if (this.rightMargin != null) {
-      _result['RightMargin'] = this.rightMargin;
+    if (rightMargin != null) {
+      _result['RightMargin'] = rightMargin;
     }
 
-    if (this.rtlGutter != null) {
-      _result['RtlGutter'] = this.rtlGutter;
+    if (rtlGutter != null) {
+      _result['RtlGutter'] = rtlGutter;
     }
 
-    if (this.sectionStart != null) {
-      switch (this.sectionStart) {
+    if (sectionStart != null) {
+      switch (sectionStart) {
         case PageSetup_SectionStartEnum.continuous: _result['SectionStart'] = 'Continuous'; break;
         case PageSetup_SectionStartEnum.newColumn: _result['SectionStart'] = 'NewColumn'; break;
         case PageSetup_SectionStartEnum.newPage: _result['SectionStart'] = 'NewPage'; break;
@@ -634,16 +632,16 @@ class PageSetup extends LinkElement {
       }
     }
 
-    if (this.suppressEndnotes != null) {
-      _result['SuppressEndnotes'] = this.suppressEndnotes;
+    if (suppressEndnotes != null) {
+      _result['SuppressEndnotes'] = suppressEndnotes;
     }
 
-    if (this.topMargin != null) {
-      _result['TopMargin'] = this.topMargin;
+    if (topMargin != null) {
+      _result['TopMargin'] = topMargin;
     }
 
-    if (this.verticalAlignment != null) {
-      switch (this.verticalAlignment) {
+    if (verticalAlignment != null) {
+      switch (verticalAlignment) {
         case PageSetup_VerticalAlignmentEnum.top: _result['VerticalAlignment'] = 'Top'; break;
         case PageSetup_VerticalAlignmentEnum.center: _result['VerticalAlignment'] = 'Center'; break;
         case PageSetup_VerticalAlignmentEnum.justify: _result['VerticalAlignment'] = 'Justify'; break;
@@ -655,7 +653,7 @@ class PageSetup extends LinkElement {
   }
 }
 
-/// Gets or sets specifies which pages the page border is printed on.
+/// Gets or sets the option that controls which pages the page border is printed on.
 enum PageSetup_BorderAppliesToEnum
 { 
   allPages,
@@ -663,16 +661,14 @@ enum PageSetup_BorderAppliesToEnum
   otherPages
 }
 
-/// Gets or sets a value that indicates whether the specified page border is measured from the edge of the page or from
-/// the text it surrounds.
+/// Gets or sets the value, that indicates whether the specified page border is measured from the edge of the page or from the text it surrounds.
 enum PageSetup_BorderDistanceFromEnum
 { 
   text,
   pageEdge
 }
 
-/// Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new
-/// page or section or runs continuously.
+/// Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new page or section or runs continuously.
 enum PageSetup_LineNumberRestartModeEnum
 { 
   restartPage,
@@ -680,7 +676,7 @@ enum PageSetup_LineNumberRestartModeEnum
   continuous
 }
 
-/// Gets or sets returns or sets the orientation of the page.
+/// Gets or sets the orientation of the page.
 enum PageSetup_OrientationEnum
 { 
   portrait,
@@ -754,7 +750,7 @@ enum PageSetup_PageNumberStyleEnum
   custom
 }
 
-/// Gets or sets returns or sets the paper size.
+/// Gets or sets the paper size.
 enum PageSetup_PaperSizeEnum
 { 
   a3,
@@ -776,7 +772,7 @@ enum PageSetup_PaperSizeEnum
   custom
 }
 
-/// Gets or sets returns or sets the type of section break for the specified object.
+/// Gets or sets the type of section break for the specified object.
 enum PageSetup_SectionStartEnum
 { 
   continuous,
@@ -786,7 +782,7 @@ enum PageSetup_SectionStartEnum
   oddPage
 }
 
-/// Gets or sets returns or sets the vertical alignment of text on each page in a document or section.
+/// Gets or sets the vertical alignment of text on each page in the document.or section.
 enum PageSetup_VerticalAlignmentEnum
 { 
   top,

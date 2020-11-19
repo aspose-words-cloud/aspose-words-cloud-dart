@@ -31,26 +31,29 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for mhtml save options.
 class MhtmlSaveOptionsData extends HtmlSaveOptionsData {
-  /// Gets or sets specifies whether to use CID (Content-ID) URLs to reference resources (images, fonts, CSS) included in MHTML documents.
-  /// Default value is false.
+  /// Gets or sets a value indicating whether to use CID (Content-ID) URLs to reference resources (images, fonts, CSS) included in MHTML documents. The default value is false.
   bool exportCidUrlsForMhtmlResources;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize MhtmlSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('ExportCidUrlsForMhtmlResources')) {
-      this.exportCidUrlsForMhtmlResources = json['ExportCidUrlsForMhtmlResources'];
+      exportCidUrlsForMhtmlResources = json['ExportCidUrlsForMhtmlResources'] as bool;
     } else {
-      this.exportCidUrlsForMhtmlResources = null;
+      exportCidUrlsForMhtmlResources = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.exportCidUrlsForMhtmlResources != null) {
-      _result['ExportCidUrlsForMhtmlResources'] = this.exportCidUrlsForMhtmlResources;
+    if (exportCidUrlsForMhtmlResources != null) {
+      _result['ExportCidUrlsForMhtmlResources'] = exportCidUrlsForMhtmlResources;
     }
     return _result;
   }

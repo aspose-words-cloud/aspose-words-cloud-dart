@@ -27,7 +27,6 @@
 
 library aspose_words_cloud;
 
-import 'dart:convert';
 import 'dart:typed_data';
 import '../../aspose_words_cloud.dart';
 import '../api_client.dart';
@@ -36,7 +35,7 @@ import '../api_request_part.dart';
 
 /// Request model for OptimizeDocument operation.
 class OptimizeDocumentRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
   /// The document optimization options.
@@ -63,56 +62,56 @@ class OptimizeDocumentRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  OptimizeDocumentRequest(final String this.name, final OptimizationOptions this.options, {final String this.folder = null, final String this.storage = null, final String this.loadEncoding = null, final String this.password = null, final String this.destFileName = null, final String this.revisionAuthor = null, final String this.revisionDateTime = null});
+  OptimizeDocumentRequest(final this.name, final this.options, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/{name}/compatibility/optimize';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.name == null) {
-      throw new ApiException(400, 'Parameter name is required.');
+    var _path = '/words/{name}/compatibility/optimize';
+    var _queryParams = <String, String>{};
+    var _headers = <String, String>{};
+    var _bodyParts = <ApiRequestPart>[];
+    if (name == null) {
+      throw ApiException(400, 'Parameter name is required.');
     }
-    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
-    if (this.folder != null) {
-      queryParams['folder'] = apiClient.serializeToString(this.folder);
-    }
-
-    if (this.storage != null) {
-      queryParams['storage'] = apiClient.serializeToString(this.storage);
+    _path = _path.replaceAll('{name}', apiClient.serializeToString(name));
+    if (folder != null) {
+      _queryParams['folder'] = apiClient.serializeToString(folder);
     }
 
-    if (this.loadEncoding != null) {
-      queryParams['loadEncoding'] = apiClient.serializeToString(this.loadEncoding);
+    if (storage != null) {
+      _queryParams['storage'] = apiClient.serializeToString(storage);
     }
 
-    if (this.password != null) {
-      queryParams['password'] = apiClient.serializeToString(this.password);
+    if (loadEncoding != null) {
+      _queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
     }
 
-    if (this.destFileName != null) {
-      queryParams['destFileName'] = apiClient.serializeToString(this.destFileName);
+    if (password != null) {
+      _queryParams['password'] = apiClient.serializeToString(password);
     }
 
-    if (this.revisionAuthor != null) {
-      queryParams['revisionAuthor'] = apiClient.serializeToString(this.revisionAuthor);
+    if (destFileName != null) {
+      _queryParams['destFileName'] = apiClient.serializeToString(destFileName);
     }
 
-    if (this.revisionDateTime != null) {
-      queryParams['revisionDateTime'] = apiClient.serializeToString(this.revisionDateTime);
+    if (revisionAuthor != null) {
+      _queryParams['revisionAuthor'] = apiClient.serializeToString(revisionAuthor);
     }
 
-    if (this.options != null) {
-      bodyParts.add(new ApiRequestPart(apiClient.serializeBody(this.options), 'application/json'));
+    if (revisionDateTime != null) {
+      _queryParams['revisionDateTime'] = apiClient.serializeToString(revisionDateTime);
+    }
+
+    if (options != null) {
+      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(options), 'application/json'));
     }
     else {
-      throw new ApiException(400, 'Parameter options is required.');
+      throw ApiException(400, 'Parameter options is required.');
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('PUT', url, headers, body);
+    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override

@@ -26,21 +26,21 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
-import '../test_context.dart';
 import 'package:test/test.dart';
+
+import '../test_context.dart';
 
 /// Example of how to load web document.
 class LoadWebDocumentTests
 {
   final TestContext context;
 
-  LoadWebDocumentTests(final TestContext this.context) {
-  }
+  LoadWebDocumentTests(final this.context);
 
   /// Test for loading web document.
   Future<void> testLoadWebDocument() async
   {
-    var requestDataSaveOptions = new SaveOptionsData();
+    var requestDataSaveOptions = SaveOptionsData();
     requestDataSaveOptions.fileName = 'google.doc';
     requestDataSaveOptions.saveFormat = 'doc';
     requestDataSaveOptions.dmlEffectsRenderingMode = '1';
@@ -48,14 +48,17 @@ class LoadWebDocumentTests
     requestDataSaveOptions.updateSdtContent = false;
     requestDataSaveOptions.zipOutput = false;
 
-    var requestData = new LoadWebDocumentData();
+    var requestData = LoadWebDocumentData();
     requestData.loadingDocumentUrl = 'http://google.com';
     requestData.saveOptions = requestDataSaveOptions;
 
-    final request = new LoadWebDocumentRequest(
+    final request = LoadWebDocumentRequest(
       requestData
     );
 
-    var result = await this.context.getApi().loadWebDocument(request);
+    var result = await context.getApi().loadWebDocument(request);
+    expect(result.saveResult, isNotNull);
+    expect(result.saveResult.destDocument, isNotNull);
+    expect(result.saveResult.destDocument.href, 'google.doc');
   }
 }

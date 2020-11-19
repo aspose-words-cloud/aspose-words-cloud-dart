@@ -31,25 +31,29 @@ import '../../aspose_words_cloud.dart';
 
 /// Run link element.
 class RunLink extends NodeLink {
-  /// Gets or sets run's text.
+  /// Gets or sets the run's text.
   String text;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize RunLink data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Text')) {
-      this.text = json['Text'];
+      text = json['Text'] as String;
     } else {
-      this.text = null;
+      text = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.text != null) {
-      _result['Text'] = this.text;
+    if (text != null) {
+      _result['Text'] = text;
     }
     return _result;
   }

@@ -39,28 +39,32 @@ class ListFormatUpdate implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ListFormatUpdate data model.');
+    }
+
     if (json.containsKey('ListId')) {
-      this.listId = json['ListId'];
+      listId = json['ListId'] as int;
     } else {
-      this.listId = null;
+      listId = null;
     }
 
     if (json.containsKey('ListLevelNumber')) {
-      this.listLevelNumber = json['ListLevelNumber'];
+      listLevelNumber = json['ListLevelNumber'] as int;
     } else {
-      this.listLevelNumber = null;
+      listLevelNumber = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.listId != null) {
-      _result['ListId'] = this.listId;
+    var _result = <String, dynamic>{};
+    if (listId != null) {
+      _result['ListId'] = listId;
     }
 
-    if (this.listLevelNumber != null) {
-      _result['ListLevelNumber'] = this.listLevelNumber;
+    if (listLevelNumber != null) {
+      _result['ListLevelNumber'] = listLevelNumber;
     }
     return _result;
   }

@@ -31,38 +31,42 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for pcl save options.
 class PclSaveOptionsData extends FixedPageSaveOptionsData {
-  /// Gets or sets name of the font that will be used if no expected font is found in printer and built-in fonts collections.
+  /// Gets or sets the font name, that will be used if no expected font is found in printer and built-in fonts collections.
   String falllbackFontName;
 
-  /// Gets or sets a value determining whether or not complex transformed elements should be rasterized before saving to PCL document.  Default is true.
+  /// Gets or sets a value indicating whether complex transformed elements should be rasterized before saving to PCL document.. The default value is true.
   bool rasterizeTransformedElements;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize PclSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('FalllbackFontName')) {
-      this.falllbackFontName = json['FalllbackFontName'];
+      falllbackFontName = json['FalllbackFontName'] as String;
     } else {
-      this.falllbackFontName = null;
+      falllbackFontName = null;
     }
 
     if (json.containsKey('RasterizeTransformedElements')) {
-      this.rasterizeTransformedElements = json['RasterizeTransformedElements'];
+      rasterizeTransformedElements = json['RasterizeTransformedElements'] as bool;
     } else {
-      this.rasterizeTransformedElements = null;
+      rasterizeTransformedElements = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.falllbackFontName != null) {
-      _result['FalllbackFontName'] = this.falllbackFontName;
+    if (falllbackFontName != null) {
+      _result['FalllbackFontName'] = falllbackFontName;
     }
 
-    if (this.rasterizeTransformedElements != null) {
-      _result['RasterizeTransformedElements'] = this.rasterizeTransformedElements;
+    if (rasterizeTransformedElements != null) {
+      _result['RasterizeTransformedElements'] = rasterizeTransformedElements;
     }
     return _result;
   }

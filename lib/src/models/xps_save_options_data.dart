@@ -31,65 +31,69 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for xps save options.
 class XpsSaveOptionsData extends FixedPageSaveOptionsData {
-  /// Gets or sets specifies the level in the XPS document outline at which to display Word bookmarks.
+  /// Gets or sets the level in the XPS document outline at which to display Word bookmarks.
   int bookmarksOutlineLevel;
 
-  /// Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the XPS document outline.
+  /// Gets or sets the number of heading levels (paragraphs formatted with the Heading styles) to include in the XPS document outline.
   int headingsOutlineLevels;
 
-  /// Gets or sets allows to specify outline options.
+  /// Gets or sets the outline options.
   OutlineOptionsData outlineOptions;
 
-  /// Gets or sets determines whether the document should be saved using a booklet printing layout.
+  /// Gets or sets a value indicating whether the document should be saved using a booklet printing layout.
   bool useBookFoldPrintingSettings;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize XpsSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('BookmarksOutlineLevel')) {
-      this.bookmarksOutlineLevel = json['BookmarksOutlineLevel'];
+      bookmarksOutlineLevel = json['BookmarksOutlineLevel'] as int;
     } else {
-      this.bookmarksOutlineLevel = null;
+      bookmarksOutlineLevel = null;
     }
 
     if (json.containsKey('HeadingsOutlineLevels')) {
-      this.headingsOutlineLevels = json['HeadingsOutlineLevels'];
+      headingsOutlineLevels = json['HeadingsOutlineLevels'] as int;
     } else {
-      this.headingsOutlineLevels = null;
+      headingsOutlineLevels = null;
     }
 
     if (json.containsKey('OutlineOptions')) {
-      this.outlineOptions = new OutlineOptionsData();
-      this.outlineOptions.deserialize(json['OutlineOptions']);
+      outlineOptions = OutlineOptionsData();
+      outlineOptions.deserialize(json['OutlineOptions'] as Map<String, dynamic>);
     } else {
-      this.outlineOptions = null;
+      outlineOptions = null;
     }
 
     if (json.containsKey('UseBookFoldPrintingSettings')) {
-      this.useBookFoldPrintingSettings = json['UseBookFoldPrintingSettings'];
+      useBookFoldPrintingSettings = json['UseBookFoldPrintingSettings'] as bool;
     } else {
-      this.useBookFoldPrintingSettings = null;
+      useBookFoldPrintingSettings = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.bookmarksOutlineLevel != null) {
-      _result['BookmarksOutlineLevel'] = this.bookmarksOutlineLevel;
+    if (bookmarksOutlineLevel != null) {
+      _result['BookmarksOutlineLevel'] = bookmarksOutlineLevel;
     }
 
-    if (this.headingsOutlineLevels != null) {
-      _result['HeadingsOutlineLevels'] = this.headingsOutlineLevels;
+    if (headingsOutlineLevels != null) {
+      _result['HeadingsOutlineLevels'] = headingsOutlineLevels;
     }
 
-    if (this.outlineOptions != null) {
-      _result['OutlineOptions'] = this.outlineOptions.serialize();
+    if (outlineOptions != null) {
+      _result['OutlineOptions'] = outlineOptions.serialize();
     }
 
-    if (this.useBookFoldPrintingSettings != null) {
-      _result['UseBookFoldPrintingSettings'] = this.useBookFoldPrintingSettings;
+    if (useBookFoldPrintingSettings != null) {
+      _result['UseBookFoldPrintingSettings'] = useBookFoldPrintingSettings;
     }
     return _result;
   }

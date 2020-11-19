@@ -29,29 +29,32 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:
-/// GET https://api.aspose.cloud/v4.0/words/Test.doc/headersfooters.
+/// The REST response with a collection of HeaderFooter elements.
 class HeaderFootersResponse extends WordsResponse {
-  /// Gets or sets collection of headers/footers.
+  /// Gets or sets the collection of HeaderFooter elements.
   HeaderFooterLinkCollection headerFooters;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize HeaderFootersResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('HeaderFooters')) {
-      this.headerFooters = new HeaderFooterLinkCollection();
-      this.headerFooters.deserialize(json['HeaderFooters']);
+      headerFooters = HeaderFooterLinkCollection();
+      headerFooters.deserialize(json['HeaderFooters'] as Map<String, dynamic>);
     } else {
-      this.headerFooters = null;
+      headerFooters = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.headerFooters != null) {
-      _result['HeaderFooters'] = this.headerFooters.serialize();
+    if (headerFooters != null) {
+      _result['HeaderFooters'] = headerFooters.serialize();
     }
     return _result;
   }

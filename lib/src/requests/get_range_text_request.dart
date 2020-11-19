@@ -36,12 +36,10 @@ import '../api_request_part.dart';
 
 /// Request model for GetRangeText operation.
 class GetRangeTextRequest implements RequestBase {
-  /// The document.
+  /// The filename of the input document.
   final String name;
 
   /// The range start identifier.
-  /// Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id".
-  /// It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
   final String rangeStartIdentifier;
 
   /// The range end identifier.
@@ -59,51 +57,51 @@ class GetRangeTextRequest implements RequestBase {
   /// Password for opening an encrypted document.
   final String password;
 
-  GetRangeTextRequest(final String this.name, final String this.rangeStartIdentifier, {final String this.rangeEndIdentifier = null, final String this.folder = null, final String this.storage = null, final String this.loadEncoding = null, final String this.password = null});
+  GetRangeTextRequest(final this.name, final this.rangeStartIdentifier, {final this.rangeEndIdentifier, final this.folder, final this.storage, final this.loadEncoding, final this.password});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.name == null) {
-      throw new ApiException(400, 'Parameter name is required.');
+    var _path = '/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}';
+    var _queryParams = <String, String>{};
+    var _headers = <String, String>{};
+    var _bodyParts = <ApiRequestPart>[];
+    if (name == null) {
+      throw ApiException(400, 'Parameter name is required.');
     }
-    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
+    _path = _path.replaceAll('{name}', apiClient.serializeToString(name));
 
-    if (this.rangeStartIdentifier == null) {
-      throw new ApiException(400, 'Parameter rangeStartIdentifier is required.');
+    if (rangeStartIdentifier == null) {
+      throw ApiException(400, 'Parameter rangeStartIdentifier is required.');
     }
-    path = path.replaceAll('{rangeStartIdentifier}', apiClient.serializeToString(this.rangeStartIdentifier));
-    path = path.replaceAll('{rangeEndIdentifier}', apiClient.serializeToString(this.rangeEndIdentifier) ?? '');
-    if (this.folder != null) {
-      queryParams['folder'] = apiClient.serializeToString(this.folder);
-    }
-
-    if (this.storage != null) {
-      queryParams['storage'] = apiClient.serializeToString(this.storage);
+    _path = _path.replaceAll('{rangeStartIdentifier}', apiClient.serializeToString(rangeStartIdentifier));
+    _path = _path.replaceAll('{rangeEndIdentifier}', apiClient.serializeToString(rangeEndIdentifier) ?? '');
+    if (folder != null) {
+      _queryParams['folder'] = apiClient.serializeToString(folder);
     }
 
-    if (this.loadEncoding != null) {
-      queryParams['loadEncoding'] = apiClient.serializeToString(this.loadEncoding);
+    if (storage != null) {
+      _queryParams['storage'] = apiClient.serializeToString(storage);
     }
 
-    if (this.password != null) {
-      queryParams['password'] = apiClient.serializeToString(this.password);
+    if (loadEncoding != null) {
+      _queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('GET', url, headers, body);
+    if (password != null) {
+      _queryParams['password'] = apiClient.serializeToString(password);
+    }
+
+    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    return ApiRequestData('GET', _url, _headers, _body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = new RangeTextResponse();
+    var _result = RangeTextResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
-    _result.deserialize(_json);
+    _result.deserialize(_json as Map<String, dynamic>);
     return _result;
   }
 }

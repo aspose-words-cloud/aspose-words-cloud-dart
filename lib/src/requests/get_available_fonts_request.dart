@@ -36,32 +36,32 @@ import '../api_request_part.dart';
 
 /// Request model for GetAvailableFonts operation.
 class GetAvailableFontsRequest implements RequestBase {
-  /// Folder in filestorage with custom fonts.
+  /// The folder in cloud storage with custom fonts.
   final String fontsLocation;
 
-  GetAvailableFontsRequest({final String this.fontsLocation = null});
+  GetAvailableFontsRequest({final this.fontsLocation});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/fonts/available';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.fontsLocation != null) {
-      queryParams['fontsLocation'] = apiClient.serializeToString(this.fontsLocation);
+    var _path = '/words/fonts/available';
+    var _queryParams = <String, String>{};
+    var _headers = <String, String>{};
+    var _bodyParts = <ApiRequestPart>[];
+    if (fontsLocation != null) {
+      _queryParams['fontsLocation'] = apiClient.serializeToString(fontsLocation);
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('GET', url, headers, body);
+    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    return ApiRequestData('GET', _url, _headers, _body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = new AvailableFontsResponse();
+    var _result = AvailableFontsResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
-    _result.deserialize(_json);
+    _result.deserialize(_json as Map<String, dynamic>);
     return _result;
   }
 }

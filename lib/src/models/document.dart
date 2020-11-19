@@ -31,20 +31,19 @@ import '../../aspose_words_cloud.dart';
 
 /// Represents Words document DTO.
 class Document implements ModelBase {
-  /// Gets or sets returns document properties.
+  /// Gets or sets the document properties.
   DocumentProperties documentProperties;
 
   /// Gets or sets the name of the file.
   String fileName;
 
-  /// Gets or sets a value indicating whether returns true if the document is encrypted and requires a password to open.
+  /// Gets or sets a value indicating whether the document is encrypted and requires a password to open.
   bool isEncrypted;
 
-  /// Gets or sets a value indicating whether returns true if the document contains a digital signature. This property merely informs that a
-  /// digital signature is present on a document, but it does not specify whether the signature is valid or not.
+  /// Gets or sets a value indicating whether the document contains a digital signature. This property merely informs that a digital signature is present on a document, but it does not specify whether the signature is valid or not.
   bool isSigned;
 
-  /// Gets or sets a list of links that originate from this document.
+  /// Gets or sets the list of links that originate from this document.
   List<Link> links;
 
   /// Gets or sets the original format of the document.
@@ -52,98 +51,102 @@ class Document implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize Document data model.');
+    }
+
     if (json.containsKey('DocumentProperties')) {
-      this.documentProperties = new DocumentProperties();
-      this.documentProperties.deserialize(json['DocumentProperties']);
+      documentProperties = DocumentProperties();
+      documentProperties.deserialize(json['DocumentProperties'] as Map<String, dynamic>);
     } else {
-      this.documentProperties = null;
+      documentProperties = null;
     }
 
     if (json.containsKey('FileName')) {
-      this.fileName = json['FileName'];
+      fileName = json['FileName'] as String;
     } else {
-      this.fileName = null;
+      fileName = null;
     }
 
     if (json.containsKey('IsEncrypted')) {
-      this.isEncrypted = json['IsEncrypted'];
+      isEncrypted = json['IsEncrypted'] as bool;
     } else {
-      this.isEncrypted = null;
+      isEncrypted = null;
     }
 
     if (json.containsKey('IsSigned')) {
-      this.isSigned = json['IsSigned'];
+      isSigned = json['IsSigned'] as bool;
     } else {
-      this.isSigned = null;
+      isSigned = null;
     }
 
     if (json.containsKey('Links')) {
       // Array processing
-      this.links = new List<Link>();
+      links = <Link>[];
       for(final _element in json['Links']) {
-        var _elementValue = new Link();
-        _elementValue.deserialize(_element);
-        this.links.add(_elementValue);
+        var _elementValue = Link();
+        _elementValue.deserialize(_element as Map<String, dynamic>);
+        links.add(_elementValue);
       }
     } else {
-      this.links = null;
+      links = null;
     }
 
     if (json.containsKey('SourceFormat')) {
-      switch (json['SourceFormat']) {
-        case 'Unknown': this.sourceFormat = Document_SourceFormatEnum.unknown; break;
-        case 'Doc': this.sourceFormat = Document_SourceFormatEnum.doc; break;
-        case 'Dot': this.sourceFormat = Document_SourceFormatEnum.dot; break;
-        case 'DocPreWord60': this.sourceFormat = Document_SourceFormatEnum.docPreWord60; break;
-        case 'Docx': this.sourceFormat = Document_SourceFormatEnum.docx; break;
-        case 'Docm': this.sourceFormat = Document_SourceFormatEnum.docm; break;
-        case 'Dotx': this.sourceFormat = Document_SourceFormatEnum.dotx; break;
-        case 'Dotm': this.sourceFormat = Document_SourceFormatEnum.dotm; break;
-        case 'FlatOpc': this.sourceFormat = Document_SourceFormatEnum.flatOpc; break;
-        case 'Rtf': this.sourceFormat = Document_SourceFormatEnum.rtf; break;
-        case 'WordML': this.sourceFormat = Document_SourceFormatEnum.wordML; break;
-        case 'Html': this.sourceFormat = Document_SourceFormatEnum.html; break;
-        case 'Mhtml': this.sourceFormat = Document_SourceFormatEnum.mhtml; break;
-        case 'Epub': this.sourceFormat = Document_SourceFormatEnum.epub; break;
-        case 'Text': this.sourceFormat = Document_SourceFormatEnum.text; break;
-        case 'Odt': this.sourceFormat = Document_SourceFormatEnum.odt; break;
-        case 'Ott': this.sourceFormat = Document_SourceFormatEnum.ott; break;
-        case 'Pdf': this.sourceFormat = Document_SourceFormatEnum.pdf; break;
-        case 'Xps': this.sourceFormat = Document_SourceFormatEnum.xps; break;
-        case 'Tiff': this.sourceFormat = Document_SourceFormatEnum.tiff; break;
-        case 'Svg': this.sourceFormat = Document_SourceFormatEnum.svg; break;
-        default: this.sourceFormat = null; break;
+      switch (json['SourceFormat'] as String) {
+        case 'Unknown': sourceFormat = Document_SourceFormatEnum.unknown; break;
+        case 'Doc': sourceFormat = Document_SourceFormatEnum.doc; break;
+        case 'Dot': sourceFormat = Document_SourceFormatEnum.dot; break;
+        case 'DocPreWord60': sourceFormat = Document_SourceFormatEnum.docPreWord60; break;
+        case 'Docx': sourceFormat = Document_SourceFormatEnum.docx; break;
+        case 'Docm': sourceFormat = Document_SourceFormatEnum.docm; break;
+        case 'Dotx': sourceFormat = Document_SourceFormatEnum.dotx; break;
+        case 'Dotm': sourceFormat = Document_SourceFormatEnum.dotm; break;
+        case 'FlatOpc': sourceFormat = Document_SourceFormatEnum.flatOpc; break;
+        case 'Rtf': sourceFormat = Document_SourceFormatEnum.rtf; break;
+        case 'WordML': sourceFormat = Document_SourceFormatEnum.wordML; break;
+        case 'Html': sourceFormat = Document_SourceFormatEnum.html; break;
+        case 'Mhtml': sourceFormat = Document_SourceFormatEnum.mhtml; break;
+        case 'Epub': sourceFormat = Document_SourceFormatEnum.epub; break;
+        case 'Text': sourceFormat = Document_SourceFormatEnum.text; break;
+        case 'Odt': sourceFormat = Document_SourceFormatEnum.odt; break;
+        case 'Ott': sourceFormat = Document_SourceFormatEnum.ott; break;
+        case 'Pdf': sourceFormat = Document_SourceFormatEnum.pdf; break;
+        case 'Xps': sourceFormat = Document_SourceFormatEnum.xps; break;
+        case 'Tiff': sourceFormat = Document_SourceFormatEnum.tiff; break;
+        case 'Svg': sourceFormat = Document_SourceFormatEnum.svg; break;
+        default: sourceFormat = null; break;
       }
     } else {
-      this.sourceFormat = null;
+      sourceFormat = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.documentProperties != null) {
-      _result['DocumentProperties'] = this.documentProperties.serialize();
+    var _result = <String, dynamic>{};
+    if (documentProperties != null) {
+      _result['DocumentProperties'] = documentProperties.serialize();
     }
 
-    if (this.fileName != null) {
-      _result['FileName'] = this.fileName;
+    if (fileName != null) {
+      _result['FileName'] = fileName;
     }
 
-    if (this.isEncrypted != null) {
-      _result['IsEncrypted'] = this.isEncrypted;
+    if (isEncrypted != null) {
+      _result['IsEncrypted'] = isEncrypted;
     }
 
-    if (this.isSigned != null) {
-      _result['IsSigned'] = this.isSigned;
+    if (isSigned != null) {
+      _result['IsSigned'] = isSigned;
     }
 
-    if (this.links != null) {
-      _result['Links'] = this.links.map((_element) => _element.serialize()).toList();
+    if (links != null) {
+      _result['Links'] = links.map((_element) => _element.serialize()).toList();
     }
 
-    if (this.sourceFormat != null) {
-      switch (this.sourceFormat) {
+    if (sourceFormat != null) {
+      switch (sourceFormat) {
         case Document_SourceFormatEnum.unknown: _result['SourceFormat'] = 'Unknown'; break;
         case Document_SourceFormatEnum.doc: _result['SourceFormat'] = 'Doc'; break;
         case Document_SourceFormatEnum.dot: _result['SourceFormat'] = 'Dot'; break;

@@ -26,8 +26,9 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
-import '../test_context.dart';
 import 'package:test/test.dart';
+
+import '../test_context.dart';
 
 /// Example of how to split document and return result with specified format and page range.
 class SplitDocumentToFormatTests
@@ -36,26 +37,29 @@ class SplitDocumentToFormatTests
   String remoteDataFolder;
   String localFile;
 
-  SplitDocumentToFormatTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/SplitDocument';
+  SplitDocumentToFormatTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/SplitDocument';
     localFile = 'Common/test_multi_pages.docx';
   }
 
   /// Test for document splitting.
   Future<void> testSplitDocument() async
   {
-    final String remoteFileName = 'TestSplitDocument.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestSplitDocument.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new SplitDocumentRequest(
+    final request = SplitDocumentRequest(
       remoteFileName,
       'text',
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/TestSplitDocument.text',
+      destFileName: context.baseTestOutPath + '/TestSplitDocument.text',
       from: 1,
       to: 2
     );
 
-    var result = await this.context.getApi().splitDocument(request);
+    var result = await context.getApi().splitDocument(request);
+    expect(result.splitResult, isNotNull);
+    expect(result.splitResult.pages, isNotNull);
+    expect(result.splitResult.pages.length, 2);
   }
 }

@@ -31,90 +31,94 @@ import '../../aspose_words_cloud.dart';
 
 /// Comment.
 class CommentBase implements ModelBase {
-  /// Gets or sets returns or sets the author name for a comment.
+  /// Gets or sets the author name for a comment.
   String author;
 
   /// Gets or sets the date and time that the comment was made.
   DateTime dateTime;
 
-  /// Gets or sets returns or sets the initials of the user associated with a specific comment.
+  /// Gets or sets the initials of the user associated with a specific comment.
   String initial;
 
-  /// Gets or sets link to comment range end node.
+  /// Gets or sets the link to comment range end node.
   DocumentPosition rangeEnd;
 
-  /// Gets or sets link to comment range start node.
+  /// Gets or sets the link to comment range start node.
   DocumentPosition rangeStart;
 
-  /// Gets or sets this is a convenience property that allows to easily get or set text of the comment.
+  /// Gets or sets text of the comment.
   String text;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize CommentBase data model.');
+    }
+
     if (json.containsKey('Author')) {
-      this.author = json['Author'];
+      author = json['Author'] as String;
     } else {
-      this.author = null;
+      author = null;
     }
 
     if (json.containsKey('DateTime')) {
-      this.dateTime = DateTime.parse(json['DateTime']);
+      dateTime = DateTime.parse(json['DateTime'] as String);
     } else {
-      this.dateTime = null;
+      dateTime = null;
     }
 
     if (json.containsKey('Initial')) {
-      this.initial = json['Initial'];
+      initial = json['Initial'] as String;
     } else {
-      this.initial = null;
+      initial = null;
     }
 
     if (json.containsKey('RangeEnd')) {
-      this.rangeEnd = new DocumentPosition();
-      this.rangeEnd.deserialize(json['RangeEnd']);
+      rangeEnd = DocumentPosition();
+      rangeEnd.deserialize(json['RangeEnd'] as Map<String, dynamic>);
     } else {
-      this.rangeEnd = null;
+      rangeEnd = null;
     }
 
     if (json.containsKey('RangeStart')) {
-      this.rangeStart = new DocumentPosition();
-      this.rangeStart.deserialize(json['RangeStart']);
+      rangeStart = DocumentPosition();
+      rangeStart.deserialize(json['RangeStart'] as Map<String, dynamic>);
     } else {
-      this.rangeStart = null;
+      rangeStart = null;
     }
 
     if (json.containsKey('Text')) {
-      this.text = json['Text'];
+      text = json['Text'] as String;
     } else {
-      this.text = null;
+      text = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.author != null) {
-      _result['Author'] = this.author;
+    var _result = <String, dynamic>{};
+    if (author != null) {
+      _result['Author'] = author;
     }
 
-    if (this.dateTime != null) {
-      _result['DateTime'] = this.dateTime.toIso8601String();
+    if (dateTime != null) {
+      _result['DateTime'] = dateTime.toIso8601String();
     }
 
-    if (this.initial != null) {
-      _result['Initial'] = this.initial;
+    if (initial != null) {
+      _result['Initial'] = initial;
     }
 
-    if (this.rangeEnd != null) {
-      _result['RangeEnd'] = this.rangeEnd.serialize();
+    if (rangeEnd != null) {
+      _result['RangeEnd'] = rangeEnd.serialize();
     }
 
-    if (this.rangeStart != null) {
-      _result['RangeStart'] = this.rangeStart.serialize();
+    if (rangeStart != null) {
+      _result['RangeStart'] = rangeStart.serialize();
     }
 
-    if (this.text != null) {
-      _result['Text'] = this.text;
+    if (text != null) {
+      _result['Text'] = text;
     }
     return _result;
   }

@@ -26,8 +26,9 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
-import '../test_context.dart';
 import 'package:test/test.dart';
+
+import '../test_context.dart';
 
 /// Example of how to work with form field.
 class FormFieldTests
@@ -36,17 +37,17 @@ class FormFieldTests
   String remoteDataFolder;
   String fieldFolder;
 
-  FormFieldTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/FormFields';
+  FormFieldTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/FormFields';
     fieldFolder = 'DocumentElements/FormFields';
   }
 
   /// Test for posting form field.
   Future<void> testUpdateFormField() async
   {
-    final String remoteFileName = 'TestUpdateFormField.docx';
-    await this.context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
-    var requestFormField = new FormFieldTextInput();
+    final remoteFileName = 'TestUpdateFormField.docx';
+    await context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
+    var requestFormField = FormFieldTextInput();
     requestFormField.name = 'FullName';
     requestFormField.enabled = true;
     requestFormField.calculateOnExit = true;
@@ -54,24 +55,27 @@ class FormFieldTests
     requestFormField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
     requestFormField.textInputDefault = 'No name';
 
-    final request = new UpdateFormFieldRequest(
+    final request = UpdateFormFieldRequest(
       remoteFileName,
       requestFormField,
       0,
       nodePath: 'sections/0',
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await this.context.getApi().updateFormField(request);
+    var result = await context.getApi().updateFormField(request);
+    expect(result.formField, isNotNull);
+    expect(result.formField.name, 'FullName');
+    expect(result.formField.statusText, '');
   }
 
   /// Test for posting form field without node path.
   Future<void> testUpdateFormFieldWithoutNodePath() async
   {
-    final String remoteFileName = 'TestUpdateFormFieldWithoutNodePath.docx';
-    await this.context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
-    var requestFormField = new FormFieldTextInput();
+    final remoteFileName = 'TestUpdateFormFieldWithoutNodePath.docx';
+    await context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
+    var requestFormField = FormFieldTextInput();
     requestFormField.name = 'FullName';
     requestFormField.enabled = true;
     requestFormField.calculateOnExit = true;
@@ -79,83 +83,98 @@ class FormFieldTests
     requestFormField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
     requestFormField.textInputDefault = 'No name';
 
-    final request = new UpdateFormFieldRequest(
+    final request = UpdateFormFieldRequest(
       remoteFileName,
       requestFormField,
       0,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await this.context.getApi().updateFormField(request);
+    var result = await context.getApi().updateFormField(request);
+    expect(result.formField, isNotNull);
+    expect(result.formField.name, 'FullName');
+    expect(result.formField.statusText, '');
   }
 
   /// Test for getting form field.
   Future<void> testGetFormField() async
   {
-    final String remoteFileName = 'TestGetFormField.docx';
-    await this.context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetFormField.docx';
+    await context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetFormFieldRequest(
+    final request = GetFormFieldRequest(
       remoteFileName,
       0,
       nodePath: 'sections/0',
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getFormField(request);
+    var result = await context.getApi().getFormField(request);
+    expect(result.formField, isNotNull);
+    expect(result.formField.name, 'FullName');
   }
 
   /// Test for getting form field without node path.
   Future<void> testGetFormFieldWithoutNodePath() async
   {
-    final String remoteFileName = 'TestGetFormFieldWithoutNodePath.docx';
-    await this.context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetFormFieldWithoutNodePath.docx';
+    await context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetFormFieldRequest(
+    final request = GetFormFieldRequest(
       remoteFileName,
       0,
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getFormField(request);
+    var result = await context.getApi().getFormField(request);
+    expect(result.formField, isNotNull);
+    expect(result.formField.name, 'FullName');
   }
 
   /// Test for getting form fields.
   Future<void> testGetFormFields() async
   {
-    final String remoteFileName = 'TestGetFormFields.docx';
-    await this.context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetFormFields.docx';
+    await context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetFormFieldsRequest(
+    final request = GetFormFieldsRequest(
       remoteFileName,
       nodePath: 'sections/0',
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getFormFields(request);
+    var result = await context.getApi().getFormFields(request);
+    expect(result.formFields, isNotNull);
+    expect(result.formFields.list, isNotNull);
+    expect(result.formFields.list.length, 5);
+    expect(result.formFields.list[0].name, 'FullName');
   }
 
   /// Test for getting form fields without node path.
   Future<void> testGetFormFieldsWithoutNodePath() async
   {
-    final String remoteFileName = 'TestGetFormFieldsWithoutNodePath.docx';
-    await this.context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetFormFieldsWithoutNodePath.docx';
+    await context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetFormFieldsRequest(
+    final request = GetFormFieldsRequest(
       remoteFileName,
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getFormFields(request);
+    var result = await context.getApi().getFormFields(request);
+    expect(result.formFields, isNotNull);
+    expect(result.formFields.list, isNotNull);
+    expect(result.formFields.list.length, 5);
+    expect(result.formFields.list[0].name, 'FullName');
   }
 
   /// Test for insert form field without node path.
   Future<void> testInsertFormField() async
   {
-    final String remoteFileName = 'TestInsertFormField.docx';
-    await this.context.uploadFile('Common/test_multi_pages.docx', remoteDataFolder + '/' + remoteFileName);
-    var requestFormField = new FormFieldTextInput();
+    final remoteFileName = 'TestInsertFormField.docx';
+    await context.uploadFile('Common/test_multi_pages.docx', remoteDataFolder + '/' + remoteFileName);
+    var requestFormField = FormFieldTextInput();
     requestFormField.name = 'FullName';
     requestFormField.enabled = true;
     requestFormField.calculateOnExit = true;
@@ -164,23 +183,26 @@ class FormFieldTests
     requestFormField.textInputDefault = '123';
     requestFormField.textInputFormat = 'UPPERCASE';
 
-    final request = new InsertFormFieldRequest(
+    final request = InsertFormFieldRequest(
       remoteFileName,
       requestFormField,
       nodePath: 'sections/0/paragraphs/0',
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await this.context.getApi().insertFormField(request);
+    var result = await context.getApi().insertFormField(request);
+    expect(result.formField, isNotNull);
+    expect(result.formField.name, 'FullName');
+    expect(result.formField.statusText, '');
   }
 
   /// Test for insert form field without node path.
   Future<void> testInsertFormFieldWithoutNodePath() async
   {
-    final String remoteFileName = 'TestInsertFormFieldWithoutNodePath.docx';
-    await this.context.uploadFile('Common/test_multi_pages.docx', remoteDataFolder + '/' + remoteFileName);
-    var requestFormField = new FormFieldTextInput();
+    final remoteFileName = 'TestInsertFormFieldWithoutNodePath.docx';
+    await context.uploadFile('Common/test_multi_pages.docx', remoteDataFolder + '/' + remoteFileName);
+    var requestFormField = FormFieldTextInput();
     requestFormField.name = 'FullName';
     requestFormField.enabled = true;
     requestFormField.calculateOnExit = true;
@@ -189,46 +211,49 @@ class FormFieldTests
     requestFormField.textInputDefault = '123';
     requestFormField.textInputFormat = 'UPPERCASE';
 
-    final request = new InsertFormFieldRequest(
+    final request = InsertFormFieldRequest(
       remoteFileName,
       requestFormField,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await this.context.getApi().insertFormField(request);
+    var result = await context.getApi().insertFormField(request);
+    expect(result.formField, isNotNull);
+    expect(result.formField.name, 'FullName');
+    expect(result.formField.statusText, '');
   }
 
   /// Test for deleting form field.
   Future<void> testDeleteFormField() async
   {
-    final String remoteFileName = 'TestDeleteFormField.docx';
-    await this.context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestDeleteFormField.docx';
+    await context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
 
-    final request = new DeleteFormFieldRequest(
+    final request = DeleteFormFieldRequest(
       remoteFileName,
       0,
       nodePath: 'sections/0',
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    await this.context.getApi().deleteFormField(request);
+    await context.getApi().deleteFormField(request);
   }
 
   /// Test for deleting form field without node path.
   Future<void> testDeleteFormFieldWithoutNodePath() async
   {
-    final String remoteFileName = 'TestDeleteFormFieldWithoutNodePath.docx';
-    await this.context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestDeleteFormFieldWithoutNodePath.docx';
+    await context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
 
-    final request = new DeleteFormFieldRequest(
+    final request = DeleteFormFieldRequest(
       remoteFileName,
       0,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    await this.context.getApi().deleteFormField(request);
+    await context.getApi().deleteFormField(request);
   }
 }

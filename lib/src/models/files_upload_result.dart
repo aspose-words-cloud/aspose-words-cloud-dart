@@ -39,38 +39,42 @@ class FilesUploadResult implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FilesUploadResult data model.');
+    }
+
     if (json.containsKey('Errors')) {
       // Array processing
-      this.errors = new List<Error>();
+      errors = <Error>[];
       for(final _element in json['Errors']) {
-        var _elementValue = new Error();
-        _elementValue.deserialize(_element);
-        this.errors.add(_elementValue);
+        var _elementValue = Error();
+        _elementValue.deserialize(_element as Map<String, dynamic>);
+        errors.add(_elementValue);
       }
     } else {
-      this.errors = null;
+      errors = null;
     }
 
     if (json.containsKey('Uploaded')) {
       // Array processing
-      this.uploaded = new List<String>();
+      uploaded = <String>[];
       for(final _element in json['Uploaded']) {
-        this.uploaded.add(_element);
+        uploaded.add(_element as String);
       }
     } else {
-      this.uploaded = null;
+      uploaded = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.errors != null) {
-      _result['Errors'] = this.errors.map((_element) => _element.serialize()).toList();
+    var _result = <String, dynamic>{};
+    if (errors != null) {
+      _result['Errors'] = errors.map((_element) => _element.serialize()).toList();
     }
 
-    if (this.uploaded != null) {
-      _result['Uploaded'] = this.uploaded;
+    if (uploaded != null) {
+      _result['Uploaded'] = uploaded;
     }
     return _result;
   }

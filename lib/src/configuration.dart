@@ -28,21 +28,21 @@
 library aspose_words_cloud;
 
 class Configuration {
-  final String appKey;
-  final String appSid;
+  final String clientId;
+  final String clientSecret;
   final String baseUrl;
   final bool debugMode;
 
-  Configuration(final String this.appKey, final String this.appSid, {final String this.baseUrl = 'https://api.aspose.cloud', final bool this.debugMode = false});
+  Configuration(final this.clientId, final this.clientSecret, {final this.baseUrl = 'https://api.aspose.cloud', final this.debugMode = false});
 
   Configuration.fromJson(final Map<String, dynamic> json)
-    : this.appKey = json['AppKey'],
-      this.appSid = json['AppSid'],
-      this.baseUrl = json['BaseUrl'],
-      this.debugMode = json['DebugMode'];
+    : clientId = json['ClientId'] as String,
+      clientSecret = json['ClientSecret'] as String,
+      baseUrl = json['BaseUrl'] as String,
+      debugMode = json['DebugMode'] as bool;
 
   String getApiRootUrl()
   {
-    return this.baseUrl + "/v4.0";
+    return '$baseUrl/v4.0';
   }
 }

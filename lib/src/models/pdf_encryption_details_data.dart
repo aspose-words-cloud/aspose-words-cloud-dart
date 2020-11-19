@@ -29,64 +29,68 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// container class for details of encryption.
+/// Container class for details of encryption.
 class PdfEncryptionDetailsData implements ModelBase {
-  /// Gets or sets specifies the encryption algorithm to use.
+  /// Gets or sets the encryption algorithm to use.
   String encryptionAlgorithm;
 
-  /// Gets or sets specifies the owner password for the encrypted PDF document.
+  /// Gets or sets the owner password for the encrypted PDF document.
   String ownerPassword;
 
-  /// Gets or sets specifies the operations that are allowed to a user on an encrypted PDF document.
+  /// Gets or sets the operations that are allowed to a user on the encrypted PDF document.
   String permissions;
 
-  /// Gets or sets specifies the user password required for opening the encrypted PDF document.
+  /// Gets or sets the user password required for opening the encrypted PDF document.
   String userPassword;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize PdfEncryptionDetailsData data model.');
+    }
+
     if (json.containsKey('EncryptionAlgorithm')) {
-      this.encryptionAlgorithm = json['EncryptionAlgorithm'];
+      encryptionAlgorithm = json['EncryptionAlgorithm'] as String;
     } else {
-      this.encryptionAlgorithm = null;
+      encryptionAlgorithm = null;
     }
 
     if (json.containsKey('OwnerPassword')) {
-      this.ownerPassword = json['OwnerPassword'];
+      ownerPassword = json['OwnerPassword'] as String;
     } else {
-      this.ownerPassword = null;
+      ownerPassword = null;
     }
 
     if (json.containsKey('Permissions')) {
-      this.permissions = json['Permissions'];
+      permissions = json['Permissions'] as String;
     } else {
-      this.permissions = null;
+      permissions = null;
     }
 
     if (json.containsKey('UserPassword')) {
-      this.userPassword = json['UserPassword'];
+      userPassword = json['UserPassword'] as String;
     } else {
-      this.userPassword = null;
+      userPassword = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.encryptionAlgorithm != null) {
-      _result['EncryptionAlgorithm'] = this.encryptionAlgorithm;
+    var _result = <String, dynamic>{};
+    if (encryptionAlgorithm != null) {
+      _result['EncryptionAlgorithm'] = encryptionAlgorithm;
     }
 
-    if (this.ownerPassword != null) {
-      _result['OwnerPassword'] = this.ownerPassword;
+    if (ownerPassword != null) {
+      _result['OwnerPassword'] = ownerPassword;
     }
 
-    if (this.permissions != null) {
-      _result['Permissions'] = this.permissions;
+    if (permissions != null) {
+      _result['Permissions'] = permissions;
     }
 
-    if (this.userPassword != null) {
-      _result['UserPassword'] = this.userPassword;
+    if (userPassword != null) {
+      _result['UserPassword'] = userPassword;
     }
     return _result;
   }

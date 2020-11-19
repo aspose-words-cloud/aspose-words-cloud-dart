@@ -29,25 +29,29 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Table cell element.
+/// DTO container with a table cell.
 class TableCellInsert implements ModelBase {
-  /// Gets or sets table cell will be inserted after cell with specified 0-based index.
+  /// Gets or sets the 0-based index, the table cell will be inserted after.
   int insertAfter;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize TableCellInsert data model.');
+    }
+
     if (json.containsKey('InsertAfter')) {
-      this.insertAfter = json['InsertAfter'];
+      insertAfter = json['InsertAfter'] as int;
     } else {
-      this.insertAfter = null;
+      insertAfter = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.insertAfter != null) {
-      _result['InsertAfter'] = this.insertAfter;
+    var _result = <String, dynamic>{};
+    if (insertAfter != null) {
+      _result['InsertAfter'] = insertAfter;
     }
     return _result;
   }

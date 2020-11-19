@@ -26,8 +26,9 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
-import '../test_context.dart';
 import 'package:test/test.dart';
+
+import '../test_context.dart';
 
 /// Example of how to work with table borders.
 class TableBorderTests
@@ -36,90 +37,106 @@ class TableBorderTests
   String remoteDataFolder;
   String localFile;
 
-  TableBorderTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Tables';
+  TableBorderTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Tables';
     localFile = 'DocumentElements/Tables/TablesGet.docx';
   }
 
   /// Test for getting borders.
   Future<void> testGetBorders() async
   {
-    final String remoteFileName = 'TestGetBorders.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetBorders.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetBordersRequest(
+    final request = GetBordersRequest(
       remoteFileName,
       nodePath: 'tables/1/rows/0/cells/0',
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getBorders(request);
+    var result = await context.getApi().getBorders(request);
+    expect(result.borders, isNotNull);
+    expect(result.borders.list, isNotNull);
+    expect(result.borders.list.length, 6);
+    expect(result.borders.list[0].color, isNotNull);
+    expect(result.borders.list[0].color.web, '#000000');
   }
 
   /// Test for getting border.
   Future<void> testGetBorder() async
   {
-    final String remoteFileName = 'TestGetBorder.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetBorder.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetBorderRequest(
+    final request = GetBorderRequest(
       remoteFileName,
       'left',
       nodePath: 'tables/1/rows/0/cells/0',
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getBorder(request);
+    var result = await context.getApi().getBorder(request);
+    expect(result.border, isNotNull);
+    expect(result.border.color, isNotNull);
+    expect(result.border.color.web, '#000000');
   }
 
   /// Test for deleting borders.
   Future<void> testDeleteBorders() async
   {
-    final String remoteFileName = 'TestDeleteBorders.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestDeleteBorders.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new DeleteBordersRequest(
+    final request = DeleteBordersRequest(
       remoteFileName,
       nodePath: 'tables/1/rows/0/cells/0',
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().deleteBorders(request);
+    var result = await context.getApi().deleteBorders(request);
+    expect(result.borders, isNotNull);
+    expect(result.borders.list, isNotNull);
+    expect(result.borders.list.length, 6);
+    expect(result.borders.list[0].color, isNotNull);
+    expect(result.borders.list[0].color.web, '');
   }
 
   /// Test for deleting border.
   Future<void> testDeleteBorder() async
   {
-    final String remoteFileName = 'TestDeleteBorder.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestDeleteBorder.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new DeleteBorderRequest(
+    final request = DeleteBorderRequest(
       remoteFileName,
       'left',
       nodePath: 'tables/1/rows/0/cells/0',
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().deleteBorder(request);
+    var result = await context.getApi().deleteBorder(request);
+    expect(result.border, isNotNull);
+    expect(result.border.color, isNotNull);
+    expect(result.border.color.web, '');
   }
 
   /// Test for updating border.
   Future<void> testUpdateBorder() async
   {
-    final String remoteFileName = 'TestUpdateBorder.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestBorderPropertiesColor = new XmlColor();
-    requestBorderPropertiesColor.alpha = 2;
+    final remoteFileName = 'TestUpdateBorder.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestBorderPropertiesColor = XmlColor();
+    requestBorderPropertiesColor.web = '#AABBCC';
 
-    var requestBorderProperties = new Border();
+    var requestBorderProperties = Border();
     requestBorderProperties.borderType = Border_BorderTypeEnum.left;
     requestBorderProperties.color = requestBorderPropertiesColor;
-    requestBorderProperties.distanceFromText = 6;
+    requestBorderProperties.distanceFromText = 6.0;
     requestBorderProperties.lineStyle = Border_LineStyleEnum.dashDotStroker;
-    requestBorderProperties.lineWidth = 2;
+    requestBorderProperties.lineWidth = 2.0;
     requestBorderProperties.shadow = true;
 
-    final request = new UpdateBorderRequest(
+    final request = UpdateBorderRequest(
       remoteFileName,
       requestBorderProperties,
       'left',
@@ -127,6 +144,12 @@ class TableBorderTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().updateBorder(request);
+    var result = await context.getApi().updateBorder(request);
+    expect(result.border, isNotNull);
+    expect(result.border.color, isNotNull);
+    expect(result.border.color.web, '#AABBCC');
+    expect(result.border.distanceFromText, 6.0);
+    expect(result.border.lineWidth, 2.0);
+    expect(result.border.shadow, isTrue);
   }
 }

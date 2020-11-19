@@ -26,8 +26,9 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
-import '../test_context.dart';
 import 'package:test/test.dart';
+
+import '../test_context.dart';
 
 /// Example of how to work with ranges.
 class RangeTests
@@ -36,52 +37,55 @@ class RangeTests
   String remoteDataFolder;
   String localFile;
 
-  RangeTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Range';
+  RangeTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Range';
     localFile = 'DocumentElements/Range/RangeGet.doc';
   }
 
   /// Test for getting the text from range.
   Future<void> testGetRangeText() async
   {
-    final String remoteFileName = 'TestGetRangeText.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetRangeText.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetRangeTextRequest(
+    final request = GetRangeTextRequest(
       remoteFileName,
       'id0.0.0',
       rangeEndIdentifier: 'id0.0.1',
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getRangeText(request);
+    var result = await context.getApi().getRangeText(request);
+    expect(result.text, 'This is HEADER ');
   }
 
   /// Test for removing the text for range.
   Future<void> testRemoveRange() async
   {
-    final String remoteFileName = 'TestRemoveRange.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestRemoveRange.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new RemoveRangeRequest(
+    final request = RemoveRangeRequest(
       remoteFileName,
       'id0.0.0',
       rangeEndIdentifier: 'id0.0.1',
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().removeRange(request);
+    var result = await context.getApi().removeRange(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'TestRemoveRange.docx');
   }
 
   /// Test for saving a range as a new document.
   Future<void> testSaveAsRange() async
   {
-    final String remoteFileName = 'TestSaveAsRange.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestDocumentParameters = new RangeDocument();
+    final remoteFileName = 'TestSaveAsRange.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestDocumentParameters = RangeDocument();
     requestDocumentParameters.documentName = remoteDataFolder + '/NewDoc.docx';
 
-    final request = new SaveAsRangeRequest(
+    final request = SaveAsRangeRequest(
       remoteFileName,
       'id0.0.0',
       requestDocumentParameters,
@@ -89,18 +93,20 @@ class RangeTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().saveAsRange(request);
+    var result = await context.getApi().saveAsRange(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'NewDoc.docx');
   }
 
   /// Test for replacing text in range.
   Future<void> testReplaceWithText() async
   {
-    final String remoteFileName = 'TestReplaceWithText.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestRangeText = new ReplaceRange();
+    final remoteFileName = 'TestReplaceWithText.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestRangeText = ReplaceRange();
     requestRangeText.text = 'Replaced header';
 
-    final request = new ReplaceWithTextRequest(
+    final request = ReplaceWithTextRequest(
       remoteFileName,
       'id0.0.0',
       requestRangeText,
@@ -108,6 +114,8 @@ class RangeTests
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().replaceWithText(request);
+    var result = await context.getApi().replaceWithText(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'TestReplaceWithText.docx');
   }
 }

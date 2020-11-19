@@ -31,107 +31,111 @@ import '../../aspose_words_cloud.dart';
 
 /// Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
 class FixedPageSaveOptionsData extends SaveOptionsData {
-  /// Gets or sets a value determining how colors are rendered.
+  /// Gets or sets the value determining how colors are rendered.
   /// { Normal | Grayscale}.
   String colorMode;
 
-  /// Gets or sets determines the quality of the JPEG images inside PDF document.
+  /// Gets or sets the quality of the JPEG images inside PDF document.
   int jpegQuality;
 
-  /// Gets or sets allows to specify metafile rendering options.
+  /// Gets or sets the metafile rendering options.
   MetafileRenderingOptionsData metafileRenderingOptions;
 
-  /// Gets or sets indicates the symbol set that is used to represent numbers while rendering to fixed page formats.
+  /// Gets or sets the symbol set, that is used to represent numbers while rendering to fixed page formats.
   String numeralFormat;
 
-  /// Gets or sets flag indicates whether it is required to optimize output of XPS.
+  /// Gets or sets a value indicating whether it is required to optimize output of XPS.
   /// If this flag is set redundant nested canvases and empty canvases are removed, also neighbor glyphs with the same formatting are concatenated.
-  /// Note: The accuracy of the content display may be affected if this property is set to true.  Default is false.
+  /// Note: The accuracy of the content display may be affected if this property is set to true.. The default value is false.
   bool optimizeOutput;
 
-  /// Gets or sets determines number of pages to render.
+  /// Gets or sets the number of pages to render.
   int pageCount;
 
-  /// Gets or sets determines 0-based index of the first page to render.
+  /// Gets or sets the 0-based index of the first page to render.
   int pageIndex;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FixedPageSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('ColorMode')) {
-      this.colorMode = json['ColorMode'];
+      colorMode = json['ColorMode'] as String;
     } else {
-      this.colorMode = null;
+      colorMode = null;
     }
 
     if (json.containsKey('JpegQuality')) {
-      this.jpegQuality = json['JpegQuality'];
+      jpegQuality = json['JpegQuality'] as int;
     } else {
-      this.jpegQuality = null;
+      jpegQuality = null;
     }
 
     if (json.containsKey('MetafileRenderingOptions')) {
-      this.metafileRenderingOptions = new MetafileRenderingOptionsData();
-      this.metafileRenderingOptions.deserialize(json['MetafileRenderingOptions']);
+      metafileRenderingOptions = MetafileRenderingOptionsData();
+      metafileRenderingOptions.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
     } else {
-      this.metafileRenderingOptions = null;
+      metafileRenderingOptions = null;
     }
 
     if (json.containsKey('NumeralFormat')) {
-      this.numeralFormat = json['NumeralFormat'];
+      numeralFormat = json['NumeralFormat'] as String;
     } else {
-      this.numeralFormat = null;
+      numeralFormat = null;
     }
 
     if (json.containsKey('OptimizeOutput')) {
-      this.optimizeOutput = json['OptimizeOutput'];
+      optimizeOutput = json['OptimizeOutput'] as bool;
     } else {
-      this.optimizeOutput = null;
+      optimizeOutput = null;
     }
 
     if (json.containsKey('PageCount')) {
-      this.pageCount = json['PageCount'];
+      pageCount = json['PageCount'] as int;
     } else {
-      this.pageCount = null;
+      pageCount = null;
     }
 
     if (json.containsKey('PageIndex')) {
-      this.pageIndex = json['PageIndex'];
+      pageIndex = json['PageIndex'] as int;
     } else {
-      this.pageIndex = null;
+      pageIndex = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.colorMode != null) {
-      _result['ColorMode'] = this.colorMode;
+    if (colorMode != null) {
+      _result['ColorMode'] = colorMode;
     }
 
-    if (this.jpegQuality != null) {
-      _result['JpegQuality'] = this.jpegQuality;
+    if (jpegQuality != null) {
+      _result['JpegQuality'] = jpegQuality;
     }
 
-    if (this.metafileRenderingOptions != null) {
-      _result['MetafileRenderingOptions'] = this.metafileRenderingOptions.serialize();
+    if (metafileRenderingOptions != null) {
+      _result['MetafileRenderingOptions'] = metafileRenderingOptions.serialize();
     }
 
-    if (this.numeralFormat != null) {
-      _result['NumeralFormat'] = this.numeralFormat;
+    if (numeralFormat != null) {
+      _result['NumeralFormat'] = numeralFormat;
     }
 
-    if (this.optimizeOutput != null) {
-      _result['OptimizeOutput'] = this.optimizeOutput;
+    if (optimizeOutput != null) {
+      _result['OptimizeOutput'] = optimizeOutput;
     }
 
-    if (this.pageCount != null) {
-      _result['PageCount'] = this.pageCount;
+    if (pageCount != null) {
+      _result['PageCount'] = pageCount;
     }
 
-    if (this.pageIndex != null) {
-      _result['PageIndex'] = this.pageIndex;
+    if (pageIndex != null) {
+      _result['PageIndex'] = pageIndex;
     }
     return _result;
   }

@@ -36,10 +36,10 @@ import '../api_request_part.dart';
 
 /// Request model for GetStyle operation.
 class GetStyleRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// Style name.
+  /// The name of the style.
   final String styleName;
 
   /// Original document folder.
@@ -54,50 +54,50 @@ class GetStyleRequest implements RequestBase {
   /// Password for opening an encrypted document.
   final String password;
 
-  GetStyleRequest(final String this.name, final String this.styleName, {final String this.folder = null, final String this.storage = null, final String this.loadEncoding = null, final String this.password = null});
+  GetStyleRequest(final this.name, final this.styleName, {final this.folder, final this.storage, final this.loadEncoding, final this.password});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/{name}/styles/{styleName}';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.name == null) {
-      throw new ApiException(400, 'Parameter name is required.');
+    var _path = '/words/{name}/styles/{styleName}';
+    var _queryParams = <String, String>{};
+    var _headers = <String, String>{};
+    var _bodyParts = <ApiRequestPart>[];
+    if (name == null) {
+      throw ApiException(400, 'Parameter name is required.');
     }
-    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
+    _path = _path.replaceAll('{name}', apiClient.serializeToString(name));
 
-    if (this.styleName == null) {
-      throw new ApiException(400, 'Parameter styleName is required.');
+    if (styleName == null) {
+      throw ApiException(400, 'Parameter styleName is required.');
     }
-    path = path.replaceAll('{styleName}', apiClient.serializeToString(this.styleName));
-    if (this.folder != null) {
-      queryParams['folder'] = apiClient.serializeToString(this.folder);
-    }
-
-    if (this.storage != null) {
-      queryParams['storage'] = apiClient.serializeToString(this.storage);
+    _path = _path.replaceAll('{styleName}', apiClient.serializeToString(styleName));
+    if (folder != null) {
+      _queryParams['folder'] = apiClient.serializeToString(folder);
     }
 
-    if (this.loadEncoding != null) {
-      queryParams['loadEncoding'] = apiClient.serializeToString(this.loadEncoding);
+    if (storage != null) {
+      _queryParams['storage'] = apiClient.serializeToString(storage);
     }
 
-    if (this.password != null) {
-      queryParams['password'] = apiClient.serializeToString(this.password);
+    if (loadEncoding != null) {
+      _queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('GET', url, headers, body);
+    if (password != null) {
+      _queryParams['password'] = apiClient.serializeToString(password);
+    }
+
+    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    return ApiRequestData('GET', _url, _headers, _body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = new StyleResponse();
+    var _result = StyleResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
-    _result.deserialize(_json);
+    _result.deserialize(_json as Map<String, dynamic>);
     return _result;
   }
 }

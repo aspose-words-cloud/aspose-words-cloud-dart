@@ -36,42 +36,42 @@ import '../api_request_part.dart';
 
 /// Request model for LoadWebDocument operation.
 class LoadWebDocumentRequest implements RequestBase {
-  /// Parameters of loading.
+  /// The properties of data downloading.
   final LoadWebDocumentData data;
 
   /// Original document storage.
   final String storage;
 
-  LoadWebDocumentRequest(final LoadWebDocumentData this.data, {final String this.storage = null});
+  LoadWebDocumentRequest(final this.data, {final this.storage});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/loadWebDocument';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.storage != null) {
-      queryParams['storage'] = apiClient.serializeToString(this.storage);
+    var _path = '/words/loadWebDocument';
+    var _queryParams = <String, String>{};
+    var _headers = <String, String>{};
+    var _bodyParts = <ApiRequestPart>[];
+    if (storage != null) {
+      _queryParams['storage'] = apiClient.serializeToString(storage);
     }
 
-    if (this.data != null) {
-      bodyParts.add(new ApiRequestPart(apiClient.serializeBody(this.data), 'application/json'));
+    if (data != null) {
+      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(data), 'application/json'));
     }
     else {
-      throw new ApiException(400, 'Parameter data is required.');
+      throw ApiException(400, 'Parameter data is required.');
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('PUT', url, headers, body);
+    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = new SaveResponse();
+    var _result = SaveResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
-    _result.deserialize(_json);
+    _result.deserialize(_json as Map<String, dynamic>);
     return _result;
   }
 }

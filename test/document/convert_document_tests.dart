@@ -26,8 +26,9 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
-import '../test_context.dart';
 import 'package:test/test.dart';
+
+import '../test_context.dart';
 
 /// Example of how to convert document to one of the available formats.
 class ConvertDocumentTests
@@ -36,77 +37,83 @@ class ConvertDocumentTests
   String remoteFolder;
   String localFolder;
 
-  ConvertDocumentTests(final TestContext this.context) {
-    remoteFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/ConvertDocument';
+  ConvertDocumentTests(final this.context) {
+    remoteFolder = context.remoteBaseTestDataFolder + '/DocumentActions/ConvertDocument';
     localFolder = 'DocumentActions/ConvertDocument';
   }
 
   /// Test for converting document to one of the available formats.
   Future<void> testSaveAs() async
   {
-    final String localName = 'test_multi_pages.docx';
-    final String remoteName = 'TestSaveAs.docx';
-    await this.context.uploadFile('Common/' + localName, remoteFolder + '/' + remoteName);
-    var requestSaveOptionsData = new SaveOptionsData();
+    final localName = 'test_multi_pages.docx';
+    final remoteName = 'TestSaveAs.docx';
+    await context.uploadFile('Common/' + localName, remoteFolder + '/' + remoteName);
+    var requestSaveOptionsData = SaveOptionsData();
     requestSaveOptionsData.saveFormat = 'pdf';
-    requestSaveOptionsData.fileName = this.context.baseTestOutPath + '/TestSaveAs.pdf';
+    requestSaveOptionsData.fileName = context.baseTestOutPath + '/TestSaveAs.pdf';
 
-    final request = new SaveAsRequest(
+    final request = SaveAsRequest(
       remoteName,
       requestSaveOptionsData,
       folder: remoteFolder
     );
 
-    var result = await this.context.getApi().saveAs(request);
+    var result = await context.getApi().saveAs(request);
+    expect(result.saveResult, isNotNull);
+    expect(result.saveResult.destDocument, isNotNull);
   }
 
   /// Test for converting document to one of the available formats.
   Future<void> testSaveAsDocx() async
   {
-    final String localName = '45.pdf';
-    final String remoteName = 'TestSaveAsFromPdfToDoc.pdf';
-    await this.context.uploadFile(localFolder + '/' + localName, remoteFolder + '/' + remoteName);
-    var requestSaveOptionsData = new SaveOptionsData();
+    final localName = '45.pdf';
+    final remoteName = 'TestSaveAsFromPdfToDoc.pdf';
+    await context.uploadFile(localFolder + '/' + localName, remoteFolder + '/' + remoteName);
+    var requestSaveOptionsData = SaveOptionsData();
     requestSaveOptionsData.saveFormat = 'docx';
-    requestSaveOptionsData.fileName = this.context.baseTestOutPath + '/TestSaveAsFromPdfToDoc.docx';
+    requestSaveOptionsData.fileName = context.baseTestOutPath + '/TestSaveAsFromPdfToDoc.docx';
 
-    final request = new SaveAsRequest(
+    final request = SaveAsRequest(
       remoteName,
       requestSaveOptionsData,
       folder: remoteFolder
     );
 
-    var result = await this.context.getApi().saveAs(request);
+    var result = await context.getApi().saveAs(request);
+    expect(result.saveResult, isNotNull);
+    expect(result.saveResult.destDocument, isNotNull);
   }
 
   /// Test for converting document to one of the available formats.
   Future<void> testSaveAsTiff() async
   {
-    final String localName = 'test_multi_pages.docx';
-    final String remoteName = 'TestSaveAsTiff.pdf';
-    await this.context.uploadFile('Common/' + localName, remoteFolder + '/' + remoteName);
-    var requestSaveOptions = new TiffSaveOptionsData();
+    final localName = 'test_multi_pages.docx';
+    final remoteName = 'TestSaveAsTiff.pdf';
+    await context.uploadFile('Common/' + localName, remoteFolder + '/' + remoteName);
+    var requestSaveOptions = TiffSaveOptionsData();
     requestSaveOptions.saveFormat = 'tiff';
-    requestSaveOptions.fileName = this.context.baseTestOutPath + '/abc.tiff';
+    requestSaveOptions.fileName = context.baseTestOutPath + '/abc.tiff';
 
-    final request = new SaveAsTiffRequest(
+    final request = SaveAsTiffRequest(
       remoteName,
       requestSaveOptions,
       folder: remoteFolder
     );
 
-    var result = await this.context.getApi().saveAsTiff(request);
+    var result = await context.getApi().saveAsTiff(request);
+    expect(result.saveResult, isNotNull);
+    expect(result.saveResult.destDocument, isNotNull);
   }
 
   /// A test for ConvertDocument.
   Future<void> testConvertDocument() async
   {
 
-    final request = new ConvertDocumentRequest(
-      await this.context.loadBinaryFile(localFolder + '/test_uploadfile.docx'),
+    final request = ConvertDocumentRequest(
+      await context.loadBinaryFile(localFolder + '/test_uploadfile.docx'),
       'pdf'
     );
 
-    var result = await this.context.getApi().convertDocument(request);
+    await context.getApi().convertDocument(request);
   }
 }

@@ -26,8 +26,9 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
-import '../test_context.dart';
 import 'package:test/test.dart';
+
+import '../test_context.dart';
 
 /// Example of how to get document statistics.
 class DocumentStatisticsTests
@@ -36,22 +37,24 @@ class DocumentStatisticsTests
   String remoteDataFolder;
   String localFile;
 
-  DocumentStatisticsTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/Statistics';
+  DocumentStatisticsTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/Statistics';
     localFile = 'Common/test_multi_pages.docx';
   }
 
   /// Test for document classification.
   Future<void> testGetDocumentStatistics() async
   {
-    final String remoteFileName = 'TestGetDocumentStatistics.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetDocumentStatistics.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetDocumentStatisticsRequest(
+    final request = GetDocumentStatisticsRequest(
       remoteFileName,
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getDocumentStatistics(request);
+    var result = await context.getApi().getDocumentStatistics(request);
+    expect(result.statData, isNotNull);
+    expect(result.statData.wordCount, 10);
   }
 }

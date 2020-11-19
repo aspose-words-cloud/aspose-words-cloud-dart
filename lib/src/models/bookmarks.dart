@@ -31,31 +31,35 @@ import '../../aspose_words_cloud.dart';
 
 /// Represents an array of bookmarks.
 class Bookmarks extends LinkElement {
-  /// Gets or sets array of bookmarks.
+  /// Gets or sets the array of bookmarks.
   List<Bookmark> bookmarkList;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize Bookmarks data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('BookmarkList')) {
       // Array processing
-      this.bookmarkList = new List<Bookmark>();
+      bookmarkList = <Bookmark>[];
       for(final _element in json['BookmarkList']) {
-        var _elementValue = new Bookmark();
-        _elementValue.deserialize(_element);
-        this.bookmarkList.add(_elementValue);
+        var _elementValue = Bookmark();
+        _elementValue.deserialize(_element as Map<String, dynamic>);
+        bookmarkList.add(_elementValue);
       }
     } else {
-      this.bookmarkList = null;
+      bookmarkList = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.bookmarkList != null) {
-      _result['BookmarkList'] = this.bookmarkList.map((_element) => _element.serialize()).toList();
+    if (bookmarkList != null) {
+      _result['BookmarkList'] = bookmarkList.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

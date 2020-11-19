@@ -29,60 +29,63 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:
-/// PUT https://api.aspose.cloud/v4.0/words/classify.
+/// The REST response with data on multi-class text classification.
 class ClassificationResponse extends WordsResponse {
-  /// Gets or sets best class name.
+  /// Gets or sets the best class name.
   String bestClassName;
 
-  /// Gets or sets best class probability.
+  /// Gets or sets the best class probability.
   double bestClassProbability;
 
-  /// Gets or sets array of best classes results.
+  /// Gets or sets the array of best classes results.
   List<ClassificationResult> bestResults;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ClassificationResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('BestClassName')) {
-      this.bestClassName = json['BestClassName'];
+      bestClassName = json['BestClassName'] as String;
     } else {
-      this.bestClassName = null;
+      bestClassName = null;
     }
 
     if (json.containsKey('BestClassProbability')) {
-      this.bestClassProbability = json['BestClassProbability'];
+      bestClassProbability = json['BestClassProbability'] as double;
     } else {
-      this.bestClassProbability = null;
+      bestClassProbability = null;
     }
 
     if (json.containsKey('BestResults')) {
       // Array processing
-      this.bestResults = new List<ClassificationResult>();
+      bestResults = <ClassificationResult>[];
       for(final _element in json['BestResults']) {
-        var _elementValue = new ClassificationResult();
-        _elementValue.deserialize(_element);
-        this.bestResults.add(_elementValue);
+        var _elementValue = ClassificationResult();
+        _elementValue.deserialize(_element as Map<String, dynamic>);
+        bestResults.add(_elementValue);
       }
     } else {
-      this.bestResults = null;
+      bestResults = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.bestClassName != null) {
-      _result['BestClassName'] = this.bestClassName;
+    if (bestClassName != null) {
+      _result['BestClassName'] = bestClassName;
     }
 
-    if (this.bestClassProbability != null) {
-      _result['BestClassProbability'] = this.bestClassProbability;
+    if (bestClassProbability != null) {
+      _result['BestClassProbability'] = bestClassProbability;
     }
 
-    if (this.bestResults != null) {
-      _result['BestResults'] = this.bestResults.map((_element) => _element.serialize()).toList();
+    if (bestResults != null) {
+      _result['BestResults'] = bestResults.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

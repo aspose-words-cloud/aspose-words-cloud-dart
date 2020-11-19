@@ -29,33 +29,37 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Collection of links to sections.
+/// The collection of section's links.
 class SectionLinkCollection extends LinkElement {
-  /// Gets or sets collection of section's links.
+  /// Gets or sets the collection of section's links.
   List<SectionLink> sectionLinkList;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize SectionLinkCollection data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('SectionLinkList')) {
       // Array processing
-      this.sectionLinkList = new List<SectionLink>();
+      sectionLinkList = <SectionLink>[];
       for(final _element in json['SectionLinkList']) {
-        var _elementValue = new SectionLink();
-        _elementValue.deserialize(_element);
-        this.sectionLinkList.add(_elementValue);
+        var _elementValue = SectionLink();
+        _elementValue.deserialize(_element as Map<String, dynamic>);
+        sectionLinkList.add(_elementValue);
       }
     } else {
-      this.sectionLinkList = null;
+      sectionLinkList = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.sectionLinkList != null) {
-      _result['SectionLinkList'] = this.sectionLinkList.map((_element) => _element.serialize()).toList();
+    if (sectionLinkList != null) {
+      _result['SectionLinkList'] = sectionLinkList.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

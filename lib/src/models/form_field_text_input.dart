@@ -31,72 +31,76 @@ import '../../aspose_words_cloud.dart';
 
 /// FormField text input element.
 class FormFieldTextInput extends FormField {
-  /// Gets or sets maximum length for the text field. Zero when the length is not limited.
+  /// Gets or sets the maximum length for the text field. Zero when the length is not limited.
   int maxLength;
 
-  /// Gets or sets the default string or a calculation expression of a text form field.
+  /// Gets or sets the default string or a calculation expression of the text form field.
   String textInputDefault;
 
-  /// Gets or sets returns or sets the text formatting for a text form field.
+  /// Gets or sets text formatting for the text form field.
   String textInputFormat;
 
-  /// Gets or sets the type of a text form field.
+  /// Gets or sets the type of the text form field.
   FormFieldTextInput_TextInputTypeEnum textInputType;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FormFieldTextInput data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('MaxLength')) {
-      this.maxLength = json['MaxLength'];
+      maxLength = json['MaxLength'] as int;
     } else {
-      this.maxLength = null;
+      maxLength = null;
     }
 
     if (json.containsKey('TextInputDefault')) {
-      this.textInputDefault = json['TextInputDefault'];
+      textInputDefault = json['TextInputDefault'] as String;
     } else {
-      this.textInputDefault = null;
+      textInputDefault = null;
     }
 
     if (json.containsKey('TextInputFormat')) {
-      this.textInputFormat = json['TextInputFormat'];
+      textInputFormat = json['TextInputFormat'] as String;
     } else {
-      this.textInputFormat = null;
+      textInputFormat = null;
     }
 
     if (json.containsKey('TextInputType')) {
-      switch (json['TextInputType']) {
-        case 'Regular': this.textInputType = FormFieldTextInput_TextInputTypeEnum.regular; break;
-        case 'Number': this.textInputType = FormFieldTextInput_TextInputTypeEnum.number; break;
-        case 'Date': this.textInputType = FormFieldTextInput_TextInputTypeEnum.date; break;
-        case 'CurrentDate': this.textInputType = FormFieldTextInput_TextInputTypeEnum.currentDate; break;
-        case 'CurrentTime': this.textInputType = FormFieldTextInput_TextInputTypeEnum.currentTime; break;
-        case 'Calculated': this.textInputType = FormFieldTextInput_TextInputTypeEnum.calculated; break;
-        default: this.textInputType = null; break;
+      switch (json['TextInputType'] as String) {
+        case 'Regular': textInputType = FormFieldTextInput_TextInputTypeEnum.regular; break;
+        case 'Number': textInputType = FormFieldTextInput_TextInputTypeEnum.number; break;
+        case 'Date': textInputType = FormFieldTextInput_TextInputTypeEnum.date; break;
+        case 'CurrentDate': textInputType = FormFieldTextInput_TextInputTypeEnum.currentDate; break;
+        case 'CurrentTime': textInputType = FormFieldTextInput_TextInputTypeEnum.currentTime; break;
+        case 'Calculated': textInputType = FormFieldTextInput_TextInputTypeEnum.calculated; break;
+        default: textInputType = null; break;
       }
     } else {
-      this.textInputType = null;
+      textInputType = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.maxLength != null) {
-      _result['MaxLength'] = this.maxLength;
+    if (maxLength != null) {
+      _result['MaxLength'] = maxLength;
     }
 
-    if (this.textInputDefault != null) {
-      _result['TextInputDefault'] = this.textInputDefault;
+    if (textInputDefault != null) {
+      _result['TextInputDefault'] = textInputDefault;
     }
 
-    if (this.textInputFormat != null) {
-      _result['TextInputFormat'] = this.textInputFormat;
+    if (textInputFormat != null) {
+      _result['TextInputFormat'] = textInputFormat;
     }
 
-    if (this.textInputType != null) {
-      switch (this.textInputType) {
+    if (textInputType != null) {
+      switch (textInputType) {
         case FormFieldTextInput_TextInputTypeEnum.regular: _result['TextInputType'] = 'Regular'; break;
         case FormFieldTextInput_TextInputTypeEnum.number: _result['TextInputType'] = 'Number'; break;
         case FormFieldTextInput_TextInputTypeEnum.date: _result['TextInputType'] = 'Date'; break;
@@ -110,7 +114,7 @@ class FormFieldTextInput extends FormField {
   }
 }
 
-/// Gets or sets the type of a text form field.
+/// Gets or sets the type of the text form field.
 enum FormFieldTextInput_TextInputTypeEnum
 { 
   regular,

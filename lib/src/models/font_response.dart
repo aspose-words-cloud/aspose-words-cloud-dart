@@ -29,29 +29,32 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:
-/// GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/runs/{1}/font.
+/// The REST response with a font.
 class FontResponse extends WordsResponse {
-  /// Gets or sets font.
+  /// Gets or sets the font.
   Font font;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FontResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Font')) {
-      this.font = new Font();
-      this.font.deserialize(json['Font']);
+      font = Font();
+      font.deserialize(json['Font'] as Map<String, dynamic>);
     } else {
-      this.font = null;
+      font = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.font != null) {
-      _result['Font'] = this.font.serialize();
+    if (font != null) {
+      _result['Font'] = font.serialize();
     }
     return _result;
   }

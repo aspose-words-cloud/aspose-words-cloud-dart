@@ -26,8 +26,9 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
-import '../test_context.dart';
 import 'package:test/test.dart';
+
+import '../test_context.dart';
 
 /// Example of how to work with sections.
 class SectionTests
@@ -36,52 +37,60 @@ class SectionTests
   String remoteDataFolder;
   String localFile;
 
-  SectionTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Section';
+  SectionTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Section';
     localFile = 'Common/test_multi_pages.docx';
   }
 
   /// Test for getting section by index.
   Future<void> testGetSection() async
   {
-    final String remoteFileName = 'TestGetSection.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetSection.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetSectionRequest(
+    final request = GetSectionRequest(
       remoteFileName,
       0,
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getSection(request);
+    var result = await context.getApi().getSection(request);
+    expect(result.section, isNotNull);
+    expect(result.section.childNodes, isNotNull);
+    expect(result.section.childNodes.length, 13);
+    expect(result.section.childNodes[0].nodeId, '0.3.0');
   }
 
   /// Test for getting sections.
   Future<void> testGetSections() async
   {
-    final String remoteFileName = 'TestGetSections.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetSections.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetSectionsRequest(
+    final request = GetSectionsRequest(
       remoteFileName,
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getSections(request);
+    var result = await context.getApi().getSections(request);
+    expect(result.sections, isNotNull);
+    expect(result.sections.sectionLinkList, isNotNull);
+    expect(result.sections.sectionLinkList.length, 1);
+    expect(result.sections.sectionLinkList[0].nodeId, '0');
   }
 
   /// Test for delete a section.
   Future<void> testDeleteSection() async
   {
-    final String remoteFileName = 'TestDeleteSection.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestDeleteSection.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new DeleteSectionRequest(
+    final request = DeleteSectionRequest(
       remoteFileName,
       0,
       folder: remoteDataFolder
     );
 
-    await this.context.getApi().deleteSection(request);
+    await context.getApi().deleteSection(request);
   }
 }

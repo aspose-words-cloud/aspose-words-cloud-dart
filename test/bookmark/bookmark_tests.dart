@@ -26,8 +26,9 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
-import '../test_context.dart';
 import 'package:test/test.dart';
+
+import '../test_context.dart';
 
 /// Example of how to get all bookmarks from document.
 class BookmarkTests
@@ -36,23 +37,23 @@ class BookmarkTests
   String remoteDataFolder;
   String localFile;
 
-  BookmarkTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Bookmarks';
+  BookmarkTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Bookmarks';
     localFile = 'Common/test_multi_pages.docx';
   }
 
   /// Test for getting bookmarks from document.
   Future<void> testGetBookmarks() async
   {
-    final String remoteFileName = 'TestGetDocumentBookmarks.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetDocumentBookmarks.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetBookmarksRequest(
+    final request = GetBookmarksRequest(
       remoteFileName,
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getBookmarks(request);
+    var result = await context.getApi().getBookmarks(request);
     expect(result.bookmarks, isNotNull);
     expect(result.bookmarks.bookmarkList.length, 3);
     expect(result.bookmarks.bookmarkList[1].name, 'aspose');
@@ -61,17 +62,17 @@ class BookmarkTests
   /// Test for getting bookmark by specified name.
   Future<void> testGetBookmarkByName() async
   {
-    final String remoteFileName = 'TestGetDocumentBookmarkByName.docx';
-    final String bookmarkName = 'aspose';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetDocumentBookmarkByName.docx';
+    final bookmarkName = 'aspose';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetBookmarkByNameRequest(
+    final request = GetBookmarkByNameRequest(
       remoteFileName,
       bookmarkName,
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getBookmarkByName(request);
+    var result = await context.getApi().getBookmarkByName(request);
     expect(result.bookmark, isNotNull);
     expect(result.bookmark.name, bookmarkName);
   }
@@ -79,23 +80,23 @@ class BookmarkTests
   /// Test for updating existed bookmark.
   Future<void> testUpdateBookmark() async
   {
-    final String remoteFileName = 'TestUpdateDocumentBookmark.docx';
-    final String bookmarkName = 'aspose';
-    final String bookmarkText = 'This will be the text for Aspose';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestBookmarkData = new BookmarkData();
+    final remoteFileName = 'TestUpdateDocumentBookmark.docx';
+    final bookmarkName = 'aspose';
+    final bookmarkText = 'This will be the text for Aspose';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestBookmarkData = BookmarkData();
     requestBookmarkData.name = bookmarkName;
     requestBookmarkData.text = bookmarkText;
 
-    final request = new UpdateBookmarkRequest(
+    final request = UpdateBookmarkRequest(
       remoteFileName,
       requestBookmarkData,
       bookmarkName,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await this.context.getApi().updateBookmark(request);
+    var result = await context.getApi().updateBookmark(request);
     expect(result.bookmark, isNotNull);
     expect(result.bookmark.name, bookmarkName);
     expect(result.bookmark.text, bookmarkText);

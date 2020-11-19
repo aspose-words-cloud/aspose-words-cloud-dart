@@ -29,28 +29,32 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Response for "drawingObjects/n" resource.
+/// The REST response with a DrawingObject.
 class DrawingObjectResponse extends WordsResponse {
-  /// Gets or sets drawing object.
+  /// Gets or sets the DrawingObject.
   DrawingObject drawingObject;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize DrawingObjectResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('DrawingObject')) {
-      this.drawingObject = new DrawingObject();
-      this.drawingObject.deserialize(json['DrawingObject']);
+      drawingObject = DrawingObject();
+      drawingObject.deserialize(json['DrawingObject'] as Map<String, dynamic>);
     } else {
-      this.drawingObject = null;
+      drawingObject = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.drawingObject != null) {
-      _result['DrawingObject'] = this.drawingObject.serialize();
+    if (drawingObject != null) {
+      _result['DrawingObject'] = drawingObject.serialize();
     }
     return _result;
   }

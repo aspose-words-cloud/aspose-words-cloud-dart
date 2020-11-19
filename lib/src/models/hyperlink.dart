@@ -31,38 +31,42 @@ import '../../aspose_words_cloud.dart';
 
 /// Hyperlink element.
 class Hyperlink extends LinkElement {
-  /// Gets or sets hypelink's display text.
+  /// Gets or sets the hypelink's display text.
   String displayText;
 
-  /// Gets or sets value.
+  /// Gets or sets the value.
   String value;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize Hyperlink data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('DisplayText')) {
-      this.displayText = json['DisplayText'];
+      displayText = json['DisplayText'] as String;
     } else {
-      this.displayText = null;
+      displayText = null;
     }
 
     if (json.containsKey('Value')) {
-      this.value = json['Value'];
+      value = json['Value'] as String;
     } else {
-      this.value = null;
+      value = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.displayText != null) {
-      _result['DisplayText'] = this.displayText;
+    if (displayText != null) {
+      _result['DisplayText'] = displayText;
     }
 
-    if (this.value != null) {
-      _result['Value'] = this.value;
+    if (value != null) {
+      _result['Value'] = value;
     }
     return _result;
   }

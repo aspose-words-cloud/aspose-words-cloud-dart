@@ -31,25 +31,29 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for epub save options.
 class EpubSaveOptionsData extends HtmlSaveOptionsData {
-  /// Gets or sets specifies the maximum level of headings populated to the navigation map when exporting.
+  /// Gets or sets the maximum level of headings populated to the navigation map when exporting.
   int epubNavigationMapLevel;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize EpubSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('EpubNavigationMapLevel')) {
-      this.epubNavigationMapLevel = json['EpubNavigationMapLevel'];
+      epubNavigationMapLevel = json['EpubNavigationMapLevel'] as int;
     } else {
-      this.epubNavigationMapLevel = null;
+      epubNavigationMapLevel = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.epubNavigationMapLevel != null) {
-      _result['EpubNavigationMapLevel'] = this.epubNavigationMapLevel;
+    if (epubNavigationMapLevel != null) {
+      _result['EpubNavigationMapLevel'] = epubNavigationMapLevel;
     }
     return _result;
   }

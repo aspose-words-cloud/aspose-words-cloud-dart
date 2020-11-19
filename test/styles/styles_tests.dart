@@ -26,8 +26,9 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
-import '../test_context.dart';
 import 'package:test/test.dart';
+
+import '../test_context.dart';
 
 /// Example of how to work with styles.
 class StylesTests
@@ -36,123 +37,136 @@ class StylesTests
   String remoteDataFolder;
   String localFile;
 
-  StylesTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Styles';
+  StylesTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Styles';
     localFile = 'DocumentElements/Styles/GetStyles.docx';
   }
 
   /// Test for getting styles from document.
   Future<void> testGetStyles() async
   {
-    final String remoteFileName = 'TestGetStyles.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetStyles.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetStylesRequest(
+    final request = GetStylesRequest(
       remoteFileName,
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getStyles(request);
+    var result = await context.getApi().getStyles(request);
+    expect(result.styles, isNotNull);
+    expect(result.styles.length, 22);
+    expect(result.styles[0].name, 'Default Paragraph Font');
   }
 
   /// Test for getting style from document.
   Future<void> testGetStyle() async
   {
-    final String remoteFileName = 'TestGetStyle.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetStyle.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetStyleRequest(
+    final request = GetStyleRequest(
       remoteFileName,
       'Heading 1',
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getStyle(request);
+    var result = await context.getApi().getStyle(request);
+    expect(result.style, isNotNull);
+    expect(result.style.name, 'Heading 1');
   }
 
   /// Test for updating style from document.
   Future<void> testUpdateStyle() async
   {
-    final String remoteFileName = 'TestUpdateStyle.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestStyleUpdate = new StyleUpdate();
+    final remoteFileName = 'TestUpdateStyle.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestStyleUpdate = StyleUpdate();
     requestStyleUpdate.name = 'My Style';
 
-    final request = new UpdateStyleRequest(
+    final request = UpdateStyleRequest(
       remoteFileName,
       requestStyleUpdate,
       'Heading 1',
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().updateStyle(request);
+    var result = await context.getApi().updateStyle(request);
+    expect(result.style, isNotNull);
+    expect(result.style.name, 'My Style');
   }
 
   /// Test for inserting style from document.
   Future<void> testInsertStyle() async
   {
-    final String remoteFileName = 'TestInsertStyle.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestStyleInsert = new StyleInsert();
+    final remoteFileName = 'TestInsertStyle.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestStyleInsert = StyleInsert();
     requestStyleInsert.styleName = 'My Style';
     requestStyleInsert.styleType = StyleInsert_StyleTypeEnum.paragraph;
 
-    final request = new InsertStyleRequest(
+    final request = InsertStyleRequest(
       remoteFileName,
       requestStyleInsert,
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().insertStyle(request);
+    var result = await context.getApi().insertStyle(request);
+    expect(result.style, isNotNull);
+    expect(result.style.name, 'My Style');
   }
 
   /// Test for coping style from document.
   Future<void> testCopyStyle() async
   {
-    final String remoteFileName = 'TestCopyStyle.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestStyleCopy = new StyleCopy();
+    final remoteFileName = 'TestCopyStyle.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestStyleCopy = StyleCopy();
     requestStyleCopy.styleName = 'Heading 1';
 
-    final request = new CopyStyleRequest(
+    final request = CopyStyleRequest(
       remoteFileName,
       requestStyleCopy,
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().copyStyle(request);
+    var result = await context.getApi().copyStyle(request);
+    expect(result.style, isNotNull);
+    expect(result.style.name, 'Heading 1_0');
   }
 
   /// Test for getting style from document element.
   Future<void> testGetStyleFromDocumentElement() async
   {
-    final String remoteFileName = 'TestGetStyleFromDocumentElement.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestGetStyleFromDocumentElement.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new GetStyleFromDocumentElementRequest(
+    final request = GetStyleFromDocumentElementRequest(
       remoteFileName,
       'paragraphs/1/paragraphFormat',
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().getStyleFromDocumentElement(request);
+    var result = await context.getApi().getStyleFromDocumentElement(request);
+    expect(result.style, isNotNull);
+    expect(result.style.name, 'TOC 1');
   }
 
   /// Test for applying style to document element.
   Future<void> testApplyStyleToDocumentElement() async
   {
-    final String remoteFileName = 'TestApplyStyleToDocumentElement.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestStyleApply = new StyleApply();
+    final remoteFileName = 'TestApplyStyleToDocumentElement.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestStyleApply = StyleApply();
     requestStyleApply.styleName = 'Heading 1';
 
-    final request = new ApplyStyleToDocumentElementRequest(
+    final request = ApplyStyleToDocumentElementRequest(
       remoteFileName,
       requestStyleApply,
       'paragraphs/1/paragraphFormat',
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().applyStyleToDocumentElement(request);
+    await context.getApi().applyStyleToDocumentElement(request);
   }
 }

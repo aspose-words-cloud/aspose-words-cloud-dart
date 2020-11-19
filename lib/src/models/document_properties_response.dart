@@ -29,28 +29,32 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:  GET /documentProperties.
+/// The REST response with a collection of document properties.
 class DocumentPropertiesResponse extends WordsResponse {
-  /// Gets or sets collection of document properties.
+  /// Gets or sets the collection of document properties.
   DocumentProperties documentProperties;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize DocumentPropertiesResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('DocumentProperties')) {
-      this.documentProperties = new DocumentProperties();
-      this.documentProperties.deserialize(json['DocumentProperties']);
+      documentProperties = DocumentProperties();
+      documentProperties.deserialize(json['DocumentProperties'] as Map<String, dynamic>);
     } else {
-      this.documentProperties = null;
+      documentProperties = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.documentProperties != null) {
-      _result['DocumentProperties'] = this.documentProperties.serialize();
+    if (documentProperties != null) {
+      _result['DocumentProperties'] = documentProperties.serialize();
     }
     return _result;
   }

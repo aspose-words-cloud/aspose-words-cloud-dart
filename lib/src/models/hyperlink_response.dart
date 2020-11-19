@@ -29,28 +29,32 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:  GET /{name}/hyperlinks/{hyperlinkIndex} .
+/// The REST response with a hyperlink.
 class HyperlinkResponse extends WordsResponse {
-  /// Gets or sets hyperlink.
+  /// Gets or sets the hyperlink.
   Hyperlink hyperlink;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize HyperlinkResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Hyperlink')) {
-      this.hyperlink = new Hyperlink();
-      this.hyperlink.deserialize(json['Hyperlink']);
+      hyperlink = Hyperlink();
+      hyperlink.deserialize(json['Hyperlink'] as Map<String, dynamic>);
     } else {
-      this.hyperlink = null;
+      hyperlink = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.hyperlink != null) {
-      _result['Hyperlink'] = this.hyperlink.serialize();
+    if (hyperlink != null) {
+      _result['Hyperlink'] = hyperlink.serialize();
     }
     return _result;
   }

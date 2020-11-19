@@ -31,36 +31,40 @@ import '../../aspose_words_cloud.dart';
 
 /// Represents a document which will be appended to the original resource document.
 class DocumentEntry implements ModelBase {
-  /// Gets or sets path to document to append at the server.
+  /// Gets or sets the path to document to append at the server.
   String href;
 
-  /// Gets or sets defines which formatting will be used: appended or destination document.Can be KeepSourceFormatting or UseDestinationStyles.
+  /// Gets or sets the option that controls formatting will be used: appended or destination document. Can be KeepSourceFormatting or UseDestinationStyles.
   String importFormatMode;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize DocumentEntry data model.');
+    }
+
     if (json.containsKey('Href')) {
-      this.href = json['Href'];
+      href = json['Href'] as String;
     } else {
-      this.href = null;
+      href = null;
     }
 
     if (json.containsKey('ImportFormatMode')) {
-      this.importFormatMode = json['ImportFormatMode'];
+      importFormatMode = json['ImportFormatMode'] as String;
     } else {
-      this.importFormatMode = null;
+      importFormatMode = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.href != null) {
-      _result['Href'] = this.href;
+    var _result = <String, dynamic>{};
+    if (href != null) {
+      _result['Href'] = href;
     }
 
-    if (this.importFormatMode != null) {
-      _result['ImportFormatMode'] = this.importFormatMode;
+    if (importFormatMode != null) {
+      _result['ImportFormatMode'] = importFormatMode;
     }
     return _result;
   }

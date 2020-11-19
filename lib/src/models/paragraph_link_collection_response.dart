@@ -29,29 +29,32 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:
-/// GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs.
+/// The REST response with a collection of paragraphs.
 class ParagraphLinkCollectionResponse extends WordsResponse {
-  /// Gets or sets collection of paragraphs.
+  /// Gets or sets the collection of paragraphs.
   ParagraphLinkCollection paragraphs;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ParagraphLinkCollectionResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Paragraphs')) {
-      this.paragraphs = new ParagraphLinkCollection();
-      this.paragraphs.deserialize(json['Paragraphs']);
+      paragraphs = ParagraphLinkCollection();
+      paragraphs.deserialize(json['Paragraphs'] as Map<String, dynamic>);
     } else {
-      this.paragraphs = null;
+      paragraphs = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.paragraphs != null) {
-      _result['Paragraphs'] = this.paragraphs.serialize();
+    if (paragraphs != null) {
+      _result['Paragraphs'] = paragraphs.serialize();
     }
     return _result;
   }

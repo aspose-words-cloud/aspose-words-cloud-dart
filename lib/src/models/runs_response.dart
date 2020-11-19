@@ -29,29 +29,32 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:
-/// GET https://api.aspose.cloud/v4.0/words/Test.doc/{paragraphPath}/runs.
+/// The REST response with a collection of Run elements.
 class RunsResponse extends WordsResponse {
-  /// Gets or sets collection of runs.
+  /// Gets or sets the collection of Run elements.
   Runs runs;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize RunsResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Runs')) {
-      this.runs = new Runs();
-      this.runs.deserialize(json['Runs']);
+      runs = Runs();
+      runs.deserialize(json['Runs'] as Map<String, dynamic>);
     } else {
-      this.runs = null;
+      runs = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.runs != null) {
-      _result['Runs'] = this.runs.serialize();
+    if (runs != null) {
+      _result['Runs'] = runs.serialize();
     }
     return _result;
   }

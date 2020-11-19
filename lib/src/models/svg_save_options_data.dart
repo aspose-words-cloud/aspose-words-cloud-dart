@@ -29,92 +29,96 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// container class for svg save options.
+/// Container class for svg save options.
 class SvgSaveOptionsData extends FixedPageSaveOptionsData {
-  /// Gets or sets specified whether images should be embedded into SVG document as base64.
+  /// Gets or sets a value indicating whether images should be embedded into SVG document as base64.
   bool exportEmbeddedImages;
 
-  /// Gets or sets specifies if the output SVG should fill the available viewport area (browser window or container). When set to true width and height of output SVG are set to 100%.
+  /// Gets or sets a value indicating whether the output SVG should fill the available viewport area (browser window or container). When set to true width and height of output SVG are set to 100%.
   bool fitToViewPort;
 
-  /// Gets or sets specifies the physical folder where resources (images) are saved when exporting.
+  /// Gets or sets the physical folder where resources (images) are saved when exporting.
   String resourcesFolder;
 
-  /// Gets or sets specifies the name of the folder used to construct image URIs.
+  /// Gets or sets the name of the folder used to construct image URIs.
   String resourcesFolderAlias;
 
-  /// Gets or sets show/hide page stepper.
+  /// Gets or sets a value indicating whether to show or hide page stepper.
   bool showPageBorder;
 
-  /// Gets or sets determines how text should be rendered.
+  /// Gets or sets the option that controls how text should be rendered.
   String textOutputMode;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize SvgSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('ExportEmbeddedImages')) {
-      this.exportEmbeddedImages = json['ExportEmbeddedImages'];
+      exportEmbeddedImages = json['ExportEmbeddedImages'] as bool;
     } else {
-      this.exportEmbeddedImages = null;
+      exportEmbeddedImages = null;
     }
 
     if (json.containsKey('FitToViewPort')) {
-      this.fitToViewPort = json['FitToViewPort'];
+      fitToViewPort = json['FitToViewPort'] as bool;
     } else {
-      this.fitToViewPort = null;
+      fitToViewPort = null;
     }
 
     if (json.containsKey('ResourcesFolder')) {
-      this.resourcesFolder = json['ResourcesFolder'];
+      resourcesFolder = json['ResourcesFolder'] as String;
     } else {
-      this.resourcesFolder = null;
+      resourcesFolder = null;
     }
 
     if (json.containsKey('ResourcesFolderAlias')) {
-      this.resourcesFolderAlias = json['ResourcesFolderAlias'];
+      resourcesFolderAlias = json['ResourcesFolderAlias'] as String;
     } else {
-      this.resourcesFolderAlias = null;
+      resourcesFolderAlias = null;
     }
 
     if (json.containsKey('ShowPageBorder')) {
-      this.showPageBorder = json['ShowPageBorder'];
+      showPageBorder = json['ShowPageBorder'] as bool;
     } else {
-      this.showPageBorder = null;
+      showPageBorder = null;
     }
 
     if (json.containsKey('TextOutputMode')) {
-      this.textOutputMode = json['TextOutputMode'];
+      textOutputMode = json['TextOutputMode'] as String;
     } else {
-      this.textOutputMode = null;
+      textOutputMode = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.exportEmbeddedImages != null) {
-      _result['ExportEmbeddedImages'] = this.exportEmbeddedImages;
+    if (exportEmbeddedImages != null) {
+      _result['ExportEmbeddedImages'] = exportEmbeddedImages;
     }
 
-    if (this.fitToViewPort != null) {
-      _result['FitToViewPort'] = this.fitToViewPort;
+    if (fitToViewPort != null) {
+      _result['FitToViewPort'] = fitToViewPort;
     }
 
-    if (this.resourcesFolder != null) {
-      _result['ResourcesFolder'] = this.resourcesFolder;
+    if (resourcesFolder != null) {
+      _result['ResourcesFolder'] = resourcesFolder;
     }
 
-    if (this.resourcesFolderAlias != null) {
-      _result['ResourcesFolderAlias'] = this.resourcesFolderAlias;
+    if (resourcesFolderAlias != null) {
+      _result['ResourcesFolderAlias'] = resourcesFolderAlias;
     }
 
-    if (this.showPageBorder != null) {
-      _result['ShowPageBorder'] = this.showPageBorder;
+    if (showPageBorder != null) {
+      _result['ShowPageBorder'] = showPageBorder;
     }
 
-    if (this.textOutputMode != null) {
-      _result['TextOutputMode'] = this.textOutputMode;
+    if (textOutputMode != null) {
+      _result['TextOutputMode'] = textOutputMode;
     }
     return _result;
   }

@@ -27,7 +27,6 @@
 
 library aspose_words_cloud;
 
-import 'dart:convert';
 import 'dart:typed_data';
 import '../../aspose_words_cloud.dart';
 import '../api_client.dart';
@@ -51,40 +50,40 @@ class CopyFileRequest implements RequestBase {
   /// File version ID to copy.
   final String versionId;
 
-  CopyFileRequest(final String this.destPath, final String this.srcPath, {final String this.srcStorageName = null, final String this.destStorageName = null, final String this.versionId = null});
+  CopyFileRequest(final this.destPath, final this.srcPath, {final this.srcStorageName, final this.destStorageName, final this.versionId});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/storage/file/copy/{srcPath}';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.srcPath == null) {
-      throw new ApiException(400, 'Parameter srcPath is required.');
+    var _path = '/words/storage/file/copy/{srcPath}';
+    var _queryParams = <String, String>{};
+    var _headers = <String, String>{};
+    var _bodyParts = <ApiRequestPart>[];
+    if (srcPath == null) {
+      throw ApiException(400, 'Parameter srcPath is required.');
     }
-    path = path.replaceAll('{srcPath}', apiClient.serializeToString(this.srcPath));
-    if (this.destPath != null) {
-      queryParams['destPath'] = apiClient.serializeToString(this.destPath);
+    _path = _path.replaceAll('{srcPath}', apiClient.serializeToString(srcPath));
+    if (destPath != null) {
+      _queryParams['destPath'] = apiClient.serializeToString(destPath);
     }
     else {
-      throw new ApiException(400, 'Parameter destPath is required.');
+      throw ApiException(400, 'Parameter destPath is required.');
     }
 
-    if (this.srcStorageName != null) {
-      queryParams['srcStorageName'] = apiClient.serializeToString(this.srcStorageName);
+    if (srcStorageName != null) {
+      _queryParams['srcStorageName'] = apiClient.serializeToString(srcStorageName);
     }
 
-    if (this.destStorageName != null) {
-      queryParams['destStorageName'] = apiClient.serializeToString(this.destStorageName);
+    if (destStorageName != null) {
+      _queryParams['destStorageName'] = apiClient.serializeToString(destStorageName);
     }
 
-    if (this.versionId != null) {
-      queryParams['versionId'] = apiClient.serializeToString(this.versionId);
+    if (versionId != null) {
+      _queryParams['versionId'] = apiClient.serializeToString(versionId);
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('PUT', url, headers, body);
+    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override

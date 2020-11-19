@@ -29,29 +29,32 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:
-/// GET https://api.aspose.cloud/v4.0/words/Test.doc/headersfooters/{0}.
+/// The REST response with a HeaderFooter.
 class HeaderFooterResponse extends WordsResponse {
-  /// Gets or sets headerFooter.
+  /// Gets or sets the HeaderFooter.
   HeaderFooter headerFooter;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize HeaderFooterResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('HeaderFooter')) {
-      this.headerFooter = new HeaderFooter();
-      this.headerFooter.deserialize(json['HeaderFooter']);
+      headerFooter = HeaderFooter();
+      headerFooter.deserialize(json['HeaderFooter'] as Map<String, dynamic>);
     } else {
-      this.headerFooter = null;
+      headerFooter = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.headerFooter != null) {
-      _result['HeaderFooter'] = this.headerFooter.serialize();
+    if (headerFooter != null) {
+      _result['HeaderFooter'] = headerFooter.serialize();
     }
     return _result;
   }

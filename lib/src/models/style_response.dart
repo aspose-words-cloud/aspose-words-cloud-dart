@@ -29,29 +29,32 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:
-/// GET https://api.aspose.cloud/v4.0/words/Test.doc/styles/{0}.
+/// The REST response with a style.
 class StyleResponse extends WordsResponse {
-  /// Gets or sets style which are contained in document.
+  /// Gets or sets the style, containded in the document.
   Style style;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize StyleResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Style')) {
-      this.style = new Style();
-      this.style.deserialize(json['Style']);
+      style = Style();
+      style.deserialize(json['Style'] as Map<String, dynamic>);
     } else {
-      this.style = null;
+      style = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.style != null) {
-      _result['Style'] = this.style.serialize();
+    if (style != null) {
+      _result['Style'] = style.serialize();
     }
     return _result;
   }

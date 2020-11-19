@@ -31,18 +31,16 @@ import '../../aspose_words_cloud.dart';
 
 /// Paragraph format element base class.
 class ParagraphFormatBase extends LinkElement {
-  /// Gets or sets a flag indicating whether inter-character spacing is automatically adjusted between regions
-  /// of Latin text and regions of East Asian text in the current paragraph.
+  /// Gets or sets a value indicating whether inter-character spacing is automatically adjusted between regions of Latin text and regions of East Asian text in the current paragraph.
   bool addSpaceBetweenFarEastAndAlpha;
 
-  /// Gets or sets a flag indicating whether inter-character spacing is automatically adjusted between regions
-  /// of numbers and regions of East Asian text in the current paragraph.
+  /// Gets or sets a value indicating whether inter-character spacing is automatically adjusted between regions of numbers and regions of East Asian text in the current paragraph.
   bool addSpaceBetweenFarEastAndDigit;
 
   /// Gets or sets text alignment for the paragraph.
   ParagraphFormatBase_AlignmentEnum alignment;
 
-  /// Gets or sets whether this is a right-to-left paragraph.
+  /// Gets or sets a value indicating whether this is a right-to-left paragraph.
   bool bidi;
 
   /// Gets or sets the position for a drop cap text.
@@ -52,13 +50,13 @@ class ParagraphFormatBase extends LinkElement {
   /// Use a positive value to set a first-line indent, and use a negative value to set a hanging indent.
   double firstLineIndent;
 
-  /// Gets or sets true if all lines in the paragraph are to remain on the same page.
+  /// Gets or sets a value indicating whether all lines in the paragraph are to remain on the same page.
   bool keepTogether;
 
-  /// Gets or sets true if the paragraph is to remains on the same page as the paragraph that follows it.
+  /// Gets or sets a value indicating whether the paragraph is to remains on the same page as the paragraph that follows it.
   bool keepWithNext;
 
-  /// Gets or sets the value (in points) that represents the left indent for paragraph.
+  /// Gets or sets the value (in points), that represents the left indent for paragraph.
   double leftIndent;
 
   /// Gets or sets the line spacing (in points) for the paragraph.
@@ -70,32 +68,31 @@ class ParagraphFormatBase extends LinkElement {
   /// Gets or sets the number of lines of the paragraph text used to calculate the drop cap height.
   int linesToDrop;
 
-  /// Gets or sets when true, SpaceBefore and SpaceAfter will be ignored
-  /// between the paragraphs of the same style.
+  /// Gets or sets a value indicating whether SpaceBefore and SpaceAfter will be ignored between the paragraphs of the same style.
   bool noSpaceBetweenParagraphsOfSameStyle;
 
-  /// Gets or sets specifies the outline level of the paragraph in the document.
+  /// Gets or sets the outline level of the paragraph in the document.
   ParagraphFormatBase_OutlineLevelEnum outlineLevel;
 
-  /// Gets or sets true if a page break is forced before the paragraph.
+  /// Gets or sets a value indicating whether a page break is forced before the paragraph.
   bool pageBreakBefore;
 
   /// Gets or sets the value (in points) that represents the right indent for paragraph.
   double rightIndent;
 
-  /// Gets or sets a Shading object that refers to the shading formatting for the paragraph.
+  /// Gets or sets the Shading object, that refers to the shading formatting for the paragraph.
   Shading shading;
 
   /// Gets or sets the amount of spacing (in points) after the paragraph.
   double spaceAfter;
 
-  /// Gets or sets true if the amount of spacing after the paragraph is set automatically.
+  /// Gets or sets a value indicating whether the amount of spacing after the paragraph is set automatically.
   bool spaceAfterAuto;
 
   /// Gets or sets the amount of spacing (in points) before the paragraph.
   double spaceBefore;
 
-  /// Gets or sets true if the amount of spacing before the paragraph is set automatically.
+  /// Gets or sets a value indicating whether the amount of spacing before the paragraph is set automatically.
   bool spaceBeforeAuto;
 
   /// Gets or sets the locale independent style identifier of the paragraph style applied to this formatting.
@@ -104,600 +101,602 @@ class ParagraphFormatBase extends LinkElement {
   /// Gets or sets the name of the paragraph style applied to this formatting.
   String styleName;
 
-  /// Gets or sets specifies whether the current paragraph should be exempted from any hyphenation which
-  /// is applied in the document settings.
+  /// Gets or sets a value indicating whether the current paragraph should be exempted from any hyphenation which is applied in the document settings.
   bool suppressAutoHyphens;
 
-  /// Gets or sets specifies whether the current paragraph's lines should be exempted from line numbering
-  /// which is applied in the parent section.
+  /// Gets or sets a value indicating whether the current paragraph's lines should be exempted from line numbering which is applied in the parent section.
   bool suppressLineNumbers;
 
-  /// Gets or sets true if the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.
+  /// Gets or sets a value indicating whether the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.
   bool widowControl;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ParagraphFormatBase data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('AddSpaceBetweenFarEastAndAlpha')) {
-      this.addSpaceBetweenFarEastAndAlpha = json['AddSpaceBetweenFarEastAndAlpha'];
+      addSpaceBetweenFarEastAndAlpha = json['AddSpaceBetweenFarEastAndAlpha'] as bool;
     } else {
-      this.addSpaceBetweenFarEastAndAlpha = null;
+      addSpaceBetweenFarEastAndAlpha = null;
     }
 
     if (json.containsKey('AddSpaceBetweenFarEastAndDigit')) {
-      this.addSpaceBetweenFarEastAndDigit = json['AddSpaceBetweenFarEastAndDigit'];
+      addSpaceBetweenFarEastAndDigit = json['AddSpaceBetweenFarEastAndDigit'] as bool;
     } else {
-      this.addSpaceBetweenFarEastAndDigit = null;
+      addSpaceBetweenFarEastAndDigit = null;
     }
 
     if (json.containsKey('Alignment')) {
-      switch (json['Alignment']) {
-        case 'Left': this.alignment = ParagraphFormatBase_AlignmentEnum.left; break;
-        case 'Center': this.alignment = ParagraphFormatBase_AlignmentEnum.center; break;
-        case 'Right': this.alignment = ParagraphFormatBase_AlignmentEnum.right; break;
-        case 'Justify': this.alignment = ParagraphFormatBase_AlignmentEnum.justify; break;
-        case 'Distributed': this.alignment = ParagraphFormatBase_AlignmentEnum.distributed; break;
-        case 'ArabicMediumKashida': this.alignment = ParagraphFormatBase_AlignmentEnum.arabicMediumKashida; break;
-        case 'ArabicHighKashida': this.alignment = ParagraphFormatBase_AlignmentEnum.arabicHighKashida; break;
-        case 'ArabicLowKashida': this.alignment = ParagraphFormatBase_AlignmentEnum.arabicLowKashida; break;
-        case 'ThaiDistributed': this.alignment = ParagraphFormatBase_AlignmentEnum.thaiDistributed; break;
-        default: this.alignment = null; break;
+      switch (json['Alignment'] as String) {
+        case 'Left': alignment = ParagraphFormatBase_AlignmentEnum.left; break;
+        case 'Center': alignment = ParagraphFormatBase_AlignmentEnum.center; break;
+        case 'Right': alignment = ParagraphFormatBase_AlignmentEnum.right; break;
+        case 'Justify': alignment = ParagraphFormatBase_AlignmentEnum.justify; break;
+        case 'Distributed': alignment = ParagraphFormatBase_AlignmentEnum.distributed; break;
+        case 'ArabicMediumKashida': alignment = ParagraphFormatBase_AlignmentEnum.arabicMediumKashida; break;
+        case 'ArabicHighKashida': alignment = ParagraphFormatBase_AlignmentEnum.arabicHighKashida; break;
+        case 'ArabicLowKashida': alignment = ParagraphFormatBase_AlignmentEnum.arabicLowKashida; break;
+        case 'ThaiDistributed': alignment = ParagraphFormatBase_AlignmentEnum.thaiDistributed; break;
+        default: alignment = null; break;
       }
     } else {
-      this.alignment = null;
+      alignment = null;
     }
 
     if (json.containsKey('Bidi')) {
-      this.bidi = json['Bidi'];
+      bidi = json['Bidi'] as bool;
     } else {
-      this.bidi = null;
+      bidi = null;
     }
 
     if (json.containsKey('DropCapPosition')) {
-      switch (json['DropCapPosition']) {
-        case 'None': this.dropCapPosition = ParagraphFormatBase_DropCapPositionEnum.none; break;
-        case 'Normal': this.dropCapPosition = ParagraphFormatBase_DropCapPositionEnum.normal; break;
-        case 'Margin': this.dropCapPosition = ParagraphFormatBase_DropCapPositionEnum.margin; break;
-        default: this.dropCapPosition = null; break;
+      switch (json['DropCapPosition'] as String) {
+        case 'None': dropCapPosition = ParagraphFormatBase_DropCapPositionEnum.none; break;
+        case 'Normal': dropCapPosition = ParagraphFormatBase_DropCapPositionEnum.normal; break;
+        case 'Margin': dropCapPosition = ParagraphFormatBase_DropCapPositionEnum.margin; break;
+        default: dropCapPosition = null; break;
       }
     } else {
-      this.dropCapPosition = null;
+      dropCapPosition = null;
     }
 
     if (json.containsKey('FirstLineIndent')) {
-      this.firstLineIndent = json['FirstLineIndent'];
+      firstLineIndent = json['FirstLineIndent'] as double;
     } else {
-      this.firstLineIndent = null;
+      firstLineIndent = null;
     }
 
     if (json.containsKey('KeepTogether')) {
-      this.keepTogether = json['KeepTogether'];
+      keepTogether = json['KeepTogether'] as bool;
     } else {
-      this.keepTogether = null;
+      keepTogether = null;
     }
 
     if (json.containsKey('KeepWithNext')) {
-      this.keepWithNext = json['KeepWithNext'];
+      keepWithNext = json['KeepWithNext'] as bool;
     } else {
-      this.keepWithNext = null;
+      keepWithNext = null;
     }
 
     if (json.containsKey('LeftIndent')) {
-      this.leftIndent = json['LeftIndent'];
+      leftIndent = json['LeftIndent'] as double;
     } else {
-      this.leftIndent = null;
+      leftIndent = null;
     }
 
     if (json.containsKey('LineSpacing')) {
-      this.lineSpacing = json['LineSpacing'];
+      lineSpacing = json['LineSpacing'] as double;
     } else {
-      this.lineSpacing = null;
+      lineSpacing = null;
     }
 
     if (json.containsKey('LineSpacingRule')) {
-      switch (json['LineSpacingRule']) {
-        case 'AtLeast': this.lineSpacingRule = ParagraphFormatBase_LineSpacingRuleEnum.atLeast; break;
-        case 'Exactly': this.lineSpacingRule = ParagraphFormatBase_LineSpacingRuleEnum.exactly; break;
-        case 'Multiple': this.lineSpacingRule = ParagraphFormatBase_LineSpacingRuleEnum.multiple; break;
-        default: this.lineSpacingRule = null; break;
+      switch (json['LineSpacingRule'] as String) {
+        case 'AtLeast': lineSpacingRule = ParagraphFormatBase_LineSpacingRuleEnum.atLeast; break;
+        case 'Exactly': lineSpacingRule = ParagraphFormatBase_LineSpacingRuleEnum.exactly; break;
+        case 'Multiple': lineSpacingRule = ParagraphFormatBase_LineSpacingRuleEnum.multiple; break;
+        default: lineSpacingRule = null; break;
       }
     } else {
-      this.lineSpacingRule = null;
+      lineSpacingRule = null;
     }
 
     if (json.containsKey('LinesToDrop')) {
-      this.linesToDrop = json['LinesToDrop'];
+      linesToDrop = json['LinesToDrop'] as int;
     } else {
-      this.linesToDrop = null;
+      linesToDrop = null;
     }
 
     if (json.containsKey('NoSpaceBetweenParagraphsOfSameStyle')) {
-      this.noSpaceBetweenParagraphsOfSameStyle = json['NoSpaceBetweenParagraphsOfSameStyle'];
+      noSpaceBetweenParagraphsOfSameStyle = json['NoSpaceBetweenParagraphsOfSameStyle'] as bool;
     } else {
-      this.noSpaceBetweenParagraphsOfSameStyle = null;
+      noSpaceBetweenParagraphsOfSameStyle = null;
     }
 
     if (json.containsKey('OutlineLevel')) {
-      switch (json['OutlineLevel']) {
-        case 'Level1': this.outlineLevel = ParagraphFormatBase_OutlineLevelEnum.level1; break;
-        case 'Level2': this.outlineLevel = ParagraphFormatBase_OutlineLevelEnum.level2; break;
-        case 'Level3': this.outlineLevel = ParagraphFormatBase_OutlineLevelEnum.level3; break;
-        case 'Level4': this.outlineLevel = ParagraphFormatBase_OutlineLevelEnum.level4; break;
-        case 'Level5': this.outlineLevel = ParagraphFormatBase_OutlineLevelEnum.level5; break;
-        case 'Level6': this.outlineLevel = ParagraphFormatBase_OutlineLevelEnum.level6; break;
-        case 'Level7': this.outlineLevel = ParagraphFormatBase_OutlineLevelEnum.level7; break;
-        case 'Level8': this.outlineLevel = ParagraphFormatBase_OutlineLevelEnum.level8; break;
-        case 'Level9': this.outlineLevel = ParagraphFormatBase_OutlineLevelEnum.level9; break;
-        case 'BodyText': this.outlineLevel = ParagraphFormatBase_OutlineLevelEnum.bodyText; break;
-        default: this.outlineLevel = null; break;
+      switch (json['OutlineLevel'] as String) {
+        case 'Level1': outlineLevel = ParagraphFormatBase_OutlineLevelEnum.level1; break;
+        case 'Level2': outlineLevel = ParagraphFormatBase_OutlineLevelEnum.level2; break;
+        case 'Level3': outlineLevel = ParagraphFormatBase_OutlineLevelEnum.level3; break;
+        case 'Level4': outlineLevel = ParagraphFormatBase_OutlineLevelEnum.level4; break;
+        case 'Level5': outlineLevel = ParagraphFormatBase_OutlineLevelEnum.level5; break;
+        case 'Level6': outlineLevel = ParagraphFormatBase_OutlineLevelEnum.level6; break;
+        case 'Level7': outlineLevel = ParagraphFormatBase_OutlineLevelEnum.level7; break;
+        case 'Level8': outlineLevel = ParagraphFormatBase_OutlineLevelEnum.level8; break;
+        case 'Level9': outlineLevel = ParagraphFormatBase_OutlineLevelEnum.level9; break;
+        case 'BodyText': outlineLevel = ParagraphFormatBase_OutlineLevelEnum.bodyText; break;
+        default: outlineLevel = null; break;
       }
     } else {
-      this.outlineLevel = null;
+      outlineLevel = null;
     }
 
     if (json.containsKey('PageBreakBefore')) {
-      this.pageBreakBefore = json['PageBreakBefore'];
+      pageBreakBefore = json['PageBreakBefore'] as bool;
     } else {
-      this.pageBreakBefore = null;
+      pageBreakBefore = null;
     }
 
     if (json.containsKey('RightIndent')) {
-      this.rightIndent = json['RightIndent'];
+      rightIndent = json['RightIndent'] as double;
     } else {
-      this.rightIndent = null;
+      rightIndent = null;
     }
 
     if (json.containsKey('Shading')) {
-      this.shading = new Shading();
-      this.shading.deserialize(json['Shading']);
+      shading = Shading();
+      shading.deserialize(json['Shading'] as Map<String, dynamic>);
     } else {
-      this.shading = null;
+      shading = null;
     }
 
     if (json.containsKey('SpaceAfter')) {
-      this.spaceAfter = json['SpaceAfter'];
+      spaceAfter = json['SpaceAfter'] as double;
     } else {
-      this.spaceAfter = null;
+      spaceAfter = null;
     }
 
     if (json.containsKey('SpaceAfterAuto')) {
-      this.spaceAfterAuto = json['SpaceAfterAuto'];
+      spaceAfterAuto = json['SpaceAfterAuto'] as bool;
     } else {
-      this.spaceAfterAuto = null;
+      spaceAfterAuto = null;
     }
 
     if (json.containsKey('SpaceBefore')) {
-      this.spaceBefore = json['SpaceBefore'];
+      spaceBefore = json['SpaceBefore'] as double;
     } else {
-      this.spaceBefore = null;
+      spaceBefore = null;
     }
 
     if (json.containsKey('SpaceBeforeAuto')) {
-      this.spaceBeforeAuto = json['SpaceBeforeAuto'];
+      spaceBeforeAuto = json['SpaceBeforeAuto'] as bool;
     } else {
-      this.spaceBeforeAuto = null;
+      spaceBeforeAuto = null;
     }
 
     if (json.containsKey('StyleIdentifier')) {
-      switch (json['StyleIdentifier']) {
-        case 'Normal': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.normal; break;
-        case 'Heading1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.heading1; break;
-        case 'Heading2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.heading2; break;
-        case 'Heading3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.heading3; break;
-        case 'Heading4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.heading4; break;
-        case 'Heading5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.heading5; break;
-        case 'Heading6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.heading6; break;
-        case 'Heading7': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.heading7; break;
-        case 'Heading8': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.heading8; break;
-        case 'Heading9': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.heading9; break;
-        case 'Index1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.index1; break;
-        case 'Index2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.index2; break;
-        case 'Index3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.index3; break;
-        case 'Index4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.index4; break;
-        case 'Index5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.index5; break;
-        case 'Index6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.index6; break;
-        case 'Index7': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.index7; break;
-        case 'Index8': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.index8; break;
-        case 'Index9': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.index9; break;
-        case 'Toc1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.toc1; break;
-        case 'Toc2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.toc2; break;
-        case 'Toc3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.toc3; break;
-        case 'Toc4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.toc4; break;
-        case 'Toc5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.toc5; break;
-        case 'Toc6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.toc6; break;
-        case 'Toc7': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.toc7; break;
-        case 'Toc8': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.toc8; break;
-        case 'Toc9': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.toc9; break;
-        case 'NormalIndent': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.normalIndent; break;
-        case 'FootnoteText': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.footnoteText; break;
-        case 'CommentText': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.commentText; break;
-        case 'Header': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.header; break;
-        case 'Footer': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.footer; break;
-        case 'IndexHeading': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.indexHeading; break;
-        case 'Caption': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.caption; break;
-        case 'TableOfFigures': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableOfFigures; break;
-        case 'EnvelopeAddress': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.envelopeAddress; break;
-        case 'EnvelopeReturn': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.envelopeReturn; break;
-        case 'FootnoteReference': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.footnoteReference; break;
-        case 'CommentReference': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.commentReference; break;
-        case 'LineNumber': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lineNumber; break;
-        case 'PageNumber': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.pageNumber; break;
-        case 'EndnoteReference': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.endnoteReference; break;
-        case 'EndnoteText': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.endnoteText; break;
-        case 'TableOfAuthorities': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableOfAuthorities; break;
-        case 'Macro': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.macro; break;
-        case 'ToaHeading': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.toaHeading; break;
-        case 'List': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.list; break;
-        case 'ListBullet': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listBullet; break;
-        case 'ListNumber': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listNumber; break;
-        case 'List2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.list2; break;
-        case 'List3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.list3; break;
-        case 'List4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.list4; break;
-        case 'List5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.list5; break;
-        case 'ListBullet2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listBullet2; break;
-        case 'ListBullet3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listBullet3; break;
-        case 'ListBullet4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listBullet4; break;
-        case 'ListBullet5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listBullet5; break;
-        case 'ListNumber2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listNumber2; break;
-        case 'ListNumber3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listNumber3; break;
-        case 'ListNumber4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listNumber4; break;
-        case 'ListNumber5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listNumber5; break;
-        case 'Title': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.title; break;
-        case 'Closing': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.closing; break;
-        case 'Signature': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.signature; break;
-        case 'DefaultParagraphFont': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.defaultParagraphFont; break;
-        case 'BodyText': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.bodyText; break;
-        case 'BodyTextInd': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.bodyTextInd; break;
-        case 'ListContinue': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listContinue; break;
-        case 'ListContinue2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listContinue2; break;
-        case 'ListContinue3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listContinue3; break;
-        case 'ListContinue4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listContinue4; break;
-        case 'ListContinue5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listContinue5; break;
-        case 'MessageHeader': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.messageHeader; break;
-        case 'Subtitle': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.subtitle; break;
-        case 'Salutation': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.salutation; break;
-        case 'Date': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.date; break;
-        case 'BodyText1I': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.bodyText1I; break;
-        case 'BodyText1I2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.bodyText1I2; break;
-        case 'NoteHeading': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.noteHeading; break;
-        case 'BodyText2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.bodyText2; break;
-        case 'BodyText3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.bodyText3; break;
-        case 'BodyTextInd2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.bodyTextInd2; break;
-        case 'BodyTextInd3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.bodyTextInd3; break;
-        case 'BlockText': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.blockText; break;
-        case 'Hyperlink': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.hyperlink; break;
-        case 'FollowedHyperlink': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.followedHyperlink; break;
-        case 'Strong': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.strong; break;
-        case 'Emphasis': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.emphasis; break;
-        case 'DocumentMap': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.documentMap; break;
-        case 'PlainText': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.plainText; break;
-        case 'EmailSignature': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.emailSignature; break;
-        case 'HtmlTopOfForm': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.htmlTopOfForm; break;
-        case 'HtmlBottomOfForm': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.htmlBottomOfForm; break;
-        case 'NormalWeb': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.normalWeb; break;
-        case 'HtmlAcronym': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.htmlAcronym; break;
-        case 'HtmlAddress': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.htmlAddress; break;
-        case 'HtmlCite': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.htmlCite; break;
-        case 'HtmlCode': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.htmlCode; break;
-        case 'HtmlDefinition': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.htmlDefinition; break;
-        case 'HtmlKeyboard': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.htmlKeyboard; break;
-        case 'HtmlPreformatted': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.htmlPreformatted; break;
-        case 'HtmlSample': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.htmlSample; break;
-        case 'HtmlTypewriter': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.htmlTypewriter; break;
-        case 'HtmlVariable': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.htmlVariable; break;
-        case 'TableNormal': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableNormal; break;
-        case 'CommentSubject': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.commentSubject; break;
-        case 'NoList': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.noList; break;
-        case 'OutlineList1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.outlineList1; break;
-        case 'OutlineList2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.outlineList2; break;
-        case 'OutlineList3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.outlineList3; break;
-        case 'TableSimple1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableSimple1; break;
-        case 'TableSimple2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableSimple2; break;
-        case 'TableSimple3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableSimple3; break;
-        case 'TableClassic1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableClassic1; break;
-        case 'TableClassic2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableClassic2; break;
-        case 'TableClassic3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableClassic3; break;
-        case 'TableClassic4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableClassic4; break;
-        case 'TableColorful1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableColorful1; break;
-        case 'TableColorful2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableColorful2; break;
-        case 'TableColorful3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableColorful3; break;
-        case 'TableColumns1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableColumns1; break;
-        case 'TableColumns2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableColumns2; break;
-        case 'TableColumns3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableColumns3; break;
-        case 'TableColumns4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableColumns4; break;
-        case 'TableColumns5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableColumns5; break;
-        case 'TableGrid1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableGrid1; break;
-        case 'TableGrid2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableGrid2; break;
-        case 'TableGrid3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableGrid3; break;
-        case 'TableGrid4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableGrid4; break;
-        case 'TableGrid5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableGrid5; break;
-        case 'TableGrid6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableGrid6; break;
-        case 'TableGrid7': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableGrid7; break;
-        case 'TableGrid8': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableGrid8; break;
-        case 'TableList1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableList1; break;
-        case 'TableList2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableList2; break;
-        case 'TableList3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableList3; break;
-        case 'TableList4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableList4; break;
-        case 'TableList5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableList5; break;
-        case 'TableList6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableList6; break;
-        case 'TableList7': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableList7; break;
-        case 'TableList8': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableList8; break;
-        case 'Table3DEffects1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.table3DEffects1; break;
-        case 'Table3DEffects2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.table3DEffects2; break;
-        case 'Table3DEffects3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.table3DEffects3; break;
-        case 'TableContemporary': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableContemporary; break;
-        case 'TableElegant': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableElegant; break;
-        case 'TableProfessional': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableProfessional; break;
-        case 'TableSubtle1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableSubtle1; break;
-        case 'TableSubtle2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableSubtle2; break;
-        case 'TableWeb1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableWeb1; break;
-        case 'TableWeb2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableWeb2; break;
-        case 'TableWeb3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableWeb3; break;
-        case 'BalloonText': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.balloonText; break;
-        case 'TableGrid': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableGrid; break;
-        case 'TableTheme': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableTheme; break;
-        case 'PlaceholderText': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.placeholderText; break;
-        case 'NoSpacing': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.noSpacing; break;
-        case 'LightShading': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightShading; break;
-        case 'LightList': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightList; break;
-        case 'LightGrid': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightGrid; break;
-        case 'MediumShading1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumShading1; break;
-        case 'MediumShading2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumShading2; break;
-        case 'MediumList1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumList1; break;
-        case 'MediumList2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumList2; break;
-        case 'MediumGrid1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid1; break;
-        case 'MediumGrid2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid2; break;
-        case 'MediumGrid3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid3; break;
-        case 'DarkList': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.darkList; break;
-        case 'ColorfulShading': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulShading; break;
-        case 'ColorfulList': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulList; break;
-        case 'ColorfulGrid': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulGrid; break;
-        case 'LightShadingAccent1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightShadingAccent1; break;
-        case 'LightListAccent1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightListAccent1; break;
-        case 'LightGridAccent1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightGridAccent1; break;
-        case 'MediumShading1Accent1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumShading1Accent1; break;
-        case 'MediumShading2Accent1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumShading2Accent1; break;
-        case 'MediumList1Accent1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumList1Accent1; break;
-        case 'Revision': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.revision; break;
-        case 'ListParagraph': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listParagraph; break;
-        case 'Quote': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.quote; break;
-        case 'IntenseQuote': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.intenseQuote; break;
-        case 'MediumList2Accent1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumList2Accent1; break;
-        case 'MediumGrid1Accent1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid1Accent1; break;
-        case 'MediumGrid2Accent1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid2Accent1; break;
-        case 'MediumGrid3Accent1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid3Accent1; break;
-        case 'DarkListAccent1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.darkListAccent1; break;
-        case 'ColorfulShadingAccent1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulShadingAccent1; break;
-        case 'ColorfulListAccent1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulListAccent1; break;
-        case 'ColorfulGridAccent1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulGridAccent1; break;
-        case 'LightShadingAccent2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightShadingAccent2; break;
-        case 'LightListAccent2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightListAccent2; break;
-        case 'LightGridAccent2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightGridAccent2; break;
-        case 'MediumShading1Accent2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumShading1Accent2; break;
-        case 'MediumShading2Accent2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumShading2Accent2; break;
-        case 'MediumList1Accent2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumList1Accent2; break;
-        case 'MediumList2Accent2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumList2Accent2; break;
-        case 'MediumGrid1Accent2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid1Accent2; break;
-        case 'MediumGrid2Accent2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid2Accent2; break;
-        case 'MediumGrid3Accent2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid3Accent2; break;
-        case 'DarkListAccent2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.darkListAccent2; break;
-        case 'ColorfulShadingAccent2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulShadingAccent2; break;
-        case 'ColorfulListAccent2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulListAccent2; break;
-        case 'ColorfulGridAccent2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulGridAccent2; break;
-        case 'LightShadingAccent3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightShadingAccent3; break;
-        case 'LightListAccent3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightListAccent3; break;
-        case 'LightGridAccent3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightGridAccent3; break;
-        case 'MediumShading1Accent3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumShading1Accent3; break;
-        case 'MediumShading2Accent3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumShading2Accent3; break;
-        case 'MediumList1Accent3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumList1Accent3; break;
-        case 'MediumList2Accent3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumList2Accent3; break;
-        case 'MediumGrid1Accent3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid1Accent3; break;
-        case 'MediumGrid2Accent3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid2Accent3; break;
-        case 'MediumGrid3Accent3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid3Accent3; break;
-        case 'DarkListAccent3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.darkListAccent3; break;
-        case 'ColorfulShadingAccent3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulShadingAccent3; break;
-        case 'ColorfulListAccent3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulListAccent3; break;
-        case 'ColorfulGridAccent3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulGridAccent3; break;
-        case 'LightShadingAccent4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightShadingAccent4; break;
-        case 'LightListAccent4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightListAccent4; break;
-        case 'LightGridAccent4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightGridAccent4; break;
-        case 'MediumShading1Accent4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumShading1Accent4; break;
-        case 'MediumShading2Accent4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumShading2Accent4; break;
-        case 'MediumList1Accent4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumList1Accent4; break;
-        case 'MediumList2Accent4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumList2Accent4; break;
-        case 'MediumGrid1Accent4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid1Accent4; break;
-        case 'MediumGrid2Accent4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid2Accent4; break;
-        case 'MediumGrid3Accent4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid3Accent4; break;
-        case 'DarkListAccent4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.darkListAccent4; break;
-        case 'ColorfulShadingAccent4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulShadingAccent4; break;
-        case 'ColorfulListAccent4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulListAccent4; break;
-        case 'ColorfulGridAccent4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulGridAccent4; break;
-        case 'LightShadingAccent5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightShadingAccent5; break;
-        case 'LightListAccent5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightListAccent5; break;
-        case 'LightGridAccent5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightGridAccent5; break;
-        case 'MediumShading1Accent5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumShading1Accent5; break;
-        case 'MediumShading2Accent5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumShading2Accent5; break;
-        case 'MediumList1Accent5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumList1Accent5; break;
-        case 'MediumList2Accent5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumList2Accent5; break;
-        case 'MediumGrid1Accent5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid1Accent5; break;
-        case 'MediumGrid2Accent5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid2Accent5; break;
-        case 'MediumGrid3Accent5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid3Accent5; break;
-        case 'DarkListAccent5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.darkListAccent5; break;
-        case 'ColorfulShadingAccent5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulShadingAccent5; break;
-        case 'ColorfulListAccent5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulListAccent5; break;
-        case 'ColorfulGridAccent5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulGridAccent5; break;
-        case 'LightShadingAccent6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightShadingAccent6; break;
-        case 'LightListAccent6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightListAccent6; break;
-        case 'LightGridAccent6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightGridAccent6; break;
-        case 'MediumShading1Accent6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumShading1Accent6; break;
-        case 'MediumShading2Accent6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumShading2Accent6; break;
-        case 'MediumList1Accent6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumList1Accent6; break;
-        case 'MediumList2Accent6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumList2Accent6; break;
-        case 'MediumGrid1Accent6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid1Accent6; break;
-        case 'MediumGrid2Accent6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid2Accent6; break;
-        case 'MediumGrid3Accent6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid3Accent6; break;
-        case 'DarkListAccent6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.darkListAccent6; break;
-        case 'ColorfulShadingAccent6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulShadingAccent6; break;
-        case 'ColorfulListAccent6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulListAccent6; break;
-        case 'ColorfulGridAccent6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulGridAccent6; break;
-        case 'SubtleEmphasis': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.subtleEmphasis; break;
-        case 'IntenseEmphasis': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.intenseEmphasis; break;
-        case 'SubtleReference': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.subtleReference; break;
-        case 'IntenseReference': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.intenseReference; break;
-        case 'BookTitle': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.bookTitle; break;
-        case 'Bibliography': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.bibliography; break;
-        case 'TocHeading': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tocHeading; break;
-        case 'PlainTable1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.plainTable1; break;
-        case 'PlainTable2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.plainTable2; break;
-        case 'PlainTable3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.plainTable3; break;
-        case 'PlainTable4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.plainTable4; break;
-        case 'PlainTable5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.plainTable5; break;
-        case 'TableGridLight': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableGridLight; break;
-        case 'GridTable1Light': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable1Light; break;
-        case 'GridTable2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable2; break;
-        case 'GridTable3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable3; break;
-        case 'GridTable4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable4; break;
-        case 'GridTable5Dark': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable5Dark; break;
-        case 'GridTable6Colorful': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable6Colorful; break;
-        case 'GridTable7Colorful': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable7Colorful; break;
-        case 'GridTable1LightAccent1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable1LightAccent1; break;
-        case 'GridTable2Accent1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable2Accent1; break;
-        case 'GridTable3Accent1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable3Accent1; break;
-        case 'GridTable4Accent1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable4Accent1; break;
-        case 'GridTable5DarkAccent1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable5DarkAccent1; break;
-        case 'GridTable6ColorfulAccent1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable6ColorfulAccent1; break;
-        case 'GridTable7ColorfulAccent1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable7ColorfulAccent1; break;
-        case 'GridTable1LightAccent2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable1LightAccent2; break;
-        case 'GridTable2Accent2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable2Accent2; break;
-        case 'GridTable3Accent2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable3Accent2; break;
-        case 'GridTable4Accent2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable4Accent2; break;
-        case 'GridTable5DarkAccent2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable5DarkAccent2; break;
-        case 'GridTable6ColorfulAccent2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable6ColorfulAccent2; break;
-        case 'GridTable7ColorfulAccent2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable7ColorfulAccent2; break;
-        case 'GridTable1LightAccent3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable1LightAccent3; break;
-        case 'GridTable2Accent3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable2Accent3; break;
-        case 'GridTable3Accent3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable3Accent3; break;
-        case 'GridTable4Accent3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable4Accent3; break;
-        case 'GridTable5DarkAccent3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable5DarkAccent3; break;
-        case 'GridTable6ColorfulAccent3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable6ColorfulAccent3; break;
-        case 'GridTable7ColorfulAccent3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable7ColorfulAccent3; break;
-        case 'GridTable1LightAccent4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable1LightAccent4; break;
-        case 'GridTable2Accent4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable2Accent4; break;
-        case 'GridTable3Accent4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable3Accent4; break;
-        case 'GridTable4Accent4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable4Accent4; break;
-        case 'GridTable5DarkAccent4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable5DarkAccent4; break;
-        case 'GridTable6ColorfulAccent4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable6ColorfulAccent4; break;
-        case 'GridTable7ColorfulAccent4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable7ColorfulAccent4; break;
-        case 'GridTable1LightAccent5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable1LightAccent5; break;
-        case 'GridTable2Accent5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable2Accent5; break;
-        case 'GridTable3Accent5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable3Accent5; break;
-        case 'GridTable4Accent5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable4Accent5; break;
-        case 'GridTable5DarkAccent5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable5DarkAccent5; break;
-        case 'GridTable6ColorfulAccent5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable6ColorfulAccent5; break;
-        case 'GridTable7ColorfulAccent5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable7ColorfulAccent5; break;
-        case 'GridTable1LightAccent6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable1LightAccent6; break;
-        case 'GridTable2Accent6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable2Accent6; break;
-        case 'GridTable3Accent6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable3Accent6; break;
-        case 'GridTable4Accent6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable4Accent6; break;
-        case 'GridTable5DarkAccent6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable5DarkAccent6; break;
-        case 'GridTable6ColorfulAccent6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable6ColorfulAccent6; break;
-        case 'GridTable7ColorfulAccent6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable7ColorfulAccent6; break;
-        case 'ListTable1Light': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable1Light; break;
-        case 'ListTable2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable2; break;
-        case 'ListTable3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable3; break;
-        case 'ListTable4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable4; break;
-        case 'ListTable5Dark': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable5Dark; break;
-        case 'ListTable6Colorful': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable6Colorful; break;
-        case 'ListTable7Colorful': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable7Colorful; break;
-        case 'ListTable1LightAccent1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable1LightAccent1; break;
-        case 'ListTable2Accent1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable2Accent1; break;
-        case 'ListTable3Accent1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable3Accent1; break;
-        case 'ListTable4Accent1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable4Accent1; break;
-        case 'ListTable5DarkAccent1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable5DarkAccent1; break;
-        case 'ListTable6ColorfulAccent1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable6ColorfulAccent1; break;
-        case 'ListTable7ColorfulAccent1': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable7ColorfulAccent1; break;
-        case 'ListTable1LightAccent2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable1LightAccent2; break;
-        case 'ListTable2Accent2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable2Accent2; break;
-        case 'ListTable3Accent2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable3Accent2; break;
-        case 'ListTable4Accent2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable4Accent2; break;
-        case 'ListTable5DarkAccent2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable5DarkAccent2; break;
-        case 'ListTable6ColorfulAccent2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable6ColorfulAccent2; break;
-        case 'ListTable7ColorfulAccent2': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable7ColorfulAccent2; break;
-        case 'ListTable1LightAccent3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable1LightAccent3; break;
-        case 'ListTable2Accent3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable2Accent3; break;
-        case 'ListTable3Accent3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable3Accent3; break;
-        case 'ListTable4Accent3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable4Accent3; break;
-        case 'ListTable5DarkAccent3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable5DarkAccent3; break;
-        case 'ListTable6ColorfulAccent3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable6ColorfulAccent3; break;
-        case 'ListTable7ColorfulAccent3': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable7ColorfulAccent3; break;
-        case 'ListTable1LightAccent4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable1LightAccent4; break;
-        case 'ListTable2Accent4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable2Accent4; break;
-        case 'ListTable3Accent4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable3Accent4; break;
-        case 'ListTable4Accent4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable4Accent4; break;
-        case 'ListTable5DarkAccent4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable5DarkAccent4; break;
-        case 'ListTable6ColorfulAccent4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable6ColorfulAccent4; break;
-        case 'ListTable7ColorfulAccent4': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable7ColorfulAccent4; break;
-        case 'ListTable1LightAccent5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable1LightAccent5; break;
-        case 'ListTable2Accent5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable2Accent5; break;
-        case 'ListTable3Accent5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable3Accent5; break;
-        case 'ListTable4Accent5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable4Accent5; break;
-        case 'ListTable5DarkAccent5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable5DarkAccent5; break;
-        case 'ListTable6ColorfulAccent5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable6ColorfulAccent5; break;
-        case 'ListTable7ColorfulAccent5': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable7ColorfulAccent5; break;
-        case 'ListTable1LightAccent6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable1LightAccent6; break;
-        case 'ListTable2Accent6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable2Accent6; break;
-        case 'ListTable3Accent6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable3Accent6; break;
-        case 'ListTable4Accent6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable4Accent6; break;
-        case 'ListTable5DarkAccent6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable5DarkAccent6; break;
-        case 'ListTable6ColorfulAccent6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable6ColorfulAccent6; break;
-        case 'ListTable7ColorfulAccent6': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable7ColorfulAccent6; break;
-        case 'User': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.user; break;
-        case 'Nil': this.styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.nil; break;
-        default: this.styleIdentifier = null; break;
+      switch (json['StyleIdentifier'] as String) {
+        case 'Normal': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.normal; break;
+        case 'Heading1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.heading1; break;
+        case 'Heading2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.heading2; break;
+        case 'Heading3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.heading3; break;
+        case 'Heading4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.heading4; break;
+        case 'Heading5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.heading5; break;
+        case 'Heading6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.heading6; break;
+        case 'Heading7': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.heading7; break;
+        case 'Heading8': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.heading8; break;
+        case 'Heading9': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.heading9; break;
+        case 'Index1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.index1; break;
+        case 'Index2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.index2; break;
+        case 'Index3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.index3; break;
+        case 'Index4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.index4; break;
+        case 'Index5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.index5; break;
+        case 'Index6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.index6; break;
+        case 'Index7': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.index7; break;
+        case 'Index8': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.index8; break;
+        case 'Index9': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.index9; break;
+        case 'Toc1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.toc1; break;
+        case 'Toc2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.toc2; break;
+        case 'Toc3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.toc3; break;
+        case 'Toc4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.toc4; break;
+        case 'Toc5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.toc5; break;
+        case 'Toc6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.toc6; break;
+        case 'Toc7': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.toc7; break;
+        case 'Toc8': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.toc8; break;
+        case 'Toc9': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.toc9; break;
+        case 'NormalIndent': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.normalIndent; break;
+        case 'FootnoteText': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.footnoteText; break;
+        case 'CommentText': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.commentText; break;
+        case 'Header': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.header; break;
+        case 'Footer': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.footer; break;
+        case 'IndexHeading': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.indexHeading; break;
+        case 'Caption': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.caption; break;
+        case 'TableOfFigures': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableOfFigures; break;
+        case 'EnvelopeAddress': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.envelopeAddress; break;
+        case 'EnvelopeReturn': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.envelopeReturn; break;
+        case 'FootnoteReference': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.footnoteReference; break;
+        case 'CommentReference': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.commentReference; break;
+        case 'LineNumber': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lineNumber; break;
+        case 'PageNumber': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.pageNumber; break;
+        case 'EndnoteReference': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.endnoteReference; break;
+        case 'EndnoteText': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.endnoteText; break;
+        case 'TableOfAuthorities': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableOfAuthorities; break;
+        case 'Macro': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.macro; break;
+        case 'ToaHeading': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.toaHeading; break;
+        case 'List': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.list; break;
+        case 'ListBullet': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listBullet; break;
+        case 'ListNumber': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listNumber; break;
+        case 'List2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.list2; break;
+        case 'List3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.list3; break;
+        case 'List4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.list4; break;
+        case 'List5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.list5; break;
+        case 'ListBullet2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listBullet2; break;
+        case 'ListBullet3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listBullet3; break;
+        case 'ListBullet4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listBullet4; break;
+        case 'ListBullet5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listBullet5; break;
+        case 'ListNumber2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listNumber2; break;
+        case 'ListNumber3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listNumber3; break;
+        case 'ListNumber4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listNumber4; break;
+        case 'ListNumber5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listNumber5; break;
+        case 'Title': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.title; break;
+        case 'Closing': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.closing; break;
+        case 'Signature': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.signature; break;
+        case 'DefaultParagraphFont': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.defaultParagraphFont; break;
+        case 'BodyText': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.bodyText; break;
+        case 'BodyTextInd': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.bodyTextInd; break;
+        case 'ListContinue': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listContinue; break;
+        case 'ListContinue2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listContinue2; break;
+        case 'ListContinue3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listContinue3; break;
+        case 'ListContinue4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listContinue4; break;
+        case 'ListContinue5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listContinue5; break;
+        case 'MessageHeader': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.messageHeader; break;
+        case 'Subtitle': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.subtitle; break;
+        case 'Salutation': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.salutation; break;
+        case 'Date': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.date; break;
+        case 'BodyText1I': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.bodyText1I; break;
+        case 'BodyText1I2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.bodyText1I2; break;
+        case 'NoteHeading': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.noteHeading; break;
+        case 'BodyText2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.bodyText2; break;
+        case 'BodyText3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.bodyText3; break;
+        case 'BodyTextInd2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.bodyTextInd2; break;
+        case 'BodyTextInd3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.bodyTextInd3; break;
+        case 'BlockText': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.blockText; break;
+        case 'Hyperlink': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.hyperlink; break;
+        case 'FollowedHyperlink': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.followedHyperlink; break;
+        case 'Strong': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.strong; break;
+        case 'Emphasis': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.emphasis; break;
+        case 'DocumentMap': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.documentMap; break;
+        case 'PlainText': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.plainText; break;
+        case 'EmailSignature': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.emailSignature; break;
+        case 'HtmlTopOfForm': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.htmlTopOfForm; break;
+        case 'HtmlBottomOfForm': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.htmlBottomOfForm; break;
+        case 'NormalWeb': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.normalWeb; break;
+        case 'HtmlAcronym': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.htmlAcronym; break;
+        case 'HtmlAddress': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.htmlAddress; break;
+        case 'HtmlCite': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.htmlCite; break;
+        case 'HtmlCode': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.htmlCode; break;
+        case 'HtmlDefinition': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.htmlDefinition; break;
+        case 'HtmlKeyboard': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.htmlKeyboard; break;
+        case 'HtmlPreformatted': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.htmlPreformatted; break;
+        case 'HtmlSample': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.htmlSample; break;
+        case 'HtmlTypewriter': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.htmlTypewriter; break;
+        case 'HtmlVariable': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.htmlVariable; break;
+        case 'TableNormal': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableNormal; break;
+        case 'CommentSubject': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.commentSubject; break;
+        case 'NoList': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.noList; break;
+        case 'OutlineList1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.outlineList1; break;
+        case 'OutlineList2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.outlineList2; break;
+        case 'OutlineList3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.outlineList3; break;
+        case 'TableSimple1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableSimple1; break;
+        case 'TableSimple2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableSimple2; break;
+        case 'TableSimple3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableSimple3; break;
+        case 'TableClassic1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableClassic1; break;
+        case 'TableClassic2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableClassic2; break;
+        case 'TableClassic3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableClassic3; break;
+        case 'TableClassic4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableClassic4; break;
+        case 'TableColorful1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableColorful1; break;
+        case 'TableColorful2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableColorful2; break;
+        case 'TableColorful3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableColorful3; break;
+        case 'TableColumns1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableColumns1; break;
+        case 'TableColumns2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableColumns2; break;
+        case 'TableColumns3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableColumns3; break;
+        case 'TableColumns4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableColumns4; break;
+        case 'TableColumns5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableColumns5; break;
+        case 'TableGrid1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableGrid1; break;
+        case 'TableGrid2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableGrid2; break;
+        case 'TableGrid3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableGrid3; break;
+        case 'TableGrid4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableGrid4; break;
+        case 'TableGrid5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableGrid5; break;
+        case 'TableGrid6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableGrid6; break;
+        case 'TableGrid7': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableGrid7; break;
+        case 'TableGrid8': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableGrid8; break;
+        case 'TableList1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableList1; break;
+        case 'TableList2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableList2; break;
+        case 'TableList3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableList3; break;
+        case 'TableList4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableList4; break;
+        case 'TableList5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableList5; break;
+        case 'TableList6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableList6; break;
+        case 'TableList7': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableList7; break;
+        case 'TableList8': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableList8; break;
+        case 'Table3DEffects1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.table3DEffects1; break;
+        case 'Table3DEffects2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.table3DEffects2; break;
+        case 'Table3DEffects3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.table3DEffects3; break;
+        case 'TableContemporary': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableContemporary; break;
+        case 'TableElegant': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableElegant; break;
+        case 'TableProfessional': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableProfessional; break;
+        case 'TableSubtle1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableSubtle1; break;
+        case 'TableSubtle2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableSubtle2; break;
+        case 'TableWeb1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableWeb1; break;
+        case 'TableWeb2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableWeb2; break;
+        case 'TableWeb3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableWeb3; break;
+        case 'BalloonText': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.balloonText; break;
+        case 'TableGrid': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableGrid; break;
+        case 'TableTheme': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableTheme; break;
+        case 'PlaceholderText': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.placeholderText; break;
+        case 'NoSpacing': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.noSpacing; break;
+        case 'LightShading': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightShading; break;
+        case 'LightList': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightList; break;
+        case 'LightGrid': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightGrid; break;
+        case 'MediumShading1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumShading1; break;
+        case 'MediumShading2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumShading2; break;
+        case 'MediumList1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumList1; break;
+        case 'MediumList2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumList2; break;
+        case 'MediumGrid1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid1; break;
+        case 'MediumGrid2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid2; break;
+        case 'MediumGrid3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid3; break;
+        case 'DarkList': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.darkList; break;
+        case 'ColorfulShading': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulShading; break;
+        case 'ColorfulList': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulList; break;
+        case 'ColorfulGrid': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulGrid; break;
+        case 'LightShadingAccent1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightShadingAccent1; break;
+        case 'LightListAccent1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightListAccent1; break;
+        case 'LightGridAccent1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightGridAccent1; break;
+        case 'MediumShading1Accent1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumShading1Accent1; break;
+        case 'MediumShading2Accent1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumShading2Accent1; break;
+        case 'MediumList1Accent1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumList1Accent1; break;
+        case 'Revision': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.revision; break;
+        case 'ListParagraph': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listParagraph; break;
+        case 'Quote': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.quote; break;
+        case 'IntenseQuote': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.intenseQuote; break;
+        case 'MediumList2Accent1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumList2Accent1; break;
+        case 'MediumGrid1Accent1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid1Accent1; break;
+        case 'MediumGrid2Accent1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid2Accent1; break;
+        case 'MediumGrid3Accent1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid3Accent1; break;
+        case 'DarkListAccent1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.darkListAccent1; break;
+        case 'ColorfulShadingAccent1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulShadingAccent1; break;
+        case 'ColorfulListAccent1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulListAccent1; break;
+        case 'ColorfulGridAccent1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulGridAccent1; break;
+        case 'LightShadingAccent2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightShadingAccent2; break;
+        case 'LightListAccent2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightListAccent2; break;
+        case 'LightGridAccent2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightGridAccent2; break;
+        case 'MediumShading1Accent2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumShading1Accent2; break;
+        case 'MediumShading2Accent2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumShading2Accent2; break;
+        case 'MediumList1Accent2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumList1Accent2; break;
+        case 'MediumList2Accent2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumList2Accent2; break;
+        case 'MediumGrid1Accent2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid1Accent2; break;
+        case 'MediumGrid2Accent2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid2Accent2; break;
+        case 'MediumGrid3Accent2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid3Accent2; break;
+        case 'DarkListAccent2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.darkListAccent2; break;
+        case 'ColorfulShadingAccent2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulShadingAccent2; break;
+        case 'ColorfulListAccent2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulListAccent2; break;
+        case 'ColorfulGridAccent2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulGridAccent2; break;
+        case 'LightShadingAccent3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightShadingAccent3; break;
+        case 'LightListAccent3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightListAccent3; break;
+        case 'LightGridAccent3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightGridAccent3; break;
+        case 'MediumShading1Accent3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumShading1Accent3; break;
+        case 'MediumShading2Accent3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumShading2Accent3; break;
+        case 'MediumList1Accent3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumList1Accent3; break;
+        case 'MediumList2Accent3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumList2Accent3; break;
+        case 'MediumGrid1Accent3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid1Accent3; break;
+        case 'MediumGrid2Accent3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid2Accent3; break;
+        case 'MediumGrid3Accent3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid3Accent3; break;
+        case 'DarkListAccent3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.darkListAccent3; break;
+        case 'ColorfulShadingAccent3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulShadingAccent3; break;
+        case 'ColorfulListAccent3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulListAccent3; break;
+        case 'ColorfulGridAccent3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulGridAccent3; break;
+        case 'LightShadingAccent4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightShadingAccent4; break;
+        case 'LightListAccent4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightListAccent4; break;
+        case 'LightGridAccent4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightGridAccent4; break;
+        case 'MediumShading1Accent4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumShading1Accent4; break;
+        case 'MediumShading2Accent4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumShading2Accent4; break;
+        case 'MediumList1Accent4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumList1Accent4; break;
+        case 'MediumList2Accent4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumList2Accent4; break;
+        case 'MediumGrid1Accent4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid1Accent4; break;
+        case 'MediumGrid2Accent4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid2Accent4; break;
+        case 'MediumGrid3Accent4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid3Accent4; break;
+        case 'DarkListAccent4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.darkListAccent4; break;
+        case 'ColorfulShadingAccent4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulShadingAccent4; break;
+        case 'ColorfulListAccent4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulListAccent4; break;
+        case 'ColorfulGridAccent4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulGridAccent4; break;
+        case 'LightShadingAccent5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightShadingAccent5; break;
+        case 'LightListAccent5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightListAccent5; break;
+        case 'LightGridAccent5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightGridAccent5; break;
+        case 'MediumShading1Accent5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumShading1Accent5; break;
+        case 'MediumShading2Accent5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumShading2Accent5; break;
+        case 'MediumList1Accent5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumList1Accent5; break;
+        case 'MediumList2Accent5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumList2Accent5; break;
+        case 'MediumGrid1Accent5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid1Accent5; break;
+        case 'MediumGrid2Accent5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid2Accent5; break;
+        case 'MediumGrid3Accent5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid3Accent5; break;
+        case 'DarkListAccent5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.darkListAccent5; break;
+        case 'ColorfulShadingAccent5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulShadingAccent5; break;
+        case 'ColorfulListAccent5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulListAccent5; break;
+        case 'ColorfulGridAccent5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulGridAccent5; break;
+        case 'LightShadingAccent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightShadingAccent6; break;
+        case 'LightListAccent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightListAccent6; break;
+        case 'LightGridAccent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.lightGridAccent6; break;
+        case 'MediumShading1Accent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumShading1Accent6; break;
+        case 'MediumShading2Accent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumShading2Accent6; break;
+        case 'MediumList1Accent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumList1Accent6; break;
+        case 'MediumList2Accent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumList2Accent6; break;
+        case 'MediumGrid1Accent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid1Accent6; break;
+        case 'MediumGrid2Accent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid2Accent6; break;
+        case 'MediumGrid3Accent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mediumGrid3Accent6; break;
+        case 'DarkListAccent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.darkListAccent6; break;
+        case 'ColorfulShadingAccent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulShadingAccent6; break;
+        case 'ColorfulListAccent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulListAccent6; break;
+        case 'ColorfulGridAccent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.colorfulGridAccent6; break;
+        case 'SubtleEmphasis': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.subtleEmphasis; break;
+        case 'IntenseEmphasis': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.intenseEmphasis; break;
+        case 'SubtleReference': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.subtleReference; break;
+        case 'IntenseReference': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.intenseReference; break;
+        case 'BookTitle': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.bookTitle; break;
+        case 'Bibliography': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.bibliography; break;
+        case 'TocHeading': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tocHeading; break;
+        case 'PlainTable1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.plainTable1; break;
+        case 'PlainTable2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.plainTable2; break;
+        case 'PlainTable3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.plainTable3; break;
+        case 'PlainTable4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.plainTable4; break;
+        case 'PlainTable5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.plainTable5; break;
+        case 'TableGridLight': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.tableGridLight; break;
+        case 'GridTable1Light': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable1Light; break;
+        case 'GridTable2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable2; break;
+        case 'GridTable3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable3; break;
+        case 'GridTable4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable4; break;
+        case 'GridTable5Dark': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable5Dark; break;
+        case 'GridTable6Colorful': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable6Colorful; break;
+        case 'GridTable7Colorful': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable7Colorful; break;
+        case 'GridTable1LightAccent1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable1LightAccent1; break;
+        case 'GridTable2Accent1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable2Accent1; break;
+        case 'GridTable3Accent1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable3Accent1; break;
+        case 'GridTable4Accent1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable4Accent1; break;
+        case 'GridTable5DarkAccent1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable5DarkAccent1; break;
+        case 'GridTable6ColorfulAccent1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable6ColorfulAccent1; break;
+        case 'GridTable7ColorfulAccent1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable7ColorfulAccent1; break;
+        case 'GridTable1LightAccent2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable1LightAccent2; break;
+        case 'GridTable2Accent2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable2Accent2; break;
+        case 'GridTable3Accent2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable3Accent2; break;
+        case 'GridTable4Accent2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable4Accent2; break;
+        case 'GridTable5DarkAccent2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable5DarkAccent2; break;
+        case 'GridTable6ColorfulAccent2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable6ColorfulAccent2; break;
+        case 'GridTable7ColorfulAccent2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable7ColorfulAccent2; break;
+        case 'GridTable1LightAccent3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable1LightAccent3; break;
+        case 'GridTable2Accent3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable2Accent3; break;
+        case 'GridTable3Accent3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable3Accent3; break;
+        case 'GridTable4Accent3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable4Accent3; break;
+        case 'GridTable5DarkAccent3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable5DarkAccent3; break;
+        case 'GridTable6ColorfulAccent3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable6ColorfulAccent3; break;
+        case 'GridTable7ColorfulAccent3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable7ColorfulAccent3; break;
+        case 'GridTable1LightAccent4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable1LightAccent4; break;
+        case 'GridTable2Accent4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable2Accent4; break;
+        case 'GridTable3Accent4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable3Accent4; break;
+        case 'GridTable4Accent4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable4Accent4; break;
+        case 'GridTable5DarkAccent4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable5DarkAccent4; break;
+        case 'GridTable6ColorfulAccent4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable6ColorfulAccent4; break;
+        case 'GridTable7ColorfulAccent4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable7ColorfulAccent4; break;
+        case 'GridTable1LightAccent5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable1LightAccent5; break;
+        case 'GridTable2Accent5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable2Accent5; break;
+        case 'GridTable3Accent5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable3Accent5; break;
+        case 'GridTable4Accent5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable4Accent5; break;
+        case 'GridTable5DarkAccent5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable5DarkAccent5; break;
+        case 'GridTable6ColorfulAccent5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable6ColorfulAccent5; break;
+        case 'GridTable7ColorfulAccent5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable7ColorfulAccent5; break;
+        case 'GridTable1LightAccent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable1LightAccent6; break;
+        case 'GridTable2Accent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable2Accent6; break;
+        case 'GridTable3Accent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable3Accent6; break;
+        case 'GridTable4Accent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable4Accent6; break;
+        case 'GridTable5DarkAccent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable5DarkAccent6; break;
+        case 'GridTable6ColorfulAccent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable6ColorfulAccent6; break;
+        case 'GridTable7ColorfulAccent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.gridTable7ColorfulAccent6; break;
+        case 'ListTable1Light': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable1Light; break;
+        case 'ListTable2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable2; break;
+        case 'ListTable3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable3; break;
+        case 'ListTable4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable4; break;
+        case 'ListTable5Dark': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable5Dark; break;
+        case 'ListTable6Colorful': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable6Colorful; break;
+        case 'ListTable7Colorful': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable7Colorful; break;
+        case 'ListTable1LightAccent1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable1LightAccent1; break;
+        case 'ListTable2Accent1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable2Accent1; break;
+        case 'ListTable3Accent1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable3Accent1; break;
+        case 'ListTable4Accent1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable4Accent1; break;
+        case 'ListTable5DarkAccent1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable5DarkAccent1; break;
+        case 'ListTable6ColorfulAccent1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable6ColorfulAccent1; break;
+        case 'ListTable7ColorfulAccent1': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable7ColorfulAccent1; break;
+        case 'ListTable1LightAccent2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable1LightAccent2; break;
+        case 'ListTable2Accent2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable2Accent2; break;
+        case 'ListTable3Accent2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable3Accent2; break;
+        case 'ListTable4Accent2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable4Accent2; break;
+        case 'ListTable5DarkAccent2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable5DarkAccent2; break;
+        case 'ListTable6ColorfulAccent2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable6ColorfulAccent2; break;
+        case 'ListTable7ColorfulAccent2': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable7ColorfulAccent2; break;
+        case 'ListTable1LightAccent3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable1LightAccent3; break;
+        case 'ListTable2Accent3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable2Accent3; break;
+        case 'ListTable3Accent3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable3Accent3; break;
+        case 'ListTable4Accent3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable4Accent3; break;
+        case 'ListTable5DarkAccent3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable5DarkAccent3; break;
+        case 'ListTable6ColorfulAccent3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable6ColorfulAccent3; break;
+        case 'ListTable7ColorfulAccent3': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable7ColorfulAccent3; break;
+        case 'ListTable1LightAccent4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable1LightAccent4; break;
+        case 'ListTable2Accent4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable2Accent4; break;
+        case 'ListTable3Accent4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable3Accent4; break;
+        case 'ListTable4Accent4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable4Accent4; break;
+        case 'ListTable5DarkAccent4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable5DarkAccent4; break;
+        case 'ListTable6ColorfulAccent4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable6ColorfulAccent4; break;
+        case 'ListTable7ColorfulAccent4': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable7ColorfulAccent4; break;
+        case 'ListTable1LightAccent5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable1LightAccent5; break;
+        case 'ListTable2Accent5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable2Accent5; break;
+        case 'ListTable3Accent5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable3Accent5; break;
+        case 'ListTable4Accent5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable4Accent5; break;
+        case 'ListTable5DarkAccent5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable5DarkAccent5; break;
+        case 'ListTable6ColorfulAccent5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable6ColorfulAccent5; break;
+        case 'ListTable7ColorfulAccent5': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable7ColorfulAccent5; break;
+        case 'ListTable1LightAccent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable1LightAccent6; break;
+        case 'ListTable2Accent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable2Accent6; break;
+        case 'ListTable3Accent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable3Accent6; break;
+        case 'ListTable4Accent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable4Accent6; break;
+        case 'ListTable5DarkAccent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable5DarkAccent6; break;
+        case 'ListTable6ColorfulAccent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable6ColorfulAccent6; break;
+        case 'ListTable7ColorfulAccent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable7ColorfulAccent6; break;
+        case 'User': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.user; break;
+        case 'Nil': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.nil; break;
+        default: styleIdentifier = null; break;
       }
     } else {
-      this.styleIdentifier = null;
+      styleIdentifier = null;
     }
 
     if (json.containsKey('StyleName')) {
-      this.styleName = json['StyleName'];
+      styleName = json['StyleName'] as String;
     } else {
-      this.styleName = null;
+      styleName = null;
     }
 
     if (json.containsKey('SuppressAutoHyphens')) {
-      this.suppressAutoHyphens = json['SuppressAutoHyphens'];
+      suppressAutoHyphens = json['SuppressAutoHyphens'] as bool;
     } else {
-      this.suppressAutoHyphens = null;
+      suppressAutoHyphens = null;
     }
 
     if (json.containsKey('SuppressLineNumbers')) {
-      this.suppressLineNumbers = json['SuppressLineNumbers'];
+      suppressLineNumbers = json['SuppressLineNumbers'] as bool;
     } else {
-      this.suppressLineNumbers = null;
+      suppressLineNumbers = null;
     }
 
     if (json.containsKey('WidowControl')) {
-      this.widowControl = json['WidowControl'];
+      widowControl = json['WidowControl'] as bool;
     } else {
-      this.widowControl = null;
+      widowControl = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.addSpaceBetweenFarEastAndAlpha != null) {
-      _result['AddSpaceBetweenFarEastAndAlpha'] = this.addSpaceBetweenFarEastAndAlpha;
+    if (addSpaceBetweenFarEastAndAlpha != null) {
+      _result['AddSpaceBetweenFarEastAndAlpha'] = addSpaceBetweenFarEastAndAlpha;
     }
 
-    if (this.addSpaceBetweenFarEastAndDigit != null) {
-      _result['AddSpaceBetweenFarEastAndDigit'] = this.addSpaceBetweenFarEastAndDigit;
+    if (addSpaceBetweenFarEastAndDigit != null) {
+      _result['AddSpaceBetweenFarEastAndDigit'] = addSpaceBetweenFarEastAndDigit;
     }
 
-    if (this.alignment != null) {
-      switch (this.alignment) {
+    if (alignment != null) {
+      switch (alignment) {
         case ParagraphFormatBase_AlignmentEnum.left: _result['Alignment'] = 'Left'; break;
         case ParagraphFormatBase_AlignmentEnum.center: _result['Alignment'] = 'Center'; break;
         case ParagraphFormatBase_AlignmentEnum.right: _result['Alignment'] = 'Right'; break;
@@ -711,12 +710,12 @@ class ParagraphFormatBase extends LinkElement {
       }
     }
 
-    if (this.bidi != null) {
-      _result['Bidi'] = this.bidi;
+    if (bidi != null) {
+      _result['Bidi'] = bidi;
     }
 
-    if (this.dropCapPosition != null) {
-      switch (this.dropCapPosition) {
+    if (dropCapPosition != null) {
+      switch (dropCapPosition) {
         case ParagraphFormatBase_DropCapPositionEnum.none: _result['DropCapPosition'] = 'None'; break;
         case ParagraphFormatBase_DropCapPositionEnum.normal: _result['DropCapPosition'] = 'Normal'; break;
         case ParagraphFormatBase_DropCapPositionEnum.margin: _result['DropCapPosition'] = 'Margin'; break;
@@ -724,28 +723,28 @@ class ParagraphFormatBase extends LinkElement {
       }
     }
 
-    if (this.firstLineIndent != null) {
-      _result['FirstLineIndent'] = this.firstLineIndent;
+    if (firstLineIndent != null) {
+      _result['FirstLineIndent'] = firstLineIndent;
     }
 
-    if (this.keepTogether != null) {
-      _result['KeepTogether'] = this.keepTogether;
+    if (keepTogether != null) {
+      _result['KeepTogether'] = keepTogether;
     }
 
-    if (this.keepWithNext != null) {
-      _result['KeepWithNext'] = this.keepWithNext;
+    if (keepWithNext != null) {
+      _result['KeepWithNext'] = keepWithNext;
     }
 
-    if (this.leftIndent != null) {
-      _result['LeftIndent'] = this.leftIndent;
+    if (leftIndent != null) {
+      _result['LeftIndent'] = leftIndent;
     }
 
-    if (this.lineSpacing != null) {
-      _result['LineSpacing'] = this.lineSpacing;
+    if (lineSpacing != null) {
+      _result['LineSpacing'] = lineSpacing;
     }
 
-    if (this.lineSpacingRule != null) {
-      switch (this.lineSpacingRule) {
+    if (lineSpacingRule != null) {
+      switch (lineSpacingRule) {
         case ParagraphFormatBase_LineSpacingRuleEnum.atLeast: _result['LineSpacingRule'] = 'AtLeast'; break;
         case ParagraphFormatBase_LineSpacingRuleEnum.exactly: _result['LineSpacingRule'] = 'Exactly'; break;
         case ParagraphFormatBase_LineSpacingRuleEnum.multiple: _result['LineSpacingRule'] = 'Multiple'; break;
@@ -753,16 +752,16 @@ class ParagraphFormatBase extends LinkElement {
       }
     }
 
-    if (this.linesToDrop != null) {
-      _result['LinesToDrop'] = this.linesToDrop;
+    if (linesToDrop != null) {
+      _result['LinesToDrop'] = linesToDrop;
     }
 
-    if (this.noSpaceBetweenParagraphsOfSameStyle != null) {
-      _result['NoSpaceBetweenParagraphsOfSameStyle'] = this.noSpaceBetweenParagraphsOfSameStyle;
+    if (noSpaceBetweenParagraphsOfSameStyle != null) {
+      _result['NoSpaceBetweenParagraphsOfSameStyle'] = noSpaceBetweenParagraphsOfSameStyle;
     }
 
-    if (this.outlineLevel != null) {
-      switch (this.outlineLevel) {
+    if (outlineLevel != null) {
+      switch (outlineLevel) {
         case ParagraphFormatBase_OutlineLevelEnum.level1: _result['OutlineLevel'] = 'Level1'; break;
         case ParagraphFormatBase_OutlineLevelEnum.level2: _result['OutlineLevel'] = 'Level2'; break;
         case ParagraphFormatBase_OutlineLevelEnum.level3: _result['OutlineLevel'] = 'Level3'; break;
@@ -777,36 +776,36 @@ class ParagraphFormatBase extends LinkElement {
       }
     }
 
-    if (this.pageBreakBefore != null) {
-      _result['PageBreakBefore'] = this.pageBreakBefore;
+    if (pageBreakBefore != null) {
+      _result['PageBreakBefore'] = pageBreakBefore;
     }
 
-    if (this.rightIndent != null) {
-      _result['RightIndent'] = this.rightIndent;
+    if (rightIndent != null) {
+      _result['RightIndent'] = rightIndent;
     }
 
-    if (this.shading != null) {
-      _result['Shading'] = this.shading.serialize();
+    if (shading != null) {
+      _result['Shading'] = shading.serialize();
     }
 
-    if (this.spaceAfter != null) {
-      _result['SpaceAfter'] = this.spaceAfter;
+    if (spaceAfter != null) {
+      _result['SpaceAfter'] = spaceAfter;
     }
 
-    if (this.spaceAfterAuto != null) {
-      _result['SpaceAfterAuto'] = this.spaceAfterAuto;
+    if (spaceAfterAuto != null) {
+      _result['SpaceAfterAuto'] = spaceAfterAuto;
     }
 
-    if (this.spaceBefore != null) {
-      _result['SpaceBefore'] = this.spaceBefore;
+    if (spaceBefore != null) {
+      _result['SpaceBefore'] = spaceBefore;
     }
 
-    if (this.spaceBeforeAuto != null) {
-      _result['SpaceBeforeAuto'] = this.spaceBeforeAuto;
+    if (spaceBeforeAuto != null) {
+      _result['SpaceBeforeAuto'] = spaceBeforeAuto;
     }
 
-    if (this.styleIdentifier != null) {
-      switch (this.styleIdentifier) {
+    if (styleIdentifier != null) {
+      switch (styleIdentifier) {
         case ParagraphFormatBase_StyleIdentifierEnum.normal: _result['StyleIdentifier'] = 'Normal'; break;
         case ParagraphFormatBase_StyleIdentifierEnum.heading1: _result['StyleIdentifier'] = 'Heading1'; break;
         case ParagraphFormatBase_StyleIdentifierEnum.heading2: _result['StyleIdentifier'] = 'Heading2'; break;
@@ -1184,20 +1183,20 @@ class ParagraphFormatBase extends LinkElement {
       }
     }
 
-    if (this.styleName != null) {
-      _result['StyleName'] = this.styleName;
+    if (styleName != null) {
+      _result['StyleName'] = styleName;
     }
 
-    if (this.suppressAutoHyphens != null) {
-      _result['SuppressAutoHyphens'] = this.suppressAutoHyphens;
+    if (suppressAutoHyphens != null) {
+      _result['SuppressAutoHyphens'] = suppressAutoHyphens;
     }
 
-    if (this.suppressLineNumbers != null) {
-      _result['SuppressLineNumbers'] = this.suppressLineNumbers;
+    if (suppressLineNumbers != null) {
+      _result['SuppressLineNumbers'] = suppressLineNumbers;
     }
 
-    if (this.widowControl != null) {
-      _result['WidowControl'] = this.widowControl;
+    if (widowControl != null) {
+      _result['WidowControl'] = widowControl;
     }
     return _result;
   }
@@ -1233,7 +1232,7 @@ enum ParagraphFormatBase_LineSpacingRuleEnum
   multiple
 }
 
-/// Gets or sets specifies the outline level of the paragraph in the document.
+/// Gets or sets the outline level of the paragraph in the document.
 enum ParagraphFormatBase_OutlineLevelEnum
 { 
   level1,

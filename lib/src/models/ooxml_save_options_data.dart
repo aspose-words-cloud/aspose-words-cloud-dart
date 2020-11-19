@@ -29,64 +29,68 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// container class for docx/docm/dotx/dotm/flatopc save options.
+/// Container class for docx/docm/dotx/dotm/flatopc save options.
 class OoxmlSaveOptionsData extends SaveOptionsData {
-  /// Gets or sets specifies the OOXML version for the output document.
+  /// Gets or sets the oOXML version for the output document.
   String compliance;
 
-  /// Gets or sets compression level.
+  /// Gets or sets the compression level.
   OoxmlSaveOptionsData_CompressionLevelEnum compressionLevel;
 
-  /// Gets or sets specifies a password to encrypt document using ECMA376 Standard encryption algorithm.
+  /// Gets or sets the password to encrypt document using ECMA376 Standard encryption algorithm.
   String password;
 
-  /// Gets or sets specifies whether or not use pretty formats output.
+  /// Gets or sets a value indicating whether to use pretty formats output.
   bool prettyFormat;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize OoxmlSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Compliance')) {
-      this.compliance = json['Compliance'];
+      compliance = json['Compliance'] as String;
     } else {
-      this.compliance = null;
+      compliance = null;
     }
 
     if (json.containsKey('CompressionLevel')) {
-      switch (json['CompressionLevel']) {
-        case 'Normal': this.compressionLevel = OoxmlSaveOptionsData_CompressionLevelEnum.normal; break;
-        case 'Maximum': this.compressionLevel = OoxmlSaveOptionsData_CompressionLevelEnum.maximum; break;
-        case 'Fast': this.compressionLevel = OoxmlSaveOptionsData_CompressionLevelEnum.fast; break;
-        case 'SuperFast': this.compressionLevel = OoxmlSaveOptionsData_CompressionLevelEnum.superFast; break;
-        default: this.compressionLevel = null; break;
+      switch (json['CompressionLevel'] as String) {
+        case 'Normal': compressionLevel = OoxmlSaveOptionsData_CompressionLevelEnum.normal; break;
+        case 'Maximum': compressionLevel = OoxmlSaveOptionsData_CompressionLevelEnum.maximum; break;
+        case 'Fast': compressionLevel = OoxmlSaveOptionsData_CompressionLevelEnum.fast; break;
+        case 'SuperFast': compressionLevel = OoxmlSaveOptionsData_CompressionLevelEnum.superFast; break;
+        default: compressionLevel = null; break;
       }
     } else {
-      this.compressionLevel = null;
+      compressionLevel = null;
     }
 
     if (json.containsKey('Password')) {
-      this.password = json['Password'];
+      password = json['Password'] as String;
     } else {
-      this.password = null;
+      password = null;
     }
 
     if (json.containsKey('PrettyFormat')) {
-      this.prettyFormat = json['PrettyFormat'];
+      prettyFormat = json['PrettyFormat'] as bool;
     } else {
-      this.prettyFormat = null;
+      prettyFormat = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.compliance != null) {
-      _result['Compliance'] = this.compliance;
+    if (compliance != null) {
+      _result['Compliance'] = compliance;
     }
 
-    if (this.compressionLevel != null) {
-      switch (this.compressionLevel) {
+    if (compressionLevel != null) {
+      switch (compressionLevel) {
         case OoxmlSaveOptionsData_CompressionLevelEnum.normal: _result['CompressionLevel'] = 'Normal'; break;
         case OoxmlSaveOptionsData_CompressionLevelEnum.maximum: _result['CompressionLevel'] = 'Maximum'; break;
         case OoxmlSaveOptionsData_CompressionLevelEnum.fast: _result['CompressionLevel'] = 'Fast'; break;
@@ -95,18 +99,18 @@ class OoxmlSaveOptionsData extends SaveOptionsData {
       }
     }
 
-    if (this.password != null) {
-      _result['Password'] = this.password;
+    if (password != null) {
+      _result['Password'] = password;
     }
 
-    if (this.prettyFormat != null) {
-      _result['PrettyFormat'] = this.prettyFormat;
+    if (prettyFormat != null) {
+      _result['PrettyFormat'] = prettyFormat;
     }
     return _result;
   }
 }
 
-/// Gets or sets compression level.
+/// Gets or sets the compression level.
 enum OoxmlSaveOptionsData_CompressionLevelEnum
 { 
   normal,

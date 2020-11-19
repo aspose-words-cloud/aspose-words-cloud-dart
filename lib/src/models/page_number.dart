@@ -34,7 +34,7 @@ class PageNumber implements ModelBase {
   /// Gets or sets text alignment, possible values are left, right, center or justify.
   String alignment;
 
-  /// Gets or sets page number format, e.g. "{PAGE} of {NUMPAGES}".
+  /// Gets or sets the page number format, e.g. "{PAGE} of {NUMPAGES}".
   String format;
 
   /// Gets or sets a value indicating whether if true the page number is added at the top of the page, else at the bottom.
@@ -45,48 +45,52 @@ class PageNumber implements ModelBase {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize PageNumber data model.');
+    }
+
     if (json.containsKey('Alignment')) {
-      this.alignment = json['Alignment'];
+      alignment = json['Alignment'] as String;
     } else {
-      this.alignment = null;
+      alignment = null;
     }
 
     if (json.containsKey('Format')) {
-      this.format = json['Format'];
+      format = json['Format'] as String;
     } else {
-      this.format = null;
+      format = null;
     }
 
     if (json.containsKey('IsTop')) {
-      this.isTop = json['IsTop'];
+      isTop = json['IsTop'] as bool;
     } else {
-      this.isTop = null;
+      isTop = null;
     }
 
     if (json.containsKey('SetPageNumberOnFirstPage')) {
-      this.setPageNumberOnFirstPage = json['SetPageNumberOnFirstPage'];
+      setPageNumberOnFirstPage = json['SetPageNumberOnFirstPage'] as bool;
     } else {
-      this.setPageNumberOnFirstPage = null;
+      setPageNumberOnFirstPage = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.alignment != null) {
-      _result['Alignment'] = this.alignment;
+    var _result = <String, dynamic>{};
+    if (alignment != null) {
+      _result['Alignment'] = alignment;
     }
 
-    if (this.format != null) {
-      _result['Format'] = this.format;
+    if (format != null) {
+      _result['Format'] = format;
     }
 
-    if (this.isTop != null) {
-      _result['IsTop'] = this.isTop;
+    if (isTop != null) {
+      _result['IsTop'] = isTop;
     }
 
-    if (this.setPageNumberOnFirstPage != null) {
-      _result['SetPageNumberOnFirstPage'] = this.setPageNumberOnFirstPage;
+    if (setPageNumberOnFirstPage != null) {
+      _result['SetPageNumberOnFirstPage'] = setPageNumberOnFirstPage;
     }
     return _result;
   }

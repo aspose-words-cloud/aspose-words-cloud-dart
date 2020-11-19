@@ -29,29 +29,32 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:
-/// GET https://api.aspose.cloud/v4.0/words/Test.doc/sections.
+/// The REST response with a collection of sections.
 class SectionLinkCollectionResponse extends WordsResponse {
-  /// Gets or sets collection of sections.
+  /// Gets or sets the collection of sections.
   SectionLinkCollection sections;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize SectionLinkCollectionResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Sections')) {
-      this.sections = new SectionLinkCollection();
-      this.sections.deserialize(json['Sections']);
+      sections = SectionLinkCollection();
+      sections.deserialize(json['Sections'] as Map<String, dynamic>);
     } else {
-      this.sections = null;
+      sections = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.sections != null) {
-      _result['Sections'] = this.sections.serialize();
+    if (sections != null) {
+      _result['Sections'] = sections.serialize();
     }
     return _result;
   }

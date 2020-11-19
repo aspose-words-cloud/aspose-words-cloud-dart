@@ -31,33 +31,37 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for the document optimization options.
 class OptimizationOptions implements ModelBase {
-  /// Gets or sets specific MSWord version.
+  /// Gets or sets the specific MSWord version.
   OptimizationOptions_MsWordVersionEnum msWordVersion;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize OptimizationOptions data model.');
+    }
+
     if (json.containsKey('MsWordVersion')) {
-      switch (json['MsWordVersion']) {
-        case 'Word2000': this.msWordVersion = OptimizationOptions_MsWordVersionEnum.word2000; break;
-        case 'Word2002': this.msWordVersion = OptimizationOptions_MsWordVersionEnum.word2002; break;
-        case 'Word2003': this.msWordVersion = OptimizationOptions_MsWordVersionEnum.word2003; break;
-        case 'Word2007': this.msWordVersion = OptimizationOptions_MsWordVersionEnum.word2007; break;
-        case 'Word2010': this.msWordVersion = OptimizationOptions_MsWordVersionEnum.word2010; break;
-        case 'Word2013': this.msWordVersion = OptimizationOptions_MsWordVersionEnum.word2013; break;
-        case 'Word2016': this.msWordVersion = OptimizationOptions_MsWordVersionEnum.word2016; break;
-        case 'Word2019': this.msWordVersion = OptimizationOptions_MsWordVersionEnum.word2019; break;
-        default: this.msWordVersion = null; break;
+      switch (json['MsWordVersion'] as String) {
+        case 'Word2000': msWordVersion = OptimizationOptions_MsWordVersionEnum.word2000; break;
+        case 'Word2002': msWordVersion = OptimizationOptions_MsWordVersionEnum.word2002; break;
+        case 'Word2003': msWordVersion = OptimizationOptions_MsWordVersionEnum.word2003; break;
+        case 'Word2007': msWordVersion = OptimizationOptions_MsWordVersionEnum.word2007; break;
+        case 'Word2010': msWordVersion = OptimizationOptions_MsWordVersionEnum.word2010; break;
+        case 'Word2013': msWordVersion = OptimizationOptions_MsWordVersionEnum.word2013; break;
+        case 'Word2016': msWordVersion = OptimizationOptions_MsWordVersionEnum.word2016; break;
+        case 'Word2019': msWordVersion = OptimizationOptions_MsWordVersionEnum.word2019; break;
+        default: msWordVersion = null; break;
       }
     } else {
-      this.msWordVersion = null;
+      msWordVersion = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.msWordVersion != null) {
-      switch (this.msWordVersion) {
+    var _result = <String, dynamic>{};
+    if (msWordVersion != null) {
+      switch (msWordVersion) {
         case OptimizationOptions_MsWordVersionEnum.word2000: _result['MsWordVersion'] = 'Word2000'; break;
         case OptimizationOptions_MsWordVersionEnum.word2002: _result['MsWordVersion'] = 'Word2002'; break;
         case OptimizationOptions_MsWordVersionEnum.word2003: _result['MsWordVersion'] = 'Word2003'; break;
@@ -73,7 +77,7 @@ class OptimizationOptions implements ModelBase {
   }
 }
 
-/// Gets or sets specific MSWord version.
+/// Gets or sets the specific MSWord version.
 enum OptimizationOptions_MsWordVersionEnum
 { 
   word2000,

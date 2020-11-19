@@ -31,129 +31,133 @@ import '../../aspose_words_cloud.dart';
 
 /// FromField.
 class FormField extends NodeLink {
-  /// Gets or sets true if references to the specified form field are automatically updated whenever the field is exited.
+  /// Gets or sets a value indicating whether references to the specified form field are automatically updated whenever the field is exited.
   bool calculateOnExit;
 
-  /// Gets or sets true if a form field is enabled.
+  /// Gets or sets a value indicating whether a form field is enabled.
   bool enabled;
 
-  /// Gets or sets returns or sets an entry macro name for the form field.
+  /// Gets or sets the entry macro name for the form field.
   String entryMacro;
 
-  /// Gets or sets returns or sets an exit macro name for the form field.
+  /// Gets or sets the exit macro name for the form field.
   String exitMacro;
 
-  /// Gets or sets returns or sets the text that's displayed in a message box when the form field has the focus and the user presses F1.
+  /// Gets or sets text, displayed in a message box when the form field has the focus and the user presses F1.
   String helpText;
 
   /// Gets or sets the form field name.
   String name;
 
-  /// Gets or sets specifies the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.
+  /// Gets or sets a value indicating whether the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.
   bool ownHelp;
 
-  /// Gets or sets specifies the source of the text that's displayed in the status bar when a form field has the focus.
+  /// Gets or sets a value indicating whether the source of the text that's displayed in the status bar when a form field has the focus.
   bool ownStatus;
 
-  /// Gets or sets returns or sets the text that's displayed in the status bar when a form field has the focus.
+  /// Gets or sets text, displayed in the status bar when a form field has the focus.
   String statusText;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FormField data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('CalculateOnExit')) {
-      this.calculateOnExit = json['CalculateOnExit'];
+      calculateOnExit = json['CalculateOnExit'] as bool;
     } else {
-      this.calculateOnExit = null;
+      calculateOnExit = null;
     }
 
     if (json.containsKey('Enabled')) {
-      this.enabled = json['Enabled'];
+      enabled = json['Enabled'] as bool;
     } else {
-      this.enabled = null;
+      enabled = null;
     }
 
     if (json.containsKey('EntryMacro')) {
-      this.entryMacro = json['EntryMacro'];
+      entryMacro = json['EntryMacro'] as String;
     } else {
-      this.entryMacro = null;
+      entryMacro = null;
     }
 
     if (json.containsKey('ExitMacro')) {
-      this.exitMacro = json['ExitMacro'];
+      exitMacro = json['ExitMacro'] as String;
     } else {
-      this.exitMacro = null;
+      exitMacro = null;
     }
 
     if (json.containsKey('HelpText')) {
-      this.helpText = json['HelpText'];
+      helpText = json['HelpText'] as String;
     } else {
-      this.helpText = null;
+      helpText = null;
     }
 
     if (json.containsKey('Name')) {
-      this.name = json['Name'];
+      name = json['Name'] as String;
     } else {
-      this.name = null;
+      name = null;
     }
 
     if (json.containsKey('OwnHelp')) {
-      this.ownHelp = json['OwnHelp'];
+      ownHelp = json['OwnHelp'] as bool;
     } else {
-      this.ownHelp = null;
+      ownHelp = null;
     }
 
     if (json.containsKey('OwnStatus')) {
-      this.ownStatus = json['OwnStatus'];
+      ownStatus = json['OwnStatus'] as bool;
     } else {
-      this.ownStatus = null;
+      ownStatus = null;
     }
 
     if (json.containsKey('StatusText')) {
-      this.statusText = json['StatusText'];
+      statusText = json['StatusText'] as String;
     } else {
-      this.statusText = null;
+      statusText = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.calculateOnExit != null) {
-      _result['CalculateOnExit'] = this.calculateOnExit;
+    if (calculateOnExit != null) {
+      _result['CalculateOnExit'] = calculateOnExit;
     }
 
-    if (this.enabled != null) {
-      _result['Enabled'] = this.enabled;
+    if (enabled != null) {
+      _result['Enabled'] = enabled;
     }
 
-    if (this.entryMacro != null) {
-      _result['EntryMacro'] = this.entryMacro;
+    if (entryMacro != null) {
+      _result['EntryMacro'] = entryMacro;
     }
 
-    if (this.exitMacro != null) {
-      _result['ExitMacro'] = this.exitMacro;
+    if (exitMacro != null) {
+      _result['ExitMacro'] = exitMacro;
     }
 
-    if (this.helpText != null) {
-      _result['HelpText'] = this.helpText;
+    if (helpText != null) {
+      _result['HelpText'] = helpText;
     }
 
-    if (this.name != null) {
-      _result['Name'] = this.name;
+    if (name != null) {
+      _result['Name'] = name;
     }
 
-    if (this.ownHelp != null) {
-      _result['OwnHelp'] = this.ownHelp;
+    if (ownHelp != null) {
+      _result['OwnHelp'] = ownHelp;
     }
 
-    if (this.ownStatus != null) {
-      _result['OwnStatus'] = this.ownStatus;
+    if (ownStatus != null) {
+      _result['OwnStatus'] = ownStatus;
     }
 
-    if (this.statusText != null) {
-      _result['StatusText'] = this.statusText;
+    if (statusText != null) {
+      _result['StatusText'] = statusText;
     }
     return _result;
   }

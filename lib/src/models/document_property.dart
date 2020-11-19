@@ -31,52 +31,56 @@ import '../../aspose_words_cloud.dart';
 
 /// Words document property DTO.
 class DocumentProperty extends LinkElement {
-  /// Gets or sets a value indicating whether flag indicates whether the property is built-in or not.
+  /// Gets or sets a value indicating whether the property is built-in or not.
   /// If true the property is built-in, if false the property is custom.
   bool builtIn;
 
-  /// Gets or sets name of the document property.
+  /// Gets or sets the name of the document property.
   String name;
 
-  /// Gets or sets string value of the document property.
+  /// Gets or sets the value of the document property.
   String value;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize DocumentProperty data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('BuiltIn')) {
-      this.builtIn = json['BuiltIn'];
+      builtIn = json['BuiltIn'] as bool;
     } else {
-      this.builtIn = null;
+      builtIn = null;
     }
 
     if (json.containsKey('Name')) {
-      this.name = json['Name'];
+      name = json['Name'] as String;
     } else {
-      this.name = null;
+      name = null;
     }
 
     if (json.containsKey('Value')) {
-      this.value = json['Value'];
+      value = json['Value'] as String;
     } else {
-      this.value = null;
+      value = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.builtIn != null) {
-      _result['BuiltIn'] = this.builtIn;
+    if (builtIn != null) {
+      _result['BuiltIn'] = builtIn;
     }
 
-    if (this.name != null) {
-      _result['Name'] = this.name;
+    if (name != null) {
+      _result['Name'] = name;
     }
 
-    if (this.value != null) {
-      _result['Value'] = this.value;
+    if (value != null) {
+      _result['Value'] = value;
     }
     return _result;
   }

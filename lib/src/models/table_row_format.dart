@@ -29,12 +29,12 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Represents all formatting for a table row.
+/// DTO container with formatting for a table row.
 class TableRowFormat extends LinkElement {
-  /// Gets or sets true if the text in a table row is allowed to split across a page break.
+  /// Gets or sets a value indicating whether the text in a table row is allowed to split across a page break.
   bool allowBreakAcrossPages;
 
-  /// Gets or sets true if the row is repeated as a table heading on every page when the table spans more than one page.
+  /// Gets or sets a value indicating whether the row is repeated as a table heading on every page when the table spans more than one page.
   bool headingFormat;
 
   /// Gets or sets the height of the table row in points.
@@ -45,55 +45,59 @@ class TableRowFormat extends LinkElement {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize TableRowFormat data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('AllowBreakAcrossPages')) {
-      this.allowBreakAcrossPages = json['AllowBreakAcrossPages'];
+      allowBreakAcrossPages = json['AllowBreakAcrossPages'] as bool;
     } else {
-      this.allowBreakAcrossPages = null;
+      allowBreakAcrossPages = null;
     }
 
     if (json.containsKey('HeadingFormat')) {
-      this.headingFormat = json['HeadingFormat'];
+      headingFormat = json['HeadingFormat'] as bool;
     } else {
-      this.headingFormat = null;
+      headingFormat = null;
     }
 
     if (json.containsKey('Height')) {
-      this.height = json['Height'];
+      height = json['Height'] as double;
     } else {
-      this.height = null;
+      height = null;
     }
 
     if (json.containsKey('HeightRule')) {
-      switch (json['HeightRule']) {
-        case 'AtLeast': this.heightRule = TableRowFormat_HeightRuleEnum.atLeast; break;
-        case 'Exactly': this.heightRule = TableRowFormat_HeightRuleEnum.exactly; break;
-        case 'Auto': this.heightRule = TableRowFormat_HeightRuleEnum.auto; break;
-        default: this.heightRule = null; break;
+      switch (json['HeightRule'] as String) {
+        case 'AtLeast': heightRule = TableRowFormat_HeightRuleEnum.atLeast; break;
+        case 'Exactly': heightRule = TableRowFormat_HeightRuleEnum.exactly; break;
+        case 'Auto': heightRule = TableRowFormat_HeightRuleEnum.auto; break;
+        default: heightRule = null; break;
       }
     } else {
-      this.heightRule = null;
+      heightRule = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.allowBreakAcrossPages != null) {
-      _result['AllowBreakAcrossPages'] = this.allowBreakAcrossPages;
+    if (allowBreakAcrossPages != null) {
+      _result['AllowBreakAcrossPages'] = allowBreakAcrossPages;
     }
 
-    if (this.headingFormat != null) {
-      _result['HeadingFormat'] = this.headingFormat;
+    if (headingFormat != null) {
+      _result['HeadingFormat'] = headingFormat;
     }
 
-    if (this.height != null) {
-      _result['Height'] = this.height;
+    if (height != null) {
+      _result['Height'] = height;
     }
 
-    if (this.heightRule != null) {
-      switch (this.heightRule) {
+    if (heightRule != null) {
+      switch (heightRule) {
         case TableRowFormat_HeightRuleEnum.atLeast: _result['HeightRule'] = 'AtLeast'; break;
         case TableRowFormat_HeightRuleEnum.exactly: _result['HeightRule'] = 'Exactly'; break;
         case TableRowFormat_HeightRuleEnum.auto: _result['HeightRule'] = 'Auto'; break;

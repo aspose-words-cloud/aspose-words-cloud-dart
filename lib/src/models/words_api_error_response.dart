@@ -29,28 +29,32 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Response for Api error.
+/// The REST response with an API error.
 class WordsApiErrorResponse extends WordsResponse {
-  /// Gets or sets error.
+  /// Gets or sets the API error.
   ApiError error;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize WordsApiErrorResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Error')) {
-      this.error = new ApiError();
-      this.error.deserialize(json['Error']);
+      error = ApiError();
+      error.deserialize(json['Error'] as Map<String, dynamic>);
     } else {
-      this.error = null;
+      error = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.error != null) {
-      _result['Error'] = this.error.serialize();
+    if (error != null) {
+      _result['Error'] = error.serialize();
     }
     return _result;
   }

@@ -29,29 +29,32 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:
-/// GET https://api.aspose.cloud/v4.0/words/Test.doc/comments.
+/// The REST response with a collection of comments.
 class CommentsResponse extends WordsResponse {
-  /// Gets or sets collection of comments.
+  /// Gets or sets the collection of comments.
   CommentsCollection comments;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize CommentsResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Comments')) {
-      this.comments = new CommentsCollection();
-      this.comments.deserialize(json['Comments']);
+      comments = CommentsCollection();
+      comments.deserialize(json['Comments'] as Map<String, dynamic>);
     } else {
-      this.comments = null;
+      comments = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.comments != null) {
-      _result['Comments'] = this.comments.serialize();
+    if (comments != null) {
+      _result['Comments'] = comments.serialize();
     }
     return _result;
   }

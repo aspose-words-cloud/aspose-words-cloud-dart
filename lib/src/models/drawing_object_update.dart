@@ -31,120 +31,124 @@ import '../../aspose_words_cloud.dart';
 
 /// Drawing object element for update.
 class DrawingObjectUpdate implements ModelBase {
-  /// Gets or sets height of the drawing object in points.
+  /// Gets or sets the height of the DrawingObject in points.
   double height;
 
-  /// Gets or sets distance in points from the origin to the left side of the image.
+  /// Gets or sets the distance in points from the origin to the left side of the image.
   double left;
 
-  /// Gets or sets specifies where the distance to the image is measured from.
+  /// Gets or sets the relative horizontal position, from which the distance to the image is measured.
   DrawingObjectUpdate_RelativeHorizontalPositionEnum relativeHorizontalPosition;
 
-  /// Gets or sets specifies where the distance to the image measured from.
+  /// Gets or sets the relative vertical position, from which the distance to the image measured.
   DrawingObjectUpdate_RelativeVerticalPositionEnum relativeVerticalPosition;
 
-  /// Gets or sets distance in points from the origin to the top side of the image.
+  /// Gets or sets the distance in points from the origin to the top side of the image.
   double top;
 
-  /// Gets or sets width of the drawing objects in points.
+  /// Gets or sets the width of the DrawingObjects in points.
   double width;
 
-  /// Gets or sets specifies how to wrap text around the image.
+  /// Gets or sets the option that controls how to wrap text around the image.
   DrawingObjectUpdate_WrapTypeEnum wrapType;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize DrawingObjectUpdate data model.');
+    }
+
     if (json.containsKey('Height')) {
-      this.height = json['Height'];
+      height = json['Height'] as double;
     } else {
-      this.height = null;
+      height = null;
     }
 
     if (json.containsKey('Left')) {
-      this.left = json['Left'];
+      left = json['Left'] as double;
     } else {
-      this.left = null;
+      left = null;
     }
 
     if (json.containsKey('RelativeHorizontalPosition')) {
-      switch (json['RelativeHorizontalPosition']) {
-        case 'Margin': this.relativeHorizontalPosition = DrawingObjectUpdate_RelativeHorizontalPositionEnum.margin; break;
-        case 'Page': this.relativeHorizontalPosition = DrawingObjectUpdate_RelativeHorizontalPositionEnum.page; break;
-        case 'Column': this.relativeHorizontalPosition = DrawingObjectUpdate_RelativeHorizontalPositionEnum.column; break;
-        case 'Default': this.relativeHorizontalPosition = DrawingObjectUpdate_RelativeHorizontalPositionEnum.default_; break;
-        case 'Character': this.relativeHorizontalPosition = DrawingObjectUpdate_RelativeHorizontalPositionEnum.character; break;
-        case 'LeftMargin': this.relativeHorizontalPosition = DrawingObjectUpdate_RelativeHorizontalPositionEnum.leftMargin; break;
-        case 'RightMargin': this.relativeHorizontalPosition = DrawingObjectUpdate_RelativeHorizontalPositionEnum.rightMargin; break;
-        case 'InsideMargin': this.relativeHorizontalPosition = DrawingObjectUpdate_RelativeHorizontalPositionEnum.insideMargin; break;
-        case 'OutsideMargin': this.relativeHorizontalPosition = DrawingObjectUpdate_RelativeHorizontalPositionEnum.outsideMargin; break;
-        default: this.relativeHorizontalPosition = null; break;
+      switch (json['RelativeHorizontalPosition'] as String) {
+        case 'Margin': relativeHorizontalPosition = DrawingObjectUpdate_RelativeHorizontalPositionEnum.margin; break;
+        case 'Page': relativeHorizontalPosition = DrawingObjectUpdate_RelativeHorizontalPositionEnum.page; break;
+        case 'Column': relativeHorizontalPosition = DrawingObjectUpdate_RelativeHorizontalPositionEnum.column; break;
+        case 'Default': relativeHorizontalPosition = DrawingObjectUpdate_RelativeHorizontalPositionEnum.defaultValue; break;
+        case 'Character': relativeHorizontalPosition = DrawingObjectUpdate_RelativeHorizontalPositionEnum.character; break;
+        case 'LeftMargin': relativeHorizontalPosition = DrawingObjectUpdate_RelativeHorizontalPositionEnum.leftMargin; break;
+        case 'RightMargin': relativeHorizontalPosition = DrawingObjectUpdate_RelativeHorizontalPositionEnum.rightMargin; break;
+        case 'InsideMargin': relativeHorizontalPosition = DrawingObjectUpdate_RelativeHorizontalPositionEnum.insideMargin; break;
+        case 'OutsideMargin': relativeHorizontalPosition = DrawingObjectUpdate_RelativeHorizontalPositionEnum.outsideMargin; break;
+        default: relativeHorizontalPosition = null; break;
       }
     } else {
-      this.relativeHorizontalPosition = null;
+      relativeHorizontalPosition = null;
     }
 
     if (json.containsKey('RelativeVerticalPosition')) {
-      switch (json['RelativeVerticalPosition']) {
-        case 'Margin': this.relativeVerticalPosition = DrawingObjectUpdate_RelativeVerticalPositionEnum.margin; break;
-        case 'TableDefault': this.relativeVerticalPosition = DrawingObjectUpdate_RelativeVerticalPositionEnum.tableDefault; break;
-        case 'Page': this.relativeVerticalPosition = DrawingObjectUpdate_RelativeVerticalPositionEnum.page; break;
-        case 'Paragraph': this.relativeVerticalPosition = DrawingObjectUpdate_RelativeVerticalPositionEnum.paragraph; break;
-        case 'TextFrameDefault': this.relativeVerticalPosition = DrawingObjectUpdate_RelativeVerticalPositionEnum.textFrameDefault; break;
-        case 'Line': this.relativeVerticalPosition = DrawingObjectUpdate_RelativeVerticalPositionEnum.line; break;
-        case 'TopMargin': this.relativeVerticalPosition = DrawingObjectUpdate_RelativeVerticalPositionEnum.topMargin; break;
-        case 'BottomMargin': this.relativeVerticalPosition = DrawingObjectUpdate_RelativeVerticalPositionEnum.bottomMargin; break;
-        case 'InsideMargin': this.relativeVerticalPosition = DrawingObjectUpdate_RelativeVerticalPositionEnum.insideMargin; break;
-        case 'OutsideMargin': this.relativeVerticalPosition = DrawingObjectUpdate_RelativeVerticalPositionEnum.outsideMargin; break;
-        default: this.relativeVerticalPosition = null; break;
+      switch (json['RelativeVerticalPosition'] as String) {
+        case 'Margin': relativeVerticalPosition = DrawingObjectUpdate_RelativeVerticalPositionEnum.margin; break;
+        case 'TableDefault': relativeVerticalPosition = DrawingObjectUpdate_RelativeVerticalPositionEnum.tableDefault; break;
+        case 'Page': relativeVerticalPosition = DrawingObjectUpdate_RelativeVerticalPositionEnum.page; break;
+        case 'Paragraph': relativeVerticalPosition = DrawingObjectUpdate_RelativeVerticalPositionEnum.paragraph; break;
+        case 'TextFrameDefault': relativeVerticalPosition = DrawingObjectUpdate_RelativeVerticalPositionEnum.textFrameDefault; break;
+        case 'Line': relativeVerticalPosition = DrawingObjectUpdate_RelativeVerticalPositionEnum.line; break;
+        case 'TopMargin': relativeVerticalPosition = DrawingObjectUpdate_RelativeVerticalPositionEnum.topMargin; break;
+        case 'BottomMargin': relativeVerticalPosition = DrawingObjectUpdate_RelativeVerticalPositionEnum.bottomMargin; break;
+        case 'InsideMargin': relativeVerticalPosition = DrawingObjectUpdate_RelativeVerticalPositionEnum.insideMargin; break;
+        case 'OutsideMargin': relativeVerticalPosition = DrawingObjectUpdate_RelativeVerticalPositionEnum.outsideMargin; break;
+        default: relativeVerticalPosition = null; break;
       }
     } else {
-      this.relativeVerticalPosition = null;
+      relativeVerticalPosition = null;
     }
 
     if (json.containsKey('Top')) {
-      this.top = json['Top'];
+      top = json['Top'] as double;
     } else {
-      this.top = null;
+      top = null;
     }
 
     if (json.containsKey('Width')) {
-      this.width = json['Width'];
+      width = json['Width'] as double;
     } else {
-      this.width = null;
+      width = null;
     }
 
     if (json.containsKey('WrapType')) {
-      switch (json['WrapType']) {
-        case 'Inline': this.wrapType = DrawingObjectUpdate_WrapTypeEnum.inline; break;
-        case 'TopBottom': this.wrapType = DrawingObjectUpdate_WrapTypeEnum.topBottom; break;
-        case 'Square': this.wrapType = DrawingObjectUpdate_WrapTypeEnum.square; break;
-        case 'None': this.wrapType = DrawingObjectUpdate_WrapTypeEnum.none; break;
-        case 'Tight': this.wrapType = DrawingObjectUpdate_WrapTypeEnum.tight; break;
-        case 'Through': this.wrapType = DrawingObjectUpdate_WrapTypeEnum.through; break;
-        default: this.wrapType = null; break;
+      switch (json['WrapType'] as String) {
+        case 'Inline': wrapType = DrawingObjectUpdate_WrapTypeEnum.inline; break;
+        case 'TopBottom': wrapType = DrawingObjectUpdate_WrapTypeEnum.topBottom; break;
+        case 'Square': wrapType = DrawingObjectUpdate_WrapTypeEnum.square; break;
+        case 'None': wrapType = DrawingObjectUpdate_WrapTypeEnum.none; break;
+        case 'Tight': wrapType = DrawingObjectUpdate_WrapTypeEnum.tight; break;
+        case 'Through': wrapType = DrawingObjectUpdate_WrapTypeEnum.through; break;
+        default: wrapType = null; break;
       }
     } else {
-      this.wrapType = null;
+      wrapType = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.height != null) {
-      _result['Height'] = this.height;
+    var _result = <String, dynamic>{};
+    if (height != null) {
+      _result['Height'] = height;
     }
 
-    if (this.left != null) {
-      _result['Left'] = this.left;
+    if (left != null) {
+      _result['Left'] = left;
     }
 
-    if (this.relativeHorizontalPosition != null) {
-      switch (this.relativeHorizontalPosition) {
+    if (relativeHorizontalPosition != null) {
+      switch (relativeHorizontalPosition) {
         case DrawingObjectUpdate_RelativeHorizontalPositionEnum.margin: _result['RelativeHorizontalPosition'] = 'Margin'; break;
         case DrawingObjectUpdate_RelativeHorizontalPositionEnum.page: _result['RelativeHorizontalPosition'] = 'Page'; break;
         case DrawingObjectUpdate_RelativeHorizontalPositionEnum.column: _result['RelativeHorizontalPosition'] = 'Column'; break;
-        case DrawingObjectUpdate_RelativeHorizontalPositionEnum.default_: _result['RelativeHorizontalPosition'] = 'Default'; break;
+        case DrawingObjectUpdate_RelativeHorizontalPositionEnum.defaultValue: _result['RelativeHorizontalPosition'] = 'Default'; break;
         case DrawingObjectUpdate_RelativeHorizontalPositionEnum.character: _result['RelativeHorizontalPosition'] = 'Character'; break;
         case DrawingObjectUpdate_RelativeHorizontalPositionEnum.leftMargin: _result['RelativeHorizontalPosition'] = 'LeftMargin'; break;
         case DrawingObjectUpdate_RelativeHorizontalPositionEnum.rightMargin: _result['RelativeHorizontalPosition'] = 'RightMargin'; break;
@@ -154,8 +158,8 @@ class DrawingObjectUpdate implements ModelBase {
       }
     }
 
-    if (this.relativeVerticalPosition != null) {
-      switch (this.relativeVerticalPosition) {
+    if (relativeVerticalPosition != null) {
+      switch (relativeVerticalPosition) {
         case DrawingObjectUpdate_RelativeVerticalPositionEnum.margin: _result['RelativeVerticalPosition'] = 'Margin'; break;
         case DrawingObjectUpdate_RelativeVerticalPositionEnum.tableDefault: _result['RelativeVerticalPosition'] = 'TableDefault'; break;
         case DrawingObjectUpdate_RelativeVerticalPositionEnum.page: _result['RelativeVerticalPosition'] = 'Page'; break;
@@ -170,16 +174,16 @@ class DrawingObjectUpdate implements ModelBase {
       }
     }
 
-    if (this.top != null) {
-      _result['Top'] = this.top;
+    if (top != null) {
+      _result['Top'] = top;
     }
 
-    if (this.width != null) {
-      _result['Width'] = this.width;
+    if (width != null) {
+      _result['Width'] = width;
     }
 
-    if (this.wrapType != null) {
-      switch (this.wrapType) {
+    if (wrapType != null) {
+      switch (wrapType) {
         case DrawingObjectUpdate_WrapTypeEnum.inline: _result['WrapType'] = 'Inline'; break;
         case DrawingObjectUpdate_WrapTypeEnum.topBottom: _result['WrapType'] = 'TopBottom'; break;
         case DrawingObjectUpdate_WrapTypeEnum.square: _result['WrapType'] = 'Square'; break;
@@ -193,13 +197,13 @@ class DrawingObjectUpdate implements ModelBase {
   }
 }
 
-/// Gets or sets specifies where the distance to the image is measured from.
+/// Gets or sets the relative horizontal position, from which the distance to the image is measured.
 enum DrawingObjectUpdate_RelativeHorizontalPositionEnum
 { 
   margin,
   page,
   column,
-  default_,
+  defaultValue,
   character,
   leftMargin,
   rightMargin,
@@ -207,7 +211,7 @@ enum DrawingObjectUpdate_RelativeHorizontalPositionEnum
   outsideMargin
 }
 
-/// Gets or sets specifies where the distance to the image measured from.
+/// Gets or sets the relative vertical position, from which the distance to the image measured.
 enum DrawingObjectUpdate_RelativeVerticalPositionEnum
 { 
   margin,
@@ -222,7 +226,7 @@ enum DrawingObjectUpdate_RelativeVerticalPositionEnum
   outsideMargin
 }
 
-/// Gets or sets specifies how to wrap text around the image.
+/// Gets or sets the option that controls how to wrap text around the image.
 enum DrawingObjectUpdate_WrapTypeEnum
 { 
   inline,

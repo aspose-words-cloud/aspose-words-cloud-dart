@@ -31,52 +31,53 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for Downsample options.
 class DownsampleOptionsData implements ModelBase {
-  /// Gets or sets specifies whether images should be downsampled.
+  /// Gets or sets a value indicating whether images should be downsampled.
   bool downsampleImages;
 
-  /// Gets or sets specifies the resolution in pixels per inch which the images should be downsampled to.
+  /// Gets or sets the resolution in pixels per inch which the images should be downsampled to.
   int resolution;
 
-  /// Gets or sets specifies the threshold resolution in pixels per inch.
-  /// If resolution of an image in the document is less than threshold value,
-  /// the downsampling algorithm will not be applied.
-  /// A value of 0 means the threshold check is not used and all images that can be reduced in size are downsampled.
+  /// Gets or sets the threshold resolution in pixels per inch. If resolution of an image in the document is less than threshold value, the downsampling algorithm will not be applied. A value of 0 means the threshold check is not used and all images that can be reduced in size are downsampled.
   int resolutionThreshold;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize DownsampleOptionsData data model.');
+    }
+
     if (json.containsKey('DownsampleImages')) {
-      this.downsampleImages = json['DownsampleImages'];
+      downsampleImages = json['DownsampleImages'] as bool;
     } else {
-      this.downsampleImages = null;
+      downsampleImages = null;
     }
 
     if (json.containsKey('Resolution')) {
-      this.resolution = json['Resolution'];
+      resolution = json['Resolution'] as int;
     } else {
-      this.resolution = null;
+      resolution = null;
     }
 
     if (json.containsKey('ResolutionThreshold')) {
-      this.resolutionThreshold = json['ResolutionThreshold'];
+      resolutionThreshold = json['ResolutionThreshold'] as int;
     } else {
-      this.resolutionThreshold = null;
+      resolutionThreshold = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
-    if (this.downsampleImages != null) {
-      _result['DownsampleImages'] = this.downsampleImages;
+    var _result = <String, dynamic>{};
+    if (downsampleImages != null) {
+      _result['DownsampleImages'] = downsampleImages;
     }
 
-    if (this.resolution != null) {
-      _result['Resolution'] = this.resolution;
+    if (resolution != null) {
+      _result['Resolution'] = resolution;
     }
 
-    if (this.resolutionThreshold != null) {
-      _result['ResolutionThreshold'] = this.resolutionThreshold;
+    if (resolutionThreshold != null) {
+      _result['ResolutionThreshold'] = resolutionThreshold;
     }
     return _result;
   }

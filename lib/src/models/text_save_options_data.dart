@@ -31,52 +31,56 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for text save options.
 class TextSaveOptionsData extends TxtSaveOptionsBaseData {
-  /// Gets or sets specifies whether to add bi-directional marks before each BiDi run when exporting in plain text format.
+  /// Gets or sets a value indicating whether to add bi-directional marks before each BiDi run when exporting in plain text format.
   /// The default value is true.
   bool addBidiMarks;
 
-  /// Gets or sets specifies whether the program should attempt to preserve layout of tables when saving in the plain text format.
+  /// Gets or sets a value indicating whether the program should attempt to preserve layout of tables when saving in the plain text format.
   bool preserveTableLayout;
 
-  /// Gets or sets specifies whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.
+  /// Gets or sets a value indicating whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.
   bool simplifyListLabels;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize TextSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('AddBidiMarks')) {
-      this.addBidiMarks = json['AddBidiMarks'];
+      addBidiMarks = json['AddBidiMarks'] as bool;
     } else {
-      this.addBidiMarks = null;
+      addBidiMarks = null;
     }
 
     if (json.containsKey('PreserveTableLayout')) {
-      this.preserveTableLayout = json['PreserveTableLayout'];
+      preserveTableLayout = json['PreserveTableLayout'] as bool;
     } else {
-      this.preserveTableLayout = null;
+      preserveTableLayout = null;
     }
 
     if (json.containsKey('SimplifyListLabels')) {
-      this.simplifyListLabels = json['SimplifyListLabels'];
+      simplifyListLabels = json['SimplifyListLabels'] as bool;
     } else {
-      this.simplifyListLabels = null;
+      simplifyListLabels = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.addBidiMarks != null) {
-      _result['AddBidiMarks'] = this.addBidiMarks;
+    if (addBidiMarks != null) {
+      _result['AddBidiMarks'] = addBidiMarks;
     }
 
-    if (this.preserveTableLayout != null) {
-      _result['PreserveTableLayout'] = this.preserveTableLayout;
+    if (preserveTableLayout != null) {
+      _result['PreserveTableLayout'] = preserveTableLayout;
     }
 
-    if (this.simplifyListLabels != null) {
-      _result['SimplifyListLabels'] = this.simplifyListLabels;
+    if (simplifyListLabels != null) {
+      _result['SimplifyListLabels'] = simplifyListLabels;
     }
     return _result;
   }

@@ -37,45 +37,49 @@ class FormFieldCheckbox extends FormField {
   /// Gets or sets the checked status of the check box form field.
   bool checked;
 
-  /// Gets or sets the boolean value that indicates whether the size of the textbox is automatic or specified explicitly.
+  /// Gets or sets a value indicating whether the size of the textbox is automatic or specified explicitly.
   bool isCheckBoxExactSize;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize FormFieldCheckbox data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('CheckBoxSize')) {
-      this.checkBoxSize = json['CheckBoxSize'];
+      checkBoxSize = json['CheckBoxSize'] as double;
     } else {
-      this.checkBoxSize = null;
+      checkBoxSize = null;
     }
 
     if (json.containsKey('Checked')) {
-      this.checked = json['Checked'];
+      checked = json['Checked'] as bool;
     } else {
-      this.checked = null;
+      checked = null;
     }
 
     if (json.containsKey('IsCheckBoxExactSize')) {
-      this.isCheckBoxExactSize = json['IsCheckBoxExactSize'];
+      isCheckBoxExactSize = json['IsCheckBoxExactSize'] as bool;
     } else {
-      this.isCheckBoxExactSize = null;
+      isCheckBoxExactSize = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.checkBoxSize != null) {
-      _result['CheckBoxSize'] = this.checkBoxSize;
+    if (checkBoxSize != null) {
+      _result['CheckBoxSize'] = checkBoxSize;
     }
 
-    if (this.checked != null) {
-      _result['Checked'] = this.checked;
+    if (checked != null) {
+      _result['Checked'] = checked;
     }
 
-    if (this.isCheckBoxExactSize != null) {
-      _result['IsCheckBoxExactSize'] = this.isCheckBoxExactSize;
+    if (isCheckBoxExactSize != null) {
+      _result['IsCheckBoxExactSize'] = isCheckBoxExactSize;
     }
     return _result;
   }

@@ -36,42 +36,42 @@ import '../api_request_part.dart';
 
 /// Request model for Classify operation.
 class ClassifyRequest implements RequestBase {
-  /// Text to classify.
+  /// The text to classify.
   final String text;
 
-  /// Number of the best classes to return.
+  /// The number of the best classes to return.
   final String bestClassesCount;
 
-  ClassifyRequest(final String this.text, {final String this.bestClassesCount = null});
+  ClassifyRequest(final this.text, {final this.bestClassesCount});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/classify';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.bestClassesCount != null) {
-      queryParams['bestClassesCount'] = apiClient.serializeToString(this.bestClassesCount);
+    var _path = '/words/classify';
+    var _queryParams = <String, String>{};
+    var _headers = <String, String>{};
+    var _bodyParts = <ApiRequestPart>[];
+    if (bestClassesCount != null) {
+      _queryParams['bestClassesCount'] = apiClient.serializeToString(bestClassesCount);
     }
 
-    if (this.text != null) {
-      bodyParts.add(new ApiRequestPart(apiClient.serializeBody(this.text, isJson: true), 'application/json'));
+    if (text != null) {
+      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(text, isJson: true), 'application/json'));
     }
     else {
-      throw new ApiException(400, 'Parameter text is required.');
+      throw ApiException(400, 'Parameter text is required.');
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('PUT', url, headers, body);
+    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = new ClassificationResponse();
+    var _result = ClassificationResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
-    _result.deserialize(_json);
+    _result.deserialize(_json as Map<String, dynamic>);
     return _result;
   }
 }

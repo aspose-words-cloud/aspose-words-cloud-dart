@@ -29,40 +29,44 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// container class for xaml flow save options.
+/// Container class for xaml flow save options.
 class XamlFlowSaveOptionsData extends SaveOptionsData {
-  /// Gets or sets specifies the physical folder where images are saved when exporting.
+  /// Gets or sets the physical folder where images are saved when exporting.
   String imagesFolder;
 
-  /// Gets or sets specifies the name of the folder used to construct image URIs.
+  /// Gets or sets the name of the folder used to construct image URIs.
   String imagesFolderAlias;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize XamlFlowSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('ImagesFolder')) {
-      this.imagesFolder = json['ImagesFolder'];
+      imagesFolder = json['ImagesFolder'] as String;
     } else {
-      this.imagesFolder = null;
+      imagesFolder = null;
     }
 
     if (json.containsKey('ImagesFolderAlias')) {
-      this.imagesFolderAlias = json['ImagesFolderAlias'];
+      imagesFolderAlias = json['ImagesFolderAlias'] as String;
     } else {
-      this.imagesFolderAlias = null;
+      imagesFolderAlias = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.imagesFolder != null) {
-      _result['ImagesFolder'] = this.imagesFolder;
+    if (imagesFolder != null) {
+      _result['ImagesFolder'] = imagesFolder;
     }
 
-    if (this.imagesFolderAlias != null) {
-      _result['ImagesFolderAlias'] = this.imagesFolderAlias;
+    if (imagesFolderAlias != null) {
+      _result['ImagesFolderAlias'] = imagesFolderAlias;
     }
     return _result;
   }

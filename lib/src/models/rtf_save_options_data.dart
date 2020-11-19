@@ -29,15 +29,15 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// container class for rtf save options.
+/// Container class for rtf save options.
 class RtfSaveOptionsData extends SaveOptionsData {
-  /// Gets or sets allows to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.
+  /// Gets or sets a value indicating whether to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.
   bool exportCompactSize;
 
-  /// Gets or sets specifies whether the keywords for "old readers" are written to RTF or not.
+  /// Gets or sets a value indicating whether the keywords for "old readers" are written to RTF or not.
   bool exportImagesForOldReaders;
 
-  /// Gets or sets specifies whether or not use pretty formats output.
+  /// Gets or sets a value indicating whether to use pretty formats output.
   bool prettyFormat;
 
   /// Gets or sets a value indicating whether when true all images will be saved as WMF. This option might help to avoid WordPad warning messages.
@@ -45,50 +45,54 @@ class RtfSaveOptionsData extends SaveOptionsData {
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize RtfSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('ExportCompactSize')) {
-      this.exportCompactSize = json['ExportCompactSize'];
+      exportCompactSize = json['ExportCompactSize'] as bool;
     } else {
-      this.exportCompactSize = null;
+      exportCompactSize = null;
     }
 
     if (json.containsKey('ExportImagesForOldReaders')) {
-      this.exportImagesForOldReaders = json['ExportImagesForOldReaders'];
+      exportImagesForOldReaders = json['ExportImagesForOldReaders'] as bool;
     } else {
-      this.exportImagesForOldReaders = null;
+      exportImagesForOldReaders = null;
     }
 
     if (json.containsKey('PrettyFormat')) {
-      this.prettyFormat = json['PrettyFormat'];
+      prettyFormat = json['PrettyFormat'] as bool;
     } else {
-      this.prettyFormat = null;
+      prettyFormat = null;
     }
 
     if (json.containsKey('SaveImagesAsWmf')) {
-      this.saveImagesAsWmf = json['SaveImagesAsWmf'];
+      saveImagesAsWmf = json['SaveImagesAsWmf'] as bool;
     } else {
-      this.saveImagesAsWmf = null;
+      saveImagesAsWmf = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.exportCompactSize != null) {
-      _result['ExportCompactSize'] = this.exportCompactSize;
+    if (exportCompactSize != null) {
+      _result['ExportCompactSize'] = exportCompactSize;
     }
 
-    if (this.exportImagesForOldReaders != null) {
-      _result['ExportImagesForOldReaders'] = this.exportImagesForOldReaders;
+    if (exportImagesForOldReaders != null) {
+      _result['ExportImagesForOldReaders'] = exportImagesForOldReaders;
     }
 
-    if (this.prettyFormat != null) {
-      _result['PrettyFormat'] = this.prettyFormat;
+    if (prettyFormat != null) {
+      _result['PrettyFormat'] = prettyFormat;
     }
 
-    if (this.saveImagesAsWmf != null) {
-      _result['SaveImagesAsWmf'] = this.saveImagesAsWmf;
+    if (saveImagesAsWmf != null) {
+      _result['SaveImagesAsWmf'] = saveImagesAsWmf;
     }
     return _result;
   }

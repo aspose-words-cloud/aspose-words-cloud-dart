@@ -1,5 +1,6 @@
-# Aspose.Words Cloud SDK for Dart (Compatible with [Flutter](https://flutter.dev/))
-This repository contains Aspose.Words Cloud SDK for Dart source code. This SDK allows you to work with Aspose.Words Cloud REST APIs in your Dart applications quickly and easily, with zero initial cost.
+# Aspose.Words Cloud SDK
+This package contains Aspose.Words Cloud SDK for Dart (Compatible with [Flutter](https://flutter.dev/)). 
+This SDK allows you to work with Aspose.Words Cloud REST APIs in your Dart applications quickly and easily, with zero initial cost.
 
 [Aspose.Words Cloud](https://products.aspose.cloud/words/family "Aspose.Words Cloud")  
 [API Reference](https://apireference.aspose.cloud/words/)  
@@ -26,7 +27,7 @@ Add this dependency to your *pubspec.yaml*:
 
 ```yaml
 dependencies:
-  aspose_words_cloud: 20.10.0
+  aspose_words_cloud: 20.11.0
 ```
 
 ## Getting Started
@@ -38,19 +39,19 @@ import 'dart:convert';
 import 'dart:io';
 
 // Configure words api client
-var configuration = new Configuration('AppKey', 'AppSid');
-var wordsApi = new WordsApi(configuration);
+var configuration = Configuration('ClientId', 'ClientSecret');
+var wordsApi = WordsApi(configuration);
 
 // Upload file to cloud
-var localFileContent = await (new File('./test_data/Common/test_doc.docx').readAsBytes());
-var uploadRequest = new UploadFileRequest(ByteData.view(localFileContent.buffer), 'fileStoredInCloud.docx');
+var localFileContent = await (File('./test_data/Common/test_doc.docx').readAsBytes());
+var uploadRequest = UploadFileRequest(ByteData.view(localFileContent.buffer), 'fileStoredInCloud.docx');
 await wordsApi.uploadFile(uploadRequest);
 
 // Save file as pdf in cloud
-var saveOptionsData = new SaveOptionsData()
-  ..saveFormat = "pdf"
-  ..fileName = "destStoredInCloud.pdf";
-var saveAsRequest = new SaveAsRequest("fileStoredInCloud.docx", saveOptionsData);
+var saveOptionsData = SaveOptionsData()
+  ..saveFormat = 'pdf'
+  ..fileName = 'destStoredInCloud.pdf';
+var saveAsRequest = SaveAsRequest('fileStoredInCloud.docx', saveOptionsData);
 await wordsApi.saveAs(saveAsRequest);
 ```
 

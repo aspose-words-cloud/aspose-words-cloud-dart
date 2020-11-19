@@ -36,10 +36,10 @@ import '../api_request_part.dart';
 
 /// Request model for UnprotectDocument operation.
 class UnprotectDocumentRequest implements RequestBase {
-  /// The document name.
+  /// The filename of the input document.
   final String name;
 
-  /// ProtectionRequest with protection settings.
+  /// The protection settings.
   final ProtectionRequest protectionRequest;
 
   /// Original document folder.
@@ -57,56 +57,56 @@ class UnprotectDocumentRequest implements RequestBase {
   /// Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
   final String destFileName;
 
-  UnprotectDocumentRequest(final String this.name, final ProtectionRequest this.protectionRequest, {final String this.folder = null, final String this.storage = null, final String this.loadEncoding = null, final String this.password = null, final String this.destFileName = null});
+  UnprotectDocumentRequest(final this.name, final this.protectionRequest, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    String path = '/words/{name}/protection';
-    Map<String, String> queryParams = new Map<String, String>();
-    Map<String, String> headers = new Map<String, String>();
-    List<ApiRequestPart> bodyParts = new List<ApiRequestPart>();
-    if (this.name == null) {
-      throw new ApiException(400, 'Parameter name is required.');
+    var _path = '/words/{name}/protection';
+    var _queryParams = <String, String>{};
+    var _headers = <String, String>{};
+    var _bodyParts = <ApiRequestPart>[];
+    if (name == null) {
+      throw ApiException(400, 'Parameter name is required.');
     }
-    path = path.replaceAll('{name}', apiClient.serializeToString(this.name));
-    if (this.folder != null) {
-      queryParams['folder'] = apiClient.serializeToString(this.folder);
-    }
-
-    if (this.storage != null) {
-      queryParams['storage'] = apiClient.serializeToString(this.storage);
+    _path = _path.replaceAll('{name}', apiClient.serializeToString(name));
+    if (folder != null) {
+      _queryParams['folder'] = apiClient.serializeToString(folder);
     }
 
-    if (this.loadEncoding != null) {
-      queryParams['loadEncoding'] = apiClient.serializeToString(this.loadEncoding);
+    if (storage != null) {
+      _queryParams['storage'] = apiClient.serializeToString(storage);
     }
 
-    if (this.password != null) {
-      queryParams['password'] = apiClient.serializeToString(this.password);
+    if (loadEncoding != null) {
+      _queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
     }
 
-    if (this.destFileName != null) {
-      queryParams['destFileName'] = apiClient.serializeToString(this.destFileName);
+    if (password != null) {
+      _queryParams['password'] = apiClient.serializeToString(password);
     }
 
-    if (this.protectionRequest != null) {
-      bodyParts.add(new ApiRequestPart(apiClient.serializeBody(this.protectionRequest), 'application/json'));
+    if (destFileName != null) {
+      _queryParams['destFileName'] = apiClient.serializeToString(destFileName);
+    }
+
+    if (protectionRequest != null) {
+      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(protectionRequest), 'application/json'));
     }
     else {
-      throw new ApiException(400, 'Parameter protectionRequest is required.');
+      throw ApiException(400, 'Parameter protectionRequest is required.');
     }
 
-    String url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(path, queryParams).replaceAll('//', '/');
-    ByteData body = apiClient.serializeBodyParts(bodyParts, headers);
-    return new ApiRequestData('DELETE', url, headers, body);
+    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    return ApiRequestData('DELETE', _url, _headers, _body);
   }
 
   @override
   dynamic deserializeResponse(final ByteData _body) {
-    var _result = new ProtectionDataResponse();
+    var _result = ProtectionDataResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
-    _result.deserialize(_json);
+    _result.deserialize(_json as Map<String, dynamic>);
     return _result;
   }
 }

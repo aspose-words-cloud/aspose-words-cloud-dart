@@ -29,33 +29,37 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Represents an array of document lists.
+/// DTO container with an array of document lists.
 class Lists extends LinkElement {
-  /// Gets or sets array of document lists.
+  /// Gets or sets the array of document lists.
   List<ListInfo> listInfo;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize Lists data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('ListInfo')) {
       // Array processing
-      this.listInfo = new List<ListInfo>();
+      listInfo = <ListInfo>[];
       for(final _element in json['ListInfo']) {
-        var _elementValue = new ListInfo();
-        _elementValue.deserialize(_element);
-        this.listInfo.add(_elementValue);
+        var _elementValue = ListInfo();
+        _elementValue.deserialize(_element as Map<String, dynamic>);
+        listInfo.add(_elementValue);
       }
     } else {
-      this.listInfo = null;
+      listInfo = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.listInfo != null) {
-      _result['ListInfo'] = this.listInfo.map((_element) => _element.serialize()).toList();
+    if (listInfo != null) {
+      _result['ListInfo'] = listInfo.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

@@ -29,42 +29,46 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Response for the request of data about protection.
+/// The REST response with data on document's protection.
 class ProtectionDataResponse extends WordsResponse {
-  /// Gets or sets link to the document.
+  /// Gets or sets the link to the document.
   FileLink documentLink;
 
-  /// Gets or sets protection's data of the document.
+  /// Gets or sets the protection properties of the document.
   ProtectionData protectionData;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize ProtectionDataResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('DocumentLink')) {
-      this.documentLink = new FileLink();
-      this.documentLink.deserialize(json['DocumentLink']);
+      documentLink = FileLink();
+      documentLink.deserialize(json['DocumentLink'] as Map<String, dynamic>);
     } else {
-      this.documentLink = null;
+      documentLink = null;
     }
 
     if (json.containsKey('ProtectionData')) {
-      this.protectionData = new ProtectionData();
-      this.protectionData.deserialize(json['ProtectionData']);
+      protectionData = ProtectionData();
+      protectionData.deserialize(json['ProtectionData'] as Map<String, dynamic>);
     } else {
-      this.protectionData = null;
+      protectionData = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.documentLink != null) {
-      _result['DocumentLink'] = this.documentLink.serialize();
+    if (documentLink != null) {
+      _result['DocumentLink'] = documentLink.serialize();
     }
 
-    if (this.protectionData != null) {
-      _result['ProtectionData'] = this.protectionData.serialize();
+    if (protectionData != null) {
+      _result['ProtectionData'] = protectionData.serialize();
     }
     return _result;
   }

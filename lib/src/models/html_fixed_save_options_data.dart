@@ -29,207 +29,204 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// container class for fixed html save options.
+/// Container class for fixed html save options.
 class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
-  /// Gets or sets specifies prefix which is added to all class names in style.css file.
+  /// Gets or sets the prefix which is added to all class names in style.css file.
   /// Default value is "aw".
   String cssClassNamesPrefix;
 
-  /// Gets or sets encoding.
+  /// Gets or sets the character encoding.
   String encoding;
 
-  /// Gets or sets specifies whether the CSS (Cascading Style Sheet) should be embedded into Html document.
+  /// Gets or sets a value indicating whether the CSS (Cascading Style Sheet) should be embedded into the Html document.
   bool exportEmbeddedCss;
 
-  /// Gets or sets specifies whether fonts should be embedded into Html document in Base64 format.
+  /// Gets or sets a value indicating whether fonts should be embedded into the Html document in Base64 format.
   bool exportEmbeddedFonts;
 
-  /// Gets or sets specifies whether images should be embedded into Html document in Base64 format.
+  /// Gets or sets a value indicating whether images should be embedded into the Html document in Base64 format.
   bool exportEmbeddedImages;
 
-  /// Gets or sets indication of whether form fields are exported as interactive items (as 'input' tag) rather than converted to text or graphics.
+  /// Gets or sets a value indicating whether form fields are exported as interactive items (as 'input' tag) rather than converted to text or graphics.
   bool exportFormFields;
 
-  /// Gets or sets specifies export format of fonts.
+  /// Gets or sets the export format of fonts.
   String fontFormat;
 
-  /// Gets or sets specifies the horizontal alignment of pages in an HTML document.
-  /// Default value is HtmlFixedHorizontalPageAlignment.Center.
+  /// Gets or sets the horizontal alignment of pages in the HTML document.
+  /// The default value is HtmlFixedHorizontalPageAlignment.Center.
   String pageHorizontalAlignment;
 
-  /// Gets or sets specifies the margins around pages in an HTML document.
+  /// Gets or sets the margin around pages in HTML document.
   /// The margins value is measured in points and should be equal to or greater than 0.
   /// Default value is 10 points.
   double pageMargins;
 
-  /// Gets or sets specifies the physical folder where resources are saved when exporting a document.
+  /// Gets or sets the physical folder where resources are saved when exporting the document.
   String resourcesFolder;
 
-  /// Gets or sets specifies the name of the folder used to construct resource URIs.
+  /// Gets or sets the name of the folder used to construct resource URIs.
   String resourcesFolderAlias;
 
-  /// Gets or sets flag indicates whether "@font-face" CSS rules should be placed into a separate
-  /// file "fontFaces.css" when a document is being saved with external stylesheet
-  /// (that is, when Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedCss is
-  /// false). Default value is false, all CSS rules are written into single file "styles.css".
+  /// Gets or sets a value indicating whether "@font-face" CSS rules should be placed into a separate file "fontFaces.css" when a document is being saved with external stylesheet (that is, when Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedCss is false). The default value is false, all CSS rules are written into single file "styles.css".
   bool saveFontFaceCssSeparately;
 
-  /// Gets or sets specifies whether border around pages should be shown.
+  /// Gets or sets a value indicating whether to show border around pages.
   bool showPageBorder;
 
-  /// Gets or sets flag indicates whether fonts from target machine must be used to display the
-  /// document. If this flag is set to true, Aspose.Words.Saving.HtmlFixedSaveOptions.FontFormat
-  /// and Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedFonts properties do
-  /// not have effect, also Aspose.Words.Saving.HtmlFixedSaveOptions.ResourceSavingCallback
-  /// is not fired for fonts. Default is false.
+  /// Gets or sets a value indicating whether fonts from target machine must be used to display the document. If this flag is set to true, Aspose.Words.Saving.HtmlFixedSaveOptions.FontFormat and Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedFonts properties do not have effect, also Aspose.Words.Saving.HtmlFixedSaveOptions.ResourceSavingCallback is not fired for fonts. The default value is false.
   bool useTargetMachineFonts;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize HtmlFixedSaveOptionsData data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('CssClassNamesPrefix')) {
-      this.cssClassNamesPrefix = json['CssClassNamesPrefix'];
+      cssClassNamesPrefix = json['CssClassNamesPrefix'] as String;
     } else {
-      this.cssClassNamesPrefix = null;
+      cssClassNamesPrefix = null;
     }
 
     if (json.containsKey('Encoding')) {
-      this.encoding = json['Encoding'];
+      encoding = json['Encoding'] as String;
     } else {
-      this.encoding = null;
+      encoding = null;
     }
 
     if (json.containsKey('ExportEmbeddedCss')) {
-      this.exportEmbeddedCss = json['ExportEmbeddedCss'];
+      exportEmbeddedCss = json['ExportEmbeddedCss'] as bool;
     } else {
-      this.exportEmbeddedCss = null;
+      exportEmbeddedCss = null;
     }
 
     if (json.containsKey('ExportEmbeddedFonts')) {
-      this.exportEmbeddedFonts = json['ExportEmbeddedFonts'];
+      exportEmbeddedFonts = json['ExportEmbeddedFonts'] as bool;
     } else {
-      this.exportEmbeddedFonts = null;
+      exportEmbeddedFonts = null;
     }
 
     if (json.containsKey('ExportEmbeddedImages')) {
-      this.exportEmbeddedImages = json['ExportEmbeddedImages'];
+      exportEmbeddedImages = json['ExportEmbeddedImages'] as bool;
     } else {
-      this.exportEmbeddedImages = null;
+      exportEmbeddedImages = null;
     }
 
     if (json.containsKey('ExportFormFields')) {
-      this.exportFormFields = json['ExportFormFields'];
+      exportFormFields = json['ExportFormFields'] as bool;
     } else {
-      this.exportFormFields = null;
+      exportFormFields = null;
     }
 
     if (json.containsKey('FontFormat')) {
-      this.fontFormat = json['FontFormat'];
+      fontFormat = json['FontFormat'] as String;
     } else {
-      this.fontFormat = null;
+      fontFormat = null;
     }
 
     if (json.containsKey('PageHorizontalAlignment')) {
-      this.pageHorizontalAlignment = json['PageHorizontalAlignment'];
+      pageHorizontalAlignment = json['PageHorizontalAlignment'] as String;
     } else {
-      this.pageHorizontalAlignment = null;
+      pageHorizontalAlignment = null;
     }
 
     if (json.containsKey('PageMargins')) {
-      this.pageMargins = json['PageMargins'];
+      pageMargins = json['PageMargins'] as double;
     } else {
-      this.pageMargins = null;
+      pageMargins = null;
     }
 
     if (json.containsKey('ResourcesFolder')) {
-      this.resourcesFolder = json['ResourcesFolder'];
+      resourcesFolder = json['ResourcesFolder'] as String;
     } else {
-      this.resourcesFolder = null;
+      resourcesFolder = null;
     }
 
     if (json.containsKey('ResourcesFolderAlias')) {
-      this.resourcesFolderAlias = json['ResourcesFolderAlias'];
+      resourcesFolderAlias = json['ResourcesFolderAlias'] as String;
     } else {
-      this.resourcesFolderAlias = null;
+      resourcesFolderAlias = null;
     }
 
     if (json.containsKey('SaveFontFaceCssSeparately')) {
-      this.saveFontFaceCssSeparately = json['SaveFontFaceCssSeparately'];
+      saveFontFaceCssSeparately = json['SaveFontFaceCssSeparately'] as bool;
     } else {
-      this.saveFontFaceCssSeparately = null;
+      saveFontFaceCssSeparately = null;
     }
 
     if (json.containsKey('ShowPageBorder')) {
-      this.showPageBorder = json['ShowPageBorder'];
+      showPageBorder = json['ShowPageBorder'] as bool;
     } else {
-      this.showPageBorder = null;
+      showPageBorder = null;
     }
 
     if (json.containsKey('UseTargetMachineFonts')) {
-      this.useTargetMachineFonts = json['UseTargetMachineFonts'];
+      useTargetMachineFonts = json['UseTargetMachineFonts'] as bool;
     } else {
-      this.useTargetMachineFonts = null;
+      useTargetMachineFonts = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.cssClassNamesPrefix != null) {
-      _result['CssClassNamesPrefix'] = this.cssClassNamesPrefix;
+    if (cssClassNamesPrefix != null) {
+      _result['CssClassNamesPrefix'] = cssClassNamesPrefix;
     }
 
-    if (this.encoding != null) {
-      _result['Encoding'] = this.encoding;
+    if (encoding != null) {
+      _result['Encoding'] = encoding;
     }
 
-    if (this.exportEmbeddedCss != null) {
-      _result['ExportEmbeddedCss'] = this.exportEmbeddedCss;
+    if (exportEmbeddedCss != null) {
+      _result['ExportEmbeddedCss'] = exportEmbeddedCss;
     }
 
-    if (this.exportEmbeddedFonts != null) {
-      _result['ExportEmbeddedFonts'] = this.exportEmbeddedFonts;
+    if (exportEmbeddedFonts != null) {
+      _result['ExportEmbeddedFonts'] = exportEmbeddedFonts;
     }
 
-    if (this.exportEmbeddedImages != null) {
-      _result['ExportEmbeddedImages'] = this.exportEmbeddedImages;
+    if (exportEmbeddedImages != null) {
+      _result['ExportEmbeddedImages'] = exportEmbeddedImages;
     }
 
-    if (this.exportFormFields != null) {
-      _result['ExportFormFields'] = this.exportFormFields;
+    if (exportFormFields != null) {
+      _result['ExportFormFields'] = exportFormFields;
     }
 
-    if (this.fontFormat != null) {
-      _result['FontFormat'] = this.fontFormat;
+    if (fontFormat != null) {
+      _result['FontFormat'] = fontFormat;
     }
 
-    if (this.pageHorizontalAlignment != null) {
-      _result['PageHorizontalAlignment'] = this.pageHorizontalAlignment;
+    if (pageHorizontalAlignment != null) {
+      _result['PageHorizontalAlignment'] = pageHorizontalAlignment;
     }
 
-    if (this.pageMargins != null) {
-      _result['PageMargins'] = this.pageMargins;
+    if (pageMargins != null) {
+      _result['PageMargins'] = pageMargins;
     }
 
-    if (this.resourcesFolder != null) {
-      _result['ResourcesFolder'] = this.resourcesFolder;
+    if (resourcesFolder != null) {
+      _result['ResourcesFolder'] = resourcesFolder;
     }
 
-    if (this.resourcesFolderAlias != null) {
-      _result['ResourcesFolderAlias'] = this.resourcesFolderAlias;
+    if (resourcesFolderAlias != null) {
+      _result['ResourcesFolderAlias'] = resourcesFolderAlias;
     }
 
-    if (this.saveFontFaceCssSeparately != null) {
-      _result['SaveFontFaceCssSeparately'] = this.saveFontFaceCssSeparately;
+    if (saveFontFaceCssSeparately != null) {
+      _result['SaveFontFaceCssSeparately'] = saveFontFaceCssSeparately;
     }
 
-    if (this.showPageBorder != null) {
-      _result['ShowPageBorder'] = this.showPageBorder;
+    if (showPageBorder != null) {
+      _result['ShowPageBorder'] = showPageBorder;
     }
 
-    if (this.useTargetMachineFonts != null) {
-      _result['UseTargetMachineFonts'] = this.useTargetMachineFonts;
+    if (useTargetMachineFonts != null) {
+      _result['UseTargetMachineFonts'] = useTargetMachineFonts;
     }
     return _result;
   }

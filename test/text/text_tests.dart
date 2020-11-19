@@ -26,8 +26,9 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
-import '../test_context.dart';
 import 'package:test/test.dart';
+
+import '../test_context.dart';
 
 /// Example of how to work with macros.
 class TextTests
@@ -35,43 +36,49 @@ class TextTests
   final TestContext context;
   String remoteDataFolder;
 
-  TextTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentElements/Text';
+  TextTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Text';
   }
 
   /// Test for replacing text.
   Future<void> testReplaceText() async
   {
-    final String remoteFileName = 'TestReplaceText.docx';
-    final String localFile = 'Common/test_multi_pages.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestReplaceText = new ReplaceTextParameters();
-    requestReplaceText.oldValue = 'aspose';
-    requestReplaceText.newValue = 'aspose new';
+    final remoteFileName = 'TestReplaceText.docx';
+    final localFile = 'Common/test_multi_pages.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestReplaceText = ReplaceTextParameters();
+    requestReplaceText.oldValue = 'Testing';
+    requestReplaceText.newValue = 'Aspose testing';
 
-    final request = new ReplaceTextRequest(
+    final request = ReplaceTextRequest(
       remoteFileName,
       requestReplaceText,
       folder: remoteDataFolder,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await this.context.getApi().replaceText(request);
+    var result = await context.getApi().replaceText(request);
+    expect(result.matches, 3);
   }
 
   /// Test for searching.
   Future<void> testSearch() async
   {
-    final String remoteFileName = 'TestSearch.docx';
-    final String localFile = 'DocumentElements/Text/SampleWordDocument.docx';
-    await this.context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final remoteFileName = 'TestSearch.docx';
+    final localFile = 'DocumentElements/Text/SampleWordDocument.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new SearchRequest(
+    final request = SearchRequest(
       remoteFileName,
       'aspose',
       folder: remoteDataFolder
     );
 
-    var result = await this.context.getApi().search(request);
+    var result = await context.getApi().search(request);
+    expect(result.searchResults, isNotNull);
+    expect(result.searchResults.resultsList, isNotNull);
+    expect(result.searchResults.resultsList.length, 23);
+    expect(result.searchResults.resultsList[0].rangeStart, isNotNull);
+    expect(result.searchResults.resultsList[0].rangeStart.offset, 65);
   }
 }

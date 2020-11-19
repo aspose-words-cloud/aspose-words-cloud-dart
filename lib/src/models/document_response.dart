@@ -29,28 +29,32 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Represents the response with document description.
+/// The REST response with a document description.
 class DocumentResponse extends WordsResponse {
-  /// Gets or sets document description.
+  /// Gets or sets the document description.
   Document document;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize DocumentResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Document')) {
-      this.document = new Document();
-      this.document.deserialize(json['Document']);
+      document = Document();
+      document.deserialize(json['Document'] as Map<String, dynamic>);
     } else {
-      this.document = null;
+      document = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.document != null) {
-      _result['Document'] = this.document.serialize();
+    if (document != null) {
+      _result['Document'] = document.serialize();
     }
     return _result;
   }

@@ -26,8 +26,9 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
-import '../test_context.dart';
 import 'package:test/test.dart';
+
+import '../test_context.dart';
 
 /// Example of how to perform mail merge.
 class ExecuteMailMergeTests
@@ -36,41 +37,43 @@ class ExecuteMailMergeTests
   String remoteDataFolder;
   String mailMergeFolder;
 
-  ExecuteMailMergeTests(final TestContext this.context) {
-    remoteDataFolder = this.context.remoteBaseTestDataFolder + '/DocumentActions/MailMerge';
+  ExecuteMailMergeTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/MailMerge';
     mailMergeFolder = 'DocumentActions/MailMerge';
   }
 
   /// Test for executing mail merge online.
   Future<void> testExecuteMailMergeOnline() async
   {
-    final String localDocumentFile = 'SampleExecuteTemplate.docx';
-    final String localDataFile = 'SampleExecuteTemplateData.txt';
+    final localDocumentFile = 'SampleExecuteTemplate.docx';
+    final localDataFile = 'SampleExecuteTemplateData.txt';
 
-    final request = new ExecuteMailMergeOnlineRequest(
-      await this.context.loadBinaryFile(mailMergeFolder + '/' + localDocumentFile),
-      await this.context.loadBinaryFile(mailMergeFolder + '/' + localDataFile)
+    final request = ExecuteMailMergeOnlineRequest(
+      await context.loadBinaryFile(mailMergeFolder + '/' + localDocumentFile),
+      await context.loadBinaryFile(mailMergeFolder + '/' + localDataFile)
     );
 
-    var result = await this.context.getApi().executeMailMergeOnline(request);
+    await context.getApi().executeMailMergeOnline(request);
   }
 
   /// Test for executing mail merge.
   Future<void> testExecuteMailMerge() async
   {
-    final String localDocumentFile = 'SampleExecuteTemplate.docx';
-    final String remoteFileName = 'TestExecuteMailMerge.docx';
-    final String localDataFile = await this.context.loadTextFile(mailMergeFolder + '/SampleMailMergeTemplateData.txt');
-    await this.context.uploadFile(mailMergeFolder + '/' + localDocumentFile, remoteDataFolder + '/' + remoteFileName);
+    final localDocumentFile = 'SampleExecuteTemplate.docx';
+    final remoteFileName = 'TestExecuteMailMerge.docx';
+    final localDataFile = await context.loadTextFile(mailMergeFolder + '/SampleMailMergeTemplateData.txt');
+    await context.uploadFile(mailMergeFolder + '/' + localDocumentFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = new ExecuteMailMergeRequest(
+    final request = ExecuteMailMergeRequest(
       remoteFileName,
       data: localDataFile,
       folder: remoteDataFolder,
       withRegions: false,
-      destFileName: this.context.baseTestOutPath + '/' + remoteFileName
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await this.context.getApi().executeMailMerge(request);
+    var result = await context.getApi().executeMailMerge(request);
+    expect(result.document, isNotNull);
+    expect(result.document.fileName, 'TestExecuteMailMerge.docx');
   }
 }

@@ -29,28 +29,32 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// This response should be returned by the service when handling:  GET bookmarks.
+/// The REST response with a collection of bookmarks.
 class BookmarksResponse extends WordsResponse {
-  /// Gets or sets bookmarks which are contained in document.
+  /// Gets or sets the collection of bookmarks.
   Bookmarks bookmarks;
 
   @override
   void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize BookmarksResponse data model.');
+    }
+
     super.deserialize(json);
     if (json.containsKey('Bookmarks')) {
-      this.bookmarks = new Bookmarks();
-      this.bookmarks.deserialize(json['Bookmarks']);
+      bookmarks = Bookmarks();
+      bookmarks.deserialize(json['Bookmarks'] as Map<String, dynamic>);
     } else {
-      this.bookmarks = null;
+      bookmarks = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
-    var _result = new Map<String, dynamic>();
+    var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (this.bookmarks != null) {
-      _result['Bookmarks'] = this.bookmarks.serialize();
+    if (bookmarks != null) {
+      _result['Bookmarks'] = bookmarks.serialize();
     }
     return _result;
   }
