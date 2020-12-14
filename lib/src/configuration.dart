@@ -38,7 +38,7 @@ class Configuration {
   Configuration.fromJson(final Map<String, dynamic> json)
     : clientId = json['ClientId'] as String,
       clientSecret = json['ClientSecret'] as String,
-      baseUrl = json['BaseUrl'] as String,
+      baseUrl = json['BaseUrl'] as String ?? 'https://api.aspose.cloud',
       debugMode = json['DebugMode'] as bool;
 
   String getApiRootUrl()
