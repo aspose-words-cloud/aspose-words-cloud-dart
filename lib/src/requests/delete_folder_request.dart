@@ -35,7 +35,7 @@ import '../api_request_part.dart';
 
 /// Request model for DeleteFolder operation.
 class DeleteFolderRequest implements RequestBase {
-  /// Folder path e.g. /Folder1s.
+  /// Folder path e.g. '/folder'.
   final String path;
 
   /// Storage name.

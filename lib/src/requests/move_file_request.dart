@@ -35,11 +35,11 @@ import '../api_request_part.dart';
 
 /// Request model for MoveFile operation.
 class MoveFileRequest implements RequestBase {
+  /// Source file path e.g. '/src.ext'.
+  final String srcPath;
+
   /// Destination file path e.g. '/dest.ext'.
   final String destPath;
-
-  /// Source file's path e.g. '/Folder 1/file.ext' or '/Bucket/Folder 1/file.ext'.
-  final String srcPath;
 
   /// Source storage name.
   final String srcStorageName;
@@ -50,7 +50,7 @@ class MoveFileRequest implements RequestBase {
   /// File version ID to move.
   final String versionId;
 
-  MoveFileRequest(final this.destPath, final this.srcPath, {final this.srcStorageName, final this.destStorageName, final this.versionId});
+  MoveFileRequest(final this.srcPath, final this.destPath, {final this.srcStorageName, final this.destStorageName, final this.versionId});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {

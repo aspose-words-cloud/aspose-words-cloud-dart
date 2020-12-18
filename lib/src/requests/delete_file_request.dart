@@ -35,7 +35,7 @@ import '../api_request_part.dart';
 
 /// Request model for DeleteFile operation.
 class DeleteFileRequest implements RequestBase {
-  /// Path of the file including file name and extension e.g. /Folder1/file.ext.
+  /// File path e.g. '/folder/file.ext'.
   final String path;
 
   /// Storage name.

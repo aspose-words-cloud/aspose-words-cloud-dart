@@ -35,7 +35,7 @@ import '../api_request_part.dart';
 
 /// Request model for CreateFolder operation.
 class CreateFolderRequest implements RequestBase {
-  /// Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively.
+  /// Folder path to create e.g. 'folder_1/folder_2/'.
   final String path;
 
   /// Storage name.

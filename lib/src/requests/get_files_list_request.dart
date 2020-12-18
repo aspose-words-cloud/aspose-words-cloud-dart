@@ -36,7 +36,7 @@ import '../api_request_part.dart';
 
 /// Request model for GetFilesList operation.
 class GetFilesListRequest implements RequestBase {
-  /// Folder path e.g. /Folder1.
+  /// Folder path e.g. '/folder'.
   final String path;
 
   /// Storage name.
