@@ -35,11 +35,11 @@ import '../api_request_part.dart';
 
 /// Request model for MoveFolder operation.
 class MoveFolderRequest implements RequestBase {
-  /// Folder path to move e.g. '/folder'.
-  final String srcPath;
-
   /// Destination folder path to move to e.g '/dst'.
   final String destPath;
+
+  /// Source folder path e.g. /Folder1.
+  final String srcPath;
 
   /// Source storage name.
   final String srcStorageName;
@@ -47,7 +47,7 @@ class MoveFolderRequest implements RequestBase {
   /// Destination storage name.
   final String destStorageName;
 
-  MoveFolderRequest(final this.srcPath, final this.destPath, {final this.srcStorageName, final this.destStorageName});
+  MoveFolderRequest(final this.destPath, final this.srcPath, {final this.srcStorageName, final this.destStorageName});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {

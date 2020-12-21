@@ -35,11 +35,11 @@ import '../api_request_part.dart';
 
 /// Request model for CopyFolder operation.
 class CopyFolderRequest implements RequestBase {
-  /// Source folder path e.g. '/src'.
-  final String srcPath;
-
   /// Destination folder path e.g. '/dst'.
   final String destPath;
+
+  /// Source folder path e.g. /Folder1.
+  final String srcPath;
 
   /// Source storage name.
   final String srcStorageName;
@@ -47,7 +47,7 @@ class CopyFolderRequest implements RequestBase {
   /// Destination storage name.
   final String destStorageName;
 
-  CopyFolderRequest(final this.srcPath, final this.destPath, {final this.srcStorageName, final this.destStorageName});
+  CopyFolderRequest(final this.destPath, final this.srcPath, {final this.srcStorageName, final this.destStorageName});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
