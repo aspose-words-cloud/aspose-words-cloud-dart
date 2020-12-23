@@ -39,11 +39,11 @@ class UpdateListRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The properties of the list.
-  final ListUpdate listUpdate;
-
   /// The list Id.
   final int listId;
+
+  /// List object.
+  final ListUpdate listUpdate;
 
   /// Original document folder.
   final String folder;
@@ -66,7 +66,7 @@ class UpdateListRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  UpdateListRequest(final this.name, final this.listUpdate, final this.listId, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
+  UpdateListRequest(final this.name, final this.listId, final this.listUpdate, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {

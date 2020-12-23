@@ -68,4 +68,27 @@ class AppendDocumentTests
     expect(result.document, isNotNull);
     expect(result.document.fileName, 'TestAppendDocument.docx');
   }
+
+  /// Test for appending document online.
+  Future<void> testAppendDocumentOnline() async
+  {
+    final remoteFileName = 'TestAppendDocument.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestDocumentListDocumentEntries0 = DocumentEntry();
+    requestDocumentListDocumentEntries0.href = remoteDataFolder + '/' + remoteFileName;
+    requestDocumentListDocumentEntries0.importFormatMode = 'KeepSourceFormatting';
+
+    var requestDocumentListDocumentEntries = [
+      requestDocumentListDocumentEntries0];
+
+    var requestDocumentList = DocumentEntryList();
+    requestDocumentList.documentEntries = requestDocumentListDocumentEntries;
+
+    final request = AppendDocumentOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      requestDocumentList
+    );
+
+    await context.getApi().appendDocumentOnline(request);
+  }
 }

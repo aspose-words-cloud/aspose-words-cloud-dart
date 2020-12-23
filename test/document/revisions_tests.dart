@@ -59,6 +59,17 @@ class RevisionsTests
     expect(result.result.dest, isNotNull);
   }
 
+  /// Test for accepting revisions in document online.
+  Future<void> testAcceptAllRevisionsOnline() async
+  {
+
+    final request = AcceptAllRevisionsOnlineRequest(
+      await context.loadBinaryFile(localFile)
+    );
+
+    await context.getApi().acceptAllRevisionsOnline(request);
+  }
+
   /// Test for rejecting revisions in document.
   Future<void> testRejectAllRevisions() async
   {
@@ -74,5 +85,16 @@ class RevisionsTests
     var result = await context.getApi().rejectAllRevisions(request);
     expect(result.result, isNotNull);
     expect(result.result.dest, isNotNull);
+  }
+
+  /// Test for rejecting revisions in document online.
+  Future<void> testRejectAllRevisionsOnline() async
+  {
+
+    final request = RejectAllRevisionsOnlineRequest(
+      await context.loadBinaryFile(localFile)
+    );
+
+    await context.getApi().rejectAllRevisionsOnline(request);
   }
 }

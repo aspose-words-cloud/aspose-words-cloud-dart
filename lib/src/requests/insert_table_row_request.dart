@@ -39,11 +39,11 @@ class InsertTableRowRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The properties of the row.
-  final TableRowInsert row;
-
   /// The path to the table in the document tree.
   final String tablePath;
+
+  /// Table row parameters.
+  final TableRowInsert row;
 
   /// Original document folder.
   final String folder;
@@ -66,7 +66,7 @@ class InsertTableRowRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  InsertTableRowRequest(final this.name, final this.row, final this.tablePath, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
+  InsertTableRowRequest(final this.name, final this.tablePath, final this.row, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {

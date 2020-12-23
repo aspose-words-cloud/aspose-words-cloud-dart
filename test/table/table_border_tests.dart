@@ -62,6 +62,18 @@ class TableBorderTests
     expect(result.borders.list[0].color.web, '#000000');
   }
 
+  /// Test for getting borders online.
+  Future<void> testGetBordersOnline() async
+  {
+
+    final request = GetBordersOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      nodePath: 'tables/1/rows/0/cells/0'
+    );
+
+    await context.getApi().getBordersOnline(request);
+  }
+
   /// Test for getting border.
   Future<void> testGetBorder() async
   {
@@ -81,6 +93,19 @@ class TableBorderTests
     expect(result.border.color.web, '#000000');
   }
 
+  /// Test for getting border online.
+  Future<void> testGetBorderOnline() async
+  {
+
+    final request = GetBorderOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'left',
+      nodePath: 'tables/1/rows/0/cells/0'
+    );
+
+    await context.getApi().getBorderOnline(request);
+  }
+
   /// Test for deleting borders.
   Future<void> testDeleteBorders() async
   {
@@ -93,12 +118,19 @@ class TableBorderTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().deleteBorders(request);
-    expect(result.borders, isNotNull);
-    expect(result.borders.list, isNotNull);
-    expect(result.borders.list.length, 6);
-    expect(result.borders.list[0].color, isNotNull);
-    expect(result.borders.list[0].color.web, '');
+    await context.getApi().deleteBorders(request);
+  }
+
+  /// Test for deleting borders online.
+  Future<void> testDeleteBordersOnline() async
+  {
+
+    final request = DeleteBordersOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      nodePath: 'tables/1/rows/0/cells/0'
+    );
+
+    await context.getApi().deleteBordersOnline(request);
   }
 
   /// Test for deleting border.
@@ -114,10 +146,20 @@ class TableBorderTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().deleteBorder(request);
-    expect(result.border, isNotNull);
-    expect(result.border.color, isNotNull);
-    expect(result.border.color.web, '');
+    await context.getApi().deleteBorder(request);
+  }
+
+  /// Test for deleting border online.
+  Future<void> testDeleteBorderOnline() async
+  {
+
+    final request = DeleteBorderOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'left',
+      nodePath: 'tables/1/rows/0/cells/0'
+    );
+
+    await context.getApi().deleteBorderOnline(request);
   }
 
   /// Test for updating border.
@@ -138,8 +180,8 @@ class TableBorderTests
 
     final request = UpdateBorderRequest(
       remoteFileName,
-      requestBorderProperties,
       'left',
+      requestBorderProperties,
       nodePath: 'tables/1/rows/0/cells/0',
       folder: remoteDataFolder
     );
@@ -151,5 +193,29 @@ class TableBorderTests
     expect(result.border.distanceFromText, 6.0);
     expect(result.border.lineWidth, 2.0);
     expect(result.border.shadow, isTrue);
+  }
+
+  /// Test for updating border online.
+  Future<void> testUpdateBorderOnline() async
+  {
+    var requestBorderPropertiesColor = XmlColor();
+    requestBorderPropertiesColor.alpha = 2;
+
+    var requestBorderProperties = Border();
+    requestBorderProperties.borderType = Border_BorderTypeEnum.left;
+    requestBorderProperties.color = requestBorderPropertiesColor;
+    requestBorderProperties.distanceFromText = 6;
+    requestBorderProperties.lineStyle = Border_LineStyleEnum.dashDotStroker;
+    requestBorderProperties.lineWidth = 2;
+    requestBorderProperties.shadow = true;
+
+    final request = UpdateBorderOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      requestBorderProperties,
+      'left',
+      nodePath: 'tables/1/rows/0/cells/0'
+    );
+
+    await context.getApi().updateBorderOnline(request);
   }
 }

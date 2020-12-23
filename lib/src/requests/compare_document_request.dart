@@ -39,7 +39,7 @@ class CompareDocumentRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The properties of the document to compare with.
+  /// Compare data.
   final CompareData compareData;
 
   /// Original document folder.

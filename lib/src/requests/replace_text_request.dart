@@ -39,7 +39,7 @@ class ReplaceTextRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The text replacement parameters.
+  /// The replace operation settings.
   final ReplaceTextParameters replaceText;
 
   /// Original document folder.

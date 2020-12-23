@@ -39,14 +39,14 @@ class UpdateRunFontRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The font properties of a Run object.
-  final Font fontDto;
-
   /// The path to the paragraph in the document tree.
   final String paragraphPath;
 
   /// Object index.
   final int index;
+
+  /// Font dto object.
+  final Font fontDto;
 
   /// Original document folder.
   final String folder;
@@ -69,7 +69,7 @@ class UpdateRunFontRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  UpdateRunFontRequest(final this.name, final this.fontDto, final this.paragraphPath, final this.index, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
+  UpdateRunFontRequest(final this.name, final this.paragraphPath, final this.index, final this.fontDto, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {

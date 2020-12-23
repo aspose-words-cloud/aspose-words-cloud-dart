@@ -39,14 +39,14 @@ class UpdateTableRowFormatRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The row format.
-  final TableRowFormat format;
-
   /// The path to the table in the document tree.
   final String tablePath;
 
   /// Object index.
   final int index;
+
+  /// Table row format.
+  final TableRowFormat format;
 
   /// Original document folder.
   final String folder;
@@ -69,7 +69,7 @@ class UpdateTableRowFormatRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  UpdateTableRowFormatRequest(final this.name, final this.format, final this.tablePath, final this.index, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
+  UpdateTableRowFormatRequest(final this.name, final this.tablePath, final this.index, final this.format, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {

@@ -42,7 +42,7 @@ class UpdateSectionPageSetupRequest implements RequestBase {
   /// The index of the section.
   final int sectionIndex;
 
-  /// The properties of the page setup.
+  /// Page setup properties dto.
   final PageSetup pageSetup;
 
   /// Original document folder.

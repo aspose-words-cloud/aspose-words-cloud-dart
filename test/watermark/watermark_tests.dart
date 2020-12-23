@@ -64,6 +64,18 @@ class WatermarkTests
     expect(result.document.fileName, 'TestInsertWatermarkImage.docx');
   }
 
+  /// Test for adding watermark image online.
+  Future<void> testInsertWatermarkImageOnline() async
+  {
+
+    final request = InsertWatermarkImageOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      await context.loadBinaryFile('Common/aspose-cloud.png')
+    );
+
+    await context.getApi().insertWatermarkImageOnline(request);
+  }
+
   /// Test for adding watermark text.
   Future<void> testInsertWatermarkText() async
   {
@@ -85,6 +97,21 @@ class WatermarkTests
     expect(result.document.fileName, 'TestInsertWatermarkText.docx');
   }
 
+  /// Test for adding watermark text online.
+  Future<void> testInsertWatermarkTextOnline() async
+  {
+    var requestWatermarkText = WatermarkText();
+    requestWatermarkText.text = 'This is the text';
+    requestWatermarkText.rotationAngle = 90;
+
+    final request = InsertWatermarkTextOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      requestWatermarkText
+    );
+
+    await context.getApi().insertWatermarkTextOnline(request);
+  }
+
   /// Test for deleting watermark.
   Future<void> testDeleteWatermark() async
   {
@@ -100,5 +127,16 @@ class WatermarkTests
     var result = await context.getApi().deleteWatermark(request);
     expect(result.document, isNotNull);
     expect(result.document.fileName, 'TestDeleteWatermark.docx');
+  }
+
+  /// Test for deleting watermark online.
+  Future<void> testDeleteWatermarkOnline() async
+  {
+
+    final request = DeleteWatermarkOnlineRequest(
+      await context.loadBinaryFile(localFile)
+    );
+
+    await context.getApi().deleteWatermarkOnline(request);
   }
 }

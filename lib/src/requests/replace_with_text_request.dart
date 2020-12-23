@@ -42,7 +42,7 @@ class ReplaceWithTextRequest implements RequestBase {
   /// The range start identifier.
   final String rangeStartIdentifier;
 
-  /// The text replacement properties.
+  /// Model with text for replacement.
   final ReplaceRange rangeText;
 
   /// The range end identifier.

@@ -42,7 +42,7 @@ class UpdateCommentRequest implements RequestBase {
   /// The index of the comment.
   final int commentIndex;
 
-  /// The properties of the comment.
+  /// Comment data.
   final CommentUpdate comment;
 
   /// Original document folder.

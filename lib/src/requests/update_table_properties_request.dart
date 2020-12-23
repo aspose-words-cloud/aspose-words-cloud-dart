@@ -39,11 +39,11 @@ class UpdateTablePropertiesRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The properties of the table.
-  final TableProperties properties;
-
   /// Object index.
   final int index;
+
+  /// The properties.
+  final TableProperties properties;
 
   /// The path to the node in the document tree.
   final String nodePath;
@@ -69,7 +69,7 @@ class UpdateTablePropertiesRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  UpdateTablePropertiesRequest(final this.name, final this.properties, final this.index, {final this.nodePath, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
+  UpdateTablePropertiesRequest(final this.name, final this.index, final this.properties, {final this.nodePath, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {

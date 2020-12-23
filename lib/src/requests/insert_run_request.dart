@@ -42,7 +42,7 @@ class InsertRunRequest implements RequestBase {
   /// The path to the paragraph in the document tree.
   final String paragraphPath;
 
-  /// The properties of the Run object.
+  /// Run data.
   final RunInsert run;
 
   /// Original document folder.

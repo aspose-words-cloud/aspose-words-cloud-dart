@@ -57,4 +57,18 @@ class CompatibilityTests
 
     await context.getApi().optimizeDocument(request);
   }
+
+  /// Test for optimize document to specific MS Word version.
+  Future<void> testOptimizeDocumentOnline() async
+  {
+    var requestOptions = OptimizationOptions();
+    requestOptions.msWordVersion = OptimizationOptions_MsWordVersionEnum.word2002;
+
+    final request = OptimizeDocumentOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      requestOptions
+    );
+
+    await context.getApi().optimizeDocumentOnline(request);
+  }
 }

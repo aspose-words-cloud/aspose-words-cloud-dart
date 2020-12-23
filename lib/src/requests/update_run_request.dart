@@ -39,14 +39,14 @@ class UpdateRunRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The properties of the Run object.
-  final RunUpdate run;
-
   /// The path to the paragraph in the document tree.
   final String paragraphPath;
 
   /// Object index.
   final int index;
+
+  /// Run data.
+  final RunUpdate run;
 
   /// Original document folder.
   final String folder;
@@ -69,7 +69,7 @@ class UpdateRunRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  UpdateRunRequest(final this.name, final this.run, final this.paragraphPath, final this.index, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
+  UpdateRunRequest(final this.name, final this.paragraphPath, final this.index, final this.run, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {

@@ -57,4 +57,15 @@ class DocumentStatisticsTests
     expect(result.statData, isNotNull);
     expect(result.statData.wordCount, 10);
   }
+
+  /// Test for document classification online.
+  Future<void> testGetDocumentStatisticsOnline() async
+  {
+
+    final request = GetDocumentStatisticsOnlineRequest(
+      await context.loadBinaryFile(localFile)
+    );
+
+    await context.getApi().getDocumentStatisticsOnline(request);
+  }
 }

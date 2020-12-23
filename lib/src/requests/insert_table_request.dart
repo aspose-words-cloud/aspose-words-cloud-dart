@@ -39,7 +39,7 @@ class InsertTableRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The properties of the table.
+  /// Table parameters.
   final TableInsert table;
 
   /// The path to the node in the document tree.

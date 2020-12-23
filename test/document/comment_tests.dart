@@ -59,6 +59,18 @@ class CommentTests
     expect(result.comment.text, 'Comment 1' + '\r\n\r\n');
   }
 
+  /// Test for getting comment by specified comment's index online.
+  Future<void> testGetCommentOnline() async
+  {
+
+    final request = GetCommentOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      0
+    );
+
+    await context.getApi().getCommentOnline(request);
+  }
+
   /// Test for getting all comments from document.
   Future<void> testGetComments() async
   {
@@ -75,6 +87,17 @@ class CommentTests
     expect(result.comments.commentList, isNotNull);
     expect(result.comments.commentList.length, 1);
     expect(result.comments.commentList[0].text, 'Comment 1' + '\r\n\r\n');
+  }
+
+  /// Test for getting all comments from document online.
+  Future<void> testGetCommentsOnline() async
+  {
+
+    final request = GetCommentsOnlineRequest(
+      await context.loadBinaryFile(localFile)
+    );
+
+    await context.getApi().getCommentsOnline(request);
   }
 
   /// Test for adding comment.
@@ -115,6 +138,38 @@ class CommentTests
     expect(result.comment.rangeStart, isNotNull);
     expect(result.comment.rangeStart.node, isNotNull);
     expect(result.comment.rangeStart.node.nodeId, '0.3.0.4');
+  }
+
+  /// Test for adding comment online.
+  Future<void> testInsertCommentOnline() async
+  {
+    var requestCommentRangeStartNode = NodeLink();
+    requestCommentRangeStartNode.nodeId = '0.3.0.3';
+
+    var requestCommentRangeStart = DocumentPosition();
+    requestCommentRangeStart.node = requestCommentRangeStartNode;
+    requestCommentRangeStart.offset = 0;
+
+    var requestCommentRangeEndNode = NodeLink();
+    requestCommentRangeEndNode.nodeId = '0.3.0.3';
+
+    var requestCommentRangeEnd = DocumentPosition();
+    requestCommentRangeEnd.node = requestCommentRangeEndNode;
+    requestCommentRangeEnd.offset = 0;
+
+    var requestComment = CommentInsert();
+    requestComment.rangeStart = requestCommentRangeStart;
+    requestComment.rangeEnd = requestCommentRangeEnd;
+    requestComment.initial = 'IA';
+    requestComment.author = 'Imran Anwar';
+    requestComment.text = 'A new Comment';
+
+    final request = InsertCommentOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      requestComment
+    );
+
+    await context.getApi().insertCommentOnline(request);
   }
 
   /// Test for updating comment.
@@ -158,6 +213,39 @@ class CommentTests
     expect(result.comment.rangeStart.node.nodeId, '0.3.0.1');
   }
 
+  /// Test for updating comment online.
+  Future<void> testUpdateCommentOnline() async
+  {
+    var requestCommentRangeStartNode = NodeLink();
+    requestCommentRangeStartNode.nodeId = '0.3.0';
+
+    var requestCommentRangeStart = DocumentPosition();
+    requestCommentRangeStart.node = requestCommentRangeStartNode;
+    requestCommentRangeStart.offset = 0;
+
+    var requestCommentRangeEndNode = NodeLink();
+    requestCommentRangeEndNode.nodeId = '0.3.0';
+
+    var requestCommentRangeEnd = DocumentPosition();
+    requestCommentRangeEnd.node = requestCommentRangeEndNode;
+    requestCommentRangeEnd.offset = 0;
+
+    var requestComment = CommentUpdate();
+    requestComment.rangeStart = requestCommentRangeStart;
+    requestComment.rangeEnd = requestCommentRangeEnd;
+    requestComment.initial = 'IA';
+    requestComment.author = 'Imran Anwar';
+    requestComment.text = 'A new Comment';
+
+    final request = UpdateCommentOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      0,
+      requestComment
+    );
+
+    await context.getApi().updateCommentOnline(request);
+  }
+
   /// A test for DeleteComment.
   Future<void> testDeleteComment() async
   {
@@ -172,5 +260,17 @@ class CommentTests
     );
 
     await context.getApi().deleteComment(request);
+  }
+
+  /// A test for DeleteComment online.
+  Future<void> testDeleteCommentOnline() async
+  {
+
+    final request = DeleteCommentOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      0
+    );
+
+    await context.getApi().deleteCommentOnline(request);
   }
 }

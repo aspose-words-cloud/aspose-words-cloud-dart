@@ -39,11 +39,11 @@ class UpdateParagraphFormatRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The formatting properties of a paragraph.
-  final ParagraphFormatUpdate dto;
-
   /// Object index.
   final int index;
+
+  /// Dto for paragraph format update.
+  final ParagraphFormatUpdate paragraphFormatDto;
 
   /// The path to the node in the document tree.
   final String nodePath;
@@ -69,7 +69,7 @@ class UpdateParagraphFormatRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  UpdateParagraphFormatRequest(final this.name, final this.dto, final this.index, {final this.nodePath, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
+  UpdateParagraphFormatRequest(final this.name, final this.index, final this.paragraphFormatDto, {final this.nodePath, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
@@ -115,11 +115,11 @@ class UpdateParagraphFormatRequest implements RequestBase {
       _queryParams['revisionDateTime'] = apiClient.serializeToString(revisionDateTime);
     }
 
-    if (dto != null) {
-      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(dto), 'application/json'));
+    if (paragraphFormatDto != null) {
+      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(paragraphFormatDto), 'application/json'));
     }
     else {
-      throw ApiException(400, 'Parameter dto is required.');
+      throw ApiException(400, 'Parameter paragraphFormatDto is required.');
     }
 
     var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');

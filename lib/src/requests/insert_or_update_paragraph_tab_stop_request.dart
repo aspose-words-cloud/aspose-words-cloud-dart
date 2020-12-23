@@ -39,11 +39,11 @@ class InsertOrUpdateParagraphTabStopRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The properties of the paragraph tab stop.
-  final TabStopInsert dto;
-
   /// Object index.
   final int index;
+
+  /// TabStopInsert dto.
+  final TabStopInsert tabStopInsertDto;
 
   /// The path to the node in the document tree.
   final String nodePath;
@@ -63,7 +63,7 @@ class InsertOrUpdateParagraphTabStopRequest implements RequestBase {
   /// Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
   final String destFileName;
 
-  InsertOrUpdateParagraphTabStopRequest(final this.name, final this.dto, final this.index, {final this.nodePath, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName});
+  InsertOrUpdateParagraphTabStopRequest(final this.name, final this.index, final this.tabStopInsertDto, {final this.nodePath, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
@@ -101,11 +101,11 @@ class InsertOrUpdateParagraphTabStopRequest implements RequestBase {
       _queryParams['destFileName'] = apiClient.serializeToString(destFileName);
     }
 
-    if (dto != null) {
-      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(dto), 'application/json'));
+    if (tabStopInsertDto != null) {
+      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(tabStopInsertDto), 'application/json'));
     }
     else {
-      throw ApiException(400, 'Parameter dto is required.');
+      throw ApiException(400, 'Parameter tabStopInsertDto is required.');
     }
 
     var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');

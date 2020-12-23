@@ -39,7 +39,7 @@ class SaveAsRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The save options.
+  /// Save options.
   final SaveOptionsData saveOptionsData;
 
   /// Original document folder.

@@ -39,7 +39,7 @@ class InsertPageNumbersRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The page numbers settings.
+  /// Page number dto.
   final PageNumber pageNumber;
 
   /// Original document folder.

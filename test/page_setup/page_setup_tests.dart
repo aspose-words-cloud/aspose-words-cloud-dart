@@ -61,6 +61,18 @@ class PageSetupTests
     expect(result.pageSetup.lineStartingNumber, 1);
   }
 
+  /// Test for getting page settings online.
+  Future<void> testGetSectionPageSetupOnline() async
+  {
+
+    final request = GetSectionPageSetupOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      0
+    );
+
+    await context.getApi().getSectionPageSetupOnline(request);
+  }
+
   /// Test for updating page settings.
   Future<void> testUpdateSectionPageSetup() async
   {
@@ -86,6 +98,24 @@ class PageSetupTests
 
   }
 
+  /// Test for updating page settings online.
+  Future<void> testUpdateSectionPageSetupOnline() async
+  {
+    var requestPageSetup = PageSetup();
+    requestPageSetup.rtlGutter = true;
+    requestPageSetup.leftMargin = 10;
+    requestPageSetup.orientation = PageSetup_OrientationEnum.landscape;
+    requestPageSetup.paperSize = PageSetup_PaperSizeEnum.a5;
+
+    final request = UpdateSectionPageSetupOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      0,
+      requestPageSetup
+    );
+
+    await context.getApi().updateSectionPageSetupOnline(request);
+  }
+
   /// Test for page rendering.
   Future<void> testGetRenderPage() async
   {
@@ -100,5 +130,18 @@ class PageSetupTests
     );
 
     await context.getApi().renderPage(request);
+  }
+
+  /// Test for page rendering.
+  Future<void> testGetRenderPageOnline() async
+  {
+
+    final request = RenderPageOnlineRequest(
+      await context.loadBinaryFile(localTextFile),
+      1,
+      'bmp'
+    );
+
+    await context.getApi().renderPageOnline(request);
   }
 }

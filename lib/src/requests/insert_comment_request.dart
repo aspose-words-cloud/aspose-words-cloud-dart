@@ -39,7 +39,7 @@ class InsertCommentRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The properties of the comment.
+  /// Comment data.
   final CommentInsert comment;
 
   /// Original document folder.

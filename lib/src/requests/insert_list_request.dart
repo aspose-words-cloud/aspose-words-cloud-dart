@@ -39,7 +39,7 @@ class InsertListRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The properties of the list.
+  /// List object.
   final ListInsert listInsert;
 
   /// Original document folder.

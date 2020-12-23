@@ -39,7 +39,7 @@ class InsertFormFieldRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The properties of the form field.
+  /// From field data.
   final FormField formField;
 
   /// The path to the node in the document tree.

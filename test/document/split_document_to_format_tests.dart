@@ -62,4 +62,19 @@ class SplitDocumentToFormatTests
     expect(result.splitResult.pages, isNotNull);
     expect(result.splitResult.pages.length, 2);
   }
+
+  /// Test for document splitting online.
+  Future<void> testSplitDocumentOnline() async
+  {
+
+    final request = SplitDocumentOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'text',
+      destFileName: context.baseTestOutPath + '/TestSplitDocument.text',
+      from: 1,
+      to: 2
+    );
+
+    await context.getApi().splitDocumentOnline(request);
+  }
 }

@@ -39,11 +39,11 @@ class UpdateFieldRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The properties of the field.
-  final FieldUpdate field;
-
   /// Object index.
   final int index;
+
+  /// Field data.
+  final FieldUpdate field;
 
   /// The path to the node in the document tree.
   final String nodePath;
@@ -69,7 +69,7 @@ class UpdateFieldRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  UpdateFieldRequest(final this.name, final this.field, final this.index, {final this.nodePath, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
+  UpdateFieldRequest(final this.name, final this.index, final this.field, {final this.nodePath, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {

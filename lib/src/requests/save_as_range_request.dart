@@ -42,7 +42,7 @@ class SaveAsRangeRequest implements RequestBase {
   /// The range start identifier.
   final String rangeStartIdentifier;
 
-  /// The parameters of a new document.
+  /// Parameters of a new document.
   final RangeDocument documentParameters;
 
   /// The range end identifier.

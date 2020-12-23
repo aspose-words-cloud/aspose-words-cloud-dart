@@ -39,7 +39,7 @@ class InsertFootnoteRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The properties of the footnote.
+  /// Footnote data.
   final FootnoteInsert footnoteDto;
 
   /// The path to the node in the document tree.

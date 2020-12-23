@@ -39,7 +39,7 @@ class SaveAsTiffRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The save options to TIFF format.
+  /// Tiff save options.
   final TiffSaveOptionsData saveOptions;
 
   /// Original document folder.

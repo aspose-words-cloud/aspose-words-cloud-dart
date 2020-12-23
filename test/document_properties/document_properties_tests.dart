@@ -62,6 +62,17 @@ class DocumentPropertiesTests
     expect(result.documentProperties.list[0].value, '');
   }
 
+  /// Test for getting document properties online.
+  Future<void> testGetDocumentPropertiesOnline() async
+  {
+
+    final request = GetDocumentPropertiesOnlineRequest(
+      await context.loadBinaryFile(localFile)
+    );
+
+    await context.getApi().getDocumentPropertiesOnline(request);
+  }
+
   /// A test for GetDocumentProperty.
   Future<void> testGetDocumentProperty() async
   {
@@ -80,6 +91,18 @@ class DocumentPropertiesTests
     expect(result.documentProperty.value, '');
   }
 
+  /// A test for GetDocumentProperty online.
+  Future<void> testGetDocumentPropertyOnline() async
+  {
+
+    final request = GetDocumentPropertyOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'Author'
+    );
+
+    await context.getApi().getDocumentPropertyOnline(request);
+  }
+
   /// Test for deleting document property.
   Future<void> testDeleteDocumentProperty() async
   {
@@ -94,6 +117,18 @@ class DocumentPropertiesTests
     );
 
     await context.getApi().deleteDocumentProperty(request);
+  }
+
+  /// Test for deleting document property online.
+  Future<void> testDeleteDocumentPropertyOnline() async
+  {
+
+    final request = DeleteDocumentPropertyOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'testProp'
+    );
+
+    await context.getApi().deleteDocumentPropertyOnline(request);
   }
 
   /// Test for updating document property.
@@ -116,5 +151,20 @@ class DocumentPropertiesTests
     expect(result.documentProperty, isNotNull);
     expect(result.documentProperty.name, 'AsposeAuthor');
     expect(result.documentProperty.value, 'Imran Anwar');
+  }
+
+  /// Test for updating document property online.
+  Future<void> testUpdateDocumentPropertyOnline() async
+  {
+    var requestProperty = DocumentPropertyCreateOrUpdate();
+    requestProperty.value = 'Imran Anwar';
+
+    final request = CreateOrUpdateDocumentPropertyOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'AsposeAuthor',
+      requestProperty
+    );
+
+    await context.getApi().createOrUpdateDocumentPropertyOnline(request);
   }
 }

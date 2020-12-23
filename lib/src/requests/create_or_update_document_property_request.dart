@@ -42,7 +42,7 @@ class CreateOrUpdateDocumentPropertyRequest implements RequestBase {
   /// The name of the property.
   final String propertyName;
 
-  /// The property with a new value.
+  /// The property with new value.
   final DocumentPropertyCreateOrUpdate property;
 
   /// Original document folder.

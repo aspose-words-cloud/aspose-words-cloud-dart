@@ -41,19 +41,19 @@ class ConvertDocumentRequest implements RequestBase {
   /// The format to convert.
   final String format;
 
-  /// Original document storage.
-  final String storage;
-
   /// The path to the output document on a local storage.
   final String outPath;
 
   /// The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "sourceFilename" will be used instead.
   final String fileNameFieldValue;
 
+  /// Original document storage.
+  final String storage;
+
   /// Folder in filestorage with custom fonts.
   final String fontsLocation;
 
-  ConvertDocumentRequest(final this.document, final this.format, {final this.storage, final this.outPath, final this.fileNameFieldValue, final this.fontsLocation});
+  ConvertDocumentRequest(final this.document, final this.format, {final this.outPath, final this.fileNameFieldValue, final this.storage, final this.fontsLocation});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
@@ -68,16 +68,16 @@ class ConvertDocumentRequest implements RequestBase {
       throw ApiException(400, 'Parameter format is required.');
     }
 
-    if (storage != null) {
-      _queryParams['storage'] = apiClient.serializeToString(storage);
-    }
-
     if (outPath != null) {
       _queryParams['outPath'] = apiClient.serializeToString(outPath);
     }
 
     if (fileNameFieldValue != null) {
       _queryParams['fileNameFieldValue'] = apiClient.serializeToString(fileNameFieldValue);
+    }
+
+    if (storage != null) {
+      _queryParams['storage'] = apiClient.serializeToString(storage);
     }
 
     if (fontsLocation != null) {

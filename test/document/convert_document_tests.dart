@@ -63,6 +63,22 @@ class ConvertDocumentTests
     expect(result.saveResult.destDocument, isNotNull);
   }
 
+  /// Test for converting document online to one of the available formats.
+  Future<void> testSaveAsOnline() async
+  {
+    final localName = 'test_multi_pages.docx';
+    var requestSaveOptionsData = SaveOptionsData();
+    requestSaveOptionsData.saveFormat = 'pdf';
+    requestSaveOptionsData.fileName = context.baseTestOutPath + '/TestSaveAs.pdf';
+
+    final request = SaveAsOnlineRequest(
+      await context.loadBinaryFile('Common/' + localName),
+      requestSaveOptionsData
+    );
+
+    await context.getApi().saveAsOnline(request);
+  }
+
   /// Test for converting document to one of the available formats.
   Future<void> testSaveAsDocx() async
   {
@@ -103,6 +119,22 @@ class ConvertDocumentTests
     var result = await context.getApi().saveAsTiff(request);
     expect(result.saveResult, isNotNull);
     expect(result.saveResult.destDocument, isNotNull);
+  }
+
+  /// Test for converting document to one of the available formats.
+  Future<void> testSaveAsTiffOnline() async
+  {
+    final localName = 'test_multi_pages.docx';
+    var requestSaveOptions = TiffSaveOptionsData();
+    requestSaveOptions.saveFormat = 'tiff';
+    requestSaveOptions.fileName = context.baseTestOutPath + '/abc.tiff';
+
+    final request = SaveAsTiffOnlineRequest(
+      await context.loadBinaryFile('Common/' + localName),
+      requestSaveOptions
+    );
+
+    await context.getApi().saveAsTiffOnline(request);
   }
 
   /// A test for ConvertDocument.

@@ -68,4 +68,25 @@ class CompareDocumentTests
     expect(result.document, isNotNull);
     expect(result.document.fileName, 'TestCompareDocumentOut.doc');
   }
+
+  /// Test for document comparison online.
+  Future<void> testCompareDocumentOnline() async
+  {
+    final localName1 = 'compareTestDoc1.doc';
+    final localName2 = 'compareTestDoc2.doc';
+    final remoteName2 = 'TestCompareDocument2.doc';
+    await context.uploadFile(localFolder + '/' + localName2, remoteFolder + '/' + remoteName2);
+    var requestCompareData = CompareData();
+    requestCompareData.author = 'author';
+    requestCompareData.comparingWithDocument = remoteFolder + '/' + remoteName2;
+    requestCompareData.dateTime = DateTime(2015, 10, 26, 0, 0, 0);
+
+    final request = CompareDocumentOnlineRequest(
+      await context.loadBinaryFile(localFolder + '/' + localName1),
+      requestCompareData,
+      destFileName: context.baseTestOutPath + '/TestCompareDocumentOut.doc'
+    );
+
+    await context.getApi().compareDocumentOnline(request);
+  }
 }

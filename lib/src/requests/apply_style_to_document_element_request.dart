@@ -39,11 +39,11 @@ class ApplyStyleToDocumentElementRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The style to apply.
-  final StyleApply styleApply;
-
   /// The path to the node in the document tree, that supports styles: ParagraphFormat, List, ListLevel, Table.
   final String styledNodePath;
+
+  /// Style to apply.
+  final StyleApply styleApply;
 
   /// Original document folder.
   final String folder;
@@ -66,7 +66,7 @@ class ApplyStyleToDocumentElementRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  ApplyStyleToDocumentElementRequest(final this.name, final this.styleApply, final this.styledNodePath, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
+  ApplyStyleToDocumentElementRequest(final this.name, final this.styledNodePath, final this.styleApply, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {

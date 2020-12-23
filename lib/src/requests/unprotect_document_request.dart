@@ -39,7 +39,7 @@ class UnprotectDocumentRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The protection settings.
+  /// Protection request.
   final ProtectionRequest protectionRequest;
 
   /// Original document folder.

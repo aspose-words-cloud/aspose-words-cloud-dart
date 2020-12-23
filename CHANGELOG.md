@@ -1,3 +1,7 @@
+## [20.12.0] - Aspose Words Cloud for Dart 20.12 Release Notes
+
+
+
 ## [20.11.0] - Aspose Words Cloud for Dart 20.11 Release Notes
 
 - In configuration json file appSid / appKey has been replaced to clientId / clientSecret.

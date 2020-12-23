@@ -39,11 +39,11 @@ class UpdateFootnoteRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The properties of the footnote.
-  final FootnoteUpdate footnoteDto;
-
   /// Object index.
   final int index;
+
+  /// Footnote data.
+  final FootnoteUpdate footnoteDto;
 
   /// The path to the node in the document tree.
   final String nodePath;
@@ -69,7 +69,7 @@ class UpdateFootnoteRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  UpdateFootnoteRequest(final this.name, final this.footnoteDto, final this.index, {final this.nodePath, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
+  UpdateFootnoteRequest(final this.name, final this.index, final this.footnoteDto, {final this.nodePath, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {

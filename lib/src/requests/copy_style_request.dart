@@ -39,7 +39,7 @@ class CopyStyleRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The properties of the style.
+  /// Style to copy.
   final StyleCopy styleCopy;
 
   /// Original document folder.

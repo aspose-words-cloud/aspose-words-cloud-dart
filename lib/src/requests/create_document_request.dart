@@ -36,16 +36,16 @@ import '../api_request_part.dart';
 
 /// Request model for CreateDocument operation.
 class CreateDocumentRequest implements RequestBase {
-  /// Original document storage.
-  final String storage;
-
   /// The filename of the document.
   final String fileName;
 
   /// The path to the document folder.
   final String folder;
 
-  CreateDocumentRequest({final this.storage, final this.fileName, final this.folder});
+  /// Original document storage.
+  final String storage;
+
+  CreateDocumentRequest({final this.fileName, final this.folder, final this.storage});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
@@ -53,16 +53,16 @@ class CreateDocumentRequest implements RequestBase {
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
-    if (storage != null) {
-      _queryParams['storage'] = apiClient.serializeToString(storage);
-    }
-
     if (fileName != null) {
       _queryParams['fileName'] = apiClient.serializeToString(fileName);
     }
 
     if (folder != null) {
       _queryParams['folder'] = apiClient.serializeToString(folder);
+    }
+
+    if (storage != null) {
+      _queryParams['storage'] = apiClient.serializeToString(storage);
     }
 
     var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');

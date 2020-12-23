@@ -39,7 +39,7 @@ class InsertWatermarkTextRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The watermark text to insert.
+  /// The watermark data.
   final WatermarkText watermarkText;
 
   /// Original document folder.

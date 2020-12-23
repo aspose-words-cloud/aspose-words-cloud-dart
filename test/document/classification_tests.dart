@@ -74,4 +74,16 @@ class ClassificationTests
     expect(result.bestResults, isNotNull);
     expect(result.bestResults.length, 3);
   }
+
+  /// Test for document classification online.
+  Future<void> testClassifyDocumentOnline() async
+  {
+
+    final request = ClassifyDocumentOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      bestClassesCount: '3'
+    );
+
+    await context.getApi().classifyDocumentOnline(request);
+  }
 }

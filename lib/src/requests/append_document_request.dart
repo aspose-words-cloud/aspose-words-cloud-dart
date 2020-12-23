@@ -39,7 +39,7 @@ class AppendDocumentRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The collection of documents to append.
+  /// <see cref="DocumentEntryList"/> with a list of documents to append.
   final DocumentEntryList documentList;
 
   /// Original document folder.
