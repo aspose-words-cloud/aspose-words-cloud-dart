@@ -63,6 +63,27 @@ class DocumentProtectionTests
     expect(result.protectionData.protectionType, 'ReadOnly');
   }
 
+  /// Test for changing document protection.
+  Future<void> testChangeDocumentProtection() async
+  {
+    final localFilePath = 'DocumentActions/DocumentProtection/SampleProtectedBlankWordDocument.docx';
+    final remoteFileName = 'TestChangeDocumentProtection.docx';
+    await context.uploadFile(localFilePath, remoteDataFolder + '/' + remoteFileName);
+    var requestProtectionRequest = ProtectionRequest();
+    requestProtectionRequest.password = 'aspose';
+    requestProtectionRequest.protectionType = 'AllowOnlyComments';
+
+    final request = ProtectDocumentRequest(
+      remoteFileName,
+      requestProtectionRequest,
+      folder: remoteDataFolder
+    );
+
+    var result = await context.getApi().protectDocument(request);
+    expect(result.protectionData, isNotNull);
+    expect(result.protectionData.protectionType, 'AllowOnlyComments');
+  }
+
   /// Test for getting document protection.
   Future<void> testGetDocumentProtection() async
   {
