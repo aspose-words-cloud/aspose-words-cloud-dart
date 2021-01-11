@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="macros_tests.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -53,5 +53,16 @@ class MacrosTests
     );
 
     await context.getApi().deleteMacros(request);
+  }
+
+  /// Test for deleting macros online.
+  Future<void> testDeleteMacrosOnline() async
+  {
+
+    final request = DeleteMacrosOnlineRequest(
+      await context.loadBinaryFile(localFile)
+    );
+
+    await context.getApi().deleteMacrosOnline(request);
   }
 }

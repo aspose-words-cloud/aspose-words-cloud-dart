@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="footnote_tests.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -64,6 +64,22 @@ class FootnoteTests
     expect(result.footnote.text, ' test endnote' + '\r\n');
   }
 
+  /// Test for adding footnote online.
+  Future<void> testInsertFootnoteOnline() async
+  {
+    var requestFootnoteDto = FootnoteInsert();
+    requestFootnoteDto.footnoteType = FootnoteBase_FootnoteTypeEnum.endnote;
+    requestFootnoteDto.text = 'test endnote';
+
+    final request = InsertFootnoteOnlineRequest(
+      await context.loadBinaryFile(footnoteFolder + '/Footnote.doc'),
+      requestFootnoteDto,
+      nodePath: ''
+    );
+
+    await context.getApi().insertFootnoteOnline(request);
+  }
+
   /// Test for adding footnote without node path.
   Future<void> testInsertFootnoteWithoutNodePath() async
   {
@@ -101,6 +117,19 @@ class FootnoteTests
     await context.getApi().deleteFootnote(request);
   }
 
+  /// Test for deleting footnote online.
+  Future<void> testDeleteFootnoteOnline() async
+  {
+
+    final request = DeleteFootnoteOnlineRequest(
+      await context.loadBinaryFile(footnoteFolder + '/Footnote.doc'),
+      0,
+      nodePath: ''
+    );
+
+    await context.getApi().deleteFootnoteOnline(request);
+  }
+
   /// Test for deleting footnote without node path.
   Future<void> testDeleteFootnoteWithoutNodePath() async
   {
@@ -133,6 +162,18 @@ class FootnoteTests
     expect(result.footnotes.list, isNotNull);
     expect(result.footnotes.list.length, 6);
     expect(result.footnotes.list[0].text, ' Footnote 1.' + '\r\n');
+  }
+
+  /// Test for getting footnotes online.
+  Future<void> testGetFootnotesOnline() async
+  {
+
+    final request = GetFootnotesOnlineRequest(
+      await context.loadBinaryFile(footnoteFolder + '/Footnote.doc'),
+      nodePath: ''
+    );
+
+    await context.getApi().getFootnotesOnline(request);
   }
 
   /// Test for getting footnotes without node path.
@@ -171,6 +212,19 @@ class FootnoteTests
     expect(result.footnote.text, ' Footnote 1.' + '\r\n');
   }
 
+  /// Test for getting footnote online.
+  Future<void> testGetFootnoteOnline() async
+  {
+
+    final request = GetFootnoteOnlineRequest(
+      await context.loadBinaryFile(footnoteFolder + '/Footnote.doc'),
+      0,
+      nodePath: ''
+    );
+
+    await context.getApi().getFootnoteOnline(request);
+  }
+
   /// Test for getting footnote without node path.
   Future<void> testGetFootnoteWithoutNodePath() async
   {
@@ -198,8 +252,8 @@ class FootnoteTests
 
     final request = UpdateFootnoteRequest(
       remoteFileName,
-      requestFootnoteDto,
       0,
+      requestFootnoteDto,
       nodePath: '',
       folder: remoteDataFolder
     );
@@ -207,6 +261,22 @@ class FootnoteTests
     var result = await context.getApi().updateFootnote(request);
     expect(result.footnote, isNotNull);
     expect(result.footnote.text, ' new text is here' + '\r\n');
+  }
+
+  /// Test for updating footnote online.
+  Future<void> testUpdateFootnoteOnline() async
+  {
+    var requestFootnoteDto = FootnoteUpdate();
+    requestFootnoteDto.text = 'new text is here';
+
+    final request = UpdateFootnoteOnlineRequest(
+      await context.loadBinaryFile(footnoteFolder + '/Footnote.doc'),
+      0,
+      requestFootnoteDto,
+      nodePath: ''
+    );
+
+    await context.getApi().updateFootnoteOnline(request);
   }
 
   /// Test for updating footnote without node path.
@@ -219,8 +289,8 @@ class FootnoteTests
 
     final request = UpdateFootnoteRequest(
       remoteFileName,
-      requestFootnoteDto,
       0,
+      requestFootnoteDto,
       folder: remoteDataFolder
     );
 

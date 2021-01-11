@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="update_style_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,11 +39,11 @@ class UpdateStyleRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The properties of the style.
-  final StyleUpdate styleUpdate;
-
   /// The name of the style.
   final String styleName;
+
+  /// Style properties to update.
+  final StyleUpdate styleUpdate;
 
   /// Original document folder.
   final String folder;
@@ -66,7 +66,7 @@ class UpdateStyleRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  UpdateStyleRequest(final this.name, final this.styleUpdate, final this.styleName, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
+  UpdateStyleRequest(final this.name, final this.styleName, final this.styleUpdate, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {

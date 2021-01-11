@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="insert_list_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,7 +39,7 @@ class InsertListRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The properties of the list.
+  /// List object.
   final ListInsert listInsert;
 
   /// Original document folder.

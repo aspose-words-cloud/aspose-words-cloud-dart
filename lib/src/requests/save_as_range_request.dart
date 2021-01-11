@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="save_as_range_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -42,7 +42,7 @@ class SaveAsRangeRequest implements RequestBase {
   /// The range start identifier.
   final String rangeStartIdentifier;
 
-  /// The parameters of a new document.
+  /// Parameters of a new document.
   final RangeDocument documentParameters;
 
   /// The range end identifier.

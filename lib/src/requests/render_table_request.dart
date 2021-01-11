@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="render_table_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -59,10 +59,13 @@ class RenderTableRequest implements RequestBase {
   /// Password for opening an encrypted document.
   final String password;
 
+  /// Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+  final String destFileName;
+
   /// Folder in filestorage with custom fonts.
   final String fontsLocation;
 
-  RenderTableRequest(final this.name, final this.format, final this.index, {final this.nodePath, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.fontsLocation});
+  RenderTableRequest(final this.name, final this.format, final this.index, {final this.nodePath, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.fontsLocation});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
@@ -103,13 +106,17 @@ class RenderTableRequest implements RequestBase {
       _queryParams['password'] = apiClient.serializeToString(password);
     }
 
+    if (destFileName != null) {
+      _queryParams['destFileName'] = apiClient.serializeToString(destFileName);
+    }
+
     if (fontsLocation != null) {
       _queryParams['fontsLocation'] = apiClient.serializeToString(fontsLocation);
     }
 
     var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('GET', _url, _headers, _body);
+    return ApiRequestData('POST', _url, _headers, _body);
   }
 
   @override

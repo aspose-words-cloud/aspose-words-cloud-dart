@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="update_form_field_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,11 +39,11 @@ class UpdateFormFieldRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The new form field properties.
-  final FormField formField;
-
   /// Object index.
   final int index;
+
+  /// From field data.
+  final FormField formField;
 
   /// The path to the node in the document tree.
   final String nodePath;
@@ -69,7 +69,7 @@ class UpdateFormFieldRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  UpdateFormFieldRequest(final this.name, final this.formField, final this.index, {final this.nodePath, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
+  UpdateFormFieldRequest(final this.name, final this.index, final this.formField, {final this.nodePath, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
@@ -124,7 +124,7 @@ class UpdateFormFieldRequest implements RequestBase {
 
     var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('PUT', _url, _headers, _body);
+    return ApiRequestData('POST', _url, _headers, _body);
   }
 
   @override

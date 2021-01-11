@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="append_document_tests.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -67,5 +67,28 @@ class AppendDocumentTests
     var result = await context.getApi().appendDocument(request);
     expect(result.document, isNotNull);
     expect(result.document.fileName, 'TestAppendDocument.docx');
+  }
+
+  /// Test for appending document online.
+  Future<void> testAppendDocumentOnline() async
+  {
+    final remoteFileName = 'TestAppendDocument.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    var requestDocumentListDocumentEntries0 = DocumentEntry();
+    requestDocumentListDocumentEntries0.href = remoteDataFolder + '/' + remoteFileName;
+    requestDocumentListDocumentEntries0.importFormatMode = 'KeepSourceFormatting';
+
+    var requestDocumentListDocumentEntries = [
+      requestDocumentListDocumentEntries0];
+
+    var requestDocumentList = DocumentEntryList();
+    requestDocumentList.documentEntries = requestDocumentListDocumentEntries;
+
+    final request = AppendDocumentOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      requestDocumentList
+    );
+
+    await context.getApi().appendDocumentOnline(request);
   }
 }

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="protect_document_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,7 +39,7 @@ class ProtectDocumentRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The protection settings.
+  /// Protection request.
   final ProtectionRequest protectionRequest;
 
   /// Original document folder.

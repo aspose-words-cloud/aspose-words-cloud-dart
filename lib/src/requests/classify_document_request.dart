@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="classify_document_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -36,8 +36,8 @@ import '../api_request_part.dart';
 
 /// Request model for ClassifyDocument operation.
 class ClassifyDocumentRequest implements RequestBase {
-  /// The filename of the input document.
-  final String documentName;
+  /// The document name.
+  final String name;
 
   /// Original document folder.
   final String folder;
@@ -57,18 +57,18 @@ class ClassifyDocumentRequest implements RequestBase {
   /// The taxonomy to use.
   final String taxonomy;
 
-  ClassifyDocumentRequest(final this.documentName, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.bestClassesCount, final this.taxonomy});
+  ClassifyDocumentRequest(final this.name, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.bestClassesCount, final this.taxonomy});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var _path = '/words/{documentName}/classify';
+    var _path = '/words/{name}/classify';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
-    if (documentName == null) {
-      throw ApiException(400, 'Parameter documentName is required.');
+    if (name == null) {
+      throw ApiException(400, 'Parameter name is required.');
     }
-    _path = _path.replaceAll('{documentName}', apiClient.serializeToString(documentName));
+    _path = _path.replaceAll('{name}', apiClient.serializeToString(name));
     if (folder != null) {
       _queryParams['folder'] = apiClient.serializeToString(folder);
     }

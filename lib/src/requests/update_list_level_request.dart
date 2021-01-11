@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="update_list_level_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,14 +39,14 @@ class UpdateListLevelRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The properties of the List element.
-  final ListLevelUpdate listUpdate;
-
   /// The list Id.
   final int listId;
 
   /// The list level.
   final int listLevel;
+
+  /// List object.
+  final ListLevelUpdate listUpdate;
 
   /// Original document folder.
   final String folder;
@@ -69,7 +69,7 @@ class UpdateListLevelRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  UpdateListLevelRequest(final this.name, final this.listUpdate, final this.listId, final this.listLevel, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
+  UpdateListLevelRequest(final this.name, final this.listId, final this.listLevel, final this.listUpdate, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {

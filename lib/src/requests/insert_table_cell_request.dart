@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="insert_table_cell_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,11 +39,11 @@ class InsertTableCellRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The properties of the cell.
-  final TableCellInsert cell;
-
   /// The path to the table row in the document tree.
   final String tableRowPath;
+
+  /// Table cell parameters.
+  final TableCellInsert cell;
 
   /// Original document folder.
   final String folder;
@@ -66,7 +66,7 @@ class InsertTableCellRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  InsertTableCellRequest(final this.name, final this.cell, final this.tableRowPath, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
+  InsertTableCellRequest(final this.name, final this.tableRowPath, final this.cell, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {

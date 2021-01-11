@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="update_section_page_setup_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -42,7 +42,7 @@ class UpdateSectionPageSetupRequest implements RequestBase {
   /// The index of the section.
   final int sectionIndex;
 
-  /// The properties of the page setup.
+  /// Page setup properties dto.
   final PageSetup pageSetup;
 
   /// Original document folder.

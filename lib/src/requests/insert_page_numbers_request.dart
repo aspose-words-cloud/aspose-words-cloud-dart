@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="insert_page_numbers_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,7 +39,7 @@ class InsertPageNumbersRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The page numbers settings.
+  /// Page number dto.
   final PageNumber pageNumber;
 
   /// Original document folder.

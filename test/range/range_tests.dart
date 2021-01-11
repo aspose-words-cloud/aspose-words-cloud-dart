@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="range_tests.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -59,6 +59,19 @@ class RangeTests
     expect(result.text, 'This is HEADER ');
   }
 
+  /// Test for getting the text from range online.
+  Future<void> testGetRangeTextOnline() async
+  {
+
+    final request = GetRangeTextOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'id0.0.0',
+      rangeEndIdentifier: 'id0.0.1'
+    );
+
+    await context.getApi().getRangeTextOnline(request);
+  }
+
   /// Test for removing the text for range.
   Future<void> testRemoveRange() async
   {
@@ -72,9 +85,20 @@ class RangeTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().removeRange(request);
-    expect(result.document, isNotNull);
-    expect(result.document.fileName, 'TestRemoveRange.docx');
+    await context.getApi().removeRange(request);
+  }
+
+  /// Test for removing the text for range online.
+  Future<void> testRemoveRangeOnline() async
+  {
+
+    final request = RemoveRangeOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'id0.0.0',
+      rangeEndIdentifier: 'id0.0.1'
+    );
+
+    await context.getApi().removeRangeOnline(request);
   }
 
   /// Test for saving a range as a new document.
@@ -98,6 +122,22 @@ class RangeTests
     expect(result.document.fileName, 'NewDoc.docx');
   }
 
+  /// Test for saving a range as a new document online.
+  Future<void> testSaveAsRangeOnline() async
+  {
+    var requestDocumentParameters = RangeDocument();
+    requestDocumentParameters.documentName = remoteDataFolder + '/NewDoc.docx';
+
+    final request = SaveAsRangeOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'id0.0.0',
+      requestDocumentParameters,
+      rangeEndIdentifier: 'id0.0.1'
+    );
+
+    await context.getApi().saveAsRangeOnline(request);
+  }
+
   /// Test for replacing text in range.
   Future<void> testReplaceWithText() async
   {
@@ -117,5 +157,21 @@ class RangeTests
     var result = await context.getApi().replaceWithText(request);
     expect(result.document, isNotNull);
     expect(result.document.fileName, 'TestReplaceWithText.docx');
+  }
+
+  /// Test for replacing text in range online.
+  Future<void> testReplaceWithTextOnline() async
+  {
+    var requestRangeText = ReplaceRange();
+    requestRangeText.text = 'Replaced header';
+
+    final request = ReplaceWithTextOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'id0.0.0',
+      requestRangeText,
+      rangeEndIdentifier: 'id0.0.1'
+    );
+
+    await context.getApi().replaceWithTextOnline(request);
   }
 }

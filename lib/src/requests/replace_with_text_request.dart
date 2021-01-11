@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="replace_with_text_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -42,7 +42,7 @@ class ReplaceWithTextRequest implements RequestBase {
   /// The range start identifier.
   final String rangeStartIdentifier;
 
-  /// The text replacement properties.
+  /// Model with text for replacement.
   final ReplaceRange rangeText;
 
   /// The range end identifier.

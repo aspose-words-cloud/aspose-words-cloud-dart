@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="classification_tests.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -73,5 +73,17 @@ class ClassificationTests
     expect(result.bestClassName, 'Hobbies_&_Interests');
     expect(result.bestResults, isNotNull);
     expect(result.bestResults.length, 3);
+  }
+
+  /// Test for document classification online.
+  Future<void> testClassifyDocumentOnline() async
+  {
+
+    final request = ClassifyDocumentOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      bestClassesCount: '3'
+    );
+
+    await context.getApi().classifyDocumentOnline(request);
   }
 }

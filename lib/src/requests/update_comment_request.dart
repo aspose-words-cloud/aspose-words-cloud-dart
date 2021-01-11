@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="update_comment_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -42,7 +42,7 @@ class UpdateCommentRequest implements RequestBase {
   /// The index of the comment.
   final int commentIndex;
 
-  /// The properties of the comment.
+  /// Comment data.
   final CommentUpdate comment;
 
   /// Original document folder.

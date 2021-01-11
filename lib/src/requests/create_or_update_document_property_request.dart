@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="create_or_update_document_property_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -42,7 +42,7 @@ class CreateOrUpdateDocumentPropertyRequest implements RequestBase {
   /// The name of the property.
   final String propertyName;
 
-  /// The property with a new value.
+  /// The property with new value.
   final DocumentPropertyCreateOrUpdate property;
 
   /// Original document folder.

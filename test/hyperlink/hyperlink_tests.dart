@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="hyperlink_tests.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -59,6 +59,18 @@ class HyperlinkTests
     expect(result.hyperlink.displayText, 'Aspose');
   }
 
+  /// Test for getting hyperlink by specified index online.
+  Future<void> testGetDocumentHyperlinkByIndexOnline() async
+  {
+
+    final request = GetDocumentHyperlinkByIndexOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      0
+    );
+
+    await context.getApi().getDocumentHyperlinkByIndexOnline(request);
+  }
+
   /// Test for getting hyperlinks.
   Future<void> testGetDocumentHyperlinks() async
   {
@@ -75,5 +87,16 @@ class HyperlinkTests
     expect(result.hyperlinks.hyperlinkList, isNotNull);
     expect(result.hyperlinks.hyperlinkList.length, 2);
     expect(result.hyperlinks.hyperlinkList[0].displayText, 'Aspose');
+  }
+
+  /// Test for getting hyperlinks online.
+  Future<void> testGetDocumentHyperlinksOnline() async
+  {
+
+    final request = GetDocumentHyperlinksOnlineRequest(
+      await context.loadBinaryFile(localFile)
+    );
+
+    await context.getApi().getDocumentHyperlinksOnline(request);
   }
 }

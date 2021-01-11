@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="update_run_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,14 +39,14 @@ class UpdateRunRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The properties of the Run object.
-  final RunUpdate run;
-
   /// The path to the paragraph in the document tree.
   final String paragraphPath;
 
   /// Object index.
   final int index;
+
+  /// Run data.
+  final RunUpdate run;
 
   /// Original document folder.
   final String folder;
@@ -69,7 +69,7 @@ class UpdateRunRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  UpdateRunRequest(final this.name, final this.run, final this.paragraphPath, final this.index, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
+  UpdateRunRequest(final this.name, final this.paragraphPath, final this.index, final this.run, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
@@ -128,7 +128,7 @@ class UpdateRunRequest implements RequestBase {
 
     var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('PUT', _url, _headers, _body);
+    return ApiRequestData('POST', _url, _headers, _body);
   }
 
   @override

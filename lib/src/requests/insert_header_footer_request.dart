@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="insert_header_footer_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,11 +39,11 @@ class InsertHeaderFooterRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The type of a HeaderFooter object.
-  final String headerFooterType;
-
   /// The path to the section in the document tree.
   final String sectionPath;
+
+  /// Type of header/footer.
+  final String headerFooterType;
 
   /// Original document folder.
   final String folder;
@@ -66,7 +66,7 @@ class InsertHeaderFooterRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  InsertHeaderFooterRequest(final this.name, final this.headerFooterType, final this.sectionPath, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
+  InsertHeaderFooterRequest(final this.name, final this.sectionPath, final this.headerFooterType, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
@@ -120,7 +120,7 @@ class InsertHeaderFooterRequest implements RequestBase {
 
     var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('PUT', _url, _headers, _body);
+    return ApiRequestData('POST', _url, _headers, _body);
   }
 
   @override

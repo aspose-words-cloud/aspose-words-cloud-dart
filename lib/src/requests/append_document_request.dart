@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="append_document_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,7 +39,7 @@ class AppendDocumentRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The collection of documents to append.
+  /// <see cref="DocumentEntryList"/> with a list of documents to append.
   final DocumentEntryList documentList;
 
   /// Original document folder.

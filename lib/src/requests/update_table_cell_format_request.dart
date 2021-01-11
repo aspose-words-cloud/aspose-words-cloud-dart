@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="update_table_cell_format_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,14 +39,14 @@ class UpdateTableCellFormatRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The cell format.
-  final TableCellFormat format;
-
   /// The path to the table row in the document tree.
   final String tableRowPath;
 
   /// Object index.
   final int index;
+
+  /// The properties.
+  final TableCellFormat format;
 
   /// Original document folder.
   final String folder;
@@ -69,7 +69,7 @@ class UpdateTableCellFormatRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  UpdateTableCellFormatRequest(final this.name, final this.format, final this.tableRowPath, final this.index, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
+  UpdateTableCellFormatRequest(final this.name, final this.tableRowPath, final this.index, final this.format, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
@@ -128,7 +128,7 @@ class UpdateTableCellFormatRequest implements RequestBase {
 
     var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('PUT', _url, _headers, _body);
+    return ApiRequestData('POST', _url, _headers, _body);
   }
 
   @override

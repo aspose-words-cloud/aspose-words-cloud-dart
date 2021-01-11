@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="insert_run_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -42,7 +42,7 @@ class InsertRunRequest implements RequestBase {
   /// The path to the paragraph in the document tree.
   final String paragraphPath;
 
-  /// The properties of the Run object.
+  /// Run data.
   final RunInsert run;
 
   /// Original document folder.

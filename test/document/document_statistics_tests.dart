@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="document_statistics_tests.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -56,5 +56,16 @@ class DocumentStatisticsTests
     var result = await context.getApi().getDocumentStatistics(request);
     expect(result.statData, isNotNull);
     expect(result.statData.wordCount, 10);
+  }
+
+  /// Test for document classification online.
+  Future<void> testGetDocumentStatisticsOnline() async
+  {
+
+    final request = GetDocumentStatisticsOnlineRequest(
+      await context.loadBinaryFile(localFile)
+    );
+
+    await context.getApi().getDocumentStatisticsOnline(request);
   }
 }

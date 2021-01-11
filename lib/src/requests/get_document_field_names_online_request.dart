@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="get_document_field_names_online_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -36,29 +36,43 @@ import '../api_request_part.dart';
 
 /// Request model for GetDocumentFieldNamesOnline operation.
 class GetDocumentFieldNamesOnlineRequest implements RequestBase {
-  /// File with template.
-  final ByteData template;
+  /// The document.
+  final ByteData document;
+
+  /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+  final String loadEncoding;
+
+  /// Password for opening an encrypted document.
+  final String password;
 
   /// The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
   final bool useNonMergeFields;
 
-  GetDocumentFieldNamesOnlineRequest(final this.template, {final this.useNonMergeFields});
+  GetDocumentFieldNamesOnlineRequest(final this.document, {final this.loadEncoding, final this.password, final this.useNonMergeFields});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var _path = '/words/mailMerge/FieldNames';
+    var _path = '/words/online/get/mailMerge/FieldNames';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
+    if (loadEncoding != null) {
+      _queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
+    }
+
+    if (password != null) {
+      _queryParams['password'] = apiClient.serializeToString(password);
+    }
+
     if (useNonMergeFields != null) {
       _queryParams['useNonMergeFields'] = apiClient.serializeToString(useNonMergeFields);
     }
 
-    if (template != null) {
-      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(template), 'application/octet-stream', name: 'Template'));
+    if (document != null) {
+      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(document), 'application/octet-stream', name: 'Document'));
     }
     else {
-      throw ApiException(400, 'Parameter template is required.');
+      throw ApiException(400, 'Parameter document is required.');
     }
 
     var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');

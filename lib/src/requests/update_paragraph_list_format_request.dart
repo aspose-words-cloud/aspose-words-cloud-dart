@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="update_paragraph_list_format_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,11 +39,11 @@ class UpdateParagraphListFormatRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The formatting properties of a paragraph list.
-  final ListFormatUpdate dto;
-
   /// Object index.
   final int index;
+
+  /// ListFormatUpdate dto.
+  final ListFormatUpdate listFormatDto;
 
   /// The path to the node in the document tree.
   final String nodePath;
@@ -69,7 +69,7 @@ class UpdateParagraphListFormatRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  UpdateParagraphListFormatRequest(final this.name, final this.dto, final this.index, {final this.nodePath, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
+  UpdateParagraphListFormatRequest(final this.name, final this.index, final this.listFormatDto, {final this.nodePath, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
@@ -115,16 +115,16 @@ class UpdateParagraphListFormatRequest implements RequestBase {
       _queryParams['revisionDateTime'] = apiClient.serializeToString(revisionDateTime);
     }
 
-    if (dto != null) {
-      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(dto), 'application/json'));
+    if (listFormatDto != null) {
+      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(listFormatDto), 'application/json'));
     }
     else {
-      throw ApiException(400, 'Parameter dto is required.');
+      throw ApiException(400, 'Parameter listFormatDto is required.');
     }
 
     var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('PUT', _url, _headers, _body);
+    return ApiRequestData('POST', _url, _headers, _body);
   }
 
   @override

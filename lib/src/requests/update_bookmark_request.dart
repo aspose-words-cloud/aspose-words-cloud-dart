@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="update_bookmark_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,11 +39,11 @@ class UpdateBookmarkRequest implements RequestBase {
   /// The filename of the input document.
   final String name;
 
-  /// The properties of the bookmark.
-  final BookmarkData bookmarkData;
-
   /// The name of the bookmark.
   final String bookmarkName;
+
+  /// Bookmark data.
+  final BookmarkData bookmarkData;
 
   /// Original document folder.
   final String folder;
@@ -66,7 +66,7 @@ class UpdateBookmarkRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  UpdateBookmarkRequest(final this.name, final this.bookmarkData, final this.bookmarkName, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
+  UpdateBookmarkRequest(final this.name, final this.bookmarkName, final this.bookmarkData, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {

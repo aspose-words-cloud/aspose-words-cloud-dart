@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="text_tests.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -61,6 +61,22 @@ class TextTests
     expect(result.matches, 3);
   }
 
+  /// Test for replacing text online.
+  Future<void> testReplaceTextOnline() async
+  {
+    final localFile = 'Common/test_multi_pages.docx';
+    var requestReplaceText = ReplaceTextParameters();
+    requestReplaceText.oldValue = 'aspose';
+    requestReplaceText.newValue = 'aspose new';
+
+    final request = ReplaceTextOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      requestReplaceText
+    );
+
+    await context.getApi().replaceTextOnline(request);
+  }
+
   /// Test for searching.
   Future<void> testSearch() async
   {
@@ -80,5 +96,18 @@ class TextTests
     expect(result.searchResults.resultsList.length, 23);
     expect(result.searchResults.resultsList[0].rangeStart, isNotNull);
     expect(result.searchResults.resultsList[0].rangeStart.offset, 65);
+  }
+
+  /// Test for searching online.
+  Future<void> testSearchOnline() async
+  {
+    final localFile = 'DocumentElements/Text/SampleWordDocument.docx';
+
+    final request = SearchOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'aspose'
+    );
+
+    await context.getApi().searchOnline(request);
   }
 }

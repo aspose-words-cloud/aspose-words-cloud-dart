@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="math_object_tests.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -61,6 +61,18 @@ class MathObjectTests
     expect(result.officeMathObjects.list[0].nodeId, '0.0.0.0');
   }
 
+  /// Test for getting mathObjects online.
+  Future<void> testGetOfficeMathObjectsOnline() async
+  {
+
+    final request = GetOfficeMathObjectsOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      nodePath: ''
+    );
+
+    await context.getApi().getOfficeMathObjectsOnline(request);
+  }
+
   /// Test for getting mathObjects without node path.
   Future<void> testGetOfficeMathObjectsWithoutNodePath() async
   {
@@ -97,6 +109,19 @@ class MathObjectTests
     expect(result.officeMathObject.nodeId, '0.0.0.0');
   }
 
+  /// Test for getting mathObject online.
+  Future<void> testGetOfficeMathObjectOnline() async
+  {
+
+    final request = GetOfficeMathObjectOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      0,
+      nodePath: ''
+    );
+
+    await context.getApi().getOfficeMathObjectOnline(request);
+  }
+
   /// Test for getting mathObject without node path.
   Future<void> testGetOfficeMathObjectWithoutNodePath() async
   {
@@ -131,6 +156,20 @@ class MathObjectTests
     await context.getApi().renderMathObject(request);
   }
 
+  /// Test for rendering mathObject.
+  Future<void> testRenderMathObjectOnline() async
+  {
+
+    final request = RenderMathObjectOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'png',
+      0,
+      nodePath: ''
+    );
+
+    await context.getApi().renderMathObjectOnline(request);
+  }
+
   /// Test for rendering mathObject without node path.
   Future<void> testRenderMathObjectWithoutNodePath() async
   {
@@ -161,6 +200,19 @@ class MathObjectTests
     );
 
     await context.getApi().deleteOfficeMathObject(request);
+  }
+
+  /// Test for deleting mathObject online.
+  Future<void> testDeleteOfficeMathObjectOnline() async
+  {
+
+    final request = DeleteOfficeMathObjectOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      0,
+      nodePath: ''
+    );
+
+    await context.getApi().deleteOfficeMathObjectOnline(request);
   }
 
   /// Test for deleting mathObject without node path.

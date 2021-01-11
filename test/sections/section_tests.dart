@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="section_tests.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -61,6 +61,18 @@ class SectionTests
     expect(result.section.childNodes[0].nodeId, '0.3.0');
   }
 
+  /// Test for getting section by index online.
+  Future<void> testGetSectionOnline() async
+  {
+
+    final request = GetSectionOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      0
+    );
+
+    await context.getApi().getSectionOnline(request);
+  }
+
   /// Test for getting sections.
   Future<void> testGetSections() async
   {
@@ -79,6 +91,17 @@ class SectionTests
     expect(result.sections.sectionLinkList[0].nodeId, '0');
   }
 
+  /// Test for getting sections online.
+  Future<void> testGetSectionsOnline() async
+  {
+
+    final request = GetSectionsOnlineRequest(
+      await context.loadBinaryFile(localFile)
+    );
+
+    await context.getApi().getSectionsOnline(request);
+  }
+
   /// Test for delete a section.
   Future<void> testDeleteSection() async
   {
@@ -92,5 +115,17 @@ class SectionTests
     );
 
     await context.getApi().deleteSection(request);
+  }
+
+  /// Test for delete a section online.
+  Future<void> testDeleteSectionOnline() async
+  {
+
+    final request = DeleteSectionOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      0
+    );
+
+    await context.getApi().deleteSectionOnline(request);
   }
 }
