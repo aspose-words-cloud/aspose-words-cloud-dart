@@ -60,7 +60,7 @@ class InsertOrUpdateParagraphTabStopOnlineRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var _path = '/words/online/post/{name}/{nodePath}/paragraphs/{index}/tabstops';
+    var _path = '/words/online/post/{nodePath}/paragraphs/{index}/tabstops';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];

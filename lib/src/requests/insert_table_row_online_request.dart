@@ -63,7 +63,7 @@ class InsertTableRowOnlineRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var _path = '/words/online/post/{name}/{tablePath}/rows';
+    var _path = '/words/online/post/{tablePath}/rows';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];

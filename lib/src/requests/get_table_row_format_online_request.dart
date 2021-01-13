@@ -55,7 +55,7 @@ class GetTableRowFormatOnlineRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var _path = '/words/online/get/{name}/{tablePath}/rows/{index}/rowformat';
+    var _path = '/words/online/get/{tablePath}/rows/{index}/rowformat';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];

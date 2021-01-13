@@ -63,7 +63,7 @@ class DeleteFieldOnlineRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var _path = '/words/online/delete/{name}/{nodePath}/fields/{index}';
+    var _path = '/words/online/delete/{nodePath}/fields/{index}';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];

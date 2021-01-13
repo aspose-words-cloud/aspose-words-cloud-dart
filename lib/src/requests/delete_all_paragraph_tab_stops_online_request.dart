@@ -57,7 +57,7 @@ class DeleteAllParagraphTabStopsOnlineRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var _path = '/words/online/delete/{name}/{nodePath}/paragraphs/{index}/tabstops';
+    var _path = '/words/online/delete/{nodePath}/paragraphs/{index}/tabstops';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];

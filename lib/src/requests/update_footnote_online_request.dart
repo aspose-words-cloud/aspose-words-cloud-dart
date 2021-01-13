@@ -66,7 +66,7 @@ class UpdateFootnoteOnlineRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var _path = '/words/online/put/{name}/{nodePath}/footnotes/{index}';
+    var _path = '/words/online/put/{nodePath}/footnotes/{index}';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];

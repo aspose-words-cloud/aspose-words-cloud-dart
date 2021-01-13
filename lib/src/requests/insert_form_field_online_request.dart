@@ -66,7 +66,7 @@ class InsertFormFieldOnlineRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var _path = '/words/online/post/{name}/{nodePath}/formfields';
+    var _path = '/words/online/post/{nodePath}/formfields';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];

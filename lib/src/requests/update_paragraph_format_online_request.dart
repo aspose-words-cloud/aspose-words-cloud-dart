@@ -66,7 +66,7 @@ class UpdateParagraphFormatOnlineRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var _path = '/words/online/put/{name}/{nodePath}/paragraphs/{index}/format';
+    var _path = '/words/online/put/{nodePath}/paragraphs/{index}/format';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];

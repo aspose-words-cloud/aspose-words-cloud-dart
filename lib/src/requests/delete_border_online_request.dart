@@ -63,7 +63,7 @@ class DeleteBorderOnlineRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var _path = '/words/online/delete/{name}/{nodePath}/borders/{borderType}';
+    var _path = '/words/online/delete/{nodePath}/borders/{borderType}';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];

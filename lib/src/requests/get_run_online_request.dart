@@ -55,7 +55,7 @@ class GetRunOnlineRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var _path = '/words/online/get/{name}/{paragraphPath}/runs/{index}';
+    var _path = '/words/online/get/{paragraphPath}/runs/{index}';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];

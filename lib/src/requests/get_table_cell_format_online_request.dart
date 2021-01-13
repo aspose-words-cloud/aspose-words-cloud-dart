@@ -55,7 +55,7 @@ class GetTableCellFormatOnlineRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var _path = '/words/online/get/{name}/{tableRowPath}/cells/{index}/cellformat';
+    var _path = '/words/online/get/{tableRowPath}/cells/{index}/cellformat';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];

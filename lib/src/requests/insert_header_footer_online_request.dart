@@ -63,7 +63,7 @@ class InsertHeaderFooterOnlineRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var _path = '/words/online/put/{name}/{sectionPath}/headersfooters';
+    var _path = '/words/online/put/{sectionPath}/headersfooters';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];

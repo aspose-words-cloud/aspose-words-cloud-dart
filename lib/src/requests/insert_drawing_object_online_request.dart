@@ -66,7 +66,7 @@ class InsertDrawingObjectOnlineRequest implements RequestBase {
 
   @override
   ApiRequestData createRequestData(final ApiClient apiClient) {
-    var _path = '/words/online/post/{name}/{nodePath}/drawingObjects';
+    var _path = '/words/online/post/{nodePath}/drawingObjects';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
