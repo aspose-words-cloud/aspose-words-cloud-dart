@@ -120,7 +120,7 @@ class InsertHeaderFooterRequest implements RequestBase {
 
     var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('POST', _url, _headers, _body);
+    return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override

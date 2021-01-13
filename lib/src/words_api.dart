@@ -1174,7 +1174,7 @@ class WordsApi {
 
   /// Renders a DrawingObject to the specified format.
   Future< BodyResponseType(Specification, Operation) > renderDrawingObjectOnline(RenderDrawingObjectOnlineRequest request) async {
-    return await _apiClient.call(request) as RenderDrawingObjectOnlineResponse;
+    return await _apiClient.call(request) as ByteData;
   }
 
   /// Renders an OfficeMath object to the specified format.
@@ -1184,7 +1184,7 @@ class WordsApi {
 
   /// Renders an OfficeMath object to the specified format.
   Future< BodyResponseType(Specification, Operation) > renderMathObjectOnline(RenderMathObjectOnlineRequest request) async {
-    return await _apiClient.call(request) as RenderMathObjectOnlineResponse;
+    return await _apiClient.call(request) as ByteData;
   }
 
   /// Renders a page to the specified format.
@@ -1204,7 +1204,7 @@ class WordsApi {
 
   /// Renders a paragraph to the specified format.
   Future< BodyResponseType(Specification, Operation) > renderParagraphOnline(RenderParagraphOnlineRequest request) async {
-    return await _apiClient.call(request) as RenderParagraphOnlineResponse;
+    return await _apiClient.call(request) as ByteData;
   }
 
   /// Renders a table to the specified format.
@@ -1214,7 +1214,7 @@ class WordsApi {
 
   /// Renders a table to the specified format.
   Future< BodyResponseType(Specification, Operation) > renderTableOnline(RenderTableOnlineRequest request) async {
-    return await _apiClient.call(request) as RenderTableOnlineResponse;
+    return await _apiClient.call(request) as ByteData;
   }
 
   /// Replaces text in the document.
