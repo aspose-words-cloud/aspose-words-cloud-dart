@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="styles_tests.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -59,6 +59,17 @@ class StylesTests
     expect(result.styles[0].name, 'Default Paragraph Font');
   }
 
+  /// Test for getting styles from document online.
+  Future<void> testGetStylesOnline() async
+  {
+
+    final request = GetStylesOnlineRequest(
+      await context.loadBinaryFile(localFile)
+    );
+
+    await context.getApi().getStylesOnline(request);
+  }
+
   /// Test for getting style from document.
   Future<void> testGetStyle() async
   {
@@ -76,6 +87,18 @@ class StylesTests
     expect(result.style.name, 'Heading 1');
   }
 
+  /// Test for getting style from document online.
+  Future<void> testGetStyleOnline() async
+  {
+
+    final request = GetStyleOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'Heading 1'
+    );
+
+    await context.getApi().getStyleOnline(request);
+  }
+
   /// Test for updating style from document.
   Future<void> testUpdateStyle() async
   {
@@ -86,14 +109,29 @@ class StylesTests
 
     final request = UpdateStyleRequest(
       remoteFileName,
-      requestStyleUpdate,
       'Heading 1',
+      requestStyleUpdate,
       folder: remoteDataFolder
     );
 
     var result = await context.getApi().updateStyle(request);
     expect(result.style, isNotNull);
     expect(result.style.name, 'My Style');
+  }
+
+  /// Test for updating style from document online.
+  Future<void> testUpdateStyleOnline() async
+  {
+    var requestStyleUpdate = StyleUpdate();
+    requestStyleUpdate.name = 'My Style';
+
+    final request = UpdateStyleOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'Heading 1',
+      requestStyleUpdate
+    );
+
+    await context.getApi().updateStyleOnline(request);
   }
 
   /// Test for inserting style from document.
@@ -116,6 +154,21 @@ class StylesTests
     expect(result.style.name, 'My Style');
   }
 
+  /// Test for inserting style from document online.
+  Future<void> testInsertStyleOnline() async
+  {
+    var requestStyleInsert = StyleInsert();
+    requestStyleInsert.styleName = 'My Style';
+    requestStyleInsert.styleType = StyleInsert_StyleTypeEnum.paragraph;
+
+    final request = InsertStyleOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      requestStyleInsert
+    );
+
+    await context.getApi().insertStyleOnline(request);
+  }
+
   /// Test for coping style from document.
   Future<void> testCopyStyle() async
   {
@@ -135,6 +188,20 @@ class StylesTests
     expect(result.style.name, 'Heading 1_0');
   }
 
+  /// Test for coping style from document online.
+  Future<void> testCopyStyleOnline() async
+  {
+    var requestStyleCopy = StyleCopy();
+    requestStyleCopy.styleName = 'Heading 1';
+
+    final request = CopyStyleOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      requestStyleCopy
+    );
+
+    await context.getApi().copyStyleOnline(request);
+  }
+
   /// Test for getting style from document element.
   Future<void> testGetStyleFromDocumentElement() async
   {
@@ -152,6 +219,18 @@ class StylesTests
     expect(result.style.name, 'TOC 1');
   }
 
+  /// Test for getting style from document element online.
+  Future<void> testGetStyleFromDocumentElementOnline() async
+  {
+
+    final request = GetStyleFromDocumentElementOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'paragraphs/1/paragraphFormat'
+    );
+
+    await context.getApi().getStyleFromDocumentElementOnline(request);
+  }
+
   /// Test for applying style to document element.
   Future<void> testApplyStyleToDocumentElement() async
   {
@@ -162,11 +241,26 @@ class StylesTests
 
     final request = ApplyStyleToDocumentElementRequest(
       remoteFileName,
-      requestStyleApply,
       'paragraphs/1/paragraphFormat',
+      requestStyleApply,
       folder: remoteDataFolder
     );
 
     await context.getApi().applyStyleToDocumentElement(request);
+  }
+
+  /// Test for applying style to document element online.
+  Future<void> testApplyStyleToDocumentElementOnline() async
+  {
+    var requestStyleApply = StyleApply();
+    requestStyleApply.styleName = 'Heading 1';
+
+    final request = ApplyStyleToDocumentElementOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'paragraphs/1/paragraphFormat',
+      requestStyleApply
+    );
+
+    await context.getApi().applyStyleToDocumentElementOnline(request);
   }
 }

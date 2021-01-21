@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="words_api.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -42,14 +42,29 @@ class WordsApi {
     return await _apiClient.call(request) as RevisionsModificationResponse;
   }
 
+  /// Accepts all revisions in the document.
+  Future< AcceptAllRevisionsOnlineResponse > acceptAllRevisionsOnline(AcceptAllRevisionsOnlineRequest request) async {
+    return await _apiClient.call(request) as AcceptAllRevisionsOnlineResponse;
+  }
+
   /// Appends documents to the original document.
   Future< DocumentResponse > appendDocument(AppendDocumentRequest request) async {
     return await _apiClient.call(request) as DocumentResponse;
   }
 
+  /// Appends documents to the original document.
+  Future< AppendDocumentOnlineResponse > appendDocumentOnline(AppendDocumentOnlineRequest request) async {
+    return await _apiClient.call(request) as AppendDocumentOnlineResponse;
+  }
+
   /// Applies a style to the document node.
   Future< WordsResponse > applyStyleToDocumentElement(ApplyStyleToDocumentElementRequest request) async {
     return await _apiClient.call(request) as WordsResponse;
+  }
+
+  /// Applies a style to the document node.
+  Future< ApplyStyleToDocumentElementOnlineResponse > applyStyleToDocumentElementOnline(ApplyStyleToDocumentElementOnlineRequest request) async {
+    return await _apiClient.call(request) as ApplyStyleToDocumentElementOnlineResponse;
   }
 
   /// Executes the report generation process using the specified document template and the external data source in XML, JSON or CSV format.
@@ -72,9 +87,19 @@ class WordsApi {
     return await _apiClient.call(request) as ClassificationResponse;
   }
 
+  /// Runs a multi-class text classification for the document.
+  Future< ClassificationResponse > classifyDocumentOnline(ClassifyDocumentOnlineRequest request) async {
+    return await _apiClient.call(request) as ClassificationResponse;
+  }
+
   /// Compares two documents.
   Future< DocumentResponse > compareDocument(CompareDocumentRequest request) async {
     return await _apiClient.call(request) as DocumentResponse;
+  }
+
+  /// Compares two documents.
+  Future< CompareDocumentOnlineResponse > compareDocumentOnline(CompareDocumentOnlineRequest request) async {
+    return await _apiClient.call(request) as CompareDocumentOnlineResponse;
   }
 
   /// Converts a document on a local drive to the specified format.
@@ -97,6 +122,11 @@ class WordsApi {
     return await _apiClient.call(request) as StyleResponse;
   }
 
+  /// Makes a copy of the style in the document.
+  Future< CopyStyleOnlineResponse > copyStyleOnline(CopyStyleOnlineRequest request) async {
+    return await _apiClient.call(request) as CopyStyleOnlineResponse;
+  }
+
   /// Supported extensions: ".doc", ".docx", ".docm", ".dot", ".dotm", ".dotx", ".flatopc", ".fopc", ".flatopc_macro", ".fopc_macro", ".flatopc_template", ".fopc_template", ".flatopc_template_macro", ".fopc_template_macro", ".wordml", ".wml", ".rtf".
   Future< DocumentResponse > createDocument(CreateDocumentRequest request) async {
     return await _apiClient.call(request) as DocumentResponse;
@@ -112,9 +142,19 @@ class WordsApi {
     return await _apiClient.call(request) as DocumentPropertyResponse;
   }
 
+  /// Adds a new or updates an existing document property.
+  Future< CreateOrUpdateDocumentPropertyOnlineResponse > createOrUpdateDocumentPropertyOnline(CreateOrUpdateDocumentPropertyOnlineRequest request) async {
+    return await _apiClient.call(request) as CreateOrUpdateDocumentPropertyOnlineResponse;
+  }
+
   /// Removes paragraph tab stops from the document node.
   Future< TabStopsResponse > deleteAllParagraphTabStops(DeleteAllParagraphTabStopsRequest request) async {
     return await _apiClient.call(request) as TabStopsResponse;
+  }
+
+  /// Removes paragraph tab stops from the document node.
+  Future< DeleteAllParagraphTabStopsOnlineResponse > deleteAllParagraphTabStopsOnline(DeleteAllParagraphTabStopsOnlineRequest request) async {
+    return await _apiClient.call(request) as DeleteAllParagraphTabStopsOnlineResponse;
   }
 
   /// The 'nodePath' parameter should refer to a paragraph, a cell or a row.
@@ -122,9 +162,19 @@ class WordsApi {
     return await _apiClient.call(request) as BorderResponse;
   }
 
+  /// Removes a border from the document node.
+  Future< DeleteBorderOnlineResponse > deleteBorderOnline(DeleteBorderOnlineRequest request) async {
+    return await _apiClient.call(request) as DeleteBorderOnlineResponse;
+  }
+
   /// The 'nodePath' parameter should refer to a paragraph, a cell or a row.
   Future< BordersResponse > deleteBorders(DeleteBordersRequest request) async {
     return await _apiClient.call(request) as BordersResponse;
+  }
+
+  /// Removes borders from the document node.
+  Future< DeleteBordersOnlineResponse > deleteBordersOnline(DeleteBordersOnlineRequest request) async {
+    return await _apiClient.call(request) as DeleteBordersOnlineResponse;
   }
 
   /// Removes a comment from the document.
@@ -132,9 +182,19 @@ class WordsApi {
   await _apiClient.call(request);
   }
 
+  /// Removes a comment from the document.
+  Future< ByteData > deleteCommentOnline(DeleteCommentOnlineRequest request) async {
+    return await _apiClient.call(request) as ByteData;
+  }
+
   /// Removes a document property.
   Future< void > deleteDocumentProperty(DeleteDocumentPropertyRequest request) async {
   await _apiClient.call(request);
+  }
+
+  /// Removes a document property.
+  Future< ByteData > deleteDocumentPropertyOnline(DeleteDocumentPropertyOnlineRequest request) async {
+    return await _apiClient.call(request) as ByteData;
   }
 
   /// Removes a DrawingObject from the document node.
@@ -142,14 +202,29 @@ class WordsApi {
   await _apiClient.call(request);
   }
 
+  /// Removes a DrawingObject from the document node.
+  Future< ByteData > deleteDrawingObjectOnline(DeleteDrawingObjectOnlineRequest request) async {
+    return await _apiClient.call(request) as ByteData;
+  }
+
   /// Removes a field from the document node.
   Future< void > deleteField(DeleteFieldRequest request) async {
   await _apiClient.call(request);
   }
 
+  /// Removes a field from the document node.
+  Future< ByteData > deleteFieldOnline(DeleteFieldOnlineRequest request) async {
+    return await _apiClient.call(request) as ByteData;
+  }
+
   /// Removes fields from the document node.
   Future< void > deleteFields(DeleteFieldsRequest request) async {
   await _apiClient.call(request);
+  }
+
+  /// Removes fields from the document node.
+  Future< ByteData > deleteFieldsOnline(DeleteFieldsOnlineRequest request) async {
+    return await _apiClient.call(request) as ByteData;
   }
 
   /// Delete file.
@@ -167,9 +242,19 @@ class WordsApi {
   await _apiClient.call(request);
   }
 
+  /// Removes a footnote from the document node.
+  Future< ByteData > deleteFootnoteOnline(DeleteFootnoteOnlineRequest request) async {
+    return await _apiClient.call(request) as ByteData;
+  }
+
   /// Removes a form field from the document node.
   Future< void > deleteFormField(DeleteFormFieldRequest request) async {
   await _apiClient.call(request);
+  }
+
+  /// Removes a form field from the document node.
+  Future< ByteData > deleteFormFieldOnline(DeleteFormFieldOnlineRequest request) async {
+    return await _apiClient.call(request) as ByteData;
   }
 
   /// Removes a HeaderFooter object from the document section.
@@ -177,9 +262,19 @@ class WordsApi {
   await _apiClient.call(request);
   }
 
+  /// Removes a HeaderFooter object from the document section.
+  Future< ByteData > deleteHeaderFooterOnline(DeleteHeaderFooterOnlineRequest request) async {
+    return await _apiClient.call(request) as ByteData;
+  }
+
   /// Removes HeaderFooter objects from the document section.
   Future< void > deleteHeadersFooters(DeleteHeadersFootersRequest request) async {
   await _apiClient.call(request);
+  }
+
+  /// Removes HeaderFooter objects from the document section.
+  Future< ByteData > deleteHeadersFootersOnline(DeleteHeadersFootersOnlineRequest request) async {
+    return await _apiClient.call(request) as ByteData;
   }
 
   /// Removes macros from the document.
@@ -187,9 +282,19 @@ class WordsApi {
   await _apiClient.call(request);
   }
 
+  /// Removes macros from the document.
+  Future< ByteData > deleteMacrosOnline(DeleteMacrosOnlineRequest request) async {
+    return await _apiClient.call(request) as ByteData;
+  }
+
   /// Removes an OfficeMath object from the document node.
   Future< void > deleteOfficeMathObject(DeleteOfficeMathObjectRequest request) async {
   await _apiClient.call(request);
+  }
+
+  /// Removes an OfficeMath object from the document node.
+  Future< ByteData > deleteOfficeMathObjectOnline(DeleteOfficeMathObjectOnlineRequest request) async {
+    return await _apiClient.call(request) as ByteData;
   }
 
   /// Removes a paragraph from the document node.
@@ -202,9 +307,24 @@ class WordsApi {
     return await _apiClient.call(request) as ParagraphListFormatResponse;
   }
 
+  /// Removes the formatting properties of a paragraph list from the document node.
+  Future< DeleteParagraphListFormatOnlineResponse > deleteParagraphListFormatOnline(DeleteParagraphListFormatOnlineRequest request) async {
+    return await _apiClient.call(request) as DeleteParagraphListFormatOnlineResponse;
+  }
+
+  /// Removes a paragraph from the document node.
+  Future< ByteData > deleteParagraphOnline(DeleteParagraphOnlineRequest request) async {
+    return await _apiClient.call(request) as ByteData;
+  }
+
   /// Removes a paragraph tab stop from the document node.
   Future< TabStopsResponse > deleteParagraphTabStop(DeleteParagraphTabStopRequest request) async {
     return await _apiClient.call(request) as TabStopsResponse;
+  }
+
+  /// Removes a paragraph tab stop from the document node.
+  Future< DeleteParagraphTabStopOnlineResponse > deleteParagraphTabStopOnline(DeleteParagraphTabStopOnlineRequest request) async {
+    return await _apiClient.call(request) as DeleteParagraphTabStopOnlineResponse;
   }
 
   /// Removes a Run object from the paragraph.
@@ -212,9 +332,19 @@ class WordsApi {
   await _apiClient.call(request);
   }
 
+  /// Removes a Run object from the paragraph.
+  Future< ByteData > deleteRunOnline(DeleteRunOnlineRequest request) async {
+    return await _apiClient.call(request) as ByteData;
+  }
+
   /// Removes a section from the document.
   Future< void > deleteSection(DeleteSectionRequest request) async {
   await _apiClient.call(request);
+  }
+
+  /// Removes a section from the document.
+  Future< ByteData > deleteSectionOnline(DeleteSectionOnlineRequest request) async {
+    return await _apiClient.call(request) as ByteData;
   }
 
   /// Removes a table from the document node.
@@ -227,14 +357,34 @@ class WordsApi {
   await _apiClient.call(request);
   }
 
+  /// Removes a cell from the table row.
+  Future< ByteData > deleteTableCellOnline(DeleteTableCellOnlineRequest request) async {
+    return await _apiClient.call(request) as ByteData;
+  }
+
+  /// Removes a table from the document node.
+  Future< ByteData > deleteTableOnline(DeleteTableOnlineRequest request) async {
+    return await _apiClient.call(request) as ByteData;
+  }
+
   /// Removes a row from the table.
   Future< void > deleteTableRow(DeleteTableRowRequest request) async {
   await _apiClient.call(request);
   }
 
+  /// Removes a row from the table.
+  Future< ByteData > deleteTableRowOnline(DeleteTableRowOnlineRequest request) async {
+    return await _apiClient.call(request) as ByteData;
+  }
+
   /// Removes a watermark from the document.
   Future< DocumentResponse > deleteWatermark(DeleteWatermarkRequest request) async {
     return await _apiClient.call(request) as DocumentResponse;
+  }
+
+  /// Removes a watermark from the document.
+  Future< DeleteWatermarkOnlineResponse > deleteWatermarkOnline(DeleteWatermarkOnlineRequest request) async {
+    return await _apiClient.call(request) as DeleteWatermarkOnlineResponse;
   }
 
   /// Download file.
@@ -262,8 +412,18 @@ class WordsApi {
     return await _apiClient.call(request) as BookmarkResponse;
   }
 
+  /// Reads a bookmark, specified by name, from the document.
+  Future< BookmarkResponse > getBookmarkByNameOnline(GetBookmarkByNameOnlineRequest request) async {
+    return await _apiClient.call(request) as BookmarkResponse;
+  }
+
   /// Reads bookmarks from the document.
   Future< BookmarksResponse > getBookmarks(GetBookmarksRequest request) async {
+    return await _apiClient.call(request) as BookmarksResponse;
+  }
+
+  /// Reads bookmarks from the document.
+  Future< BookmarksResponse > getBookmarksOnline(GetBookmarksOnlineRequest request) async {
     return await _apiClient.call(request) as BookmarksResponse;
   }
 
@@ -272,8 +432,18 @@ class WordsApi {
     return await _apiClient.call(request) as BorderResponse;
   }
 
+  /// Reads a border from the document node.
+  Future< BorderResponse > getBorderOnline(GetBorderOnlineRequest request) async {
+    return await _apiClient.call(request) as BorderResponse;
+  }
+
   /// Reads borders from the document node.
   Future< BordersResponse > getBorders(GetBordersRequest request) async {
+    return await _apiClient.call(request) as BordersResponse;
+  }
+
+  /// Reads borders from the document node.
+  Future< BordersResponse > getBordersOnline(GetBordersOnlineRequest request) async {
     return await _apiClient.call(request) as BordersResponse;
   }
 
@@ -282,8 +452,18 @@ class WordsApi {
     return await _apiClient.call(request) as CommentResponse;
   }
 
+  /// Reads a comment from the document.
+  Future< CommentResponse > getCommentOnline(GetCommentOnlineRequest request) async {
+    return await _apiClient.call(request) as CommentResponse;
+  }
+
   /// Reads comments from the document.
   Future< CommentsResponse > getComments(GetCommentsRequest request) async {
+    return await _apiClient.call(request) as CommentsResponse;
+  }
+
+  /// Reads comments from the document.
+  Future< CommentsResponse > getCommentsOnline(GetCommentsOnlineRequest request) async {
     return await _apiClient.call(request) as CommentsResponse;
   }
 
@@ -297,8 +477,18 @@ class WordsApi {
     return await _apiClient.call(request) as DrawingObjectResponse;
   }
 
+  /// Reads a DrawingObject from the document node.
+  Future< DrawingObjectResponse > getDocumentDrawingObjectByIndexOnline(GetDocumentDrawingObjectByIndexOnlineRequest request) async {
+    return await _apiClient.call(request) as DrawingObjectResponse;
+  }
+
   /// Reads image data of a DrawingObject from the document node.
   Future< ByteData > getDocumentDrawingObjectImageData(GetDocumentDrawingObjectImageDataRequest request) async {
+    return await _apiClient.call(request) as ByteData;
+  }
+
+  /// Reads image data of a DrawingObject from the document node.
+  Future< ByteData > getDocumentDrawingObjectImageDataOnline(GetDocumentDrawingObjectImageDataOnlineRequest request) async {
     return await _apiClient.call(request) as ByteData;
   }
 
@@ -307,8 +497,18 @@ class WordsApi {
     return await _apiClient.call(request) as ByteData;
   }
 
+  /// Reads OLE data of a DrawingObject from the document node.
+  Future< ByteData > getDocumentDrawingObjectOleDataOnline(GetDocumentDrawingObjectOleDataOnlineRequest request) async {
+    return await _apiClient.call(request) as ByteData;
+  }
+
   /// Reads DrawingObjects from the document node.
   Future< DrawingObjectsResponse > getDocumentDrawingObjects(GetDocumentDrawingObjectsRequest request) async {
+    return await _apiClient.call(request) as DrawingObjectsResponse;
+  }
+
+  /// Reads DrawingObjects from the document node.
+  Future< DrawingObjectsResponse > getDocumentDrawingObjectsOnline(GetDocumentDrawingObjectsOnlineRequest request) async {
     return await _apiClient.call(request) as DrawingObjectsResponse;
   }
 
@@ -327,8 +527,18 @@ class WordsApi {
     return await _apiClient.call(request) as HyperlinkResponse;
   }
 
+  /// Reads a hyperlink from the document.
+  Future< HyperlinkResponse > getDocumentHyperlinkByIndexOnline(GetDocumentHyperlinkByIndexOnlineRequest request) async {
+    return await _apiClient.call(request) as HyperlinkResponse;
+  }
+
   /// Reads hyperlinks from the document.
   Future< HyperlinksResponse > getDocumentHyperlinks(GetDocumentHyperlinksRequest request) async {
+    return await _apiClient.call(request) as HyperlinksResponse;
+  }
+
+  /// Reads hyperlinks from the document.
+  Future< HyperlinksResponse > getDocumentHyperlinksOnline(GetDocumentHyperlinksOnlineRequest request) async {
     return await _apiClient.call(request) as HyperlinksResponse;
   }
 
@@ -337,8 +547,18 @@ class WordsApi {
     return await _apiClient.call(request) as DocumentPropertiesResponse;
   }
 
+  /// Reads document properties.
+  Future< DocumentPropertiesResponse > getDocumentPropertiesOnline(GetDocumentPropertiesOnlineRequest request) async {
+    return await _apiClient.call(request) as DocumentPropertiesResponse;
+  }
+
   /// Reads a document property.
   Future< DocumentPropertyResponse > getDocumentProperty(GetDocumentPropertyRequest request) async {
+    return await _apiClient.call(request) as DocumentPropertyResponse;
+  }
+
+  /// Reads a document property.
+  Future< DocumentPropertyResponse > getDocumentPropertyOnline(GetDocumentPropertyOnlineRequest request) async {
     return await _apiClient.call(request) as DocumentPropertyResponse;
   }
 
@@ -347,8 +567,18 @@ class WordsApi {
     return await _apiClient.call(request) as ProtectionDataResponse;
   }
 
+  /// Reads protection properties from the document.
+  Future< ProtectionDataResponse > getDocumentProtectionOnline(GetDocumentProtectionOnlineRequest request) async {
+    return await _apiClient.call(request) as ProtectionDataResponse;
+  }
+
   /// Reads document statistics.
   Future< StatDataResponse > getDocumentStatistics(GetDocumentStatisticsRequest request) async {
+    return await _apiClient.call(request) as StatDataResponse;
+  }
+
+  /// Reads document statistics.
+  Future< StatDataResponse > getDocumentStatisticsOnline(GetDocumentStatisticsOnlineRequest request) async {
     return await _apiClient.call(request) as StatDataResponse;
   }
 
@@ -362,8 +592,18 @@ class WordsApi {
     return await _apiClient.call(request) as FieldResponse;
   }
 
+  /// Reads a field from the document node.
+  Future< FieldResponse > getFieldOnline(GetFieldOnlineRequest request) async {
+    return await _apiClient.call(request) as FieldResponse;
+  }
+
   /// Reads fields from the document node.
   Future< FieldsResponse > getFields(GetFieldsRequest request) async {
+    return await _apiClient.call(request) as FieldsResponse;
+  }
+
+  /// Reads fields from the document node.
+  Future< FieldsResponse > getFieldsOnline(GetFieldsOnlineRequest request) async {
     return await _apiClient.call(request) as FieldsResponse;
   }
 
@@ -377,8 +617,18 @@ class WordsApi {
     return await _apiClient.call(request) as FootnoteResponse;
   }
 
+  /// Reads a footnote from the document node.
+  Future< FootnoteResponse > getFootnoteOnline(GetFootnoteOnlineRequest request) async {
+    return await _apiClient.call(request) as FootnoteResponse;
+  }
+
   /// Reads footnotes from the document node.
   Future< FootnotesResponse > getFootnotes(GetFootnotesRequest request) async {
+    return await _apiClient.call(request) as FootnotesResponse;
+  }
+
+  /// Reads footnotes from the document node.
+  Future< FootnotesResponse > getFootnotesOnline(GetFootnotesOnlineRequest request) async {
     return await _apiClient.call(request) as FootnotesResponse;
   }
 
@@ -387,8 +637,18 @@ class WordsApi {
     return await _apiClient.call(request) as FormFieldResponse;
   }
 
+  /// Reads a form field from the document node.
+  Future< FormFieldResponse > getFormFieldOnline(GetFormFieldOnlineRequest request) async {
+    return await _apiClient.call(request) as FormFieldResponse;
+  }
+
   /// Reads form fields from the document node.
   Future< FormFieldsResponse > getFormFields(GetFormFieldsRequest request) async {
+    return await _apiClient.call(request) as FormFieldsResponse;
+  }
+
+  /// Reads form fields from the document node.
+  Future< FormFieldsResponse > getFormFieldsOnline(GetFormFieldsOnlineRequest request) async {
     return await _apiClient.call(request) as FormFieldsResponse;
   }
 
@@ -402,8 +662,23 @@ class WordsApi {
     return await _apiClient.call(request) as HeaderFooterResponse;
   }
 
+  /// Reads a HeaderFooter object from the document section.
+  Future< HeaderFooterResponse > getHeaderFooterOfSectionOnline(GetHeaderFooterOfSectionOnlineRequest request) async {
+    return await _apiClient.call(request) as HeaderFooterResponse;
+  }
+
+  /// Reads a HeaderFooter object from the document.
+  Future< HeaderFooterResponse > getHeaderFooterOnline(GetHeaderFooterOnlineRequest request) async {
+    return await _apiClient.call(request) as HeaderFooterResponse;
+  }
+
   /// Reads HeaderFooter objects from the document section.
   Future< HeaderFootersResponse > getHeaderFooters(GetHeaderFootersRequest request) async {
+    return await _apiClient.call(request) as HeaderFootersResponse;
+  }
+
+  /// Reads HeaderFooter objects from the document section.
+  Future< HeaderFootersResponse > getHeaderFootersOnline(GetHeaderFootersOnlineRequest request) async {
     return await _apiClient.call(request) as HeaderFootersResponse;
   }
 
@@ -412,8 +687,18 @@ class WordsApi {
     return await _apiClient.call(request) as ListResponse;
   }
 
+  /// Reads a list from the document.
+  Future< ListResponse > getListOnline(GetListOnlineRequest request) async {
+    return await _apiClient.call(request) as ListResponse;
+  }
+
   /// Reads lists from the document.
   Future< ListsResponse > getLists(GetListsRequest request) async {
+    return await _apiClient.call(request) as ListsResponse;
+  }
+
+  /// Reads lists from the document.
+  Future< ListsResponse > getListsOnline(GetListsOnlineRequest request) async {
     return await _apiClient.call(request) as ListsResponse;
   }
 
@@ -422,8 +707,18 @@ class WordsApi {
     return await _apiClient.call(request) as OfficeMathObjectResponse;
   }
 
+  /// Reads an OfficeMath object from the document node.
+  Future< OfficeMathObjectResponse > getOfficeMathObjectOnline(GetOfficeMathObjectOnlineRequest request) async {
+    return await _apiClient.call(request) as OfficeMathObjectResponse;
+  }
+
   /// Reads OfficeMath objects from the document node.
   Future< OfficeMathObjectsResponse > getOfficeMathObjects(GetOfficeMathObjectsRequest request) async {
+    return await _apiClient.call(request) as OfficeMathObjectsResponse;
+  }
+
+  /// Reads OfficeMath objects from the document node.
+  Future< OfficeMathObjectsResponse > getOfficeMathObjectsOnline(GetOfficeMathObjectsOnlineRequest request) async {
     return await _apiClient.call(request) as OfficeMathObjectsResponse;
   }
 
@@ -437,13 +732,33 @@ class WordsApi {
     return await _apiClient.call(request) as ParagraphFormatResponse;
   }
 
+  /// Reads the formatting properties of a paragraph from the document node.
+  Future< ParagraphFormatResponse > getParagraphFormatOnline(GetParagraphFormatOnlineRequest request) async {
+    return await _apiClient.call(request) as ParagraphFormatResponse;
+  }
+
   /// Reads the formatting properties of a paragraph list from the document node.
   Future< ParagraphListFormatResponse > getParagraphListFormat(GetParagraphListFormatRequest request) async {
     return await _apiClient.call(request) as ParagraphListFormatResponse;
   }
 
+  /// Reads the formatting properties of a paragraph list from the document node.
+  Future< ParagraphListFormatResponse > getParagraphListFormatOnline(GetParagraphListFormatOnlineRequest request) async {
+    return await _apiClient.call(request) as ParagraphListFormatResponse;
+  }
+
+  /// Reads a paragraph from the document node.
+  Future< ParagraphResponse > getParagraphOnline(GetParagraphOnlineRequest request) async {
+    return await _apiClient.call(request) as ParagraphResponse;
+  }
+
   /// Reads paragraphs from the document node.
   Future< ParagraphLinkCollectionResponse > getParagraphs(GetParagraphsRequest request) async {
+    return await _apiClient.call(request) as ParagraphLinkCollectionResponse;
+  }
+
+  /// Reads paragraphs from the document node.
+  Future< ParagraphLinkCollectionResponse > getParagraphsOnline(GetParagraphsOnlineRequest request) async {
     return await _apiClient.call(request) as ParagraphLinkCollectionResponse;
   }
 
@@ -452,8 +767,18 @@ class WordsApi {
     return await _apiClient.call(request) as TabStopsResponse;
   }
 
+  /// Reads paragraph tab stops from the document node.
+  Future< TabStopsResponse > getParagraphTabStopsOnline(GetParagraphTabStopsOnlineRequest request) async {
+    return await _apiClient.call(request) as TabStopsResponse;
+  }
+
   /// Reads range text from the document.
   Future< RangeTextResponse > getRangeText(GetRangeTextRequest request) async {
+    return await _apiClient.call(request) as RangeTextResponse;
+  }
+
+  /// Reads range text from the document.
+  Future< RangeTextResponse > getRangeTextOnline(GetRangeTextOnlineRequest request) async {
     return await _apiClient.call(request) as RangeTextResponse;
   }
 
@@ -467,8 +792,23 @@ class WordsApi {
     return await _apiClient.call(request) as FontResponse;
   }
 
+  /// Reads the font properties of a Run object from the paragraph.
+  Future< FontResponse > getRunFontOnline(GetRunFontOnlineRequest request) async {
+    return await _apiClient.call(request) as FontResponse;
+  }
+
+  /// Reads a Run object from the paragraph.
+  Future< RunResponse > getRunOnline(GetRunOnlineRequest request) async {
+    return await _apiClient.call(request) as RunResponse;
+  }
+
   /// Reads Run objects from the paragraph.
   Future< RunsResponse > getRuns(GetRunsRequest request) async {
+    return await _apiClient.call(request) as RunsResponse;
+  }
+
+  /// Reads Run objects from the paragraph.
+  Future< RunsResponse > getRunsOnline(GetRunsOnlineRequest request) async {
     return await _apiClient.call(request) as RunsResponse;
   }
 
@@ -477,13 +817,28 @@ class WordsApi {
     return await _apiClient.call(request) as SectionResponse;
   }
 
+  /// Reads a section from the document.
+  Future< SectionResponse > getSectionOnline(GetSectionOnlineRequest request) async {
+    return await _apiClient.call(request) as SectionResponse;
+  }
+
   /// Reads the page setup of a section from the document.
   Future< SectionPageSetupResponse > getSectionPageSetup(GetSectionPageSetupRequest request) async {
     return await _apiClient.call(request) as SectionPageSetupResponse;
   }
 
+  /// Reads the page setup of a section from the document.
+  Future< SectionPageSetupResponse > getSectionPageSetupOnline(GetSectionPageSetupOnlineRequest request) async {
+    return await _apiClient.call(request) as SectionPageSetupResponse;
+  }
+
   /// Reads sections from the document.
   Future< SectionLinkCollectionResponse > getSections(GetSectionsRequest request) async {
+    return await _apiClient.call(request) as SectionLinkCollectionResponse;
+  }
+
+  /// Reads sections from the document.
+  Future< SectionLinkCollectionResponse > getSectionsOnline(GetSectionsOnlineRequest request) async {
     return await _apiClient.call(request) as SectionLinkCollectionResponse;
   }
 
@@ -497,8 +852,23 @@ class WordsApi {
     return await _apiClient.call(request) as StyleResponse;
   }
 
+  /// Reads a style from the document node.
+  Future< StyleResponse > getStyleFromDocumentElementOnline(GetStyleFromDocumentElementOnlineRequest request) async {
+    return await _apiClient.call(request) as StyleResponse;
+  }
+
+  /// Reads a style from the document.
+  Future< StyleResponse > getStyleOnline(GetStyleOnlineRequest request) async {
+    return await _apiClient.call(request) as StyleResponse;
+  }
+
   /// Reads styles from the document.
   Future< StylesResponse > getStyles(GetStylesRequest request) async {
+    return await _apiClient.call(request) as StylesResponse;
+  }
+
+  /// Reads styles from the document.
+  Future< StylesResponse > getStylesOnline(GetStylesOnlineRequest request) async {
     return await _apiClient.call(request) as StylesResponse;
   }
 
@@ -517,8 +887,28 @@ class WordsApi {
     return await _apiClient.call(request) as TableCellFormatResponse;
   }
 
+  /// Reads the formatting properties of a table cell.
+  Future< TableCellFormatResponse > getTableCellFormatOnline(GetTableCellFormatOnlineRequest request) async {
+    return await _apiClient.call(request) as TableCellFormatResponse;
+  }
+
+  /// Reads a cell from the table row.
+  Future< TableCellResponse > getTableCellOnline(GetTableCellOnlineRequest request) async {
+    return await _apiClient.call(request) as TableCellResponse;
+  }
+
+  /// Reads a table from the document node.
+  Future< TableResponse > getTableOnline(GetTableOnlineRequest request) async {
+    return await _apiClient.call(request) as TableResponse;
+  }
+
   /// Reads properties of a table from the document node.
   Future< TablePropertiesResponse > getTableProperties(GetTablePropertiesRequest request) async {
+    return await _apiClient.call(request) as TablePropertiesResponse;
+  }
+
+  /// Reads properties of a table from the document node.
+  Future< TablePropertiesResponse > getTablePropertiesOnline(GetTablePropertiesOnlineRequest request) async {
     return await _apiClient.call(request) as TablePropertiesResponse;
   }
 
@@ -532,8 +922,23 @@ class WordsApi {
     return await _apiClient.call(request) as TableRowFormatResponse;
   }
 
+  /// Reads the formatting properties of a table row.
+  Future< TableRowFormatResponse > getTableRowFormatOnline(GetTableRowFormatOnlineRequest request) async {
+    return await _apiClient.call(request) as TableRowFormatResponse;
+  }
+
+  /// Reads a row from the table.
+  Future< TableRowResponse > getTableRowOnline(GetTableRowOnlineRequest request) async {
+    return await _apiClient.call(request) as TableRowResponse;
+  }
+
   /// Reads tables from the document node.
   Future< TableLinkCollectionResponse > getTables(GetTablesRequest request) async {
+    return await _apiClient.call(request) as TableLinkCollectionResponse;
+  }
+
+  /// Reads tables from the document node.
+  Future< TableLinkCollectionResponse > getTablesOnline(GetTablesOnlineRequest request) async {
     return await _apiClient.call(request) as TableLinkCollectionResponse;
   }
 
@@ -542,9 +947,19 @@ class WordsApi {
     return await _apiClient.call(request) as CommentResponse;
   }
 
+  /// Inserts a new comment to the document.
+  Future< InsertCommentOnlineResponse > insertCommentOnline(InsertCommentOnlineRequest request) async {
+    return await _apiClient.call(request) as InsertCommentOnlineResponse;
+  }
+
   /// Inserts a new DrawingObject to the document node.
   Future< DrawingObjectResponse > insertDrawingObject(InsertDrawingObjectRequest request) async {
     return await _apiClient.call(request) as DrawingObjectResponse;
+  }
+
+  /// Inserts a new DrawingObject to the document node.
+  Future< InsertDrawingObjectOnlineResponse > insertDrawingObjectOnline(InsertDrawingObjectOnlineRequest request) async {
+    return await _apiClient.call(request) as InsertDrawingObjectOnlineResponse;
   }
 
   /// Inserts a new field to the document node.
@@ -552,9 +967,19 @@ class WordsApi {
     return await _apiClient.call(request) as FieldResponse;
   }
 
+  /// Inserts a new field to the document node.
+  Future< InsertFieldOnlineResponse > insertFieldOnline(InsertFieldOnlineRequest request) async {
+    return await _apiClient.call(request) as InsertFieldOnlineResponse;
+  }
+
   /// Inserts a new footnote to the document node.
   Future< FootnoteResponse > insertFootnote(InsertFootnoteRequest request) async {
     return await _apiClient.call(request) as FootnoteResponse;
+  }
+
+  /// Inserts a new footnote to the document node.
+  Future< InsertFootnoteOnlineResponse > insertFootnoteOnline(InsertFootnoteOnlineRequest request) async {
+    return await _apiClient.call(request) as InsertFootnoteOnlineResponse;
   }
 
   /// Inserts a new form field to the document node.
@@ -562,9 +987,19 @@ class WordsApi {
     return await _apiClient.call(request) as FormFieldResponse;
   }
 
+  /// Inserts a new form field to the document node.
+  Future< InsertFormFieldOnlineResponse > insertFormFieldOnline(InsertFormFieldOnlineRequest request) async {
+    return await _apiClient.call(request) as InsertFormFieldOnlineResponse;
+  }
+
   /// Inserts a new HeaderFooter object to the document section.
   Future< HeaderFooterResponse > insertHeaderFooter(InsertHeaderFooterRequest request) async {
     return await _apiClient.call(request) as HeaderFooterResponse;
+  }
+
+  /// Inserts a new HeaderFooter object to the document section.
+  Future< InsertHeaderFooterOnlineResponse > insertHeaderFooterOnline(InsertHeaderFooterOnlineRequest request) async {
+    return await _apiClient.call(request) as InsertHeaderFooterOnlineResponse;
   }
 
   /// Inserts a new list to the document.
@@ -572,9 +1007,19 @@ class WordsApi {
     return await _apiClient.call(request) as ListResponse;
   }
 
+  /// Inserts a new list to the document.
+  Future< InsertListOnlineResponse > insertListOnline(InsertListOnlineRequest request) async {
+    return await _apiClient.call(request) as InsertListOnlineResponse;
+  }
+
   /// Inserts a new or updates an existing paragraph tab stop in the document node.
   Future< TabStopsResponse > insertOrUpdateParagraphTabStop(InsertOrUpdateParagraphTabStopRequest request) async {
     return await _apiClient.call(request) as TabStopsResponse;
+  }
+
+  /// Inserts a new or updates an existing paragraph tab stop in the document node.
+  Future< InsertOrUpdateParagraphTabStopOnlineResponse > insertOrUpdateParagraphTabStopOnline(InsertOrUpdateParagraphTabStopOnlineRequest request) async {
+    return await _apiClient.call(request) as InsertOrUpdateParagraphTabStopOnlineResponse;
   }
 
   /// Inserts page numbers to the document.
@@ -582,9 +1027,19 @@ class WordsApi {
     return await _apiClient.call(request) as DocumentResponse;
   }
 
+  /// Inserts page numbers to the document.
+  Future< InsertPageNumbersOnlineResponse > insertPageNumbersOnline(InsertPageNumbersOnlineRequest request) async {
+    return await _apiClient.call(request) as InsertPageNumbersOnlineResponse;
+  }
+
   /// Inserts a new paragraph to the document node.
   Future< ParagraphResponse > insertParagraph(InsertParagraphRequest request) async {
     return await _apiClient.call(request) as ParagraphResponse;
+  }
+
+  /// Inserts a new paragraph to the document node.
+  Future< InsertParagraphOnlineResponse > insertParagraphOnline(InsertParagraphOnlineRequest request) async {
+    return await _apiClient.call(request) as InsertParagraphOnlineResponse;
   }
 
   /// Inserts a new Run object to the paragraph.
@@ -592,9 +1047,19 @@ class WordsApi {
     return await _apiClient.call(request) as RunResponse;
   }
 
+  /// Inserts a new Run object to the paragraph.
+  Future< InsertRunOnlineResponse > insertRunOnline(InsertRunOnlineRequest request) async {
+    return await _apiClient.call(request) as InsertRunOnlineResponse;
+  }
+
   /// Inserts a new style to the document.
   Future< StyleResponse > insertStyle(InsertStyleRequest request) async {
     return await _apiClient.call(request) as StyleResponse;
+  }
+
+  /// Inserts a new style to the document.
+  Future< InsertStyleOnlineResponse > insertStyleOnline(InsertStyleOnlineRequest request) async {
+    return await _apiClient.call(request) as InsertStyleOnlineResponse;
   }
 
   /// Inserts a new table to the document node.
@@ -607,9 +1072,24 @@ class WordsApi {
     return await _apiClient.call(request) as TableCellResponse;
   }
 
+  /// Inserts a new cell to the table row.
+  Future< InsertTableCellOnlineResponse > insertTableCellOnline(InsertTableCellOnlineRequest request) async {
+    return await _apiClient.call(request) as InsertTableCellOnlineResponse;
+  }
+
+  /// Inserts a new table to the document node.
+  Future< InsertTableOnlineResponse > insertTableOnline(InsertTableOnlineRequest request) async {
+    return await _apiClient.call(request) as InsertTableOnlineResponse;
+  }
+
   /// Inserts a new row to the table.
   Future< TableRowResponse > insertTableRow(InsertTableRowRequest request) async {
     return await _apiClient.call(request) as TableRowResponse;
+  }
+
+  /// Inserts a new row to the table.
+  Future< InsertTableRowOnlineResponse > insertTableRowOnline(InsertTableRowOnlineRequest request) async {
+    return await _apiClient.call(request) as InsertTableRowOnlineResponse;
   }
 
   /// Inserts a new watermark image to the document.
@@ -617,9 +1097,19 @@ class WordsApi {
     return await _apiClient.call(request) as DocumentResponse;
   }
 
+  /// Inserts a new watermark image to the document.
+  Future< InsertWatermarkImageOnlineResponse > insertWatermarkImageOnline(InsertWatermarkImageOnlineRequest request) async {
+    return await _apiClient.call(request) as InsertWatermarkImageOnlineResponse;
+  }
+
   /// Inserts a new watermark text to the document.
   Future< DocumentResponse > insertWatermarkText(InsertWatermarkTextRequest request) async {
     return await _apiClient.call(request) as DocumentResponse;
+  }
+
+  /// Inserts a new watermark text to the document.
+  Future< InsertWatermarkTextOnlineResponse > insertWatermarkTextOnline(InsertWatermarkTextOnlineRequest request) async {
+    return await _apiClient.call(request) as InsertWatermarkTextOnlineResponse;
   }
 
   /// Downloads a document from the Web using URL and saves it to cloud storage in the specified format.
@@ -642,9 +1132,19 @@ class WordsApi {
   await _apiClient.call(request);
   }
 
+  /// Applies document content optimization options, specific to a particular versions of Microsoft Word.
+  Future< ByteData > optimizeDocumentOnline(OptimizeDocumentOnlineRequest request) async {
+    return await _apiClient.call(request) as ByteData;
+  }
+
   /// Adds protection to the document.
   Future< ProtectionDataResponse > protectDocument(ProtectDocumentRequest request) async {
     return await _apiClient.call(request) as ProtectionDataResponse;
+  }
+
+  /// Adds protection to the document.
+  Future< ProtectDocumentOnlineResponse > protectDocumentOnline(ProtectDocumentOnlineRequest request) async {
+    return await _apiClient.call(request) as ProtectDocumentOnlineResponse;
   }
 
   /// Rejects all revisions in the document.
@@ -652,13 +1152,28 @@ class WordsApi {
     return await _apiClient.call(request) as RevisionsModificationResponse;
   }
 
+  /// Rejects all revisions in the document.
+  Future< RejectAllRevisionsOnlineResponse > rejectAllRevisionsOnline(RejectAllRevisionsOnlineRequest request) async {
+    return await _apiClient.call(request) as RejectAllRevisionsOnlineResponse;
+  }
+
   /// Removes a range from the document.
   Future< DocumentResponse > removeRange(RemoveRangeRequest request) async {
     return await _apiClient.call(request) as DocumentResponse;
   }
 
+  /// Removes a range from the document.
+  Future< RemoveRangeOnlineResponse > removeRangeOnline(RemoveRangeOnlineRequest request) async {
+    return await _apiClient.call(request) as RemoveRangeOnlineResponse;
+  }
+
   /// Renders a DrawingObject to the specified format.
   Future< ByteData > renderDrawingObject(RenderDrawingObjectRequest request) async {
+    return await _apiClient.call(request) as ByteData;
+  }
+
+  /// Renders a DrawingObject to the specified format.
+  Future< ByteData > renderDrawingObjectOnline(RenderDrawingObjectOnlineRequest request) async {
     return await _apiClient.call(request) as ByteData;
   }
 
@@ -667,8 +1182,18 @@ class WordsApi {
     return await _apiClient.call(request) as ByteData;
   }
 
+  /// Renders an OfficeMath object to the specified format.
+  Future< ByteData > renderMathObjectOnline(RenderMathObjectOnlineRequest request) async {
+    return await _apiClient.call(request) as ByteData;
+  }
+
   /// Renders a page to the specified format.
   Future< ByteData > renderPage(RenderPageRequest request) async {
+    return await _apiClient.call(request) as ByteData;
+  }
+
+  /// Renders a page to the specified format.
+  Future< ByteData > renderPageOnline(RenderPageOnlineRequest request) async {
     return await _apiClient.call(request) as ByteData;
   }
 
@@ -677,8 +1202,18 @@ class WordsApi {
     return await _apiClient.call(request) as ByteData;
   }
 
+  /// Renders a paragraph to the specified format.
+  Future< ByteData > renderParagraphOnline(RenderParagraphOnlineRequest request) async {
+    return await _apiClient.call(request) as ByteData;
+  }
+
   /// Renders a table to the specified format.
   Future< ByteData > renderTable(RenderTableRequest request) async {
+    return await _apiClient.call(request) as ByteData;
+  }
+
+  /// Renders a table to the specified format.
+  Future< ByteData > renderTableOnline(RenderTableOnlineRequest request) async {
     return await _apiClient.call(request) as ByteData;
   }
 
@@ -687,9 +1222,19 @@ class WordsApi {
     return await _apiClient.call(request) as ReplaceTextResponse;
   }
 
+  /// Replaces text in the document.
+  Future< ReplaceTextOnlineResponse > replaceTextOnline(ReplaceTextOnlineRequest request) async {
+    return await _apiClient.call(request) as ReplaceTextOnlineResponse;
+  }
+
   /// Replaces a range with text in the document.
   Future< DocumentResponse > replaceWithText(ReplaceWithTextRequest request) async {
     return await _apiClient.call(request) as DocumentResponse;
+  }
+
+  /// Replaces a range with text in the document.
+  Future< ReplaceWithTextOnlineResponse > replaceWithTextOnline(ReplaceWithTextOnlineRequest request) async {
+    return await _apiClient.call(request) as ReplaceWithTextOnlineResponse;
   }
 
   /// Clears the font cache.
@@ -702,9 +1247,19 @@ class WordsApi {
     return await _apiClient.call(request) as SaveResponse;
   }
 
+  /// Converts a document in cloud storage to the specified format.
+  Future< SaveAsOnlineResponse > saveAsOnline(SaveAsOnlineRequest request) async {
+    return await _apiClient.call(request) as SaveAsOnlineResponse;
+  }
+
   /// Saves a range as a new document.
   Future< DocumentResponse > saveAsRange(SaveAsRangeRequest request) async {
     return await _apiClient.call(request) as DocumentResponse;
+  }
+
+  /// Saves a range as a new document.
+  Future< SaveAsRangeOnlineResponse > saveAsRangeOnline(SaveAsRangeOnlineRequest request) async {
+    return await _apiClient.call(request) as SaveAsRangeOnlineResponse;
   }
 
   /// Converts a document in cloud storage to TIFF format using detailed conversion settings.
@@ -712,8 +1267,18 @@ class WordsApi {
     return await _apiClient.call(request) as SaveResponse;
   }
 
+  /// Converts a document in cloud storage to TIFF format using detailed conversion settings.
+  Future< SaveAsTiffOnlineResponse > saveAsTiffOnline(SaveAsTiffOnlineRequest request) async {
+    return await _apiClient.call(request) as SaveAsTiffOnlineResponse;
+  }
+
   /// Searches text, specified by the regular expression, in the document.
   Future< SearchResponse > search(SearchRequest request) async {
+    return await _apiClient.call(request) as SearchResponse;
+  }
+
+  /// Searches text, specified by the regular expression, in the document.
+  Future< SearchResponse > searchOnline(SearchOnlineRequest request) async {
     return await _apiClient.call(request) as SearchResponse;
   }
 
@@ -722,9 +1287,19 @@ class WordsApi {
     return await _apiClient.call(request) as SplitDocumentResponse;
   }
 
+  /// Splits a document into parts and saves them in the specified format.
+  Future< SplitDocumentOnlineResponse > splitDocumentOnline(SplitDocumentOnlineRequest request) async {
+    return await _apiClient.call(request) as SplitDocumentOnlineResponse;
+  }
+
   /// Removes protection from the document.
   Future< ProtectionDataResponse > unprotectDocument(UnprotectDocumentRequest request) async {
     return await _apiClient.call(request) as ProtectionDataResponse;
+  }
+
+  /// Removes protection from the document.
+  Future< UnprotectDocumentOnlineResponse > unprotectDocumentOnline(UnprotectDocumentOnlineRequest request) async {
+    return await _apiClient.call(request) as UnprotectDocumentOnlineResponse;
   }
 
   /// Updates a bookmark in the document.
@@ -732,9 +1307,19 @@ class WordsApi {
     return await _apiClient.call(request) as BookmarkResponse;
   }
 
+  /// Updates a bookmark in the document.
+  Future< UpdateBookmarkOnlineResponse > updateBookmarkOnline(UpdateBookmarkOnlineRequest request) async {
+    return await _apiClient.call(request) as UpdateBookmarkOnlineResponse;
+  }
+
   /// The 'nodePath' parameter should refer to a paragraph, a cell or a row.
   Future< BorderResponse > updateBorder(UpdateBorderRequest request) async {
     return await _apiClient.call(request) as BorderResponse;
+  }
+
+  /// Updates a border in the document node.
+  Future< UpdateBorderOnlineResponse > updateBorderOnline(UpdateBorderOnlineRequest request) async {
+    return await _apiClient.call(request) as UpdateBorderOnlineResponse;
   }
 
   /// Updates a comment in the document.
@@ -742,9 +1327,19 @@ class WordsApi {
     return await _apiClient.call(request) as CommentResponse;
   }
 
+  /// Updates a comment in the document.
+  Future< UpdateCommentOnlineResponse > updateCommentOnline(UpdateCommentOnlineRequest request) async {
+    return await _apiClient.call(request) as UpdateCommentOnlineResponse;
+  }
+
   /// Updates a DrawingObject in the document node.
   Future< DrawingObjectResponse > updateDrawingObject(UpdateDrawingObjectRequest request) async {
     return await _apiClient.call(request) as DrawingObjectResponse;
+  }
+
+  /// Updates a DrawingObject in the document node.
+  Future< UpdateDrawingObjectOnlineResponse > updateDrawingObjectOnline(UpdateDrawingObjectOnlineRequest request) async {
+    return await _apiClient.call(request) as UpdateDrawingObjectOnlineResponse;
   }
 
   /// Updates a field in the document node.
@@ -752,9 +1347,19 @@ class WordsApi {
     return await _apiClient.call(request) as FieldResponse;
   }
 
+  /// Updates a field in the document node.
+  Future< UpdateFieldOnlineResponse > updateFieldOnline(UpdateFieldOnlineRequest request) async {
+    return await _apiClient.call(request) as UpdateFieldOnlineResponse;
+  }
+
   /// Reevaluates field values in the document.
   Future< DocumentResponse > updateFields(UpdateFieldsRequest request) async {
     return await _apiClient.call(request) as DocumentResponse;
+  }
+
+  /// Reevaluates field values in the document.
+  Future< UpdateFieldsOnlineResponse > updateFieldsOnline(UpdateFieldsOnlineRequest request) async {
+    return await _apiClient.call(request) as UpdateFieldsOnlineResponse;
   }
 
   /// Updates a footnote in the document node.
@@ -762,9 +1367,19 @@ class WordsApi {
     return await _apiClient.call(request) as FootnoteResponse;
   }
 
+  /// Updates a footnote in the document node.
+  Future< UpdateFootnoteOnlineResponse > updateFootnoteOnline(UpdateFootnoteOnlineRequest request) async {
+    return await _apiClient.call(request) as UpdateFootnoteOnlineResponse;
+  }
+
   /// Updates a form field in the document node.
   Future< FormFieldResponse > updateFormField(UpdateFormFieldRequest request) async {
     return await _apiClient.call(request) as FormFieldResponse;
+  }
+
+  /// Updates a form field in the document node.
+  Future< UpdateFormFieldOnlineResponse > updateFormFieldOnline(UpdateFormFieldOnlineRequest request) async {
+    return await _apiClient.call(request) as UpdateFormFieldOnlineResponse;
   }
 
   /// Updates a list in the document.
@@ -777,14 +1392,34 @@ class WordsApi {
     return await _apiClient.call(request) as ListResponse;
   }
 
+  /// Updates the level of a List element in the document.
+  Future< UpdateListLevelOnlineResponse > updateListLevelOnline(UpdateListLevelOnlineRequest request) async {
+    return await _apiClient.call(request) as UpdateListLevelOnlineResponse;
+  }
+
+  /// Updates a list in the document.
+  Future< UpdateListOnlineResponse > updateListOnline(UpdateListOnlineRequest request) async {
+    return await _apiClient.call(request) as UpdateListOnlineResponse;
+  }
+
   /// Updates the formatting properties of a paragraph in the document node.
   Future< ParagraphFormatResponse > updateParagraphFormat(UpdateParagraphFormatRequest request) async {
     return await _apiClient.call(request) as ParagraphFormatResponse;
   }
 
+  /// Updates the formatting properties of a paragraph in the document node.
+  Future< UpdateParagraphFormatOnlineResponse > updateParagraphFormatOnline(UpdateParagraphFormatOnlineRequest request) async {
+    return await _apiClient.call(request) as UpdateParagraphFormatOnlineResponse;
+  }
+
   /// Updates the formatting properties of a paragraph list in the document node.
   Future< ParagraphListFormatResponse > updateParagraphListFormat(UpdateParagraphListFormatRequest request) async {
     return await _apiClient.call(request) as ParagraphListFormatResponse;
+  }
+
+  /// Updates the formatting properties of a paragraph list in the document node.
+  Future< UpdateParagraphListFormatOnlineResponse > updateParagraphListFormatOnline(UpdateParagraphListFormatOnlineRequest request) async {
+    return await _apiClient.call(request) as UpdateParagraphListFormatOnlineResponse;
   }
 
   /// Updates a Run object in the paragraph.
@@ -797,9 +1432,24 @@ class WordsApi {
     return await _apiClient.call(request) as FontResponse;
   }
 
+  /// Updates the font properties of a Run object in the paragraph.
+  Future< UpdateRunFontOnlineResponse > updateRunFontOnline(UpdateRunFontOnlineRequest request) async {
+    return await _apiClient.call(request) as UpdateRunFontOnlineResponse;
+  }
+
+  /// Updates a Run object in the paragraph.
+  Future< UpdateRunOnlineResponse > updateRunOnline(UpdateRunOnlineRequest request) async {
+    return await _apiClient.call(request) as UpdateRunOnlineResponse;
+  }
+
   /// Updates the page setup of a section in the document.
   Future< SectionPageSetupResponse > updateSectionPageSetup(UpdateSectionPageSetupRequest request) async {
     return await _apiClient.call(request) as SectionPageSetupResponse;
+  }
+
+  /// Updates the page setup of a section in the document.
+  Future< UpdateSectionPageSetupOnlineResponse > updateSectionPageSetupOnline(UpdateSectionPageSetupOnlineRequest request) async {
+    return await _apiClient.call(request) as UpdateSectionPageSetupOnlineResponse;
   }
 
   /// Updates a style in the document.
@@ -807,9 +1457,19 @@ class WordsApi {
     return await _apiClient.call(request) as StyleResponse;
   }
 
+  /// Updates a style in the document.
+  Future< UpdateStyleOnlineResponse > updateStyleOnline(UpdateStyleOnlineRequest request) async {
+    return await _apiClient.call(request) as UpdateStyleOnlineResponse;
+  }
+
   /// Updates the formatting properties of a cell in the table row.
   Future< TableCellFormatResponse > updateTableCellFormat(UpdateTableCellFormatRequest request) async {
     return await _apiClient.call(request) as TableCellFormatResponse;
+  }
+
+  /// Updates the formatting properties of a cell in the table row.
+  Future< UpdateTableCellFormatOnlineResponse > updateTableCellFormatOnline(UpdateTableCellFormatOnlineRequest request) async {
+    return await _apiClient.call(request) as UpdateTableCellFormatOnlineResponse;
   }
 
   /// Updates properties of a table in the document node.
@@ -817,9 +1477,19 @@ class WordsApi {
     return await _apiClient.call(request) as TablePropertiesResponse;
   }
 
+  /// Updates properties of a table in the document node.
+  Future< UpdateTablePropertiesOnlineResponse > updateTablePropertiesOnline(UpdateTablePropertiesOnlineRequest request) async {
+    return await _apiClient.call(request) as UpdateTablePropertiesOnlineResponse;
+  }
+
   /// Updates the formatting properties of a table row.
   Future< TableRowFormatResponse > updateTableRowFormat(UpdateTableRowFormatRequest request) async {
     return await _apiClient.call(request) as TableRowFormatResponse;
+  }
+
+  /// Updates the formatting properties of a table row.
+  Future< UpdateTableRowFormatOnlineResponse > updateTableRowFormatOnline(UpdateTableRowFormatOnlineRequest request) async {
+    return await _apiClient.call(request) as UpdateTableRowFormatOnlineResponse;
   }
 
   /// Upload file.

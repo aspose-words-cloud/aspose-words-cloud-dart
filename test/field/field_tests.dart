@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="field_tests.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -64,6 +64,18 @@ class FieldTests
     expect(result.fields.list[0].result, '1');
   }
 
+  /// Test for getting fields online.
+  Future<void> testGetFieldsOnline() async
+  {
+
+    final request = GetFieldsOnlineRequest(
+      await context.loadBinaryFile(fieldFolder + '/GetField.docx'),
+      nodePath: 'sections/0'
+    );
+
+    await context.getApi().getFieldsOnline(request);
+  }
+
   /// Test for getting fields without node path.
   Future<void> testGetFieldsWithoutNodePath() async
   {
@@ -100,6 +112,19 @@ class FieldTests
     var result = await context.getApi().getField(request);
     expect(result.field, isNotNull);
     expect(result.field.result, '1');
+  }
+
+  /// Test for getting field by index online.
+  Future<void> testGetFieldOnline() async
+  {
+
+    final request = GetFieldOnlineRequest(
+      await context.loadBinaryFile(fieldFolder + '/GetField.docx'),
+      0,
+      nodePath: 'sections/0/paragraphs/0'
+    );
+
+    await context.getApi().getFieldOnline(request);
   }
 
   /// Test for getting field by index without node path.
@@ -142,6 +167,21 @@ class FieldTests
     expect(result.field.nodeId, '0.0.0.1');
   }
 
+  /// Test for putting field online.
+  Future<void> testInsertFieldOnline() async
+  {
+    var requestField = FieldInsert();
+    requestField.fieldCode = '{ NUMPAGES }';
+
+    final request = InsertFieldOnlineRequest(
+      await context.loadBinaryFile(fieldFolder + '/GetField.docx'),
+      requestField,
+      nodePath: 'sections/0/paragraphs/0'
+    );
+
+    await context.getApi().insertFieldOnline(request);
+  }
+
   /// Test for putting field without node path.
   Future<void> testInsertFieldWithoutNodePath() async
   {
@@ -174,8 +214,8 @@ class FieldTests
 
     final request = UpdateFieldRequest(
       remoteFileName,
-      requestField,
       0,
+      requestField,
       nodePath: 'sections/0/paragraphs/0',
       folder: remoteDataFolder
     );
@@ -184,6 +224,22 @@ class FieldTests
     expect(result.field, isNotNull);
     expect(result.field.fieldCode, '{ NUMPAGES }');
     expect(result.field.nodeId, '0.0.0.0');
+  }
+
+  /// Test for posting field online.
+  Future<void> testUpdateFieldOnline() async
+  {
+    var requestField = FieldUpdate();
+    requestField.fieldCode = '{ NUMPAGES }';
+
+    final request = UpdateFieldOnlineRequest(
+      await context.loadBinaryFile(fieldFolder + '/GetField.docx'),
+      requestField,
+      0,
+      nodePath: 'sections/0/paragraphs/0'
+    );
+
+    await context.getApi().updateFieldOnline(request);
   }
 
   /// Test for inserting page numbers field.
@@ -208,6 +264,22 @@ class FieldTests
     expect(result.document.fileName, 'TestInsertPageNumbers.docx');
   }
 
+  /// Test for inserting page numbers field online.
+  Future<void> testInsertPageNumbersOnline() async
+  {
+    final localFileName = 'test_multi_pages.docx';
+    var requestPageNumber = PageNumber();
+    requestPageNumber.alignment = 'center';
+    requestPageNumber.format = '{PAGE} of {NUMPAGES}';
+
+    final request = InsertPageNumbersOnlineRequest(
+      await context.loadBinaryFile('Common/' + localFileName),
+      requestPageNumber
+    );
+
+    await context.getApi().insertPageNumbersOnline(request);
+  }
+
   /// Test for deleting field.
   Future<void> testDeleteField() async
   {
@@ -223,6 +295,19 @@ class FieldTests
     );
 
     await context.getApi().deleteField(request);
+  }
+
+  /// Test for deleting field online.
+  Future<void> testDeleteFieldOnline() async
+  {
+
+    final request = DeleteFieldOnlineRequest(
+      await context.loadBinaryFile(fieldFolder + '/GetField.docx'),
+      0,
+      nodePath: 'sections/0/paragraphs/0'
+    );
+
+    await context.getApi().deleteFieldOnline(request);
   }
 
   /// Test for deleting field without node path.
@@ -335,6 +420,19 @@ class FieldTests
     await context.getApi().deleteFields(request);
   }
 
+  /// Test for deleting fields online.
+  Future<void> testDeleteDocumentFieldsOnline() async
+  {
+    final localFileName = 'Common/test_multi_pages.docx';
+
+    final request = DeleteFieldsOnlineRequest(
+      await context.loadBinaryFile(localFileName),
+      nodePath: ''
+    );
+
+    await context.getApi().deleteFieldsOnline(request);
+  }
+
   /// Test for posting updated fields.
   Future<void> testUpdateDocumentFields() async
   {
@@ -350,5 +448,17 @@ class FieldTests
     var result = await context.getApi().updateFields(request);
     expect(result.document, isNotNull);
     expect(result.document.fileName, 'TestUpdateDocumentFields.docx');
+  }
+
+  /// Test for posting updated fields online.
+  Future<void> testUpdateDocumentFieldsOnline() async
+  {
+    final localFile = 'Common/test_multi_pages.docx';
+
+    final request = UpdateFieldsOnlineRequest(
+      await context.loadBinaryFile(localFile)
+    );
+
+    await context.getApi().updateFieldsOnline(request);
   }
 }

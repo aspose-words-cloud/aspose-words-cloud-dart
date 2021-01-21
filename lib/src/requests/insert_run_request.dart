@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="insert_run_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -42,7 +42,7 @@ class InsertRunRequest implements RequestBase {
   /// The path to the paragraph in the document tree.
   final String paragraphPath;
 
-  /// The properties of the Run object.
+  /// Run data.
   final RunInsert run;
 
   /// Original document folder.
@@ -72,7 +72,7 @@ class InsertRunRequest implements RequestBase {
   InsertRunRequest(final this.name, final this.paragraphPath, final this.run, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime, final this.insertBeforeNode});
 
   @override
-  ApiRequestData createRequestData(final ApiClient apiClient) {
+  ApiRequestData createRequestData(final ApiClient _apiClient) {
     var _path = '/words/{name}/{paragraphPath}/runs';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -80,58 +80,58 @@ class InsertRunRequest implements RequestBase {
     if (name == null) {
       throw ApiException(400, 'Parameter name is required.');
     }
-    _path = _path.replaceAll('{name}', apiClient.serializeToString(name));
+    _path = _path.replaceAll('{name}', _apiClient.serializeToString(name));
 
     if (paragraphPath == null) {
       throw ApiException(400, 'Parameter paragraphPath is required.');
     }
-    _path = _path.replaceAll('{paragraphPath}', apiClient.serializeToString(paragraphPath));
+    _path = _path.replaceAll('{paragraphPath}', _apiClient.serializeToString(paragraphPath));
     if (folder != null) {
-      _queryParams['folder'] = apiClient.serializeToString(folder);
+      _queryParams['folder'] = _apiClient.serializeToString(folder);
     }
 
     if (storage != null) {
-      _queryParams['storage'] = apiClient.serializeToString(storage);
+      _queryParams['storage'] = _apiClient.serializeToString(storage);
     }
 
     if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
     }
 
     if (password != null) {
-      _queryParams['password'] = apiClient.serializeToString(password);
+      _queryParams['password'] = _apiClient.serializeToString(password);
     }
 
     if (destFileName != null) {
-      _queryParams['destFileName'] = apiClient.serializeToString(destFileName);
+      _queryParams['destFileName'] = _apiClient.serializeToString(destFileName);
     }
 
     if (revisionAuthor != null) {
-      _queryParams['revisionAuthor'] = apiClient.serializeToString(revisionAuthor);
+      _queryParams['revisionAuthor'] = _apiClient.serializeToString(revisionAuthor);
     }
 
     if (revisionDateTime != null) {
-      _queryParams['revisionDateTime'] = apiClient.serializeToString(revisionDateTime);
+      _queryParams['revisionDateTime'] = _apiClient.serializeToString(revisionDateTime);
     }
 
     if (insertBeforeNode != null) {
-      _queryParams['insertBeforeNode'] = apiClient.serializeToString(insertBeforeNode);
+      _queryParams['insertBeforeNode'] = _apiClient.serializeToString(insertBeforeNode);
     }
 
     if (run != null) {
-      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(run), 'application/json'));
+      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(run), 'application/json'));
     }
     else {
       throw ApiException(400, 'Parameter run is required.');
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
     return ApiRequestData('POST', _url, _headers, _body);
   }
 
   @override
-  dynamic deserializeResponse(final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
     var _result = RunResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);

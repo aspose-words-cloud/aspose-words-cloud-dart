@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="run_tests.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -52,15 +52,31 @@ class RunTests
 
     final request = UpdateRunRequest(
       remoteFileName,
-      requestRun,
       'paragraphs/1',
       0,
+      requestRun,
       folder: remoteDataFolder
     );
 
     var result = await context.getApi().updateRun(request);
     expect(result.run, isNotNull);
     expect(result.run.text, 'run with text');
+  }
+
+  /// Test for updating run online.
+  Future<void> testUpdateRunOnline() async
+  {
+    var requestRun = RunUpdate();
+    requestRun.text = 'run with text';
+
+    final request = UpdateRunOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'paragraphs/1',
+      requestRun,
+      0
+    );
+
+    await context.getApi().updateRunOnline(request);
   }
 
   /// Test for adding run.
@@ -84,6 +100,21 @@ class RunTests
     expect(result.run.nodeId, '0.0.1.3');
   }
 
+  /// Test for adding run online.
+  Future<void> testInsertRunOnline() async
+  {
+    var requestRun = RunInsert();
+    requestRun.text = 'run with text';
+
+    final request = InsertRunOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'paragraphs/1',
+      requestRun
+    );
+
+    await context.getApi().insertRunOnline(request);
+  }
+
   /// Test for deleting run.
   Future<void> testDeleteRun() async
   {
@@ -98,5 +129,18 @@ class RunTests
     );
 
     await context.getApi().deleteRun(request);
+  }
+
+  /// Test for deleting run online.
+  Future<void> testDeleteRunOnline() async
+  {
+
+    final request = DeleteRunOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'paragraphs/1',
+      0
+    );
+
+    await context.getApi().deleteRunOnline(request);
   }
 }

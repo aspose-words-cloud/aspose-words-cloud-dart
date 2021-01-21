@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="document_protection_tests.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -63,6 +63,20 @@ class DocumentProtectionTests
     expect(result.protectionData.protectionType, 'ReadOnly');
   }
 
+  /// Test for setting document protection.
+  Future<void> testProtectDocumentOnline() async
+  {
+    var requestProtectionRequest = ProtectionRequest();
+    requestProtectionRequest.newPassword = '123';
+
+    final request = ProtectDocumentOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      requestProtectionRequest
+    );
+
+    await context.getApi().protectDocumentOnline(request);
+  }
+
   /// Test for getting document protection.
   Future<void> testGetDocumentProtection() async
   {
@@ -75,9 +89,18 @@ class DocumentProtectionTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getDocumentProtection(request);
-    expect(result.protectionData, isNotNull);
-    expect(result.protectionData.protectionType, 'ReadOnly');
+    await context.getApi().getDocumentProtection(request);
+  }
+
+  /// Test for getting document protection.
+  Future<void> testGetDocumentProtectionOnline() async
+  {
+
+    final request = GetDocumentProtectionOnlineRequest(
+      await context.loadBinaryFile(localFile)
+    );
+
+    await context.getApi().getDocumentProtectionOnline(request);
   }
 
   /// Test for deleting unprotect document.
@@ -98,5 +121,20 @@ class DocumentProtectionTests
     var result = await context.getApi().unprotectDocument(request);
     expect(result.protectionData, isNotNull);
     expect(result.protectionData.protectionType, 'NoProtection');
+  }
+
+  /// Test for deleting unprotect document.
+  Future<void> testDeleteUnprotectDocumentOnline() async
+  {
+    final localFilePath = 'DocumentActions/DocumentProtection/SampleProtectedBlankWordDocument.docx';
+    var requestProtectionRequest = ProtectionRequest();
+    requestProtectionRequest.password = 'aspose';
+
+    final request = UnprotectDocumentOnlineRequest(
+      await context.loadBinaryFile(localFilePath),
+      requestProtectionRequest
+    );
+
+    await context.getApi().unprotectDocumentOnline(request);
   }
 }

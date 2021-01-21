@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="split_document_to_format_tests.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -61,5 +61,20 @@ class SplitDocumentToFormatTests
     expect(result.splitResult, isNotNull);
     expect(result.splitResult.pages, isNotNull);
     expect(result.splitResult.pages.length, 2);
+  }
+
+  /// Test for document splitting online.
+  Future<void> testSplitDocumentOnline() async
+  {
+
+    final request = SplitDocumentOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'text',
+      destFileName: context.baseTestOutPath + '/TestSplitDocument.text',
+      from: 1,
+      to: 2
+    );
+
+    await context.getApi().splitDocumentOnline(request);
   }
 }

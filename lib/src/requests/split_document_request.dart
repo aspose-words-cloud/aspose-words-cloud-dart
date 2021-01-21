@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="split_document_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -72,7 +72,7 @@ class SplitDocumentRequest implements RequestBase {
   SplitDocumentRequest(final this.name, final this.format, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.from, final this.to, final this.zipOutput, final this.fontsLocation});
 
   @override
-  ApiRequestData createRequestData(final ApiClient apiClient) {
+  ApiRequestData createRequestData(final ApiClient _apiClient) {
     var _path = '/words/{name}/split';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -80,57 +80,57 @@ class SplitDocumentRequest implements RequestBase {
     if (name == null) {
       throw ApiException(400, 'Parameter name is required.');
     }
-    _path = _path.replaceAll('{name}', apiClient.serializeToString(name));
+    _path = _path.replaceAll('{name}', _apiClient.serializeToString(name));
     if (format != null) {
-      _queryParams['format'] = apiClient.serializeToString(format);
+      _queryParams['format'] = _apiClient.serializeToString(format);
     }
     else {
       throw ApiException(400, 'Parameter format is required.');
     }
 
     if (folder != null) {
-      _queryParams['folder'] = apiClient.serializeToString(folder);
+      _queryParams['folder'] = _apiClient.serializeToString(folder);
     }
 
     if (storage != null) {
-      _queryParams['storage'] = apiClient.serializeToString(storage);
+      _queryParams['storage'] = _apiClient.serializeToString(storage);
     }
 
     if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
     }
 
     if (password != null) {
-      _queryParams['password'] = apiClient.serializeToString(password);
+      _queryParams['password'] = _apiClient.serializeToString(password);
     }
 
     if (destFileName != null) {
-      _queryParams['destFileName'] = apiClient.serializeToString(destFileName);
+      _queryParams['destFileName'] = _apiClient.serializeToString(destFileName);
     }
 
     if (from != null) {
-      _queryParams['from'] = apiClient.serializeToString(from);
+      _queryParams['from'] = _apiClient.serializeToString(from);
     }
 
     if (to != null) {
-      _queryParams['to'] = apiClient.serializeToString(to);
+      _queryParams['to'] = _apiClient.serializeToString(to);
     }
 
     if (zipOutput != null) {
-      _queryParams['zipOutput'] = apiClient.serializeToString(zipOutput);
+      _queryParams['zipOutput'] = _apiClient.serializeToString(zipOutput);
     }
 
     if (fontsLocation != null) {
-      _queryParams['fontsLocation'] = apiClient.serializeToString(fontsLocation);
+      _queryParams['fontsLocation'] = _apiClient.serializeToString(fontsLocation);
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
     return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override
-  dynamic deserializeResponse(final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
     var _result = SplitDocumentResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);

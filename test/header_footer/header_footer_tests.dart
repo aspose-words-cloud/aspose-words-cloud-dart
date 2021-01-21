@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="header_footer_tests.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -60,6 +60,18 @@ class HeaderFooterTests
     expect(result.headerFooters.list.length, 6);
   }
 
+  /// Test for getting headers and footers online.
+  Future<void> testGetHeaderFootersOnline() async
+  {
+
+    final request = GetHeaderFootersOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      ''
+    );
+
+    await context.getApi().getHeaderFootersOnline(request);
+  }
+
   /// Test for getting headerfooter.
   Future<void> testGetHeaderFooter() async
   {
@@ -77,6 +89,18 @@ class HeaderFooterTests
     expect(result.headerFooter.childNodes, isNotNull);
     expect(result.headerFooter.childNodes.length, 1);
     expect(result.headerFooter.childNodes[0].nodeId, '0.0.0');
+  }
+
+  /// Test for getting headerfooter online.
+  Future<void> testGetHeaderFooterOnline() async
+  {
+
+    final request = GetHeaderFooterOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      0
+    );
+
+    await context.getApi().getHeaderFooterOnline(request);
   }
 
   /// Test for getting headerfooter of section.
@@ -99,6 +123,19 @@ class HeaderFooterTests
     expect(result.headerFooter.childNodes[0].nodeId, '0.0.0');
   }
 
+  /// Test for getting headerfooter of section online.
+  Future<void> testGetHeaderFooterOfSectionOnline() async
+  {
+
+    final request = GetHeaderFooterOfSectionOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      0,
+      0
+    );
+
+    await context.getApi().getHeaderFooterOfSectionOnline(request);
+  }
+
   /// Test for deleting headerfooter.
   Future<void> testDeleteHeaderFooter() async
   {
@@ -113,6 +150,19 @@ class HeaderFooterTests
     );
 
     await context.getApi().deleteHeaderFooter(request);
+  }
+
+  /// Test for deleting headerfooter online.
+  Future<void> testDeleteHeaderFooterOnline() async
+  {
+
+    final request = DeleteHeaderFooterOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      '',
+      0
+    );
+
+    await context.getApi().deleteHeaderFooterOnline(request);
   }
 
   /// Test for deleting headerfooters.
@@ -130,6 +180,18 @@ class HeaderFooterTests
     await context.getApi().deleteHeadersFooters(request);
   }
 
+  /// Test for deleting headerfooters online.
+  Future<void> testDeleteHeadersFootersOnline() async
+  {
+
+    final request = DeleteHeadersFootersOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      ''
+    );
+
+    await context.getApi().deleteHeadersFootersOnline(request);
+  }
+
   /// Test for adding headerfooters.
   Future<void> testInsertHeaderFooter() async
   {
@@ -138,15 +200,28 @@ class HeaderFooterTests
 
     final request = InsertHeaderFooterRequest(
       remoteFileName,
-      'FooterEven',
       '',
+      'FooterEven',
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().insertHeaderFooter(request);
-    expect(result.headerFooter, isNotNull);
-    expect(result.headerFooter.childNodes, isNotNull);
-    expect(result.headerFooter.childNodes.length, 1);
-    expect(result.headerFooter.childNodes[0].nodeId, '0.2.0');
+    await context.getApi().insertHeaderFooter(request);
+  }
+
+  /// Test for adding headerfooters online.
+  Future<void> testInsertHeaderFooterOnline() async
+  {
+
+    final request = InsertHeaderFooterOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      '',
+      'FooterEven'
+    );
+
+    var result = await context.getApi().insertHeaderFooterOnline(request);
+    expect(result.model.headerFooter, isNotNull);
+    expect(result.model.headerFooter.childNodes, isNotNull);
+    expect(result.model.headerFooter.childNodes.length, 1);
+    expect(result.model.headerFooter.childNodes[0].nodeId, '0.2.0');
   }
 }

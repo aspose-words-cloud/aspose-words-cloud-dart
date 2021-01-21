@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="upload_file_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -50,7 +50,7 @@ class UploadFileRequest implements RequestBase {
   UploadFileRequest(final this.fileContent, final this.path, {final this.storageName});
 
   @override
-  ApiRequestData createRequestData(final ApiClient apiClient) {
+  ApiRequestData createRequestData(final ApiClient _apiClient) {
     var _path = '/words/storage/file/{path}';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -58,25 +58,25 @@ class UploadFileRequest implements RequestBase {
     if (path == null) {
       throw ApiException(400, 'Parameter path is required.');
     }
-    _path = _path.replaceAll('{path}', apiClient.serializeToString(path));
+    _path = _path.replaceAll('{path}', _apiClient.serializeToString(path));
     if (storageName != null) {
-      _queryParams['storageName'] = apiClient.serializeToString(storageName);
+      _queryParams['storageName'] = _apiClient.serializeToString(storageName);
     }
 
     if (fileContent != null) {
-      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(fileContent), 'application/octet-stream', name: 'FileContent'));
+      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(fileContent), 'application/octet-stream', name: 'FileContent'));
     }
     else {
       throw ApiException(400, 'Parameter fileContent is required.');
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
     return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override
-  dynamic deserializeResponse(final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
     var _result = FilesUploadResult();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);

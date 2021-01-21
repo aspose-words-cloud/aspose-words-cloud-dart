@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="configuration.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -38,7 +38,7 @@ class Configuration {
   Configuration.fromJson(final Map<String, dynamic> json)
     : clientId = json['ClientId'] as String,
       clientSecret = json['ClientSecret'] as String,
-      baseUrl = json['BaseUrl'] as String,
+      baseUrl = json['BaseUrl'] as String ?? 'https://api.aspose.cloud',
       debugMode = json['DebugMode'] as bool;
 
   String getApiRootUrl()

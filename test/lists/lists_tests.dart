@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="lists_tests.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -60,6 +60,17 @@ class ListsTests
     expect(result.lists.listInfo[0].listId, 1);
   }
 
+  /// Test for getting lists from document online.
+  Future<void> testGetListsOnline() async
+  {
+
+    final request = GetListsOnlineRequest(
+      await context.loadBinaryFile(localFile)
+    );
+
+    await context.getApi().getListsOnline(request);
+  }
+
   /// Test for getting list from document.
   Future<void> testGetList() async
   {
@@ -77,6 +88,18 @@ class ListsTests
     expect(result.list.listId, 1);
   }
 
+  /// Test for getting list from document online.
+  Future<void> testGetListOnline() async
+  {
+
+    final request = GetListOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      1
+    );
+
+    await context.getApi().getListOnline(request);
+  }
+
   /// Test for updating list from document.
   Future<void> testUpdateList() async
   {
@@ -87,15 +110,30 @@ class ListsTests
 
     final request = UpdateListRequest(
       remoteFileName,
-      requestListUpdate,
       1,
+      requestListUpdate,
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().updateList(request);
-    expect(result.list, isNotNull);
-    expect(result.list.listId, 1);
-    expect(result.list.isRestartAtEachSection, isTrue);
+    await context.getApi().updateList(request);
+  }
+
+  /// Test for updating list from document online.
+  Future<void> testUpdateListOnline() async
+  {
+    var requestListUpdate = ListUpdate();
+    requestListUpdate.isRestartAtEachSection = true;
+
+    final request = UpdateListOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      1,
+      requestListUpdate
+    );
+
+    var result = await context.getApi().updateListOnline(request);
+    expect(result.model.list, isNotNull);
+    expect(result.model.list.listId, 1);
+    expect(result.model.list.isRestartAtEachSection, isTrue);
   }
 
   /// Test for updating list level from document.
@@ -108,17 +146,33 @@ class ListsTests
 
     final request = UpdateListLevelRequest(
       remoteFileName,
+      1,
+      1,
       requestListUpdate,
-      1,
-      1,
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().updateListLevel(request);
-    expect(result.list, isNotNull);
-    expect(result.list.listLevels, isNotNull);
-    expect(result.list.listLevels.listLevel, isNotNull);
-    expect(result.list.listLevels.listLevel.length, 9);
+    await context.getApi().updateListLevel(request);
+  }
+
+  /// Test for updating list level from document online.
+  Future<void> testUpdateListLevelOnline() async
+  {
+    var requestListUpdate = ListLevelUpdate();
+    requestListUpdate.alignment = ListLevelUpdate_AlignmentEnum.right;
+
+    final request = UpdateListLevelOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      1,
+      requestListUpdate,
+      1
+    );
+
+    var result = await context.getApi().updateListLevelOnline(request);
+    expect(result.model.list, isNotNull);
+    expect(result.model.list.listLevels, isNotNull);
+    expect(result.model.list.listLevels.listLevel, isNotNull);
+    expect(result.model.list.listLevels.listLevel.length, 9);
 
   }
 
@@ -139,5 +193,19 @@ class ListsTests
     var result = await context.getApi().insertList(request);
     expect(result.list, isNotNull);
     expect(result.list.listId, 3);
+  }
+
+  /// Test for inserting list from document online.
+  Future<void> testInsertListOnline() async
+  {
+    var requestListInsert = ListInsert();
+    requestListInsert.template = ListInsert_TemplateEnum.outlineLegal;
+
+    final request = InsertListOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      requestListInsert
+    );
+
+    await context.getApi().insertListOnline(request);
   }
 }

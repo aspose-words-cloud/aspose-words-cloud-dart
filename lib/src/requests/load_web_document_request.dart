@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="load_web_document_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -45,29 +45,29 @@ class LoadWebDocumentRequest implements RequestBase {
   LoadWebDocumentRequest(final this.data, {final this.storage});
 
   @override
-  ApiRequestData createRequestData(final ApiClient apiClient) {
+  ApiRequestData createRequestData(final ApiClient _apiClient) {
     var _path = '/words/loadWebDocument';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
     if (storage != null) {
-      _queryParams['storage'] = apiClient.serializeToString(storage);
+      _queryParams['storage'] = _apiClient.serializeToString(storage);
     }
 
     if (data != null) {
-      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(data), 'application/json'));
+      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(data), 'application/json'));
     }
     else {
       throw ApiException(400, 'Parameter data is required.');
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
     return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override
-  dynamic deserializeResponse(final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
     var _result = SaveResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);

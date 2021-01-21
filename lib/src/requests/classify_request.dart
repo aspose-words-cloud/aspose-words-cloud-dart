@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="classify_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -45,29 +45,29 @@ class ClassifyRequest implements RequestBase {
   ClassifyRequest(final this.text, {final this.bestClassesCount});
 
   @override
-  ApiRequestData createRequestData(final ApiClient apiClient) {
+  ApiRequestData createRequestData(final ApiClient _apiClient) {
     var _path = '/words/classify';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
     if (bestClassesCount != null) {
-      _queryParams['bestClassesCount'] = apiClient.serializeToString(bestClassesCount);
+      _queryParams['bestClassesCount'] = _apiClient.serializeToString(bestClassesCount);
     }
 
     if (text != null) {
-      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(text, isJson: true), 'application/json'));
+      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(text, isJson: true), 'application/json'));
     }
     else {
       throw ApiException(400, 'Parameter text is required.');
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
     return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override
-  dynamic deserializeResponse(final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
     var _result = ClassificationResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);

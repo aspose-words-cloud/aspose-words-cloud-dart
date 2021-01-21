@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="bookmark_tests.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,7 +26,6 @@
  */
 
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
-import 'package:test/test.dart';
 
 import '../test_context.dart';
 
@@ -36,10 +35,12 @@ class BookmarkTests
   final TestContext context;
   String remoteDataFolder;
   String localFile;
+  String bookmarkName;
 
   BookmarkTests(final this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Bookmarks';
     localFile = 'Common/test_multi_pages.docx';
+    bookmarkName = 'aspose';
   }
 
   /// Test for getting bookmarks from document.
@@ -53,17 +54,24 @@ class BookmarkTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getBookmarks(request);
-    expect(result.bookmarks, isNotNull);
-    expect(result.bookmarks.bookmarkList.length, 3);
-    expect(result.bookmarks.bookmarkList[1].name, 'aspose');
+    await context.getApi().getBookmarks(request);
+  }
+
+  /// Test for getting bookmarks from document online.
+  Future<void> testGetBookmarksOnline() async
+  {
+
+    final request = GetBookmarksOnlineRequest(
+      await context.loadBinaryFile(localFile)
+    );
+
+    await context.getApi().getBookmarksOnline(request);
   }
 
   /// Test for getting bookmark by specified name.
   Future<void> testGetBookmarkByName() async
   {
     final remoteFileName = 'TestGetDocumentBookmarkByName.docx';
-    final bookmarkName = 'aspose';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetBookmarkByNameRequest(
@@ -72,16 +80,25 @@ class BookmarkTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getBookmarkByName(request);
-    expect(result.bookmark, isNotNull);
-    expect(result.bookmark.name, bookmarkName);
+    await context.getApi().getBookmarkByName(request);
+  }
+
+  /// Test for getting bookmark by specified name online.
+  Future<void> testGetBookmarkByNameOnline() async
+  {
+
+    final request = GetBookmarkByNameOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      bookmarkName
+    );
+
+    await context.getApi().getBookmarkByNameOnline(request);
   }
 
   /// Test for updating existed bookmark.
   Future<void> testUpdateBookmark() async
   {
     final remoteFileName = 'TestUpdateDocumentBookmark.docx';
-    final bookmarkName = 'aspose';
     final bookmarkText = 'This will be the text for Aspose';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     var requestBookmarkData = BookmarkData();
@@ -90,15 +107,30 @@ class BookmarkTests
 
     final request = UpdateBookmarkRequest(
       remoteFileName,
-      requestBookmarkData,
       bookmarkName,
+      requestBookmarkData,
       folder: remoteDataFolder,
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await context.getApi().updateBookmark(request);
-    expect(result.bookmark, isNotNull);
-    expect(result.bookmark.name, bookmarkName);
-    expect(result.bookmark.text, bookmarkText);
+    await context.getApi().updateBookmark(request);
+  }
+
+  /// Test for updating existed bookmark online.
+  Future<void> testUpdateBookmarkOnline() async
+  {
+    final remoteFileName = 'TestUpdateDocumentBookmark.docx';
+    var requestBookmarkData = BookmarkData();
+    requestBookmarkData.name = bookmarkName;
+    requestBookmarkData.text = 'This will be the text for Aspose';
+
+    final request = UpdateBookmarkOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      bookmarkName,
+      requestBookmarkData,
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
+    );
+
+    await context.getApi().updateBookmarkOnline(request);
   }
 }

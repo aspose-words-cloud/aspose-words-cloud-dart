@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="request_base.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,6 +32,6 @@ import '../api_client.dart';
 import '../api_request_data.dart';
 
 abstract class RequestBase {
-  ApiRequestData createRequestData(final ApiClient apiClient);
-  dynamic deserializeResponse(final ByteData body);
+  ApiRequestData createRequestData(final ApiClient _apiClient);
+  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body);
 }

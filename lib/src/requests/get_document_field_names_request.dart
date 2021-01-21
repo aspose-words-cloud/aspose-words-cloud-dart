@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="get_document_field_names_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -57,7 +57,7 @@ class GetDocumentFieldNamesRequest implements RequestBase {
   GetDocumentFieldNamesRequest(final this.name, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.useNonMergeFields});
 
   @override
-  ApiRequestData createRequestData(final ApiClient apiClient) {
+  ApiRequestData createRequestData(final ApiClient _apiClient) {
     var _path = '/words/{name}/mailMerge/FieldNames';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -65,34 +65,34 @@ class GetDocumentFieldNamesRequest implements RequestBase {
     if (name == null) {
       throw ApiException(400, 'Parameter name is required.');
     }
-    _path = _path.replaceAll('{name}', apiClient.serializeToString(name));
+    _path = _path.replaceAll('{name}', _apiClient.serializeToString(name));
     if (folder != null) {
-      _queryParams['folder'] = apiClient.serializeToString(folder);
+      _queryParams['folder'] = _apiClient.serializeToString(folder);
     }
 
     if (storage != null) {
-      _queryParams['storage'] = apiClient.serializeToString(storage);
+      _queryParams['storage'] = _apiClient.serializeToString(storage);
     }
 
     if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
     }
 
     if (password != null) {
-      _queryParams['password'] = apiClient.serializeToString(password);
+      _queryParams['password'] = _apiClient.serializeToString(password);
     }
 
     if (useNonMergeFields != null) {
-      _queryParams['useNonMergeFields'] = apiClient.serializeToString(useNonMergeFields);
+      _queryParams['useNonMergeFields'] = _apiClient.serializeToString(useNonMergeFields);
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
     return ApiRequestData('GET', _url, _headers, _body);
   }
 
   @override
-  dynamic deserializeResponse(final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
     var _result = FieldNamesResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);

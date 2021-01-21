@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="get_header_footer_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -60,7 +60,7 @@ class GetHeaderFooterRequest implements RequestBase {
   GetHeaderFooterRequest(final this.name, final this.headerFooterIndex, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.filterByType});
 
   @override
-  ApiRequestData createRequestData(final ApiClient apiClient) {
+  ApiRequestData createRequestData(final ApiClient _apiClient) {
     var _path = '/words/{name}/headersfooters/{headerFooterIndex}';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -68,39 +68,39 @@ class GetHeaderFooterRequest implements RequestBase {
     if (name == null) {
       throw ApiException(400, 'Parameter name is required.');
     }
-    _path = _path.replaceAll('{name}', apiClient.serializeToString(name));
+    _path = _path.replaceAll('{name}', _apiClient.serializeToString(name));
 
     if (headerFooterIndex == null) {
       throw ApiException(400, 'Parameter headerFooterIndex is required.');
     }
-    _path = _path.replaceAll('{headerFooterIndex}', apiClient.serializeToString(headerFooterIndex));
+    _path = _path.replaceAll('{headerFooterIndex}', _apiClient.serializeToString(headerFooterIndex));
     if (folder != null) {
-      _queryParams['folder'] = apiClient.serializeToString(folder);
+      _queryParams['folder'] = _apiClient.serializeToString(folder);
     }
 
     if (storage != null) {
-      _queryParams['storage'] = apiClient.serializeToString(storage);
+      _queryParams['storage'] = _apiClient.serializeToString(storage);
     }
 
     if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
     }
 
     if (password != null) {
-      _queryParams['password'] = apiClient.serializeToString(password);
+      _queryParams['password'] = _apiClient.serializeToString(password);
     }
 
     if (filterByType != null) {
-      _queryParams['filterByType'] = apiClient.serializeToString(filterByType);
+      _queryParams['filterByType'] = _apiClient.serializeToString(filterByType);
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
     return ApiRequestData('GET', _url, _headers, _body);
   }
 
   @override
-  dynamic deserializeResponse(final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
     var _result = HeaderFooterResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);

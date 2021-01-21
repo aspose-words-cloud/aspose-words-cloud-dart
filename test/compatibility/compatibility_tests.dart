@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="compatibility_tests.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -56,5 +56,19 @@ class CompatibilityTests
     );
 
     await context.getApi().optimizeDocument(request);
+  }
+
+  /// Test for optimize document to specific MS Word version.
+  Future<void> testOptimizeDocumentOnline() async
+  {
+    var requestOptions = OptimizationOptions();
+    requestOptions.msWordVersion = OptimizationOptions_MsWordVersionEnum.word2002;
+
+    final request = OptimizeDocumentOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      requestOptions
+    );
+
+    await context.getApi().optimizeDocumentOnline(request);
   }
 }

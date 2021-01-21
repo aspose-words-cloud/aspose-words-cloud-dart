@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="create_document_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -36,42 +36,42 @@ import '../api_request_part.dart';
 
 /// Request model for CreateDocument operation.
 class CreateDocumentRequest implements RequestBase {
-  /// Original document storage.
-  final String storage;
-
   /// The filename of the document.
   final String fileName;
 
   /// The path to the document folder.
   final String folder;
 
-  CreateDocumentRequest({final this.storage, final this.fileName, final this.folder});
+  /// Original document storage.
+  final String storage;
+
+  CreateDocumentRequest({final this.fileName, final this.folder, final this.storage});
 
   @override
-  ApiRequestData createRequestData(final ApiClient apiClient) {
+  ApiRequestData createRequestData(final ApiClient _apiClient) {
     var _path = '/words/create';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
-    if (storage != null) {
-      _queryParams['storage'] = apiClient.serializeToString(storage);
-    }
-
     if (fileName != null) {
-      _queryParams['fileName'] = apiClient.serializeToString(fileName);
+      _queryParams['fileName'] = _apiClient.serializeToString(fileName);
     }
 
     if (folder != null) {
-      _queryParams['folder'] = apiClient.serializeToString(folder);
+      _queryParams['folder'] = _apiClient.serializeToString(folder);
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    if (storage != null) {
+      _queryParams['storage'] = _apiClient.serializeToString(storage);
+    }
+
+    var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
     return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override
-  dynamic deserializeResponse(final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
     var _result = DocumentResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);

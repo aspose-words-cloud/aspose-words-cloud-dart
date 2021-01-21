@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="table_tests.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -61,6 +61,18 @@ class TableTests
     expect(result.tables.tableLinkList[0].nodeId, '0.0.1');
   }
 
+  /// Test for getting tables online.
+  Future<void> testGetTablesOnline() async
+  {
+
+    final request = GetTablesOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      nodePath: ''
+    );
+
+    await context.getApi().getTablesOnline(request);
+  }
+
   /// Test for getting tables without node path.
   Future<void> testGetTablesWithoutNodePath() async
   {
@@ -100,6 +112,19 @@ class TableTests
     expect(result.table.tableRowList[0].tableCellList.length, 2);
   }
 
+  /// Test for getting table online.
+  Future<void> testGetTableOnline() async
+  {
+
+    final request = GetTableOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      1,
+      nodePath: ''
+    );
+
+    await context.getApi().getTableOnline(request);
+  }
+
   /// Test for getting table without node path.
   Future<void> testGetTableWithoutNodePath() async
   {
@@ -134,6 +159,19 @@ class TableTests
     );
 
     await context.getApi().deleteTable(request);
+  }
+
+  /// Test for deleting table online.
+  Future<void> testDeleteTableOnline() async
+  {
+
+    final request = DeleteTableOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      1,
+      nodePath: ''
+    );
+
+    await context.getApi().deleteTableOnline(request);
   }
 
   /// Test for deleting table without node path.
@@ -173,6 +211,22 @@ class TableTests
     expect(result.table.tableRowList.length, 4);
     expect(result.table.tableRowList[0].tableCellList, isNotNull);
     expect(result.table.tableRowList[0].tableCellList.length, 5);
+  }
+
+  /// Test for adding table online.
+  Future<void> testInsertTableOnline() async
+  {
+    var requestTable = TableInsert();
+    requestTable.columnsCount = 5;
+    requestTable.rowsCount = 4;
+
+    final request = InsertTableOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      requestTable,
+      nodePath: ''
+    );
+
+    await context.getApi().insertTableOnline(request);
   }
 
   /// Test for adding table without node path.
@@ -216,6 +270,19 @@ class TableTests
     expect(result.properties.styleName, 'Table Grid');
   }
 
+  /// Test for getting document properties online.
+  Future<void> testGetTablePropertiesOnline() async
+  {
+
+    final request = GetTablePropertiesOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      1,
+      nodePath: ''
+    );
+
+    await context.getApi().getTablePropertiesOnline(request);
+  }
+
   /// Test for getting document properties without node path.
   Future<void> testGetTablePropertiesWithoutNodePath() async
   {
@@ -248,8 +315,8 @@ class TableTests
 
     final request = UpdateTablePropertiesRequest(
       remoteFileName,
-      requestProperties,
       1,
+      requestProperties,
       nodePath: '',
       folder: remoteDataFolder
     );
@@ -260,6 +327,27 @@ class TableTests
     expect(result.properties.bidi, isTrue);
     expect(result.properties.bottomPadding, 1.0);
     expect(result.properties.cellSpacing, 2.0);
+  }
+
+  /// Test for updating table properties online.
+  Future<void> testUpdateTablePropertiesOnline() async
+  {
+    var requestProperties = TableProperties();
+    requestProperties.alignment = TableProperties_AlignmentEnum.right;
+    requestProperties.allowAutoFit = false;
+    requestProperties.bidi = true;
+    requestProperties.bottomPadding = 1;
+    requestProperties.cellSpacing = 2;
+    requestProperties.styleOptions = TableProperties_StyleOptionsEnum.columnBands;
+
+    final request = UpdateTablePropertiesOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      requestProperties,
+      1,
+      nodePath: ''
+    );
+
+    await context.getApi().updateTablePropertiesOnline(request);
   }
 
   /// Test for updating table properties without node path.
@@ -277,8 +365,8 @@ class TableTests
 
     final request = UpdateTablePropertiesRequest(
       remoteFileName,
-      requestProperties,
       1,
+      requestProperties,
       folder: remoteDataFolder
     );
 
@@ -309,6 +397,19 @@ class TableTests
     expect(result.row.tableCellList.length, 2);
   }
 
+  /// Test for getting table row online.
+  Future<void> testGetTableRowOnline() async
+  {
+
+    final request = GetTableRowOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'tables/1',
+      0
+    );
+
+    await context.getApi().getTableRowOnline(request);
+  }
+
   /// Test for deleting table row.
   Future<void> testDeleteTableRow() async
   {
@@ -325,6 +426,19 @@ class TableTests
     await context.getApi().deleteTableRow(request);
   }
 
+  /// Test for deleting table row online.
+  Future<void> testDeleteTableRowOnline() async
+  {
+
+    final request = DeleteTableRowOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'tables/1',
+      0
+    );
+
+    await context.getApi().deleteTableRowOnline(request);
+  }
+
   /// Test for adding row.
   Future<void> testInsertTableRow() async
   {
@@ -335,8 +449,8 @@ class TableTests
 
     final request = InsertTableRowRequest(
       remoteFileName,
-      requestRow,
       'sections/0/tables/2',
+      requestRow,
       folder: remoteDataFolder
     );
 
@@ -344,6 +458,21 @@ class TableTests
     expect(result.row, isNotNull);
     expect(result.row.tableCellList, isNotNull);
     expect(result.row.tableCellList.length, 5);
+  }
+
+  /// Test for adding row online.
+  Future<void> testInsertTableRowOnline() async
+  {
+    var requestRow = TableRowInsert();
+    requestRow.columnsCount = 5;
+
+    final request = InsertTableRowOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'sections/0/tables/2',
+      requestRow
+    );
+
+    await context.getApi().insertTableRowOnline(request);
   }
 
   /// Test for getting row format.
@@ -364,6 +493,19 @@ class TableTests
     expect(result.rowFormat.allowBreakAcrossPages, isTrue);
   }
 
+  /// Test for getting row format online.
+  Future<void> testGetTableRowFormatOnline() async
+  {
+
+    final request = GetTableRowFormatOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'sections/0/tables/2',
+      0
+    );
+
+    await context.getApi().getTableRowFormatOnline(request);
+  }
+
   /// Test updating row format.
   Future<void> testUpdateTableRowFormat() async
   {
@@ -377,9 +519,9 @@ class TableTests
 
     final request = UpdateTableRowFormatRequest(
       remoteFileName,
-      requestFormat,
       'sections/0/tables/2',
       0,
+      requestFormat,
       folder: remoteDataFolder
     );
 
@@ -388,6 +530,25 @@ class TableTests
     expect(result.rowFormat.allowBreakAcrossPages, isTrue);
     expect(result.rowFormat.headingFormat, isTrue);
     expect(result.rowFormat.height, 10.0);
+  }
+
+  /// Test updating row format online.
+  Future<void> testUpdateTableRowFormatOnline() async
+  {
+    var requestFormat = TableRowFormat();
+    requestFormat.allowBreakAcrossPages = true;
+    requestFormat.headingFormat = true;
+    requestFormat.height = 10;
+    requestFormat.heightRule = TableRowFormat_HeightRuleEnum.auto;
+
+    final request = UpdateTableRowFormatOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'sections/0/tables/2',
+      requestFormat,
+      0
+    );
+
+    await context.getApi().updateTableRowFormatOnline(request);
   }
 
   /// Test for getting table cell.
@@ -408,6 +569,19 @@ class TableTests
     expect(result.cell.nodeId, '0.0.5.0.0');
   }
 
+  /// Test for getting table cell online.
+  Future<void> testGetTableCellOnline() async
+  {
+
+    final request = GetTableCellOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'sections/0/tables/2/rows/0',
+      0
+    );
+
+    await context.getApi().getTableCellOnline(request);
+  }
+
   /// Test for deleting cell.
   Future<void> testDeleteTableCell() async
   {
@@ -424,6 +598,19 @@ class TableTests
     await context.getApi().deleteTableCell(request);
   }
 
+  /// Test for deleting cell online.
+  Future<void> testDeleteTableCellOnline() async
+  {
+
+    final request = DeleteTableCellOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'sections/0/tables/2/rows/0',
+      0
+    );
+
+    await context.getApi().deleteTableCellOnline(request);
+  }
+
   /// Test for adding cell.
   Future<void> testInsertTableCell() async
   {
@@ -434,14 +621,29 @@ class TableTests
 
     final request = InsertTableCellRequest(
       remoteFileName,
-      requestCell,
       'sections/0/tables/2/rows/0',
+      requestCell,
       folder: remoteDataFolder
     );
 
     var result = await context.getApi().insertTableCell(request);
     expect(result.cell, isNotNull);
     expect(result.cell.nodeId, '0.0.5.0.3');
+  }
+
+  /// Test for adding cell online.
+  Future<void> testInsertTableCellOnline() async
+  {
+    var requestCell = TableCellInsert();
+
+
+    final request = InsertTableCellOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'sections/0/tables/2/rows/0',
+      requestCell
+    );
+
+    await context.getApi().insertTableCellOnline(request);
   }
 
   /// Test for getting cell format.
@@ -462,6 +664,19 @@ class TableTests
     expect(result.cellFormat.wrapText, isTrue);
   }
 
+  /// Test for getting cell format online.
+  Future<void> testGetTableCellFormatOnline() async
+  {
+
+    final request = GetTableCellFormatOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'sections/0/tables/2/rows/0',
+      0
+    );
+
+    await context.getApi().getTableCellFormatOnline(request);
+  }
+
   /// Test for updating cell format.
   Future<void> testUpdateTableCellFormat() async
   {
@@ -475,9 +690,9 @@ class TableTests
 
     final request = UpdateTableCellFormatRequest(
       remoteFileName,
-      requestFormat,
       'sections/0/tables/2/rows/0',
       0,
+      requestFormat,
       folder: remoteDataFolder
     );
 
@@ -486,6 +701,25 @@ class TableTests
     expect(result.cellFormat.bottomPadding, 5.0);
     expect(result.cellFormat.fitText, isTrue);
     expect(result.cellFormat.wrapText, isTrue);
+  }
+
+  /// Test for updating cell format online.
+  Future<void> testUpdateTableCellFormatOnline() async
+  {
+    var requestFormat = TableCellFormat();
+    requestFormat.bottomPadding = 5;
+    requestFormat.fitText = true;
+    requestFormat.horizontalMerge = TableCellFormat_HorizontalMergeEnum.first;
+    requestFormat.wrapText = true;
+
+    final request = UpdateTableCellFormatOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'sections/0/tables/2/rows/0',
+      requestFormat,
+      0
+    );
+
+    await context.getApi().updateTableCellFormatOnline(request);
   }
 
   /// Test for table rendering.
@@ -503,6 +737,20 @@ class TableTests
     );
 
     await context.getApi().renderTable(request);
+  }
+
+  /// Test for table rendering.
+  Future<void> testRenderTableOnline() async
+  {
+
+    final request = RenderTableOnlineRequest(
+      await context.loadBinaryFile(localFile),
+      'png',
+      0,
+      nodePath: ''
+    );
+
+    await context.getApi().renderTableOnline(request);
   }
 
   /// Test for table rendering without node path.

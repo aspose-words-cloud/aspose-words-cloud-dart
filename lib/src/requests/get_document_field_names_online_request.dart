@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="get_document_field_names_online_request.dart">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -36,38 +36,52 @@ import '../api_request_part.dart';
 
 /// Request model for GetDocumentFieldNamesOnline operation.
 class GetDocumentFieldNamesOnlineRequest implements RequestBase {
-  /// File with template.
-  final ByteData template;
+  /// The document.
+  final ByteData document;
+
+  /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+  final String loadEncoding;
+
+  /// Password for opening an encrypted document.
+  final String password;
 
   /// The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
   final bool useNonMergeFields;
 
-  GetDocumentFieldNamesOnlineRequest(final this.template, {final this.useNonMergeFields});
+  GetDocumentFieldNamesOnlineRequest(final this.document, {final this.loadEncoding, final this.password, final this.useNonMergeFields});
 
   @override
-  ApiRequestData createRequestData(final ApiClient apiClient) {
-    var _path = '/words/mailMerge/FieldNames';
+  ApiRequestData createRequestData(final ApiClient _apiClient) {
+    var _path = '/words/online/get/mailMerge/FieldNames';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
-    if (useNonMergeFields != null) {
-      _queryParams['useNonMergeFields'] = apiClient.serializeToString(useNonMergeFields);
+    if (loadEncoding != null) {
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
     }
 
-    if (template != null) {
-      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(template), 'application/octet-stream', name: 'Template'));
+    if (password != null) {
+      _queryParams['password'] = _apiClient.serializeToString(password);
+    }
+
+    if (useNonMergeFields != null) {
+      _queryParams['useNonMergeFields'] = _apiClient.serializeToString(useNonMergeFields);
+    }
+
+    if (document != null) {
+      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(document), 'application/octet-stream', name: 'Document'));
     }
     else {
-      throw ApiException(400, 'Parameter template is required.');
+      throw ApiException(400, 'Parameter document is required.');
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
     return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override
-  dynamic deserializeResponse(final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
     var _result = FieldNamesResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);
