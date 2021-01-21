@@ -50,7 +50,7 @@ class MoveFolderRequest implements RequestBase {
   MoveFolderRequest(final this.destPath, final this.srcPath, {final this.srcStorageName, final this.destStorageName});
 
   @override
-  ApiRequestData createRequestData(final ApiClient apiClient) {
+  ApiRequestData createRequestData(final ApiClient _apiClient) {
     var _path = '/words/storage/folder/move/{srcPath}';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -58,29 +58,29 @@ class MoveFolderRequest implements RequestBase {
     if (srcPath == null) {
       throw ApiException(400, 'Parameter srcPath is required.');
     }
-    _path = _path.replaceAll('{srcPath}', apiClient.serializeToString(srcPath));
+    _path = _path.replaceAll('{srcPath}', _apiClient.serializeToString(srcPath));
     if (destPath != null) {
-      _queryParams['destPath'] = apiClient.serializeToString(destPath);
+      _queryParams['destPath'] = _apiClient.serializeToString(destPath);
     }
     else {
       throw ApiException(400, 'Parameter destPath is required.');
     }
 
     if (srcStorageName != null) {
-      _queryParams['srcStorageName'] = apiClient.serializeToString(srcStorageName);
+      _queryParams['srcStorageName'] = _apiClient.serializeToString(srcStorageName);
     }
 
     if (destStorageName != null) {
-      _queryParams['destStorageName'] = apiClient.serializeToString(destStorageName);
+      _queryParams['destStorageName'] = _apiClient.serializeToString(destStorageName);
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
     return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override
-  dynamic deserializeResponse(final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
     return null;
   }
 }

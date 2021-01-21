@@ -56,48 +56,48 @@ class ConvertDocumentRequest implements RequestBase {
   ConvertDocumentRequest(final this.document, final this.format, {final this.outPath, final this.fileNameFieldValue, final this.storage, final this.fontsLocation});
 
   @override
-  ApiRequestData createRequestData(final ApiClient apiClient) {
+  ApiRequestData createRequestData(final ApiClient _apiClient) {
     var _path = '/words/convert';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
     if (format != null) {
-      _queryParams['format'] = apiClient.serializeToString(format);
+      _queryParams['format'] = _apiClient.serializeToString(format);
     }
     else {
       throw ApiException(400, 'Parameter format is required.');
     }
 
     if (outPath != null) {
-      _queryParams['outPath'] = apiClient.serializeToString(outPath);
+      _queryParams['outPath'] = _apiClient.serializeToString(outPath);
     }
 
     if (fileNameFieldValue != null) {
-      _queryParams['fileNameFieldValue'] = apiClient.serializeToString(fileNameFieldValue);
+      _queryParams['fileNameFieldValue'] = _apiClient.serializeToString(fileNameFieldValue);
     }
 
     if (storage != null) {
-      _queryParams['storage'] = apiClient.serializeToString(storage);
+      _queryParams['storage'] = _apiClient.serializeToString(storage);
     }
 
     if (fontsLocation != null) {
-      _queryParams['fontsLocation'] = apiClient.serializeToString(fontsLocation);
+      _queryParams['fontsLocation'] = _apiClient.serializeToString(fontsLocation);
     }
 
     if (document != null) {
-      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(document), 'application/octet-stream', name: 'Document'));
+      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(document), 'application/octet-stream', name: 'Document'));
     }
     else {
       throw ApiException(400, 'Parameter document is required.');
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
     return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override
-  dynamic deserializeResponse(final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
     return _body;
   }
 }

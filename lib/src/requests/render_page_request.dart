@@ -62,7 +62,7 @@ class RenderPageRequest implements RequestBase {
   RenderPageRequest(final this.name, final this.pageIndex, final this.format, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.fontsLocation});
 
   @override
-  ApiRequestData createRequestData(final ApiClient apiClient) {
+  ApiRequestData createRequestData(final ApiClient _apiClient) {
     var _path = '/words/{name}/pages/{pageIndex}/render';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -70,46 +70,46 @@ class RenderPageRequest implements RequestBase {
     if (name == null) {
       throw ApiException(400, 'Parameter name is required.');
     }
-    _path = _path.replaceAll('{name}', apiClient.serializeToString(name));
+    _path = _path.replaceAll('{name}', _apiClient.serializeToString(name));
 
     if (pageIndex == null) {
       throw ApiException(400, 'Parameter pageIndex is required.');
     }
-    _path = _path.replaceAll('{pageIndex}', apiClient.serializeToString(pageIndex));
+    _path = _path.replaceAll('{pageIndex}', _apiClient.serializeToString(pageIndex));
     if (format != null) {
-      _queryParams['format'] = apiClient.serializeToString(format);
+      _queryParams['format'] = _apiClient.serializeToString(format);
     }
     else {
       throw ApiException(400, 'Parameter format is required.');
     }
 
     if (folder != null) {
-      _queryParams['folder'] = apiClient.serializeToString(folder);
+      _queryParams['folder'] = _apiClient.serializeToString(folder);
     }
 
     if (storage != null) {
-      _queryParams['storage'] = apiClient.serializeToString(storage);
+      _queryParams['storage'] = _apiClient.serializeToString(storage);
     }
 
     if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
     }
 
     if (password != null) {
-      _queryParams['password'] = apiClient.serializeToString(password);
+      _queryParams['password'] = _apiClient.serializeToString(password);
     }
 
     if (fontsLocation != null) {
-      _queryParams['fontsLocation'] = apiClient.serializeToString(fontsLocation);
+      _queryParams['fontsLocation'] = _apiClient.serializeToString(fontsLocation);
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
     return ApiRequestData('GET', _url, _headers, _body);
   }
 
   @override
-  dynamic deserializeResponse(final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
     return _body;
   }
 }

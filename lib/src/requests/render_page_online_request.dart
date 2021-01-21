@@ -56,7 +56,7 @@ class RenderPageOnlineRequest implements RequestBase {
   RenderPageOnlineRequest(final this.document, final this.pageIndex, final this.format, {final this.loadEncoding, final this.password, final this.fontsLocation});
 
   @override
-  ApiRequestData createRequestData(final ApiClient apiClient) {
+  ApiRequestData createRequestData(final ApiClient _apiClient) {
     var _path = '/words/online/get/pages/{pageIndex}/render';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -64,40 +64,40 @@ class RenderPageOnlineRequest implements RequestBase {
     if (pageIndex == null) {
       throw ApiException(400, 'Parameter pageIndex is required.');
     }
-    _path = _path.replaceAll('{pageIndex}', apiClient.serializeToString(pageIndex));
+    _path = _path.replaceAll('{pageIndex}', _apiClient.serializeToString(pageIndex));
     if (format != null) {
-      _queryParams['format'] = apiClient.serializeToString(format);
+      _queryParams['format'] = _apiClient.serializeToString(format);
     }
     else {
       throw ApiException(400, 'Parameter format is required.');
     }
 
     if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
     }
 
     if (password != null) {
-      _queryParams['password'] = apiClient.serializeToString(password);
+      _queryParams['password'] = _apiClient.serializeToString(password);
     }
 
     if (fontsLocation != null) {
-      _queryParams['fontsLocation'] = apiClient.serializeToString(fontsLocation);
+      _queryParams['fontsLocation'] = _apiClient.serializeToString(fontsLocation);
     }
 
     if (document != null) {
-      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(document), 'application/octet-stream', name: 'Document'));
+      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(document), 'application/octet-stream', name: 'Document'));
     }
     else {
       throw ApiException(400, 'Parameter document is required.');
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
     return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override
-  dynamic deserializeResponse(final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
     return _body;
   }
 }

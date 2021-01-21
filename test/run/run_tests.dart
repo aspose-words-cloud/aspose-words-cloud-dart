@@ -52,9 +52,9 @@ class RunTests
 
     final request = UpdateRunRequest(
       remoteFileName,
-      requestRun,
       'paragraphs/1',
       0,
+      requestRun,
       folder: remoteDataFolder
     );
 
@@ -71,8 +71,8 @@ class RunTests
 
     final request = UpdateRunOnlineRequest(
       await context.loadBinaryFile(localFile),
-      requestRun,
       'paragraphs/1',
+      requestRun,
       0
     );
 

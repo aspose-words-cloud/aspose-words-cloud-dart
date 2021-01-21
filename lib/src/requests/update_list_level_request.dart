@@ -72,7 +72,7 @@ class UpdateListLevelRequest implements RequestBase {
   UpdateListLevelRequest(final this.name, final this.listId, final this.listLevel, final this.listUpdate, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
 
   @override
-  ApiRequestData createRequestData(final ApiClient apiClient) {
+  ApiRequestData createRequestData(final ApiClient _apiClient) {
     var _path = '/words/{name}/lists/{listId}/listLevels/{listLevel}';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -80,59 +80,59 @@ class UpdateListLevelRequest implements RequestBase {
     if (name == null) {
       throw ApiException(400, 'Parameter name is required.');
     }
-    _path = _path.replaceAll('{name}', apiClient.serializeToString(name));
+    _path = _path.replaceAll('{name}', _apiClient.serializeToString(name));
 
     if (listId == null) {
       throw ApiException(400, 'Parameter listId is required.');
     }
-    _path = _path.replaceAll('{listId}', apiClient.serializeToString(listId));
+    _path = _path.replaceAll('{listId}', _apiClient.serializeToString(listId));
 
     if (listLevel == null) {
       throw ApiException(400, 'Parameter listLevel is required.');
     }
-    _path = _path.replaceAll('{listLevel}', apiClient.serializeToString(listLevel));
+    _path = _path.replaceAll('{listLevel}', _apiClient.serializeToString(listLevel));
     if (folder != null) {
-      _queryParams['folder'] = apiClient.serializeToString(folder);
+      _queryParams['folder'] = _apiClient.serializeToString(folder);
     }
 
     if (storage != null) {
-      _queryParams['storage'] = apiClient.serializeToString(storage);
+      _queryParams['storage'] = _apiClient.serializeToString(storage);
     }
 
     if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
     }
 
     if (password != null) {
-      _queryParams['password'] = apiClient.serializeToString(password);
+      _queryParams['password'] = _apiClient.serializeToString(password);
     }
 
     if (destFileName != null) {
-      _queryParams['destFileName'] = apiClient.serializeToString(destFileName);
+      _queryParams['destFileName'] = _apiClient.serializeToString(destFileName);
     }
 
     if (revisionAuthor != null) {
-      _queryParams['revisionAuthor'] = apiClient.serializeToString(revisionAuthor);
+      _queryParams['revisionAuthor'] = _apiClient.serializeToString(revisionAuthor);
     }
 
     if (revisionDateTime != null) {
-      _queryParams['revisionDateTime'] = apiClient.serializeToString(revisionDateTime);
+      _queryParams['revisionDateTime'] = _apiClient.serializeToString(revisionDateTime);
     }
 
     if (listUpdate != null) {
-      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(listUpdate), 'application/json'));
+      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(listUpdate), 'application/json'));
     }
     else {
       throw ApiException(400, 'Parameter listUpdate is required.');
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
     return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override
-  dynamic deserializeResponse(final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
     var _result = ListResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);

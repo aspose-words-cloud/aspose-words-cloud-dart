@@ -271,8 +271,8 @@ class FootnoteTests
 
     final request = UpdateFootnoteOnlineRequest(
       await context.loadBinaryFile(footnoteFolder + '/Footnote.doc'),
-      0,
       requestFootnoteDto,
+      0,
       nodePath: ''
     );
 

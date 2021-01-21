@@ -54,7 +54,7 @@ class GetTableRowFormatOnlineRequest implements RequestBase {
   GetTableRowFormatOnlineRequest(final this.document, final this.tablePath, final this.index, {final this.loadEncoding, final this.password});
 
   @override
-  ApiRequestData createRequestData(final ApiClient apiClient) {
+  ApiRequestData createRequestData(final ApiClient _apiClient) {
     var _path = '/words/online/get/{tablePath}/rows/{index}/rowformat';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -62,34 +62,34 @@ class GetTableRowFormatOnlineRequest implements RequestBase {
     if (tablePath == null) {
       throw ApiException(400, 'Parameter tablePath is required.');
     }
-    _path = _path.replaceAll('{tablePath}', apiClient.serializeToString(tablePath));
+    _path = _path.replaceAll('{tablePath}', _apiClient.serializeToString(tablePath));
 
     if (index == null) {
       throw ApiException(400, 'Parameter index is required.');
     }
-    _path = _path.replaceAll('{index}', apiClient.serializeToString(index));
+    _path = _path.replaceAll('{index}', _apiClient.serializeToString(index));
     if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
     }
 
     if (password != null) {
-      _queryParams['password'] = apiClient.serializeToString(password);
+      _queryParams['password'] = _apiClient.serializeToString(password);
     }
 
     if (document != null) {
-      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(document), 'application/octet-stream', name: 'Document'));
+      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(document), 'application/octet-stream', name: 'Document'));
     }
     else {
       throw ApiException(400, 'Parameter document is required.');
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
     return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override
-  dynamic deserializeResponse(final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
     var _result = TableRowFormatResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);

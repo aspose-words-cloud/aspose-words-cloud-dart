@@ -66,7 +66,7 @@ class ReplaceWithTextRequest implements RequestBase {
   ReplaceWithTextRequest(final this.name, final this.rangeStartIdentifier, final this.rangeText, {final this.rangeEndIdentifier, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName});
 
   @override
-  ApiRequestData createRequestData(final ApiClient apiClient) {
+  ApiRequestData createRequestData(final ApiClient _apiClient) {
     var _path = '/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -74,47 +74,47 @@ class ReplaceWithTextRequest implements RequestBase {
     if (name == null) {
       throw ApiException(400, 'Parameter name is required.');
     }
-    _path = _path.replaceAll('{name}', apiClient.serializeToString(name));
+    _path = _path.replaceAll('{name}', _apiClient.serializeToString(name));
 
     if (rangeStartIdentifier == null) {
       throw ApiException(400, 'Parameter rangeStartIdentifier is required.');
     }
-    _path = _path.replaceAll('{rangeStartIdentifier}', apiClient.serializeToString(rangeStartIdentifier));
-    _path = _path.replaceAll('{rangeEndIdentifier}', apiClient.serializeToString(rangeEndIdentifier) ?? '');
+    _path = _path.replaceAll('{rangeStartIdentifier}', _apiClient.serializeToString(rangeStartIdentifier));
+    _path = _path.replaceAll('{rangeEndIdentifier}', _apiClient.serializeToString(rangeEndIdentifier) ?? '');
     if (folder != null) {
-      _queryParams['folder'] = apiClient.serializeToString(folder);
+      _queryParams['folder'] = _apiClient.serializeToString(folder);
     }
 
     if (storage != null) {
-      _queryParams['storage'] = apiClient.serializeToString(storage);
+      _queryParams['storage'] = _apiClient.serializeToString(storage);
     }
 
     if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
     }
 
     if (password != null) {
-      _queryParams['password'] = apiClient.serializeToString(password);
+      _queryParams['password'] = _apiClient.serializeToString(password);
     }
 
     if (destFileName != null) {
-      _queryParams['destFileName'] = apiClient.serializeToString(destFileName);
+      _queryParams['destFileName'] = _apiClient.serializeToString(destFileName);
     }
 
     if (rangeText != null) {
-      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(rangeText), 'application/json'));
+      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(rangeText), 'application/json'));
     }
     else {
       throw ApiException(400, 'Parameter rangeText is required.');
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
     return ApiRequestData('POST', _url, _headers, _body);
   }
 
   @override
-  dynamic deserializeResponse(final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
     var _result = DocumentResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);

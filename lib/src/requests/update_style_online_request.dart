@@ -62,7 +62,7 @@ class UpdateStyleOnlineRequest implements RequestBase {
   UpdateStyleOnlineRequest(final this.document, final this.styleName, final this.styleUpdate, {final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
 
   @override
-  ApiRequestData createRequestData(final ApiClient apiClient) {
+  ApiRequestData createRequestData(final ApiClient _apiClient) {
     var _path = '/words/online/put/styles/{styleName}/update';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -70,52 +70,50 @@ class UpdateStyleOnlineRequest implements RequestBase {
     if (styleName == null) {
       throw ApiException(400, 'Parameter styleName is required.');
     }
-    _path = _path.replaceAll('{styleName}', apiClient.serializeToString(styleName));
+    _path = _path.replaceAll('{styleName}', _apiClient.serializeToString(styleName));
     if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
     }
 
     if (password != null) {
-      _queryParams['password'] = apiClient.serializeToString(password);
+      _queryParams['password'] = _apiClient.serializeToString(password);
     }
 
     if (destFileName != null) {
-      _queryParams['destFileName'] = apiClient.serializeToString(destFileName);
+      _queryParams['destFileName'] = _apiClient.serializeToString(destFileName);
     }
 
     if (revisionAuthor != null) {
-      _queryParams['revisionAuthor'] = apiClient.serializeToString(revisionAuthor);
+      _queryParams['revisionAuthor'] = _apiClient.serializeToString(revisionAuthor);
     }
 
     if (revisionDateTime != null) {
-      _queryParams['revisionDateTime'] = apiClient.serializeToString(revisionDateTime);
+      _queryParams['revisionDateTime'] = _apiClient.serializeToString(revisionDateTime);
     }
 
     if (document != null) {
-      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(document), 'application/octet-stream', name: 'Document'));
+      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(document), 'application/octet-stream', name: 'Document'));
     }
     else {
       throw ApiException(400, 'Parameter document is required.');
     }
 
     if (styleUpdate != null) {
-      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(styleUpdate), 'application/json', name: 'StyleUpdate'));
+      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(styleUpdate), 'application/json', name: 'StyleUpdate'));
     }
     else {
       throw ApiException(400, 'Parameter styleUpdate is required.');
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
     return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override
-  dynamic deserializeResponse(final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
     var _result = UpdateStyleOnlineResponse();
-    var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
-    var _json = jsonDecode(_jsonData);
-    _result.deserialize(_json as Map<String, dynamic>);
+    _result.deserialize(_apiClient.deserializeMultipartMap(_body));
     return _result;
   }
 }

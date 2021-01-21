@@ -164,8 +164,8 @@ class ListsTests
     final request = UpdateListLevelOnlineRequest(
       await context.loadBinaryFile(localFile),
       1,
-      1,
-      requestListUpdate
+      requestListUpdate,
+      1
     );
 
     var result = await context.getApi().updateListLevelOnline(request);

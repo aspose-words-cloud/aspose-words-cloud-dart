@@ -234,7 +234,7 @@ class ApiClient {
     return toByteData(formBody);
   }
 
-  List<ByteData> deserializeMultipart(final ByteData data) {
+  List<ByteData> _deserializeMultipartBase(final ByteData data) {
     if (!data.compare(_starting, offset: 0)) {
       throw ApiException(400, 'Failed to parse multipart response.');
     }
@@ -255,7 +255,11 @@ class ApiClient {
     }
 
     parts.removeLast();
-    return parts.map((part) {
+    return parts;
+  }
+
+  List<ByteData> deserializeMultipartArray(final ByteData data) {
+    return _deserializeMultipartBase(data).map((part) {
       var headersEndIndex = part.indexOf(_newline2x);
       if (headersEndIndex != null) {
         return ByteData.sublistView(part, headersEndIndex + _newline2x.lengthInBytes, part.lengthInBytes - _newline.lengthInBytes);
@@ -263,6 +267,29 @@ class ApiClient {
 
       return ByteData.sublistView(part, _newline.lengthInBytes, part.lengthInBytes - _newline.lengthInBytes);
     }).toList();
+  }
+
+  Map<String, ByteData> deserializeMultipartMap(final ByteData data) {
+    var result = <String, ByteData>{};
+    for (final part in _deserializeMultipartBase(data)) {
+      var headersEndIndex = part.indexOf(_newline2x);
+      if (headersEndIndex == null) {
+        throw ApiException(400, 'Failed to parse multipart response.');
+      }
+
+      var headersData = ByteData.sublistView(part, 0, headersEndIndex);
+      var headersStr = utf8.decoder.convert(headersData.buffer.asUint8List(headersData.offsetInBytes, headersData.lengthInBytes));
+      var contentDisposition = headersStr.split('\r\n').firstWhere((x) => x.trim().startsWith('Content-Disposition:'));
+      var nameHeaderPart = contentDisposition.split(';').map((x) => x.trim()).firstWhere((x) => x.toLowerCase().startsWith('name'));
+      var nameValueParts = nameHeaderPart.split('=');
+      if (nameValueParts.length != 2) {
+        throw ApiException(400, 'Failed to parse multipart response.');
+      }
+
+      var nameValue = nameValueParts.elementAt(1).trim().toLowerCase();
+      result[nameValue] = ByteData.sublistView(part, headersEndIndex + _newline2x.lengthInBytes, part.lengthInBytes - _newline.lengthInBytes);
+    }
+    return result;
   }
 
   dynamic deserializeBatchPart(final RequestBase request, final ByteData partData) {
@@ -297,7 +324,7 @@ class ApiClient {
       return ApiException(statusCode, message ?? statusStr);
     }
 
-    return request.deserializeResponse(body);
+    return request.deserializeResponse(this, body);
   }
 
   ByteData toByteData(final List<Uint8List> bufferStream) {
@@ -320,7 +347,7 @@ class ApiClient {
       return null;
     }
 
-    return request.deserializeResponse(response);
+    return request.deserializeResponse(this, response);
   }
 
   Future< List<dynamic> > callBatch(final List<RequestBase> requests) async {
@@ -336,7 +363,7 @@ class ApiClient {
 
     var batchRequestData = ApiRequestData('PUT', batchUrl, batchHeaders, batchBody);
     var response = await _callWithChecks(batchRequestData);
-    var responseParts = deserializeMultipart(response);
+    var responseParts = deserializeMultipartArray(response);
     if (responseParts.length != requests.length) {
       throw ApiException(400, 'Response and request parts mismatch.');
     }

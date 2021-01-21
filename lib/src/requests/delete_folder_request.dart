@@ -47,7 +47,7 @@ class DeleteFolderRequest implements RequestBase {
   DeleteFolderRequest(final this.path, {final this.storageName, final this.recursive});
 
   @override
-  ApiRequestData createRequestData(final ApiClient apiClient) {
+  ApiRequestData createRequestData(final ApiClient _apiClient) {
     var _path = '/words/storage/folder/{path}';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -55,22 +55,22 @@ class DeleteFolderRequest implements RequestBase {
     if (path == null) {
       throw ApiException(400, 'Parameter path is required.');
     }
-    _path = _path.replaceAll('{path}', apiClient.serializeToString(path));
+    _path = _path.replaceAll('{path}', _apiClient.serializeToString(path));
     if (storageName != null) {
-      _queryParams['storageName'] = apiClient.serializeToString(storageName);
+      _queryParams['storageName'] = _apiClient.serializeToString(storageName);
     }
 
     if (recursive != null) {
-      _queryParams['recursive'] = apiClient.serializeToString(recursive);
+      _queryParams['recursive'] = _apiClient.serializeToString(recursive);
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
     return ApiRequestData('DELETE', _url, _headers, _body);
   }
 
   @override
-  dynamic deserializeResponse(final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
     return null;
   }
 }

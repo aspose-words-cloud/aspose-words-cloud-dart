@@ -54,7 +54,7 @@ class GetHeaderFootersOnlineRequest implements RequestBase {
   GetHeaderFootersOnlineRequest(final this.document, final this.sectionPath, {final this.loadEncoding, final this.password, final this.filterByType});
 
   @override
-  ApiRequestData createRequestData(final ApiClient apiClient) {
+  ApiRequestData createRequestData(final ApiClient _apiClient) {
     var _path = '/words/online/get/{sectionPath}/headersfooters';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -62,33 +62,33 @@ class GetHeaderFootersOnlineRequest implements RequestBase {
     if (sectionPath == null) {
       throw ApiException(400, 'Parameter sectionPath is required.');
     }
-    _path = _path.replaceAll('{sectionPath}', apiClient.serializeToString(sectionPath));
+    _path = _path.replaceAll('{sectionPath}', _apiClient.serializeToString(sectionPath));
     if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = apiClient.serializeToString(loadEncoding);
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
     }
 
     if (password != null) {
-      _queryParams['password'] = apiClient.serializeToString(password);
+      _queryParams['password'] = _apiClient.serializeToString(password);
     }
 
     if (filterByType != null) {
-      _queryParams['filterByType'] = apiClient.serializeToString(filterByType);
+      _queryParams['filterByType'] = _apiClient.serializeToString(filterByType);
     }
 
     if (document != null) {
-      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(document), 'application/octet-stream', name: 'Document'));
+      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(document), 'application/octet-stream', name: 'Document'));
     }
     else {
       throw ApiException(400, 'Parameter document is required.');
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
     return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override
-  dynamic deserializeResponse(final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
     var _result = HeaderFootersResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);

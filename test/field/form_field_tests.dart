@@ -83,8 +83,8 @@ class FormFieldTests
 
     final request = UpdateFormFieldOnlineRequest(
       await context.loadBinaryFile(fieldFolder + '/FormFilled.docx'),
-      0,
       requestFormField,
+      0,
       nodePath: 'sections/0'
     );
 

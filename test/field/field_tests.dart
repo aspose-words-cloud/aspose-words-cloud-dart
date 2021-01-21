@@ -234,8 +234,8 @@ class FieldTests
 
     final request = UpdateFieldOnlineRequest(
       await context.loadBinaryFile(fieldFolder + '/GetField.docx'),
-      0,
       requestField,
+      0,
       nodePath: 'sections/0/paragraphs/0'
     );
 

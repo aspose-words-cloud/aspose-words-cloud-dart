@@ -53,44 +53,44 @@ class ExecuteMailMergeOnlineRequest implements RequestBase {
   ExecuteMailMergeOnlineRequest(final this.template, final this.data, {final this.withRegions, final this.cleanup, final this.documentFileName});
 
   @override
-  ApiRequestData createRequestData(final ApiClient apiClient) {
+  ApiRequestData createRequestData(final ApiClient _apiClient) {
     var _path = '/words/MailMerge';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
     if (withRegions != null) {
-      _queryParams['withRegions'] = apiClient.serializeToString(withRegions);
+      _queryParams['withRegions'] = _apiClient.serializeToString(withRegions);
     }
 
     if (cleanup != null) {
-      _queryParams['cleanup'] = apiClient.serializeToString(cleanup);
+      _queryParams['cleanup'] = _apiClient.serializeToString(cleanup);
     }
 
     if (documentFileName != null) {
-      _queryParams['documentFileName'] = apiClient.serializeToString(documentFileName);
+      _queryParams['documentFileName'] = _apiClient.serializeToString(documentFileName);
     }
 
     if (template != null) {
-      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(template), 'application/octet-stream', name: 'Template'));
+      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(template), 'application/octet-stream', name: 'Template'));
     }
     else {
       throw ApiException(400, 'Parameter template is required.');
     }
 
     if (data != null) {
-      _bodyParts.add(ApiRequestPart(apiClient.serializeBody(data), 'application/octet-stream', name: 'Data'));
+      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(data), 'application/octet-stream', name: 'Data'));
     }
     else {
       throw ApiException(400, 'Parameter data is required.');
     }
 
-    var _url = apiClient.configuration.getApiRootUrl() + apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
-    var _body = apiClient.serializeBodyParts(_bodyParts, _headers);
+    var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
     return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override
-  dynamic deserializeResponse(final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
     return _body;
   }
 }

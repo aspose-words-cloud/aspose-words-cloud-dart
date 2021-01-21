@@ -315,8 +315,8 @@ class TableTests
 
     final request = UpdateTablePropertiesRequest(
       remoteFileName,
-      requestProperties,
       1,
+      requestProperties,
       nodePath: '',
       folder: remoteDataFolder
     );
@@ -365,8 +365,8 @@ class TableTests
 
     final request = UpdateTablePropertiesRequest(
       remoteFileName,
-      requestProperties,
       1,
+      requestProperties,
       folder: remoteDataFolder
     );
 
@@ -449,8 +449,8 @@ class TableTests
 
     final request = InsertTableRowRequest(
       remoteFileName,
-      requestRow,
       'sections/0/tables/2',
+      requestRow,
       folder: remoteDataFolder
     );
 
@@ -468,8 +468,8 @@ class TableTests
 
     final request = InsertTableRowOnlineRequest(
       await context.loadBinaryFile(localFile),
-      requestRow,
-      'sections/0/tables/2'
+      'sections/0/tables/2',
+      requestRow
     );
 
     await context.getApi().insertTableRowOnline(request);
@@ -519,9 +519,9 @@ class TableTests
 
     final request = UpdateTableRowFormatRequest(
       remoteFileName,
-      requestFormat,
       'sections/0/tables/2',
       0,
+      requestFormat,
       folder: remoteDataFolder
     );
 
@@ -543,8 +543,8 @@ class TableTests
 
     final request = UpdateTableRowFormatOnlineRequest(
       await context.loadBinaryFile(localFile),
-      requestFormat,
       'sections/0/tables/2',
+      requestFormat,
       0
     );
 
@@ -621,8 +621,8 @@ class TableTests
 
     final request = InsertTableCellRequest(
       remoteFileName,
-      requestCell,
       'sections/0/tables/2/rows/0',
+      requestCell,
       folder: remoteDataFolder
     );
 
@@ -639,8 +639,8 @@ class TableTests
 
     final request = InsertTableCellOnlineRequest(
       await context.loadBinaryFile(localFile),
-      requestCell,
-      'sections/0/tables/2/rows/0'
+      'sections/0/tables/2/rows/0',
+      requestCell
     );
 
     await context.getApi().insertTableCellOnline(request);
@@ -690,9 +690,9 @@ class TableTests
 
     final request = UpdateTableCellFormatRequest(
       remoteFileName,
-      requestFormat,
       'sections/0/tables/2/rows/0',
       0,
+      requestFormat,
       folder: remoteDataFolder
     );
 
@@ -714,8 +714,8 @@ class TableTests
 
     final request = UpdateTableCellFormatOnlineRequest(
       await context.loadBinaryFile(localFile),
-      requestFormat,
       'sections/0/tables/2/rows/0',
+      requestFormat,
       0
     );
 

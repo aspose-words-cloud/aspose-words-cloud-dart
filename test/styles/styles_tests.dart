@@ -109,8 +109,8 @@ class StylesTests
 
     final request = UpdateStyleRequest(
       remoteFileName,
-      requestStyleUpdate,
       'Heading 1',
+      requestStyleUpdate,
       folder: remoteDataFolder
     );
 
@@ -127,8 +127,8 @@ class StylesTests
 
     final request = UpdateStyleOnlineRequest(
       await context.loadBinaryFile(localFile),
-      requestStyleUpdate,
-      'Heading 1'
+      'Heading 1',
+      requestStyleUpdate
     );
 
     await context.getApi().updateStyleOnline(request);
@@ -241,8 +241,8 @@ class StylesTests
 
     final request = ApplyStyleToDocumentElementRequest(
       remoteFileName,
-      requestStyleApply,
       'paragraphs/1/paragraphFormat',
+      requestStyleApply,
       folder: remoteDataFolder
     );
 
@@ -257,8 +257,8 @@ class StylesTests
 
     final request = ApplyStyleToDocumentElementOnlineRequest(
       await context.loadBinaryFile(localFile),
-      requestStyleApply,
-      'paragraphs/1/paragraphFormat'
+      'paragraphs/1/paragraphFormat',
+      requestStyleApply
     );
 
     await context.getApi().applyStyleToDocumentElementOnline(request);

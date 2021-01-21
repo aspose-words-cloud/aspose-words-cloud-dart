@@ -246,9 +246,9 @@ class ParagraphTests
 
     final request = UpdateRunFontRequest(
       remoteFileName,
-      requestFontDto,
       'paragraphs/0',
       0,
+      requestFontDto,
       folder: remoteDataFolder,
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
@@ -266,8 +266,8 @@ class ParagraphTests
 
     final request = UpdateRunFontOnlineRequest(
       await context.loadBinaryFile(localFile),
-      requestFontDto,
       'paragraphs/0',
+      requestFontDto,
       0
     );
 
@@ -452,8 +452,8 @@ class ParagraphTests
 
     final request = UpdateParagraphFormatOnlineRequest(
       await context.loadBinaryFile(localFile),
-      0,
       requestParagraphFormatDto,
+      0,
       nodePath: ''
     );
 
