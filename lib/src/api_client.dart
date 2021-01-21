@@ -368,7 +368,7 @@ class ApiClient {
       throw ApiException(400, 'Response and request parts mismatch.');
     }
 
-    var result = List<dynamic>(requests.length);
+    var result = List<dynamic>.filled(requests.length, null);
     for (var i = 0; i < requests.length; i++) {
       result[i] = deserializeBatchPart(requests[i], responseParts[i]);
     }
