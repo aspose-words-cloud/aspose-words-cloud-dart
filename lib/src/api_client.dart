@@ -54,11 +54,10 @@ class ApiClient {
       try {
         printBody = utf8.decoder.convert(body.buffer.asUint8List(body.offsetInBytes, body.lengthInBytes));
       }
-      finally {
-        if (printBody.isEmpty) {
-          printBody = reasonPhrase;
-        }
+      catch(e) {
+        printBody = reasonPhrase;
       }
+
       throw ApiException(statusCode, printBody);
     }
   }
