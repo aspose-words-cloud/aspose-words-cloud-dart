@@ -25,6 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
+import 'dart:io';
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import 'package:test/test.dart';
 
@@ -47,7 +48,7 @@ class RunTests
   {
     final remoteFileName = 'TestUpdateRun.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestRun = RunUpdate();
+    final requestRun = RunUpdate();
     requestRun.text = 'run with text';
 
     final request = UpdateRunRequest(
@@ -58,7 +59,7 @@ class RunTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().updateRun(request);
+    final result = await context.getApi().updateRun(request);
     expect(result.run, isNotNull);
     expect(result.run.text, 'run with text');
   }
@@ -66,11 +67,12 @@ class RunTests
   /// Test for updating run online.
   Future<void> testUpdateRunOnline() async
   {
-    var requestRun = RunUpdate();
+    final documentData = await context.loadBinaryFile(localFile);
+    final requestRun = RunUpdate();
     requestRun.text = 'run with text';
 
     final request = UpdateRunOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       'paragraphs/1',
       requestRun,
       0
@@ -84,7 +86,7 @@ class RunTests
   {
     final remoteFileName = 'TestInsertRun.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestRun = RunInsert();
+    final requestRun = RunInsert();
     requestRun.text = 'run with text';
 
     final request = InsertRunRequest(
@@ -94,7 +96,7 @@ class RunTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().insertRun(request);
+    final result = await context.getApi().insertRun(request);
     expect(result.run, isNotNull);
     expect(result.run.text, 'run with text');
     expect(result.run.nodeId, '0.0.1.3');
@@ -103,11 +105,12 @@ class RunTests
   /// Test for adding run online.
   Future<void> testInsertRunOnline() async
   {
-    var requestRun = RunInsert();
+    final documentData = await context.loadBinaryFile(localFile);
+    final requestRun = RunInsert();
     requestRun.text = 'run with text';
 
     final request = InsertRunOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       'paragraphs/1',
       requestRun
     );
@@ -134,9 +137,10 @@ class RunTests
   /// Test for deleting run online.
   Future<void> testDeleteRunOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = DeleteRunOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       'paragraphs/1',
       0
     );

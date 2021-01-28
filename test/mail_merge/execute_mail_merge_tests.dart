@@ -25,6 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
+import 'dart:io';
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import 'package:test/test.dart';
 
@@ -47,10 +48,12 @@ class ExecuteMailMergeTests
   {
     final localDocumentFile = 'SampleExecuteTemplate.docx';
     final localDataFile = 'SampleExecuteTemplateData.txt';
+    final templateData = await context.loadBinaryFile(mailMergeFolder + '/' + localDocumentFile);
+    final dataData = await context.loadBinaryFile(mailMergeFolder + '/' + localDataFile);
 
     final request = ExecuteMailMergeOnlineRequest(
-      await context.loadBinaryFile(mailMergeFolder + '/' + localDocumentFile),
-      await context.loadBinaryFile(mailMergeFolder + '/' + localDataFile)
+      templateData,
+      dataData
     );
 
     await context.getApi().executeMailMergeOnline(request);
@@ -72,7 +75,7 @@ class ExecuteMailMergeTests
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await context.getApi().executeMailMerge(request);
+    final result = await context.getApi().executeMailMerge(request);
     expect(result.document, isNotNull);
     expect(result.document.fileName, 'TestExecuteMailMerge.docx');
   }

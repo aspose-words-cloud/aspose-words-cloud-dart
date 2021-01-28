@@ -25,6 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
+import 'dart:io';
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import 'package:test/test.dart';
 
@@ -56,7 +57,7 @@ class PageSetupTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getSectionPageSetup(request);
+    final result = await context.getApi().getSectionPageSetup(request);
     expect(result.pageSetup, isNotNull);
     expect(result.pageSetup.lineStartingNumber, 1);
   }
@@ -64,9 +65,10 @@ class PageSetupTests
   /// Test for getting page settings online.
   Future<void> testGetSectionPageSetupOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetSectionPageSetupOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       0
     );
 
@@ -78,7 +80,7 @@ class PageSetupTests
   {
     final remoteFileName = 'TestUpdateSectionPageSetup.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestPageSetup = PageSetup();
+    final requestPageSetup = PageSetup();
     requestPageSetup.rtlGutter = true;
     requestPageSetup.leftMargin = 10.0;
     requestPageSetup.orientation = PageSetup_OrientationEnum.landscape;
@@ -91,7 +93,7 @@ class PageSetupTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().updateSectionPageSetup(request);
+    final result = await context.getApi().updateSectionPageSetup(request);
     expect(result.pageSetup, isNotNull);
     expect(result.pageSetup.rtlGutter, isTrue);
 
@@ -101,14 +103,15 @@ class PageSetupTests
   /// Test for updating page settings online.
   Future<void> testUpdateSectionPageSetupOnline() async
   {
-    var requestPageSetup = PageSetup();
+    final documentData = await context.loadBinaryFile(localFile);
+    final requestPageSetup = PageSetup();
     requestPageSetup.rtlGutter = true;
     requestPageSetup.leftMargin = 10;
     requestPageSetup.orientation = PageSetup_OrientationEnum.landscape;
     requestPageSetup.paperSize = PageSetup_PaperSizeEnum.a5;
 
     final request = UpdateSectionPageSetupOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       0,
       requestPageSetup
     );
@@ -135,9 +138,10 @@ class PageSetupTests
   /// Test for page rendering.
   Future<void> testGetRenderPageOnline() async
   {
+    final documentData = await context.loadBinaryFile(localTextFile);
 
     final request = RenderPageOnlineRequest(
-      await context.loadBinaryFile(localTextFile),
+      documentData,
       1,
       'bmp'
     );

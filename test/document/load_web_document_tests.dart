@@ -25,6 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
+import 'dart:io';
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import 'package:test/test.dart';
 
@@ -40,7 +41,7 @@ class LoadWebDocumentTests
   /// Test for loading web document.
   Future<void> testLoadWebDocument() async
   {
-    var requestDataSaveOptions = SaveOptionsData();
+    final requestDataSaveOptions = SaveOptionsData();
     requestDataSaveOptions.fileName = 'google.doc';
     requestDataSaveOptions.saveFormat = 'doc';
     requestDataSaveOptions.dmlEffectsRenderingMode = '1';
@@ -48,7 +49,7 @@ class LoadWebDocumentTests
     requestDataSaveOptions.updateSdtContent = false;
     requestDataSaveOptions.zipOutput = false;
 
-    var requestData = LoadWebDocumentData();
+    final requestData = LoadWebDocumentData();
     requestData.loadingDocumentUrl = 'http://google.com';
     requestData.saveOptions = requestDataSaveOptions;
 
@@ -56,7 +57,7 @@ class LoadWebDocumentTests
       requestData
     );
 
-    var result = await context.getApi().loadWebDocument(request);
+    final result = await context.getApi().loadWebDocument(request);
     expect(result.saveResult, isNotNull);
     expect(result.saveResult.destDocument, isNotNull);
     expect(result.saveResult.destDocument.href, 'google.doc');

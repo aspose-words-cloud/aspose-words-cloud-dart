@@ -1,6 +1,5 @@
-## [21.1.0] - Aspose Words Cloud for Dart 21.1 Release Notes
+## [20.12.0] - Aspose Words Cloud for Dart 20.12 Release Notes
 
-- Added online version for all API methods
 
 
 ## [20.11.0] - Aspose Words Cloud for Dart 20.11 Release Notes

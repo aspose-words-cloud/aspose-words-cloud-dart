@@ -25,6 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
+import 'dart:io';
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import 'package:test/test.dart';
 
@@ -53,7 +54,7 @@ class DocumentTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getDocument(request);
+    final result = await context.getApi().getDocument(request);
     expect(result.document, isNotNull);
     expect(result.document.fileName, 'TestGetDocument.docx');
   }
@@ -68,7 +69,7 @@ class DocumentTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().createDocument(request);
+    final result = await context.getApi().createDocument(request);
     expect(result.document, isNotNull);
     expect(result.document.fileName, 'TestCreateDocument.doc');
   }

@@ -25,6 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
+import 'dart:io';
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import 'package:test/test.dart';
 
@@ -46,13 +47,14 @@ class FileTests
   Future<void> testUploadFile() async
   {
     final remoteFileName = 'TestUploadFile.docx';
+    final fileContentData = await context.loadBinaryFile(localFile);
 
     final request = UploadFileRequest(
-      await context.loadBinaryFile(localFile),
+      fileContentData,
       remoteDataFolder + '/' + remoteFileName
     );
 
-    var result = await context.getApi().uploadFile(request);
+    final result = await context.getApi().uploadFile(request);
     expect(result.uploaded, isNotNull);
     expect(result.uploaded.length, 1);
     expect(result.uploaded[0], 'TestUploadFile.docx');

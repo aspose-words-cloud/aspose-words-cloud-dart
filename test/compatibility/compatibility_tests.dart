@@ -25,6 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
+import 'dart:io';
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 
 import '../test_context.dart';
@@ -46,7 +47,7 @@ class CompatibilityTests
   {
     final remoteFileName = 'TestOptimizeDocument.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestOptions = OptimizationOptions();
+    final requestOptions = OptimizationOptions();
     requestOptions.msWordVersion = OptimizationOptions_MsWordVersionEnum.word2002;
 
     final request = OptimizeDocumentRequest(
@@ -61,11 +62,12 @@ class CompatibilityTests
   /// Test for optimize document to specific MS Word version.
   Future<void> testOptimizeDocumentOnline() async
   {
-    var requestOptions = OptimizationOptions();
+    final documentData = await context.loadBinaryFile(localFile);
+    final requestOptions = OptimizationOptions();
     requestOptions.msWordVersion = OptimizationOptions_MsWordVersionEnum.word2002;
 
     final request = OptimizeDocumentOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       requestOptions
     );
 

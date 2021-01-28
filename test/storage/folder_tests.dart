@@ -25,6 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
+import 'dart:io';
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import 'package:test/test.dart';
 
@@ -74,7 +75,7 @@ class FolderTests
       remoteDataFolder
     );
 
-    var result = await context.getApi().getFilesList(request);
+    final result = await context.getApi().getFilesList(request);
     expect(result.value, isNotNull);
   }
 

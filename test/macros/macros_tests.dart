@@ -25,6 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
+import 'dart:io';
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 
 import '../test_context.dart';
@@ -58,9 +59,10 @@ class MacrosTests
   /// Test for deleting macros online.
   Future<void> testDeleteMacrosOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = DeleteMacrosOnlineRequest(
-      await context.loadBinaryFile(localFile)
+      documentData
     );
 
     await context.getApi().deleteMacrosOnline(request);

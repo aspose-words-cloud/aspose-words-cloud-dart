@@ -25,6 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
+import 'dart:io';
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import 'package:test/test.dart';
 
@@ -53,7 +54,7 @@ class DocumentPropertiesTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getDocumentProperties(request);
+    final result = await context.getApi().getDocumentProperties(request);
     expect(result.documentProperties, isNotNull);
     expect(result.documentProperties.list, isNotNull);
     expect(result.documentProperties.list.length, 24);
@@ -65,9 +66,10 @@ class DocumentPropertiesTests
   /// Test for getting document properties online.
   Future<void> testGetDocumentPropertiesOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetDocumentPropertiesOnlineRequest(
-      await context.loadBinaryFile(localFile)
+      documentData
     );
 
     await context.getApi().getDocumentPropertiesOnline(request);
@@ -85,7 +87,7 @@ class DocumentPropertiesTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getDocumentProperty(request);
+    final result = await context.getApi().getDocumentProperty(request);
     expect(result.documentProperty, isNotNull);
     expect(result.documentProperty.name, 'Author');
     expect(result.documentProperty.value, '');
@@ -94,9 +96,10 @@ class DocumentPropertiesTests
   /// A test for GetDocumentProperty online.
   Future<void> testGetDocumentPropertyOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetDocumentPropertyOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       'Author'
     );
 
@@ -122,9 +125,10 @@ class DocumentPropertiesTests
   /// Test for deleting document property online.
   Future<void> testDeleteDocumentPropertyOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = DeleteDocumentPropertyOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       'testProp'
     );
 
@@ -136,7 +140,7 @@ class DocumentPropertiesTests
   {
     final remoteFileName = 'TestUpdateDocumentProperty.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestProperty = DocumentPropertyCreateOrUpdate();
+    final requestProperty = DocumentPropertyCreateOrUpdate();
     requestProperty.value = 'Imran Anwar';
 
     final request = CreateOrUpdateDocumentPropertyRequest(
@@ -147,7 +151,7 @@ class DocumentPropertiesTests
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await context.getApi().createOrUpdateDocumentProperty(request);
+    final result = await context.getApi().createOrUpdateDocumentProperty(request);
     expect(result.documentProperty, isNotNull);
     expect(result.documentProperty.name, 'AsposeAuthor');
     expect(result.documentProperty.value, 'Imran Anwar');
@@ -156,11 +160,12 @@ class DocumentPropertiesTests
   /// Test for updating document property online.
   Future<void> testUpdateDocumentPropertyOnline() async
   {
-    var requestProperty = DocumentPropertyCreateOrUpdate();
+    final documentData = await context.loadBinaryFile(localFile);
+    final requestProperty = DocumentPropertyCreateOrUpdate();
     requestProperty.value = 'Imran Anwar';
 
     final request = CreateOrUpdateDocumentPropertyOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       'AsposeAuthor',
       requestProperty
     );

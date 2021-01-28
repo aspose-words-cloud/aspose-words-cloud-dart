@@ -25,6 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
+import 'dart:io';
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import 'package:test/test.dart';
 
@@ -54,7 +55,7 @@ class HyperlinkTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getDocumentHyperlinkByIndex(request);
+    final result = await context.getApi().getDocumentHyperlinkByIndex(request);
     expect(result.hyperlink, isNotNull);
     expect(result.hyperlink.displayText, 'Aspose');
   }
@@ -62,9 +63,10 @@ class HyperlinkTests
   /// Test for getting hyperlink by specified index online.
   Future<void> testGetDocumentHyperlinkByIndexOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetDocumentHyperlinkByIndexOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       0
     );
 
@@ -82,7 +84,7 @@ class HyperlinkTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getDocumentHyperlinks(request);
+    final result = await context.getApi().getDocumentHyperlinks(request);
     expect(result.hyperlinks, isNotNull);
     expect(result.hyperlinks.hyperlinkList, isNotNull);
     expect(result.hyperlinks.hyperlinkList.length, 2);
@@ -92,9 +94,10 @@ class HyperlinkTests
   /// Test for getting hyperlinks online.
   Future<void> testGetDocumentHyperlinksOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetDocumentHyperlinksOnlineRequest(
-      await context.loadBinaryFile(localFile)
+      documentData
     );
 
     await context.getApi().getDocumentHyperlinksOnline(request);

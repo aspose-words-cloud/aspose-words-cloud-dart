@@ -25,6 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
+import 'dart:io';
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import 'package:test/test.dart';
 
@@ -47,7 +48,7 @@ class FormFieldTests
   {
     final remoteFileName = 'TestUpdateFormField.docx';
     await context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
-    var requestFormField = FormFieldTextInput();
+    final requestFormField = FormFieldTextInput();
     requestFormField.name = 'FullName';
     requestFormField.enabled = true;
     requestFormField.calculateOnExit = true;
@@ -64,7 +65,7 @@ class FormFieldTests
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await context.getApi().updateFormField(request);
+    final result = await context.getApi().updateFormField(request);
     expect(result.formField, isNotNull);
     expect(result.formField.name, 'FullName');
     expect(result.formField.statusText, '');
@@ -73,7 +74,8 @@ class FormFieldTests
   /// Test for posting form field online.
   Future<void> testUpdateFormFieldOnline() async
   {
-    var requestFormField = FormFieldTextInput();
+    final documentData = await context.loadBinaryFile(fieldFolder + '/FormFilled.docx');
+    final requestFormField = FormFieldTextInput();
     requestFormField.name = 'FullName';
     requestFormField.enabled = true;
     requestFormField.calculateOnExit = true;
@@ -82,7 +84,7 @@ class FormFieldTests
     requestFormField.textInputDefault = 'No name';
 
     final request = UpdateFormFieldOnlineRequest(
-      await context.loadBinaryFile(fieldFolder + '/FormFilled.docx'),
+      documentData,
       requestFormField,
       0,
       nodePath: 'sections/0'
@@ -96,7 +98,7 @@ class FormFieldTests
   {
     final remoteFileName = 'TestUpdateFormFieldWithoutNodePath.docx';
     await context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
-    var requestFormField = FormFieldTextInput();
+    final requestFormField = FormFieldTextInput();
     requestFormField.name = 'FullName';
     requestFormField.enabled = true;
     requestFormField.calculateOnExit = true;
@@ -112,7 +114,7 @@ class FormFieldTests
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await context.getApi().updateFormField(request);
+    final result = await context.getApi().updateFormField(request);
     expect(result.formField, isNotNull);
     expect(result.formField.name, 'FullName');
     expect(result.formField.statusText, '');
@@ -131,7 +133,7 @@ class FormFieldTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getFormField(request);
+    final result = await context.getApi().getFormField(request);
     expect(result.formField, isNotNull);
     expect(result.formField.name, 'FullName');
   }
@@ -139,9 +141,10 @@ class FormFieldTests
   /// Test for getting form field online.
   Future<void> testGetFormFieldOnline() async
   {
+    final documentData = await context.loadBinaryFile(fieldFolder + '/FormFilled.docx');
 
     final request = GetFormFieldOnlineRequest(
-      await context.loadBinaryFile(fieldFolder + '/FormFilled.docx'),
+      documentData,
       0,
       nodePath: 'sections/0'
     );
@@ -161,7 +164,7 @@ class FormFieldTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getFormField(request);
+    final result = await context.getApi().getFormField(request);
     expect(result.formField, isNotNull);
     expect(result.formField.name, 'FullName');
   }
@@ -178,7 +181,7 @@ class FormFieldTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getFormFields(request);
+    final result = await context.getApi().getFormFields(request);
     expect(result.formFields, isNotNull);
     expect(result.formFields.list, isNotNull);
     expect(result.formFields.list.length, 5);
@@ -188,9 +191,10 @@ class FormFieldTests
   /// Test for getting form fields online.
   Future<void> testGetFormFieldsOnline() async
   {
+    final documentData = await context.loadBinaryFile(fieldFolder + '/FormFilled.docx');
 
     final request = GetFormFieldsOnlineRequest(
-      await context.loadBinaryFile(fieldFolder + '/FormFilled.docx'),
+      documentData,
       nodePath: 'sections/0'
     );
 
@@ -208,7 +212,7 @@ class FormFieldTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getFormFields(request);
+    final result = await context.getApi().getFormFields(request);
     expect(result.formFields, isNotNull);
     expect(result.formFields.list, isNotNull);
     expect(result.formFields.list.length, 5);
@@ -220,7 +224,7 @@ class FormFieldTests
   {
     final remoteFileName = 'TestInsertFormField.docx';
     await context.uploadFile('Common/test_multi_pages.docx', remoteDataFolder + '/' + remoteFileName);
-    var requestFormField = FormFieldTextInput();
+    final requestFormField = FormFieldTextInput();
     requestFormField.name = 'FullName';
     requestFormField.enabled = true;
     requestFormField.calculateOnExit = true;
@@ -237,7 +241,7 @@ class FormFieldTests
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await context.getApi().insertFormField(request);
+    final result = await context.getApi().insertFormField(request);
     expect(result.formField, isNotNull);
     expect(result.formField.name, 'FullName');
     expect(result.formField.statusText, '');
@@ -246,7 +250,8 @@ class FormFieldTests
   /// Test for insert form field without node path online.
   Future<void> testInsertFormFieldOnline() async
   {
-    var requestFormField = FormFieldTextInput();
+    final documentData = await context.loadBinaryFile(fieldFolder + '/FormFilled.docx');
+    final requestFormField = FormFieldTextInput();
     requestFormField.name = 'FullName';
     requestFormField.enabled = true;
     requestFormField.calculateOnExit = true;
@@ -256,7 +261,7 @@ class FormFieldTests
     requestFormField.textInputFormat = 'UPPERCASE';
 
     final request = InsertFormFieldOnlineRequest(
-      await context.loadBinaryFile(fieldFolder + '/FormFilled.docx'),
+      documentData,
       requestFormField,
       nodePath: 'sections/0/paragraphs/0'
     );
@@ -269,7 +274,7 @@ class FormFieldTests
   {
     final remoteFileName = 'TestInsertFormFieldWithoutNodePath.docx';
     await context.uploadFile('Common/test_multi_pages.docx', remoteDataFolder + '/' + remoteFileName);
-    var requestFormField = FormFieldTextInput();
+    final requestFormField = FormFieldTextInput();
     requestFormField.name = 'FullName';
     requestFormField.enabled = true;
     requestFormField.calculateOnExit = true;
@@ -285,7 +290,7 @@ class FormFieldTests
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await context.getApi().insertFormField(request);
+    final result = await context.getApi().insertFormField(request);
     expect(result.formField, isNotNull);
     expect(result.formField.name, 'FullName');
     expect(result.formField.statusText, '');
@@ -311,9 +316,10 @@ class FormFieldTests
   /// Test for deleting form field online.
   Future<void> testDeleteFormFieldOnline() async
   {
+    final documentData = await context.loadBinaryFile(fieldFolder + '/FormFilled.docx');
 
     final request = DeleteFormFieldOnlineRequest(
-      await context.loadBinaryFile(fieldFolder + '/FormFilled.docx'),
+      documentData,
       0,
       nodePath: 'sections/0'
     );

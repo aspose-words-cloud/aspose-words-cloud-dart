@@ -50,6 +50,7 @@ import './document_properties/document_properties_tests.dart';
 import './document_protection/document_protection_tests.dart';
 import './drawing/drawing_objects_tests.dart';
 import './encoding_tests.dart';
+import './examples_tests.dart';
 import './field/field_tests.dart';
 import './field/form_field_tests.dart';
 import './font/font_tests.dart';
@@ -573,5 +574,15 @@ void main() {
     test('InsertWatermarkTextOnline', () async => await WatermarkTests(testContext).testInsertWatermarkTextOnline());
     test('DeleteWatermark', () async => await WatermarkTests(testContext).testDeleteWatermark());
     test('DeleteWatermarkOnline', () async => await WatermarkTests(testContext).testDeleteWatermarkOnline());
+  });
+
+  group('Examples', () {
+    ExamplesTests exampleTests;
+    setUpAll(() async {
+      exampleTests = ExamplesTests(testContext.configuration);
+      await exampleTests.init();
+    });
+    test('AcceptAllRevisions', () async => await exampleTests.acceptAllRevisions());
+    test('AcceptAllRevisions2', () async => await exampleTests.acceptAllRevisions2());
   });
 }

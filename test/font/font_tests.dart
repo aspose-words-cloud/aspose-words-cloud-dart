@@ -25,6 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
+import 'dart:io';
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import 'package:test/test.dart';
 
@@ -54,7 +55,7 @@ class FontTests
     final request = GetAvailableFontsRequest(
     );
 
-    var result = await context.getApi().getAvailableFonts(request);
+    final result = await context.getApi().getAvailableFonts(request);
     expect(result.systemFonts, isNotNull);
   }
 }

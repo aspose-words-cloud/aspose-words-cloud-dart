@@ -25,6 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
+import 'dart:io';
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import 'package:test/test.dart';
 
@@ -53,7 +54,7 @@ class ListsTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getLists(request);
+    final result = await context.getApi().getLists(request);
     expect(result.lists, isNotNull);
     expect(result.lists.listInfo, isNotNull);
     expect(result.lists.listInfo.length, 2);
@@ -63,9 +64,10 @@ class ListsTests
   /// Test for getting lists from document online.
   Future<void> testGetListsOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetListsOnlineRequest(
-      await context.loadBinaryFile(localFile)
+      documentData
     );
 
     await context.getApi().getListsOnline(request);
@@ -83,7 +85,7 @@ class ListsTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getList(request);
+    final result = await context.getApi().getList(request);
     expect(result.list, isNotNull);
     expect(result.list.listId, 1);
   }
@@ -91,9 +93,10 @@ class ListsTests
   /// Test for getting list from document online.
   Future<void> testGetListOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetListOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       1
     );
 
@@ -105,7 +108,7 @@ class ListsTests
   {
     final remoteFileName = 'TestUpdateList.doc';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestListUpdate = ListUpdate();
+    final requestListUpdate = ListUpdate();
     requestListUpdate.isRestartAtEachSection = true;
 
     final request = UpdateListRequest(
@@ -121,16 +124,17 @@ class ListsTests
   /// Test for updating list from document online.
   Future<void> testUpdateListOnline() async
   {
-    var requestListUpdate = ListUpdate();
+    final documentData = await context.loadBinaryFile(localFile);
+    final requestListUpdate = ListUpdate();
     requestListUpdate.isRestartAtEachSection = true;
 
     final request = UpdateListOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       1,
       requestListUpdate
     );
 
-    var result = await context.getApi().updateListOnline(request);
+    final result = await context.getApi().updateListOnline(request);
     expect(result.model.list, isNotNull);
     expect(result.model.list.listId, 1);
     expect(result.model.list.isRestartAtEachSection, isTrue);
@@ -141,7 +145,7 @@ class ListsTests
   {
     final remoteFileName = 'TestUpdateListLevel.doc';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestListUpdate = ListLevelUpdate();
+    final requestListUpdate = ListLevelUpdate();
     requestListUpdate.alignment = ListLevelUpdate_AlignmentEnum.right;
 
     final request = UpdateListLevelRequest(
@@ -158,17 +162,18 @@ class ListsTests
   /// Test for updating list level from document online.
   Future<void> testUpdateListLevelOnline() async
   {
-    var requestListUpdate = ListLevelUpdate();
+    final documentData = await context.loadBinaryFile(localFile);
+    final requestListUpdate = ListLevelUpdate();
     requestListUpdate.alignment = ListLevelUpdate_AlignmentEnum.right;
 
     final request = UpdateListLevelOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       1,
       requestListUpdate,
       1
     );
 
-    var result = await context.getApi().updateListLevelOnline(request);
+    final result = await context.getApi().updateListLevelOnline(request);
     expect(result.model.list, isNotNull);
     expect(result.model.list.listLevels, isNotNull);
     expect(result.model.list.listLevels.listLevel, isNotNull);
@@ -181,7 +186,7 @@ class ListsTests
   {
     final remoteFileName = 'TestInsertList.doc';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestListInsert = ListInsert();
+    final requestListInsert = ListInsert();
     requestListInsert.template = ListInsert_TemplateEnum.outlineLegal;
 
     final request = InsertListRequest(
@@ -190,7 +195,7 @@ class ListsTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().insertList(request);
+    final result = await context.getApi().insertList(request);
     expect(result.list, isNotNull);
     expect(result.list.listId, 3);
   }
@@ -198,11 +203,12 @@ class ListsTests
   /// Test for inserting list from document online.
   Future<void> testInsertListOnline() async
   {
-    var requestListInsert = ListInsert();
+    final documentData = await context.loadBinaryFile(localFile);
+    final requestListInsert = ListInsert();
     requestListInsert.template = ListInsert_TemplateEnum.outlineLegal;
 
     final request = InsertListOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       requestListInsert
     );
 

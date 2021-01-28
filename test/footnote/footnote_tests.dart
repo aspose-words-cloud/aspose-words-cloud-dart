@@ -25,6 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
+import 'dart:io';
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import 'package:test/test.dart';
 
@@ -47,7 +48,7 @@ class FootnoteTests
   {
     final remoteFileName = 'TestInsertFootnote.docx';
     await context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
-    var requestFootnoteDto = FootnoteInsert();
+    final requestFootnoteDto = FootnoteInsert();
     requestFootnoteDto.footnoteType = FootnoteBase_FootnoteTypeEnum.endnote;
     requestFootnoteDto.text = 'test endnote';
 
@@ -58,7 +59,7 @@ class FootnoteTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().insertFootnote(request);
+    final result = await context.getApi().insertFootnote(request);
     expect(result.footnote, isNotNull);
     expect(result.footnote.nodeId, '0.1.7.1');
     expect(result.footnote.text, ' test endnote' + '\r\n');
@@ -67,12 +68,13 @@ class FootnoteTests
   /// Test for adding footnote online.
   Future<void> testInsertFootnoteOnline() async
   {
-    var requestFootnoteDto = FootnoteInsert();
+    final documentData = await context.loadBinaryFile(footnoteFolder + '/Footnote.doc');
+    final requestFootnoteDto = FootnoteInsert();
     requestFootnoteDto.footnoteType = FootnoteBase_FootnoteTypeEnum.endnote;
     requestFootnoteDto.text = 'test endnote';
 
     final request = InsertFootnoteOnlineRequest(
-      await context.loadBinaryFile(footnoteFolder + '/Footnote.doc'),
+      documentData,
       requestFootnoteDto,
       nodePath: ''
     );
@@ -85,7 +87,7 @@ class FootnoteTests
   {
     final remoteFileName = 'TestInsertFootnoteWithoutNodePath.docx';
     await context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
-    var requestFootnoteDto = FootnoteInsert();
+    final requestFootnoteDto = FootnoteInsert();
     requestFootnoteDto.footnoteType = FootnoteBase_FootnoteTypeEnum.endnote;
     requestFootnoteDto.text = 'test endnote';
 
@@ -95,7 +97,7 @@ class FootnoteTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().insertFootnote(request);
+    final result = await context.getApi().insertFootnote(request);
     expect(result.footnote, isNotNull);
     expect(result.footnote.nodeId, '0.1.7.1');
     expect(result.footnote.text, ' test endnote' + '\r\n');
@@ -120,9 +122,10 @@ class FootnoteTests
   /// Test for deleting footnote online.
   Future<void> testDeleteFootnoteOnline() async
   {
+    final documentData = await context.loadBinaryFile(footnoteFolder + '/Footnote.doc');
 
     final request = DeleteFootnoteOnlineRequest(
-      await context.loadBinaryFile(footnoteFolder + '/Footnote.doc'),
+      documentData,
       0,
       nodePath: ''
     );
@@ -157,7 +160,7 @@ class FootnoteTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getFootnotes(request);
+    final result = await context.getApi().getFootnotes(request);
     expect(result.footnotes, isNotNull);
     expect(result.footnotes.list, isNotNull);
     expect(result.footnotes.list.length, 6);
@@ -167,9 +170,10 @@ class FootnoteTests
   /// Test for getting footnotes online.
   Future<void> testGetFootnotesOnline() async
   {
+    final documentData = await context.loadBinaryFile(footnoteFolder + '/Footnote.doc');
 
     final request = GetFootnotesOnlineRequest(
-      await context.loadBinaryFile(footnoteFolder + '/Footnote.doc'),
+      documentData,
       nodePath: ''
     );
 
@@ -187,7 +191,7 @@ class FootnoteTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getFootnotes(request);
+    final result = await context.getApi().getFootnotes(request);
     expect(result.footnotes, isNotNull);
     expect(result.footnotes.list, isNotNull);
     expect(result.footnotes.list.length, 6);
@@ -207,7 +211,7 @@ class FootnoteTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getFootnote(request);
+    final result = await context.getApi().getFootnote(request);
     expect(result.footnote, isNotNull);
     expect(result.footnote.text, ' Footnote 1.' + '\r\n');
   }
@@ -215,9 +219,10 @@ class FootnoteTests
   /// Test for getting footnote online.
   Future<void> testGetFootnoteOnline() async
   {
+    final documentData = await context.loadBinaryFile(footnoteFolder + '/Footnote.doc');
 
     final request = GetFootnoteOnlineRequest(
-      await context.loadBinaryFile(footnoteFolder + '/Footnote.doc'),
+      documentData,
       0,
       nodePath: ''
     );
@@ -237,7 +242,7 @@ class FootnoteTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getFootnote(request);
+    final result = await context.getApi().getFootnote(request);
     expect(result.footnote, isNotNull);
     expect(result.footnote.text, ' Footnote 1.' + '\r\n');
   }
@@ -247,7 +252,7 @@ class FootnoteTests
   {
     final remoteFileName = 'TestUpdateFootnote.docx';
     await context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
-    var requestFootnoteDto = FootnoteUpdate();
+    final requestFootnoteDto = FootnoteUpdate();
     requestFootnoteDto.text = 'new text is here';
 
     final request = UpdateFootnoteRequest(
@@ -258,7 +263,7 @@ class FootnoteTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().updateFootnote(request);
+    final result = await context.getApi().updateFootnote(request);
     expect(result.footnote, isNotNull);
     expect(result.footnote.text, ' new text is here' + '\r\n');
   }
@@ -266,11 +271,12 @@ class FootnoteTests
   /// Test for updating footnote online.
   Future<void> testUpdateFootnoteOnline() async
   {
-    var requestFootnoteDto = FootnoteUpdate();
+    final documentData = await context.loadBinaryFile(footnoteFolder + '/Footnote.doc');
+    final requestFootnoteDto = FootnoteUpdate();
     requestFootnoteDto.text = 'new text is here';
 
     final request = UpdateFootnoteOnlineRequest(
-      await context.loadBinaryFile(footnoteFolder + '/Footnote.doc'),
+      documentData,
       requestFootnoteDto,
       0,
       nodePath: ''
@@ -284,7 +290,7 @@ class FootnoteTests
   {
     final remoteFileName = 'TestUpdateFootnoteWithoutNodePath.docx';
     await context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
-    var requestFootnoteDto = FootnoteUpdate();
+    final requestFootnoteDto = FootnoteUpdate();
     requestFootnoteDto.text = 'new text is here';
 
     final request = UpdateFootnoteRequest(
@@ -294,7 +300,7 @@ class FootnoteTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().updateFootnote(request);
+    final result = await context.getApi().updateFootnote(request);
     expect(result.footnote, isNotNull);
     expect(result.footnote.text, ' new text is here' + '\r\n');
   }

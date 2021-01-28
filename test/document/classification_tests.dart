@@ -25,6 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
+import 'dart:io';
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import 'package:test/test.dart';
 
@@ -51,7 +52,7 @@ class ClassificationTests
       bestClassesCount: '3'
     );
 
-    var result = await context.getApi().classify(request);
+    final result = await context.getApi().classify(request);
     expect(result.bestClassName, 'Science');
     expect(result.bestResults, isNotNull);
     expect(result.bestResults.length, 3);
@@ -69,7 +70,7 @@ class ClassificationTests
       bestClassesCount: '3'
     );
 
-    var result = await context.getApi().classifyDocument(request);
+    final result = await context.getApi().classifyDocument(request);
     expect(result.bestClassName, 'Hobbies_&_Interests');
     expect(result.bestResults, isNotNull);
     expect(result.bestResults.length, 3);
@@ -78,9 +79,10 @@ class ClassificationTests
   /// Test for document classification online.
   Future<void> testClassifyDocumentOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = ClassifyDocumentOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       bestClassesCount: '3'
     );
 

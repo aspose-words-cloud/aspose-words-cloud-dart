@@ -25,6 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
+import 'dart:io';
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import 'package:test/test.dart';
 
@@ -47,14 +48,14 @@ class AppendDocumentTests
   {
     final remoteFileName = 'TestAppendDocument.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestDocumentListDocumentEntries0 = DocumentEntry();
+    final requestDocumentListDocumentEntries0 = DocumentEntry();
     requestDocumentListDocumentEntries0.href = remoteDataFolder + '/' + remoteFileName;
     requestDocumentListDocumentEntries0.importFormatMode = 'KeepSourceFormatting';
 
-    var requestDocumentListDocumentEntries = [
+    final requestDocumentListDocumentEntries = [
       requestDocumentListDocumentEntries0];
 
-    var requestDocumentList = DocumentEntryList();
+    final requestDocumentList = DocumentEntryList();
     requestDocumentList.documentEntries = requestDocumentListDocumentEntries;
 
     final request = AppendDocumentRequest(
@@ -64,7 +65,7 @@ class AppendDocumentTests
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await context.getApi().appendDocument(request);
+    final result = await context.getApi().appendDocument(request);
     expect(result.document, isNotNull);
     expect(result.document.fileName, 'TestAppendDocument.docx');
   }
@@ -74,18 +75,19 @@ class AppendDocumentTests
   {
     final remoteFileName = 'TestAppendDocument.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestDocumentListDocumentEntries0 = DocumentEntry();
+    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentListDocumentEntries0 = DocumentEntry();
     requestDocumentListDocumentEntries0.href = remoteDataFolder + '/' + remoteFileName;
     requestDocumentListDocumentEntries0.importFormatMode = 'KeepSourceFormatting';
 
-    var requestDocumentListDocumentEntries = [
+    final requestDocumentListDocumentEntries = [
       requestDocumentListDocumentEntries0];
 
-    var requestDocumentList = DocumentEntryList();
+    final requestDocumentList = DocumentEntryList();
     requestDocumentList.documentEntries = requestDocumentListDocumentEntries;
 
     final request = AppendDocumentOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       requestDocumentList
     );
 

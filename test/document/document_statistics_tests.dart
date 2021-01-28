@@ -25,6 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
+import 'dart:io';
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import 'package:test/test.dart';
 
@@ -53,7 +54,7 @@ class DocumentStatisticsTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getDocumentStatistics(request);
+    final result = await context.getApi().getDocumentStatistics(request);
     expect(result.statData, isNotNull);
     expect(result.statData.wordCount, 10);
   }
@@ -61,9 +62,10 @@ class DocumentStatisticsTests
   /// Test for document classification online.
   Future<void> testGetDocumentStatisticsOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetDocumentStatisticsOnlineRequest(
-      await context.loadBinaryFile(localFile)
+      documentData
     );
 
     await context.getApi().getDocumentStatisticsOnline(request);

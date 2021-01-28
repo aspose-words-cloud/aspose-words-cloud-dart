@@ -25,6 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
+import 'dart:io';
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 import 'package:test/test.dart';
 
@@ -48,7 +49,7 @@ class ConvertDocumentTests
     final localName = 'test_multi_pages.docx';
     final remoteName = 'TestSaveAs.docx';
     await context.uploadFile('Common/' + localName, remoteFolder + '/' + remoteName);
-    var requestSaveOptionsData = SaveOptionsData();
+    final requestSaveOptionsData = SaveOptionsData();
     requestSaveOptionsData.saveFormat = 'pdf';
     requestSaveOptionsData.fileName = context.baseTestOutPath + '/TestSaveAs.pdf';
 
@@ -58,7 +59,7 @@ class ConvertDocumentTests
       folder: remoteFolder
     );
 
-    var result = await context.getApi().saveAs(request);
+    final result = await context.getApi().saveAs(request);
     expect(result.saveResult, isNotNull);
     expect(result.saveResult.destDocument, isNotNull);
   }
@@ -67,12 +68,13 @@ class ConvertDocumentTests
   Future<void> testSaveAsOnline() async
   {
     final localName = 'test_multi_pages.docx';
-    var requestSaveOptionsData = SaveOptionsData();
+    final documentData = await context.loadBinaryFile('Common/' + localName);
+    final requestSaveOptionsData = SaveOptionsData();
     requestSaveOptionsData.saveFormat = 'pdf';
     requestSaveOptionsData.fileName = context.baseTestOutPath + '/TestSaveAs.pdf';
 
     final request = SaveAsOnlineRequest(
-      await context.loadBinaryFile('Common/' + localName),
+      documentData,
       requestSaveOptionsData
     );
 
@@ -85,7 +87,7 @@ class ConvertDocumentTests
     final localName = '45.pdf';
     final remoteName = 'TestSaveAsFromPdfToDoc.pdf';
     await context.uploadFile(localFolder + '/' + localName, remoteFolder + '/' + remoteName);
-    var requestSaveOptionsData = SaveOptionsData();
+    final requestSaveOptionsData = SaveOptionsData();
     requestSaveOptionsData.saveFormat = 'docx';
     requestSaveOptionsData.fileName = context.baseTestOutPath + '/TestSaveAsFromPdfToDoc.docx';
 
@@ -95,7 +97,7 @@ class ConvertDocumentTests
       folder: remoteFolder
     );
 
-    var result = await context.getApi().saveAs(request);
+    final result = await context.getApi().saveAs(request);
     expect(result.saveResult, isNotNull);
     expect(result.saveResult.destDocument, isNotNull);
   }
@@ -106,7 +108,7 @@ class ConvertDocumentTests
     final localName = 'test_multi_pages.docx';
     final remoteName = 'TestSaveAsTiff.pdf';
     await context.uploadFile('Common/' + localName, remoteFolder + '/' + remoteName);
-    var requestSaveOptions = TiffSaveOptionsData();
+    final requestSaveOptions = TiffSaveOptionsData();
     requestSaveOptions.saveFormat = 'tiff';
     requestSaveOptions.fileName = context.baseTestOutPath + '/abc.tiff';
 
@@ -116,7 +118,7 @@ class ConvertDocumentTests
       folder: remoteFolder
     );
 
-    var result = await context.getApi().saveAsTiff(request);
+    final result = await context.getApi().saveAsTiff(request);
     expect(result.saveResult, isNotNull);
     expect(result.saveResult.destDocument, isNotNull);
   }
@@ -125,12 +127,13 @@ class ConvertDocumentTests
   Future<void> testSaveAsTiffOnline() async
   {
     final localName = 'test_multi_pages.docx';
-    var requestSaveOptions = TiffSaveOptionsData();
+    final documentData = await context.loadBinaryFile('Common/' + localName);
+    final requestSaveOptions = TiffSaveOptionsData();
     requestSaveOptions.saveFormat = 'tiff';
     requestSaveOptions.fileName = context.baseTestOutPath + '/abc.tiff';
 
     final request = SaveAsTiffOnlineRequest(
-      await context.loadBinaryFile('Common/' + localName),
+      documentData,
       requestSaveOptions
     );
 
@@ -140,9 +143,10 @@ class ConvertDocumentTests
   /// A test for ConvertDocument.
   Future<void> testConvertDocument() async
   {
+    final documentData = await context.loadBinaryFile(localFolder + '/test_uploadfile.docx');
 
     final request = ConvertDocumentRequest(
-      await context.loadBinaryFile(localFolder + '/test_uploadfile.docx'),
+      documentData,
       'pdf'
     );
 
