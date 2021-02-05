@@ -298,6 +298,8 @@ export 'src/requests/delete_borders_online_request.dart';
 export 'src/requests/delete_borders_request.dart';
 export 'src/requests/delete_comment_online_request.dart';
 export 'src/requests/delete_comment_request.dart';
+export 'src/requests/delete_comments_online_request.dart';
+export 'src/requests/delete_comments_request.dart';
 export 'src/requests/delete_document_property_online_request.dart';
 export 'src/requests/delete_document_property_request.dart';
 export 'src/requests/delete_drawing_object_online_request.dart';

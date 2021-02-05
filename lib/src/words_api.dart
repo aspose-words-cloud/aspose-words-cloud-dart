@@ -187,6 +187,16 @@ class WordsApi {
     return await _apiClient.call(request) as ByteData;
   }
 
+  /// Removes all comments from the document.
+  Future< void > deleteComments(DeleteCommentsRequest request) async {
+  await _apiClient.call(request);
+  }
+
+  /// Removes all comments from the document.
+  Future< ByteData > deleteCommentsOnline(DeleteCommentsOnlineRequest request) async {
+    return await _apiClient.call(request) as ByteData;
+  }
+
   /// Removes a document property.
   Future< void > deleteDocumentProperty(DeleteDocumentPropertyRequest request) async {
   await _apiClient.call(request);

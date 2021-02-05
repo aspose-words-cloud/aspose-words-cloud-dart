@@ -141,6 +141,8 @@ void main() {
     test('UpdateCommentOnline', () async => await CommentTests(testContext).testUpdateCommentOnline());
     test('DeleteComment', () async => await CommentTests(testContext).testDeleteComment());
     test('DeleteCommentOnline', () async => await CommentTests(testContext).testDeleteCommentOnline());
+    test('DeleteComments', () async => await CommentTests(testContext).testDeleteComments());
+    test('DeleteCommentsOnline', () async => await CommentTests(testContext).testDeleteCommentsOnline());
   });
 
   group('CompareDocument', () {
