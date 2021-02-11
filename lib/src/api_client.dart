@@ -54,11 +54,10 @@ class ApiClient {
       try {
         printBody = utf8.decoder.convert(body.buffer.asUint8List(body.offsetInBytes, body.lengthInBytes));
       }
-      finally {
-        if (printBody.isEmpty) {
-          printBody = reasonPhrase;
-        }
+      catch(e) {
+        printBody = reasonPhrase;
       }
+
       throw ApiException(statusCode, printBody);
     }
   }
@@ -368,7 +367,7 @@ class ApiClient {
       throw ApiException(400, 'Response and request parts mismatch.');
     }
 
-    var result = List<dynamic>(requests.length);
+    var result = List<dynamic>.filled(requests.length, null);
     for (var i = 0; i < requests.length; i++) {
       result[i] = deserializeBatchPart(requests[i], responseParts[i]);
     }
@@ -406,7 +405,7 @@ class ApiClient {
 
     var httpRequest = http.Request(requestData.method, Uri.parse(requestData.url));
     httpRequest.headers['x-aspose-client'] = 'dart sdk';
-    httpRequest.headers['x-aspose-client-version'] = '21.1';
+    httpRequest.headers['x-aspose-client-version'] = '21.2';
     httpRequest.headers['Authorization'] = await _getAuthToken();
     if (requestData.headers != null) {
       httpRequest.headers.addAll(requestData.headers);

@@ -273,4 +273,30 @@ class CommentTests
 
     await context.getApi().deleteCommentOnline(request);
   }
+
+  /// A test for DeleteComments.
+  Future<void> testDeleteComments() async
+  {
+    final remoteFileName = 'TestDeleteComment.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+
+    final request = DeleteCommentsRequest(
+      remoteFileName,
+      folder: remoteDataFolder,
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
+    );
+
+    await context.getApi().deleteComments(request);
+  }
+
+  /// A test for DeleteComments online.
+  Future<void> testDeleteCommentsOnline() async
+  {
+
+    final request = DeleteCommentsOnlineRequest(
+      await context.loadBinaryFile(localFile)
+    );
+
+    await context.getApi().deleteCommentsOnline(request);
+  }
 }
