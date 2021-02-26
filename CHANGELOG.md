@@ -1,3 +1,8 @@
+## [21.2.0] - Aspose Words Cloud for Dart 21.2 Release Notes
+
+- Added delete all comments method
+
+
 ## [21.1.0] - Aspose Words Cloud for Dart 21.1 Release Notes
 
 - Added online version for all API methods

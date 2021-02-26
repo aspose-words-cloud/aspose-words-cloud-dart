@@ -31,6 +31,9 @@ import '../../aspose_words_cloud.dart';
 
 /// base container class for save options data.
 class SaveOptionsData implements ModelBase {
+  /// Gets or sets a boolean value indicating whether to allow embedding fonts with PostScript outlines when embedding TrueType fonts in a document upon it is saved. The default value is false..
+  bool allowEmbeddingPostScriptFonts;
+
   /// Gets or sets the value determining how 3D effects are rendered.
   SaveOptionsData_Dml3DEffectsRenderingModeEnum dml3DEffectsRenderingMode;
 
@@ -67,6 +70,12 @@ class SaveOptionsData implements ModelBase {
   void deserialize(Map<String, dynamic> json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize SaveOptionsData data model.');
+    }
+
+    if (json.containsKey('AllowEmbeddingPostScriptFonts')) {
+      allowEmbeddingPostScriptFonts = json['AllowEmbeddingPostScriptFonts'] as bool;
+    } else {
+      allowEmbeddingPostScriptFonts = null;
     }
 
     if (json.containsKey('Dml3DEffectsRenderingMode')) {
@@ -137,6 +146,10 @@ class SaveOptionsData implements ModelBase {
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
+    if (allowEmbeddingPostScriptFonts != null) {
+      _result['AllowEmbeddingPostScriptFonts'] = allowEmbeddingPostScriptFonts;
+    }
+
     if (dml3DEffectsRenderingMode != null) {
       switch (dml3DEffectsRenderingMode) {
         case SaveOptionsData_Dml3DEffectsRenderingModeEnum.basic: _result['Dml3DEffectsRenderingMode'] = 'Basic'; break;

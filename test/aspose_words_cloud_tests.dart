@@ -142,6 +142,8 @@ void main() {
     test('UpdateCommentOnline', () async => await CommentTests(testContext).testUpdateCommentOnline());
     test('DeleteComment', () async => await CommentTests(testContext).testDeleteComment());
     test('DeleteCommentOnline', () async => await CommentTests(testContext).testDeleteCommentOnline());
+    test('DeleteComments', () async => await CommentTests(testContext).testDeleteComments());
+    test('DeleteCommentsOnline', () async => await CommentTests(testContext).testDeleteCommentsOnline());
   });
 
   group('CompareDocument', () {
@@ -583,6 +585,6 @@ void main() {
       await exampleTests.init();
     });
     test('AcceptAllRevisions', () async => await exampleTests.acceptAllRevisions());
-    test('AcceptAllRevisions2', () async => await exampleTests.acceptAllRevisions2());
+    test('AcceptAllRevisionsOnline', () async => await exampleTests.acceptAllRevisionsOnline());
   });
 }
