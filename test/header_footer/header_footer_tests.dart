@@ -54,7 +54,7 @@ class HeaderFooterTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getHeaderFooters(request);
+    final result = await context.getApi().getHeaderFooters(request);
     expect(result.headerFooters, isNotNull);
     expect(result.headerFooters.list, isNotNull);
     expect(result.headerFooters.list.length, 6);
@@ -63,9 +63,10 @@ class HeaderFooterTests
   /// Test for getting headers and footers online.
   Future<void> testGetHeaderFootersOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetHeaderFootersOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       ''
     );
 
@@ -84,7 +85,7 @@ class HeaderFooterTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getHeaderFooter(request);
+    final result = await context.getApi().getHeaderFooter(request);
     expect(result.headerFooter, isNotNull);
     expect(result.headerFooter.childNodes, isNotNull);
     expect(result.headerFooter.childNodes.length, 1);
@@ -94,9 +95,10 @@ class HeaderFooterTests
   /// Test for getting headerfooter online.
   Future<void> testGetHeaderFooterOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetHeaderFooterOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       0
     );
 
@@ -116,7 +118,7 @@ class HeaderFooterTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getHeaderFooterOfSection(request);
+    final result = await context.getApi().getHeaderFooterOfSection(request);
     expect(result.headerFooter, isNotNull);
     expect(result.headerFooter.childNodes, isNotNull);
     expect(result.headerFooter.childNodes.length, 1);
@@ -126,9 +128,10 @@ class HeaderFooterTests
   /// Test for getting headerfooter of section online.
   Future<void> testGetHeaderFooterOfSectionOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetHeaderFooterOfSectionOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       0,
       0
     );
@@ -155,9 +158,10 @@ class HeaderFooterTests
   /// Test for deleting headerfooter online.
   Future<void> testDeleteHeaderFooterOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = DeleteHeaderFooterOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       '',
       0
     );
@@ -183,9 +187,10 @@ class HeaderFooterTests
   /// Test for deleting headerfooters online.
   Future<void> testDeleteHeadersFootersOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = DeleteHeadersFootersOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       ''
     );
 
@@ -211,14 +216,15 @@ class HeaderFooterTests
   /// Test for adding headerfooters online.
   Future<void> testInsertHeaderFooterOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = InsertHeaderFooterOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       '',
       'FooterEven'
     );
 
-    var result = await context.getApi().insertHeaderFooterOnline(request);
+    final result = await context.getApi().insertHeaderFooterOnline(request);
     expect(result.model.headerFooter, isNotNull);
     expect(result.model.headerFooter.childNodes, isNotNull);
     expect(result.model.headerFooter.childNodes.length, 1);
