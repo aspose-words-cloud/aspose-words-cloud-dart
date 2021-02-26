@@ -54,7 +54,7 @@ class MathObjectTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getOfficeMathObjects(request);
+    final result = await context.getApi().getOfficeMathObjects(request);
     expect(result.officeMathObjects, isNotNull);
     expect(result.officeMathObjects.list, isNotNull);
     expect(result.officeMathObjects.list.length, 16);
@@ -64,9 +64,10 @@ class MathObjectTests
   /// Test for getting mathObjects online.
   Future<void> testGetOfficeMathObjectsOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetOfficeMathObjectsOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       nodePath: ''
     );
 
@@ -84,7 +85,7 @@ class MathObjectTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getOfficeMathObjects(request);
+    final result = await context.getApi().getOfficeMathObjects(request);
     expect(result.officeMathObjects, isNotNull);
     expect(result.officeMathObjects.list, isNotNull);
     expect(result.officeMathObjects.list.length, 16);
@@ -104,7 +105,7 @@ class MathObjectTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getOfficeMathObject(request);
+    final result = await context.getApi().getOfficeMathObject(request);
     expect(result.officeMathObject, isNotNull);
     expect(result.officeMathObject.nodeId, '0.0.0.0');
   }
@@ -112,9 +113,10 @@ class MathObjectTests
   /// Test for getting mathObject online.
   Future<void> testGetOfficeMathObjectOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetOfficeMathObjectOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       0,
       nodePath: ''
     );
@@ -134,7 +136,7 @@ class MathObjectTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getOfficeMathObject(request);
+    final result = await context.getApi().getOfficeMathObject(request);
     expect(result.officeMathObject, isNotNull);
     expect(result.officeMathObject.nodeId, '0.0.0.0');
   }
@@ -159,9 +161,10 @@ class MathObjectTests
   /// Test for rendering mathObject.
   Future<void> testRenderMathObjectOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = RenderMathObjectOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       'png',
       0,
       nodePath: ''
@@ -205,9 +208,10 @@ class MathObjectTests
   /// Test for deleting mathObject online.
   Future<void> testDeleteOfficeMathObjectOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = DeleteOfficeMathObjectOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       0,
       nodePath: ''
     );

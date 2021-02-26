@@ -53,7 +53,7 @@ class StylesTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getStyles(request);
+    final result = await context.getApi().getStyles(request);
     expect(result.styles, isNotNull);
     expect(result.styles.length, 22);
     expect(result.styles[0].name, 'Default Paragraph Font');
@@ -62,9 +62,10 @@ class StylesTests
   /// Test for getting styles from document online.
   Future<void> testGetStylesOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetStylesOnlineRequest(
-      await context.loadBinaryFile(localFile)
+      documentData
     );
 
     await context.getApi().getStylesOnline(request);
@@ -82,7 +83,7 @@ class StylesTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getStyle(request);
+    final result = await context.getApi().getStyle(request);
     expect(result.style, isNotNull);
     expect(result.style.name, 'Heading 1');
   }
@@ -90,9 +91,10 @@ class StylesTests
   /// Test for getting style from document online.
   Future<void> testGetStyleOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetStyleOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       'Heading 1'
     );
 
@@ -104,7 +106,7 @@ class StylesTests
   {
     final remoteFileName = 'TestUpdateStyle.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestStyleUpdate = StyleUpdate();
+    final requestStyleUpdate = StyleUpdate();
     requestStyleUpdate.name = 'My Style';
 
     final request = UpdateStyleRequest(
@@ -114,7 +116,7 @@ class StylesTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().updateStyle(request);
+    final result = await context.getApi().updateStyle(request);
     expect(result.style, isNotNull);
     expect(result.style.name, 'My Style');
   }
@@ -122,11 +124,12 @@ class StylesTests
   /// Test for updating style from document online.
   Future<void> testUpdateStyleOnline() async
   {
-    var requestStyleUpdate = StyleUpdate();
+    final documentData = await context.loadBinaryFile(localFile);
+    final requestStyleUpdate = StyleUpdate();
     requestStyleUpdate.name = 'My Style';
 
     final request = UpdateStyleOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       'Heading 1',
       requestStyleUpdate
     );
@@ -139,7 +142,7 @@ class StylesTests
   {
     final remoteFileName = 'TestInsertStyle.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestStyleInsert = StyleInsert();
+    final requestStyleInsert = StyleInsert();
     requestStyleInsert.styleName = 'My Style';
     requestStyleInsert.styleType = StyleInsert_StyleTypeEnum.paragraph;
 
@@ -149,7 +152,7 @@ class StylesTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().insertStyle(request);
+    final result = await context.getApi().insertStyle(request);
     expect(result.style, isNotNull);
     expect(result.style.name, 'My Style');
   }
@@ -157,12 +160,13 @@ class StylesTests
   /// Test for inserting style from document online.
   Future<void> testInsertStyleOnline() async
   {
-    var requestStyleInsert = StyleInsert();
+    final documentData = await context.loadBinaryFile(localFile);
+    final requestStyleInsert = StyleInsert();
     requestStyleInsert.styleName = 'My Style';
     requestStyleInsert.styleType = StyleInsert_StyleTypeEnum.paragraph;
 
     final request = InsertStyleOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       requestStyleInsert
     );
 
@@ -174,7 +178,7 @@ class StylesTests
   {
     final remoteFileName = 'TestCopyStyle.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestStyleCopy = StyleCopy();
+    final requestStyleCopy = StyleCopy();
     requestStyleCopy.styleName = 'Heading 1';
 
     final request = CopyStyleRequest(
@@ -183,7 +187,7 @@ class StylesTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().copyStyle(request);
+    final result = await context.getApi().copyStyle(request);
     expect(result.style, isNotNull);
     expect(result.style.name, 'Heading 1_0');
   }
@@ -191,11 +195,12 @@ class StylesTests
   /// Test for coping style from document online.
   Future<void> testCopyStyleOnline() async
   {
-    var requestStyleCopy = StyleCopy();
+    final documentData = await context.loadBinaryFile(localFile);
+    final requestStyleCopy = StyleCopy();
     requestStyleCopy.styleName = 'Heading 1';
 
     final request = CopyStyleOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       requestStyleCopy
     );
 
@@ -214,7 +219,7 @@ class StylesTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getStyleFromDocumentElement(request);
+    final result = await context.getApi().getStyleFromDocumentElement(request);
     expect(result.style, isNotNull);
     expect(result.style.name, 'TOC 1');
   }
@@ -222,9 +227,10 @@ class StylesTests
   /// Test for getting style from document element online.
   Future<void> testGetStyleFromDocumentElementOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetStyleFromDocumentElementOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       'paragraphs/1/paragraphFormat'
     );
 
@@ -236,7 +242,7 @@ class StylesTests
   {
     final remoteFileName = 'TestApplyStyleToDocumentElement.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestStyleApply = StyleApply();
+    final requestStyleApply = StyleApply();
     requestStyleApply.styleName = 'Heading 1';
 
     final request = ApplyStyleToDocumentElementRequest(
@@ -252,11 +258,12 @@ class StylesTests
   /// Test for applying style to document element online.
   Future<void> testApplyStyleToDocumentElementOnline() async
   {
-    var requestStyleApply = StyleApply();
+    final documentData = await context.loadBinaryFile(localFile);
+    final requestStyleApply = StyleApply();
     requestStyleApply.styleName = 'Heading 1';
 
     final request = ApplyStyleToDocumentElementOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       'paragraphs/1/paragraphFormat',
       requestStyleApply
     );

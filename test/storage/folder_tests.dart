@@ -74,7 +74,7 @@ class FolderTests
       remoteDataFolder
     );
 
-    var result = await context.getApi().getFilesList(request);
+    final result = await context.getApi().getFilesList(request);
     expect(result.value, isNotNull);
   }
 

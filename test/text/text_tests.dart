@@ -46,7 +46,7 @@ class TextTests
     final remoteFileName = 'TestReplaceText.docx';
     final localFile = 'Common/test_multi_pages.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestReplaceText = ReplaceTextParameters();
+    final requestReplaceText = ReplaceTextParameters();
     requestReplaceText.oldValue = 'Testing';
     requestReplaceText.newValue = 'Aspose testing';
 
@@ -57,7 +57,7 @@ class TextTests
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await context.getApi().replaceText(request);
+    final result = await context.getApi().replaceText(request);
     expect(result.matches, 3);
   }
 
@@ -65,12 +65,13 @@ class TextTests
   Future<void> testReplaceTextOnline() async
   {
     final localFile = 'Common/test_multi_pages.docx';
-    var requestReplaceText = ReplaceTextParameters();
+    final documentData = await context.loadBinaryFile(localFile);
+    final requestReplaceText = ReplaceTextParameters();
     requestReplaceText.oldValue = 'aspose';
     requestReplaceText.newValue = 'aspose new';
 
     final request = ReplaceTextOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       requestReplaceText
     );
 
@@ -90,7 +91,7 @@ class TextTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().search(request);
+    final result = await context.getApi().search(request);
     expect(result.searchResults, isNotNull);
     expect(result.searchResults.resultsList, isNotNull);
     expect(result.searchResults.resultsList.length, 23);
@@ -102,9 +103,10 @@ class TextTests
   Future<void> testSearchOnline() async
   {
     final localFile = 'DocumentElements/Text/SampleWordDocument.docx';
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = SearchOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       'aspose'
     );
 

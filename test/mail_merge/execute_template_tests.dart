@@ -57,7 +57,7 @@ class ExecuteTemplateTests
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await context.getApi().executeMailMerge(request);
+    final result = await context.getApi().executeMailMerge(request);
     expect(result.document, isNotNull);
     expect(result.document.fileName, 'TestExecuteTemplate.docx');
   }
@@ -67,10 +67,12 @@ class ExecuteTemplateTests
   {
     final localDocumentFile = 'SampleMailMergeTemplate.docx';
     final localDataFile = 'SampleExecuteTemplateData.txt';
+    final templateData = await context.loadBinaryFile(mailMergeFolder + '/' + localDocumentFile);
+    final dataData = await context.loadBinaryFile(mailMergeFolder + '/' + localDataFile);
 
     final request = ExecuteMailMergeOnlineRequest(
-      await context.loadBinaryFile(mailMergeFolder + '/' + localDocumentFile),
-      await context.loadBinaryFile(mailMergeFolder + '/' + localDataFile)
+      templateData,
+      dataData
     );
 
     await context.getApi().executeMailMergeOnline(request);

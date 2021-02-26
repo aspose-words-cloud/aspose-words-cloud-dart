@@ -59,7 +59,7 @@ class WatermarkTests
       image: remoteImagePath
     );
 
-    var result = await context.getApi().insertWatermarkImage(request);
+    final result = await context.getApi().insertWatermarkImage(request);
     expect(result.document, isNotNull);
     expect(result.document.fileName, 'TestInsertWatermarkImage.docx');
   }
@@ -67,10 +67,12 @@ class WatermarkTests
   /// Test for adding watermark image online.
   Future<void> testInsertWatermarkImageOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
+    final imageFileData = await context.loadBinaryFile('Common/aspose-cloud.png');
 
     final request = InsertWatermarkImageOnlineRequest(
-      await context.loadBinaryFile(localFile),
-      await context.loadBinaryFile('Common/aspose-cloud.png')
+      documentData,
+      imageFileData
     );
 
     await context.getApi().insertWatermarkImageOnline(request);
@@ -81,7 +83,7 @@ class WatermarkTests
   {
     final remoteFileName = 'TestInsertWatermarkText.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestWatermarkText = WatermarkText();
+    final requestWatermarkText = WatermarkText();
     requestWatermarkText.text = 'This is the text';
     requestWatermarkText.rotationAngle = 90.0;
 
@@ -92,7 +94,7 @@ class WatermarkTests
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await context.getApi().insertWatermarkText(request);
+    final result = await context.getApi().insertWatermarkText(request);
     expect(result.document, isNotNull);
     expect(result.document.fileName, 'TestInsertWatermarkText.docx');
   }
@@ -100,12 +102,13 @@ class WatermarkTests
   /// Test for adding watermark text online.
   Future<void> testInsertWatermarkTextOnline() async
   {
-    var requestWatermarkText = WatermarkText();
+    final documentData = await context.loadBinaryFile(localFile);
+    final requestWatermarkText = WatermarkText();
     requestWatermarkText.text = 'This is the text';
     requestWatermarkText.rotationAngle = 90;
 
     final request = InsertWatermarkTextOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       requestWatermarkText
     );
 
@@ -124,7 +127,7 @@ class WatermarkTests
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await context.getApi().deleteWatermark(request);
+    final result = await context.getApi().deleteWatermark(request);
     expect(result.document, isNotNull);
     expect(result.document.fileName, 'TestDeleteWatermark.docx');
   }
@@ -132,9 +135,10 @@ class WatermarkTests
   /// Test for deleting watermark online.
   Future<void> testDeleteWatermarkOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = DeleteWatermarkOnlineRequest(
-      await context.loadBinaryFile(localFile)
+      documentData
     );
 
     await context.getApi().deleteWatermarkOnline(request);

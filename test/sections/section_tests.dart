@@ -54,7 +54,7 @@ class SectionTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getSection(request);
+    final result = await context.getApi().getSection(request);
     expect(result.section, isNotNull);
     expect(result.section.childNodes, isNotNull);
     expect(result.section.childNodes.length, 13);
@@ -64,9 +64,10 @@ class SectionTests
   /// Test for getting section by index online.
   Future<void> testGetSectionOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetSectionOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       0
     );
 
@@ -84,7 +85,7 @@ class SectionTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getSections(request);
+    final result = await context.getApi().getSections(request);
     expect(result.sections, isNotNull);
     expect(result.sections.sectionLinkList, isNotNull);
     expect(result.sections.sectionLinkList.length, 1);
@@ -94,9 +95,10 @@ class SectionTests
   /// Test for getting sections online.
   Future<void> testGetSectionsOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetSectionsOnlineRequest(
-      await context.loadBinaryFile(localFile)
+      documentData
     );
 
     await context.getApi().getSectionsOnline(request);
@@ -120,9 +122,10 @@ class SectionTests
   /// Test for delete a section online.
   Future<void> testDeleteSectionOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = DeleteSectionOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       0
     );
 

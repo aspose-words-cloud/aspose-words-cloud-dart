@@ -54,7 +54,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getTables(request);
+    final result = await context.getApi().getTables(request);
     expect(result.tables, isNotNull);
     expect(result.tables.tableLinkList, isNotNull);
     expect(result.tables.tableLinkList.length, 5);
@@ -64,9 +64,10 @@ class TableTests
   /// Test for getting tables online.
   Future<void> testGetTablesOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetTablesOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       nodePath: ''
     );
 
@@ -84,7 +85,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getTables(request);
+    final result = await context.getApi().getTables(request);
     expect(result.tables, isNotNull);
     expect(result.tables.tableLinkList, isNotNull);
     expect(result.tables.tableLinkList.length, 5);
@@ -104,7 +105,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getTable(request);
+    final result = await context.getApi().getTable(request);
     expect(result.table, isNotNull);
     expect(result.table.tableRowList, isNotNull);
     expect(result.table.tableRowList.length, 1);
@@ -115,9 +116,10 @@ class TableTests
   /// Test for getting table online.
   Future<void> testGetTableOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetTableOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       1,
       nodePath: ''
     );
@@ -137,7 +139,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getTable(request);
+    final result = await context.getApi().getTable(request);
     expect(result.table, isNotNull);
     expect(result.table.tableRowList, isNotNull);
     expect(result.table.tableRowList.length, 1);
@@ -164,9 +166,10 @@ class TableTests
   /// Test for deleting table online.
   Future<void> testDeleteTableOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = DeleteTableOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       1,
       nodePath: ''
     );
@@ -194,7 +197,7 @@ class TableTests
   {
     final remoteFileName = 'TestInsertTable.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestTable = TableInsert();
+    final requestTable = TableInsert();
     requestTable.columnsCount = 5;
     requestTable.rowsCount = 4;
 
@@ -205,7 +208,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().insertTable(request);
+    final result = await context.getApi().insertTable(request);
     expect(result.table, isNotNull);
     expect(result.table.tableRowList, isNotNull);
     expect(result.table.tableRowList.length, 4);
@@ -216,12 +219,13 @@ class TableTests
   /// Test for adding table online.
   Future<void> testInsertTableOnline() async
   {
-    var requestTable = TableInsert();
+    final documentData = await context.loadBinaryFile(localFile);
+    final requestTable = TableInsert();
     requestTable.columnsCount = 5;
     requestTable.rowsCount = 4;
 
     final request = InsertTableOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       requestTable,
       nodePath: ''
     );
@@ -234,7 +238,7 @@ class TableTests
   {
     final remoteFileName = 'TestInsertTableWithoutNodePath.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestTable = TableInsert();
+    final requestTable = TableInsert();
     requestTable.columnsCount = 5;
     requestTable.rowsCount = 4;
 
@@ -244,7 +248,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().insertTable(request);
+    final result = await context.getApi().insertTable(request);
     expect(result.table, isNotNull);
     expect(result.table.tableRowList, isNotNull);
     expect(result.table.tableRowList.length, 4);
@@ -265,7 +269,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getTableProperties(request);
+    final result = await context.getApi().getTableProperties(request);
     expect(result.properties, isNotNull);
     expect(result.properties.styleName, 'Table Grid');
   }
@@ -273,9 +277,10 @@ class TableTests
   /// Test for getting document properties online.
   Future<void> testGetTablePropertiesOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetTablePropertiesOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       1,
       nodePath: ''
     );
@@ -295,7 +300,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getTableProperties(request);
+    final result = await context.getApi().getTableProperties(request);
     expect(result.properties, isNotNull);
     expect(result.properties.styleName, 'Table Grid');
   }
@@ -305,7 +310,7 @@ class TableTests
   {
     final remoteFileName = 'TestUpdateTableProperties.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestProperties = TableProperties();
+    final requestProperties = TableProperties();
     requestProperties.alignment = TableProperties_AlignmentEnum.right;
     requestProperties.allowAutoFit = false;
     requestProperties.bidi = true;
@@ -321,7 +326,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().updateTableProperties(request);
+    final result = await context.getApi().updateTableProperties(request);
     expect(result.properties, isNotNull);
     expect(result.properties.allowAutoFit, isFalse);
     expect(result.properties.bidi, isTrue);
@@ -332,7 +337,8 @@ class TableTests
   /// Test for updating table properties online.
   Future<void> testUpdateTablePropertiesOnline() async
   {
-    var requestProperties = TableProperties();
+    final documentData = await context.loadBinaryFile(localFile);
+    final requestProperties = TableProperties();
     requestProperties.alignment = TableProperties_AlignmentEnum.right;
     requestProperties.allowAutoFit = false;
     requestProperties.bidi = true;
@@ -341,7 +347,7 @@ class TableTests
     requestProperties.styleOptions = TableProperties_StyleOptionsEnum.columnBands;
 
     final request = UpdateTablePropertiesOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       requestProperties,
       1,
       nodePath: ''
@@ -355,7 +361,7 @@ class TableTests
   {
     final remoteFileName = 'TestUpdateTablePropertiesWithoutNodePath.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestProperties = TableProperties();
+    final requestProperties = TableProperties();
     requestProperties.alignment = TableProperties_AlignmentEnum.right;
     requestProperties.allowAutoFit = false;
     requestProperties.bidi = true;
@@ -370,7 +376,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().updateTableProperties(request);
+    final result = await context.getApi().updateTableProperties(request);
     expect(result.properties, isNotNull);
     expect(result.properties.allowAutoFit, isFalse);
     expect(result.properties.bidi, isTrue);
@@ -391,7 +397,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getTableRow(request);
+    final result = await context.getApi().getTableRow(request);
     expect(result.row, isNotNull);
     expect(result.row.tableCellList, isNotNull);
     expect(result.row.tableCellList.length, 2);
@@ -400,9 +406,10 @@ class TableTests
   /// Test for getting table row online.
   Future<void> testGetTableRowOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetTableRowOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       'tables/1',
       0
     );
@@ -429,9 +436,10 @@ class TableTests
   /// Test for deleting table row online.
   Future<void> testDeleteTableRowOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = DeleteTableRowOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       'tables/1',
       0
     );
@@ -444,7 +452,7 @@ class TableTests
   {
     final remoteFileName = 'TestInsertTableRow.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestRow = TableRowInsert();
+    final requestRow = TableRowInsert();
     requestRow.columnsCount = 5;
 
     final request = InsertTableRowRequest(
@@ -454,7 +462,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().insertTableRow(request);
+    final result = await context.getApi().insertTableRow(request);
     expect(result.row, isNotNull);
     expect(result.row.tableCellList, isNotNull);
     expect(result.row.tableCellList.length, 5);
@@ -463,11 +471,12 @@ class TableTests
   /// Test for adding row online.
   Future<void> testInsertTableRowOnline() async
   {
-    var requestRow = TableRowInsert();
+    final documentData = await context.loadBinaryFile(localFile);
+    final requestRow = TableRowInsert();
     requestRow.columnsCount = 5;
 
     final request = InsertTableRowOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       'sections/0/tables/2',
       requestRow
     );
@@ -488,7 +497,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getTableRowFormat(request);
+    final result = await context.getApi().getTableRowFormat(request);
     expect(result.rowFormat, isNotNull);
     expect(result.rowFormat.allowBreakAcrossPages, isTrue);
   }
@@ -496,9 +505,10 @@ class TableTests
   /// Test for getting row format online.
   Future<void> testGetTableRowFormatOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetTableRowFormatOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       'sections/0/tables/2',
       0
     );
@@ -511,7 +521,7 @@ class TableTests
   {
     final remoteFileName = 'TestUpdateTableRowFormat.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestFormat = TableRowFormat();
+    final requestFormat = TableRowFormat();
     requestFormat.allowBreakAcrossPages = true;
     requestFormat.headingFormat = true;
     requestFormat.height = 10.0;
@@ -525,7 +535,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().updateTableRowFormat(request);
+    final result = await context.getApi().updateTableRowFormat(request);
     expect(result.rowFormat, isNotNull);
     expect(result.rowFormat.allowBreakAcrossPages, isTrue);
     expect(result.rowFormat.headingFormat, isTrue);
@@ -535,14 +545,15 @@ class TableTests
   /// Test updating row format online.
   Future<void> testUpdateTableRowFormatOnline() async
   {
-    var requestFormat = TableRowFormat();
+    final documentData = await context.loadBinaryFile(localFile);
+    final requestFormat = TableRowFormat();
     requestFormat.allowBreakAcrossPages = true;
     requestFormat.headingFormat = true;
     requestFormat.height = 10;
     requestFormat.heightRule = TableRowFormat_HeightRuleEnum.auto;
 
     final request = UpdateTableRowFormatOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       'sections/0/tables/2',
       requestFormat,
       0
@@ -564,7 +575,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getTableCell(request);
+    final result = await context.getApi().getTableCell(request);
     expect(result.cell, isNotNull);
     expect(result.cell.nodeId, '0.0.5.0.0');
   }
@@ -572,9 +583,10 @@ class TableTests
   /// Test for getting table cell online.
   Future<void> testGetTableCellOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetTableCellOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       'sections/0/tables/2/rows/0',
       0
     );
@@ -601,9 +613,10 @@ class TableTests
   /// Test for deleting cell online.
   Future<void> testDeleteTableCellOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = DeleteTableCellOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       'sections/0/tables/2/rows/0',
       0
     );
@@ -616,7 +629,7 @@ class TableTests
   {
     final remoteFileName = 'TestInsertTableCell.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestCell = TableCellInsert();
+    final requestCell = TableCellInsert();
 
 
     final request = InsertTableCellRequest(
@@ -626,7 +639,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().insertTableCell(request);
+    final result = await context.getApi().insertTableCell(request);
     expect(result.cell, isNotNull);
     expect(result.cell.nodeId, '0.0.5.0.3');
   }
@@ -634,11 +647,12 @@ class TableTests
   /// Test for adding cell online.
   Future<void> testInsertTableCellOnline() async
   {
-    var requestCell = TableCellInsert();
+    final documentData = await context.loadBinaryFile(localFile);
+    final requestCell = TableCellInsert();
 
 
     final request = InsertTableCellOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       'sections/0/tables/2/rows/0',
       requestCell
     );
@@ -659,7 +673,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getTableCellFormat(request);
+    final result = await context.getApi().getTableCellFormat(request);
     expect(result.cellFormat, isNotNull);
     expect(result.cellFormat.wrapText, isTrue);
   }
@@ -667,9 +681,10 @@ class TableTests
   /// Test for getting cell format online.
   Future<void> testGetTableCellFormatOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetTableCellFormatOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       'sections/0/tables/2/rows/0',
       0
     );
@@ -682,7 +697,7 @@ class TableTests
   {
     final remoteFileName = 'TestUpdateTableCellFormat.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestFormat = TableCellFormat();
+    final requestFormat = TableCellFormat();
     requestFormat.bottomPadding = 5.0;
     requestFormat.fitText = true;
     requestFormat.horizontalMerge = TableCellFormat_HorizontalMergeEnum.first;
@@ -696,7 +711,7 @@ class TableTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().updateTableCellFormat(request);
+    final result = await context.getApi().updateTableCellFormat(request);
     expect(result.cellFormat, isNotNull);
     expect(result.cellFormat.bottomPadding, 5.0);
     expect(result.cellFormat.fitText, isTrue);
@@ -706,14 +721,15 @@ class TableTests
   /// Test for updating cell format online.
   Future<void> testUpdateTableCellFormatOnline() async
   {
-    var requestFormat = TableCellFormat();
+    final documentData = await context.loadBinaryFile(localFile);
+    final requestFormat = TableCellFormat();
     requestFormat.bottomPadding = 5;
     requestFormat.fitText = true;
     requestFormat.horizontalMerge = TableCellFormat_HorizontalMergeEnum.first;
     requestFormat.wrapText = true;
 
     final request = UpdateTableCellFormatOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       'sections/0/tables/2/rows/0',
       requestFormat,
       0
@@ -742,9 +758,10 @@ class TableTests
   /// Test for table rendering.
   Future<void> testRenderTableOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = RenderTableOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       'png',
       0,
       nodePath: ''
