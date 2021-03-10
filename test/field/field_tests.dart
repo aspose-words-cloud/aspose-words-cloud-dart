@@ -57,7 +57,7 @@ class FieldTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getFields(request);
+    final result = await context.getApi().getFields(request);
     expect(result.fields, isNotNull);
     expect(result.fields.list, isNotNull);
     expect(result.fields.list.length, 1);
@@ -67,9 +67,10 @@ class FieldTests
   /// Test for getting fields online.
   Future<void> testGetFieldsOnline() async
   {
+    final documentData = await context.loadBinaryFile(fieldFolder + '/GetField.docx');
 
     final request = GetFieldsOnlineRequest(
-      await context.loadBinaryFile(fieldFolder + '/GetField.docx'),
+      documentData,
       nodePath: 'sections/0'
     );
 
@@ -88,7 +89,7 @@ class FieldTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getFields(request);
+    final result = await context.getApi().getFields(request);
     expect(result.fields, isNotNull);
     expect(result.fields.list, isNotNull);
     expect(result.fields.list.length, 1);
@@ -109,7 +110,7 @@ class FieldTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getField(request);
+    final result = await context.getApi().getField(request);
     expect(result.field, isNotNull);
     expect(result.field.result, '1');
   }
@@ -117,9 +118,10 @@ class FieldTests
   /// Test for getting field by index online.
   Future<void> testGetFieldOnline() async
   {
+    final documentData = await context.loadBinaryFile(fieldFolder + '/GetField.docx');
 
     final request = GetFieldOnlineRequest(
-      await context.loadBinaryFile(fieldFolder + '/GetField.docx'),
+      documentData,
       0,
       nodePath: 'sections/0/paragraphs/0'
     );
@@ -140,7 +142,7 @@ class FieldTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getField(request);
+    final result = await context.getApi().getField(request);
     expect(result.field, isNotNull);
     expect(result.field.result, '1');
   }
@@ -151,7 +153,7 @@ class FieldTests
     final localFileName = 'SampleWordDocument.docx';
     final remoteFileName = 'TestInsertField.docx';
     await context.uploadFile(textFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
-    var requestField = FieldInsert();
+    final requestField = FieldInsert();
     requestField.fieldCode = '{ NUMPAGES }';
 
     final request = InsertFieldRequest(
@@ -161,7 +163,7 @@ class FieldTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().insertField(request);
+    final result = await context.getApi().insertField(request);
     expect(result.field, isNotNull);
     expect(result.field.fieldCode, '{ NUMPAGES }');
     expect(result.field.nodeId, '0.0.0.1');
@@ -170,11 +172,12 @@ class FieldTests
   /// Test for putting field online.
   Future<void> testInsertFieldOnline() async
   {
-    var requestField = FieldInsert();
+    final documentData = await context.loadBinaryFile(fieldFolder + '/GetField.docx');
+    final requestField = FieldInsert();
     requestField.fieldCode = '{ NUMPAGES }';
 
     final request = InsertFieldOnlineRequest(
-      await context.loadBinaryFile(fieldFolder + '/GetField.docx'),
+      documentData,
       requestField,
       nodePath: 'sections/0/paragraphs/0'
     );
@@ -188,7 +191,7 @@ class FieldTests
     final localFileName = 'SampleWordDocument.docx';
     final remoteFileName = 'TestInsertFieldWithoutNodePath.docx';
     await context.uploadFile(textFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
-    var requestField = FieldInsert();
+    final requestField = FieldInsert();
     requestField.fieldCode = '{ NUMPAGES }';
 
     final request = InsertFieldRequest(
@@ -197,7 +200,7 @@ class FieldTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().insertField(request);
+    final result = await context.getApi().insertField(request);
     expect(result.field, isNotNull);
     expect(result.field.fieldCode, '{ NUMPAGES }');
     expect(result.field.nodeId, '5.0.22.0');
@@ -209,7 +212,7 @@ class FieldTests
     final localFileName = 'GetField.docx';
     final remoteFileName = 'TestUpdateField.docx';
     await context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
-    var requestField = FieldUpdate();
+    final requestField = FieldUpdate();
     requestField.fieldCode = '{ NUMPAGES }';
 
     final request = UpdateFieldRequest(
@@ -220,7 +223,7 @@ class FieldTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().updateField(request);
+    final result = await context.getApi().updateField(request);
     expect(result.field, isNotNull);
     expect(result.field.fieldCode, '{ NUMPAGES }');
     expect(result.field.nodeId, '0.0.0.0');
@@ -229,11 +232,12 @@ class FieldTests
   /// Test for posting field online.
   Future<void> testUpdateFieldOnline() async
   {
-    var requestField = FieldUpdate();
+    final documentData = await context.loadBinaryFile(fieldFolder + '/GetField.docx');
+    final requestField = FieldUpdate();
     requestField.fieldCode = '{ NUMPAGES }';
 
     final request = UpdateFieldOnlineRequest(
-      await context.loadBinaryFile(fieldFolder + '/GetField.docx'),
+      documentData,
       requestField,
       0,
       nodePath: 'sections/0/paragraphs/0'
@@ -248,7 +252,7 @@ class FieldTests
     final localFileName = 'test_multi_pages.docx';
     final remoteFileName = 'TestInsertPageNumbers.docx';
     await context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
-    var requestPageNumber = PageNumber();
+    final requestPageNumber = PageNumber();
     requestPageNumber.alignment = 'center';
     requestPageNumber.format = '{PAGE} of {NUMPAGES}';
 
@@ -259,7 +263,7 @@ class FieldTests
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await context.getApi().insertPageNumbers(request);
+    final result = await context.getApi().insertPageNumbers(request);
     expect(result.document, isNotNull);
     expect(result.document.fileName, 'TestInsertPageNumbers.docx');
   }
@@ -268,12 +272,13 @@ class FieldTests
   Future<void> testInsertPageNumbersOnline() async
   {
     final localFileName = 'test_multi_pages.docx';
-    var requestPageNumber = PageNumber();
+    final documentData = await context.loadBinaryFile('Common/' + localFileName);
+    final requestPageNumber = PageNumber();
     requestPageNumber.alignment = 'center';
     requestPageNumber.format = '{PAGE} of {NUMPAGES}';
 
     final request = InsertPageNumbersOnlineRequest(
-      await context.loadBinaryFile('Common/' + localFileName),
+      documentData,
       requestPageNumber
     );
 
@@ -300,9 +305,10 @@ class FieldTests
   /// Test for deleting field online.
   Future<void> testDeleteFieldOnline() async
   {
+    final documentData = await context.loadBinaryFile(fieldFolder + '/GetField.docx');
 
     final request = DeleteFieldOnlineRequest(
-      await context.loadBinaryFile(fieldFolder + '/GetField.docx'),
+      documentData,
       0,
       nodePath: 'sections/0/paragraphs/0'
     );
@@ -424,9 +430,10 @@ class FieldTests
   Future<void> testDeleteDocumentFieldsOnline() async
   {
     final localFileName = 'Common/test_multi_pages.docx';
+    final documentData = await context.loadBinaryFile(localFileName);
 
     final request = DeleteFieldsOnlineRequest(
-      await context.loadBinaryFile(localFileName),
+      documentData,
       nodePath: ''
     );
 
@@ -445,7 +452,7 @@ class FieldTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().updateFields(request);
+    final result = await context.getApi().updateFields(request);
     expect(result.document, isNotNull);
     expect(result.document.fileName, 'TestUpdateDocumentFields.docx');
   }
@@ -454,9 +461,10 @@ class FieldTests
   Future<void> testUpdateDocumentFieldsOnline() async
   {
     final localFile = 'Common/test_multi_pages.docx';
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = UpdateFieldsOnlineRequest(
-      await context.loadBinaryFile(localFile)
+      documentData
     );
 
     await context.getApi().updateFieldsOnline(request);

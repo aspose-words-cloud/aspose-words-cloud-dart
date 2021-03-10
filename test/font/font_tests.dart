@@ -54,7 +54,7 @@ class FontTests
     final request = GetAvailableFontsRequest(
     );
 
-    var result = await context.getApi().getAvailableFonts(request);
+    final result = await context.getApi().getAvailableFonts(request);
     expect(result.systemFonts, isNotNull);
   }
 }

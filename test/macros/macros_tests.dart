@@ -58,9 +58,10 @@ class MacrosTests
   /// Test for deleting macros online.
   Future<void> testDeleteMacrosOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = DeleteMacrosOnlineRequest(
-      await context.loadBinaryFile(localFile)
+      documentData
     );
 
     await context.getApi().deleteMacrosOnline(request);

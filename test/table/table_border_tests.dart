@@ -54,7 +54,7 @@ class TableBorderTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getBorders(request);
+    final result = await context.getApi().getBorders(request);
     expect(result.borders, isNotNull);
     expect(result.borders.list, isNotNull);
     expect(result.borders.list.length, 6);
@@ -65,9 +65,10 @@ class TableBorderTests
   /// Test for getting borders online.
   Future<void> testGetBordersOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetBordersOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       nodePath: 'tables/1/rows/0/cells/0'
     );
 
@@ -87,7 +88,7 @@ class TableBorderTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getBorder(request);
+    final result = await context.getApi().getBorder(request);
     expect(result.border, isNotNull);
     expect(result.border.color, isNotNull);
     expect(result.border.color.web, '#000000');
@@ -96,9 +97,10 @@ class TableBorderTests
   /// Test for getting border online.
   Future<void> testGetBorderOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetBorderOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       'left',
       nodePath: 'tables/1/rows/0/cells/0'
     );
@@ -124,9 +126,10 @@ class TableBorderTests
   /// Test for deleting borders online.
   Future<void> testDeleteBordersOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = DeleteBordersOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       nodePath: 'tables/1/rows/0/cells/0'
     );
 
@@ -152,9 +155,10 @@ class TableBorderTests
   /// Test for deleting border online.
   Future<void> testDeleteBorderOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = DeleteBorderOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       'left',
       nodePath: 'tables/1/rows/0/cells/0'
     );
@@ -167,10 +171,10 @@ class TableBorderTests
   {
     final remoteFileName = 'TestUpdateBorder.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestBorderPropertiesColor = XmlColor();
+    final requestBorderPropertiesColor = XmlColor();
     requestBorderPropertiesColor.web = '#AABBCC';
 
-    var requestBorderProperties = Border();
+    final requestBorderProperties = Border();
     requestBorderProperties.borderType = Border_BorderTypeEnum.left;
     requestBorderProperties.color = requestBorderPropertiesColor;
     requestBorderProperties.distanceFromText = 6.0;
@@ -186,7 +190,7 @@ class TableBorderTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().updateBorder(request);
+    final result = await context.getApi().updateBorder(request);
     expect(result.border, isNotNull);
     expect(result.border.color, isNotNull);
     expect(result.border.color.web, '#AABBCC');
@@ -198,10 +202,11 @@ class TableBorderTests
   /// Test for updating border online.
   Future<void> testUpdateBorderOnline() async
   {
-    var requestBorderPropertiesColor = XmlColor();
+    final documentData = await context.loadBinaryFile(localFile);
+    final requestBorderPropertiesColor = XmlColor();
     requestBorderPropertiesColor.web = '#AABBCC';
 
-    var requestBorderProperties = Border();
+    final requestBorderProperties = Border();
     requestBorderProperties.borderType = Border_BorderTypeEnum.left;
     requestBorderProperties.color = requestBorderPropertiesColor;
     requestBorderProperties.distanceFromText = 6;
@@ -210,7 +215,7 @@ class TableBorderTests
     requestBorderProperties.shadow = true;
 
     final request = UpdateBorderOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       requestBorderProperties,
       'left',
       nodePath: 'tables/1/rows/0/cells/0'

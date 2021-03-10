@@ -50,6 +50,10 @@ class SaveOptionsData implements ModelBase {
   /// Gets or sets the format of save.
   String saveFormat;
 
+  /// Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.CreatedTime property is updated before saving.
+  /// Default value is false.
+  bool updateCreatedTimeProperty;
+
   /// Gets or sets a value indicating whether fields should be updated before saving the document to a fixed page format. The default value is true.
   bool updateFields;
 
@@ -112,6 +116,12 @@ class SaveOptionsData implements ModelBase {
       saveFormat = null;
     }
 
+    if (json.containsKey('UpdateCreatedTimeProperty')) {
+      updateCreatedTimeProperty = json['UpdateCreatedTimeProperty'] as bool;
+    } else {
+      updateCreatedTimeProperty = null;
+    }
+
     if (json.containsKey('UpdateFields')) {
       updateFields = json['UpdateFields'] as bool;
     } else {
@@ -172,6 +182,10 @@ class SaveOptionsData implements ModelBase {
 
     if (saveFormat != null) {
       _result['SaveFormat'] = saveFormat;
+    }
+
+    if (updateCreatedTimeProperty != null) {
+      _result['UpdateCreatedTimeProperty'] = updateCreatedTimeProperty;
     }
 
     if (updateFields != null) {

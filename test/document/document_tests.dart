@@ -53,7 +53,7 @@ class DocumentTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getDocument(request);
+    final result = await context.getApi().getDocument(request);
     expect(result.document, isNotNull);
     expect(result.document.fileName, 'TestGetDocument.docx');
   }
@@ -68,7 +68,7 @@ class DocumentTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().createDocument(request);
+    final result = await context.getApi().createDocument(request);
     expect(result.document, isNotNull);
     expect(result.document.fileName, 'TestCreateDocument.doc');
   }

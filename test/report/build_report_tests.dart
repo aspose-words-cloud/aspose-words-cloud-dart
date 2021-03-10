@@ -47,12 +47,13 @@ class BuildReportTests
   {
     final localDocumentFile = 'ReportTemplate.docx';
     final localDataFile = await context.loadTextFile(reportingFolder + '/ReportData.json');
-    var requestReportEngineSettings = ReportEngineSettings();
+    final templateData = await context.loadBinaryFile(reportingFolder + '/' + localDocumentFile);
+    final requestReportEngineSettings = ReportEngineSettings();
     requestReportEngineSettings.dataSourceType = ReportEngineSettings_DataSourceTypeEnum.json;
     requestReportEngineSettings.dataSourceName = 'persons';
 
     final request = BuildReportOnlineRequest(
-      await context.loadBinaryFile(reportingFolder + '/' + localDocumentFile),
+      templateData,
       localDataFile,
       requestReportEngineSettings
     );
@@ -67,11 +68,11 @@ class BuildReportTests
     final remoteFileName = 'TestBuildReport.docx';
     final localDataFile = await context.loadTextFile(reportingFolder + '/ReportData.json');
     await context.uploadFile(reportingFolder + '/' + localDocumentFile, remoteDataFolder + '/' + remoteFileName);
-    var requestReportEngineSettingsReportBuildOptions = [
+    final requestReportEngineSettingsReportBuildOptions = [
       ReportBuildOptionsEnum.allowMissingMembers,
     ReportBuildOptionsEnum.removeEmptyParagraphs];
 
-    var requestReportEngineSettings = ReportEngineSettings();
+    final requestReportEngineSettings = ReportEngineSettings();
     requestReportEngineSettings.dataSourceType = ReportEngineSettings_DataSourceTypeEnum.json;
     requestReportEngineSettings.reportBuildOptions = requestReportEngineSettingsReportBuildOptions;
 
@@ -82,7 +83,7 @@ class BuildReportTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().buildReport(request);
+    final result = await context.getApi().buildReport(request);
     expect(result.document, isNotNull);
     expect(result.document.fileName, 'TestBuildReport.docx');
   }

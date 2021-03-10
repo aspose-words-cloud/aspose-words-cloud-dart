@@ -57,7 +57,7 @@ class SplitDocumentToFormatTests
       to: 2
     );
 
-    var result = await context.getApi().splitDocument(request);
+    final result = await context.getApi().splitDocument(request);
     expect(result.splitResult, isNotNull);
     expect(result.splitResult.pages, isNotNull);
     expect(result.splitResult.pages.length, 2);
@@ -66,9 +66,10 @@ class SplitDocumentToFormatTests
   /// Test for document splitting online.
   Future<void> testSplitDocumentOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = SplitDocumentOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       'text',
       destFileName: context.baseTestOutPath + '/TestSplitDocument.text',
       from: 1,

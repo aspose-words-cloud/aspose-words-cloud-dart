@@ -52,7 +52,7 @@ class CompareDocumentTests
     await context.uploadFile(localFolder + '/' + localName1, remoteFolder + '/' + remoteName1);
 
     await context.uploadFile(localFolder + '/' + localName2, remoteFolder + '/' + remoteName2);
-    var requestCompareData = CompareData();
+    final requestCompareData = CompareData();
     requestCompareData.author = 'author';
     requestCompareData.comparingWithDocument = remoteFolder + '/' + remoteName2;
     requestCompareData.dateTime = DateTime(2015, 10, 26, 0, 0, 0);
@@ -64,7 +64,7 @@ class CompareDocumentTests
       destFileName: context.baseTestOutPath + '/TestCompareDocumentOut.doc'
     );
 
-    var result = await context.getApi().compareDocument(request);
+    final result = await context.getApi().compareDocument(request);
     expect(result.document, isNotNull);
     expect(result.document.fileName, 'TestCompareDocumentOut.doc');
   }
@@ -76,13 +76,14 @@ class CompareDocumentTests
     final localName2 = 'compareTestDoc2.doc';
     final remoteName2 = 'TestCompareDocument2.doc';
     await context.uploadFile(localFolder + '/' + localName2, remoteFolder + '/' + remoteName2);
-    var requestCompareData = CompareData();
+    final documentData = await context.loadBinaryFile(localFolder + '/' + localName1);
+    final requestCompareData = CompareData();
     requestCompareData.author = 'author';
     requestCompareData.comparingWithDocument = remoteFolder + '/' + remoteName2;
     requestCompareData.dateTime = DateTime(2015, 10, 26, 0, 0, 0);
 
     final request = CompareDocumentOnlineRequest(
-      await context.loadBinaryFile(localFolder + '/' + localName1),
+      documentData,
       requestCompareData,
       destFileName: context.baseTestOutPath + '/TestCompareDocumentOut.doc'
     );

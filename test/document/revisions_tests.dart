@@ -54,7 +54,7 @@ class RevisionsTests
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await context.getApi().acceptAllRevisions(request);
+    final result = await context.getApi().acceptAllRevisions(request);
     expect(result.result, isNotNull);
     expect(result.result.dest, isNotNull);
   }
@@ -62,9 +62,10 @@ class RevisionsTests
   /// Test for accepting revisions in document online.
   Future<void> testAcceptAllRevisionsOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = AcceptAllRevisionsOnlineRequest(
-      await context.loadBinaryFile(localFile)
+      documentData
     );
 
     await context.getApi().acceptAllRevisionsOnline(request);
@@ -82,7 +83,7 @@ class RevisionsTests
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
-    var result = await context.getApi().rejectAllRevisions(request);
+    final result = await context.getApi().rejectAllRevisions(request);
     expect(result.result, isNotNull);
     expect(result.result.dest, isNotNull);
   }
@@ -90,9 +91,10 @@ class RevisionsTests
   /// Test for rejecting revisions in document online.
   Future<void> testRejectAllRevisionsOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = RejectAllRevisionsOnlineRequest(
-      await context.loadBinaryFile(localFile)
+      documentData
     );
 
     await context.getApi().rejectAllRevisionsOnline(request);

@@ -1,3 +1,9 @@
+## [21.3.0] - Aspose Words Cloud for Dart 21.3 Release Notes
+
+- Added 'UpdateCreatedTimeProperty' save option
+- Added Tables into HeaderFooter so it's possible to address paragraphs inside table which is located in headerfooter (sections/0/headersfooters/1/tables/0/rows/0/cells/0/paragraphs/0)
+
+
 ## [21.2.0] - Aspose Words Cloud for Dart 21.2 Release Notes
 
 - Added delete all comments method

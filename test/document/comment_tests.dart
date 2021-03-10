@@ -54,7 +54,7 @@ class CommentTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getComment(request);
+    final result = await context.getApi().getComment(request);
     expect(result.comment, isNotNull);
     expect(result.comment.text, 'Comment 1' + '\r\n\r\n');
   }
@@ -62,9 +62,10 @@ class CommentTests
   /// Test for getting comment by specified comment's index online.
   Future<void> testGetCommentOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetCommentOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       0
     );
 
@@ -82,7 +83,7 @@ class CommentTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().getComments(request);
+    final result = await context.getApi().getComments(request);
     expect(result.comments, isNotNull);
     expect(result.comments.commentList, isNotNull);
     expect(result.comments.commentList.length, 1);
@@ -92,9 +93,10 @@ class CommentTests
   /// Test for getting all comments from document online.
   Future<void> testGetCommentsOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = GetCommentsOnlineRequest(
-      await context.loadBinaryFile(localFile)
+      documentData
     );
 
     await context.getApi().getCommentsOnline(request);
@@ -105,21 +107,21 @@ class CommentTests
   {
     final remoteFileName = 'TestInsertComment.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestCommentRangeStartNode = NodeLink();
+    final requestCommentRangeStartNode = NodeLink();
     requestCommentRangeStartNode.nodeId = '0.3.0.3';
 
-    var requestCommentRangeStart = DocumentPosition();
+    final requestCommentRangeStart = DocumentPosition();
     requestCommentRangeStart.node = requestCommentRangeStartNode;
     requestCommentRangeStart.offset = 0;
 
-    var requestCommentRangeEndNode = NodeLink();
+    final requestCommentRangeEndNode = NodeLink();
     requestCommentRangeEndNode.nodeId = '0.3.0.3';
 
-    var requestCommentRangeEnd = DocumentPosition();
+    final requestCommentRangeEnd = DocumentPosition();
     requestCommentRangeEnd.node = requestCommentRangeEndNode;
     requestCommentRangeEnd.offset = 0;
 
-    var requestComment = CommentInsert();
+    final requestComment = CommentInsert();
     requestComment.rangeStart = requestCommentRangeStart;
     requestComment.rangeEnd = requestCommentRangeEnd;
     requestComment.initial = 'IA';
@@ -132,7 +134,7 @@ class CommentTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().insertComment(request);
+    final result = await context.getApi().insertComment(request);
     expect(result.comment, isNotNull);
     expect(result.comment.text, 'A new Comment' + '\r\n');
     expect(result.comment.rangeStart, isNotNull);
@@ -143,21 +145,22 @@ class CommentTests
   /// Test for adding comment online.
   Future<void> testInsertCommentOnline() async
   {
-    var requestCommentRangeStartNode = NodeLink();
+    final documentData = await context.loadBinaryFile(localFile);
+    final requestCommentRangeStartNode = NodeLink();
     requestCommentRangeStartNode.nodeId = '0.3.0.3';
 
-    var requestCommentRangeStart = DocumentPosition();
+    final requestCommentRangeStart = DocumentPosition();
     requestCommentRangeStart.node = requestCommentRangeStartNode;
     requestCommentRangeStart.offset = 0;
 
-    var requestCommentRangeEndNode = NodeLink();
+    final requestCommentRangeEndNode = NodeLink();
     requestCommentRangeEndNode.nodeId = '0.3.0.3';
 
-    var requestCommentRangeEnd = DocumentPosition();
+    final requestCommentRangeEnd = DocumentPosition();
     requestCommentRangeEnd.node = requestCommentRangeEndNode;
     requestCommentRangeEnd.offset = 0;
 
-    var requestComment = CommentInsert();
+    final requestComment = CommentInsert();
     requestComment.rangeStart = requestCommentRangeStart;
     requestComment.rangeEnd = requestCommentRangeEnd;
     requestComment.initial = 'IA';
@@ -165,7 +168,7 @@ class CommentTests
     requestComment.text = 'A new Comment';
 
     final request = InsertCommentOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       requestComment
     );
 
@@ -177,21 +180,21 @@ class CommentTests
   {
     final remoteFileName = 'TestUpdateComment.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    var requestCommentRangeStartNode = NodeLink();
+    final requestCommentRangeStartNode = NodeLink();
     requestCommentRangeStartNode.nodeId = '0.3.0';
 
-    var requestCommentRangeStart = DocumentPosition();
+    final requestCommentRangeStart = DocumentPosition();
     requestCommentRangeStart.node = requestCommentRangeStartNode;
     requestCommentRangeStart.offset = 0;
 
-    var requestCommentRangeEndNode = NodeLink();
+    final requestCommentRangeEndNode = NodeLink();
     requestCommentRangeEndNode.nodeId = '0.3.0';
 
-    var requestCommentRangeEnd = DocumentPosition();
+    final requestCommentRangeEnd = DocumentPosition();
     requestCommentRangeEnd.node = requestCommentRangeEndNode;
     requestCommentRangeEnd.offset = 0;
 
-    var requestComment = CommentUpdate();
+    final requestComment = CommentUpdate();
     requestComment.rangeStart = requestCommentRangeStart;
     requestComment.rangeEnd = requestCommentRangeEnd;
     requestComment.initial = 'IA';
@@ -205,7 +208,7 @@ class CommentTests
       folder: remoteDataFolder
     );
 
-    var result = await context.getApi().updateComment(request);
+    final result = await context.getApi().updateComment(request);
     expect(result.comment, isNotNull);
     expect(result.comment.text, 'A new Comment' + '\r\n');
     expect(result.comment.rangeStart, isNotNull);
@@ -216,21 +219,22 @@ class CommentTests
   /// Test for updating comment online.
   Future<void> testUpdateCommentOnline() async
   {
-    var requestCommentRangeStartNode = NodeLink();
+    final documentData = await context.loadBinaryFile(localFile);
+    final requestCommentRangeStartNode = NodeLink();
     requestCommentRangeStartNode.nodeId = '0.3.0';
 
-    var requestCommentRangeStart = DocumentPosition();
+    final requestCommentRangeStart = DocumentPosition();
     requestCommentRangeStart.node = requestCommentRangeStartNode;
     requestCommentRangeStart.offset = 0;
 
-    var requestCommentRangeEndNode = NodeLink();
+    final requestCommentRangeEndNode = NodeLink();
     requestCommentRangeEndNode.nodeId = '0.3.0';
 
-    var requestCommentRangeEnd = DocumentPosition();
+    final requestCommentRangeEnd = DocumentPosition();
     requestCommentRangeEnd.node = requestCommentRangeEndNode;
     requestCommentRangeEnd.offset = 0;
 
-    var requestComment = CommentUpdate();
+    final requestComment = CommentUpdate();
     requestComment.rangeStart = requestCommentRangeStart;
     requestComment.rangeEnd = requestCommentRangeEnd;
     requestComment.initial = 'IA';
@@ -238,7 +242,7 @@ class CommentTests
     requestComment.text = 'A new Comment';
 
     final request = UpdateCommentOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       0,
       requestComment
     );
@@ -265,9 +269,10 @@ class CommentTests
   /// A test for DeleteComment online.
   Future<void> testDeleteCommentOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = DeleteCommentOnlineRequest(
-      await context.loadBinaryFile(localFile),
+      documentData,
       0
     );
 
@@ -292,9 +297,10 @@ class CommentTests
   /// A test for DeleteComments online.
   Future<void> testDeleteCommentsOnline() async
   {
+    final documentData = await context.loadBinaryFile(localFile);
 
     final request = DeleteCommentsOnlineRequest(
-      await context.loadBinaryFile(localFile)
+      documentData
     );
 
     await context.getApi().deleteCommentsOnline(request);
