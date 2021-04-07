@@ -1,4 +1,4 @@
-/*
+﻿/*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="revisions_tests.dart">
  *   Copyright (c) 2021 Aspose.Words for Cloud
@@ -68,7 +68,11 @@ class RevisionsTests
       documentData
     );
 
-    await context.getApi().acceptAllRevisionsOnline(request);
+    final result = await context.getApi().acceptAllRevisionsOnline(request);
+    expect(result.document, isNotNull);
+    expect(result.model, isNotNull);
+    expect(result.model.result, isNotNull);
+    expect(result.model.result.dest, isNotNull);
   }
 
   /// Test for rejecting revisions in document.
@@ -97,6 +101,10 @@ class RevisionsTests
       documentData
     );
 
-    await context.getApi().rejectAllRevisionsOnline(request);
+    final result = await context.getApi().rejectAllRevisionsOnline(request);
+    expect(result.document, isNotNull);
+    expect(result.model, isNotNull);
+    expect(result.model.result, isNotNull);
+    expect(result.model.result.dest, isNotNull);
   }
 }

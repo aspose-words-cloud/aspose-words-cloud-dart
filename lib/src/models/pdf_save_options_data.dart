@@ -1,4 +1,4 @@
-/*
+﻿/*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="pdf_save_options_data.dart">
  *   Copyright (c) 2021 Aspose.Words for Cloud
@@ -57,9 +57,6 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
   /// Gets or sets the details for encrypting the output PDF document.
   PdfEncryptionDetailsData encryptionDetails;
-
-  /// Gets or sets a value indicating whether URI should be escaped before writing.
-  bool escapeUri;
 
   /// Gets or sets a value indicating whether to export document structure.
   bool exportDocumentStructure;
@@ -166,12 +163,6 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
       encryptionDetails.deserialize(json['EncryptionDetails'] as Map<String, dynamic>);
     } else {
       encryptionDetails = null;
-    }
-
-    if (json.containsKey('EscapeUri')) {
-      escapeUri = json['EscapeUri'] as bool;
-    } else {
-      escapeUri = null;
     }
 
     if (json.containsKey('ExportDocumentStructure')) {
@@ -311,10 +302,6 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (encryptionDetails != null) {
       _result['EncryptionDetails'] = encryptionDetails.serialize();
-    }
-
-    if (escapeUri != null) {
-      _result['EscapeUri'] = escapeUri;
     }
 
     if (exportDocumentStructure != null) {

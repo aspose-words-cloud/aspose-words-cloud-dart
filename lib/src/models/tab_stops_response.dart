@@ -1,4 +1,4 @@
-/*
+﻿/*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="tab_stops_response.dart">
  *   Copyright (c) 2021 Aspose.Words for Cloud

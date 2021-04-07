@@ -1,4 +1,4 @@
-/*
+﻿/*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="rtf_save_options_data.dart">
  *   Copyright (c) 2021 Aspose.Words for Cloud
