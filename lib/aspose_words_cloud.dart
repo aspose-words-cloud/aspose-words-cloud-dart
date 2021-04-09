@@ -258,6 +258,7 @@ export 'src/models/table_row_insert_dto.dart';
 export 'src/models/table_row_response.dart';
 export 'src/models/text_save_options_data.dart';
 export 'src/models/tiff_save_options_data.dart';
+export 'src/models/time_zone_info_data.dart';
 export 'src/models/txt_save_options_base_data.dart';
 export 'src/models/watermark_text.dart';
 export 'src/models/word_ml_save_options_data.dart';

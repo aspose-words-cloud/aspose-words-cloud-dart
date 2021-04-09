@@ -34,6 +34,9 @@ class SaveOptionsData implements ModelBase {
   /// Gets or sets a boolean value indicating whether to allow embedding fonts with PostScript outlines when embedding TrueType fonts in a document upon it is saved. The default value is false..
   bool allowEmbeddingPostScriptFonts;
 
+  /// Gets or sets CustomTimeZoneInfo.
+  TimeZoneInfoData customTimeZoneInfoData;
+
   /// Gets or sets the value determining how 3D effects are rendered.
   SaveOptionsData_Dml3DEffectsRenderingModeEnum dml3DEffectsRenderingMode;
 
@@ -80,6 +83,13 @@ class SaveOptionsData implements ModelBase {
       allowEmbeddingPostScriptFonts = json['AllowEmbeddingPostScriptFonts'] as bool;
     } else {
       allowEmbeddingPostScriptFonts = null;
+    }
+
+    if (json.containsKey('CustomTimeZoneInfoData')) {
+      customTimeZoneInfoData = TimeZoneInfoData();
+      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+    } else {
+      customTimeZoneInfoData = null;
     }
 
     if (json.containsKey('Dml3DEffectsRenderingMode')) {
@@ -158,6 +168,10 @@ class SaveOptionsData implements ModelBase {
     var _result = <String, dynamic>{};
     if (allowEmbeddingPostScriptFonts != null) {
       _result['AllowEmbeddingPostScriptFonts'] = allowEmbeddingPostScriptFonts;
+    }
+
+    if (customTimeZoneInfoData != null) {
+      _result['CustomTimeZoneInfoData'] = customTimeZoneInfoData.serialize();
     }
 
     if (dml3DEffectsRenderingMode != null) {
