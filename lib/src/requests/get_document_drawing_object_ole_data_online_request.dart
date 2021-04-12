@@ -1,4 +1,4 @@
-﻿/*
+/*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="get_document_drawing_object_ole_data_online_request.dart">
  *   Copyright (c) 2021 Aspose.Words for Cloud

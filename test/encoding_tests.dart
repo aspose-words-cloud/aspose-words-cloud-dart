@@ -1,4 +1,4 @@
-Ôªø/*
+/*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="encoding_tests.dart">
  *   Copyright (c) 2021 Aspose.Words for Cloud
@@ -44,7 +44,7 @@ class EncodingTests
   Future<void> testEncoding1() async
   {
     var localName = 'test_multi_pages.docx';
-    var remoteName = '[‚ÄúTest_Two,_Inc.‚Äù]-_83(b)Election([‚ÄúBill_Gates‚Äù]).docx';
+    var remoteName = '[ìTest_Two,_Inc.î]-_83(b)Election([ìBill_Gatesî]).docx';
     var fullName = '$dataFolder/$remoteName';
     var sectionIndex = 0;
 

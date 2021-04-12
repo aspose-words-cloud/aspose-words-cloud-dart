@@ -1,4 +1,4 @@
-﻿/*
+/*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="document_property_create_or_update.dart">
  *   Copyright (c) 2021 Aspose.Words for Cloud

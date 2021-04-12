@@ -1,4 +1,4 @@
-﻿# Aspose.Words Cloud SDK
+# Aspose.Words Cloud SDK
 This package contains Aspose.Words Cloud SDK for Dart (Compatible with [Flutter](https://flutter.dev/)). 
 This SDK allows you to work with Aspose.Words Cloud REST APIs in your Dart applications quickly and easily, with zero initial cost.
 
