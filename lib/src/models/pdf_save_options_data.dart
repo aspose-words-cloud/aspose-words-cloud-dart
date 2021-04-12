@@ -46,7 +46,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   /// Gets or sets the details for signing the output PDF document.
   PdfDigitalSignatureDetailsData digitalSignatureDetails;
 
-  /// Gets or sets a value indicating whether the window’s title bar should display the document title taken from the Title entry of the document information dictionary.
+  /// Gets or sets a value indicating whether the windowâ€™s title bar should display the document title taken from the Title entry of the document information dictionary.
   bool displayDocTitle;
 
   /// Gets or sets the downsample options.

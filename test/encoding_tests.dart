@@ -44,7 +44,7 @@ class EncodingTests
   Future<void> testEncoding1() async
   {
     var localName = 'test_multi_pages.docx';
-    var remoteName = '[“Test_Two,_Inc.”]-_83(b)Election([“Bill_Gates”]).docx';
+    var remoteName = '[â€œTest_Two,_Inc.â€]-_83(b)Election([â€œBill_Gatesâ€]).docx';
     var fullName = '$dataFolder/$remoteName';
     var sectionIndex = 0;
 

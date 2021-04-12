@@ -59,7 +59,7 @@ class InsertWatermarkImageOnlineRequest implements RequestBase {
   /// The rotation angle of the watermark.
   final double rotationAngle;
 
-  /// The filename of the image. If the parameter value is missing — the image data is expected in the request content.
+  /// The filename of the image. If the parameter value is missing â€” the image data is expected in the request content.
   final String image;
 
   InsertWatermarkImageOnlineRequest(final this.document, final this.imageFile, {final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime, final this.rotationAngle, final this.image});
