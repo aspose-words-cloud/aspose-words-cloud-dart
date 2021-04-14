@@ -84,7 +84,6 @@ class BatchTests
         folder: remoteDataFolder
     ));
 
-    var localDocumentFile = 'ReportTemplate.docx';
     var localDataFile = await context.loadTextFile(reportingFolder + '/ReportData.json');
 
     var request5 = BatchRequest(BuildReportOnlineRequest(
