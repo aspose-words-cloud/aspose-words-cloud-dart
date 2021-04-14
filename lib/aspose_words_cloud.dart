@@ -275,6 +275,7 @@ export 'src/requests/append_document_online_request.dart';
 export 'src/requests/append_document_request.dart';
 export 'src/requests/apply_style_to_document_element_online_request.dart';
 export 'src/requests/apply_style_to_document_element_request.dart';
+export 'src/requests/batch_request.dart';
 export 'src/requests/build_report_online_request.dart';
 export 'src/requests/build_report_request.dart';
 export 'src/requests/classify_document_online_request.dart';

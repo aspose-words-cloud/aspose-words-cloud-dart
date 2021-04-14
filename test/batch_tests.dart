@@ -56,44 +56,49 @@ class BatchTests
         '$remoteDataFolder/$remoteFileName'
     );
 
-    var request1 = GetParagraphsRequest(
+    var request1 = BatchRequest(GetParagraphsRequest(
         remoteFileName,
         nodePath: 'sections/0',
         folder: remoteDataFolder
-    );
+    ));
 
-    var request2 = GetParagraphRequest(
+    var request2 = BatchRequest(GetParagraphRequest(
         remoteFileName,
         0,
         nodePath: 'sections/0',
         folder: remoteDataFolder
-    );
+    ));
 
-    var request3 = InsertParagraphRequest(
+    var request3 = BatchRequest(InsertParagraphRequest(
         remoteFileName,
         ParagraphInsert()
           ..text = 'This is a new paragraph for your document',
         nodePath: 'sections/0',
         folder: remoteDataFolder
-    );
+    ));
 
-    var request4 = DeleteParagraphRequest(
+    var request4 = BatchRequest(DeleteParagraphRequest(
         remoteFileName,
         0,
         nodePath: '',
         folder: remoteDataFolder
-    );
+    ));
 
     var localDocumentFile = 'ReportTemplate.docx';
     var localDataFile = await context.loadTextFile(reportingFolder + '/ReportData.json');
 
-    var request5 = BuildReportOnlineRequest(
-        await context.loadBinaryFile(reportingFolder + '/' + localDocumentFile),
+    var request5 = BatchRequest(BuildReportOnlineRequest(
+        request4.resultOf(),
         localDataFile,
         ReportEngineSettings()
           ..dataSourceType = ReportEngineSettings_DataSourceTypeEnum.json
           ..dataSourceName = 'persons'
-    );
+    ));
+
+    request5.setDependsOn(request4);
+    request4.setDependsOn(request3);
+    request3.setDependsOn(request2);
+    request2.setDependsOn(request1);
 
     var actual = await context.getApi().batch([request1, request2, request3, request4, request5]);
     expect(actual.length, 5);

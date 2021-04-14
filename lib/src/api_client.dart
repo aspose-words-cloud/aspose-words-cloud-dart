@@ -37,6 +37,7 @@ import '../aspose_words_cloud.dart';
 import './api_request_data.dart';
 import './api_request_part.dart';
 import './byte_data_extensions.dart';
+import './requests/batch_request.dart';
 
 class ApiClient {
   String _authToken;
@@ -268,6 +269,29 @@ class ApiClient {
     }).toList();
   }
 
+  Map<String, ByteData> deserializeMultipartBatch(final ByteData data) {
+    var result = <String, ByteData>{};
+    for (final part in _deserializeMultipartBase(data)) {
+      var headersEndIndex = part.indexOf(_newline2x);
+      if (headersEndIndex == null) {
+        throw ApiException(400, 'Failed to parse multipart response.');
+      }
+
+      var headersData = ByteData.sublistView(part, 0, headersEndIndex);
+      var headersStr = utf8.decoder.convert(headersData.buffer.asUint8List(headersData.offsetInBytes, headersData.lengthInBytes));
+      var requestIdHeader = headersStr.split('\r\n').firstWhere((x) => x.trim().startsWith('RequestId:'));
+      var nameValueParts = requestIdHeader.split(':');
+      if (nameValueParts.length != 2) {
+        throw ApiException(400, 'Failed to parse multipart response.');
+      }
+
+      var requestId = nameValueParts.elementAt(1).trim();
+      result[requestId] = ByteData.sublistView(part, headersEndIndex + _newline2x.lengthInBytes, part.lengthInBytes - _newline.lengthInBytes);
+    }
+
+    return result;
+  }
+
   Map<String, ByteData> deserializeMultipartMap(final ByteData data) {
     var result = <String, ByteData>{};
     for (final part in _deserializeMultipartBase(data)) {
@@ -349,7 +373,7 @@ class ApiClient {
     return request.deserializeResponse(this, response);
   }
 
-  Future< List<dynamic> > callBatch(final List<RequestBase> requests) async {
+  Future< List<dynamic> > callBatch(final List<BatchRequest> requests) async {
     var bodyParts = requests
         .map((request) => request.createRequestData(this))
         .map((requestData) => serializeBatchPart(requestData))
@@ -362,14 +386,18 @@ class ApiClient {
 
     var batchRequestData = ApiRequestData('PUT', batchUrl, batchHeaders, batchBody);
     var response = await _callWithChecks(batchRequestData);
-    var responseParts = deserializeMultipartArray(response);
+    var responseParts = deserializeMultipartBatch(response);
     if (responseParts.length != requests.length) {
       throw ApiException(400, 'Response and request parts mismatch.');
     }
 
     var result = List<dynamic>.filled(requests.length, null);
     for (var i = 0; i < requests.length; i++) {
-      result[i] = deserializeBatchPart(requests[i], responseParts[i]);
+      if (!responseParts.containsKey(requests[i].getRequestId())) {
+        throw ApiException(400, 'Failed to deserialize batch multipart response.');
+      }
+
+      result[i] = deserializeBatchPart(requests[i].getRequest(), responseParts[requests[i].getRequestId()]);
     }
 
     return result;
