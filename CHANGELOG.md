@@ -1,3 +1,8 @@
+## [21.4.0] - Aspose Words Cloud for Dart 21.4 Release Notes
+
+- Support batch requests.
+- Added DependsOn and ResultOf features support for batch requests.
+
 ## [21.3.0] - Aspose Words Cloud for Dart 21.3 Release Notes
 
 - Added 'UpdateCreatedTimeProperty' save option

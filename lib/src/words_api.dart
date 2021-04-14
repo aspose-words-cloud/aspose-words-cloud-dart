@@ -31,6 +31,7 @@ import 'dart:typed_data';
 
 import '../aspose_words_cloud.dart';
 import './api_client.dart';
+import './requests/batch_request.dart';
 
 /// Aspose.Words for Cloud API.
 class WordsApi {
@@ -1508,7 +1509,7 @@ class WordsApi {
   }
 
   // Batch request
-  Future< List<dynamic> > batch(final List<RequestBase> requests) async {
+  Future< List<dynamic> > batch(final List<BatchRequest> requests) async {
     return await _apiClient.callBatch(requests);
   }
 }
