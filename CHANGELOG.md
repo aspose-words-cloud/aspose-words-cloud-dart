@@ -1,3 +1,8 @@
+## [21.5.0] - Aspose Words Cloud for Dart 21.5 Release Notes
+
+- Update dependencies in sdk
+
+
 ## [21.4.0] - Aspose Words Cloud for Dart 21.4 Release Notes
 
 - Removed obsolete pdf save option 'EscapeUri'
