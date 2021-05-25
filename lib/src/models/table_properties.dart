@@ -514,6 +514,7 @@ class TableProperties extends LinkElement {
         case 'ListTable5DarkAccent6': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable5DarkAccent6; break;
         case 'ListTable6ColorfulAccent6': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable6ColorfulAccent6; break;
         case 'ListTable7ColorfulAccent6': styleIdentifier = TableProperties_StyleIdentifierEnum.listTable7ColorfulAccent6; break;
+        case 'SmartLink': styleIdentifier = TableProperties_StyleIdentifierEnum.smartLink; break;
         case 'User': styleIdentifier = TableProperties_StyleIdentifierEnum.user; break;
         case 'Nil': styleIdentifier = TableProperties_StyleIdentifierEnum.nil; break;
         default: styleIdentifier = null; break;
@@ -981,6 +982,7 @@ class TableProperties extends LinkElement {
         case TableProperties_StyleIdentifierEnum.listTable5DarkAccent6: _result['StyleIdentifier'] = 'ListTable5DarkAccent6'; break;
         case TableProperties_StyleIdentifierEnum.listTable6ColorfulAccent6: _result['StyleIdentifier'] = 'ListTable6ColorfulAccent6'; break;
         case TableProperties_StyleIdentifierEnum.listTable7ColorfulAccent6: _result['StyleIdentifier'] = 'ListTable7ColorfulAccent6'; break;
+        case TableProperties_StyleIdentifierEnum.smartLink: _result['StyleIdentifier'] = 'SmartLink'; break;
         case TableProperties_StyleIdentifierEnum.user: _result['StyleIdentifier'] = 'User'; break;
         case TableProperties_StyleIdentifierEnum.nil: _result['StyleIdentifier'] = 'Nil'; break;
         default: break;
@@ -1404,6 +1406,7 @@ enum TableProperties_StyleIdentifierEnum
   listTable5DarkAccent6,
   listTable6ColorfulAccent6,
   listTable7ColorfulAccent6,
+  smartLink,
   user,
   nil
 }

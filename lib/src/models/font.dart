@@ -733,6 +733,7 @@ class Font extends LinkElement {
         case 'ListTable5DarkAccent6': styleIdentifier = Font_StyleIdentifierEnum.listTable5DarkAccent6; break;
         case 'ListTable6ColorfulAccent6': styleIdentifier = Font_StyleIdentifierEnum.listTable6ColorfulAccent6; break;
         case 'ListTable7ColorfulAccent6': styleIdentifier = Font_StyleIdentifierEnum.listTable7ColorfulAccent6; break;
+        case 'SmartLink': styleIdentifier = Font_StyleIdentifierEnum.smartLink; break;
         case 'User': styleIdentifier = Font_StyleIdentifierEnum.user; break;
         case 'Nil': styleIdentifier = Font_StyleIdentifierEnum.nil; break;
         default: styleIdentifier = null; break;
@@ -1317,6 +1318,7 @@ class Font extends LinkElement {
         case Font_StyleIdentifierEnum.listTable5DarkAccent6: _result['StyleIdentifier'] = 'ListTable5DarkAccent6'; break;
         case Font_StyleIdentifierEnum.listTable6ColorfulAccent6: _result['StyleIdentifier'] = 'ListTable6ColorfulAccent6'; break;
         case Font_StyleIdentifierEnum.listTable7ColorfulAccent6: _result['StyleIdentifier'] = 'ListTable7ColorfulAccent6'; break;
+        case Font_StyleIdentifierEnum.smartLink: _result['StyleIdentifier'] = 'SmartLink'; break;
         case Font_StyleIdentifierEnum.user: _result['StyleIdentifier'] = 'User'; break;
         case Font_StyleIdentifierEnum.nil: _result['StyleIdentifier'] = 'Nil'; break;
         default: break;
@@ -1753,6 +1755,7 @@ enum Font_StyleIdentifierEnum
   listTable5DarkAccent6,
   listTable6ColorfulAccent6,
   listTable7ColorfulAccent6,
+  smartLink,
   user,
   nil
 }

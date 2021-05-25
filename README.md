@@ -27,7 +27,7 @@ Add this dependency to your *pubspec.yaml*:
 
 ```yaml
 dependencies:
-  aspose_words_cloud: 21.4.0
+  aspose_words_cloud: 21.5.0
 ```
 
 ## Getting Started

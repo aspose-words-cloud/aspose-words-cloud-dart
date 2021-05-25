@@ -1,7 +1,16 @@
+## [21.5.0] - Aspose Words Cloud for Dart 21.5 Release Notes
+
+- Update dependencies in sdk
+
+
 ## [21.4.0] - Aspose Words Cloud for Dart 21.4 Release Notes
 
-- Support batch requests.
-- Added DependsOn and ResultOf features support for batch requests.
+- Removed obsolete pdf save option 'EscapeUri'
+- SaveOptions now contains CustomTimeZoneInfo to set custom timezone when SdtType.Date structured document tag updated from custom XML
+- Url of child requests in batch can be full now (earlier it can be only relative)
+- Added 'RquestId' header to all responses
+- Support batch requests
+- Added DependsOn and ResultOf features support for batch requests
 
 ## [21.3.0] - Aspose Words Cloud for Dart 21.3 Release Notes
 
