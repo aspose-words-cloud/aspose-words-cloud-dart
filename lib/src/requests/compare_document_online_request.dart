@@ -41,6 +41,9 @@ class CompareDocumentOnlineRequest implements RequestBase {
   /// Compare data.
   final CompareData compareData;
 
+  /// The comparing document.
+  final ByteData comparingDocument;
+
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
   final String loadEncoding;
 
@@ -50,7 +53,7 @@ class CompareDocumentOnlineRequest implements RequestBase {
   /// Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
   final String destFileName;
 
-  CompareDocumentOnlineRequest(final this.document, final this.compareData, {final this.loadEncoding, final this.password, final this.destFileName});
+  CompareDocumentOnlineRequest(final this.document, final this.compareData, {final this.comparingDocument, final this.loadEncoding, final this.password, final this.destFileName});
 
   @override
   ApiRequestData createRequestData(final ApiClient _apiClient) {
@@ -82,6 +85,10 @@ class CompareDocumentOnlineRequest implements RequestBase {
     }
     else {
       throw ApiException(400, 'Parameter compareData is required.');
+    }
+
+    if (comparingDocument != null) {
+      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(comparingDocument), 'application/octet-stream', name: 'ComparingDocument'));
     }
 
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
