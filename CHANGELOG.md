@@ -1,3 +1,9 @@
+## [21.6.0] - Aspose Words Cloud for Dart 21.6 Release Notes
+
+- Implemented beta version of CompareDocumentOnline feature with both document sending in request.
+- CompareDocument method now can handle PDF files
+
+
 ## [21.5.0] - Aspose Words Cloud for Dart 21.5 Release Notes
 
 - Update dependencies in sdk
