@@ -75,7 +75,7 @@ class ApiClient {
     final url = configuration.baseUrl + '/connect/token';
     final data = 'grant_type=client_credentials&client_id=${configuration.clientId}&client_secret=${configuration.clientSecret}';
     final headers = {'Content-Type' : 'application/x-www-form-urlencoded'};
-    final response = await http.post(url, headers: headers, body: data);
+    final response = await http.post(Uri.parse(url), headers: headers, body: data);
     if (response.statusCode == 400) {
       throw ApiException(response.statusCode, 'Invalid server credentials. Please check your ClientSecret and ClientId.');
     }
