@@ -31,6 +31,9 @@ import '../../aspose_words_cloud.dart';
 
 /// DTO container with compare documents options.
 class CompareOptions implements ModelBase {
+  /// Gets or sets whether accept revisions before comparison or not.
+  bool acceptAllRevisionsBeforeComparison;
+
   /// Gets or sets a value indicating whether documents comparison is case insensitive. By default comparison is case sensitive.
   bool ignoreCaseChanges;
 
@@ -62,6 +65,12 @@ class CompareOptions implements ModelBase {
   void deserialize(Map<String, dynamic> json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize CompareOptions data model.');
+    }
+
+    if (json.containsKey('AcceptAllRevisionsBeforeComparison')) {
+      acceptAllRevisionsBeforeComparison = json['AcceptAllRevisionsBeforeComparison'] as bool;
+    } else {
+      acceptAllRevisionsBeforeComparison = null;
     }
 
     if (json.containsKey('IgnoreCaseChanges')) {
@@ -126,6 +135,10 @@ class CompareOptions implements ModelBase {
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
+    if (acceptAllRevisionsBeforeComparison != null) {
+      _result['AcceptAllRevisionsBeforeComparison'] = acceptAllRevisionsBeforeComparison;
+    }
+
     if (ignoreCaseChanges != null) {
       _result['IgnoreCaseChanges'] = ignoreCaseChanges;
     }

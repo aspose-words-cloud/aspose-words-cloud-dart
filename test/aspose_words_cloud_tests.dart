@@ -149,6 +149,7 @@ void main() {
   group('CompareDocument', () {
     test('CompareDocument', () async => await CompareDocumentTests(testContext).testCompareDocument());
     test('CompareDocumentOnline', () async => await CompareDocumentTests(testContext).testCompareDocumentOnline());
+    test('CompareTwoDocumentOnline', () async => await CompareDocumentTests(testContext).testCompareTwoDocumentOnline());
   });
 
   group('ConvertDocument', () {

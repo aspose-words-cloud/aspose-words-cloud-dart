@@ -90,4 +90,28 @@ class CompareDocumentTests
 
     await context.getApi().compareDocumentOnline(request);
   }
+
+  /// Test for document comparison online.
+  Future<void> testCompareTwoDocumentOnline() async
+  {
+    final localName1 = 'compareTestDoc1.doc';
+    final localName2 = 'compareTestDoc2.doc';
+    final remoteName2 = 'TestCompareDocument2.doc';
+    await context.uploadFile(localFolder + '/' + localName2, remoteFolder + '/' + remoteName2);
+    final documentData = await context.loadBinaryFile(localFolder + '/' + localName1);
+    final comparingDocumentData = await context.loadBinaryFile(localFolder + '/' + localName2);
+    final requestCompareData = CompareData();
+    requestCompareData.author = 'author';
+    requestCompareData.comparingWithDocument = remoteFolder + '/' + remoteName2;
+    requestCompareData.dateTime = DateTime(2015, 10, 26, 0, 0, 0);
+
+    final request = CompareDocumentOnlineRequest(
+      documentData,
+      requestCompareData,
+      comparingDocument: comparingDocumentData,
+      destFileName: context.baseTestOutPath + '/TestCompareDocumentOut.doc'
+    );
+
+    await context.getApi().compareDocumentOnline(request);
+  }
 }
