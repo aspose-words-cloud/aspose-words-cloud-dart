@@ -1,3 +1,9 @@
+## [21.7.0] - Aspose Words Cloud for Dart 21.7 Release Notes
+
+- ImlRenderingMode option introduced witch is used to determine how ink (InkML) objects are rendered
+- MaxCharactersPerLine option introduced which is used to specify the maximum number of characters per one line
+
+
 ## [21.6.0] - Aspose Words Cloud for Dart 21.6 Release Notes
 
 - Implemented beta version of CompareDocumentOnline feature with both document sending in request
