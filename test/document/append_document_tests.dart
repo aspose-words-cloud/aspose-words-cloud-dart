@@ -74,7 +74,7 @@ class AppendDocumentTests
   {
     final remoteFileName = 'TestAppendDocument.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
     final requestDocumentListDocumentEntries0 = DocumentEntry();
     requestDocumentListDocumentEntries0.href = remoteDataFolder + '/' + remoteFileName;
     requestDocumentListDocumentEntries0.importFormatMode = 'KeepSourceFormatting';
@@ -86,7 +86,7 @@ class AppendDocumentTests
     requestDocumentList.documentEntries = requestDocumentListDocumentEntries;
 
     final request = AppendDocumentOnlineRequest(
-      documentData,
+      requestDocumentData,
       requestDocumentList
     );
 

@@ -47,13 +47,13 @@ class BuildReportTests
   {
     final localDocumentFile = 'ReportTemplate.docx';
     final localDataFile = await context.loadTextFile(reportingFolder + '/ReportData.json');
-    final templateData = await context.loadBinaryFile(reportingFolder + '/' + localDocumentFile);
+    final requestTemplateData = await context.loadBinaryFile(reportingFolder + '/' + localDocumentFile);
     final requestReportEngineSettings = ReportEngineSettings();
     requestReportEngineSettings.dataSourceType = ReportEngineSettings_DataSourceTypeEnum.json;
     requestReportEngineSettings.dataSourceName = 'persons';
 
     final request = BuildReportOnlineRequest(
-      templateData,
+      requestTemplateData,
       localDataFile,
       requestReportEngineSettings
     );

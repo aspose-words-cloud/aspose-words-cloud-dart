@@ -60,10 +60,10 @@ class BookmarkTests
   /// Test for getting bookmarks from document online.
   Future<void> testGetBookmarksOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = GetBookmarksOnlineRequest(
-      documentData
+      requestDocumentData
     );
 
     await context.getApi().getBookmarksOnline(request);
@@ -87,10 +87,10 @@ class BookmarkTests
   /// Test for getting bookmark by specified name online.
   Future<void> testGetBookmarkByNameOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = GetBookmarkByNameOnlineRequest(
-      documentData,
+      requestDocumentData,
       bookmarkName
     );
 
@@ -122,13 +122,13 @@ class BookmarkTests
   Future<void> testUpdateBookmarkOnline() async
   {
     final remoteFileName = 'TestUpdateDocumentBookmark.docx';
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
     final requestBookmarkData = BookmarkData();
     requestBookmarkData.name = bookmarkName;
     requestBookmarkData.text = 'This will be the text for Aspose';
 
     final request = UpdateBookmarkOnlineRequest(
-      documentData,
+      requestDocumentData,
       bookmarkName,
       requestBookmarkData,
       destFileName: context.baseTestOutPath + '/' + remoteFileName

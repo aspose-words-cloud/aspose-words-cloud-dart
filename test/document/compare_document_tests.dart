@@ -76,14 +76,14 @@ class CompareDocumentTests
     final localName2 = 'compareTestDoc2.doc';
     final remoteName2 = 'TestCompareDocument2.doc';
     await context.uploadFile(localFolder + '/' + localName2, remoteFolder + '/' + remoteName2);
-    final documentData = await context.loadBinaryFile(localFolder + '/' + localName1);
+    final requestDocumentData = await context.loadBinaryFile(localFolder + '/' + localName1);
     final requestCompareData = CompareData();
     requestCompareData.author = 'author';
     requestCompareData.comparingWithDocument = remoteFolder + '/' + remoteName2;
     requestCompareData.dateTime = DateTime(2015, 10, 26, 0, 0, 0);
 
     final request = CompareDocumentOnlineRequest(
-      documentData,
+      requestDocumentData,
       requestCompareData,
       destFileName: context.baseTestOutPath + '/TestCompareDocumentOut.doc'
     );
@@ -98,17 +98,17 @@ class CompareDocumentTests
     final localName2 = 'compareTestDoc2.doc';
     final remoteName2 = 'TestCompareDocument2.doc';
     await context.uploadFile(localFolder + '/' + localName2, remoteFolder + '/' + remoteName2);
-    final documentData = await context.loadBinaryFile(localFolder + '/' + localName1);
-    final comparingDocumentData = await context.loadBinaryFile(localFolder + '/' + localName2);
+    final requestDocumentData = await context.loadBinaryFile(localFolder + '/' + localName1);
+    final requestComparingDocumentData = await context.loadBinaryFile(localFolder + '/' + localName2);
     final requestCompareData = CompareData();
     requestCompareData.author = 'author';
     requestCompareData.comparingWithDocument = remoteFolder + '/' + remoteName2;
     requestCompareData.dateTime = DateTime(2015, 10, 26, 0, 0, 0);
 
     final request = CompareDocumentOnlineRequest(
-      documentData,
+      requestDocumentData,
       requestCompareData,
-      comparingDocument: comparingDocumentData,
+      comparingDocument: requestComparingDocumentData,
       destFileName: context.baseTestOutPath + '/TestCompareDocumentOut.doc'
     );
 

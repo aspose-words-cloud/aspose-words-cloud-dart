@@ -50,6 +50,9 @@ class SaveOptionsData implements ModelBase {
   /// Gets or sets the name of destination file.
   String fileName;
 
+  /// Gets or sets the value determining how ink (InkML) objects are rendered.
+  String imlRenderingMode;
+
   /// Gets or sets the format of save.
   String saveFormat;
 
@@ -118,6 +121,12 @@ class SaveOptionsData implements ModelBase {
       fileName = json['FileName'] as String;
     } else {
       fileName = null;
+    }
+
+    if (json.containsKey('ImlRenderingMode')) {
+      imlRenderingMode = json['ImlRenderingMode'] as String;
+    } else {
+      imlRenderingMode = null;
     }
 
     if (json.containsKey('SaveFormat')) {
@@ -192,6 +201,10 @@ class SaveOptionsData implements ModelBase {
 
     if (fileName != null) {
       _result['FileName'] = fileName;
+    }
+
+    if (imlRenderingMode != null) {
+      _result['ImlRenderingMode'] = imlRenderingMode;
     }
 
     if (saveFormat != null) {

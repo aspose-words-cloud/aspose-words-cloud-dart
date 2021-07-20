@@ -61,10 +61,10 @@ class DocumentStatisticsTests
   /// Test for document classification online.
   Future<void> testGetDocumentStatisticsOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = GetDocumentStatisticsOnlineRequest(
-      documentData
+      requestDocumentData
     );
 
     await context.getApi().getDocumentStatisticsOnline(request);

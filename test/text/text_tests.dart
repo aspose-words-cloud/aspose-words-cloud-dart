@@ -65,13 +65,13 @@ class TextTests
   Future<void> testReplaceTextOnline() async
   {
     final localFile = 'Common/test_multi_pages.docx';
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
     final requestReplaceText = ReplaceTextParameters();
     requestReplaceText.oldValue = 'aspose';
     requestReplaceText.newValue = 'aspose new';
 
     final request = ReplaceTextOnlineRequest(
-      documentData,
+      requestDocumentData,
       requestReplaceText
     );
 
@@ -103,10 +103,10 @@ class TextTests
   Future<void> testSearchOnline() async
   {
     final localFile = 'DocumentElements/Text/SampleWordDocument.docx';
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = SearchOnlineRequest(
-      documentData,
+      requestDocumentData,
       'aspose'
     );
 
