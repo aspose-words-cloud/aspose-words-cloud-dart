@@ -45,17 +45,4 @@ class ExamplesTests
             acceptAllRevisionsOnlineResult.document.buffer.asUint8List(acceptAllRevisionsOnlineResult.document.offsetInBytes, acceptAllRevisionsOnlineResult.document.lengthInBytes)
         );
     }
-
-    Future<void> updateBookmark() async
-    {
-        final wordsApi = WordsApi(config);
-        final remoteFileName = 'Sample.docx';
-        final bookmarkName = 'aspose';
-
-        final testBookmarkData = BookmarkData();
-        testBookmarkData.name = bookmarkName;
-        testBookmarkData.text = 'New Bookmark Text';
-        final updateBookmark = UpdateBookmarkRequest(remoteFileName, bookmarkName, testBookmarkData);
-        await wordsApi.updateBookmark(updateBookmark);
-    }
 }

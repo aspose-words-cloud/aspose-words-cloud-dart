@@ -587,6 +587,5 @@ void main() {
     });
     test('AcceptAllRevisions', () async => await exampleTests.acceptAllRevisions());
     test('AcceptAllRevisionsOnline', () async => await exampleTests.acceptAllRevisionsOnline());
-    test('UpdateBookmark', () async => await exampleTests.updateBookmark());
   });
 }
