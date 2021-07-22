@@ -139,13 +139,13 @@ class DocumentPropertiesTests
   {
     final remoteFileName = 'TestUpdateDocumentProperty.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestProperty = DocumentPropertyCreateOrUpdate();
-    requestProperty.value = 'Imran Anwar';
+    final property = DocumentPropertyCreateOrUpdate();
+    property.value = 'Imran Anwar';
 
     final request = CreateOrUpdateDocumentPropertyRequest(
       remoteFileName,
       'AsposeAuthor',
-      requestProperty,
+      property,
       folder: remoteDataFolder,
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
@@ -160,13 +160,13 @@ class DocumentPropertiesTests
   Future<void> testUpdateDocumentPropertyOnline() async
   {
     final documentData = await context.loadBinaryFile(localFile);
-    final requestProperty = DocumentPropertyCreateOrUpdate();
-    requestProperty.value = 'Imran Anwar';
+    final property = DocumentPropertyCreateOrUpdate();
+    property.value = 'Imran Anwar';
 
     final request = CreateOrUpdateDocumentPropertyOnlineRequest(
       documentData,
       'AsposeAuthor',
-      requestProperty
+      property
     );
 
     await context.getApi().createOrUpdateDocumentPropertyOnline(request);

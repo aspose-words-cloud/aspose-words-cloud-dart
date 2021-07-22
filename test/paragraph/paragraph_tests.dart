@@ -246,14 +246,14 @@ class ParagraphTests
   {
     final remoteFileName = 'TestUpdateRunFont.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestFontDto = Font();
-    requestFontDto.bold = true;
+    final fontDto = Font();
+    fontDto.bold = true;
 
     final request = UpdateRunFontRequest(
       remoteFileName,
       'paragraphs/0',
       0,
-      requestFontDto,
+      fontDto,
       folder: remoteDataFolder,
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
@@ -267,13 +267,13 @@ class ParagraphTests
   Future<void> testUpdateRunFontOnline() async
   {
     final documentData = await context.loadBinaryFile(localFile);
-    final requestFontDto = Font();
-    requestFontDto.bold = true;
+    final fontDto = Font();
+    fontDto.bold = true;
 
     final request = UpdateRunFontOnlineRequest(
       documentData,
       'paragraphs/0',
-      requestFontDto,
+      fontDto,
       0
     );
 
@@ -285,12 +285,12 @@ class ParagraphTests
   {
     final remoteFileName = 'TestInsertParagraph.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestParagraph = ParagraphInsert();
-    requestParagraph.text = 'This is a new paragraph for your document';
+    final paragraph = ParagraphInsert();
+    paragraph.text = 'This is a new paragraph for your document';
 
     final request = InsertParagraphRequest(
       remoteFileName,
-      requestParagraph,
+      paragraph,
       nodePath: 'sections/0',
       folder: remoteDataFolder
     );
@@ -304,12 +304,12 @@ class ParagraphTests
   Future<void> testInsertParagraphOnline() async
   {
     final documentData = await context.loadBinaryFile(localFile);
-    final requestParagraph = ParagraphInsert();
-    requestParagraph.text = 'This is a new paragraph for your document';
+    final paragraph = ParagraphInsert();
+    paragraph.text = 'This is a new paragraph for your document';
 
     final request = InsertParagraphOnlineRequest(
       documentData,
-      requestParagraph,
+      paragraph,
       nodePath: 'sections/0'
     );
 
@@ -321,12 +321,12 @@ class ParagraphTests
   {
     final remoteFileName = 'TestInsertParagraphWithoutNodePath.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestParagraph = ParagraphInsert();
-    requestParagraph.text = 'This is a new paragraph for your document';
+    final paragraph = ParagraphInsert();
+    paragraph.text = 'This is a new paragraph for your document';
 
     final request = InsertParagraphRequest(
       remoteFileName,
-      requestParagraph,
+      paragraph,
       folder: remoteDataFolder
     );
 
@@ -437,13 +437,13 @@ class ParagraphTests
   {
     final remoteFileName = 'TestGetDocumentParagraphs.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestParagraphFormatDto = ParagraphFormatUpdate();
-    requestParagraphFormatDto.alignment = ParagraphFormatBase_AlignmentEnum.right;
+    final paragraphFormatDto = ParagraphFormatUpdate();
+    paragraphFormatDto.alignment = ParagraphFormatBase_AlignmentEnum.right;
 
     final request = UpdateParagraphFormatRequest(
       remoteFileName,
       0,
-      requestParagraphFormatDto,
+      paragraphFormatDto,
       nodePath: '',
       folder: remoteDataFolder
     );
@@ -457,12 +457,12 @@ class ParagraphTests
   Future<void> testUpdateParagraphFormatOnline() async
   {
     final documentData = await context.loadBinaryFile(localFile);
-    final requestParagraphFormatDto = ParagraphFormatUpdate();
-    requestParagraphFormatDto.alignment = ParagraphFormatBase_AlignmentEnum.right;
+    final paragraphFormatDto = ParagraphFormatUpdate();
+    paragraphFormatDto.alignment = ParagraphFormatBase_AlignmentEnum.right;
 
     final request = UpdateParagraphFormatOnlineRequest(
       documentData,
-      requestParagraphFormatDto,
+      paragraphFormatDto,
       0,
       nodePath: ''
     );
@@ -569,13 +569,13 @@ class ParagraphTests
   {
     final remoteFileName = 'TestUpdateParagraphListFormat.docx';
     await context.uploadFile(listFolder + '/ParagraphUpdateListFormat.doc', remoteDataFolder + '/' + remoteFileName);
-    final requestListFormatDto = ListFormatUpdate();
-    requestListFormatDto.listId = 2;
+    final listFormatDto = ListFormatUpdate();
+    listFormatDto.listId = 2;
 
     final request = UpdateParagraphListFormatRequest(
       remoteFileName,
       0,
-      requestListFormatDto,
+      listFormatDto,
       nodePath: '',
       folder: remoteDataFolder
     );
@@ -589,12 +589,12 @@ class ParagraphTests
   Future<void> testUpdateParagraphListFormatOnline() async
   {
     final documentData = await context.loadBinaryFile(listFolder + '/ParagraphUpdateListFormat.doc');
-    final requestListFormatDto = ListFormatUpdate();
-    requestListFormatDto.listId = 2;
+    final listFormatDto = ListFormatUpdate();
+    listFormatDto.listId = 2;
 
     final request = UpdateParagraphListFormatOnlineRequest(
       documentData,
-      requestListFormatDto,
+      listFormatDto,
       0,
       nodePath: ''
     );
@@ -607,13 +607,13 @@ class ParagraphTests
   {
     final remoteFileName = 'TestUpdateParagraphListFormatWithoutNodePath.docx';
     await context.uploadFile(listFolder + '/ParagraphUpdateListFormat.doc', remoteDataFolder + '/' + remoteFileName);
-    final requestListFormatDto = ListFormatUpdate();
-    requestListFormatDto.listId = 2;
+    final listFormatDto = ListFormatUpdate();
+    listFormatDto.listId = 2;
 
     final request = UpdateParagraphListFormatRequest(
       remoteFileName,
       0,
-      requestListFormatDto,
+      listFormatDto,
       folder: remoteDataFolder
     );
 
@@ -723,15 +723,15 @@ class ParagraphTests
   {
     final remoteFileName = 'TestInsertOrUpdateParagraphTabStop.docx';
     await context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
-    final requestTabStopInsertDto = TabStopInsert();
-    requestTabStopInsertDto.alignment = TabStopBase_AlignmentEnum.left;
-    requestTabStopInsertDto.leader = TabStopBase_LeaderEnum.none;
-    requestTabStopInsertDto.position = 100.0;
+    final tabStopInsertDto = TabStopInsert();
+    tabStopInsertDto.alignment = TabStopBase_AlignmentEnum.left;
+    tabStopInsertDto.leader = TabStopBase_LeaderEnum.none;
+    tabStopInsertDto.position = 100.0;
 
     final request = InsertOrUpdateParagraphTabStopRequest(
       remoteFileName,
       0,
-      requestTabStopInsertDto,
+      tabStopInsertDto,
       nodePath: '',
       folder: remoteDataFolder
     );
@@ -748,14 +748,14 @@ class ParagraphTests
   Future<void> testInsertParagraphTabStopsOnline() async
   {
     final documentData = await context.loadBinaryFile(tabStopFolder + '/ParagraphTabStops.docx');
-    final requestTabStopInsertDto = TabStopInsert();
-    requestTabStopInsertDto.alignment = TabStopBase_AlignmentEnum.left;
-    requestTabStopInsertDto.leader = TabStopBase_LeaderEnum.none;
-    requestTabStopInsertDto.position = 72;
+    final tabStopInsertDto = TabStopInsert();
+    tabStopInsertDto.alignment = TabStopBase_AlignmentEnum.left;
+    tabStopInsertDto.leader = TabStopBase_LeaderEnum.none;
+    tabStopInsertDto.position = 72;
 
     final request = InsertOrUpdateParagraphTabStopOnlineRequest(
       documentData,
-      requestTabStopInsertDto,
+      tabStopInsertDto,
       0,
       nodePath: ''
     );
@@ -768,15 +768,15 @@ class ParagraphTests
   {
     final remoteFileName = 'TestInsertOrUpdateParagraphTabStopWithoutNodePath.docx';
     await context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
-    final requestTabStopInsertDto = TabStopInsert();
-    requestTabStopInsertDto.alignment = TabStopBase_AlignmentEnum.left;
-    requestTabStopInsertDto.leader = TabStopBase_LeaderEnum.none;
-    requestTabStopInsertDto.position = 100.0;
+    final tabStopInsertDto = TabStopInsert();
+    tabStopInsertDto.alignment = TabStopBase_AlignmentEnum.left;
+    tabStopInsertDto.leader = TabStopBase_LeaderEnum.none;
+    tabStopInsertDto.position = 100.0;
 
     final request = InsertOrUpdateParagraphTabStopRequest(
       remoteFileName,
       0,
-      requestTabStopInsertDto,
+      tabStopInsertDto,
       folder: remoteDataFolder
     );
 

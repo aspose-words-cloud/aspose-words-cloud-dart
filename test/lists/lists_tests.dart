@@ -107,13 +107,13 @@ class ListsTests
   {
     final remoteFileName = 'TestUpdateList.doc';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestListUpdate = ListUpdate();
-    requestListUpdate.isRestartAtEachSection = true;
+    final listUpdate = ListUpdate();
+    listUpdate.isRestartAtEachSection = true;
 
     final request = UpdateListRequest(
       remoteFileName,
       1,
-      requestListUpdate,
+      listUpdate,
       folder: remoteDataFolder
     );
 
@@ -124,13 +124,13 @@ class ListsTests
   Future<void> testUpdateListOnline() async
   {
     final documentData = await context.loadBinaryFile(localFile);
-    final requestListUpdate = ListUpdate();
-    requestListUpdate.isRestartAtEachSection = true;
+    final listUpdate = ListUpdate();
+    listUpdate.isRestartAtEachSection = true;
 
     final request = UpdateListOnlineRequest(
       documentData,
       1,
-      requestListUpdate
+      listUpdate
     );
 
     final result = await context.getApi().updateListOnline(request);
@@ -144,14 +144,14 @@ class ListsTests
   {
     final remoteFileName = 'TestUpdateListLevel.doc';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestListUpdate = ListLevelUpdate();
-    requestListUpdate.alignment = ListLevelUpdate_AlignmentEnum.right;
+    final listUpdate = ListLevelUpdate();
+    listUpdate.alignment = ListLevelUpdate_AlignmentEnum.right;
 
     final request = UpdateListLevelRequest(
       remoteFileName,
       1,
       1,
-      requestListUpdate,
+      listUpdate,
       folder: remoteDataFolder
     );
 
@@ -162,13 +162,13 @@ class ListsTests
   Future<void> testUpdateListLevelOnline() async
   {
     final documentData = await context.loadBinaryFile(localFile);
-    final requestListUpdate = ListLevelUpdate();
-    requestListUpdate.alignment = ListLevelUpdate_AlignmentEnum.right;
+    final listUpdate = ListLevelUpdate();
+    listUpdate.alignment = ListLevelUpdate_AlignmentEnum.right;
 
     final request = UpdateListLevelOnlineRequest(
       documentData,
       1,
-      requestListUpdate,
+      listUpdate,
       1
     );
 
@@ -185,12 +185,12 @@ class ListsTests
   {
     final remoteFileName = 'TestInsertList.doc';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestListInsert = ListInsert();
-    requestListInsert.template = ListInsert_TemplateEnum.outlineLegal;
+    final listInsert = ListInsert();
+    listInsert.template = ListInsert_TemplateEnum.outlineLegal;
 
     final request = InsertListRequest(
       remoteFileName,
-      requestListInsert,
+      listInsert,
       folder: remoteDataFolder
     );
 
@@ -203,12 +203,12 @@ class ListsTests
   Future<void> testInsertListOnline() async
   {
     final documentData = await context.loadBinaryFile(localFile);
-    final requestListInsert = ListInsert();
-    requestListInsert.template = ListInsert_TemplateEnum.outlineLegal;
+    final listInsert = ListInsert();
+    listInsert.template = ListInsert_TemplateEnum.outlineLegal;
 
     final request = InsertListOnlineRequest(
       documentData,
-      requestListInsert
+      listInsert
     );
 
     await context.getApi().insertListOnline(request);

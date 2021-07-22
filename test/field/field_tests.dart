@@ -153,12 +153,12 @@ class FieldTests
     final localFileName = 'SampleWordDocument.docx';
     final remoteFileName = 'TestInsertField.docx';
     await context.uploadFile(textFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
-    final requestField = FieldInsert();
-    requestField.fieldCode = '{ NUMPAGES }';
+    final field = FieldInsert();
+    field.fieldCode = '{ NUMPAGES }';
 
     final request = InsertFieldRequest(
       remoteFileName,
-      requestField,
+      field,
       nodePath: 'sections/0/paragraphs/0',
       folder: remoteDataFolder
     );
@@ -173,12 +173,12 @@ class FieldTests
   Future<void> testInsertFieldOnline() async
   {
     final documentData = await context.loadBinaryFile(fieldFolder + '/GetField.docx');
-    final requestField = FieldInsert();
-    requestField.fieldCode = '{ NUMPAGES }';
+    final field = FieldInsert();
+    field.fieldCode = '{ NUMPAGES }';
 
     final request = InsertFieldOnlineRequest(
       documentData,
-      requestField,
+      field,
       nodePath: 'sections/0/paragraphs/0'
     );
 
@@ -191,12 +191,12 @@ class FieldTests
     final localFileName = 'SampleWordDocument.docx';
     final remoteFileName = 'TestInsertFieldWithoutNodePath.docx';
     await context.uploadFile(textFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
-    final requestField = FieldInsert();
-    requestField.fieldCode = '{ NUMPAGES }';
+    final field = FieldInsert();
+    field.fieldCode = '{ NUMPAGES }';
 
     final request = InsertFieldRequest(
       remoteFileName,
-      requestField,
+      field,
       folder: remoteDataFolder
     );
 
@@ -212,13 +212,13 @@ class FieldTests
     final localFileName = 'GetField.docx';
     final remoteFileName = 'TestUpdateField.docx';
     await context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
-    final requestField = FieldUpdate();
-    requestField.fieldCode = '{ NUMPAGES }';
+    final field = FieldUpdate();
+    field.fieldCode = '{ NUMPAGES }';
 
     final request = UpdateFieldRequest(
       remoteFileName,
       0,
-      requestField,
+      field,
       nodePath: 'sections/0/paragraphs/0',
       folder: remoteDataFolder
     );
@@ -233,12 +233,12 @@ class FieldTests
   Future<void> testUpdateFieldOnline() async
   {
     final documentData = await context.loadBinaryFile(fieldFolder + '/GetField.docx');
-    final requestField = FieldUpdate();
-    requestField.fieldCode = '{ NUMPAGES }';
+    final field = FieldUpdate();
+    field.fieldCode = '{ NUMPAGES }';
 
     final request = UpdateFieldOnlineRequest(
       documentData,
-      requestField,
+      field,
       0,
       nodePath: 'sections/0/paragraphs/0'
     );
@@ -252,13 +252,13 @@ class FieldTests
     final localFileName = 'test_multi_pages.docx';
     final remoteFileName = 'TestInsertPageNumbers.docx';
     await context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
-    final requestPageNumber = PageNumber();
-    requestPageNumber.alignment = 'center';
-    requestPageNumber.format = '{PAGE} of {NUMPAGES}';
+    final pageNumber = PageNumber();
+    pageNumber.alignment = 'center';
+    pageNumber.format = '{PAGE} of {NUMPAGES}';
 
     final request = InsertPageNumbersRequest(
       remoteFileName,
-      requestPageNumber,
+      pageNumber,
       folder: remoteDataFolder,
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
@@ -273,13 +273,13 @@ class FieldTests
   {
     final localFileName = 'test_multi_pages.docx';
     final documentData = await context.loadBinaryFile('Common/' + localFileName);
-    final requestPageNumber = PageNumber();
-    requestPageNumber.alignment = 'center';
-    requestPageNumber.format = '{PAGE} of {NUMPAGES}';
+    final pageNumber = PageNumber();
+    pageNumber.alignment = 'center';
+    pageNumber.format = '{PAGE} of {NUMPAGES}';
 
     final request = InsertPageNumbersOnlineRequest(
       documentData,
-      requestPageNumber
+      pageNumber
     );
 
     await context.getApi().insertPageNumbersOnline(request);

@@ -108,13 +108,13 @@ class RangeTests
   {
     final remoteFileName = 'TestSaveAsRange.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestDocumentParameters = RangeDocument();
-    requestDocumentParameters.documentName = remoteDataFolder + '/NewDoc.docx';
+    final documentParameters = RangeDocument();
+    documentParameters.documentName = remoteDataFolder + '/NewDoc.docx';
 
     final request = SaveAsRangeRequest(
       remoteFileName,
       'id0.0.0',
-      requestDocumentParameters,
+      documentParameters,
       rangeEndIdentifier: 'id0.0.1',
       folder: remoteDataFolder
     );
@@ -128,13 +128,13 @@ class RangeTests
   Future<void> testSaveAsRangeOnline() async
   {
     final documentData = await context.loadBinaryFile(localFile);
-    final requestDocumentParameters = RangeDocument();
-    requestDocumentParameters.documentName = remoteDataFolder + '/NewDoc.docx';
+    final documentParameters = RangeDocument();
+    documentParameters.documentName = remoteDataFolder + '/NewDoc.docx';
 
     final request = SaveAsRangeOnlineRequest(
       documentData,
       'id0.0.0',
-      requestDocumentParameters,
+      documentParameters,
       rangeEndIdentifier: 'id0.0.1'
     );
 
@@ -146,13 +146,13 @@ class RangeTests
   {
     final remoteFileName = 'TestReplaceWithText.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestRangeText = ReplaceRange();
-    requestRangeText.text = 'Replaced header';
+    final rangeText = ReplaceRange();
+    rangeText.text = 'Replaced header';
 
     final request = ReplaceWithTextRequest(
       remoteFileName,
       'id0.0.0',
-      requestRangeText,
+      rangeText,
       rangeEndIdentifier: 'id0.0.1',
       folder: remoteDataFolder
     );
@@ -166,13 +166,13 @@ class RangeTests
   Future<void> testReplaceWithTextOnline() async
   {
     final documentData = await context.loadBinaryFile(localFile);
-    final requestRangeText = ReplaceRange();
-    requestRangeText.text = 'Replaced header';
+    final rangeText = ReplaceRange();
+    rangeText.text = 'Replaced header';
 
     final request = ReplaceWithTextOnlineRequest(
       documentData,
       'id0.0.0',
-      requestRangeText,
+      rangeText,
       rangeEndIdentifier: 'id0.0.1'
     );
 

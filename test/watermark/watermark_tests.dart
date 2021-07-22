@@ -83,13 +83,13 @@ class WatermarkTests
   {
     final remoteFileName = 'TestInsertWatermarkText.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestWatermarkText = WatermarkText();
-    requestWatermarkText.text = 'This is the text';
-    requestWatermarkText.rotationAngle = 90.0;
+    final watermarkText = WatermarkText();
+    watermarkText.text = 'This is the text';
+    watermarkText.rotationAngle = 90.0;
 
     final request = InsertWatermarkTextRequest(
       remoteFileName,
-      requestWatermarkText,
+      watermarkText,
       folder: remoteDataFolder,
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
@@ -103,13 +103,13 @@ class WatermarkTests
   Future<void> testInsertWatermarkTextOnline() async
   {
     final documentData = await context.loadBinaryFile(localFile);
-    final requestWatermarkText = WatermarkText();
-    requestWatermarkText.text = 'This is the text';
-    requestWatermarkText.rotationAngle = 90;
+    final watermarkText = WatermarkText();
+    watermarkText.text = 'This is the text';
+    watermarkText.rotationAngle = 90;
 
     final request = InsertWatermarkTextOnlineRequest(
       documentData,
-      requestWatermarkText
+      watermarkText
     );
 
     await context.getApi().insertWatermarkTextOnline(request);

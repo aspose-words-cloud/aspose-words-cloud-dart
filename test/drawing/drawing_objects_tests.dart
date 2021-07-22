@@ -274,18 +274,18 @@ class DrawingObjectsTests
     final remoteFileName = 'TestInsetDrawingObject.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final imageFileData = await context.loadBinaryFile('Common/aspose-cloud.png');
-    final requestDrawingObject = DrawingObjectInsert();
-    requestDrawingObject.height = 0;
-    requestDrawingObject.left = 0;
-    requestDrawingObject.top = 0;
-    requestDrawingObject.width = 0;
-    requestDrawingObject.relativeHorizontalPosition = DrawingObjectInsert_RelativeHorizontalPositionEnum.margin;
-    requestDrawingObject.relativeVerticalPosition = DrawingObjectInsert_RelativeVerticalPositionEnum.margin;
-    requestDrawingObject.wrapType = DrawingObjectInsert_WrapTypeEnum.inline;
+    final drawingObject = DrawingObjectInsert();
+    drawingObject.height = 0;
+    drawingObject.left = 0;
+    drawingObject.top = 0;
+    drawingObject.width = 0;
+    drawingObject.relativeHorizontalPosition = DrawingObjectInsert_RelativeHorizontalPositionEnum.margin;
+    drawingObject.relativeVerticalPosition = DrawingObjectInsert_RelativeVerticalPositionEnum.margin;
+    drawingObject.wrapType = DrawingObjectInsert_WrapTypeEnum.inline;
 
     final request = InsertDrawingObjectRequest(
       remoteFileName,
-      requestDrawingObject,
+      drawingObject,
       imageFileData,
       nodePath: '',
       folder: remoteDataFolder
@@ -299,18 +299,18 @@ class DrawingObjectsTests
   {
     final documentData = await context.loadBinaryFile(localFile);
     final imageFileData = await context.loadBinaryFile('Common/aspose-cloud.png');
-    final requestDrawingObject = DrawingObjectInsert();
-    requestDrawingObject.height = 0;
-    requestDrawingObject.left = 0;
-    requestDrawingObject.top = 0;
-    requestDrawingObject.width = 0;
-    requestDrawingObject.relativeHorizontalPosition = DrawingObjectInsert_RelativeHorizontalPositionEnum.margin;
-    requestDrawingObject.relativeVerticalPosition = DrawingObjectInsert_RelativeVerticalPositionEnum.margin;
-    requestDrawingObject.wrapType = DrawingObjectInsert_WrapTypeEnum.inline;
+    final drawingObject = DrawingObjectInsert();
+    drawingObject.height = 0;
+    drawingObject.left = 0;
+    drawingObject.top = 0;
+    drawingObject.width = 0;
+    drawingObject.relativeHorizontalPosition = DrawingObjectInsert_RelativeHorizontalPositionEnum.margin;
+    drawingObject.relativeVerticalPosition = DrawingObjectInsert_RelativeVerticalPositionEnum.margin;
+    drawingObject.wrapType = DrawingObjectInsert_WrapTypeEnum.inline;
 
     final request = InsertDrawingObjectOnlineRequest(
       documentData,
-      requestDrawingObject,
+      drawingObject,
       imageFileData,
       nodePath: ''
     );
@@ -324,18 +324,18 @@ class DrawingObjectsTests
     final remoteFileName = 'TestInsetDrawingObjectWithoutNodePath.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final imageFileData = await context.loadBinaryFile('Common/aspose-cloud.png');
-    final requestDrawingObject = DrawingObjectInsert();
-    requestDrawingObject.height = 0;
-    requestDrawingObject.left = 0;
-    requestDrawingObject.top = 0;
-    requestDrawingObject.width = 0;
-    requestDrawingObject.relativeHorizontalPosition = DrawingObjectInsert_RelativeHorizontalPositionEnum.margin;
-    requestDrawingObject.relativeVerticalPosition = DrawingObjectInsert_RelativeVerticalPositionEnum.margin;
-    requestDrawingObject.wrapType = DrawingObjectInsert_WrapTypeEnum.inline;
+    final drawingObject = DrawingObjectInsert();
+    drawingObject.height = 0;
+    drawingObject.left = 0;
+    drawingObject.top = 0;
+    drawingObject.width = 0;
+    drawingObject.relativeHorizontalPosition = DrawingObjectInsert_RelativeHorizontalPositionEnum.margin;
+    drawingObject.relativeVerticalPosition = DrawingObjectInsert_RelativeVerticalPositionEnum.margin;
+    drawingObject.wrapType = DrawingObjectInsert_WrapTypeEnum.inline;
 
     final request = InsertDrawingObjectRequest(
       remoteFileName,
-      requestDrawingObject,
+      drawingObject,
       imageFileData,
       folder: remoteDataFolder
     );
@@ -394,12 +394,12 @@ class DrawingObjectsTests
     final remoteFileName = 'TestUpdateDrawingObject.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final imageFileData = await context.loadBinaryFile('Common/aspose-cloud.png');
-    final requestDrawingObject = DrawingObjectUpdate();
-    requestDrawingObject.left = 0;
+    final drawingObject = DrawingObjectUpdate();
+    drawingObject.left = 0;
 
     final request = UpdateDrawingObjectRequest(
       remoteFileName,
-      requestDrawingObject,
+      drawingObject,
       imageFileData,
       0,
       nodePath: '',
@@ -414,12 +414,12 @@ class DrawingObjectsTests
   {
     final documentData = await context.loadBinaryFile(localFile);
     final imageFileData = await context.loadBinaryFile('Common/aspose-cloud.png');
-    final requestDrawingObject = DrawingObjectUpdate();
-    requestDrawingObject.left = 0;
+    final drawingObject = DrawingObjectUpdate();
+    drawingObject.left = 0;
 
     final request = UpdateDrawingObjectOnlineRequest(
       documentData,
-      requestDrawingObject,
+      drawingObject,
       imageFileData,
       0,
       nodePath: ''
@@ -434,12 +434,12 @@ class DrawingObjectsTests
     final remoteFileName = 'TestUpdateDrawingObjectWithoutNodePath.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final imageFileData = await context.loadBinaryFile('Common/aspose-cloud.png');
-    final requestDrawingObject = DrawingObjectUpdate();
-    requestDrawingObject.left = 0;
+    final drawingObject = DrawingObjectUpdate();
+    drawingObject.left = 0;
 
     final request = UpdateDrawingObjectRequest(
       remoteFileName,
-      requestDrawingObject,
+      drawingObject,
       imageFileData,
       0,
       folder: remoteDataFolder

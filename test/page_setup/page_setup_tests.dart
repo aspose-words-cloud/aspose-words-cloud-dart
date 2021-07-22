@@ -79,16 +79,16 @@ class PageSetupTests
   {
     final remoteFileName = 'TestUpdateSectionPageSetup.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestPageSetup = PageSetup();
-    requestPageSetup.rtlGutter = true;
-    requestPageSetup.leftMargin = 10.0;
-    requestPageSetup.orientation = PageSetup_OrientationEnum.landscape;
-    requestPageSetup.paperSize = PageSetup_PaperSizeEnum.a5;
+    final pageSetup = PageSetup();
+    pageSetup.rtlGutter = true;
+    pageSetup.leftMargin = 10.0;
+    pageSetup.orientation = PageSetup_OrientationEnum.landscape;
+    pageSetup.paperSize = PageSetup_PaperSizeEnum.a5;
 
     final request = UpdateSectionPageSetupRequest(
       remoteFileName,
       0,
-      requestPageSetup,
+      pageSetup,
       folder: remoteDataFolder
     );
 
@@ -103,16 +103,16 @@ class PageSetupTests
   Future<void> testUpdateSectionPageSetupOnline() async
   {
     final documentData = await context.loadBinaryFile(localFile);
-    final requestPageSetup = PageSetup();
-    requestPageSetup.rtlGutter = true;
-    requestPageSetup.leftMargin = 10;
-    requestPageSetup.orientation = PageSetup_OrientationEnum.landscape;
-    requestPageSetup.paperSize = PageSetup_PaperSizeEnum.a5;
+    final pageSetup = PageSetup();
+    pageSetup.rtlGutter = true;
+    pageSetup.leftMargin = 10;
+    pageSetup.orientation = PageSetup_OrientationEnum.landscape;
+    pageSetup.paperSize = PageSetup_PaperSizeEnum.a5;
 
     final request = UpdateSectionPageSetupOnlineRequest(
       documentData,
       0,
-      requestPageSetup
+      pageSetup
     );
 
     await context.getApi().updateSectionPageSetupOnline(request);

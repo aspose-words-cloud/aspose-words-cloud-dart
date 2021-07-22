@@ -47,19 +47,19 @@ class AppendDocumentTests
   {
     final remoteFileName = 'TestAppendDocument.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestDocumentListDocumentEntries0 = DocumentEntry();
-    requestDocumentListDocumentEntries0.href = remoteDataFolder + '/' + remoteFileName;
-    requestDocumentListDocumentEntries0.importFormatMode = 'KeepSourceFormatting';
+    final documentListDocumentEntries0 = DocumentEntry();
+    documentListDocumentEntries0.href = remoteDataFolder + '/' + remoteFileName;
+    documentListDocumentEntries0.importFormatMode = 'KeepSourceFormatting';
 
-    final requestDocumentListDocumentEntries = [
-      requestDocumentListDocumentEntries0];
+    final documentListDocumentEntries = [
+      documentListDocumentEntries0];
 
-    final requestDocumentList = DocumentEntryList();
-    requestDocumentList.documentEntries = requestDocumentListDocumentEntries;
+    final documentList = DocumentEntryList();
+    documentList.documentEntries = documentListDocumentEntries;
 
     final request = AppendDocumentRequest(
       remoteFileName,
-      requestDocumentList,
+      documentList,
       folder: remoteDataFolder,
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
@@ -75,19 +75,19 @@ class AppendDocumentTests
     final remoteFileName = 'TestAppendDocument.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final documentData = await context.loadBinaryFile(localFile);
-    final requestDocumentListDocumentEntries0 = DocumentEntry();
-    requestDocumentListDocumentEntries0.href = remoteDataFolder + '/' + remoteFileName;
-    requestDocumentListDocumentEntries0.importFormatMode = 'KeepSourceFormatting';
+    final documentListDocumentEntries0 = DocumentEntry();
+    documentListDocumentEntries0.href = remoteDataFolder + '/' + remoteFileName;
+    documentListDocumentEntries0.importFormatMode = 'KeepSourceFormatting';
 
-    final requestDocumentListDocumentEntries = [
-      requestDocumentListDocumentEntries0];
+    final documentListDocumentEntries = [
+      documentListDocumentEntries0];
 
-    final requestDocumentList = DocumentEntryList();
-    requestDocumentList.documentEntries = requestDocumentListDocumentEntries;
+    final documentList = DocumentEntryList();
+    documentList.documentEntries = documentListDocumentEntries;
 
     final request = AppendDocumentOnlineRequest(
       documentData,
-      requestDocumentList
+      documentList
     );
 
     await context.getApi().appendDocumentOnline(request);

@@ -46,13 +46,13 @@ class TextTests
     final remoteFileName = 'TestReplaceText.docx';
     final localFile = 'Common/test_multi_pages.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestReplaceText = ReplaceTextParameters();
-    requestReplaceText.oldValue = 'Testing';
-    requestReplaceText.newValue = 'Aspose testing';
+    final replaceText = ReplaceTextParameters();
+    replaceText.oldValue = 'Testing';
+    replaceText.newValue = 'Aspose testing';
 
     final request = ReplaceTextRequest(
       remoteFileName,
-      requestReplaceText,
+      replaceText,
       folder: remoteDataFolder,
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
@@ -66,13 +66,13 @@ class TextTests
   {
     final localFile = 'Common/test_multi_pages.docx';
     final documentData = await context.loadBinaryFile(localFile);
-    final requestReplaceText = ReplaceTextParameters();
-    requestReplaceText.oldValue = 'aspose';
-    requestReplaceText.newValue = 'aspose new';
+    final replaceText = ReplaceTextParameters();
+    replaceText.oldValue = 'aspose';
+    replaceText.newValue = 'aspose new';
 
     final request = ReplaceTextOnlineRequest(
       documentData,
-      requestReplaceText
+      replaceText
     );
 
     await context.getApi().replaceTextOnline(request);

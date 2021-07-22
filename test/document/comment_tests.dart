@@ -107,30 +107,30 @@ class CommentTests
   {
     final remoteFileName = 'TestInsertComment.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestCommentRangeStartNode = NodeLink();
-    requestCommentRangeStartNode.nodeId = '0.3.0.3';
+    final commentRangeStartNode = NodeLink();
+    commentRangeStartNode.nodeId = '0.3.0.3';
 
-    final requestCommentRangeStart = DocumentPosition();
-    requestCommentRangeStart.node = requestCommentRangeStartNode;
-    requestCommentRangeStart.offset = 0;
+    final commentRangeStart = DocumentPosition();
+    commentRangeStart.node = commentRangeStartNode;
+    commentRangeStart.offset = 0;
 
-    final requestCommentRangeEndNode = NodeLink();
-    requestCommentRangeEndNode.nodeId = '0.3.0.3';
+    final commentRangeEndNode = NodeLink();
+    commentRangeEndNode.nodeId = '0.3.0.3';
 
-    final requestCommentRangeEnd = DocumentPosition();
-    requestCommentRangeEnd.node = requestCommentRangeEndNode;
-    requestCommentRangeEnd.offset = 0;
+    final commentRangeEnd = DocumentPosition();
+    commentRangeEnd.node = commentRangeEndNode;
+    commentRangeEnd.offset = 0;
 
-    final requestComment = CommentInsert();
-    requestComment.rangeStart = requestCommentRangeStart;
-    requestComment.rangeEnd = requestCommentRangeEnd;
-    requestComment.initial = 'IA';
-    requestComment.author = 'Imran Anwar';
-    requestComment.text = 'A new Comment';
+    final comment = CommentInsert();
+    comment.rangeStart = commentRangeStart;
+    comment.rangeEnd = commentRangeEnd;
+    comment.initial = 'IA';
+    comment.author = 'Imran Anwar';
+    comment.text = 'A new Comment';
 
     final request = InsertCommentRequest(
       remoteFileName,
-      requestComment,
+      comment,
       folder: remoteDataFolder
     );
 
@@ -146,30 +146,30 @@ class CommentTests
   Future<void> testInsertCommentOnline() async
   {
     final documentData = await context.loadBinaryFile(localFile);
-    final requestCommentRangeStartNode = NodeLink();
-    requestCommentRangeStartNode.nodeId = '0.3.0.3';
+    final commentRangeStartNode = NodeLink();
+    commentRangeStartNode.nodeId = '0.3.0.3';
 
-    final requestCommentRangeStart = DocumentPosition();
-    requestCommentRangeStart.node = requestCommentRangeStartNode;
-    requestCommentRangeStart.offset = 0;
+    final commentRangeStart = DocumentPosition();
+    commentRangeStart.node = commentRangeStartNode;
+    commentRangeStart.offset = 0;
 
-    final requestCommentRangeEndNode = NodeLink();
-    requestCommentRangeEndNode.nodeId = '0.3.0.3';
+    final commentRangeEndNode = NodeLink();
+    commentRangeEndNode.nodeId = '0.3.0.3';
 
-    final requestCommentRangeEnd = DocumentPosition();
-    requestCommentRangeEnd.node = requestCommentRangeEndNode;
-    requestCommentRangeEnd.offset = 0;
+    final commentRangeEnd = DocumentPosition();
+    commentRangeEnd.node = commentRangeEndNode;
+    commentRangeEnd.offset = 0;
 
-    final requestComment = CommentInsert();
-    requestComment.rangeStart = requestCommentRangeStart;
-    requestComment.rangeEnd = requestCommentRangeEnd;
-    requestComment.initial = 'IA';
-    requestComment.author = 'Imran Anwar';
-    requestComment.text = 'A new Comment';
+    final comment = CommentInsert();
+    comment.rangeStart = commentRangeStart;
+    comment.rangeEnd = commentRangeEnd;
+    comment.initial = 'IA';
+    comment.author = 'Imran Anwar';
+    comment.text = 'A new Comment';
 
     final request = InsertCommentOnlineRequest(
       documentData,
-      requestComment
+      comment
     );
 
     await context.getApi().insertCommentOnline(request);
@@ -180,31 +180,31 @@ class CommentTests
   {
     final remoteFileName = 'TestUpdateComment.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestCommentRangeStartNode = NodeLink();
-    requestCommentRangeStartNode.nodeId = '0.3.0';
+    final commentRangeStartNode = NodeLink();
+    commentRangeStartNode.nodeId = '0.3.0';
 
-    final requestCommentRangeStart = DocumentPosition();
-    requestCommentRangeStart.node = requestCommentRangeStartNode;
-    requestCommentRangeStart.offset = 0;
+    final commentRangeStart = DocumentPosition();
+    commentRangeStart.node = commentRangeStartNode;
+    commentRangeStart.offset = 0;
 
-    final requestCommentRangeEndNode = NodeLink();
-    requestCommentRangeEndNode.nodeId = '0.3.0';
+    final commentRangeEndNode = NodeLink();
+    commentRangeEndNode.nodeId = '0.3.0';
 
-    final requestCommentRangeEnd = DocumentPosition();
-    requestCommentRangeEnd.node = requestCommentRangeEndNode;
-    requestCommentRangeEnd.offset = 0;
+    final commentRangeEnd = DocumentPosition();
+    commentRangeEnd.node = commentRangeEndNode;
+    commentRangeEnd.offset = 0;
 
-    final requestComment = CommentUpdate();
-    requestComment.rangeStart = requestCommentRangeStart;
-    requestComment.rangeEnd = requestCommentRangeEnd;
-    requestComment.initial = 'IA';
-    requestComment.author = 'Imran Anwar';
-    requestComment.text = 'A new Comment';
+    final comment = CommentUpdate();
+    comment.rangeStart = commentRangeStart;
+    comment.rangeEnd = commentRangeEnd;
+    comment.initial = 'IA';
+    comment.author = 'Imran Anwar';
+    comment.text = 'A new Comment';
 
     final request = UpdateCommentRequest(
       remoteFileName,
       0,
-      requestComment,
+      comment,
       folder: remoteDataFolder
     );
 
@@ -220,31 +220,31 @@ class CommentTests
   Future<void> testUpdateCommentOnline() async
   {
     final documentData = await context.loadBinaryFile(localFile);
-    final requestCommentRangeStartNode = NodeLink();
-    requestCommentRangeStartNode.nodeId = '0.3.0';
+    final commentRangeStartNode = NodeLink();
+    commentRangeStartNode.nodeId = '0.3.0';
 
-    final requestCommentRangeStart = DocumentPosition();
-    requestCommentRangeStart.node = requestCommentRangeStartNode;
-    requestCommentRangeStart.offset = 0;
+    final commentRangeStart = DocumentPosition();
+    commentRangeStart.node = commentRangeStartNode;
+    commentRangeStart.offset = 0;
 
-    final requestCommentRangeEndNode = NodeLink();
-    requestCommentRangeEndNode.nodeId = '0.3.0';
+    final commentRangeEndNode = NodeLink();
+    commentRangeEndNode.nodeId = '0.3.0';
 
-    final requestCommentRangeEnd = DocumentPosition();
-    requestCommentRangeEnd.node = requestCommentRangeEndNode;
-    requestCommentRangeEnd.offset = 0;
+    final commentRangeEnd = DocumentPosition();
+    commentRangeEnd.node = commentRangeEndNode;
+    commentRangeEnd.offset = 0;
 
-    final requestComment = CommentUpdate();
-    requestComment.rangeStart = requestCommentRangeStart;
-    requestComment.rangeEnd = requestCommentRangeEnd;
-    requestComment.initial = 'IA';
-    requestComment.author = 'Imran Anwar';
-    requestComment.text = 'A new Comment';
+    final comment = CommentUpdate();
+    comment.rangeStart = commentRangeStart;
+    comment.rangeEnd = commentRangeEnd;
+    comment.initial = 'IA';
+    comment.author = 'Imran Anwar';
+    comment.text = 'A new Comment';
 
     final request = UpdateCommentOnlineRequest(
       documentData,
       0,
-      requestComment
+      comment
     );
 
     await context.getApi().updateCommentOnline(request);

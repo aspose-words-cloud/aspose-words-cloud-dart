@@ -47,18 +47,18 @@ class FormFieldTests
   {
     final remoteFileName = 'TestUpdateFormField.docx';
     await context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
-    final requestFormField = FormFieldTextInput();
-    requestFormField.name = 'FullName';
-    requestFormField.enabled = true;
-    requestFormField.calculateOnExit = true;
-    requestFormField.statusText = '';
-    requestFormField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
-    requestFormField.textInputDefault = 'No name';
+    final formField = FormFieldTextInput();
+    formField.name = 'FullName';
+    formField.enabled = true;
+    formField.calculateOnExit = true;
+    formField.statusText = '';
+    formField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
+    formField.textInputDefault = 'No name';
 
     final request = UpdateFormFieldRequest(
       remoteFileName,
       0,
-      requestFormField,
+      formField,
       nodePath: 'sections/0',
       folder: remoteDataFolder,
       destFileName: context.baseTestOutPath + '/' + remoteFileName
@@ -74,17 +74,17 @@ class FormFieldTests
   Future<void> testUpdateFormFieldOnline() async
   {
     final documentData = await context.loadBinaryFile(fieldFolder + '/FormFilled.docx');
-    final requestFormField = FormFieldTextInput();
-    requestFormField.name = 'FullName';
-    requestFormField.enabled = true;
-    requestFormField.calculateOnExit = true;
-    requestFormField.statusText = '';
-    requestFormField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
-    requestFormField.textInputDefault = 'No name';
+    final formField = FormFieldTextInput();
+    formField.name = 'FullName';
+    formField.enabled = true;
+    formField.calculateOnExit = true;
+    formField.statusText = '';
+    formField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
+    formField.textInputDefault = 'No name';
 
     final request = UpdateFormFieldOnlineRequest(
       documentData,
-      requestFormField,
+      formField,
       0,
       nodePath: 'sections/0'
     );
@@ -97,18 +97,18 @@ class FormFieldTests
   {
     final remoteFileName = 'TestUpdateFormFieldWithoutNodePath.docx';
     await context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
-    final requestFormField = FormFieldTextInput();
-    requestFormField.name = 'FullName';
-    requestFormField.enabled = true;
-    requestFormField.calculateOnExit = true;
-    requestFormField.statusText = '';
-    requestFormField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
-    requestFormField.textInputDefault = 'No name';
+    final formField = FormFieldTextInput();
+    formField.name = 'FullName';
+    formField.enabled = true;
+    formField.calculateOnExit = true;
+    formField.statusText = '';
+    formField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
+    formField.textInputDefault = 'No name';
 
     final request = UpdateFormFieldRequest(
       remoteFileName,
       0,
-      requestFormField,
+      formField,
       folder: remoteDataFolder,
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
@@ -223,18 +223,18 @@ class FormFieldTests
   {
     final remoteFileName = 'TestInsertFormField.docx';
     await context.uploadFile('Common/test_multi_pages.docx', remoteDataFolder + '/' + remoteFileName);
-    final requestFormField = FormFieldTextInput();
-    requestFormField.name = 'FullName';
-    requestFormField.enabled = true;
-    requestFormField.calculateOnExit = true;
-    requestFormField.statusText = '';
-    requestFormField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
-    requestFormField.textInputDefault = '123';
-    requestFormField.textInputFormat = 'UPPERCASE';
+    final formField = FormFieldTextInput();
+    formField.name = 'FullName';
+    formField.enabled = true;
+    formField.calculateOnExit = true;
+    formField.statusText = '';
+    formField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
+    formField.textInputDefault = '123';
+    formField.textInputFormat = 'UPPERCASE';
 
     final request = InsertFormFieldRequest(
       remoteFileName,
-      requestFormField,
+      formField,
       nodePath: 'sections/0/paragraphs/0',
       folder: remoteDataFolder,
       destFileName: context.baseTestOutPath + '/' + remoteFileName
@@ -250,18 +250,18 @@ class FormFieldTests
   Future<void> testInsertFormFieldOnline() async
   {
     final documentData = await context.loadBinaryFile(fieldFolder + '/FormFilled.docx');
-    final requestFormField = FormFieldTextInput();
-    requestFormField.name = 'FullName';
-    requestFormField.enabled = true;
-    requestFormField.calculateOnExit = true;
-    requestFormField.statusText = '';
-    requestFormField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
-    requestFormField.textInputDefault = '123';
-    requestFormField.textInputFormat = 'UPPERCASE';
+    final formField = FormFieldTextInput();
+    formField.name = 'FullName';
+    formField.enabled = true;
+    formField.calculateOnExit = true;
+    formField.statusText = '';
+    formField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
+    formField.textInputDefault = '123';
+    formField.textInputFormat = 'UPPERCASE';
 
     final request = InsertFormFieldOnlineRequest(
       documentData,
-      requestFormField,
+      formField,
       nodePath: 'sections/0/paragraphs/0'
     );
 
@@ -273,18 +273,18 @@ class FormFieldTests
   {
     final remoteFileName = 'TestInsertFormFieldWithoutNodePath.docx';
     await context.uploadFile('Common/test_multi_pages.docx', remoteDataFolder + '/' + remoteFileName);
-    final requestFormField = FormFieldTextInput();
-    requestFormField.name = 'FullName';
-    requestFormField.enabled = true;
-    requestFormField.calculateOnExit = true;
-    requestFormField.statusText = '';
-    requestFormField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
-    requestFormField.textInputDefault = '123';
-    requestFormField.textInputFormat = 'UPPERCASE';
+    final formField = FormFieldTextInput();
+    formField.name = 'FullName';
+    formField.enabled = true;
+    formField.calculateOnExit = true;
+    formField.statusText = '';
+    formField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
+    formField.textInputDefault = '123';
+    formField.textInputFormat = 'UPPERCASE';
 
     final request = InsertFormFieldRequest(
       remoteFileName,
-      requestFormField,
+      formField,
       folder: remoteDataFolder,
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );

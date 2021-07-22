@@ -46,12 +46,12 @@ class CompatibilityTests
   {
     final remoteFileName = 'TestOptimizeDocument.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestOptions = OptimizationOptions();
-    requestOptions.msWordVersion = OptimizationOptions_MsWordVersionEnum.word2002;
+    final options = OptimizationOptions();
+    options.msWordVersion = OptimizationOptions_MsWordVersionEnum.word2002;
 
     final request = OptimizeDocumentRequest(
       remoteFileName,
-      requestOptions,
+      options,
       folder: remoteDataFolder
     );
 
@@ -62,12 +62,12 @@ class CompatibilityTests
   Future<void> testOptimizeDocumentOnline() async
   {
     final documentData = await context.loadBinaryFile(localFile);
-    final requestOptions = OptimizationOptions();
-    requestOptions.msWordVersion = OptimizationOptions_MsWordVersionEnum.word2002;
+    final options = OptimizationOptions();
+    options.msWordVersion = OptimizationOptions_MsWordVersionEnum.word2002;
 
     final request = OptimizeDocumentOnlineRequest(
       documentData,
-      requestOptions
+      options
     );
 
     await context.getApi().optimizeDocumentOnline(request);

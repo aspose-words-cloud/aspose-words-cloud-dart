@@ -48,14 +48,14 @@ class BuildReportTests
     final localDocumentFile = 'ReportTemplate.docx';
     final localDataFile = await context.loadTextFile(reportingFolder + '/ReportData.json');
     final templateData = await context.loadBinaryFile(reportingFolder + '/' + localDocumentFile);
-    final requestReportEngineSettings = ReportEngineSettings();
-    requestReportEngineSettings.dataSourceType = ReportEngineSettings_DataSourceTypeEnum.json;
-    requestReportEngineSettings.dataSourceName = 'persons';
+    final reportEngineSettings = ReportEngineSettings();
+    reportEngineSettings.dataSourceType = ReportEngineSettings_DataSourceTypeEnum.json;
+    reportEngineSettings.dataSourceName = 'persons';
 
     final request = BuildReportOnlineRequest(
       templateData,
       localDataFile,
-      requestReportEngineSettings
+      reportEngineSettings
     );
 
     await context.getApi().buildReportOnline(request);
@@ -68,18 +68,18 @@ class BuildReportTests
     final remoteFileName = 'TestBuildReport.docx';
     final localDataFile = await context.loadTextFile(reportingFolder + '/ReportData.json');
     await context.uploadFile(reportingFolder + '/' + localDocumentFile, remoteDataFolder + '/' + remoteFileName);
-    final requestReportEngineSettingsReportBuildOptions = [
+    final reportEngineSettingsReportBuildOptions = [
       ReportBuildOptionsEnum.allowMissingMembers,
     ReportBuildOptionsEnum.removeEmptyParagraphs];
 
-    final requestReportEngineSettings = ReportEngineSettings();
-    requestReportEngineSettings.dataSourceType = ReportEngineSettings_DataSourceTypeEnum.json;
-    requestReportEngineSettings.reportBuildOptions = requestReportEngineSettingsReportBuildOptions;
+    final reportEngineSettings = ReportEngineSettings();
+    reportEngineSettings.dataSourceType = ReportEngineSettings_DataSourceTypeEnum.json;
+    reportEngineSettings.reportBuildOptions = reportEngineSettingsReportBuildOptions;
 
     final request = BuildReportRequest(
       remoteFileName,
       localDataFile,
-      requestReportEngineSettings,
+      reportEngineSettings,
       folder: remoteDataFolder
     );
 
