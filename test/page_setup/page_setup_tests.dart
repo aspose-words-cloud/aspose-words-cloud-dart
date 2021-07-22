@@ -64,10 +64,10 @@ class PageSetupTests
   /// Test for getting page settings online.
   Future<void> testGetSectionPageSetupOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = GetSectionPageSetupOnlineRequest(
-      documentData,
+      requestDocumentData,
       0
     );
 
@@ -79,16 +79,16 @@ class PageSetupTests
   {
     final remoteFileName = 'TestUpdateSectionPageSetup.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final pageSetup = PageSetup();
-    pageSetup.rtlGutter = true;
-    pageSetup.leftMargin = 10.0;
-    pageSetup.orientation = PageSetup_OrientationEnum.landscape;
-    pageSetup.paperSize = PageSetup_PaperSizeEnum.a5;
+    final requestPageSetup = PageSetup();
+    requestPageSetup.rtlGutter = true;
+    requestPageSetup.leftMargin = 10.0;
+    requestPageSetup.orientation = PageSetup_OrientationEnum.landscape;
+    requestPageSetup.paperSize = PageSetup_PaperSizeEnum.a5;
 
     final request = UpdateSectionPageSetupRequest(
       remoteFileName,
       0,
-      pageSetup,
+      requestPageSetup,
       folder: remoteDataFolder
     );
 
@@ -102,17 +102,17 @@ class PageSetupTests
   /// Test for updating page settings online.
   Future<void> testUpdateSectionPageSetupOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
-    final pageSetup = PageSetup();
-    pageSetup.rtlGutter = true;
-    pageSetup.leftMargin = 10;
-    pageSetup.orientation = PageSetup_OrientationEnum.landscape;
-    pageSetup.paperSize = PageSetup_PaperSizeEnum.a5;
+    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestPageSetup = PageSetup();
+    requestPageSetup.rtlGutter = true;
+    requestPageSetup.leftMargin = 10;
+    requestPageSetup.orientation = PageSetup_OrientationEnum.landscape;
+    requestPageSetup.paperSize = PageSetup_PaperSizeEnum.a5;
 
     final request = UpdateSectionPageSetupOnlineRequest(
-      documentData,
+      requestDocumentData,
       0,
-      pageSetup
+      requestPageSetup
     );
 
     await context.getApi().updateSectionPageSetupOnline(request);
@@ -137,10 +137,10 @@ class PageSetupTests
   /// Test for page rendering.
   Future<void> testGetRenderPageOnline() async
   {
-    final documentData = await context.loadBinaryFile(localTextFile);
+    final requestDocumentData = await context.loadBinaryFile(localTextFile);
 
     final request = RenderPageOnlineRequest(
-      documentData,
+      requestDocumentData,
       1,
       'bmp'
     );

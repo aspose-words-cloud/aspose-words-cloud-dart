@@ -66,10 +66,10 @@ class SplitDocumentToFormatTests
   /// Test for document splitting online.
   Future<void> testSplitDocumentOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = SplitDocumentOnlineRequest(
-      documentData,
+      requestDocumentData,
       'text',
       destFileName: context.baseTestOutPath + '/TestSplitDocument.text',
       from: 1,

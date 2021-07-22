@@ -64,10 +64,10 @@ class MathObjectTests
   /// Test for getting mathObjects online.
   Future<void> testGetOfficeMathObjectsOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = GetOfficeMathObjectsOnlineRequest(
-      documentData,
+      requestDocumentData,
       nodePath: ''
     );
 
@@ -113,10 +113,10 @@ class MathObjectTests
   /// Test for getting mathObject online.
   Future<void> testGetOfficeMathObjectOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = GetOfficeMathObjectOnlineRequest(
-      documentData,
+      requestDocumentData,
       0,
       nodePath: ''
     );
@@ -161,10 +161,10 @@ class MathObjectTests
   /// Test for rendering mathObject.
   Future<void> testRenderMathObjectOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = RenderMathObjectOnlineRequest(
-      documentData,
+      requestDocumentData,
       'png',
       0,
       nodePath: ''
@@ -208,10 +208,10 @@ class MathObjectTests
   /// Test for deleting mathObject online.
   Future<void> testDeleteOfficeMathObjectOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = DeleteOfficeMathObjectOnlineRequest(
-      documentData,
+      requestDocumentData,
       0,
       nodePath: ''
     );

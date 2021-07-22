@@ -47,15 +47,15 @@ class BuildReportTests
   {
     final localDocumentFile = 'ReportTemplate.docx';
     final localDataFile = await context.loadTextFile(reportingFolder + '/ReportData.json');
-    final templateData = await context.loadBinaryFile(reportingFolder + '/' + localDocumentFile);
-    final reportEngineSettings = ReportEngineSettings();
-    reportEngineSettings.dataSourceType = ReportEngineSettings_DataSourceTypeEnum.json;
-    reportEngineSettings.dataSourceName = 'persons';
+    final requestTemplateData = await context.loadBinaryFile(reportingFolder + '/' + localDocumentFile);
+    final requestReportEngineSettings = ReportEngineSettings();
+    requestReportEngineSettings.dataSourceType = ReportEngineSettings_DataSourceTypeEnum.json;
+    requestReportEngineSettings.dataSourceName = 'persons';
 
     final request = BuildReportOnlineRequest(
-      templateData,
+      requestTemplateData,
       localDataFile,
-      reportEngineSettings
+      requestReportEngineSettings
     );
 
     await context.getApi().buildReportOnline(request);
@@ -68,18 +68,18 @@ class BuildReportTests
     final remoteFileName = 'TestBuildReport.docx';
     final localDataFile = await context.loadTextFile(reportingFolder + '/ReportData.json');
     await context.uploadFile(reportingFolder + '/' + localDocumentFile, remoteDataFolder + '/' + remoteFileName);
-    final reportEngineSettingsReportBuildOptions = [
+    final requestReportEngineSettingsReportBuildOptions = [
       ReportBuildOptionsEnum.allowMissingMembers,
     ReportBuildOptionsEnum.removeEmptyParagraphs];
 
-    final reportEngineSettings = ReportEngineSettings();
-    reportEngineSettings.dataSourceType = ReportEngineSettings_DataSourceTypeEnum.json;
-    reportEngineSettings.reportBuildOptions = reportEngineSettingsReportBuildOptions;
+    final requestReportEngineSettings = ReportEngineSettings();
+    requestReportEngineSettings.dataSourceType = ReportEngineSettings_DataSourceTypeEnum.json;
+    requestReportEngineSettings.reportBuildOptions = requestReportEngineSettingsReportBuildOptions;
 
     final request = BuildReportRequest(
       remoteFileName,
       localDataFile,
-      reportEngineSettings,
+      requestReportEngineSettings,
       folder: remoteDataFolder
     );
 

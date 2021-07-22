@@ -65,10 +65,10 @@ class TableBorderTests
   /// Test for getting borders online.
   Future<void> testGetBordersOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = GetBordersOnlineRequest(
-      documentData,
+      requestDocumentData,
       nodePath: 'tables/1/rows/0/cells/0'
     );
 
@@ -97,10 +97,10 @@ class TableBorderTests
   /// Test for getting border online.
   Future<void> testGetBorderOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = GetBorderOnlineRequest(
-      documentData,
+      requestDocumentData,
       'left',
       nodePath: 'tables/1/rows/0/cells/0'
     );
@@ -126,10 +126,10 @@ class TableBorderTests
   /// Test for deleting borders online.
   Future<void> testDeleteBordersOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = DeleteBordersOnlineRequest(
-      documentData,
+      requestDocumentData,
       nodePath: 'tables/1/rows/0/cells/0'
     );
 
@@ -155,10 +155,10 @@ class TableBorderTests
   /// Test for deleting border online.
   Future<void> testDeleteBorderOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = DeleteBorderOnlineRequest(
-      documentData,
+      requestDocumentData,
       'left',
       nodePath: 'tables/1/rows/0/cells/0'
     );
@@ -171,21 +171,21 @@ class TableBorderTests
   {
     final remoteFileName = 'TestUpdateBorder.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final borderPropertiesColor = XmlColor();
-    borderPropertiesColor.web = '#AABBCC';
+    final requestBorderPropertiesColor = XmlColor();
+    requestBorderPropertiesColor.web = '#AABBCC';
 
-    final borderProperties = Border();
-    borderProperties.borderType = Border_BorderTypeEnum.left;
-    borderProperties.color = borderPropertiesColor;
-    borderProperties.distanceFromText = 6.0;
-    borderProperties.lineStyle = Border_LineStyleEnum.dashDotStroker;
-    borderProperties.lineWidth = 2.0;
-    borderProperties.shadow = true;
+    final requestBorderProperties = Border();
+    requestBorderProperties.borderType = Border_BorderTypeEnum.left;
+    requestBorderProperties.color = requestBorderPropertiesColor;
+    requestBorderProperties.distanceFromText = 6.0;
+    requestBorderProperties.lineStyle = Border_LineStyleEnum.dashDotStroker;
+    requestBorderProperties.lineWidth = 2.0;
+    requestBorderProperties.shadow = true;
 
     final request = UpdateBorderRequest(
       remoteFileName,
       'left',
-      borderProperties,
+      requestBorderProperties,
       nodePath: 'tables/1/rows/0/cells/0',
       folder: remoteDataFolder
     );
@@ -202,21 +202,21 @@ class TableBorderTests
   /// Test for updating border online.
   Future<void> testUpdateBorderOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
-    final borderPropertiesColor = XmlColor();
-    borderPropertiesColor.web = '#AABBCC';
+    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestBorderPropertiesColor = XmlColor();
+    requestBorderPropertiesColor.web = '#AABBCC';
 
-    final borderProperties = Border();
-    borderProperties.borderType = Border_BorderTypeEnum.left;
-    borderProperties.color = borderPropertiesColor;
-    borderProperties.distanceFromText = 6;
-    borderProperties.lineStyle = Border_LineStyleEnum.dashDotStroker;
-    borderProperties.lineWidth = 2;
-    borderProperties.shadow = true;
+    final requestBorderProperties = Border();
+    requestBorderProperties.borderType = Border_BorderTypeEnum.left;
+    requestBorderProperties.color = requestBorderPropertiesColor;
+    requestBorderProperties.distanceFromText = 6;
+    requestBorderProperties.lineStyle = Border_LineStyleEnum.dashDotStroker;
+    requestBorderProperties.lineWidth = 2;
+    requestBorderProperties.shadow = true;
 
     final request = UpdateBorderOnlineRequest(
-      documentData,
-      borderProperties,
+      requestDocumentData,
+      requestBorderProperties,
       'left',
       nodePath: 'tables/1/rows/0/cells/0'
     );

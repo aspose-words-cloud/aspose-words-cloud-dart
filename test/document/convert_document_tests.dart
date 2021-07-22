@@ -48,13 +48,13 @@ class ConvertDocumentTests
     final localName = 'test_multi_pages.docx';
     final remoteName = 'TestSaveAs.docx';
     await context.uploadFile('Common/' + localName, remoteFolder + '/' + remoteName);
-    final saveOptionsData = SaveOptionsData();
-    saveOptionsData.saveFormat = 'pdf';
-    saveOptionsData.fileName = context.baseTestOutPath + '/TestSaveAs.pdf';
+    final requestSaveOptionsData = SaveOptionsData();
+    requestSaveOptionsData.saveFormat = 'pdf';
+    requestSaveOptionsData.fileName = context.baseTestOutPath + '/TestSaveAs.pdf';
 
     final request = SaveAsRequest(
       remoteName,
-      saveOptionsData,
+      requestSaveOptionsData,
       folder: remoteFolder
     );
 
@@ -67,14 +67,14 @@ class ConvertDocumentTests
   Future<void> testSaveAsOnline() async
   {
     final localName = 'test_multi_pages.docx';
-    final documentData = await context.loadBinaryFile('Common/' + localName);
-    final saveOptionsData = SaveOptionsData();
-    saveOptionsData.saveFormat = 'pdf';
-    saveOptionsData.fileName = context.baseTestOutPath + '/TestSaveAs.pdf';
+    final requestDocumentData = await context.loadBinaryFile('Common/' + localName);
+    final requestSaveOptionsData = SaveOptionsData();
+    requestSaveOptionsData.saveFormat = 'pdf';
+    requestSaveOptionsData.fileName = context.baseTestOutPath + '/TestSaveAs.pdf';
 
     final request = SaveAsOnlineRequest(
-      documentData,
-      saveOptionsData
+      requestDocumentData,
+      requestSaveOptionsData
     );
 
     await context.getApi().saveAsOnline(request);
@@ -86,13 +86,13 @@ class ConvertDocumentTests
     final localName = '45.pdf';
     final remoteName = 'TestSaveAsFromPdfToDoc.pdf';
     await context.uploadFile(localFolder + '/' + localName, remoteFolder + '/' + remoteName);
-    final saveOptionsData = SaveOptionsData();
-    saveOptionsData.saveFormat = 'docx';
-    saveOptionsData.fileName = context.baseTestOutPath + '/TestSaveAsFromPdfToDoc.docx';
+    final requestSaveOptionsData = SaveOptionsData();
+    requestSaveOptionsData.saveFormat = 'docx';
+    requestSaveOptionsData.fileName = context.baseTestOutPath + '/TestSaveAsFromPdfToDoc.docx';
 
     final request = SaveAsRequest(
       remoteName,
-      saveOptionsData,
+      requestSaveOptionsData,
       folder: remoteFolder
     );
 
@@ -107,13 +107,13 @@ class ConvertDocumentTests
     final localName = 'test_multi_pages.docx';
     final remoteName = 'TestSaveAsTiff.pdf';
     await context.uploadFile('Common/' + localName, remoteFolder + '/' + remoteName);
-    final saveOptions = TiffSaveOptionsData();
-    saveOptions.saveFormat = 'tiff';
-    saveOptions.fileName = context.baseTestOutPath + '/abc.tiff';
+    final requestSaveOptions = TiffSaveOptionsData();
+    requestSaveOptions.saveFormat = 'tiff';
+    requestSaveOptions.fileName = context.baseTestOutPath + '/abc.tiff';
 
     final request = SaveAsTiffRequest(
       remoteName,
-      saveOptions,
+      requestSaveOptions,
       folder: remoteFolder
     );
 
@@ -126,14 +126,14 @@ class ConvertDocumentTests
   Future<void> testSaveAsTiffOnline() async
   {
     final localName = 'test_multi_pages.docx';
-    final documentData = await context.loadBinaryFile('Common/' + localName);
-    final saveOptions = TiffSaveOptionsData();
-    saveOptions.saveFormat = 'tiff';
-    saveOptions.fileName = context.baseTestOutPath + '/abc.tiff';
+    final requestDocumentData = await context.loadBinaryFile('Common/' + localName);
+    final requestSaveOptions = TiffSaveOptionsData();
+    requestSaveOptions.saveFormat = 'tiff';
+    requestSaveOptions.fileName = context.baseTestOutPath + '/abc.tiff';
 
     final request = SaveAsTiffOnlineRequest(
-      documentData,
-      saveOptions
+      requestDocumentData,
+      requestSaveOptions
     );
 
     await context.getApi().saveAsTiffOnline(request);
@@ -142,10 +142,10 @@ class ConvertDocumentTests
   /// A test for ConvertDocument.
   Future<void> testConvertDocument() async
   {
-    final documentData = await context.loadBinaryFile(localFolder + '/test_uploadfile.docx');
+    final requestDocumentData = await context.loadBinaryFile(localFolder + '/test_uploadfile.docx');
 
     final request = ConvertDocumentRequest(
-      documentData,
+      requestDocumentData,
       'pdf'
     );
 

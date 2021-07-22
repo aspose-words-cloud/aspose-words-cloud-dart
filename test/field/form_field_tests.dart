@@ -47,18 +47,18 @@ class FormFieldTests
   {
     final remoteFileName = 'TestUpdateFormField.docx';
     await context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
-    final formField = FormFieldTextInput();
-    formField.name = 'FullName';
-    formField.enabled = true;
-    formField.calculateOnExit = true;
-    formField.statusText = '';
-    formField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
-    formField.textInputDefault = 'No name';
+    final requestFormField = FormFieldTextInput();
+    requestFormField.name = 'FullName';
+    requestFormField.enabled = true;
+    requestFormField.calculateOnExit = true;
+    requestFormField.statusText = '';
+    requestFormField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
+    requestFormField.textInputDefault = 'No name';
 
     final request = UpdateFormFieldRequest(
       remoteFileName,
       0,
-      formField,
+      requestFormField,
       nodePath: 'sections/0',
       folder: remoteDataFolder,
       destFileName: context.baseTestOutPath + '/' + remoteFileName
@@ -73,18 +73,18 @@ class FormFieldTests
   /// Test for posting form field online.
   Future<void> testUpdateFormFieldOnline() async
   {
-    final documentData = await context.loadBinaryFile(fieldFolder + '/FormFilled.docx');
-    final formField = FormFieldTextInput();
-    formField.name = 'FullName';
-    formField.enabled = true;
-    formField.calculateOnExit = true;
-    formField.statusText = '';
-    formField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
-    formField.textInputDefault = 'No name';
+    final requestDocumentData = await context.loadBinaryFile(fieldFolder + '/FormFilled.docx');
+    final requestFormField = FormFieldTextInput();
+    requestFormField.name = 'FullName';
+    requestFormField.enabled = true;
+    requestFormField.calculateOnExit = true;
+    requestFormField.statusText = '';
+    requestFormField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
+    requestFormField.textInputDefault = 'No name';
 
     final request = UpdateFormFieldOnlineRequest(
-      documentData,
-      formField,
+      requestDocumentData,
+      requestFormField,
       0,
       nodePath: 'sections/0'
     );
@@ -97,18 +97,18 @@ class FormFieldTests
   {
     final remoteFileName = 'TestUpdateFormFieldWithoutNodePath.docx';
     await context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
-    final formField = FormFieldTextInput();
-    formField.name = 'FullName';
-    formField.enabled = true;
-    formField.calculateOnExit = true;
-    formField.statusText = '';
-    formField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
-    formField.textInputDefault = 'No name';
+    final requestFormField = FormFieldTextInput();
+    requestFormField.name = 'FullName';
+    requestFormField.enabled = true;
+    requestFormField.calculateOnExit = true;
+    requestFormField.statusText = '';
+    requestFormField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
+    requestFormField.textInputDefault = 'No name';
 
     final request = UpdateFormFieldRequest(
       remoteFileName,
       0,
-      formField,
+      requestFormField,
       folder: remoteDataFolder,
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
@@ -140,10 +140,10 @@ class FormFieldTests
   /// Test for getting form field online.
   Future<void> testGetFormFieldOnline() async
   {
-    final documentData = await context.loadBinaryFile(fieldFolder + '/FormFilled.docx');
+    final requestDocumentData = await context.loadBinaryFile(fieldFolder + '/FormFilled.docx');
 
     final request = GetFormFieldOnlineRequest(
-      documentData,
+      requestDocumentData,
       0,
       nodePath: 'sections/0'
     );
@@ -190,10 +190,10 @@ class FormFieldTests
   /// Test for getting form fields online.
   Future<void> testGetFormFieldsOnline() async
   {
-    final documentData = await context.loadBinaryFile(fieldFolder + '/FormFilled.docx');
+    final requestDocumentData = await context.loadBinaryFile(fieldFolder + '/FormFilled.docx');
 
     final request = GetFormFieldsOnlineRequest(
-      documentData,
+      requestDocumentData,
       nodePath: 'sections/0'
     );
 
@@ -223,18 +223,18 @@ class FormFieldTests
   {
     final remoteFileName = 'TestInsertFormField.docx';
     await context.uploadFile('Common/test_multi_pages.docx', remoteDataFolder + '/' + remoteFileName);
-    final formField = FormFieldTextInput();
-    formField.name = 'FullName';
-    formField.enabled = true;
-    formField.calculateOnExit = true;
-    formField.statusText = '';
-    formField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
-    formField.textInputDefault = '123';
-    formField.textInputFormat = 'UPPERCASE';
+    final requestFormField = FormFieldTextInput();
+    requestFormField.name = 'FullName';
+    requestFormField.enabled = true;
+    requestFormField.calculateOnExit = true;
+    requestFormField.statusText = '';
+    requestFormField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
+    requestFormField.textInputDefault = '123';
+    requestFormField.textInputFormat = 'UPPERCASE';
 
     final request = InsertFormFieldRequest(
       remoteFileName,
-      formField,
+      requestFormField,
       nodePath: 'sections/0/paragraphs/0',
       folder: remoteDataFolder,
       destFileName: context.baseTestOutPath + '/' + remoteFileName
@@ -249,19 +249,19 @@ class FormFieldTests
   /// Test for insert form field without node path online.
   Future<void> testInsertFormFieldOnline() async
   {
-    final documentData = await context.loadBinaryFile(fieldFolder + '/FormFilled.docx');
-    final formField = FormFieldTextInput();
-    formField.name = 'FullName';
-    formField.enabled = true;
-    formField.calculateOnExit = true;
-    formField.statusText = '';
-    formField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
-    formField.textInputDefault = '123';
-    formField.textInputFormat = 'UPPERCASE';
+    final requestDocumentData = await context.loadBinaryFile(fieldFolder + '/FormFilled.docx');
+    final requestFormField = FormFieldTextInput();
+    requestFormField.name = 'FullName';
+    requestFormField.enabled = true;
+    requestFormField.calculateOnExit = true;
+    requestFormField.statusText = '';
+    requestFormField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
+    requestFormField.textInputDefault = '123';
+    requestFormField.textInputFormat = 'UPPERCASE';
 
     final request = InsertFormFieldOnlineRequest(
-      documentData,
-      formField,
+      requestDocumentData,
+      requestFormField,
       nodePath: 'sections/0/paragraphs/0'
     );
 
@@ -273,18 +273,18 @@ class FormFieldTests
   {
     final remoteFileName = 'TestInsertFormFieldWithoutNodePath.docx';
     await context.uploadFile('Common/test_multi_pages.docx', remoteDataFolder + '/' + remoteFileName);
-    final formField = FormFieldTextInput();
-    formField.name = 'FullName';
-    formField.enabled = true;
-    formField.calculateOnExit = true;
-    formField.statusText = '';
-    formField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
-    formField.textInputDefault = '123';
-    formField.textInputFormat = 'UPPERCASE';
+    final requestFormField = FormFieldTextInput();
+    requestFormField.name = 'FullName';
+    requestFormField.enabled = true;
+    requestFormField.calculateOnExit = true;
+    requestFormField.statusText = '';
+    requestFormField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
+    requestFormField.textInputDefault = '123';
+    requestFormField.textInputFormat = 'UPPERCASE';
 
     final request = InsertFormFieldRequest(
       remoteFileName,
-      formField,
+      requestFormField,
       folder: remoteDataFolder,
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
@@ -315,10 +315,10 @@ class FormFieldTests
   /// Test for deleting form field online.
   Future<void> testDeleteFormFieldOnline() async
   {
-    final documentData = await context.loadBinaryFile(fieldFolder + '/FormFilled.docx');
+    final requestDocumentData = await context.loadBinaryFile(fieldFolder + '/FormFilled.docx');
 
     final request = DeleteFormFieldOnlineRequest(
-      documentData,
+      requestDocumentData,
       0,
       nodePath: 'sections/0'
     );

@@ -47,12 +47,12 @@ class ExecuteMailMergeTests
   {
     final localDocumentFile = 'SampleExecuteTemplate.docx';
     final localDataFile = 'SampleExecuteTemplateData.txt';
-    final templateData = await context.loadBinaryFile(mailMergeFolder + '/' + localDocumentFile);
-    final dataData = await context.loadBinaryFile(mailMergeFolder + '/' + localDataFile);
+    final requestTemplateData = await context.loadBinaryFile(mailMergeFolder + '/' + localDocumentFile);
+    final requestDataData = await context.loadBinaryFile(mailMergeFolder + '/' + localDataFile);
 
     final request = ExecuteMailMergeOnlineRequest(
-      templateData,
-      dataData
+      requestTemplateData,
+      requestDataData
     );
 
     await context.getApi().executeMailMergeOnline(request);

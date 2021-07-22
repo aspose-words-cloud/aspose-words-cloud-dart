@@ -46,13 +46,13 @@ class TextTests
     final remoteFileName = 'TestReplaceText.docx';
     final localFile = 'Common/test_multi_pages.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final replaceText = ReplaceTextParameters();
-    replaceText.oldValue = 'Testing';
-    replaceText.newValue = 'Aspose testing';
+    final requestReplaceText = ReplaceTextParameters();
+    requestReplaceText.oldValue = 'Testing';
+    requestReplaceText.newValue = 'Aspose testing';
 
     final request = ReplaceTextRequest(
       remoteFileName,
-      replaceText,
+      requestReplaceText,
       folder: remoteDataFolder,
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
@@ -65,14 +65,14 @@ class TextTests
   Future<void> testReplaceTextOnline() async
   {
     final localFile = 'Common/test_multi_pages.docx';
-    final documentData = await context.loadBinaryFile(localFile);
-    final replaceText = ReplaceTextParameters();
-    replaceText.oldValue = 'aspose';
-    replaceText.newValue = 'aspose new';
+    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestReplaceText = ReplaceTextParameters();
+    requestReplaceText.oldValue = 'aspose';
+    requestReplaceText.newValue = 'aspose new';
 
     final request = ReplaceTextOnlineRequest(
-      documentData,
-      replaceText
+      requestDocumentData,
+      requestReplaceText
     );
 
     await context.getApi().replaceTextOnline(request);
@@ -103,10 +103,10 @@ class TextTests
   Future<void> testSearchOnline() async
   {
     final localFile = 'DocumentElements/Text/SampleWordDocument.docx';
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = SearchOnlineRequest(
-      documentData,
+      requestDocumentData,
       'aspose'
     );
 

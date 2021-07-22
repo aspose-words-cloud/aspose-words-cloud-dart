@@ -46,10 +46,10 @@ class FileTests
   Future<void> testUploadFile() async
   {
     final remoteFileName = 'TestUploadFile.docx';
-    final fileContentData = await context.loadBinaryFile(localFile);
+    final requestFileContentData = await context.loadBinaryFile(localFile);
 
     final request = UploadFileRequest(
-      fileContentData,
+      requestFileContentData,
       remoteDataFolder + '/' + remoteFileName
     );
 

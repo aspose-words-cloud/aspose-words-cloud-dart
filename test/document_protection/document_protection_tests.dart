@@ -47,13 +47,13 @@ class DocumentProtectionTests
   {
     final remoteFileName = 'TestProtectDocument.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final protectionRequest = ProtectionRequest();
-    protectionRequest.password = '123';
-    protectionRequest.protectionType = 'ReadOnly';
+    final requestProtectionRequest = ProtectionRequest();
+    requestProtectionRequest.password = '123';
+    requestProtectionRequest.protectionType = 'ReadOnly';
 
     final request = ProtectDocumentRequest(
       remoteFileName,
-      protectionRequest,
+      requestProtectionRequest,
       folder: remoteDataFolder,
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
@@ -66,13 +66,13 @@ class DocumentProtectionTests
   /// Test for setting document protection.
   Future<void> testProtectDocumentOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
-    final protectionRequest = ProtectionRequest();
-    protectionRequest.newPassword = '123';
+    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestProtectionRequest = ProtectionRequest();
+    requestProtectionRequest.newPassword = '123';
 
     final request = ProtectDocumentOnlineRequest(
-      documentData,
-      protectionRequest
+      requestDocumentData,
+      requestProtectionRequest
     );
 
     await context.getApi().protectDocumentOnline(request);
@@ -96,10 +96,10 @@ class DocumentProtectionTests
   /// Test for getting document protection.
   Future<void> testGetDocumentProtectionOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = GetDocumentProtectionOnlineRequest(
-      documentData
+      requestDocumentData
     );
 
     await context.getApi().getDocumentProtectionOnline(request);
@@ -111,12 +111,12 @@ class DocumentProtectionTests
     final localFilePath = 'DocumentActions/DocumentProtection/SampleProtectedBlankWordDocument.docx';
     final remoteFileName = 'TestDeleteUnprotectDocument.docx';
     await context.uploadFile(localFilePath, remoteDataFolder + '/' + remoteFileName);
-    final protectionRequest = ProtectionRequest();
-    protectionRequest.password = 'aspose';
+    final requestProtectionRequest = ProtectionRequest();
+    requestProtectionRequest.password = 'aspose';
 
     final request = UnprotectDocumentRequest(
       remoteFileName,
-      protectionRequest,
+      requestProtectionRequest,
       folder: remoteDataFolder
     );
 
@@ -129,13 +129,13 @@ class DocumentProtectionTests
   Future<void> testDeleteUnprotectDocumentOnline() async
   {
     final localFilePath = 'DocumentActions/DocumentProtection/SampleProtectedBlankWordDocument.docx';
-    final documentData = await context.loadBinaryFile(localFilePath);
-    final protectionRequest = ProtectionRequest();
-    protectionRequest.password = 'aspose';
+    final requestDocumentData = await context.loadBinaryFile(localFilePath);
+    final requestProtectionRequest = ProtectionRequest();
+    requestProtectionRequest.password = 'aspose';
 
     final request = UnprotectDocumentOnlineRequest(
-      documentData,
-      protectionRequest
+      requestDocumentData,
+      requestProtectionRequest
     );
 
     await context.getApi().unprotectDocumentOnline(request);

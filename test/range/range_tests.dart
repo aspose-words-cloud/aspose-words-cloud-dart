@@ -62,10 +62,10 @@ class RangeTests
   /// Test for getting the text from range online.
   Future<void> testGetRangeTextOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = GetRangeTextOnlineRequest(
-      documentData,
+      requestDocumentData,
       'id0.0.0',
       rangeEndIdentifier: 'id0.0.1'
     );
@@ -92,10 +92,10 @@ class RangeTests
   /// Test for removing the text for range online.
   Future<void> testRemoveRangeOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = RemoveRangeOnlineRequest(
-      documentData,
+      requestDocumentData,
       'id0.0.0',
       rangeEndIdentifier: 'id0.0.1'
     );
@@ -108,13 +108,13 @@ class RangeTests
   {
     final remoteFileName = 'TestSaveAsRange.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final documentParameters = RangeDocument();
-    documentParameters.documentName = remoteDataFolder + '/NewDoc.docx';
+    final requestDocumentParameters = RangeDocument();
+    requestDocumentParameters.documentName = remoteDataFolder + '/NewDoc.docx';
 
     final request = SaveAsRangeRequest(
       remoteFileName,
       'id0.0.0',
-      documentParameters,
+      requestDocumentParameters,
       rangeEndIdentifier: 'id0.0.1',
       folder: remoteDataFolder
     );
@@ -127,14 +127,14 @@ class RangeTests
   /// Test for saving a range as a new document online.
   Future<void> testSaveAsRangeOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
-    final documentParameters = RangeDocument();
-    documentParameters.documentName = remoteDataFolder + '/NewDoc.docx';
+    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocumentParameters = RangeDocument();
+    requestDocumentParameters.documentName = remoteDataFolder + '/NewDoc.docx';
 
     final request = SaveAsRangeOnlineRequest(
-      documentData,
+      requestDocumentData,
       'id0.0.0',
-      documentParameters,
+      requestDocumentParameters,
       rangeEndIdentifier: 'id0.0.1'
     );
 
@@ -146,13 +146,13 @@ class RangeTests
   {
     final remoteFileName = 'TestReplaceWithText.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final rangeText = ReplaceRange();
-    rangeText.text = 'Replaced header';
+    final requestRangeText = ReplaceRange();
+    requestRangeText.text = 'Replaced header';
 
     final request = ReplaceWithTextRequest(
       remoteFileName,
       'id0.0.0',
-      rangeText,
+      requestRangeText,
       rangeEndIdentifier: 'id0.0.1',
       folder: remoteDataFolder
     );
@@ -165,14 +165,14 @@ class RangeTests
   /// Test for replacing text in range online.
   Future<void> testReplaceWithTextOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
-    final rangeText = ReplaceRange();
-    rangeText.text = 'Replaced header';
+    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestRangeText = ReplaceRange();
+    requestRangeText.text = 'Replaced header';
 
     final request = ReplaceWithTextOnlineRequest(
-      documentData,
+      requestDocumentData,
       'id0.0.0',
-      rangeText,
+      requestRangeText,
       rangeEndIdentifier: 'id0.0.1'
     );
 
