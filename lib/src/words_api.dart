@@ -783,6 +783,11 @@ class WordsApi {
     return await _apiClient.call(request) as TabStopsResponse;
   }
 
+  /// Get assymetric public key.
+  Future< PublicKeyResponse > getPublicKey(GetPublicKeyRequest request) async {
+    return await _apiClient.call(request) as PublicKeyResponse;
+  }
+
   /// Reads range text from the document.
   Future< RangeTextResponse > getRangeText(GetRangeTextRequest request) async {
     return await _apiClient.call(request) as RangeTextResponse;
