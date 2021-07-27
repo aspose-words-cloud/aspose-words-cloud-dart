@@ -32,7 +32,7 @@ import 'dart:typed_data';
 
 import '../../aspose_words_cloud.dart';
 
-/// Converts a document in cloud storage to the specified format.
+/// Converts a document to the specified format.
 class SaveAsOnlineResponse implements ResponseBase {
   /// The response model.
   SaveResponse model;
