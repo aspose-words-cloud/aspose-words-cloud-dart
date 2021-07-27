@@ -1263,7 +1263,7 @@ class WordsApi {
     return await _apiClient.call(request) as SaveResponse;
   }
 
-  /// Converts a document in cloud storage to the specified format.
+  /// Converts a document to the specified format.
   Future< SaveAsOnlineResponse > saveAsOnline(SaveAsOnlineRequest request) async {
     return await _apiClient.call(request) as SaveAsOnlineResponse;
   }
@@ -1283,7 +1283,7 @@ class WordsApi {
     return await _apiClient.call(request) as SaveResponse;
   }
 
-  /// Converts a document in cloud storage to TIFF format using detailed conversion settings.
+  /// Converts a document to TIFF format using detailed conversion settings.
   Future< SaveAsTiffOnlineResponse > saveAsTiffOnline(SaveAsTiffOnlineRequest request) async {
     return await _apiClient.call(request) as SaveAsTiffOnlineResponse;
   }
