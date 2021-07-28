@@ -64,10 +64,10 @@ class TableTests
   /// Test for getting tables online.
   Future<void> testGetTablesOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = GetTablesOnlineRequest(
-      documentData,
+      requestDocumentData,
       nodePath: ''
     );
 
@@ -116,10 +116,10 @@ class TableTests
   /// Test for getting table online.
   Future<void> testGetTableOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = GetTableOnlineRequest(
-      documentData,
+      requestDocumentData,
       1,
       nodePath: ''
     );
@@ -166,10 +166,10 @@ class TableTests
   /// Test for deleting table online.
   Future<void> testDeleteTableOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = DeleteTableOnlineRequest(
-      documentData,
+      requestDocumentData,
       1,
       nodePath: ''
     );
@@ -219,13 +219,13 @@ class TableTests
   /// Test for adding table online.
   Future<void> testInsertTableOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
     final requestTable = TableInsert();
     requestTable.columnsCount = 5;
     requestTable.rowsCount = 4;
 
     final request = InsertTableOnlineRequest(
-      documentData,
+      requestDocumentData,
       requestTable,
       nodePath: ''
     );
@@ -277,10 +277,10 @@ class TableTests
   /// Test for getting document properties online.
   Future<void> testGetTablePropertiesOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = GetTablePropertiesOnlineRequest(
-      documentData,
+      requestDocumentData,
       1,
       nodePath: ''
     );
@@ -337,7 +337,7 @@ class TableTests
   /// Test for updating table properties online.
   Future<void> testUpdateTablePropertiesOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
     final requestProperties = TableProperties();
     requestProperties.alignment = TableProperties_AlignmentEnum.right;
     requestProperties.allowAutoFit = false;
@@ -347,7 +347,7 @@ class TableTests
     requestProperties.styleOptions = TableProperties_StyleOptionsEnum.columnBands;
 
     final request = UpdateTablePropertiesOnlineRequest(
-      documentData,
+      requestDocumentData,
       requestProperties,
       1,
       nodePath: ''
@@ -406,10 +406,10 @@ class TableTests
   /// Test for getting table row online.
   Future<void> testGetTableRowOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = GetTableRowOnlineRequest(
-      documentData,
+      requestDocumentData,
       'tables/1',
       0
     );
@@ -436,10 +436,10 @@ class TableTests
   /// Test for deleting table row online.
   Future<void> testDeleteTableRowOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = DeleteTableRowOnlineRequest(
-      documentData,
+      requestDocumentData,
       'tables/1',
       0
     );
@@ -471,12 +471,12 @@ class TableTests
   /// Test for adding row online.
   Future<void> testInsertTableRowOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
     final requestRow = TableRowInsert();
     requestRow.columnsCount = 5;
 
     final request = InsertTableRowOnlineRequest(
-      documentData,
+      requestDocumentData,
       'sections/0/tables/2',
       requestRow
     );
@@ -505,10 +505,10 @@ class TableTests
   /// Test for getting row format online.
   Future<void> testGetTableRowFormatOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = GetTableRowFormatOnlineRequest(
-      documentData,
+      requestDocumentData,
       'sections/0/tables/2',
       0
     );
@@ -545,7 +545,7 @@ class TableTests
   /// Test updating row format online.
   Future<void> testUpdateTableRowFormatOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
     final requestFormat = TableRowFormat();
     requestFormat.allowBreakAcrossPages = true;
     requestFormat.headingFormat = true;
@@ -553,7 +553,7 @@ class TableTests
     requestFormat.heightRule = TableRowFormat_HeightRuleEnum.auto;
 
     final request = UpdateTableRowFormatOnlineRequest(
-      documentData,
+      requestDocumentData,
       'sections/0/tables/2',
       requestFormat,
       0
@@ -583,10 +583,10 @@ class TableTests
   /// Test for getting table cell online.
   Future<void> testGetTableCellOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = GetTableCellOnlineRequest(
-      documentData,
+      requestDocumentData,
       'sections/0/tables/2/rows/0',
       0
     );
@@ -613,10 +613,10 @@ class TableTests
   /// Test for deleting cell online.
   Future<void> testDeleteTableCellOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = DeleteTableCellOnlineRequest(
-      documentData,
+      requestDocumentData,
       'sections/0/tables/2/rows/0',
       0
     );
@@ -647,12 +647,12 @@ class TableTests
   /// Test for adding cell online.
   Future<void> testInsertTableCellOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
     final requestCell = TableCellInsert();
 
 
     final request = InsertTableCellOnlineRequest(
-      documentData,
+      requestDocumentData,
       'sections/0/tables/2/rows/0',
       requestCell
     );
@@ -681,10 +681,10 @@ class TableTests
   /// Test for getting cell format online.
   Future<void> testGetTableCellFormatOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = GetTableCellFormatOnlineRequest(
-      documentData,
+      requestDocumentData,
       'sections/0/tables/2/rows/0',
       0
     );
@@ -721,7 +721,7 @@ class TableTests
   /// Test for updating cell format online.
   Future<void> testUpdateTableCellFormatOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
     final requestFormat = TableCellFormat();
     requestFormat.bottomPadding = 5;
     requestFormat.fitText = true;
@@ -729,7 +729,7 @@ class TableTests
     requestFormat.wrapText = true;
 
     final request = UpdateTableCellFormatOnlineRequest(
-      documentData,
+      requestDocumentData,
       'sections/0/tables/2/rows/0',
       requestFormat,
       0
@@ -758,10 +758,10 @@ class TableTests
   /// Test for table rendering.
   Future<void> testRenderTableOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = RenderTableOnlineRequest(
-      documentData,
+      requestDocumentData,
       'png',
       0,
       nodePath: ''

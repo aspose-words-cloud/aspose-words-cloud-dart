@@ -36,8 +36,8 @@ import '../api_request_part.dart';
 
 /// Request model for GetDocumentFieldNamesOnline operation.
 class GetDocumentFieldNamesOnlineRequest implements RequestBase {
-  /// The document.
-  final ByteData document;
+  /// The template document.
+  final ByteData template;
 
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
   final String loadEncoding;
@@ -48,7 +48,7 @@ class GetDocumentFieldNamesOnlineRequest implements RequestBase {
   /// The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
   final bool useNonMergeFields;
 
-  GetDocumentFieldNamesOnlineRequest(final this.document, {final this.loadEncoding, final this.password, final this.useNonMergeFields});
+  GetDocumentFieldNamesOnlineRequest(final this.template, {final this.loadEncoding, final this.password, final this.useNonMergeFields});
 
   @override
   ApiRequestData createRequestData(final ApiClient _apiClient) {
@@ -68,11 +68,11 @@ class GetDocumentFieldNamesOnlineRequest implements RequestBase {
       _queryParams['useNonMergeFields'] = _apiClient.serializeToString(useNonMergeFields);
     }
 
-    if (document != null) {
-      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(document), 'application/octet-stream', name: 'Document'));
+    if (template != null) {
+      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(template), 'application/octet-stream', name: 'Template'));
     }
     else {
-      throw ApiException(400, 'Parameter document is required.');
+      throw ApiException(400, 'Parameter template is required.');
     }
 
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');

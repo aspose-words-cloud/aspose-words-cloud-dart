@@ -23,8 +23,8 @@ class ExamplesTests
         final fileName  = 'test_doc.docx';
 
         // Upload original document to cloud storage.
-        final fileContentData = (await File(fileName).readAsBytes()).buffer.asByteData();
-        final uploadFileRequest = UploadFileRequest(fileContentData, fileName);
+        final requestFileContentData = (await File(fileName).readAsBytes()).buffer.asByteData();
+        final uploadFileRequest = UploadFileRequest(requestFileContentData, fileName);
         await wordsApi.uploadFile(uploadFileRequest);
 
         // Calls AcceptAllRevisions method for document in cloud.
@@ -38,8 +38,8 @@ class ExamplesTests
         final fileName  = 'test_doc.docx';
 
         // Calls AcceptAllRevisionsOnline method for document in cloud.
-        final documentData = (await File(fileName).readAsBytes()).buffer.asByteData();
-        final request = AcceptAllRevisionsOnlineRequest(documentData);
+        final requestDocumentData = (await File(fileName).readAsBytes()).buffer.asByteData();
+        final request = AcceptAllRevisionsOnlineRequest(requestDocumentData);
         final acceptAllRevisionsOnlineResult = await wordsApi.acceptAllRevisionsOnline(request);
         await File('test_result.docx').writeAsBytes(
             acceptAllRevisionsOnlineResult.document.buffer.asUint8List(acceptAllRevisionsOnlineResult.document.offsetInBytes, acceptAllRevisionsOnlineResult.document.lengthInBytes)

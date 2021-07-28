@@ -46,10 +46,10 @@ class MailMergeFiledsTests
   Future<void> testGetDocumentFieldNamesOnline() async
   {
     final localDocumentFile = 'SampleExecuteTemplate.docx';
-    final documentData = await context.loadBinaryFile(mailMergeFolder + '/' + localDocumentFile);
+    final requestTemplateData = await context.loadBinaryFile(mailMergeFolder + '/' + localDocumentFile);
 
     final request = GetDocumentFieldNamesOnlineRequest(
-      documentData,
+      requestTemplateData,
       useNonMergeFields: true
     );
 

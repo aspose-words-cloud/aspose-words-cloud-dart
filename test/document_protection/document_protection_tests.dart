@@ -66,12 +66,12 @@ class DocumentProtectionTests
   /// Test for setting document protection.
   Future<void> testProtectDocumentOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
     final requestProtectionRequest = ProtectionRequest();
     requestProtectionRequest.newPassword = '123';
 
     final request = ProtectDocumentOnlineRequest(
-      documentData,
+      requestDocumentData,
       requestProtectionRequest
     );
 
@@ -96,10 +96,10 @@ class DocumentProtectionTests
   /// Test for getting document protection.
   Future<void> testGetDocumentProtectionOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = GetDocumentProtectionOnlineRequest(
-      documentData
+      requestDocumentData
     );
 
     await context.getApi().getDocumentProtectionOnline(request);
@@ -129,12 +129,12 @@ class DocumentProtectionTests
   Future<void> testDeleteUnprotectDocumentOnline() async
   {
     final localFilePath = 'DocumentActions/DocumentProtection/SampleProtectedBlankWordDocument.docx';
-    final documentData = await context.loadBinaryFile(localFilePath);
+    final requestDocumentData = await context.loadBinaryFile(localFilePath);
     final requestProtectionRequest = ProtectionRequest();
     requestProtectionRequest.password = 'aspose';
 
     final request = UnprotectDocumentOnlineRequest(
-      documentData,
+      requestDocumentData,
       requestProtectionRequest
     );
 

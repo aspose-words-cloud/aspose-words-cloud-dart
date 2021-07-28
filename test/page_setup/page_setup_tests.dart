@@ -64,10 +64,10 @@ class PageSetupTests
   /// Test for getting page settings online.
   Future<void> testGetSectionPageSetupOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = GetSectionPageSetupOnlineRequest(
-      documentData,
+      requestDocumentData,
       0
     );
 
@@ -102,7 +102,7 @@ class PageSetupTests
   /// Test for updating page settings online.
   Future<void> testUpdateSectionPageSetupOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
     final requestPageSetup = PageSetup();
     requestPageSetup.rtlGutter = true;
     requestPageSetup.leftMargin = 10;
@@ -110,7 +110,7 @@ class PageSetupTests
     requestPageSetup.paperSize = PageSetup_PaperSizeEnum.a5;
 
     final request = UpdateSectionPageSetupOnlineRequest(
-      documentData,
+      requestDocumentData,
       0,
       requestPageSetup
     );
@@ -137,10 +137,10 @@ class PageSetupTests
   /// Test for page rendering.
   Future<void> testGetRenderPageOnline() async
   {
-    final documentData = await context.loadBinaryFile(localTextFile);
+    final requestDocumentData = await context.loadBinaryFile(localTextFile);
 
     final request = RenderPageOnlineRequest(
-      documentData,
+      requestDocumentData,
       1,
       'bmp'
     );

@@ -61,10 +61,10 @@ class DrawingObjectsTests
   /// Test for getting drawing objects from document online.
   Future<void> testGetDocumentDrawingObjectsOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = GetDocumentDrawingObjectsOnlineRequest(
-      documentData,
+      requestDocumentData,
       nodePath: 'sections/0'
     );
 
@@ -104,10 +104,10 @@ class DrawingObjectsTests
   /// Test for getting drawing object by specified index online.
   Future<void> testGetDocumentDrawingObjectByIndexOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = GetDocumentDrawingObjectByIndexOnlineRequest(
-      documentData,
+      requestDocumentData,
       0,
       nodePath: 'sections/0'
     );
@@ -150,10 +150,10 @@ class DrawingObjectsTests
   /// Test for getting drawing object by specified index and format online.
   Future<void> testRenderDrawingObjectOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = RenderDrawingObjectOnlineRequest(
-      documentData,
+      requestDocumentData,
       'png',
       0,
       nodePath: 'sections/0'
@@ -197,10 +197,10 @@ class DrawingObjectsTests
   /// Test for reading drawing object's image data online.
   Future<void> testGetDocumentDrawingObjectImageDataOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = GetDocumentDrawingObjectImageDataOnlineRequest(
-      documentData,
+      requestDocumentData,
       0,
       nodePath: 'sections/0'
     );
@@ -242,10 +242,10 @@ class DrawingObjectsTests
   /// Test for getting drawing object OLE data online.
   Future<void> testGetDocumentDrawingObjectOleDataOnline() async
   {
-    final documentData = await context.loadBinaryFile(localDrawingFile);
+    final requestDocumentData = await context.loadBinaryFile(localDrawingFile);
 
     final request = GetDocumentDrawingObjectOleDataOnlineRequest(
-      documentData,
+      requestDocumentData,
       0,
       nodePath: 'sections/0'
     );
@@ -273,7 +273,7 @@ class DrawingObjectsTests
   {
     final remoteFileName = 'TestInsetDrawingObject.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final imageFileData = await context.loadBinaryFile('Common/aspose-cloud.png');
+    final requestImageFileData = await context.loadBinaryFile('Common/aspose-cloud.png');
     final requestDrawingObject = DrawingObjectInsert();
     requestDrawingObject.height = 0;
     requestDrawingObject.left = 0;
@@ -286,7 +286,7 @@ class DrawingObjectsTests
     final request = InsertDrawingObjectRequest(
       remoteFileName,
       requestDrawingObject,
-      imageFileData,
+      requestImageFileData,
       nodePath: '',
       folder: remoteDataFolder
     );
@@ -297,8 +297,8 @@ class DrawingObjectsTests
   /// Test for adding drawing object online.
   Future<void> testInsertDrawingObjectOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
-    final imageFileData = await context.loadBinaryFile('Common/aspose-cloud.png');
+    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestImageFileData = await context.loadBinaryFile('Common/aspose-cloud.png');
     final requestDrawingObject = DrawingObjectInsert();
     requestDrawingObject.height = 0;
     requestDrawingObject.left = 0;
@@ -309,9 +309,9 @@ class DrawingObjectsTests
     requestDrawingObject.wrapType = DrawingObjectInsert_WrapTypeEnum.inline;
 
     final request = InsertDrawingObjectOnlineRequest(
-      documentData,
+      requestDocumentData,
       requestDrawingObject,
-      imageFileData,
+      requestImageFileData,
       nodePath: ''
     );
 
@@ -323,7 +323,7 @@ class DrawingObjectsTests
   {
     final remoteFileName = 'TestInsetDrawingObjectWithoutNodePath.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final imageFileData = await context.loadBinaryFile('Common/aspose-cloud.png');
+    final requestImageFileData = await context.loadBinaryFile('Common/aspose-cloud.png');
     final requestDrawingObject = DrawingObjectInsert();
     requestDrawingObject.height = 0;
     requestDrawingObject.left = 0;
@@ -336,7 +336,7 @@ class DrawingObjectsTests
     final request = InsertDrawingObjectRequest(
       remoteFileName,
       requestDrawingObject,
-      imageFileData,
+      requestImageFileData,
       folder: remoteDataFolder
     );
 
@@ -362,10 +362,10 @@ class DrawingObjectsTests
   /// Test for deleting drawing object online.
   Future<void> testDeleteDrawingObjectOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = DeleteDrawingObjectOnlineRequest(
-      documentData,
+      requestDocumentData,
       0,
       nodePath: ''
     );
@@ -393,14 +393,14 @@ class DrawingObjectsTests
   {
     final remoteFileName = 'TestUpdateDrawingObject.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final imageFileData = await context.loadBinaryFile('Common/aspose-cloud.png');
+    final requestImageFileData = await context.loadBinaryFile('Common/aspose-cloud.png');
     final requestDrawingObject = DrawingObjectUpdate();
     requestDrawingObject.left = 0;
 
     final request = UpdateDrawingObjectRequest(
       remoteFileName,
       requestDrawingObject,
-      imageFileData,
+      requestImageFileData,
       0,
       nodePath: '',
       folder: remoteDataFolder
@@ -412,15 +412,15 @@ class DrawingObjectsTests
   /// Test for updating drawing object online.
   Future<void> testUpdateDrawingObjectOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
-    final imageFileData = await context.loadBinaryFile('Common/aspose-cloud.png');
+    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestImageFileData = await context.loadBinaryFile('Common/aspose-cloud.png');
     final requestDrawingObject = DrawingObjectUpdate();
     requestDrawingObject.left = 0;
 
     final request = UpdateDrawingObjectOnlineRequest(
-      documentData,
+      requestDocumentData,
       requestDrawingObject,
-      imageFileData,
+      requestImageFileData,
       0,
       nodePath: ''
     );
@@ -433,14 +433,14 @@ class DrawingObjectsTests
   {
     final remoteFileName = 'TestUpdateDrawingObjectWithoutNodePath.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final imageFileData = await context.loadBinaryFile('Common/aspose-cloud.png');
+    final requestImageFileData = await context.loadBinaryFile('Common/aspose-cloud.png');
     final requestDrawingObject = DrawingObjectUpdate();
     requestDrawingObject.left = 0;
 
     final request = UpdateDrawingObjectRequest(
       remoteFileName,
       requestDrawingObject,
-      imageFileData,
+      requestImageFileData,
       0,
       folder: remoteDataFolder
     );

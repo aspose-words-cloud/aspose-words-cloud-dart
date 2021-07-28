@@ -44,6 +44,7 @@ import './document/document_statistics_tests.dart';
 import './document/document_tests.dart';
 import './document/document_with_format_tests.dart';
 import './document/load_web_document_tests.dart';
+import './document/password_encryption_tests.dart';
 import './document/revisions_tests.dart';
 import './document/split_document_to_format_tests.dart';
 import './document_properties/document_properties_tests.dart';
@@ -178,6 +179,10 @@ void main() {
 
   group('LoadWebDocument', () {
     test('LoadWebDocument', () async => await LoadWebDocumentTests(testContext).testLoadWebDocument());
+  });
+
+  group('PasswordEncryption', () {
+    test('GetPublicKey', () async => await PasswordEncryptionTests(testContext).testGetPublicKey());
   });
 
   group('Revisions', () {

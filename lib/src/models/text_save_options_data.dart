@@ -35,6 +35,10 @@ class TextSaveOptionsData extends TxtSaveOptionsBaseData {
   /// The default value is true.
   bool addBidiMarks;
 
+  /// Gets or sets an integer value that specifies the maximum number of characters per one line.
+  /// The default value is 0, that means no limit.
+  int maxCharactersPerLine;
+
   /// Gets or sets a value indicating whether the program should attempt to preserve layout of tables when saving in the plain text format.
   bool preserveTableLayout;
 
@@ -52,6 +56,12 @@ class TextSaveOptionsData extends TxtSaveOptionsBaseData {
       addBidiMarks = json['AddBidiMarks'] as bool;
     } else {
       addBidiMarks = null;
+    }
+
+    if (json.containsKey('MaxCharactersPerLine')) {
+      maxCharactersPerLine = json['MaxCharactersPerLine'] as int;
+    } else {
+      maxCharactersPerLine = null;
     }
 
     if (json.containsKey('PreserveTableLayout')) {
@@ -73,6 +83,10 @@ class TextSaveOptionsData extends TxtSaveOptionsBaseData {
     _result.addAll(super.serialize());
     if (addBidiMarks != null) {
       _result['AddBidiMarks'] = addBidiMarks;
+    }
+
+    if (maxCharactersPerLine != null) {
+      _result['MaxCharactersPerLine'] = maxCharactersPerLine;
     }
 
     if (preserveTableLayout != null) {

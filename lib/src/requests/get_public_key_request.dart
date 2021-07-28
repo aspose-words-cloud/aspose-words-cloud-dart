@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="save_as_online_response.dart">
+ * <copyright company="Aspose" file="get_public_key_request.dart">
  *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -29,25 +29,33 @@ library aspose_words_cloud;
 
 import 'dart:convert';
 import 'dart:typed_data';
-
 import '../../aspose_words_cloud.dart';
+import '../api_client.dart';
+import '../api_request_data.dart';
+import '../api_request_part.dart';
 
-/// Converts a document to the specified format.
-class SaveAsOnlineResponse implements ResponseBase {
-  /// The response model.
-  SaveResponse model;
+/// Request model for GetPublicKey operation.
+class GetPublicKeyRequest implements RequestBase {
 
-  /// The document after modification.
-  ByteData document;
+  GetPublicKeyRequest();
 
   @override
-  void deserialize(Map<String, ByteData> _parts) {
-    model = SaveResponse();
-    final _modelBody = _parts['model'];
-    final _modelJsonData = utf8.decode(_modelBody.buffer.asUint8List(_modelBody.offsetInBytes, _modelBody.lengthInBytes));
-    model.deserialize(jsonDecode(_modelJsonData) as Map<String, dynamic>);
+  ApiRequestData createRequestData(final ApiClient _apiClient) {
+    var _path = '/words/encryption/publickey';
+    var _queryParams = <String, String>{};
+    var _headers = <String, String>{};
+    var _bodyParts = <ApiRequestPart>[];
+    var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
+    var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
+    return ApiRequestData('GET', _url, _headers, _body);
+  }
 
-    document = _parts['document'];
+  @override
+  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
+    var _result = PublicKeyResponse();
+    var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
+    var _json = jsonDecode(_jsonData);
+    _result.deserialize(_json as Map<String, dynamic>);
+    return _result;
   }
 }
-

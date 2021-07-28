@@ -67,13 +67,13 @@ class FootnoteTests
   /// Test for adding footnote online.
   Future<void> testInsertFootnoteOnline() async
   {
-    final documentData = await context.loadBinaryFile(footnoteFolder + '/Footnote.doc');
+    final requestDocumentData = await context.loadBinaryFile(footnoteFolder + '/Footnote.doc');
     final requestFootnoteDto = FootnoteInsert();
     requestFootnoteDto.footnoteType = FootnoteBase_FootnoteTypeEnum.endnote;
     requestFootnoteDto.text = 'test endnote';
 
     final request = InsertFootnoteOnlineRequest(
-      documentData,
+      requestDocumentData,
       requestFootnoteDto,
       nodePath: ''
     );
@@ -121,10 +121,10 @@ class FootnoteTests
   /// Test for deleting footnote online.
   Future<void> testDeleteFootnoteOnline() async
   {
-    final documentData = await context.loadBinaryFile(footnoteFolder + '/Footnote.doc');
+    final requestDocumentData = await context.loadBinaryFile(footnoteFolder + '/Footnote.doc');
 
     final request = DeleteFootnoteOnlineRequest(
-      documentData,
+      requestDocumentData,
       0,
       nodePath: ''
     );
@@ -169,10 +169,10 @@ class FootnoteTests
   /// Test for getting footnotes online.
   Future<void> testGetFootnotesOnline() async
   {
-    final documentData = await context.loadBinaryFile(footnoteFolder + '/Footnote.doc');
+    final requestDocumentData = await context.loadBinaryFile(footnoteFolder + '/Footnote.doc');
 
     final request = GetFootnotesOnlineRequest(
-      documentData,
+      requestDocumentData,
       nodePath: ''
     );
 
@@ -218,10 +218,10 @@ class FootnoteTests
   /// Test for getting footnote online.
   Future<void> testGetFootnoteOnline() async
   {
-    final documentData = await context.loadBinaryFile(footnoteFolder + '/Footnote.doc');
+    final requestDocumentData = await context.loadBinaryFile(footnoteFolder + '/Footnote.doc');
 
     final request = GetFootnoteOnlineRequest(
-      documentData,
+      requestDocumentData,
       0,
       nodePath: ''
     );
@@ -270,12 +270,12 @@ class FootnoteTests
   /// Test for updating footnote online.
   Future<void> testUpdateFootnoteOnline() async
   {
-    final documentData = await context.loadBinaryFile(footnoteFolder + '/Footnote.doc');
+    final requestDocumentData = await context.loadBinaryFile(footnoteFolder + '/Footnote.doc');
     final requestFootnoteDto = FootnoteUpdate();
     requestFootnoteDto.text = 'new text is here';
 
     final request = UpdateFootnoteOnlineRequest(
-      documentData,
+      requestDocumentData,
       requestFootnoteDto,
       0,
       nodePath: ''

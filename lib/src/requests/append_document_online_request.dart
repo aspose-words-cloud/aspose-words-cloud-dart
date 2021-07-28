@@ -35,7 +35,7 @@ import '../api_request_part.dart';
 
 /// Request model for AppendDocumentOnline operation.
 class AppendDocumentOnlineRequest implements RequestBase {
-  /// The document.
+  /// Original document.
   final ByteData document;
 
   /// <see cref="DocumentEntryList"/> with a list of documents to append.

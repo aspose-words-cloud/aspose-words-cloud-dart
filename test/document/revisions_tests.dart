@@ -62,10 +62,10 @@ class RevisionsTests
   /// Test for accepting revisions in document online.
   Future<void> testAcceptAllRevisionsOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = AcceptAllRevisionsOnlineRequest(
-      documentData
+      requestDocumentData
     );
 
     final result = await context.getApi().acceptAllRevisionsOnline(request);
@@ -95,10 +95,10 @@ class RevisionsTests
   /// Test for rejecting revisions in document online.
   Future<void> testRejectAllRevisionsOnline() async
   {
-    final documentData = await context.loadBinaryFile(localFile);
+    final requestDocumentData = await context.loadBinaryFile(localFile);
 
     final request = RejectAllRevisionsOnlineRequest(
-      documentData
+      requestDocumentData
     );
 
     final result = await context.getApi().rejectAllRevisionsOnline(request);

@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="document_statistics_tests.dart">
+ * <copyright company="Aspose" file="password_encryption_tests.dart">
  *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -30,43 +30,27 @@ import 'package:test/test.dart';
 
 import '../test_context.dart';
 
-/// Example of how to get document statistics.
-class DocumentStatisticsTests
+/// Example of how to handle an encrypted document.
+class PasswordEncryptionTests
 {
   final TestContext context;
   String remoteDataFolder;
   String localFile;
 
-  DocumentStatisticsTests(final this.context) {
-    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/Statistics';
+  PasswordEncryptionTests(final this.context) {
+    remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/PasswordEncryption';
     localFile = 'Common/test_multi_pages.docx';
   }
 
-  /// Test for document classification.
-  Future<void> testGetDocumentStatistics() async
+  /// Test for getting a public key for password encryption.
+  Future<void> testGetPublicKey() async
   {
-    final remoteFileName = 'TestGetDocumentStatistics.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
-    final request = GetDocumentStatisticsRequest(
-      remoteFileName,
-      folder: remoteDataFolder
+    final request = GetPublicKeyRequest(
     );
 
-    final result = await context.getApi().getDocumentStatistics(request);
-    expect(result.statData, isNotNull);
-    expect(result.statData.wordCount, 10);
-  }
-
-  /// Test for document classification online.
-  Future<void> testGetDocumentStatisticsOnline() async
-  {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
-
-    final request = GetDocumentStatisticsOnlineRequest(
-      requestDocumentData
-    );
-
-    await context.getApi().getDocumentStatisticsOnline(request);
+    final result = await context.getApi().getPublicKey(request);
+    expect(result.exponent, isNotNull);
+    expect(result.modulus, isNotNull);
   }
 }

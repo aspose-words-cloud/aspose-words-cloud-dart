@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="save_as_online_response.dart">
+ * <copyright company="Aspose" file="public_key_response.dart">
  *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,27 +27,49 @@
 
 library aspose_words_cloud;
 
-import 'dart:convert';
-import 'dart:typed_data';
-
 import '../../aspose_words_cloud.dart';
 
-/// Converts a document to the specified format.
-class SaveAsOnlineResponse implements ResponseBase {
-  /// The response model.
-  SaveResponse model;
+/// REST response for RSA public key info.
+class PublicKeyResponse extends WordsResponse {
+  /// Gets or sets RSA key exponent as Base64 string.
+  String exponent;
 
-  /// The document after modification.
-  ByteData document;
+  /// Gets or sets RSA key modulus as Base64 string.
+  String modulus;
 
   @override
-  void deserialize(Map<String, ByteData> _parts) {
-    model = SaveResponse();
-    final _modelBody = _parts['model'];
-    final _modelJsonData = utf8.decode(_modelBody.buffer.asUint8List(_modelBody.offsetInBytes, _modelBody.lengthInBytes));
-    model.deserialize(jsonDecode(_modelJsonData) as Map<String, dynamic>);
+  void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize PublicKeyResponse data model.');
+    }
 
-    document = _parts['document'];
+    super.deserialize(json);
+    if (json.containsKey('Exponent')) {
+      exponent = json['Exponent'] as String;
+    } else {
+      exponent = null;
+    }
+
+    if (json.containsKey('Modulus')) {
+      modulus = json['Modulus'] as String;
+    } else {
+      modulus = null;
+    }
+  }
+
+  @override
+  Map<String, dynamic> serialize() {
+    var _result = <String, dynamic>{};
+    _result.addAll(super.serialize());
+    if (exponent != null) {
+      _result['Exponent'] = exponent;
+    }
+
+    if (modulus != null) {
+      _result['Modulus'] = modulus;
+    }
+    return _result;
   }
 }
+
 
