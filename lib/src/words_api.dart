@@ -198,6 +198,26 @@ class WordsApi {
     return await _apiClient.call(request) as ByteData;
   }
 
+  /// Removes the custom xml part from the document.
+  Future< void > deleteCustomXmlPart(DeleteCustomXmlPartRequest request) async {
+  await _apiClient.call(request);
+  }
+
+  /// Removes the custom xml part from the document.
+  Future< ByteData > deleteCustomXmlPartOnline(DeleteCustomXmlPartOnlineRequest request) async {
+    return await _apiClient.call(request) as ByteData;
+  }
+
+  /// Removes all custom xml parts from the document.
+  Future< void > deleteCustomXmlParts(DeleteCustomXmlPartsRequest request) async {
+  await _apiClient.call(request);
+  }
+
+  /// Removes all custom xml parts from the document.
+  Future< ByteData > deleteCustomXmlPartsOnline(DeleteCustomXmlPartsOnlineRequest request) async {
+    return await _apiClient.call(request) as ByteData;
+  }
+
   /// Removes a document property.
   Future< void > deleteDocumentProperty(DeleteDocumentPropertyRequest request) async {
   await _apiClient.call(request);
@@ -476,6 +496,26 @@ class WordsApi {
   /// Reads comments from the document.
   Future< CommentsResponse > getCommentsOnline(GetCommentsOnlineRequest request) async {
     return await _apiClient.call(request) as CommentsResponse;
+  }
+
+  /// Reads the custom xml part from the document.
+  Future< CustomXmlPartResponse > getCustomXmlPart(GetCustomXmlPartRequest request) async {
+    return await _apiClient.call(request) as CustomXmlPartResponse;
+  }
+
+  /// Reads the custom xml part from the document.
+  Future< CustomXmlPartResponse > getCustomXmlPartOnline(GetCustomXmlPartOnlineRequest request) async {
+    return await _apiClient.call(request) as CustomXmlPartResponse;
+  }
+
+  /// Reads custom xml parts from the document.
+  Future< CustomXmlPartsResponse > getCustomXmlParts(GetCustomXmlPartsRequest request) async {
+    return await _apiClient.call(request) as CustomXmlPartsResponse;
+  }
+
+  /// Reads custom xml parts from the document.
+  Future< CustomXmlPartsResponse > getCustomXmlPartsOnline(GetCustomXmlPartsOnlineRequest request) async {
+    return await _apiClient.call(request) as CustomXmlPartsResponse;
   }
 
   /// Reads common information from the document.
@@ -968,6 +1008,16 @@ class WordsApi {
     return await _apiClient.call(request) as InsertCommentOnlineResponse;
   }
 
+  /// Inserts a new custom xml part to the document.
+  Future< CustomXmlPartResponse > insertCustomXmlPart(InsertCustomXmlPartRequest request) async {
+    return await _apiClient.call(request) as CustomXmlPartResponse;
+  }
+
+  /// Inserts a new custom xml part to the document.
+  Future< InsertCustomXmlPartOnlineResponse > insertCustomXmlPartOnline(InsertCustomXmlPartOnlineRequest request) async {
+    return await _apiClient.call(request) as InsertCustomXmlPartOnlineResponse;
+  }
+
   /// Inserts a new DrawingObject to the document node.
   Future< DrawingObjectResponse > insertDrawingObject(InsertDrawingObjectRequest request) async {
     return await _apiClient.call(request) as DrawingObjectResponse;
@@ -1346,6 +1396,16 @@ class WordsApi {
   /// Updates a comment in the document.
   Future< UpdateCommentOnlineResponse > updateCommentOnline(UpdateCommentOnlineRequest request) async {
     return await _apiClient.call(request) as UpdateCommentOnlineResponse;
+  }
+
+  /// Updates the custom xml part in the document.
+  Future< CustomXmlPartResponse > updateCustomXmlPart(UpdateCustomXmlPartRequest request) async {
+    return await _apiClient.call(request) as CustomXmlPartResponse;
+  }
+
+  /// Updates the custom xml part in the document.
+  Future< UpdateCustomXmlPartOnlineResponse > updateCustomXmlPartOnline(UpdateCustomXmlPartOnlineRequest request) async {
+    return await _apiClient.call(request) as UpdateCustomXmlPartOnlineResponse;
   }
 
   /// Updates a DrawingObject in the document node.

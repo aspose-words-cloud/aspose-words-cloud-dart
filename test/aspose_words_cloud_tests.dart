@@ -40,6 +40,7 @@ import './document/classification_tests.dart';
 import './document/comment_tests.dart';
 import './document/compare_document_tests.dart';
 import './document/convert_document_tests.dart';
+import './document/custom_xml_parts_tests.dart';
 import './document/document_statistics_tests.dart';
 import './document/document_tests.dart';
 import './document/document_with_format_tests.dart';
@@ -160,6 +161,21 @@ void main() {
     test('SaveAsTiff', () async => await ConvertDocumentTests(testContext).testSaveAsTiff());
     test('SaveAsTiffOnline', () async => await ConvertDocumentTests(testContext).testSaveAsTiffOnline());
     test('ConvertDocument', () async => await ConvertDocumentTests(testContext).testConvertDocument());
+  });
+
+  group('CustomXmlParts', () {
+    test('GetCustomXmlPart', () async => await CustomXmlPartsTests(testContext).testGetCustomXmlPart());
+    test('GetCustomXmlPartOnline', () async => await CustomXmlPartsTests(testContext).testGetCustomXmlPartOnline());
+    test('GetCustomXmlParts', () async => await CustomXmlPartsTests(testContext).testGetCustomXmlParts());
+    test('GetCustomXmlPartsOnline', () async => await CustomXmlPartsTests(testContext).testGetCustomXmlPartsOnline());
+    test('InsertCustomXmlPart', () async => await CustomXmlPartsTests(testContext).testInsertCustomXmlPart());
+    test('InsertCustomXmlPartOnline', () async => await CustomXmlPartsTests(testContext).testInsertCustomXmlPartOnline());
+    test('UpdateCustomXmlPart', () async => await CustomXmlPartsTests(testContext).testUpdateCustomXmlPart());
+    test('UpdateCustomXmlPartOnline', () async => await CustomXmlPartsTests(testContext).testUpdateCustomXmlPartOnline());
+    test('DeleteCustomXmlPart', () async => await CustomXmlPartsTests(testContext).testDeleteCustomXmlPart());
+    test('DeleteCustomXmlPartOnline', () async => await CustomXmlPartsTests(testContext).testDeleteCustomXmlPartOnline());
+    test('DeleteCustomXmlParts', () async => await CustomXmlPartsTests(testContext).testDeleteCustomXmlParts());
+    test('DeleteCustomXmlPartsOnline', () async => await CustomXmlPartsTests(testContext).testDeleteCustomXmlPartsOnline());
   });
 
   group('Document', () {
