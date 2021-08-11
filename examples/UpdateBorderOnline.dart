@@ -1,0 +1,16 @@
+final clientId = "####-####-####-####-####";
+final clientSecret = "##################";
+final config = Configuration(clientId, clientSecret);
+final wordsApi = WordsApi(config);
+final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+final requestBorderPropertiesColor = XmlColor();
+requestBorderPropertiesColor.web = '#AABBCC';
+final requestBorderProperties = Border();
+requestBorderProperties.borderType = Border_BorderTypeEnum.left;
+requestBorderProperties.color = requestBorderPropertiesColor;
+requestBorderProperties.distanceFromText = 6;
+requestBorderProperties.lineStyle = Border_LineStyleEnum.dashDotStroker;
+requestBorderProperties.lineWidth = 2;
+requestBorderProperties.shadow = true;
+final updateRequest = UpdateBorderOnlineRequest(requestDocumentData, requestBorderProperties, 'left', nodePath: 'tables/1/rows/0/cells/0');
+await wordsApi.updateBorderOnline(updateRequest);

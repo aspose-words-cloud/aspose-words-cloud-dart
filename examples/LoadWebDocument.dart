@@ -1,0 +1,16 @@
+final clientId = "####-####-####-####-####";
+final clientSecret = "##################";
+final config = Configuration(clientId, clientSecret);
+final wordsApi = WordsApi(config);
+final requestDataSaveOptions = SaveOptionsData();
+requestDataSaveOptions.fileName = 'google.doc';
+requestDataSaveOptions.saveFormat = 'doc';
+requestDataSaveOptions.dmlEffectsRenderingMode = '1';
+requestDataSaveOptions.dmlRenderingMode = '1';
+requestDataSaveOptions.updateSdtContent = false;
+requestDataSaveOptions.zipOutput = false;
+final requestData = LoadWebDocumentData();
+requestData.loadingDocumentUrl = 'http://google.com';
+requestData.saveOptions = requestDataSaveOptions;
+final loadRequest = LoadWebDocumentRequest(requestData);
+await wordsApi.loadWebDocument(loadRequest);

@@ -1,0 +1,15 @@
+final clientId = "####-####-####-####-####";
+final clientSecret = "##################";
+final config = Configuration(clientId, clientSecret);
+final wordsApi = WordsApi(config);
+final requestDocumentData = (await File("/FormFilled.docx").readAsBytes()).buffer.asByteData();
+final requestFormField = FormFieldTextInput();
+requestFormField.name = 'FullName';
+requestFormField.enabled = true;
+requestFormField.calculateOnExit = true;
+requestFormField.statusText = '';
+requestFormField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
+requestFormField.textInputDefault = '123';
+requestFormField.textInputFormat = 'UPPERCASE';
+final insertRequest = InsertFormFieldOnlineRequest(requestDocumentData, requestFormField, nodePath: 'sections/0/paragraphs/0');
+await wordsApi.insertFormFieldOnline(insertRequest);

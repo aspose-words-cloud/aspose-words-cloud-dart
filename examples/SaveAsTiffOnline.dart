@@ -1,0 +1,10 @@
+final clientId = "####-####-####-####-####";
+final clientSecret = "##################";
+final config = Configuration(clientId, clientSecret);
+final wordsApi = WordsApi(config);
+final requestDocumentData = (await File("Common/test_multi_pages.docx").readAsBytes()).buffer.asByteData();
+final requestSaveOptions = TiffSaveOptionsData();
+requestSaveOptions.saveFormat = 'tiff';
+requestSaveOptions.fileName = '/abc.tiff';
+final saveRequest = SaveAsTiffOnlineRequest(requestDocumentData, requestSaveOptions);
+await wordsApi.saveAsTiffOnline(saveRequest);

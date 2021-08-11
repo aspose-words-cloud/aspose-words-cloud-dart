@@ -1,0 +1,10 @@
+final clientId = "####-####-####-####-####";
+final clientSecret = "##################";
+final config = Configuration(clientId, clientSecret);
+final wordsApi = WordsApi(config);
+final requestCompareData = CompareData();
+requestCompareData.author = 'author';
+requestCompareData.comparingWithDocument = 'TestCompareDocument2.doc';
+requestCompareData.dateTime = DateTime(2015, 10, 26, 0, 0, 0);
+final compareRequest = CompareDocumentRequest('TestCompareDocument1.doc', requestCompareData, destFileName: '/TestCompareDocumentOut.doc');
+await wordsApi.compareDocument(compareRequest);

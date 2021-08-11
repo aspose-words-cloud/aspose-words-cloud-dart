@@ -1,0 +1,12 @@
+final clientId = "####-####-####-####-####";
+final clientSecret = "##################";
+final config = Configuration(clientId, clientSecret);
+final wordsApi = WordsApi(config);
+final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+final requestPageSetup = PageSetup();
+requestPageSetup.rtlGutter = true;
+requestPageSetup.leftMargin = 10;
+requestPageSetup.orientation = PageSetup_OrientationEnum.landscape;
+requestPageSetup.paperSize = PageSetup_PaperSizeEnum.a5;
+final updateRequest = UpdateSectionPageSetupOnlineRequest(requestDocumentData, 0, requestPageSetup);
+await wordsApi.updateSectionPageSetupOnline(updateRequest);

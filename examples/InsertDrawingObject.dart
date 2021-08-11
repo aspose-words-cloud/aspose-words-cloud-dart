@@ -1,0 +1,15 @@
+final clientId = "####-####-####-####-####";
+final clientSecret = "##################";
+final config = Configuration(clientId, clientSecret);
+final wordsApi = WordsApi(config);
+final requestImageFileData = (await File("Common/aspose-cloud.png").readAsBytes()).buffer.asByteData();
+final requestDrawingObject = DrawingObjectInsert();
+requestDrawingObject.height = 0;
+requestDrawingObject.left = 0;
+requestDrawingObject.top = 0;
+requestDrawingObject.width = 0;
+requestDrawingObject.relativeHorizontalPosition = DrawingObjectInsert_RelativeHorizontalPositionEnum.margin;
+requestDrawingObject.relativeVerticalPosition = DrawingObjectInsert_RelativeVerticalPositionEnum.margin;
+requestDrawingObject.wrapType = DrawingObjectInsert_WrapTypeEnum.inline;
+final insertRequest = InsertDrawingObjectRequest('Sample.docx', requestDrawingObject, requestImageFileData);
+await wordsApi.insertDrawingObject(insertRequest);

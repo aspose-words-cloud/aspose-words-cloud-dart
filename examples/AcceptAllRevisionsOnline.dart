@@ -2,12 +2,6 @@ final clientId = "####-####-####-####-####";
 final clientSecret = "##################";
 final config = Configuration(clientId, clientSecret);
 final wordsApi = WordsApi(config);
-final fileName  = 'test_doc.docx';
-
-// Calls AcceptAllRevisionsOnline method for document in cloud.
-final requestDocumentData = (await File(fileName).readAsBytes()).buffer.asByteData();
-final request = AcceptAllRevisionsOnlineRequest(requestDocumentData);
-final acceptAllRevisionsOnlineResult = await wordsApi.acceptAllRevisionsOnline(request);
-await File('test_result.docx').writeAsBytes(
-    acceptAllRevisionsOnlineResult.document.buffer.asUint8List(acceptAllRevisionsOnlineResult.document.offsetInBytes, acceptAllRevisionsOnlineResult.document.lengthInBytes)
-);
+final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+final acceptRequest = AcceptAllRevisionsOnlineRequest(requestDocumentData);
+await wordsApi.acceptAllRevisionsOnline(acceptRequest);

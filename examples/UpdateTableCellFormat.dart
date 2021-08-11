@@ -1,0 +1,11 @@
+final clientId = "####-####-####-####-####";
+final clientSecret = "##################";
+final config = Configuration(clientId, clientSecret);
+final wordsApi = WordsApi(config);
+final requestFormat = TableCellFormat();
+requestFormat.bottomPadding = 5.0;
+requestFormat.fitText = true;
+requestFormat.horizontalMerge = TableCellFormat_HorizontalMergeEnum.first;
+requestFormat.wrapText = true;
+final updateRequest = UpdateTableCellFormatRequest('Sample.docx', 'sections/0/tables/2/rows/0', 0, requestFormat);
+await wordsApi.updateTableCellFormat(updateRequest);

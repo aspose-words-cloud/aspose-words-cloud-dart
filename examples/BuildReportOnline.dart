@@ -1,0 +1,10 @@
+final clientId = "####-####-####-####-####";
+final clientSecret = "##################";
+final config = Configuration(clientId, clientSecret);
+final wordsApi = WordsApi(config);
+final requestTemplateData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+final requestReportEngineSettings = ReportEngineSettings();
+requestReportEngineSettings.dataSourceType = ReportEngineSettings_DataSourceTypeEnum.json;
+requestReportEngineSettings.dataSourceName = 'persons';
+final buildReportRequest = BuildReportOnlineRequest(requestTemplateData, 'Data.json', requestReportEngineSettings);
+await wordsApi.buildReportOnline(buildReportRequest);

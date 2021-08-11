@@ -1,0 +1,10 @@
+final clientId = "####-####-####-####-####";
+final clientSecret = "##################";
+final config = Configuration(clientId, clientSecret);
+final wordsApi = WordsApi(config);
+final requestTabStopInsertDto = TabStopInsert();
+requestTabStopInsertDto.alignment = TabStopBase_AlignmentEnum.left;
+requestTabStopInsertDto.leader = TabStopBase_LeaderEnum.none;
+requestTabStopInsertDto.position = 100.0;
+final insertRequest = InsertOrUpdateParagraphTabStopRequest('Sample.docx', 0, requestTabStopInsertDto);
+await wordsApi.insertOrUpdateParagraphTabStop(insertRequest);

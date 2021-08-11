@@ -1,0 +1,13 @@
+final clientId = "####-####-####-####-####";
+final clientSecret = "##################";
+final config = Configuration(clientId, clientSecret);
+final wordsApi = WordsApi(config);
+final requestProperties = TableProperties();
+requestProperties.alignment = TableProperties_AlignmentEnum.right;
+requestProperties.allowAutoFit = false;
+requestProperties.bidi = true;
+requestProperties.bottomPadding = 1.0;
+requestProperties.cellSpacing = 2.0;
+requestProperties.styleOptions = TableProperties_StyleOptionsEnum.columnBands;
+final updateRequest = UpdateTablePropertiesRequest('Sample.docx', 1, requestProperties);
+await wordsApi.updateTableProperties(updateRequest);

@@ -1,0 +1,14 @@
+final clientId = "####-####-####-####-####";
+final clientSecret = "##################";
+final config = Configuration(clientId, clientSecret);
+final wordsApi = WordsApi(config);
+final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+final requestProperties = TableProperties();
+requestProperties.alignment = TableProperties_AlignmentEnum.right;
+requestProperties.allowAutoFit = false;
+requestProperties.bidi = true;
+requestProperties.bottomPadding = 1;
+requestProperties.cellSpacing = 2;
+requestProperties.styleOptions = TableProperties_StyleOptionsEnum.columnBands;
+final updateRequest = UpdateTablePropertiesOnlineRequest(requestDocumentData, requestProperties, 1, nodePath: '');
+await wordsApi.updateTablePropertiesOnline(updateRequest);

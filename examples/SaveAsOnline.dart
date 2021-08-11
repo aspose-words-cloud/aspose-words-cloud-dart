@@ -1,0 +1,10 @@
+final clientId = "####-####-####-####-####";
+final clientSecret = "##################";
+final config = Configuration(clientId, clientSecret);
+final wordsApi = WordsApi(config);
+final requestDocumentData = (await File("Common/test_multi_pages.docx").readAsBytes()).buffer.asByteData();
+final requestSaveOptionsData = SaveOptionsData();
+requestSaveOptionsData.saveFormat = 'pdf';
+requestSaveOptionsData.fileName = '/TestSaveAs.pdf';
+final saveRequest = SaveAsOnlineRequest(requestDocumentData, requestSaveOptionsData);
+await wordsApi.saveAsOnline(saveRequest);

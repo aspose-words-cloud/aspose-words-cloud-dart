@@ -1,0 +1,11 @@
+final clientId = "####-####-####-####-####";
+final clientSecret = "##################";
+final config = Configuration(clientId, clientSecret);
+final wordsApi = WordsApi(config);
+final requestDocumentData = (await File("/ParagraphTabStops.docx").readAsBytes()).buffer.asByteData();
+final requestTabStopInsertDto = TabStopInsert();
+requestTabStopInsertDto.alignment = TabStopBase_AlignmentEnum.left;
+requestTabStopInsertDto.leader = TabStopBase_LeaderEnum.none;
+requestTabStopInsertDto.position = 72;
+final insertRequest = InsertOrUpdateParagraphTabStopOnlineRequest(requestDocumentData, requestTabStopInsertDto, 0, nodePath: '');
+await wordsApi.insertOrUpdateParagraphTabStopOnline(insertRequest);

@@ -1,0 +1,7 @@
+final clientId = "####-####-####-####-####";
+final clientSecret = "##################";
+final config = Configuration(clientId, clientSecret);
+final wordsApi = WordsApi(config);
+final requestDocumentData = (await File("DocumentElements/Text/SampleWordDocument.docx").readAsBytes()).buffer.asByteData();
+final renderRequest = RenderPageOnlineRequest(requestDocumentData, 1, 'bmp');
+await wordsApi.renderPageOnline(renderRequest);

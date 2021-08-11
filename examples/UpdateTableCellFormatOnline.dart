@@ -1,0 +1,12 @@
+final clientId = "####-####-####-####-####";
+final clientSecret = "##################";
+final config = Configuration(clientId, clientSecret);
+final wordsApi = WordsApi(config);
+final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+final requestFormat = TableCellFormat();
+requestFormat.bottomPadding = 5;
+requestFormat.fitText = true;
+requestFormat.horizontalMerge = TableCellFormat_HorizontalMergeEnum.first;
+requestFormat.wrapText = true;
+final updateRequest = UpdateTableCellFormatOnlineRequest(requestDocumentData, 'sections/0/tables/2/rows/0', requestFormat, 0);
+await wordsApi.updateTableCellFormatOnline(updateRequest);
