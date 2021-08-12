@@ -12,5 +12,5 @@ requestDrawingObject.width = 0;
 requestDrawingObject.relativeHorizontalPosition = DrawingObjectInsert_RelativeHorizontalPositionEnum.margin;
 requestDrawingObject.relativeVerticalPosition = DrawingObjectInsert_RelativeVerticalPositionEnum.margin;
 requestDrawingObject.wrapType = DrawingObjectInsert_WrapTypeEnum.inline;
-final insertRequest = InsertDrawingObjectOnlineRequest(requestDocumentData, requestDrawingObject, requestImageFileData, nodePath: '');
+final insertRequest = InsertDrawingObjectOnlineRequest(requestDocumentData, requestDrawingObject, requestImageFileData);
 await wordsApi.insertDrawingObjectOnline(insertRequest);

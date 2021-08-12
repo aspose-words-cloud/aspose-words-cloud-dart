@@ -3,5 +3,5 @@ final clientSecret = "##################";
 final config = Configuration(clientId, clientSecret);
 final wordsApi = WordsApi(config);
 final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-final request = GetTableOnlineRequest(requestDocumentData, 1, nodePath: '');
+final request = GetTableOnlineRequest(requestDocumentData, 1);
 await wordsApi.getTableOnline(request);

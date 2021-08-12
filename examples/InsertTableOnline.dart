@@ -6,5 +6,5 @@ final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asB
 final requestTable = TableInsert();
 requestTable.columnsCount = 5;
 requestTable.rowsCount = 4;
-final insertRequest = InsertTableOnlineRequest(requestDocumentData, requestTable, nodePath: '');
+final insertRequest = InsertTableOnlineRequest(requestDocumentData, requestTable);
 await wordsApi.insertTableOnline(insertRequest);

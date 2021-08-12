@@ -10,5 +10,5 @@ requestProperties.bidi = true;
 requestProperties.bottomPadding = 1;
 requestProperties.cellSpacing = 2;
 requestProperties.styleOptions = TableProperties_StyleOptionsEnum.columnBands;
-final updateRequest = UpdateTablePropertiesOnlineRequest(requestDocumentData, requestProperties, 1, nodePath: '');
+final updateRequest = UpdateTablePropertiesOnlineRequest(requestDocumentData, requestProperties, 1);
 await wordsApi.updateTablePropertiesOnline(updateRequest);

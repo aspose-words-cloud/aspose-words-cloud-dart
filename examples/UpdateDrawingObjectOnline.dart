@@ -6,5 +6,5 @@ final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asB
 final requestImageFileData = (await File("Common/aspose-cloud.png").readAsBytes()).buffer.asByteData();
 final requestDrawingObject = DrawingObjectUpdate();
 requestDrawingObject.left = 0;
-final updateRequest = UpdateDrawingObjectOnlineRequest(requestDocumentData, requestDrawingObject, requestImageFileData, 0, nodePath: '');
+final updateRequest = UpdateDrawingObjectOnlineRequest(requestDocumentData, requestDrawingObject, requestImageFileData, 0);
 await wordsApi.updateDrawingObjectOnline(updateRequest);
