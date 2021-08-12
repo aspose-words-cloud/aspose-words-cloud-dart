@@ -2,7 +2,5 @@ final clientId = "####-####-####-####-####";
 final clientSecret = "##################";
 final config = Configuration(clientId, clientSecret);
 final wordsApi = WordsApi(config);
-final remoteFileName = 'Sample.docx';
-
-final deleteRequest = DeleteCustomXmlPartRequest(remoteFileName, 0, destFileName: remoteFileName);
+final deleteRequest = DeleteCustomXmlPartRequest('Sample.docx', 0);
 await wordsApi.deleteCustomXmlPart(deleteRequest);

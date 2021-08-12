@@ -11,5 +11,5 @@ final requestDocumentListDocumentEntries = [
   requestDocumentListDocumentEntries0];
 final requestDocumentList = DocumentEntryList();
 requestDocumentList.documentEntries = requestDocumentListDocumentEntries;
-final appendRequest = AppendDocumentRequest(remoteFileName, requestDocumentList, destFileName: remoteFileName);
+final appendRequest = AppendDocumentRequest(remoteFileName, requestDocumentList);
 await wordsApi.appendDocument(appendRequest);

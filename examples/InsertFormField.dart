@@ -2,8 +2,6 @@ final clientId = "####-####-####-####-####";
 final clientSecret = "##################";
 final config = Configuration(clientId, clientSecret);
 final wordsApi = WordsApi(config);
-final remoteFileName = 'Sample.docx';
-
 final requestFormField = FormFieldTextInput();
 requestFormField.name = 'FullName';
 requestFormField.enabled = true;
@@ -12,5 +10,5 @@ requestFormField.statusText = '';
 requestFormField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
 requestFormField.textInputDefault = '123';
 requestFormField.textInputFormat = 'UPPERCASE';
-final insertRequest = InsertFormFieldRequest(remoteFileName, requestFormField, destFileName: remoteFileName);
+final insertRequest = InsertFormFieldRequest('Sample.docx', requestFormField);
 await wordsApi.insertFormField(insertRequest);

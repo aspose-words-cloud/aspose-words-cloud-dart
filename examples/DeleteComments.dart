@@ -2,7 +2,5 @@ final clientId = "####-####-####-####-####";
 final clientSecret = "##################";
 final config = Configuration(clientId, clientSecret);
 final wordsApi = WordsApi(config);
-final remoteFileName = 'Sample.docx';
-
-final deleteRequest = DeleteCommentsRequest(remoteFileName, destFileName: remoteFileName);
+final deleteRequest = DeleteCommentsRequest('Sample.docx');
 await wordsApi.deleteComments(deleteRequest);
