@@ -2,6 +2,7 @@ final clientId = "####-####-####-####-####";
 final clientSecret = "##################";
 final config = Configuration(clientId, clientSecret);
 final wordsApi = WordsApi(config);
+final bookmarkName = 'aspose';
 final remoteFileName = 'Sample.docx';
 
 final requestBookmarkData = BookmarkData();

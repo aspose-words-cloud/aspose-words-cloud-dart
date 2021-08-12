@@ -2269,6 +2269,7 @@ class ExamplesTests
     Future<void> updateBookmark() async
     {
         final wordsApi = WordsApi(config);
+        final bookmarkName = 'aspose';
         final remoteFileName = 'Sample.docx';
 
         final requestBookmarkData = BookmarkData();
@@ -2281,6 +2282,8 @@ class ExamplesTests
     Future<void> updateBookmarkOnline() async
     {
         final wordsApi = WordsApi(config);
+        final bookmarkName = 'aspose';
+
         final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
         final requestBookmarkData = BookmarkData();
         requestBookmarkData.name = bookmarkName;
