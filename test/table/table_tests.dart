@@ -46,7 +46,6 @@ class TableTests
   Future<void> testGetTables() async
   {
     final remoteFileName = 'TestGetTables.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetTablesRequest(
       remoteFileName,
@@ -64,10 +63,10 @@ class TableTests
   /// Test for getting tables online.
   Future<void> testGetTablesOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetTablesOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       nodePath: ''
     );
 
@@ -78,7 +77,6 @@ class TableTests
   Future<void> testGetTablesWithoutNodePath() async
   {
     final remoteFileName = 'TestGetTablesWithoutNodePath.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetTablesRequest(
       remoteFileName,
@@ -96,7 +94,6 @@ class TableTests
   Future<void> testGetTable() async
   {
     final remoteFileName = 'TestGetTable.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetTableRequest(
       remoteFileName,
@@ -116,10 +113,10 @@ class TableTests
   /// Test for getting table online.
   Future<void> testGetTableOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetTableOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       1,
       nodePath: ''
     );
@@ -131,7 +128,6 @@ class TableTests
   Future<void> testGetTableWithoutNodePath() async
   {
     final remoteFileName = 'TestGetTableWithoutNodePath.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetTableRequest(
       remoteFileName,
@@ -151,7 +147,6 @@ class TableTests
   Future<void> testDeleteTable() async
   {
     final remoteFileName = 'TestDeleteTable.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteTableRequest(
       remoteFileName,
@@ -166,10 +161,10 @@ class TableTests
   /// Test for deleting table online.
   Future<void> testDeleteTableOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = DeleteTableOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       1,
       nodePath: ''
     );
@@ -181,7 +176,6 @@ class TableTests
   Future<void> testDeleteTableWithoutNodePath() async
   {
     final remoteFileName = 'TestDeleteTableWithoutNodePath.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteTableRequest(
       remoteFileName,
@@ -196,10 +190,6 @@ class TableTests
   Future<void> testInsertTable() async
   {
     final remoteFileName = 'TestInsertTable.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestTable = TableInsert();
-    requestTable.columnsCount = 5;
-    requestTable.rowsCount = 4;
 
     final request = InsertTableRequest(
       remoteFileName,
@@ -219,13 +209,12 @@ class TableTests
   /// Test for adding table online.
   Future<void> testInsertTableOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
-    final requestTable = TableInsert();
-    requestTable.columnsCount = 5;
-    requestTable.rowsCount = 4;
+    final requestDocument = await context.loadBinaryFile(localFile);
+
+
 
     final request = InsertTableOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       requestTable,
       nodePath: ''
     );
@@ -237,10 +226,6 @@ class TableTests
   Future<void> testInsertTableWithoutNodePath() async
   {
     final remoteFileName = 'TestInsertTableWithoutNodePath.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestTable = TableInsert();
-    requestTable.columnsCount = 5;
-    requestTable.rowsCount = 4;
 
     final request = InsertTableRequest(
       remoteFileName,
@@ -260,7 +245,6 @@ class TableTests
   Future<void> testGetTableProperties() async
   {
     final remoteFileName = 'TestGetTableProperties.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetTablePropertiesRequest(
       remoteFileName,
@@ -277,10 +261,10 @@ class TableTests
   /// Test for getting document properties online.
   Future<void> testGetTablePropertiesOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetTablePropertiesOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       1,
       nodePath: ''
     );
@@ -292,7 +276,6 @@ class TableTests
   Future<void> testGetTablePropertiesWithoutNodePath() async
   {
     final remoteFileName = 'TestGetTablePropertiesWithoutNodePath.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetTablePropertiesRequest(
       remoteFileName,
@@ -309,14 +292,6 @@ class TableTests
   Future<void> testUpdateTableProperties() async
   {
     final remoteFileName = 'TestUpdateTableProperties.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestProperties = TableProperties();
-    requestProperties.alignment = TableProperties_AlignmentEnum.right;
-    requestProperties.allowAutoFit = false;
-    requestProperties.bidi = true;
-    requestProperties.bottomPadding = 1;
-    requestProperties.cellSpacing = 2.0;
-    requestProperties.styleOptions = TableProperties_StyleOptionsEnum.columnBands;
 
     final request = UpdateTablePropertiesRequest(
       remoteFileName,
@@ -337,17 +312,12 @@ class TableTests
   /// Test for updating table properties online.
   Future<void> testUpdateTablePropertiesOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
-    final requestProperties = TableProperties();
-    requestProperties.alignment = TableProperties_AlignmentEnum.right;
-    requestProperties.allowAutoFit = false;
-    requestProperties.bidi = true;
-    requestProperties.bottomPadding = 1;
-    requestProperties.cellSpacing = 2;
-    requestProperties.styleOptions = TableProperties_StyleOptionsEnum.columnBands;
+    final requestDocument = await context.loadBinaryFile(localFile);
+
+
 
     final request = UpdateTablePropertiesOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       requestProperties,
       1,
       nodePath: ''
@@ -360,14 +330,6 @@ class TableTests
   Future<void> testUpdateTablePropertiesWithoutNodePath() async
   {
     final remoteFileName = 'TestUpdateTablePropertiesWithoutNodePath.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestProperties = TableProperties();
-    requestProperties.alignment = TableProperties_AlignmentEnum.right;
-    requestProperties.allowAutoFit = false;
-    requestProperties.bidi = true;
-    requestProperties.bottomPadding = 1.0;
-    requestProperties.cellSpacing = 2.0;
-    requestProperties.styleOptions = TableProperties_StyleOptionsEnum.columnBands;
 
     final request = UpdateTablePropertiesRequest(
       remoteFileName,
@@ -388,7 +350,6 @@ class TableTests
   Future<void> testGetTableRow() async
   {
     final remoteFileName = 'TestGetTableRow.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetTableRowRequest(
       remoteFileName,
@@ -406,10 +367,10 @@ class TableTests
   /// Test for getting table row online.
   Future<void> testGetTableRowOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetTableRowOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'tables/1',
       0
     );
@@ -421,7 +382,6 @@ class TableTests
   Future<void> testDeleteTableRow() async
   {
     final remoteFileName = 'TestDeleteTableRow.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteTableRowRequest(
       remoteFileName,
@@ -436,10 +396,10 @@ class TableTests
   /// Test for deleting table row online.
   Future<void> testDeleteTableRowOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = DeleteTableRowOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'tables/1',
       0
     );
@@ -451,9 +411,6 @@ class TableTests
   Future<void> testInsertTableRow() async
   {
     final remoteFileName = 'TestInsertTableRow.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestRow = TableRowInsert();
-    requestRow.columnsCount = 5;
 
     final request = InsertTableRowRequest(
       remoteFileName,
@@ -471,12 +428,12 @@ class TableTests
   /// Test for adding row online.
   Future<void> testInsertTableRowOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
-    final requestRow = TableRowInsert();
-    requestRow.columnsCount = 5;
+    final requestDocument = await context.loadBinaryFile(localFile);
+
+
 
     final request = InsertTableRowOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'sections/0/tables/2',
       requestRow
     );
@@ -488,7 +445,6 @@ class TableTests
   Future<void> testGetTableRowFormat() async
   {
     final remoteFileName = 'TestGetTableRowFormat.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetTableRowFormatRequest(
       remoteFileName,
@@ -505,10 +461,10 @@ class TableTests
   /// Test for getting row format online.
   Future<void> testGetTableRowFormatOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetTableRowFormatOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'sections/0/tables/2',
       0
     );
@@ -520,12 +476,6 @@ class TableTests
   Future<void> testUpdateTableRowFormat() async
   {
     final remoteFileName = 'TestUpdateTableRowFormat.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestFormat = TableRowFormat();
-    requestFormat.allowBreakAcrossPages = true;
-    requestFormat.headingFormat = true;
-    requestFormat.height = 10.0;
-    requestFormat.heightRule = TableRowFormat_HeightRuleEnum.exactly;
 
     final request = UpdateTableRowFormatRequest(
       remoteFileName,
@@ -545,15 +495,12 @@ class TableTests
   /// Test updating row format online.
   Future<void> testUpdateTableRowFormatOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
-    final requestFormat = TableRowFormat();
-    requestFormat.allowBreakAcrossPages = true;
-    requestFormat.headingFormat = true;
-    requestFormat.height = 10;
-    requestFormat.heightRule = TableRowFormat_HeightRuleEnum.auto;
+    final requestDocument = await context.loadBinaryFile(localFile);
+
+
 
     final request = UpdateTableRowFormatOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'sections/0/tables/2',
       requestFormat,
       0
@@ -566,7 +513,6 @@ class TableTests
   Future<void> testGetTableCell() async
   {
     final remoteFileName = 'TestGetTableCell.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetTableCellRequest(
       remoteFileName,
@@ -583,10 +529,10 @@ class TableTests
   /// Test for getting table cell online.
   Future<void> testGetTableCellOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetTableCellOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'sections/0/tables/2/rows/0',
       0
     );
@@ -598,7 +544,6 @@ class TableTests
   Future<void> testDeleteTableCell() async
   {
     final remoteFileName = 'TestDeleteTableCell.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteTableCellRequest(
       remoteFileName,
@@ -613,10 +558,10 @@ class TableTests
   /// Test for deleting cell online.
   Future<void> testDeleteTableCellOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = DeleteTableCellOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'sections/0/tables/2/rows/0',
       0
     );
@@ -628,9 +573,6 @@ class TableTests
   Future<void> testInsertTableCell() async
   {
     final remoteFileName = 'TestInsertTableCell.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestCell = TableCellInsert();
-
 
     final request = InsertTableCellRequest(
       remoteFileName,
@@ -647,12 +589,12 @@ class TableTests
   /// Test for adding cell online.
   Future<void> testInsertTableCellOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
-    final requestCell = TableCellInsert();
+    final requestDocument = await context.loadBinaryFile(localFile);
+
 
 
     final request = InsertTableCellOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'sections/0/tables/2/rows/0',
       requestCell
     );
@@ -664,7 +606,6 @@ class TableTests
   Future<void> testGetTableCellFormat() async
   {
     final remoteFileName = 'TestGetTableCellFormat.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetTableCellFormatRequest(
       remoteFileName,
@@ -681,10 +622,10 @@ class TableTests
   /// Test for getting cell format online.
   Future<void> testGetTableCellFormatOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetTableCellFormatOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'sections/0/tables/2/rows/0',
       0
     );
@@ -696,12 +637,6 @@ class TableTests
   Future<void> testUpdateTableCellFormat() async
   {
     final remoteFileName = 'TestUpdateTableCellFormat.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestFormat = TableCellFormat();
-    requestFormat.bottomPadding = 5.0;
-    requestFormat.fitText = true;
-    requestFormat.horizontalMerge = TableCellFormat_HorizontalMergeEnum.first;
-    requestFormat.wrapText = true;
 
     final request = UpdateTableCellFormatRequest(
       remoteFileName,
@@ -721,15 +656,12 @@ class TableTests
   /// Test for updating cell format online.
   Future<void> testUpdateTableCellFormatOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
-    final requestFormat = TableCellFormat();
-    requestFormat.bottomPadding = 5;
-    requestFormat.fitText = true;
-    requestFormat.horizontalMerge = TableCellFormat_HorizontalMergeEnum.first;
-    requestFormat.wrapText = true;
+    final requestDocument = await context.loadBinaryFile(localFile);
+
+
 
     final request = UpdateTableCellFormatOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'sections/0/tables/2/rows/0',
       requestFormat,
       0
@@ -742,7 +674,6 @@ class TableTests
   Future<void> testRenderTable() async
   {
     final remoteFileName = 'TestRenderTable.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = RenderTableRequest(
       remoteFileName,
@@ -758,10 +689,10 @@ class TableTests
   /// Test for table rendering.
   Future<void> testRenderTableOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = RenderTableOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'png',
       0,
       nodePath: ''
@@ -774,7 +705,6 @@ class TableTests
   Future<void> testRenderTableWithoutNodePath() async
   {
     final remoteFileName = 'TestRenderTableWithoutNodePath.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = RenderTableRequest(
       remoteFileName,

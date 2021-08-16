@@ -46,7 +46,6 @@ class DocumentStatisticsTests
   Future<void> testGetDocumentStatistics() async
   {
     final remoteFileName = 'TestGetDocumentStatistics.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetDocumentStatisticsRequest(
       remoteFileName,
@@ -61,10 +60,10 @@ class DocumentStatisticsTests
   /// Test for document classification online.
   Future<void> testGetDocumentStatisticsOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetDocumentStatisticsOnlineRequest(
-      requestDocumentData
+      requestDocument
     );
 
     await context.getApi().getDocumentStatisticsOnline(request);

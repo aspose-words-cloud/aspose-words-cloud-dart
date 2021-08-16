@@ -48,7 +48,6 @@ class PageSetupTests
   Future<void> testGetSectionPageSetup() async
   {
     final remoteFileName = 'TestGetSectionPageSetup.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetSectionPageSetupRequest(
       remoteFileName,
@@ -64,10 +63,10 @@ class PageSetupTests
   /// Test for getting page settings online.
   Future<void> testGetSectionPageSetupOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetSectionPageSetupOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       0
     );
 
@@ -78,12 +77,6 @@ class PageSetupTests
   Future<void> testUpdateSectionPageSetup() async
   {
     final remoteFileName = 'TestUpdateSectionPageSetup.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestPageSetup = PageSetup();
-    requestPageSetup.rtlGutter = true;
-    requestPageSetup.leftMargin = 10.0;
-    requestPageSetup.orientation = PageSetup_OrientationEnum.landscape;
-    requestPageSetup.paperSize = PageSetup_PaperSizeEnum.a5;
 
     final request = UpdateSectionPageSetupRequest(
       remoteFileName,
@@ -102,15 +95,12 @@ class PageSetupTests
   /// Test for updating page settings online.
   Future<void> testUpdateSectionPageSetupOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
-    final requestPageSetup = PageSetup();
-    requestPageSetup.rtlGutter = true;
-    requestPageSetup.leftMargin = 10;
-    requestPageSetup.orientation = PageSetup_OrientationEnum.landscape;
-    requestPageSetup.paperSize = PageSetup_PaperSizeEnum.a5;
+    final requestDocument = await context.loadBinaryFile(localFile);
+
+
 
     final request = UpdateSectionPageSetupOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       0,
       requestPageSetup
     );
@@ -122,7 +112,6 @@ class PageSetupTests
   Future<void> testGetRenderPage() async
   {
     final remoteFileName = 'TestGetRenderPage.docx';
-    await context.uploadFile(localTextFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = RenderPageRequest(
       remoteFileName,
@@ -137,10 +126,10 @@ class PageSetupTests
   /// Test for page rendering.
   Future<void> testGetRenderPageOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localTextFile);
+    final requestDocument = await context.loadBinaryFile(localTextFile);
 
     final request = RenderPageOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       1,
       'bmp'
     );

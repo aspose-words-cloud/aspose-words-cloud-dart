@@ -46,10 +46,6 @@ class FootnoteTests
   Future<void> testInsertFootnote() async
   {
     final remoteFileName = 'TestInsertFootnote.docx';
-    await context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
-    final requestFootnoteDto = FootnoteInsert();
-    requestFootnoteDto.footnoteType = FootnoteBase_FootnoteTypeEnum.endnote;
-    requestFootnoteDto.text = 'test endnote';
 
     final request = InsertFootnoteRequest(
       remoteFileName,
@@ -67,13 +63,12 @@ class FootnoteTests
   /// Test for adding footnote online.
   Future<void> testInsertFootnoteOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(footnoteFolder + '/Footnote.doc');
-    final requestFootnoteDto = FootnoteInsert();
-    requestFootnoteDto.footnoteType = FootnoteBase_FootnoteTypeEnum.endnote;
-    requestFootnoteDto.text = 'test endnote';
+    final requestDocument = await context.loadBinaryFile(footnoteFolder + '/Footnote.doc');
+
+
 
     final request = InsertFootnoteOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       requestFootnoteDto,
       nodePath: ''
     );
@@ -85,10 +80,6 @@ class FootnoteTests
   Future<void> testInsertFootnoteWithoutNodePath() async
   {
     final remoteFileName = 'TestInsertFootnoteWithoutNodePath.docx';
-    await context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
-    final requestFootnoteDto = FootnoteInsert();
-    requestFootnoteDto.footnoteType = FootnoteBase_FootnoteTypeEnum.endnote;
-    requestFootnoteDto.text = 'test endnote';
 
     final request = InsertFootnoteRequest(
       remoteFileName,
@@ -106,7 +97,6 @@ class FootnoteTests
   Future<void> testDeleteFootnote() async
   {
     final remoteFileName = 'TestDeleteFootnote.docx';
-    await context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteFootnoteRequest(
       remoteFileName,
@@ -121,10 +111,10 @@ class FootnoteTests
   /// Test for deleting footnote online.
   Future<void> testDeleteFootnoteOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(footnoteFolder + '/Footnote.doc');
+    final requestDocument = await context.loadBinaryFile(footnoteFolder + '/Footnote.doc');
 
     final request = DeleteFootnoteOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       0,
       nodePath: ''
     );
@@ -136,7 +126,6 @@ class FootnoteTests
   Future<void> testDeleteFootnoteWithoutNodePath() async
   {
     final remoteFileName = 'TestDeleteFootnoteWithoutNodePath.docx';
-    await context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteFootnoteRequest(
       remoteFileName,
@@ -151,7 +140,6 @@ class FootnoteTests
   Future<void> testGetFootnotes() async
   {
     final remoteFileName = 'TestGetFootnotes.docx';
-    await context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
 
     final request = GetFootnotesRequest(
       remoteFileName,
@@ -169,10 +157,10 @@ class FootnoteTests
   /// Test for getting footnotes online.
   Future<void> testGetFootnotesOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(footnoteFolder + '/Footnote.doc');
+    final requestDocument = await context.loadBinaryFile(footnoteFolder + '/Footnote.doc');
 
     final request = GetFootnotesOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       nodePath: ''
     );
 
@@ -183,7 +171,6 @@ class FootnoteTests
   Future<void> testGetFootnotesWithoutNodePath() async
   {
     final remoteFileName = 'TestGetFootnotesWithoutNodePath.docx';
-    await context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
 
     final request = GetFootnotesRequest(
       remoteFileName,
@@ -201,7 +188,6 @@ class FootnoteTests
   Future<void> testGetFootnote() async
   {
     final remoteFileName = 'TestGetFootnote.docx';
-    await context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
 
     final request = GetFootnoteRequest(
       remoteFileName,
@@ -218,10 +204,10 @@ class FootnoteTests
   /// Test for getting footnote online.
   Future<void> testGetFootnoteOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(footnoteFolder + '/Footnote.doc');
+    final requestDocument = await context.loadBinaryFile(footnoteFolder + '/Footnote.doc');
 
     final request = GetFootnoteOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       0,
       nodePath: ''
     );
@@ -233,7 +219,6 @@ class FootnoteTests
   Future<void> testGetFootnoteWithoutNodePath() async
   {
     final remoteFileName = 'TestGetFootnoteWithoutNodePath.docx';
-    await context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
 
     final request = GetFootnoteRequest(
       remoteFileName,
@@ -250,9 +235,6 @@ class FootnoteTests
   Future<void> testUpdateFootnote() async
   {
     final remoteFileName = 'TestUpdateFootnote.docx';
-    await context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
-    final requestFootnoteDto = FootnoteUpdate();
-    requestFootnoteDto.text = 'new text is here';
 
     final request = UpdateFootnoteRequest(
       remoteFileName,
@@ -270,12 +252,12 @@ class FootnoteTests
   /// Test for updating footnote online.
   Future<void> testUpdateFootnoteOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(footnoteFolder + '/Footnote.doc');
-    final requestFootnoteDto = FootnoteUpdate();
-    requestFootnoteDto.text = 'new text is here';
+    final requestDocument = await context.loadBinaryFile(footnoteFolder + '/Footnote.doc');
+
+
 
     final request = UpdateFootnoteOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       requestFootnoteDto,
       0,
       nodePath: ''
@@ -288,9 +270,6 @@ class FootnoteTests
   Future<void> testUpdateFootnoteWithoutNodePath() async
   {
     final remoteFileName = 'TestUpdateFootnoteWithoutNodePath.docx';
-    await context.uploadFile(footnoteFolder + '/Footnote.doc', remoteDataFolder + '/' + remoteFileName);
-    final requestFootnoteDto = FootnoteUpdate();
-    requestFootnoteDto.text = 'new text is here';
 
     final request = UpdateFootnoteRequest(
       remoteFileName,

@@ -47,9 +47,6 @@ class WatermarkTests
   {
     final remoteFileName = 'TestInsertWatermarkImage.docx';
     final remoteImagePath = remoteDataFolder + '/TestInsertWatermarkImage.png';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-
-    await context.uploadFile('Common/aspose-cloud.png', remoteImagePath);
 
     final request = InsertWatermarkImageRequest(
       remoteFileName,
@@ -67,12 +64,13 @@ class WatermarkTests
   /// Test for adding watermark image online.
   Future<void> testInsertWatermarkImageOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
-    final requestImageFileData = await context.loadBinaryFile('Common/aspose-cloud.png');
+    final requestDocument = await context.loadBinaryFile(localFile);
+
+    final requestImageFile = await context.loadBinaryFile('Common/aspose-cloud.png');
 
     final request = InsertWatermarkImageOnlineRequest(
-      requestDocumentData,
-      requestImageFileData
+      requestDocument,
+      requestImageFile
     );
 
     await context.getApi().insertWatermarkImageOnline(request);
@@ -82,10 +80,6 @@ class WatermarkTests
   Future<void> testInsertWatermarkText() async
   {
     final remoteFileName = 'TestInsertWatermarkText.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestWatermarkText = WatermarkText();
-    requestWatermarkText.text = 'This is the text';
-    requestWatermarkText.rotationAngle = 90.0;
 
     final request = InsertWatermarkTextRequest(
       remoteFileName,
@@ -102,13 +96,12 @@ class WatermarkTests
   /// Test for adding watermark text online.
   Future<void> testInsertWatermarkTextOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
-    final requestWatermarkText = WatermarkText();
-    requestWatermarkText.text = 'This is the text';
-    requestWatermarkText.rotationAngle = 90;
+    final requestDocument = await context.loadBinaryFile(localFile);
+
+
 
     final request = InsertWatermarkTextOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       requestWatermarkText
     );
 
@@ -119,7 +112,6 @@ class WatermarkTests
   Future<void> testDeleteWatermark() async
   {
     final remoteFileName = 'TestDeleteWatermark.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteWatermarkRequest(
       remoteFileName,
@@ -135,10 +127,10 @@ class WatermarkTests
   /// Test for deleting watermark online.
   Future<void> testDeleteWatermarkOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = DeleteWatermarkOnlineRequest(
-      requestDocumentData
+      requestDocument
     );
 
     await context.getApi().deleteWatermarkOnline(request);

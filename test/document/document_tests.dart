@@ -46,7 +46,6 @@ class DocumentTests
   Future<void> testGetDocument() async
   {
     final remoteFileName = 'TestGetDocument.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetDocumentRequest(
       remoteFileName,

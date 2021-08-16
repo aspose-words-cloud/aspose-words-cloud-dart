@@ -46,7 +46,6 @@ class RevisionsTests
   Future<void> testAcceptAllRevisions() async
   {
     final remoteFileName = 'TestAcceptAllRevisions.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = AcceptAllRevisionsRequest(
       remoteFileName,
@@ -62,10 +61,10 @@ class RevisionsTests
   /// Test for accepting revisions in document online.
   Future<void> testAcceptAllRevisionsOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = AcceptAllRevisionsOnlineRequest(
-      requestDocumentData
+      requestDocument
     );
 
     final result = await context.getApi().acceptAllRevisionsOnline(request);
@@ -79,7 +78,6 @@ class RevisionsTests
   Future<void> testRejectAllRevisions() async
   {
     final remoteFileName = 'TestRejectAllRevisions.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = RejectAllRevisionsRequest(
       remoteFileName,
@@ -95,10 +93,10 @@ class RevisionsTests
   /// Test for rejecting revisions in document online.
   Future<void> testRejectAllRevisionsOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = RejectAllRevisionsOnlineRequest(
-      requestDocumentData
+      requestDocument
     );
 
     final result = await context.getApi().rejectAllRevisionsOnline(request);

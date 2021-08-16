@@ -49,7 +49,6 @@ class FieldTests
   {
     final localFileName = 'GetField.docx';
     final remoteFileName = 'TestGetFields.docx';
-    await context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetFieldsRequest(
       remoteFileName,
@@ -67,10 +66,10 @@ class FieldTests
   /// Test for getting fields online.
   Future<void> testGetFieldsOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(fieldFolder + '/GetField.docx');
+    final requestDocument = await context.loadBinaryFile(fieldFolder + '/GetField.docx');
 
     final request = GetFieldsOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       nodePath: 'sections/0'
     );
 
@@ -82,7 +81,6 @@ class FieldTests
   {
     final localFileName = 'GetField.docx';
     final remoteFileName = 'TestGetFieldsWithoutNodePath.docx';
-    await context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetFieldsRequest(
       remoteFileName,
@@ -101,7 +99,6 @@ class FieldTests
   {
     final localFileName = 'GetField.docx';
     final remoteFileName = 'TestGetField.docx';
-    await context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetFieldRequest(
       remoteFileName,
@@ -118,10 +115,10 @@ class FieldTests
   /// Test for getting field by index online.
   Future<void> testGetFieldOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(fieldFolder + '/GetField.docx');
+    final requestDocument = await context.loadBinaryFile(fieldFolder + '/GetField.docx');
 
     final request = GetFieldOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       0,
       nodePath: 'sections/0/paragraphs/0'
     );
@@ -134,7 +131,6 @@ class FieldTests
   {
     final localFileName = 'GetField.docx';
     final remoteFileName = 'TestGetFieldWithoutNodePath.docx';
-    await context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetFieldRequest(
       remoteFileName,
@@ -152,9 +148,6 @@ class FieldTests
   {
     final localFileName = 'SampleWordDocument.docx';
     final remoteFileName = 'TestInsertField.docx';
-    await context.uploadFile(textFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
-    final requestField = FieldInsert();
-    requestField.fieldCode = '{ NUMPAGES }';
 
     final request = InsertFieldRequest(
       remoteFileName,
@@ -172,12 +165,12 @@ class FieldTests
   /// Test for putting field online.
   Future<void> testInsertFieldOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(fieldFolder + '/GetField.docx');
-    final requestField = FieldInsert();
-    requestField.fieldCode = '{ NUMPAGES }';
+    final requestDocument = await context.loadBinaryFile(fieldFolder + '/GetField.docx');
+
+
 
     final request = InsertFieldOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       requestField,
       nodePath: 'sections/0/paragraphs/0'
     );
@@ -190,9 +183,6 @@ class FieldTests
   {
     final localFileName = 'SampleWordDocument.docx';
     final remoteFileName = 'TestInsertFieldWithoutNodePath.docx';
-    await context.uploadFile(textFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
-    final requestField = FieldInsert();
-    requestField.fieldCode = '{ NUMPAGES }';
 
     final request = InsertFieldRequest(
       remoteFileName,
@@ -211,9 +201,6 @@ class FieldTests
   {
     final localFileName = 'GetField.docx';
     final remoteFileName = 'TestUpdateField.docx';
-    await context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
-    final requestField = FieldUpdate();
-    requestField.fieldCode = '{ NUMPAGES }';
 
     final request = UpdateFieldRequest(
       remoteFileName,
@@ -232,12 +219,12 @@ class FieldTests
   /// Test for posting field online.
   Future<void> testUpdateFieldOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(fieldFolder + '/GetField.docx');
-    final requestField = FieldUpdate();
-    requestField.fieldCode = '{ NUMPAGES }';
+    final requestDocument = await context.loadBinaryFile(fieldFolder + '/GetField.docx');
+
+
 
     final request = UpdateFieldOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       requestField,
       0,
       nodePath: 'sections/0/paragraphs/0'
@@ -251,10 +238,6 @@ class FieldTests
   {
     final localFileName = 'test_multi_pages.docx';
     final remoteFileName = 'TestInsertPageNumbers.docx';
-    await context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
-    final requestPageNumber = PageNumber();
-    requestPageNumber.alignment = 'center';
-    requestPageNumber.format = '{PAGE} of {NUMPAGES}';
 
     final request = InsertPageNumbersRequest(
       remoteFileName,
@@ -272,13 +255,12 @@ class FieldTests
   Future<void> testInsertPageNumbersOnline() async
   {
     final localFileName = 'test_multi_pages.docx';
-    final requestDocumentData = await context.loadBinaryFile('Common/' + localFileName);
-    final requestPageNumber = PageNumber();
-    requestPageNumber.alignment = 'center';
-    requestPageNumber.format = '{PAGE} of {NUMPAGES}';
+    final requestDocument = await context.loadBinaryFile('Common/' + localFileName);
+
+
 
     final request = InsertPageNumbersOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       requestPageNumber
     );
 
@@ -290,7 +272,6 @@ class FieldTests
   {
     final localFileName = 'GetField.docx';
     final remoteFileName = 'TestDeleteField.docx';
-    await context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteFieldRequest(
       remoteFileName,
@@ -305,10 +286,10 @@ class FieldTests
   /// Test for deleting field online.
   Future<void> testDeleteFieldOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(fieldFolder + '/GetField.docx');
+    final requestDocument = await context.loadBinaryFile(fieldFolder + '/GetField.docx');
 
     final request = DeleteFieldOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       0,
       nodePath: 'sections/0/paragraphs/0'
     );
@@ -321,7 +302,6 @@ class FieldTests
   {
     final localFileName = 'GetField.docx';
     final remoteFileName = 'TestDeleteFieldWithoutNodePath.docx';
-    await context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteFieldRequest(
       remoteFileName,
@@ -337,7 +317,6 @@ class FieldTests
   {
     final localFileName = 'test_multi_pages.docx';
     final remoteFileName = 'TestDeleteParagraphFields.docx';
-    await context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteFieldsRequest(
       remoteFileName,
@@ -353,7 +332,6 @@ class FieldTests
   {
     final localFileName = 'test_multi_pages.docx';
     final remoteFileName = 'TestDeleteParagraphFieldsWithoutNodePath.docx';
-    await context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteFieldsRequest(
       remoteFileName,
@@ -368,7 +346,6 @@ class FieldTests
   {
     final localFileName = 'test_multi_pages.docx';
     final remoteFileName = 'TestDeleteSectionFields.docx';
-    await context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteFieldsRequest(
       remoteFileName,
@@ -384,7 +361,6 @@ class FieldTests
   {
     final localFileName = 'test_multi_pages.docx';
     final remoteFileName = 'TestDeleteSectionFieldsWithoutNodePath.docx';
-    await context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteFieldsRequest(
       remoteFileName,
@@ -399,7 +375,6 @@ class FieldTests
   {
     final localFileName = 'test_multi_pages.docx';
     final remoteFileName = 'TestDeleteSectionParagraphFields.docx';
-    await context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteFieldsRequest(
       remoteFileName,
@@ -415,7 +390,6 @@ class FieldTests
   {
     final localFileName = 'test_multi_pages.docx';
     final remoteFileName = 'TestDeleteSectionParagraphFields.docx';
-    await context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteFieldsRequest(
       remoteFileName,
@@ -430,10 +404,10 @@ class FieldTests
   Future<void> testDeleteDocumentFieldsOnline() async
   {
     final localFileName = 'Common/test_multi_pages.docx';
-    final requestDocumentData = await context.loadBinaryFile(localFileName);
+    final requestDocument = await context.loadBinaryFile(localFileName);
 
     final request = DeleteFieldsOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       nodePath: ''
     );
 
@@ -445,7 +419,6 @@ class FieldTests
   {
     final localFileName = 'test_multi_pages.docx';
     final remoteFileName = 'TestUpdateDocumentFields.docx';
-    await context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
     final request = UpdateFieldsRequest(
       remoteFileName,
@@ -461,10 +434,10 @@ class FieldTests
   Future<void> testUpdateDocumentFieldsOnline() async
   {
     final localFile = 'Common/test_multi_pages.docx';
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = UpdateFieldsOnlineRequest(
-      requestDocumentData
+      requestDocument
     );
 
     await context.getApi().updateFieldsOnline(request);

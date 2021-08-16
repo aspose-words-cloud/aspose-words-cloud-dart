@@ -46,7 +46,6 @@ class CustomXmlPartsTests
   Future<void> testGetCustomXmlPart() async
   {
     final remoteFileName = 'TestGetCustomXmlPart.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetCustomXmlPartRequest(
       remoteFileName,
@@ -63,10 +62,10 @@ class CustomXmlPartsTests
   /// Test for getting custom xml part by specified index online.
   Future<void> testGetCustomXmlPartOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetCustomXmlPartOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       0
     );
 
@@ -80,7 +79,6 @@ class CustomXmlPartsTests
   Future<void> testGetCustomXmlParts() async
   {
     final remoteFileName = 'TestGetCustomXmlParts.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetCustomXmlPartsRequest(
       remoteFileName,
@@ -98,10 +96,10 @@ class CustomXmlPartsTests
   /// Test for getting all custom xml parts from document online.
   Future<void> testGetCustomXmlPartsOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetCustomXmlPartsOnlineRequest(
-      requestDocumentData
+      requestDocument
     );
 
     final result = await context.getApi().getCustomXmlPartsOnline(request);
@@ -116,10 +114,6 @@ class CustomXmlPartsTests
   Future<void> testInsertCustomXmlPart() async
   {
     final remoteFileName = 'TestInsertCustomXmlPart.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestCustomXmlPart = CustomXmlPartInsert();
-    requestCustomXmlPart.id = 'hello';
-    requestCustomXmlPart.data = '<data>Hello world</data>';
 
     final request = InsertCustomXmlPartRequest(
       remoteFileName,
@@ -136,13 +130,12 @@ class CustomXmlPartsTests
   /// Test for adding custom xml part online.
   Future<void> testInsertCustomXmlPartOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
-    final requestCustomXmlPart = CustomXmlPartInsert();
-    requestCustomXmlPart.id = 'hello';
-    requestCustomXmlPart.data = '<data>Hello world</data>';
+    final requestDocument = await context.loadBinaryFile(localFile);
+
+
 
     final request = InsertCustomXmlPartOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       requestCustomXmlPart
     );
 
@@ -156,9 +149,6 @@ class CustomXmlPartsTests
   Future<void> testUpdateCustomXmlPart() async
   {
     final remoteFileName = 'TestUpdateCustomXmlPart.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestCustomXmlPart = CustomXmlPartUpdate();
-    requestCustomXmlPart.data = '<data>Hello world</data>';
 
     final request = UpdateCustomXmlPartRequest(
       remoteFileName,
@@ -176,12 +166,12 @@ class CustomXmlPartsTests
   /// Test for updating custom xml part online.
   Future<void> testUpdateCustomXmlPartOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
-    final requestCustomXmlPart = CustomXmlPartUpdate();
-    requestCustomXmlPart.data = '<data>Hello world</data>';
+    final requestDocument = await context.loadBinaryFile(localFile);
+
+
 
     final request = UpdateCustomXmlPartOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       0,
       requestCustomXmlPart
     );
@@ -196,7 +186,6 @@ class CustomXmlPartsTests
   Future<void> testDeleteCustomXmlPart() async
   {
     final remoteFileName = 'TestDeleteCustomXmlPart.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteCustomXmlPartRequest(
       remoteFileName,
@@ -211,10 +200,10 @@ class CustomXmlPartsTests
   /// A test for DeleteCustomXmlPart online.
   Future<void> testDeleteCustomXmlPartOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = DeleteCustomXmlPartOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       0
     );
 
@@ -225,7 +214,6 @@ class CustomXmlPartsTests
   Future<void> testDeleteCustomXmlParts() async
   {
     final remoteFileName = 'TestDeleteCustomXmlPart.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteCustomXmlPartsRequest(
       remoteFileName,
@@ -239,10 +227,10 @@ class CustomXmlPartsTests
   /// A test for DeleteCustomXmlParts online.
   Future<void> testDeleteCustomXmlPartsOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = DeleteCustomXmlPartsOnlineRequest(
-      requestDocumentData
+      requestDocument
     );
 
     await context.getApi().deleteCustomXmlPartsOnline(request);

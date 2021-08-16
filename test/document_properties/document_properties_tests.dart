@@ -46,7 +46,6 @@ class DocumentPropertiesTests
   Future<void> testGetDocumentProperties() async
   {
     final remoteFileName = 'TestGetDocumentProperties.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetDocumentPropertiesRequest(
       remoteFileName,
@@ -65,10 +64,10 @@ class DocumentPropertiesTests
   /// Test for getting document properties online.
   Future<void> testGetDocumentPropertiesOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetDocumentPropertiesOnlineRequest(
-      requestDocumentData
+      requestDocument
     );
 
     await context.getApi().getDocumentPropertiesOnline(request);
@@ -78,7 +77,6 @@ class DocumentPropertiesTests
   Future<void> testGetDocumentProperty() async
   {
     final remoteFileName = 'TestGetDocumentProperty.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetDocumentPropertyRequest(
       remoteFileName,
@@ -95,10 +93,10 @@ class DocumentPropertiesTests
   /// A test for GetDocumentProperty online.
   Future<void> testGetDocumentPropertyOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetDocumentPropertyOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'Author'
     );
 
@@ -109,7 +107,6 @@ class DocumentPropertiesTests
   Future<void> testDeleteDocumentProperty() async
   {
     final remoteFileName = 'TestDeleteDocumentProperty.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteDocumentPropertyRequest(
       remoteFileName,
@@ -124,10 +121,10 @@ class DocumentPropertiesTests
   /// Test for deleting document property online.
   Future<void> testDeleteDocumentPropertyOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = DeleteDocumentPropertyOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'testProp'
     );
 
@@ -138,9 +135,6 @@ class DocumentPropertiesTests
   Future<void> testUpdateDocumentProperty() async
   {
     final remoteFileName = 'TestUpdateDocumentProperty.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestProperty = DocumentPropertyCreateOrUpdate();
-    requestProperty.value = 'Imran Anwar';
 
     final request = CreateOrUpdateDocumentPropertyRequest(
       remoteFileName,
@@ -159,12 +153,12 @@ class DocumentPropertiesTests
   /// Test for updating document property online.
   Future<void> testUpdateDocumentPropertyOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
-    final requestProperty = DocumentPropertyCreateOrUpdate();
-    requestProperty.value = 'Imran Anwar';
+    final requestDocument = await context.loadBinaryFile(localFile);
+
+
 
     final request = CreateOrUpdateDocumentPropertyOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'AsposeAuthor',
       requestProperty
     );

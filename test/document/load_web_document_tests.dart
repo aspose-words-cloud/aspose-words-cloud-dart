@@ -40,17 +40,6 @@ class LoadWebDocumentTests
   /// Test for loading web document.
   Future<void> testLoadWebDocument() async
   {
-    final requestDataSaveOptions = SaveOptionsData();
-    requestDataSaveOptions.fileName = 'google.doc';
-    requestDataSaveOptions.saveFormat = 'doc';
-    requestDataSaveOptions.dmlEffectsRenderingMode = '1';
-    requestDataSaveOptions.dmlRenderingMode = '1';
-    requestDataSaveOptions.updateSdtContent = false;
-    requestDataSaveOptions.zipOutput = false;
-
-    final requestData = LoadWebDocumentData();
-    requestData.loadingDocumentUrl = 'http://google.com';
-    requestData.saveOptions = requestDataSaveOptions;
 
     final request = LoadWebDocumentRequest(
       requestData

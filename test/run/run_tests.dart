@@ -46,9 +46,6 @@ class RunTests
   Future<void> testUpdateRun() async
   {
     final remoteFileName = 'TestUpdateRun.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestRun = RunUpdate();
-    requestRun.text = 'run with text';
 
     final request = UpdateRunRequest(
       remoteFileName,
@@ -66,12 +63,12 @@ class RunTests
   /// Test for updating run online.
   Future<void> testUpdateRunOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
-    final requestRun = RunUpdate();
-    requestRun.text = 'run with text';
+    final requestDocument = await context.loadBinaryFile(localFile);
+
+
 
     final request = UpdateRunOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'paragraphs/1',
       requestRun,
       0
@@ -84,9 +81,6 @@ class RunTests
   Future<void> testInsertRun() async
   {
     final remoteFileName = 'TestInsertRun.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestRun = RunInsert();
-    requestRun.text = 'run with text';
 
     final request = InsertRunRequest(
       remoteFileName,
@@ -104,12 +98,12 @@ class RunTests
   /// Test for adding run online.
   Future<void> testInsertRunOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
-    final requestRun = RunInsert();
-    requestRun.text = 'run with text';
+    final requestDocument = await context.loadBinaryFile(localFile);
+
+
 
     final request = InsertRunOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'paragraphs/1',
       requestRun
     );
@@ -121,7 +115,6 @@ class RunTests
   Future<void> testDeleteRun() async
   {
     final remoteFileName = 'TestDeleteRun.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteRunRequest(
       remoteFileName,
@@ -136,10 +129,10 @@ class RunTests
   /// Test for deleting run online.
   Future<void> testDeleteRunOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = DeleteRunOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'paragraphs/1',
       0
     );

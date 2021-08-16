@@ -46,7 +46,6 @@ class ListsTests
   Future<void> testGetLists() async
   {
     final remoteFileName = 'TestGetLists.doc';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetListsRequest(
       remoteFileName,
@@ -63,10 +62,10 @@ class ListsTests
   /// Test for getting lists from document online.
   Future<void> testGetListsOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetListsOnlineRequest(
-      requestDocumentData
+      requestDocument
     );
 
     await context.getApi().getListsOnline(request);
@@ -76,7 +75,6 @@ class ListsTests
   Future<void> testGetList() async
   {
     final remoteFileName = 'TestGetList.doc';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetListRequest(
       remoteFileName,
@@ -92,10 +90,10 @@ class ListsTests
   /// Test for getting list from document online.
   Future<void> testGetListOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetListOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       1
     );
 
@@ -106,9 +104,6 @@ class ListsTests
   Future<void> testUpdateList() async
   {
     final remoteFileName = 'TestUpdateList.doc';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestListUpdate = ListUpdate();
-    requestListUpdate.isRestartAtEachSection = true;
 
     final request = UpdateListRequest(
       remoteFileName,
@@ -123,12 +118,12 @@ class ListsTests
   /// Test for updating list from document online.
   Future<void> testUpdateListOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
-    final requestListUpdate = ListUpdate();
-    requestListUpdate.isRestartAtEachSection = true;
+    final requestDocument = await context.loadBinaryFile(localFile);
+
+
 
     final request = UpdateListOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       1,
       requestListUpdate
     );
@@ -143,9 +138,6 @@ class ListsTests
   Future<void> testUpdateListLevel() async
   {
     final remoteFileName = 'TestUpdateListLevel.doc';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestListUpdate = ListLevelUpdate();
-    requestListUpdate.alignment = ListLevelUpdate_AlignmentEnum.right;
 
     final request = UpdateListLevelRequest(
       remoteFileName,
@@ -161,12 +153,12 @@ class ListsTests
   /// Test for updating list level from document online.
   Future<void> testUpdateListLevelOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
-    final requestListUpdate = ListLevelUpdate();
-    requestListUpdate.alignment = ListLevelUpdate_AlignmentEnum.right;
+    final requestDocument = await context.loadBinaryFile(localFile);
+
+
 
     final request = UpdateListLevelOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       1,
       requestListUpdate,
       1
@@ -184,9 +176,6 @@ class ListsTests
   Future<void> testInsertList() async
   {
     final remoteFileName = 'TestInsertList.doc';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestListInsert = ListInsert();
-    requestListInsert.template = ListInsert_TemplateEnum.outlineLegal;
 
     final request = InsertListRequest(
       remoteFileName,
@@ -202,12 +191,12 @@ class ListsTests
   /// Test for inserting list from document online.
   Future<void> testInsertListOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
-    final requestListInsert = ListInsert();
-    requestListInsert.template = ListInsert_TemplateEnum.outlineLegal;
+    final requestDocument = await context.loadBinaryFile(localFile);
+
+
 
     final request = InsertListOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       requestListInsert
     );
 

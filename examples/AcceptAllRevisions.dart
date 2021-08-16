@@ -8,10 +8,12 @@ final wordsApi = WordsApi(config);
 final fileName  = 'test_doc.docx';
 
 // Upload original document to cloud storage.
-final requestFileContentData = (await File(fileName).readAsBytes()).buffer.asByteData();
-final uploadFileRequest = UploadFileRequest(requestFileContentData, fileName);
+final myVar1 = (await File(fileName).readAsBytes()).buffer.asByteData();
+final myVar2 = fileName;
+final uploadFileRequest = UploadFileRequest(myVar1, myVar2);
 await wordsApi.uploadFile(uploadFileRequest);
 
 // Calls AcceptAllRevisions method for document in cloud.
-final request = AcceptAllRevisionsRequest(fileName);
+final myVar3 = fileName;
+final request = AcceptAllRevisionsRequest(myVar3);
 await wordsApi.acceptAllRevisions(request);
