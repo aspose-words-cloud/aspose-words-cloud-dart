@@ -104,6 +104,8 @@ class ListsTests
   Future<void> testUpdateList() async
   {
     final remoteFileName = 'TestUpdateList.doc';
+    final requestListUpdate = ListUpdate();
+    requestListUpdate.isRestartAtEachSection = true;
 
     final request = UpdateListRequest(
       remoteFileName,
@@ -120,7 +122,8 @@ class ListsTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestListUpdate = ListUpdate();
+    requestListUpdate.isRestartAtEachSection = true;
 
     final request = UpdateListOnlineRequest(
       requestDocument,
@@ -138,6 +141,8 @@ class ListsTests
   Future<void> testUpdateListLevel() async
   {
     final remoteFileName = 'TestUpdateListLevel.doc';
+    final requestListUpdate = ListLevelUpdate();
+    requestListUpdate.alignment = ListLevelUpdate_AlignmentEnum.right;
 
     final request = UpdateListLevelRequest(
       remoteFileName,
@@ -155,7 +160,8 @@ class ListsTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestListUpdate = ListLevelUpdate();
+    requestListUpdate.alignment = ListLevelUpdate_AlignmentEnum.right;
 
     final request = UpdateListLevelOnlineRequest(
       requestDocument,
@@ -176,6 +182,8 @@ class ListsTests
   Future<void> testInsertList() async
   {
     final remoteFileName = 'TestInsertList.doc';
+    final requestListInsert = ListInsert();
+    requestListInsert.template = ListInsert_TemplateEnum.outlineLegal;
 
     final request = InsertListRequest(
       remoteFileName,
@@ -193,7 +201,8 @@ class ListsTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestListInsert = ListInsert();
+    requestListInsert.template = ListInsert_TemplateEnum.outlineLegal;
 
     final request = InsertListOnlineRequest(
       requestDocument,

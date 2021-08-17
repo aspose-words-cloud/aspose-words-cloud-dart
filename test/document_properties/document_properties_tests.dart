@@ -135,6 +135,8 @@ class DocumentPropertiesTests
   Future<void> testUpdateDocumentProperty() async
   {
     final remoteFileName = 'TestUpdateDocumentProperty.docx';
+    final requestProperty = DocumentPropertyCreateOrUpdate();
+    requestProperty.value = 'Imran Anwar';
 
     final request = CreateOrUpdateDocumentPropertyRequest(
       remoteFileName,
@@ -155,7 +157,8 @@ class DocumentPropertiesTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestProperty = DocumentPropertyCreateOrUpdate();
+    requestProperty.value = 'Imran Anwar';
 
     final request = CreateOrUpdateDocumentPropertyOnlineRequest(
       requestDocument,

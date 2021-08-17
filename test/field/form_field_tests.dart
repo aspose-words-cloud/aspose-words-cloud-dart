@@ -46,6 +46,13 @@ class FormFieldTests
   Future<void> testUpdateFormField() async
   {
     final remoteFileName = 'TestUpdateFormField.docx';
+    final requestFormField = FormFieldTextInput();
+    requestFormField.name = 'FullName';
+    requestFormField.enabled = true;
+    requestFormField.calculateOnExit = true;
+    requestFormField.statusText = '';
+    requestFormField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
+    requestFormField.textInputDefault = 'No name';
 
     final request = UpdateFormFieldRequest(
       remoteFileName,
@@ -67,7 +74,13 @@ class FormFieldTests
   {
     final requestDocument = await context.loadBinaryFile(fieldFolder + '/FormFilled.docx');
 
-
+    final requestFormField = FormFieldTextInput();
+    requestFormField.name = 'FullName';
+    requestFormField.enabled = true;
+    requestFormField.calculateOnExit = true;
+    requestFormField.statusText = '';
+    requestFormField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
+    requestFormField.textInputDefault = 'No name';
 
     final request = UpdateFormFieldOnlineRequest(
       requestDocument,
@@ -83,6 +96,13 @@ class FormFieldTests
   Future<void> testUpdateFormFieldWithoutNodePath() async
   {
     final remoteFileName = 'TestUpdateFormFieldWithoutNodePath.docx';
+    final requestFormField = FormFieldTextInput();
+    requestFormField.name = 'FullName';
+    requestFormField.enabled = true;
+    requestFormField.calculateOnExit = true;
+    requestFormField.statusText = '';
+    requestFormField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
+    requestFormField.textInputDefault = 'No name';
 
     final request = UpdateFormFieldRequest(
       remoteFileName,
@@ -197,6 +217,14 @@ class FormFieldTests
   Future<void> testInsertFormField() async
   {
     final remoteFileName = 'TestInsertFormField.docx';
+    final requestFormField = FormFieldTextInput();
+    requestFormField.name = 'FullName';
+    requestFormField.enabled = true;
+    requestFormField.calculateOnExit = true;
+    requestFormField.statusText = '';
+    requestFormField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
+    requestFormField.textInputDefault = '123';
+    requestFormField.textInputFormat = 'UPPERCASE';
 
     final request = InsertFormFieldRequest(
       remoteFileName,
@@ -217,7 +245,14 @@ class FormFieldTests
   {
     final requestDocument = await context.loadBinaryFile(fieldFolder + '/FormFilled.docx');
 
-
+    final requestFormField = FormFieldTextInput();
+    requestFormField.name = 'FullName';
+    requestFormField.enabled = true;
+    requestFormField.calculateOnExit = true;
+    requestFormField.statusText = '';
+    requestFormField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
+    requestFormField.textInputDefault = '123';
+    requestFormField.textInputFormat = 'UPPERCASE';
 
     final request = InsertFormFieldOnlineRequest(
       requestDocument,
@@ -232,6 +267,14 @@ class FormFieldTests
   Future<void> testInsertFormFieldWithoutNodePath() async
   {
     final remoteFileName = 'TestInsertFormFieldWithoutNodePath.docx';
+    final requestFormField = FormFieldTextInput();
+    requestFormField.name = 'FullName';
+    requestFormField.enabled = true;
+    requestFormField.calculateOnExit = true;
+    requestFormField.statusText = '';
+    requestFormField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
+    requestFormField.textInputDefault = '123';
+    requestFormField.textInputFormat = 'UPPERCASE';
 
     final request = InsertFormFieldRequest(
       remoteFileName,

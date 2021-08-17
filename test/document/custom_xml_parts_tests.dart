@@ -114,6 +114,9 @@ class CustomXmlPartsTests
   Future<void> testInsertCustomXmlPart() async
   {
     final remoteFileName = 'TestInsertCustomXmlPart.docx';
+    final requestCustomXmlPart = CustomXmlPartInsert();
+    requestCustomXmlPart.id = 'hello';
+    requestCustomXmlPart.data = '<data>Hello world</data>';
 
     final request = InsertCustomXmlPartRequest(
       remoteFileName,
@@ -132,7 +135,9 @@ class CustomXmlPartsTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestCustomXmlPart = CustomXmlPartInsert();
+    requestCustomXmlPart.id = 'hello';
+    requestCustomXmlPart.data = '<data>Hello world</data>';
 
     final request = InsertCustomXmlPartOnlineRequest(
       requestDocument,
@@ -149,6 +154,8 @@ class CustomXmlPartsTests
   Future<void> testUpdateCustomXmlPart() async
   {
     final remoteFileName = 'TestUpdateCustomXmlPart.docx';
+    final requestCustomXmlPart = CustomXmlPartUpdate();
+    requestCustomXmlPart.data = '<data>Hello world</data>';
 
     final request = UpdateCustomXmlPartRequest(
       remoteFileName,
@@ -168,7 +175,8 @@ class CustomXmlPartsTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestCustomXmlPart = CustomXmlPartUpdate();
+    requestCustomXmlPart.data = '<data>Hello world</data>';
 
     final request = UpdateCustomXmlPartOnlineRequest(
       requestDocument,

@@ -45,6 +45,8 @@ class CompatibilityTests
   Future<void> testOptimizeDocument() async
   {
     final remoteFileName = 'TestOptimizeDocument.docx';
+    final requestOptions = OptimizationOptions();
+    requestOptions.msWordVersion = OptimizationOptions_MsWordVersionEnum.word2002;
 
     final request = OptimizeDocumentRequest(
       remoteFileName,
@@ -60,7 +62,8 @@ class CompatibilityTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestOptions = OptimizationOptions();
+    requestOptions.msWordVersion = OptimizationOptions_MsWordVersionEnum.word2002;
 
     final request = OptimizeDocumentOnlineRequest(
       requestDocument,

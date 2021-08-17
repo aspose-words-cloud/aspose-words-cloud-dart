@@ -80,6 +80,9 @@ class WatermarkTests
   Future<void> testInsertWatermarkText() async
   {
     final remoteFileName = 'TestInsertWatermarkText.docx';
+    final requestWatermarkText = WatermarkText();
+    requestWatermarkText.text = 'This is the text';
+    requestWatermarkText.rotationAngle = 90.0;
 
     final request = InsertWatermarkTextRequest(
       remoteFileName,
@@ -98,7 +101,9 @@ class WatermarkTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestWatermarkText = WatermarkText();
+    requestWatermarkText.text = 'This is the text';
+    requestWatermarkText.rotationAngle = 90;
 
     final request = InsertWatermarkTextOnlineRequest(
       requestDocument,

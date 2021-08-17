@@ -46,6 +46,15 @@ class AppendDocumentTests
   Future<void> testAppendDocument() async
   {
     final remoteFileName = 'TestAppendDocument.docx';
+    final requestDocumentListDocumentEntries0 = DocumentEntry();
+    requestDocumentListDocumentEntries0.href = remoteDataFolder + '/' + remoteFileName;
+    requestDocumentListDocumentEntries0.importFormatMode = 'KeepSourceFormatting';
+
+    final requestDocumentListDocumentEntries = [
+      requestDocumentListDocumentEntries0];
+
+    final requestDocumentList = DocumentEntryList();
+    requestDocumentList.documentEntries = requestDocumentListDocumentEntries;
 
     final request = AppendDocumentRequest(
       remoteFileName,
@@ -65,11 +74,15 @@ class AppendDocumentTests
     final remoteFileName = 'TestAppendDocument.docx';
     final requestDocument = await context.loadBinaryFile(localFile);
 
+    final requestDocumentListDocumentEntries0 = DocumentEntry();
+    requestDocumentListDocumentEntries0.href = remoteDataFolder + '/' + remoteFileName;
+    requestDocumentListDocumentEntries0.importFormatMode = 'KeepSourceFormatting';
 
+    final requestDocumentListDocumentEntries = [
+      requestDocumentListDocumentEntries0];
 
-
-
-
+    final requestDocumentList = DocumentEntryList();
+    requestDocumentList.documentEntries = requestDocumentListDocumentEntries;
 
     final request = AppendDocumentOnlineRequest(
       requestDocument,

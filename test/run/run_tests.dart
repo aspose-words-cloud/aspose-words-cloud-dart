@@ -46,6 +46,8 @@ class RunTests
   Future<void> testUpdateRun() async
   {
     final remoteFileName = 'TestUpdateRun.docx';
+    final requestRun = RunUpdate();
+    requestRun.text = 'run with text';
 
     final request = UpdateRunRequest(
       remoteFileName,
@@ -65,7 +67,8 @@ class RunTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestRun = RunUpdate();
+    requestRun.text = 'run with text';
 
     final request = UpdateRunOnlineRequest(
       requestDocument,
@@ -81,6 +84,8 @@ class RunTests
   Future<void> testInsertRun() async
   {
     final remoteFileName = 'TestInsertRun.docx';
+    final requestRun = RunInsert();
+    requestRun.text = 'run with text';
 
     final request = InsertRunRequest(
       remoteFileName,
@@ -100,7 +105,8 @@ class RunTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestRun = RunInsert();
+    requestRun.text = 'run with text';
 
     final request = InsertRunOnlineRequest(
       requestDocument,

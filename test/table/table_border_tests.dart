@@ -166,6 +166,16 @@ class TableBorderTests
   Future<void> testUpdateBorder() async
   {
     final remoteFileName = 'TestUpdateBorder.docx';
+    final requestBorderPropertiesColor = XmlColor();
+    requestBorderPropertiesColor.web = '#AABBCC';
+
+    final requestBorderProperties = Border();
+    requestBorderProperties.borderType = Border_BorderTypeEnum.left;
+    requestBorderProperties.color = requestBorderPropertiesColor;
+    requestBorderProperties.distanceFromText = 6.0;
+    requestBorderProperties.lineStyle = Border_LineStyleEnum.dashDotStroker;
+    requestBorderProperties.lineWidth = 2.0;
+    requestBorderProperties.shadow = true;
 
     final request = UpdateBorderRequest(
       remoteFileName,
@@ -189,9 +199,16 @@ class TableBorderTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
+    final requestBorderPropertiesColor = XmlColor();
+    requestBorderPropertiesColor.web = '#AABBCC';
 
-
-
+    final requestBorderProperties = Border();
+    requestBorderProperties.borderType = Border_BorderTypeEnum.left;
+    requestBorderProperties.color = requestBorderPropertiesColor;
+    requestBorderProperties.distanceFromText = 6;
+    requestBorderProperties.lineStyle = Border_LineStyleEnum.dashDotStroker;
+    requestBorderProperties.lineWidth = 2;
+    requestBorderProperties.shadow = true;
 
     final request = UpdateBorderOnlineRequest(
       requestDocument,

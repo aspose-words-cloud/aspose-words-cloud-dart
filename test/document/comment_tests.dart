@@ -104,6 +104,26 @@ class CommentTests
   Future<void> testInsertComment() async
   {
     final remoteFileName = 'TestInsertComment.docx';
+    final requestCommentRangeStartNode = NodeLink();
+    requestCommentRangeStartNode.nodeId = '0.3.0.3';
+
+    final requestCommentRangeStart = DocumentPosition();
+    requestCommentRangeStart.node = requestCommentRangeStartNode;
+    requestCommentRangeStart.offset = 0;
+
+    final requestCommentRangeEndNode = NodeLink();
+    requestCommentRangeEndNode.nodeId = '0.3.0.3';
+
+    final requestCommentRangeEnd = DocumentPosition();
+    requestCommentRangeEnd.node = requestCommentRangeEndNode;
+    requestCommentRangeEnd.offset = 0;
+
+    final requestComment = CommentInsert();
+    requestComment.rangeStart = requestCommentRangeStart;
+    requestComment.rangeEnd = requestCommentRangeEnd;
+    requestComment.initial = 'IA';
+    requestComment.author = 'Imran Anwar';
+    requestComment.text = 'A new Comment';
 
     final request = InsertCommentRequest(
       remoteFileName,
@@ -124,15 +144,26 @@ class CommentTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
+    final requestCommentRangeStartNode = NodeLink();
+    requestCommentRangeStartNode.nodeId = '0.3.0.3';
 
+    final requestCommentRangeStart = DocumentPosition();
+    requestCommentRangeStart.node = requestCommentRangeStartNode;
+    requestCommentRangeStart.offset = 0;
 
+    final requestCommentRangeEndNode = NodeLink();
+    requestCommentRangeEndNode.nodeId = '0.3.0.3';
 
+    final requestCommentRangeEnd = DocumentPosition();
+    requestCommentRangeEnd.node = requestCommentRangeEndNode;
+    requestCommentRangeEnd.offset = 0;
 
-
-
-
-
-
+    final requestComment = CommentInsert();
+    requestComment.rangeStart = requestCommentRangeStart;
+    requestComment.rangeEnd = requestCommentRangeEnd;
+    requestComment.initial = 'IA';
+    requestComment.author = 'Imran Anwar';
+    requestComment.text = 'A new Comment';
 
     final request = InsertCommentOnlineRequest(
       requestDocument,
@@ -146,6 +177,26 @@ class CommentTests
   Future<void> testUpdateComment() async
   {
     final remoteFileName = 'TestUpdateComment.docx';
+    final requestCommentRangeStartNode = NodeLink();
+    requestCommentRangeStartNode.nodeId = '0.3.0';
+
+    final requestCommentRangeStart = DocumentPosition();
+    requestCommentRangeStart.node = requestCommentRangeStartNode;
+    requestCommentRangeStart.offset = 0;
+
+    final requestCommentRangeEndNode = NodeLink();
+    requestCommentRangeEndNode.nodeId = '0.3.0';
+
+    final requestCommentRangeEnd = DocumentPosition();
+    requestCommentRangeEnd.node = requestCommentRangeEndNode;
+    requestCommentRangeEnd.offset = 0;
+
+    final requestComment = CommentUpdate();
+    requestComment.rangeStart = requestCommentRangeStart;
+    requestComment.rangeEnd = requestCommentRangeEnd;
+    requestComment.initial = 'IA';
+    requestComment.author = 'Imran Anwar';
+    requestComment.text = 'A new Comment';
 
     final request = UpdateCommentRequest(
       remoteFileName,
@@ -167,15 +218,26 @@ class CommentTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
+    final requestCommentRangeStartNode = NodeLink();
+    requestCommentRangeStartNode.nodeId = '0.3.0';
 
+    final requestCommentRangeStart = DocumentPosition();
+    requestCommentRangeStart.node = requestCommentRangeStartNode;
+    requestCommentRangeStart.offset = 0;
 
+    final requestCommentRangeEndNode = NodeLink();
+    requestCommentRangeEndNode.nodeId = '0.3.0';
 
+    final requestCommentRangeEnd = DocumentPosition();
+    requestCommentRangeEnd.node = requestCommentRangeEndNode;
+    requestCommentRangeEnd.offset = 0;
 
-
-
-
-
-
+    final requestComment = CommentUpdate();
+    requestComment.rangeStart = requestCommentRangeStart;
+    requestComment.rangeEnd = requestCommentRangeEnd;
+    requestComment.initial = 'IA';
+    requestComment.author = 'Imran Anwar';
+    requestComment.text = 'A new Comment';
 
     final request = UpdateCommentOnlineRequest(
       requestDocument,

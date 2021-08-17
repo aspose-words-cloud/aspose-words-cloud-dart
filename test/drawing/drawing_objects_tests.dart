@@ -262,6 +262,15 @@ class DrawingObjectsTests
   Future<void> testInsertDrawingObject() async
   {
     final remoteFileName = 'TestInsetDrawingObject.docx';
+    final requestDrawingObject = DrawingObjectInsert();
+    requestDrawingObject.height = 0;
+    requestDrawingObject.left = 0;
+    requestDrawingObject.top = 0;
+    requestDrawingObject.width = 0;
+    requestDrawingObject.relativeHorizontalPosition = DrawingObjectInsert_RelativeHorizontalPositionEnum.margin;
+    requestDrawingObject.relativeVerticalPosition = DrawingObjectInsert_RelativeVerticalPositionEnum.margin;
+    requestDrawingObject.wrapType = DrawingObjectInsert_WrapTypeEnum.inline;
+
     final requestImageFile = await context.loadBinaryFile('Common/aspose-cloud.png');
 
     final request = InsertDrawingObjectRequest(
@@ -280,7 +289,14 @@ class DrawingObjectsTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestDrawingObject = DrawingObjectInsert();
+    requestDrawingObject.height = 0;
+    requestDrawingObject.left = 0;
+    requestDrawingObject.top = 0;
+    requestDrawingObject.width = 0;
+    requestDrawingObject.relativeHorizontalPosition = DrawingObjectInsert_RelativeHorizontalPositionEnum.margin;
+    requestDrawingObject.relativeVerticalPosition = DrawingObjectInsert_RelativeVerticalPositionEnum.margin;
+    requestDrawingObject.wrapType = DrawingObjectInsert_WrapTypeEnum.inline;
 
     final requestImageFile = await context.loadBinaryFile('Common/aspose-cloud.png');
 
@@ -298,6 +314,15 @@ class DrawingObjectsTests
   Future<void> testInsertDrawingObjectWithoutNodePath() async
   {
     final remoteFileName = 'TestInsetDrawingObjectWithoutNodePath.docx';
+    final requestDrawingObject = DrawingObjectInsert();
+    requestDrawingObject.height = 0;
+    requestDrawingObject.left = 0;
+    requestDrawingObject.top = 0;
+    requestDrawingObject.width = 0;
+    requestDrawingObject.relativeHorizontalPosition = DrawingObjectInsert_RelativeHorizontalPositionEnum.margin;
+    requestDrawingObject.relativeVerticalPosition = DrawingObjectInsert_RelativeVerticalPositionEnum.margin;
+    requestDrawingObject.wrapType = DrawingObjectInsert_WrapTypeEnum.inline;
+
     final requestImageFile = await context.loadBinaryFile('Common/aspose-cloud.png');
 
     final request = InsertDrawingObjectRequest(
@@ -357,6 +382,9 @@ class DrawingObjectsTests
   Future<void> testUpdateDrawingObject() async
   {
     final remoteFileName = 'TestUpdateDrawingObject.docx';
+    final requestDrawingObject = DrawingObjectUpdate();
+    requestDrawingObject.left = 0;
+
     final requestImageFile = await context.loadBinaryFile('Common/aspose-cloud.png');
 
     final request = UpdateDrawingObjectRequest(
@@ -376,7 +404,8 @@ class DrawingObjectsTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestDrawingObject = DrawingObjectUpdate();
+    requestDrawingObject.left = 0;
 
     final requestImageFile = await context.loadBinaryFile('Common/aspose-cloud.png');
 
@@ -395,6 +424,9 @@ class DrawingObjectsTests
   Future<void> testUpdateDrawingObjectWithoutNodePath() async
   {
     final remoteFileName = 'TestUpdateDrawingObjectWithoutNodePath.docx';
+    final requestDrawingObject = DrawingObjectUpdate();
+    requestDrawingObject.left = 0;
+
     final requestImageFile = await context.loadBinaryFile('Common/aspose-cloud.png');
 
     final request = UpdateDrawingObjectRequest(

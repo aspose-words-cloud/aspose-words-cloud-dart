@@ -105,6 +105,8 @@ class RangeTests
   Future<void> testSaveAsRange() async
   {
     final remoteFileName = 'TestSaveAsRange.docx';
+    final requestDocumentParameters = RangeDocument();
+    requestDocumentParameters.documentName = remoteDataFolder + '/NewDoc.docx';
 
     final request = SaveAsRangeRequest(
       remoteFileName,
@@ -124,7 +126,8 @@ class RangeTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestDocumentParameters = RangeDocument();
+    requestDocumentParameters.documentName = remoteDataFolder + '/NewDoc.docx';
 
     final request = SaveAsRangeOnlineRequest(
       requestDocument,
@@ -140,6 +143,8 @@ class RangeTests
   Future<void> testReplaceWithText() async
   {
     final remoteFileName = 'TestReplaceWithText.docx';
+    final requestRangeText = ReplaceRange();
+    requestRangeText.text = 'Replaced header';
 
     final request = ReplaceWithTextRequest(
       remoteFileName,
@@ -159,7 +164,8 @@ class RangeTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestRangeText = ReplaceRange();
+    requestRangeText.text = 'Replaced header';
 
     final request = ReplaceWithTextOnlineRequest(
       requestDocument,

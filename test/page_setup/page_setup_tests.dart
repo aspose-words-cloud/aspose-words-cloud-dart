@@ -77,6 +77,11 @@ class PageSetupTests
   Future<void> testUpdateSectionPageSetup() async
   {
     final remoteFileName = 'TestUpdateSectionPageSetup.docx';
+    final requestPageSetup = PageSetup();
+    requestPageSetup.rtlGutter = true;
+    requestPageSetup.leftMargin = 10.0;
+    requestPageSetup.orientation = PageSetup_OrientationEnum.landscape;
+    requestPageSetup.paperSize = PageSetup_PaperSizeEnum.a5;
 
     final request = UpdateSectionPageSetupRequest(
       remoteFileName,
@@ -97,7 +102,11 @@ class PageSetupTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestPageSetup = PageSetup();
+    requestPageSetup.rtlGutter = true;
+    requestPageSetup.leftMargin = 10;
+    requestPageSetup.orientation = PageSetup_OrientationEnum.landscape;
+    requestPageSetup.paperSize = PageSetup_PaperSizeEnum.a5;
 
     final request = UpdateSectionPageSetupOnlineRequest(
       requestDocument,

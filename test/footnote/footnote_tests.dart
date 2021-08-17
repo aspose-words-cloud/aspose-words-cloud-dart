@@ -46,6 +46,9 @@ class FootnoteTests
   Future<void> testInsertFootnote() async
   {
     final remoteFileName = 'TestInsertFootnote.docx';
+    final requestFootnoteDto = FootnoteInsert();
+    requestFootnoteDto.footnoteType = FootnoteBase_FootnoteTypeEnum.endnote;
+    requestFootnoteDto.text = 'test endnote';
 
     final request = InsertFootnoteRequest(
       remoteFileName,
@@ -65,7 +68,9 @@ class FootnoteTests
   {
     final requestDocument = await context.loadBinaryFile(footnoteFolder + '/Footnote.doc');
 
-
+    final requestFootnoteDto = FootnoteInsert();
+    requestFootnoteDto.footnoteType = FootnoteBase_FootnoteTypeEnum.endnote;
+    requestFootnoteDto.text = 'test endnote';
 
     final request = InsertFootnoteOnlineRequest(
       requestDocument,
@@ -80,6 +85,9 @@ class FootnoteTests
   Future<void> testInsertFootnoteWithoutNodePath() async
   {
     final remoteFileName = 'TestInsertFootnoteWithoutNodePath.docx';
+    final requestFootnoteDto = FootnoteInsert();
+    requestFootnoteDto.footnoteType = FootnoteBase_FootnoteTypeEnum.endnote;
+    requestFootnoteDto.text = 'test endnote';
 
     final request = InsertFootnoteRequest(
       remoteFileName,
@@ -235,6 +243,8 @@ class FootnoteTests
   Future<void> testUpdateFootnote() async
   {
     final remoteFileName = 'TestUpdateFootnote.docx';
+    final requestFootnoteDto = FootnoteUpdate();
+    requestFootnoteDto.text = 'new text is here';
 
     final request = UpdateFootnoteRequest(
       remoteFileName,
@@ -254,7 +264,8 @@ class FootnoteTests
   {
     final requestDocument = await context.loadBinaryFile(footnoteFolder + '/Footnote.doc');
 
-
+    final requestFootnoteDto = FootnoteUpdate();
+    requestFootnoteDto.text = 'new text is here';
 
     final request = UpdateFootnoteOnlineRequest(
       requestDocument,
@@ -270,6 +281,8 @@ class FootnoteTests
   Future<void> testUpdateFootnoteWithoutNodePath() async
   {
     final remoteFileName = 'TestUpdateFootnoteWithoutNodePath.docx';
+    final requestFootnoteDto = FootnoteUpdate();
+    requestFootnoteDto.text = 'new text is here';
 
     final request = UpdateFootnoteRequest(
       remoteFileName,

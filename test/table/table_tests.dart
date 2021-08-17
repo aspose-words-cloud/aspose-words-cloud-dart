@@ -190,6 +190,9 @@ class TableTests
   Future<void> testInsertTable() async
   {
     final remoteFileName = 'TestInsertTable.docx';
+    final requestTable = TableInsert();
+    requestTable.columnsCount = 5;
+    requestTable.rowsCount = 4;
 
     final request = InsertTableRequest(
       remoteFileName,
@@ -211,7 +214,9 @@ class TableTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestTable = TableInsert();
+    requestTable.columnsCount = 5;
+    requestTable.rowsCount = 4;
 
     final request = InsertTableOnlineRequest(
       requestDocument,
@@ -226,6 +231,9 @@ class TableTests
   Future<void> testInsertTableWithoutNodePath() async
   {
     final remoteFileName = 'TestInsertTableWithoutNodePath.docx';
+    final requestTable = TableInsert();
+    requestTable.columnsCount = 5;
+    requestTable.rowsCount = 4;
 
     final request = InsertTableRequest(
       remoteFileName,
@@ -292,6 +300,13 @@ class TableTests
   Future<void> testUpdateTableProperties() async
   {
     final remoteFileName = 'TestUpdateTableProperties.docx';
+    final requestProperties = TableProperties();
+    requestProperties.alignment = TableProperties_AlignmentEnum.right;
+    requestProperties.allowAutoFit = false;
+    requestProperties.bidi = true;
+    requestProperties.bottomPadding = 1;
+    requestProperties.cellSpacing = 2.0;
+    requestProperties.styleOptions = TableProperties_StyleOptionsEnum.columnBands;
 
     final request = UpdateTablePropertiesRequest(
       remoteFileName,
@@ -314,7 +329,13 @@ class TableTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestProperties = TableProperties();
+    requestProperties.alignment = TableProperties_AlignmentEnum.right;
+    requestProperties.allowAutoFit = false;
+    requestProperties.bidi = true;
+    requestProperties.bottomPadding = 1;
+    requestProperties.cellSpacing = 2;
+    requestProperties.styleOptions = TableProperties_StyleOptionsEnum.columnBands;
 
     final request = UpdateTablePropertiesOnlineRequest(
       requestDocument,
@@ -330,6 +351,13 @@ class TableTests
   Future<void> testUpdateTablePropertiesWithoutNodePath() async
   {
     final remoteFileName = 'TestUpdateTablePropertiesWithoutNodePath.docx';
+    final requestProperties = TableProperties();
+    requestProperties.alignment = TableProperties_AlignmentEnum.right;
+    requestProperties.allowAutoFit = false;
+    requestProperties.bidi = true;
+    requestProperties.bottomPadding = 1.0;
+    requestProperties.cellSpacing = 2.0;
+    requestProperties.styleOptions = TableProperties_StyleOptionsEnum.columnBands;
 
     final request = UpdateTablePropertiesRequest(
       remoteFileName,
@@ -411,6 +439,8 @@ class TableTests
   Future<void> testInsertTableRow() async
   {
     final remoteFileName = 'TestInsertTableRow.docx';
+    final requestRow = TableRowInsert();
+    requestRow.columnsCount = 5;
 
     final request = InsertTableRowRequest(
       remoteFileName,
@@ -430,7 +460,8 @@ class TableTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestRow = TableRowInsert();
+    requestRow.columnsCount = 5;
 
     final request = InsertTableRowOnlineRequest(
       requestDocument,
@@ -476,6 +507,11 @@ class TableTests
   Future<void> testUpdateTableRowFormat() async
   {
     final remoteFileName = 'TestUpdateTableRowFormat.docx';
+    final requestFormat = TableRowFormat();
+    requestFormat.allowBreakAcrossPages = true;
+    requestFormat.headingFormat = true;
+    requestFormat.height = 10.0;
+    requestFormat.heightRule = TableRowFormat_HeightRuleEnum.exactly;
 
     final request = UpdateTableRowFormatRequest(
       remoteFileName,
@@ -497,7 +533,11 @@ class TableTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestFormat = TableRowFormat();
+    requestFormat.allowBreakAcrossPages = true;
+    requestFormat.headingFormat = true;
+    requestFormat.height = 10;
+    requestFormat.heightRule = TableRowFormat_HeightRuleEnum.auto;
 
     final request = UpdateTableRowFormatOnlineRequest(
       requestDocument,
@@ -577,7 +617,7 @@ class TableTests
     final request = InsertTableCellRequest(
       remoteFileName,
       'sections/0/tables/2/rows/0',
-      requestCell,
+      null,
       folder: remoteDataFolder
     );
 
@@ -596,7 +636,7 @@ class TableTests
     final request = InsertTableCellOnlineRequest(
       requestDocument,
       'sections/0/tables/2/rows/0',
-      requestCell
+      null
     );
 
     await context.getApi().insertTableCellOnline(request);
@@ -637,6 +677,11 @@ class TableTests
   Future<void> testUpdateTableCellFormat() async
   {
     final remoteFileName = 'TestUpdateTableCellFormat.docx';
+    final requestFormat = TableCellFormat();
+    requestFormat.bottomPadding = 5.0;
+    requestFormat.fitText = true;
+    requestFormat.horizontalMerge = TableCellFormat_HorizontalMergeEnum.first;
+    requestFormat.wrapText = true;
 
     final request = UpdateTableCellFormatRequest(
       remoteFileName,
@@ -658,7 +703,11 @@ class TableTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestFormat = TableCellFormat();
+    requestFormat.bottomPadding = 5;
+    requestFormat.fitText = true;
+    requestFormat.horizontalMerge = TableCellFormat_HorizontalMergeEnum.first;
+    requestFormat.wrapText = true;
 
     final request = UpdateTableCellFormatOnlineRequest(
       requestDocument,

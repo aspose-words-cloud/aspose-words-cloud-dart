@@ -49,6 +49,10 @@ class CompareDocumentTests
     final localName2 = 'compareTestDoc2.doc';
     final remoteName1 = 'TestCompareDocument1.doc';
     final remoteName2 = 'TestCompareDocument2.doc';
+    final requestCompareData = CompareData();
+    requestCompareData.author = 'author';
+    requestCompareData.comparingWithDocument = remoteFolder + '/' + remoteName2;
+    requestCompareData.dateTime = DateTime(2015, 10, 26, 0, 0, 0);
 
     final request = CompareDocumentRequest(
       remoteName1,
@@ -70,7 +74,10 @@ class CompareDocumentTests
     final remoteName2 = 'TestCompareDocument2.doc';
     final requestDocument = await context.loadBinaryFile(localFolder + '/' + localName1);
 
-
+    final requestCompareData = CompareData();
+    requestCompareData.author = 'author';
+    requestCompareData.comparingWithDocument = remoteFolder + '/' + remoteName2;
+    requestCompareData.dateTime = DateTime(2015, 10, 26, 0, 0, 0);
 
     final request = CompareDocumentOnlineRequest(
       requestDocument,
@@ -89,7 +96,10 @@ class CompareDocumentTests
     final remoteName2 = 'TestCompareDocument2.doc';
     final requestDocument = await context.loadBinaryFile(localFolder + '/' + localName1);
 
-
+    final requestCompareData = CompareData();
+    requestCompareData.author = 'author';
+    requestCompareData.comparingWithDocument = remoteFolder + '/' + remoteName2;
+    requestCompareData.dateTime = DateTime(2015, 10, 26, 0, 0, 0);
 
     final requestComparingDocument = await context.loadBinaryFile(localFolder + '/' + localName2);
 

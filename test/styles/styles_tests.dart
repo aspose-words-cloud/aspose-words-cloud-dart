@@ -103,6 +103,8 @@ class StylesTests
   Future<void> testUpdateStyle() async
   {
     final remoteFileName = 'TestUpdateStyle.docx';
+    final requestStyleUpdate = StyleUpdate();
+    requestStyleUpdate.name = 'My Style';
 
     final request = UpdateStyleRequest(
       remoteFileName,
@@ -121,7 +123,8 @@ class StylesTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestStyleUpdate = StyleUpdate();
+    requestStyleUpdate.name = 'My Style';
 
     final request = UpdateStyleOnlineRequest(
       requestDocument,
@@ -136,6 +139,9 @@ class StylesTests
   Future<void> testInsertStyle() async
   {
     final remoteFileName = 'TestInsertStyle.docx';
+    final requestStyleInsert = StyleInsert();
+    requestStyleInsert.styleName = 'My Style';
+    requestStyleInsert.styleType = StyleInsert_StyleTypeEnum.paragraph;
 
     final request = InsertStyleRequest(
       remoteFileName,
@@ -153,7 +159,9 @@ class StylesTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestStyleInsert = StyleInsert();
+    requestStyleInsert.styleName = 'My Style';
+    requestStyleInsert.styleType = StyleInsert_StyleTypeEnum.paragraph;
 
     final request = InsertStyleOnlineRequest(
       requestDocument,
@@ -167,6 +175,8 @@ class StylesTests
   Future<void> testCopyStyle() async
   {
     final remoteFileName = 'TestCopyStyle.docx';
+    final requestStyleCopy = StyleCopy();
+    requestStyleCopy.styleName = 'Heading 1';
 
     final request = CopyStyleRequest(
       remoteFileName,
@@ -184,7 +194,8 @@ class StylesTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestStyleCopy = StyleCopy();
+    requestStyleCopy.styleName = 'Heading 1';
 
     final request = CopyStyleOnlineRequest(
       requestDocument,
@@ -227,6 +238,8 @@ class StylesTests
   Future<void> testApplyStyleToDocumentElement() async
   {
     final remoteFileName = 'TestApplyStyleToDocumentElement.docx';
+    final requestStyleApply = StyleApply();
+    requestStyleApply.styleName = 'Heading 1';
 
     final request = ApplyStyleToDocumentElementRequest(
       remoteFileName,
@@ -243,7 +256,8 @@ class StylesTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestStyleApply = StyleApply();
+    requestStyleApply.styleName = 'Heading 1';
 
     final request = ApplyStyleToDocumentElementOnlineRequest(
       requestDocument,

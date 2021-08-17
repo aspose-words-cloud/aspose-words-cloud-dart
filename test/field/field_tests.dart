@@ -148,6 +148,8 @@ class FieldTests
   {
     final localFileName = 'SampleWordDocument.docx';
     final remoteFileName = 'TestInsertField.docx';
+    final requestField = FieldInsert();
+    requestField.fieldCode = '{ NUMPAGES }';
 
     final request = InsertFieldRequest(
       remoteFileName,
@@ -167,7 +169,8 @@ class FieldTests
   {
     final requestDocument = await context.loadBinaryFile(fieldFolder + '/GetField.docx');
 
-
+    final requestField = FieldInsert();
+    requestField.fieldCode = '{ NUMPAGES }';
 
     final request = InsertFieldOnlineRequest(
       requestDocument,
@@ -183,6 +186,8 @@ class FieldTests
   {
     final localFileName = 'SampleWordDocument.docx';
     final remoteFileName = 'TestInsertFieldWithoutNodePath.docx';
+    final requestField = FieldInsert();
+    requestField.fieldCode = '{ NUMPAGES }';
 
     final request = InsertFieldRequest(
       remoteFileName,
@@ -201,6 +206,8 @@ class FieldTests
   {
     final localFileName = 'GetField.docx';
     final remoteFileName = 'TestUpdateField.docx';
+    final requestField = FieldUpdate();
+    requestField.fieldCode = '{ NUMPAGES }';
 
     final request = UpdateFieldRequest(
       remoteFileName,
@@ -221,7 +228,8 @@ class FieldTests
   {
     final requestDocument = await context.loadBinaryFile(fieldFolder + '/GetField.docx');
 
-
+    final requestField = FieldUpdate();
+    requestField.fieldCode = '{ NUMPAGES }';
 
     final request = UpdateFieldOnlineRequest(
       requestDocument,
@@ -238,6 +246,9 @@ class FieldTests
   {
     final localFileName = 'test_multi_pages.docx';
     final remoteFileName = 'TestInsertPageNumbers.docx';
+    final requestPageNumber = PageNumber();
+    requestPageNumber.alignment = 'center';
+    requestPageNumber.format = '{PAGE} of {NUMPAGES}';
 
     final request = InsertPageNumbersRequest(
       remoteFileName,
@@ -257,7 +268,9 @@ class FieldTests
     final localFileName = 'test_multi_pages.docx';
     final requestDocument = await context.loadBinaryFile('Common/' + localFileName);
 
-
+    final requestPageNumber = PageNumber();
+    requestPageNumber.alignment = 'center';
+    requestPageNumber.format = '{PAGE} of {NUMPAGES}';
 
     final request = InsertPageNumbersOnlineRequest(
       requestDocument,

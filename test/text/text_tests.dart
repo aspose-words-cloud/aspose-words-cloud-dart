@@ -45,6 +45,9 @@ class TextTests
   {
     final remoteFileName = 'TestReplaceText.docx';
     final localFile = 'Common/test_multi_pages.docx';
+    final requestReplaceText = ReplaceTextParameters();
+    requestReplaceText.oldValue = 'Testing';
+    requestReplaceText.newValue = 'Aspose testing';
 
     final request = ReplaceTextRequest(
       remoteFileName,
@@ -63,7 +66,9 @@ class TextTests
     final localFile = 'Common/test_multi_pages.docx';
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestReplaceText = ReplaceTextParameters();
+    requestReplaceText.oldValue = 'aspose';
+    requestReplaceText.newValue = 'aspose new';
 
     final request = ReplaceTextOnlineRequest(
       requestDocument,

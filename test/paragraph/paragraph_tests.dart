@@ -238,6 +238,8 @@ class ParagraphTests
   Future<void> testUpdateRunFont() async
   {
     final remoteFileName = 'TestUpdateRunFont.docx';
+    final requestFontDto = Font();
+    requestFontDto.bold = true;
 
     final request = UpdateRunFontRequest(
       remoteFileName,
@@ -258,7 +260,8 @@ class ParagraphTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestFontDto = Font();
+    requestFontDto.bold = true;
 
     final request = UpdateRunFontOnlineRequest(
       requestDocument,
@@ -274,6 +277,8 @@ class ParagraphTests
   Future<void> testInsertParagraph() async
   {
     final remoteFileName = 'TestInsertParagraph.docx';
+    final requestParagraph = ParagraphInsert();
+    requestParagraph.text = 'This is a new paragraph for your document';
 
     final request = InsertParagraphRequest(
       remoteFileName,
@@ -292,7 +297,8 @@ class ParagraphTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestParagraph = ParagraphInsert();
+    requestParagraph.text = 'This is a new paragraph for your document';
 
     final request = InsertParagraphOnlineRequest(
       requestDocument,
@@ -307,6 +313,8 @@ class ParagraphTests
   Future<void> testInsertParagraphWithoutNodePath() async
   {
     final remoteFileName = 'TestInsertParagraphWithoutNodePath.docx';
+    final requestParagraph = ParagraphInsert();
+    requestParagraph.text = 'This is a new paragraph for your document';
 
     final request = InsertParagraphRequest(
       remoteFileName,
@@ -416,6 +424,8 @@ class ParagraphTests
   Future<void> testUpdateParagraphFormat() async
   {
     final remoteFileName = 'TestGetDocumentParagraphs.docx';
+    final requestParagraphFormatDto = ParagraphFormatUpdate();
+    requestParagraphFormatDto.alignment = ParagraphFormatBase_AlignmentEnum.right;
 
     final request = UpdateParagraphFormatRequest(
       remoteFileName,
@@ -435,7 +445,8 @@ class ParagraphTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestParagraphFormatDto = ParagraphFormatUpdate();
+    requestParagraphFormatDto.alignment = ParagraphFormatBase_AlignmentEnum.right;
 
     final request = UpdateParagraphFormatOnlineRequest(
       requestDocument,
@@ -541,6 +552,8 @@ class ParagraphTests
   Future<void> testUpdateParagraphListFormat() async
   {
     final remoteFileName = 'TestUpdateParagraphListFormat.docx';
+    final requestListFormatDto = ListFormatUpdate();
+    requestListFormatDto.listId = 2;
 
     final request = UpdateParagraphListFormatRequest(
       remoteFileName,
@@ -560,7 +573,8 @@ class ParagraphTests
   {
     final requestDocument = await context.loadBinaryFile(listFolder + '/ParagraphUpdateListFormat.doc');
 
-
+    final requestListFormatDto = ListFormatUpdate();
+    requestListFormatDto.listId = 2;
 
     final request = UpdateParagraphListFormatOnlineRequest(
       requestDocument,
@@ -576,6 +590,8 @@ class ParagraphTests
   Future<void> testUpdateParagraphListFormatWithoutNodePath() async
   {
     final remoteFileName = 'TestUpdateParagraphListFormatWithoutNodePath.docx';
+    final requestListFormatDto = ListFormatUpdate();
+    requestListFormatDto.listId = 2;
 
     final request = UpdateParagraphListFormatRequest(
       remoteFileName,
@@ -685,6 +701,10 @@ class ParagraphTests
   Future<void> testInsertParagraphTabStops() async
   {
     final remoteFileName = 'TestInsertOrUpdateParagraphTabStop.docx';
+    final requestTabStopInsertDto = TabStopInsert();
+    requestTabStopInsertDto.alignment = TabStopBase_AlignmentEnum.left;
+    requestTabStopInsertDto.leader = TabStopBase_LeaderEnum.none;
+    requestTabStopInsertDto.position = 100.0;
 
     final request = InsertOrUpdateParagraphTabStopRequest(
       remoteFileName,
@@ -707,7 +727,10 @@ class ParagraphTests
   {
     final requestDocument = await context.loadBinaryFile(tabStopFolder + '/ParagraphTabStops.docx');
 
-
+    final requestTabStopInsertDto = TabStopInsert();
+    requestTabStopInsertDto.alignment = TabStopBase_AlignmentEnum.left;
+    requestTabStopInsertDto.leader = TabStopBase_LeaderEnum.none;
+    requestTabStopInsertDto.position = 72;
 
     final request = InsertOrUpdateParagraphTabStopOnlineRequest(
       requestDocument,
@@ -723,6 +746,10 @@ class ParagraphTests
   Future<void> testInsertParagraphTabStopsWithoutNodePath() async
   {
     final remoteFileName = 'TestInsertOrUpdateParagraphTabStopWithoutNodePath.docx';
+    final requestTabStopInsertDto = TabStopInsert();
+    requestTabStopInsertDto.alignment = TabStopBase_AlignmentEnum.left;
+    requestTabStopInsertDto.leader = TabStopBase_LeaderEnum.none;
+    requestTabStopInsertDto.position = 100.0;
 
     final request = InsertOrUpdateParagraphTabStopRequest(
       remoteFileName,

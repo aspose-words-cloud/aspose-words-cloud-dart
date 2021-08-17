@@ -100,6 +100,9 @@ class BookmarkTests
   {
     final remoteFileName = 'TestUpdateDocumentBookmark.docx';
     final bookmarkText = 'This will be the text for Aspose';
+    final requestBookmarkData = BookmarkData();
+    requestBookmarkData.name = bookmarkName;
+    requestBookmarkData.text = bookmarkText;
 
     final request = UpdateBookmarkRequest(
       remoteFileName,
@@ -118,7 +121,9 @@ class BookmarkTests
     final remoteFileName = 'TestUpdateDocumentBookmark.docx';
     final requestDocument = await context.loadBinaryFile(localFile);
 
-
+    final requestBookmarkData = BookmarkData();
+    requestBookmarkData.name = bookmarkName;
+    requestBookmarkData.text = 'This will be the text for Aspose';
 
     final request = UpdateBookmarkOnlineRequest(
       requestDocument,
