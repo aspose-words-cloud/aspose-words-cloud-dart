@@ -46,6 +46,7 @@ class CommentTests
   Future<void> testGetComment() async
   {
     final remoteFileName = 'TestGetComment.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetCommentRequest(
       remoteFileName,
@@ -75,6 +76,7 @@ class CommentTests
   Future<void> testGetComments() async
   {
     final remoteFileName = 'TestGetComments.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetCommentsRequest(
       remoteFileName,
@@ -104,6 +106,7 @@ class CommentTests
   Future<void> testInsertComment() async
   {
     final remoteFileName = 'TestInsertComment.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestCommentRangeStartNode = NodeLink();
     requestCommentRangeStartNode.nodeId = '0.3.0.3';
 
@@ -177,6 +180,7 @@ class CommentTests
   Future<void> testUpdateComment() async
   {
     final remoteFileName = 'TestUpdateComment.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestCommentRangeStartNode = NodeLink();
     requestCommentRangeStartNode.nodeId = '0.3.0';
 
@@ -252,6 +256,7 @@ class CommentTests
   Future<void> testDeleteComment() async
   {
     final remoteFileName = 'TestDeleteComment.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteCommentRequest(
       remoteFileName,
@@ -280,6 +285,7 @@ class CommentTests
   Future<void> testDeleteComments() async
   {
     final remoteFileName = 'TestDeleteComment.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteCommentsRequest(
       remoteFileName,

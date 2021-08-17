@@ -46,6 +46,7 @@ class TableBorderTests
   Future<void> testGetBorders() async
   {
     final remoteFileName = 'TestGetBorders.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetBordersRequest(
       remoteFileName,
@@ -78,6 +79,7 @@ class TableBorderTests
   Future<void> testGetBorder() async
   {
     final remoteFileName = 'TestGetBorder.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetBorderRequest(
       remoteFileName,
@@ -110,6 +112,7 @@ class TableBorderTests
   Future<void> testDeleteBorders() async
   {
     final remoteFileName = 'TestDeleteBorders.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteBordersRequest(
       remoteFileName,
@@ -137,6 +140,7 @@ class TableBorderTests
   Future<void> testDeleteBorder() async
   {
     final remoteFileName = 'TestDeleteBorder.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteBorderRequest(
       remoteFileName,
@@ -166,6 +170,7 @@ class TableBorderTests
   Future<void> testUpdateBorder() async
   {
     final remoteFileName = 'TestUpdateBorder.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestBorderPropertiesColor = XmlColor();
     requestBorderPropertiesColor.web = '#AABBCC';
 

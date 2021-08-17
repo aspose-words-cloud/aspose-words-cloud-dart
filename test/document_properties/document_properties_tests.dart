@@ -46,6 +46,7 @@ class DocumentPropertiesTests
   Future<void> testGetDocumentProperties() async
   {
     final remoteFileName = 'TestGetDocumentProperties.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetDocumentPropertiesRequest(
       remoteFileName,
@@ -77,6 +78,7 @@ class DocumentPropertiesTests
   Future<void> testGetDocumentProperty() async
   {
     final remoteFileName = 'TestGetDocumentProperty.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetDocumentPropertyRequest(
       remoteFileName,
@@ -107,6 +109,7 @@ class DocumentPropertiesTests
   Future<void> testDeleteDocumentProperty() async
   {
     final remoteFileName = 'TestDeleteDocumentProperty.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteDocumentPropertyRequest(
       remoteFileName,
@@ -135,6 +138,7 @@ class DocumentPropertiesTests
   Future<void> testUpdateDocumentProperty() async
   {
     final remoteFileName = 'TestUpdateDocumentProperty.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestProperty = DocumentPropertyCreateOrUpdate();
     requestProperty.value = 'Imran Anwar';
 

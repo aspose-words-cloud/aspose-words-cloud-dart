@@ -46,6 +46,7 @@ class DocumentStatisticsTests
   Future<void> testGetDocumentStatistics() async
   {
     final remoteFileName = 'TestGetDocumentStatistics.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetDocumentStatisticsRequest(
       remoteFileName,

@@ -46,6 +46,7 @@ class ListsTests
   Future<void> testGetLists() async
   {
     final remoteFileName = 'TestGetLists.doc';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetListsRequest(
       remoteFileName,
@@ -75,6 +76,7 @@ class ListsTests
   Future<void> testGetList() async
   {
     final remoteFileName = 'TestGetList.doc';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetListRequest(
       remoteFileName,
@@ -104,6 +106,7 @@ class ListsTests
   Future<void> testUpdateList() async
   {
     final remoteFileName = 'TestUpdateList.doc';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestListUpdate = ListUpdate();
     requestListUpdate.isRestartAtEachSection = true;
 
@@ -141,6 +144,7 @@ class ListsTests
   Future<void> testUpdateListLevel() async
   {
     final remoteFileName = 'TestUpdateListLevel.doc';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestListUpdate = ListLevelUpdate();
     requestListUpdate.alignment = ListLevelUpdate_AlignmentEnum.right;
 
@@ -182,6 +186,7 @@ class ListsTests
   Future<void> testInsertList() async
   {
     final remoteFileName = 'TestInsertList.doc';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestListInsert = ListInsert();
     requestListInsert.template = ListInsert_TemplateEnum.outlineLegal;
 

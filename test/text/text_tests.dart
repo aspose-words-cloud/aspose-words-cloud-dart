@@ -45,6 +45,7 @@ class TextTests
   {
     final remoteFileName = 'TestReplaceText.docx';
     final localFile = 'Common/test_multi_pages.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestReplaceText = ReplaceTextParameters();
     requestReplaceText.oldValue = 'Testing';
     requestReplaceText.newValue = 'Aspose testing';
@@ -83,6 +84,7 @@ class TextTests
   {
     final remoteFileName = 'TestSearch.docx';
     final localFile = 'DocumentElements/Text/SampleWordDocument.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = SearchRequest(
       remoteFileName,

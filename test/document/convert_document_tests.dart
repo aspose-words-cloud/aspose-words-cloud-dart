@@ -47,6 +47,7 @@ class ConvertDocumentTests
   {
     final localName = 'test_multi_pages.docx';
     final remoteName = 'TestSaveAs.docx';
+    await context.uploadFile('Common/' + localName, remoteFolder + '/' + remoteName);
     final requestSaveOptionsData = SaveOptionsData();
     requestSaveOptionsData.saveFormat = 'pdf';
     requestSaveOptionsData.fileName = context.baseTestOutPath + '/TestSaveAs.pdf';
@@ -85,6 +86,7 @@ class ConvertDocumentTests
   {
     final localName = '45.pdf';
     final remoteName = 'TestSaveAsFromPdfToDoc.pdf';
+    await context.uploadFile(localFolder + '/' + localName, remoteFolder + '/' + remoteName);
     final requestSaveOptionsData = SaveOptionsData();
     requestSaveOptionsData.saveFormat = 'docx';
     requestSaveOptionsData.fileName = context.baseTestOutPath + '/TestSaveAsFromPdfToDoc.docx';
@@ -105,6 +107,7 @@ class ConvertDocumentTests
   {
     final localName = 'test_multi_pages.docx';
     final remoteName = 'TestSaveAsTiff.pdf';
+    await context.uploadFile('Common/' + localName, remoteFolder + '/' + remoteName);
     final requestSaveOptions = TiffSaveOptionsData();
     requestSaveOptions.saveFormat = 'tiff';
     requestSaveOptions.fileName = context.baseTestOutPath + '/abc.tiff';

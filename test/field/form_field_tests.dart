@@ -46,6 +46,7 @@ class FormFieldTests
   Future<void> testUpdateFormField() async
   {
     final remoteFileName = 'TestUpdateFormField.docx';
+    await context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
     final requestFormField = FormFieldTextInput();
     requestFormField.name = 'FullName';
     requestFormField.enabled = true;
@@ -96,6 +97,7 @@ class FormFieldTests
   Future<void> testUpdateFormFieldWithoutNodePath() async
   {
     final remoteFileName = 'TestUpdateFormFieldWithoutNodePath.docx';
+    await context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
     final requestFormField = FormFieldTextInput();
     requestFormField.name = 'FullName';
     requestFormField.enabled = true;
@@ -122,6 +124,7 @@ class FormFieldTests
   Future<void> testGetFormField() async
   {
     final remoteFileName = 'TestGetFormField.docx';
+    await context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
 
     final request = GetFormFieldRequest(
       remoteFileName,
@@ -153,6 +156,7 @@ class FormFieldTests
   Future<void> testGetFormFieldWithoutNodePath() async
   {
     final remoteFileName = 'TestGetFormFieldWithoutNodePath.docx';
+    await context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
 
     final request = GetFormFieldRequest(
       remoteFileName,
@@ -169,6 +173,7 @@ class FormFieldTests
   Future<void> testGetFormFields() async
   {
     final remoteFileName = 'TestGetFormFields.docx';
+    await context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
 
     final request = GetFormFieldsRequest(
       remoteFileName,
@@ -200,6 +205,7 @@ class FormFieldTests
   Future<void> testGetFormFieldsWithoutNodePath() async
   {
     final remoteFileName = 'TestGetFormFieldsWithoutNodePath.docx';
+    await context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
 
     final request = GetFormFieldsRequest(
       remoteFileName,
@@ -217,6 +223,7 @@ class FormFieldTests
   Future<void> testInsertFormField() async
   {
     final remoteFileName = 'TestInsertFormField.docx';
+    await context.uploadFile('Common/test_multi_pages.docx', remoteDataFolder + '/' + remoteFileName);
     final requestFormField = FormFieldTextInput();
     requestFormField.name = 'FullName';
     requestFormField.enabled = true;
@@ -267,6 +274,7 @@ class FormFieldTests
   Future<void> testInsertFormFieldWithoutNodePath() async
   {
     final remoteFileName = 'TestInsertFormFieldWithoutNodePath.docx';
+    await context.uploadFile('Common/test_multi_pages.docx', remoteDataFolder + '/' + remoteFileName);
     final requestFormField = FormFieldTextInput();
     requestFormField.name = 'FullName';
     requestFormField.enabled = true;
@@ -293,6 +301,7 @@ class FormFieldTests
   Future<void> testDeleteFormField() async
   {
     final remoteFileName = 'TestDeleteFormField.docx';
+    await context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteFormFieldRequest(
       remoteFileName,
@@ -323,6 +332,7 @@ class FormFieldTests
   Future<void> testDeleteFormFieldWithoutNodePath() async
   {
     final remoteFileName = 'TestDeleteFormFieldWithoutNodePath.docx';
+    await context.uploadFile(fieldFolder + '/FormFilled.docx', remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteFormFieldRequest(
       remoteFileName,

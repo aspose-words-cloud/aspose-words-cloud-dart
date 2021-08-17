@@ -61,6 +61,7 @@ class ClassificationTests
   Future<void> testClassifyDocument() async
   {
     final remoteFileName = 'TestClassifyDocument.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = ClassifyDocumentRequest(
       remoteFileName,

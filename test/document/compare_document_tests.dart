@@ -49,6 +49,9 @@ class CompareDocumentTests
     final localName2 = 'compareTestDoc2.doc';
     final remoteName1 = 'TestCompareDocument1.doc';
     final remoteName2 = 'TestCompareDocument2.doc';
+    await context.uploadFile(localFolder + '/' + localName1, remoteFolder + '/' + remoteName1);
+
+    await context.uploadFile(localFolder + '/' + localName2, remoteFolder + '/' + remoteName2);
     final requestCompareData = CompareData();
     requestCompareData.author = 'author';
     requestCompareData.comparingWithDocument = remoteFolder + '/' + remoteName2;
@@ -72,6 +75,7 @@ class CompareDocumentTests
     final localName1 = 'compareTestDoc1.doc';
     final localName2 = 'compareTestDoc2.doc';
     final remoteName2 = 'TestCompareDocument2.doc';
+    await context.uploadFile(localFolder + '/' + localName2, remoteFolder + '/' + remoteName2);
     final requestDocument = await context.loadBinaryFile(localFolder + '/' + localName1);
 
     final requestCompareData = CompareData();
@@ -94,6 +98,7 @@ class CompareDocumentTests
     final localName1 = 'compareTestDoc1.doc';
     final localName2 = 'compareTestDoc2.doc';
     final remoteName2 = 'TestCompareDocument2.doc';
+    await context.uploadFile(localFolder + '/' + localName2, remoteFolder + '/' + remoteName2);
     final requestDocument = await context.loadBinaryFile(localFolder + '/' + localName1);
 
     final requestCompareData = CompareData();

@@ -64,6 +64,7 @@ class MailMergeFiledsTests
   Future<void> testGetDocumentFieldNames() async
   {
     final remoteFileName = 'TestGetDocumentFieldNames.docx';
+    await context.uploadFile('Common/test_multi_pages.docx', remoteDataFolder + '/' + remoteFileName);
 
     final request = GetDocumentFieldNamesRequest(
       remoteFileName,

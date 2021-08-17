@@ -45,6 +45,7 @@ class MacrosTests
   Future<void> testDeleteMacros() async
   {
     final remoteFileName = 'TestDeleteDocumentMacros.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteMacrosRequest(
       remoteFileName,

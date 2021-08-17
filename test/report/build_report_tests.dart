@@ -68,6 +68,7 @@ class BuildReportTests
     final localDocumentFile = 'ReportTemplate.docx';
     final remoteFileName = 'TestBuildReport.docx';
     final localDataFile = await context.loadTextFile(reportingFolder + '/ReportData.json');
+    await context.uploadFile(reportingFolder + '/' + localDocumentFile, remoteDataFolder + '/' + remoteFileName);
     final requestReportEngineSettingsReportBuildOptions = [
       ReportBuildOptionsEnum.allowMissingMembers,
     ReportBuildOptionsEnum.removeEmptyParagraphs];

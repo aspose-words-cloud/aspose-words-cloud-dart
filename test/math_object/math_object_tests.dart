@@ -46,6 +46,7 @@ class MathObjectTests
   Future<void> testGetOfficeMathObjects() async
   {
     final remoteFileName = 'TestGetOfficeMathObjects.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetOfficeMathObjectsRequest(
       remoteFileName,
@@ -77,6 +78,7 @@ class MathObjectTests
   Future<void> testGetOfficeMathObjectsWithoutNodePath() async
   {
     final remoteFileName = 'TestGetOfficeMathObjectsWithoutNodePath.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetOfficeMathObjectsRequest(
       remoteFileName,
@@ -94,6 +96,7 @@ class MathObjectTests
   Future<void> testGetOfficeMathObject() async
   {
     final remoteFileName = 'TestGetOfficeMathObject.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetOfficeMathObjectRequest(
       remoteFileName,
@@ -125,6 +128,7 @@ class MathObjectTests
   Future<void> testGetOfficeMathObjectWithoutNodePath() async
   {
     final remoteFileName = 'TestGetOfficeMathObjectWithoutNodePath.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetOfficeMathObjectRequest(
       remoteFileName,
@@ -141,6 +145,7 @@ class MathObjectTests
   Future<void> testRenderMathObject() async
   {
     final remoteFileName = 'TestRenderMathObject.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = RenderMathObjectRequest(
       remoteFileName,
@@ -172,6 +177,7 @@ class MathObjectTests
   Future<void> testRenderMathObjectWithoutNodePath() async
   {
     final remoteFileName = 'TestRenderMathObjectWithoutNodePath.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = RenderMathObjectRequest(
       remoteFileName,
@@ -187,6 +193,7 @@ class MathObjectTests
   Future<void> testDeleteOfficeMathObject() async
   {
     final remoteFileName = 'TestDeleteOfficeMathObject.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteOfficeMathObjectRequest(
       remoteFileName,
@@ -216,6 +223,7 @@ class MathObjectTests
   Future<void> testDeleteOfficeMathObjectWithoutNodePath() async
   {
     final remoteFileName = 'TestDeleteOfficeMathObjectWithoutNodePath.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteOfficeMathObjectRequest(
       remoteFileName,

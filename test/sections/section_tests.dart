@@ -46,6 +46,7 @@ class SectionTests
   Future<void> testGetSection() async
   {
     final remoteFileName = 'TestGetSection.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetSectionRequest(
       remoteFileName,
@@ -77,6 +78,7 @@ class SectionTests
   Future<void> testGetSections() async
   {
     final remoteFileName = 'TestGetSections.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetSectionsRequest(
       remoteFileName,
@@ -106,6 +108,7 @@ class SectionTests
   Future<void> testDeleteSection() async
   {
     final remoteFileName = 'TestDeleteSection.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteSectionRequest(
       remoteFileName,

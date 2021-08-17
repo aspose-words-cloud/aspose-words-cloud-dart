@@ -47,6 +47,9 @@ class WatermarkTests
   {
     final remoteFileName = 'TestInsertWatermarkImage.docx';
     final remoteImagePath = remoteDataFolder + '/TestInsertWatermarkImage.png';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+
+    await context.uploadFile('Common/aspose-cloud.png', remoteImagePath);
 
     final request = InsertWatermarkImageRequest(
       remoteFileName,
@@ -80,6 +83,7 @@ class WatermarkTests
   Future<void> testInsertWatermarkText() async
   {
     final remoteFileName = 'TestInsertWatermarkText.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestWatermarkText = WatermarkText();
     requestWatermarkText.text = 'This is the text';
     requestWatermarkText.rotationAngle = 90.0;
@@ -117,6 +121,7 @@ class WatermarkTests
   Future<void> testDeleteWatermark() async
   {
     final remoteFileName = 'TestDeleteWatermark.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteWatermarkRequest(
       remoteFileName,

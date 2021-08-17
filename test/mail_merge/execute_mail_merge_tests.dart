@@ -65,6 +65,7 @@ class ExecuteMailMergeTests
     final localDocumentFile = 'SampleExecuteTemplate.docx';
     final remoteFileName = 'TestExecuteMailMerge.docx';
     final localDataFile = await context.loadTextFile(mailMergeFolder + '/SampleMailMergeTemplateData.txt');
+    await context.uploadFile(mailMergeFolder + '/' + localDocumentFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = ExecuteMailMergeRequest(
       remoteFileName,

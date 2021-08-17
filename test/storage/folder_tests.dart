@@ -57,6 +57,7 @@ class FolderTests
   Future<void> testDeleteFolder() async
   {
     final testDeleteFolder = remoteDataFolder + '/TestDeleteFolder';
+    await context.uploadFile(localFile, testDeleteFolder + '/TestDeleteFolder.docx');
 
     final request = DeleteFolderRequest(
       testDeleteFolder
@@ -81,6 +82,7 @@ class FolderTests
   Future<void> testCopyFolder() async
   {
     final folderToCopy = remoteDataFolder + '/TestCopyFolder';
+    await context.uploadFile(localFile, folderToCopy + 'Src/TestCopyFolderSrc.docx');
 
     final request = CopyFolderRequest(
       folderToCopy + 'Dest',
@@ -93,6 +95,7 @@ class FolderTests
   /// Test for move folder.
   Future<void> testMoveFolder() async
   {
+    await context.uploadFile(localFile, remoteDataFolder + '/TestMoveFolderSrc/TestMoveFolderSrc.docx');
 
     final request = MoveFolderRequest(
       context.baseTestOutPath + '/TestMoveFolderDest_' + context.createRandomGuid(),

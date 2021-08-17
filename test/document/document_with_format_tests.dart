@@ -45,6 +45,7 @@ class DocumentWithFormatTests
   Future<void> testGetDocumentWithFormat() async
   {
     final remoteFileName = 'TestGetDocumentWithFormat.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetDocumentWithFormatRequest(
       remoteFileName,
@@ -59,6 +60,7 @@ class DocumentWithFormatTests
   Future<void> testGetDocumentWithFormatAndOutPath() async
   {
     final remoteFileName = 'TestGetDocumentWithFormat.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetDocumentWithFormatRequest(
       remoteFileName,

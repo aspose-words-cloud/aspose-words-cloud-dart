@@ -46,6 +46,7 @@ class RangeTests
   Future<void> testGetRangeText() async
   {
     final remoteFileName = 'TestGetRangeText.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetRangeTextRequest(
       remoteFileName,
@@ -76,6 +77,7 @@ class RangeTests
   Future<void> testRemoveRange() async
   {
     final remoteFileName = 'TestRemoveRange.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = RemoveRangeRequest(
       remoteFileName,
@@ -105,6 +107,7 @@ class RangeTests
   Future<void> testSaveAsRange() async
   {
     final remoteFileName = 'TestSaveAsRange.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestDocumentParameters = RangeDocument();
     requestDocumentParameters.documentName = remoteDataFolder + '/NewDoc.docx';
 
@@ -143,6 +146,7 @@ class RangeTests
   Future<void> testReplaceWithText() async
   {
     final remoteFileName = 'TestReplaceWithText.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestRangeText = ReplaceRange();
     requestRangeText.text = 'Replaced header';
 

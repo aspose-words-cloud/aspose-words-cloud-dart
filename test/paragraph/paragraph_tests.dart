@@ -50,6 +50,7 @@ class ParagraphTests
   Future<void> testGetDocumentParagraphByIndex() async
   {
     final remoteFileName = 'TestGetDocumentParagraphByIndex.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetParagraphRequest(
       remoteFileName,
@@ -81,6 +82,7 @@ class ParagraphTests
   Future<void> testGetDocumentParagraphByIndexWithoutNodePath() async
   {
     final remoteFileName = 'TestGetDocumentParagraphByIndexWithoutNodePath.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetParagraphRequest(
       remoteFileName,
@@ -97,6 +99,7 @@ class ParagraphTests
   Future<void> testGetDocumentParagraphs() async
   {
     final remoteFileName = 'TestGetDocumentParagraphs.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetParagraphsRequest(
       remoteFileName,
@@ -128,6 +131,7 @@ class ParagraphTests
   Future<void> testGetDocumentParagraphsWithoutNodePath() async
   {
     final remoteFileName = 'TestGetDocumentParagraphsWithoutNodePath.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetParagraphsRequest(
       remoteFileName,
@@ -145,6 +149,7 @@ class ParagraphTests
   Future<void> testGetDocumentParagraphRun() async
   {
     final remoteFileName = 'TestGetDocumentParagraphRun.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetRunRequest(
       remoteFileName,
@@ -176,6 +181,7 @@ class ParagraphTests
   Future<void> testGetDocumentParagraphRunFont() async
   {
     final remoteFileName = 'TestGetDocumentParagraphRunFont.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetRunFontRequest(
       remoteFileName,
@@ -207,6 +213,7 @@ class ParagraphTests
   Future<void> testGetParagraphRuns() async
   {
     final remoteFileName = 'TestGetParagraphRuns.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetRunsRequest(
       remoteFileName,
@@ -238,6 +245,7 @@ class ParagraphTests
   Future<void> testUpdateRunFont() async
   {
     final remoteFileName = 'TestUpdateRunFont.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestFontDto = Font();
     requestFontDto.bold = true;
 
@@ -277,6 +285,7 @@ class ParagraphTests
   Future<void> testInsertParagraph() async
   {
     final remoteFileName = 'TestInsertParagraph.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestParagraph = ParagraphInsert();
     requestParagraph.text = 'This is a new paragraph for your document';
 
@@ -313,6 +322,7 @@ class ParagraphTests
   Future<void> testInsertParagraphWithoutNodePath() async
   {
     final remoteFileName = 'TestInsertParagraphWithoutNodePath.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestParagraph = ParagraphInsert();
     requestParagraph.text = 'This is a new paragraph for your document';
 
@@ -331,6 +341,7 @@ class ParagraphTests
   Future<void> testRenderParagraph() async
   {
     final remoteFileName = 'TestRenderParagraph.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = RenderParagraphRequest(
       remoteFileName,
@@ -362,6 +373,7 @@ class ParagraphTests
   Future<void> testRenderParagraphWithoutNodePath() async
   {
     final remoteFileName = 'TestRenderParagraphWithoutNodePath.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = RenderParagraphRequest(
       remoteFileName,
@@ -377,6 +389,7 @@ class ParagraphTests
   Future<void> testGetParagraphFormat() async
   {
     final remoteFileName = 'TestGetDocumentParagraphs.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetParagraphFormatRequest(
       remoteFileName,
@@ -408,6 +421,7 @@ class ParagraphTests
   Future<void> testGetParagraphFormatWithoutNodePath() async
   {
     final remoteFileName = 'TestGetDocumentParagraphsWithoutNodePath.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetParagraphFormatRequest(
       remoteFileName,
@@ -424,6 +438,7 @@ class ParagraphTests
   Future<void> testUpdateParagraphFormat() async
   {
     final remoteFileName = 'TestGetDocumentParagraphs.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestParagraphFormatDto = ParagraphFormatUpdate();
     requestParagraphFormatDto.alignment = ParagraphFormatBase_AlignmentEnum.right;
 
@@ -462,6 +477,7 @@ class ParagraphTests
   Future<void> testDeleteParagraph() async
   {
     final remoteFileName = 'TestDeleteParagraph.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteParagraphRequest(
       remoteFileName,
@@ -491,6 +507,7 @@ class ParagraphTests
   Future<void> testDeleteParagraphWithoutNodePath() async
   {
     final remoteFileName = 'TestDeleteParagraphWithoutNodePath.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteParagraphRequest(
       remoteFileName,
@@ -505,6 +522,7 @@ class ParagraphTests
   Future<void> testGetParagraphListFormat() async
   {
     final remoteFileName = 'TestParagraphGetListFormat.docx';
+    await context.uploadFile(listFolder + '/ParagraphGetListFormat.doc', remoteDataFolder + '/' + remoteFileName);
 
     final request = GetParagraphListFormatRequest(
       remoteFileName,
@@ -536,6 +554,7 @@ class ParagraphTests
   Future<void> testGetParagraphListFormatWithoutNodePath() async
   {
     final remoteFileName = 'TestParagraphGetListFormatWithoutNodePath.docx';
+    await context.uploadFile(listFolder + '/ParagraphGetListFormat.doc', remoteDataFolder + '/' + remoteFileName);
 
     final request = GetParagraphListFormatRequest(
       remoteFileName,
@@ -552,6 +571,7 @@ class ParagraphTests
   Future<void> testUpdateParagraphListFormat() async
   {
     final remoteFileName = 'TestUpdateParagraphListFormat.docx';
+    await context.uploadFile(listFolder + '/ParagraphUpdateListFormat.doc', remoteDataFolder + '/' + remoteFileName);
     final requestListFormatDto = ListFormatUpdate();
     requestListFormatDto.listId = 2;
 
@@ -590,6 +610,7 @@ class ParagraphTests
   Future<void> testUpdateParagraphListFormatWithoutNodePath() async
   {
     final remoteFileName = 'TestUpdateParagraphListFormatWithoutNodePath.docx';
+    await context.uploadFile(listFolder + '/ParagraphUpdateListFormat.doc', remoteDataFolder + '/' + remoteFileName);
     final requestListFormatDto = ListFormatUpdate();
     requestListFormatDto.listId = 2;
 
@@ -609,6 +630,7 @@ class ParagraphTests
   Future<void> testDeleteParagraphListFormat() async
   {
     final remoteFileName = 'TestDeleteParagraphListFormat.docx';
+    await context.uploadFile(listFolder + '/ParagraphDeleteListFormat.doc', remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteParagraphListFormatRequest(
       remoteFileName,
@@ -638,6 +660,7 @@ class ParagraphTests
   Future<void> testDeleteParagraphListFormatWithoutNodePath() async
   {
     final remoteFileName = 'TestDeleteParagraphListFormatWithoutNodePath.docx';
+    await context.uploadFile(listFolder + '/ParagraphDeleteListFormat.doc', remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteParagraphListFormatRequest(
       remoteFileName,
@@ -652,6 +675,7 @@ class ParagraphTests
   Future<void> testGetParagraphTabStops() async
   {
     final remoteFileName = 'TestGetParagraphTabStops.docx';
+    await context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
 
     final request = GetParagraphTabStopsRequest(
       remoteFileName,
@@ -684,6 +708,7 @@ class ParagraphTests
   Future<void> testGetParagraphTabStopsWithoutNodePath() async
   {
     final remoteFileName = 'TestGetParagraphTabStopsWithoutNodePath.docx';
+    await context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
 
     final request = GetParagraphTabStopsRequest(
       remoteFileName,
@@ -701,6 +726,7 @@ class ParagraphTests
   Future<void> testInsertParagraphTabStops() async
   {
     final remoteFileName = 'TestInsertOrUpdateParagraphTabStop.docx';
+    await context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
     final requestTabStopInsertDto = TabStopInsert();
     requestTabStopInsertDto.alignment = TabStopBase_AlignmentEnum.left;
     requestTabStopInsertDto.leader = TabStopBase_LeaderEnum.none;
@@ -746,6 +772,7 @@ class ParagraphTests
   Future<void> testInsertParagraphTabStopsWithoutNodePath() async
   {
     final remoteFileName = 'TestInsertOrUpdateParagraphTabStopWithoutNodePath.docx';
+    await context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
     final requestTabStopInsertDto = TabStopInsert();
     requestTabStopInsertDto.alignment = TabStopBase_AlignmentEnum.left;
     requestTabStopInsertDto.leader = TabStopBase_LeaderEnum.none;
@@ -770,6 +797,7 @@ class ParagraphTests
   Future<void> testDeleteAllParagraphTabStops() async
   {
     final remoteFileName = 'TestDeleteAllParagraphTabStops.docx';
+    await context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteAllParagraphTabStopsRequest(
       remoteFileName,
@@ -801,6 +829,7 @@ class ParagraphTests
   Future<void> testDeleteAllParagraphTabStopsWithoutNodePath() async
   {
     final remoteFileName = 'TestDeleteAllParagraphTabStopsWithoutNodePath.docx';
+    await context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteAllParagraphTabStopsRequest(
       remoteFileName,
@@ -817,6 +846,7 @@ class ParagraphTests
   Future<void> testDeleteParagraphTabStop() async
   {
     final remoteFileName = 'TestDeleteParagraphTabStop.docx';
+    await context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteParagraphTabStopRequest(
       remoteFileName,
@@ -850,6 +880,7 @@ class ParagraphTests
   Future<void> testDeleteParagraphTabStopWithoutNodePath() async
   {
     final remoteFileName = 'TestDeleteParagraphTabStopWithoutNodePath.docx';
+    await context.uploadFile(tabStopFolder + '/ParagraphTabStops.docx', remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteParagraphTabStopRequest(
       remoteFileName,

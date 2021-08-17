@@ -49,6 +49,7 @@ class FieldTests
   {
     final localFileName = 'GetField.docx';
     final remoteFileName = 'TestGetFields.docx';
+    await context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetFieldsRequest(
       remoteFileName,
@@ -81,6 +82,7 @@ class FieldTests
   {
     final localFileName = 'GetField.docx';
     final remoteFileName = 'TestGetFieldsWithoutNodePath.docx';
+    await context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetFieldsRequest(
       remoteFileName,
@@ -99,6 +101,7 @@ class FieldTests
   {
     final localFileName = 'GetField.docx';
     final remoteFileName = 'TestGetField.docx';
+    await context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetFieldRequest(
       remoteFileName,
@@ -131,6 +134,7 @@ class FieldTests
   {
     final localFileName = 'GetField.docx';
     final remoteFileName = 'TestGetFieldWithoutNodePath.docx';
+    await context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetFieldRequest(
       remoteFileName,
@@ -148,6 +152,7 @@ class FieldTests
   {
     final localFileName = 'SampleWordDocument.docx';
     final remoteFileName = 'TestInsertField.docx';
+    await context.uploadFile(textFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
     final requestField = FieldInsert();
     requestField.fieldCode = '{ NUMPAGES }';
 
@@ -186,6 +191,7 @@ class FieldTests
   {
     final localFileName = 'SampleWordDocument.docx';
     final remoteFileName = 'TestInsertFieldWithoutNodePath.docx';
+    await context.uploadFile(textFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
     final requestField = FieldInsert();
     requestField.fieldCode = '{ NUMPAGES }';
 
@@ -206,6 +212,7 @@ class FieldTests
   {
     final localFileName = 'GetField.docx';
     final remoteFileName = 'TestUpdateField.docx';
+    await context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
     final requestField = FieldUpdate();
     requestField.fieldCode = '{ NUMPAGES }';
 
@@ -246,6 +253,7 @@ class FieldTests
   {
     final localFileName = 'test_multi_pages.docx';
     final remoteFileName = 'TestInsertPageNumbers.docx';
+    await context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
     final requestPageNumber = PageNumber();
     requestPageNumber.alignment = 'center';
     requestPageNumber.format = '{PAGE} of {NUMPAGES}';
@@ -285,6 +293,7 @@ class FieldTests
   {
     final localFileName = 'GetField.docx';
     final remoteFileName = 'TestDeleteField.docx';
+    await context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteFieldRequest(
       remoteFileName,
@@ -315,6 +324,7 @@ class FieldTests
   {
     final localFileName = 'GetField.docx';
     final remoteFileName = 'TestDeleteFieldWithoutNodePath.docx';
+    await context.uploadFile(fieldFolder + '/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteFieldRequest(
       remoteFileName,
@@ -330,6 +340,7 @@ class FieldTests
   {
     final localFileName = 'test_multi_pages.docx';
     final remoteFileName = 'TestDeleteParagraphFields.docx';
+    await context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteFieldsRequest(
       remoteFileName,
@@ -345,6 +356,7 @@ class FieldTests
   {
     final localFileName = 'test_multi_pages.docx';
     final remoteFileName = 'TestDeleteParagraphFieldsWithoutNodePath.docx';
+    await context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteFieldsRequest(
       remoteFileName,
@@ -359,6 +371,7 @@ class FieldTests
   {
     final localFileName = 'test_multi_pages.docx';
     final remoteFileName = 'TestDeleteSectionFields.docx';
+    await context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteFieldsRequest(
       remoteFileName,
@@ -374,6 +387,7 @@ class FieldTests
   {
     final localFileName = 'test_multi_pages.docx';
     final remoteFileName = 'TestDeleteSectionFieldsWithoutNodePath.docx';
+    await context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteFieldsRequest(
       remoteFileName,
@@ -388,6 +402,7 @@ class FieldTests
   {
     final localFileName = 'test_multi_pages.docx';
     final remoteFileName = 'TestDeleteSectionParagraphFields.docx';
+    await context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteFieldsRequest(
       remoteFileName,
@@ -403,6 +418,7 @@ class FieldTests
   {
     final localFileName = 'test_multi_pages.docx';
     final remoteFileName = 'TestDeleteSectionParagraphFields.docx';
+    await context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteFieldsRequest(
       remoteFileName,
@@ -432,6 +448,7 @@ class FieldTests
   {
     final localFileName = 'test_multi_pages.docx';
     final remoteFileName = 'TestUpdateDocumentFields.docx';
+    await context.uploadFile('Common/' + localFileName, remoteDataFolder + '/' + remoteFileName);
 
     final request = UpdateFieldsRequest(
       remoteFileName,

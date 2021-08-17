@@ -46,6 +46,7 @@ class RunTests
   Future<void> testUpdateRun() async
   {
     final remoteFileName = 'TestUpdateRun.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestRun = RunUpdate();
     requestRun.text = 'run with text';
 
@@ -84,6 +85,7 @@ class RunTests
   Future<void> testInsertRun() async
   {
     final remoteFileName = 'TestInsertRun.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestRun = RunInsert();
     requestRun.text = 'run with text';
 
@@ -121,6 +123,7 @@ class RunTests
   Future<void> testDeleteRun() async
   {
     final remoteFileName = 'TestDeleteRun.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteRunRequest(
       remoteFileName,

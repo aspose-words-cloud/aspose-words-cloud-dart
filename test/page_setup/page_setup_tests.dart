@@ -48,6 +48,7 @@ class PageSetupTests
   Future<void> testGetSectionPageSetup() async
   {
     final remoteFileName = 'TestGetSectionPageSetup.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetSectionPageSetupRequest(
       remoteFileName,
@@ -77,6 +78,7 @@ class PageSetupTests
   Future<void> testUpdateSectionPageSetup() async
   {
     final remoteFileName = 'TestUpdateSectionPageSetup.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestPageSetup = PageSetup();
     requestPageSetup.rtlGutter = true;
     requestPageSetup.leftMargin = 10.0;
@@ -121,6 +123,7 @@ class PageSetupTests
   Future<void> testGetRenderPage() async
   {
     final remoteFileName = 'TestGetRenderPage.docx';
+    await context.uploadFile(localTextFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = RenderPageRequest(
       remoteFileName,

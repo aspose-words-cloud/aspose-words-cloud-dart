@@ -46,6 +46,7 @@ class RevisionsTests
   Future<void> testAcceptAllRevisions() async
   {
     final remoteFileName = 'TestAcceptAllRevisions.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = AcceptAllRevisionsRequest(
       remoteFileName,
@@ -78,6 +79,7 @@ class RevisionsTests
   Future<void> testRejectAllRevisions() async
   {
     final remoteFileName = 'TestRejectAllRevisions.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = RejectAllRevisionsRequest(
       remoteFileName,

@@ -46,6 +46,7 @@ class CustomXmlPartsTests
   Future<void> testGetCustomXmlPart() async
   {
     final remoteFileName = 'TestGetCustomXmlPart.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetCustomXmlPartRequest(
       remoteFileName,
@@ -79,6 +80,7 @@ class CustomXmlPartsTests
   Future<void> testGetCustomXmlParts() async
   {
     final remoteFileName = 'TestGetCustomXmlParts.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetCustomXmlPartsRequest(
       remoteFileName,
@@ -114,6 +116,7 @@ class CustomXmlPartsTests
   Future<void> testInsertCustomXmlPart() async
   {
     final remoteFileName = 'TestInsertCustomXmlPart.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestCustomXmlPart = CustomXmlPartInsert();
     requestCustomXmlPart.id = 'hello';
     requestCustomXmlPart.data = '<data>Hello world</data>';
@@ -154,6 +157,7 @@ class CustomXmlPartsTests
   Future<void> testUpdateCustomXmlPart() async
   {
     final remoteFileName = 'TestUpdateCustomXmlPart.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestCustomXmlPart = CustomXmlPartUpdate();
     requestCustomXmlPart.data = '<data>Hello world</data>';
 
@@ -194,6 +198,7 @@ class CustomXmlPartsTests
   Future<void> testDeleteCustomXmlPart() async
   {
     final remoteFileName = 'TestDeleteCustomXmlPart.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteCustomXmlPartRequest(
       remoteFileName,
@@ -222,6 +227,7 @@ class CustomXmlPartsTests
   Future<void> testDeleteCustomXmlParts() async
   {
     final remoteFileName = 'TestDeleteCustomXmlPart.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteCustomXmlPartsRequest(
       remoteFileName,

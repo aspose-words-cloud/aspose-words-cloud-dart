@@ -47,6 +47,7 @@ class BookmarkTests
   Future<void> testGetBookmarks() async
   {
     final remoteFileName = 'TestGetDocumentBookmarks.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetBookmarksRequest(
       remoteFileName,
@@ -72,6 +73,7 @@ class BookmarkTests
   Future<void> testGetBookmarkByName() async
   {
     final remoteFileName = 'TestGetDocumentBookmarkByName.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetBookmarkByNameRequest(
       remoteFileName,
@@ -100,6 +102,7 @@ class BookmarkTests
   {
     final remoteFileName = 'TestUpdateDocumentBookmark.docx';
     final bookmarkText = 'This will be the text for Aspose';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestBookmarkData = BookmarkData();
     requestBookmarkData.name = bookmarkName;
     requestBookmarkData.text = bookmarkText;

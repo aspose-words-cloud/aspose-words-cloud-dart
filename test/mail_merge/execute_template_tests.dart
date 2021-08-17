@@ -48,6 +48,7 @@ class ExecuteTemplateTests
     final localDocumentFile = 'TestExecuteTemplate.doc';
     final remoteFileName = 'TestExecuteTemplate.docx';
     final localDataFile = await context.loadTextFile(mailMergeFolder + '/TestExecuteTemplateData.txt');
+    await context.uploadFile(mailMergeFolder + '/' + localDocumentFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = ExecuteMailMergeRequest(
       remoteFileName,

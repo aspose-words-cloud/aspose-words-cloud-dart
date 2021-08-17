@@ -46,6 +46,7 @@ class StylesTests
   Future<void> testGetStyles() async
   {
     final remoteFileName = 'TestGetStyles.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetStylesRequest(
       remoteFileName,
@@ -74,6 +75,7 @@ class StylesTests
   Future<void> testGetStyle() async
   {
     final remoteFileName = 'TestGetStyle.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetStyleRequest(
       remoteFileName,
@@ -103,6 +105,7 @@ class StylesTests
   Future<void> testUpdateStyle() async
   {
     final remoteFileName = 'TestUpdateStyle.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestStyleUpdate = StyleUpdate();
     requestStyleUpdate.name = 'My Style';
 
@@ -139,6 +142,7 @@ class StylesTests
   Future<void> testInsertStyle() async
   {
     final remoteFileName = 'TestInsertStyle.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestStyleInsert = StyleInsert();
     requestStyleInsert.styleName = 'My Style';
     requestStyleInsert.styleType = StyleInsert_StyleTypeEnum.paragraph;
@@ -175,6 +179,7 @@ class StylesTests
   Future<void> testCopyStyle() async
   {
     final remoteFileName = 'TestCopyStyle.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestStyleCopy = StyleCopy();
     requestStyleCopy.styleName = 'Heading 1';
 
@@ -209,6 +214,7 @@ class StylesTests
   Future<void> testGetStyleFromDocumentElement() async
   {
     final remoteFileName = 'TestGetStyleFromDocumentElement.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetStyleFromDocumentElementRequest(
       remoteFileName,
@@ -238,6 +244,7 @@ class StylesTests
   Future<void> testApplyStyleToDocumentElement() async
   {
     final remoteFileName = 'TestApplyStyleToDocumentElement.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestStyleApply = StyleApply();
     requestStyleApply.styleName = 'Heading 1';
 

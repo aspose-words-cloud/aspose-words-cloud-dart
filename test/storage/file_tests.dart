@@ -63,6 +63,7 @@ class FileTests
   Future<void> testCopyFile() async
   {
     final remoteFileName = 'TestCopyFileSrc.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = CopyFileRequest(
       remoteDataFolder + '/TestCopyFileDest.docx',
@@ -76,6 +77,7 @@ class FileTests
   Future<void> testMoveFile() async
   {
     final remoteFileName = 'TestMoveFileSrc.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = MoveFileRequest(
       context.baseTestOutPath + '/TestMoveFileDest_' + context.createRandomGuid() + '.docx',
@@ -89,6 +91,7 @@ class FileTests
   Future<void> testDeleteFile() async
   {
     final remoteFileName = 'TestDeleteFile.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteFileRequest(
       remoteDataFolder + '/' + remoteFileName
@@ -101,6 +104,7 @@ class FileTests
   Future<void> testDownloadFile() async
   {
     final remoteFileName = 'TestDownloadFile.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = DownloadFileRequest(
       remoteDataFolder + '/' + remoteFileName

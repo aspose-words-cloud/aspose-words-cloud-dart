@@ -47,6 +47,7 @@ class DrawingObjectsTests
   Future<void> testGetDocumentDrawingObjects() async
   {
     final remoteFileName = 'TestGetDocumentDrawingObjects.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetDocumentDrawingObjectsRequest(
       remoteFileName,
@@ -74,6 +75,7 @@ class DrawingObjectsTests
   Future<void> testGetDocumentDrawingObjectsWithoutNodePath() async
   {
     final remoteFileName = 'TestGetDocumentDrawingObjectsWithoutNodePath.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetDocumentDrawingObjectsRequest(
       remoteFileName,
@@ -87,6 +89,7 @@ class DrawingObjectsTests
   Future<void> testGetDocumentDrawingObjectByIndex() async
   {
     final remoteFileName = 'TestGetDocumentDrawingObjectByIndex.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetDocumentDrawingObjectByIndexRequest(
       remoteFileName,
@@ -116,6 +119,7 @@ class DrawingObjectsTests
   Future<void> testGetDocumentDrawingObjectByIndexWithoutNodePath() async
   {
     final remoteFileName = 'TestGetDocumentDrawingObjectByIndexWithoutNodePath.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetDocumentDrawingObjectByIndexRequest(
       remoteFileName,
@@ -130,6 +134,7 @@ class DrawingObjectsTests
   Future<void> testRenderDrawingObject() async
   {
     final remoteFileName = 'TestGetDocumentDrawingObjectByIndexWithFormat.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = RenderDrawingObjectRequest(
       remoteFileName,
@@ -161,6 +166,7 @@ class DrawingObjectsTests
   Future<void> testRenderDrawingObjectWithoutNodePath() async
   {
     final remoteFileName = 'TestGetDocumentDrawingObjectByIndexWithFormatWithoutNodePath.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = RenderDrawingObjectRequest(
       remoteFileName,
@@ -176,6 +182,7 @@ class DrawingObjectsTests
   Future<void> testGetDocumentDrawingObjectImageData() async
   {
     final remoteFileName = 'TestGetDocumentDrawingObjectImageData.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetDocumentDrawingObjectImageDataRequest(
       remoteFileName,
@@ -205,6 +212,7 @@ class DrawingObjectsTests
   Future<void> testGetDocumentDrawingObjectImageDataWithoutNodePath() async
   {
     final remoteFileName = 'TestGetDocumentDrawingObjectImageDataWithoutNodePath.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetDocumentDrawingObjectImageDataRequest(
       remoteFileName,
@@ -219,6 +227,7 @@ class DrawingObjectsTests
   Future<void> testGetDocumentDrawingObjectOleData() async
   {
     final remoteFileName = 'TestGetDocumentDrawingObjectOleData.docx';
+    await context.uploadFile(localDrawingFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetDocumentDrawingObjectOleDataRequest(
       remoteFileName,
@@ -248,6 +257,7 @@ class DrawingObjectsTests
   Future<void> testGetDocumentDrawingObjectOleDataWithoutNodePath() async
   {
     final remoteFileName = 'TestGetDocumentDrawingObjectOleDataWithoutNodePath.docx';
+    await context.uploadFile(localDrawingFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetDocumentDrawingObjectOleDataRequest(
       remoteFileName,
@@ -262,6 +272,7 @@ class DrawingObjectsTests
   Future<void> testInsertDrawingObject() async
   {
     final remoteFileName = 'TestInsetDrawingObject.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestDrawingObject = DrawingObjectInsert();
     requestDrawingObject.height = 0;
     requestDrawingObject.left = 0;
@@ -314,6 +325,7 @@ class DrawingObjectsTests
   Future<void> testInsertDrawingObjectWithoutNodePath() async
   {
     final remoteFileName = 'TestInsetDrawingObjectWithoutNodePath.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestDrawingObject = DrawingObjectInsert();
     requestDrawingObject.height = 0;
     requestDrawingObject.left = 0;
@@ -339,6 +351,7 @@ class DrawingObjectsTests
   Future<void> testDeleteDrawingObject() async
   {
     final remoteFileName = 'TestDeleteDrawingObject.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteDrawingObjectRequest(
       remoteFileName,
@@ -368,6 +381,7 @@ class DrawingObjectsTests
   Future<void> testDeleteDrawingObjectWithoutNodePath() async
   {
     final remoteFileName = 'TestDeleteDrawingObjectWithoutNodePath.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = DeleteDrawingObjectRequest(
       remoteFileName,
@@ -382,6 +396,7 @@ class DrawingObjectsTests
   Future<void> testUpdateDrawingObject() async
   {
     final remoteFileName = 'TestUpdateDrawingObject.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestDrawingObject = DrawingObjectUpdate();
     requestDrawingObject.left = 0;
 
@@ -424,6 +439,7 @@ class DrawingObjectsTests
   Future<void> testUpdateDrawingObjectWithoutNodePath() async
   {
     final remoteFileName = 'TestUpdateDrawingObjectWithoutNodePath.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestDrawingObject = DrawingObjectUpdate();
     requestDrawingObject.left = 0;
 

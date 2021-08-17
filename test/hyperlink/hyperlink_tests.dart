@@ -46,6 +46,7 @@ class HyperlinkTests
   Future<void> testGetDocumentHyperlinkByIndex() async
   {
     final remoteFileName = 'TestGetDocumentHyperlinkByIndex.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetDocumentHyperlinkByIndexRequest(
       remoteFileName,
@@ -75,6 +76,7 @@ class HyperlinkTests
   Future<void> testGetDocumentHyperlinks() async
   {
     final remoteFileName = 'TestGetDocumentHyperlinks.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = GetDocumentHyperlinksRequest(
       remoteFileName,

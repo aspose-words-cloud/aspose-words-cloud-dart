@@ -46,6 +46,7 @@ class SplitDocumentToFormatTests
   Future<void> testSplitDocument() async
   {
     final remoteFileName = 'TestSplitDocument.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     final request = SplitDocumentRequest(
       remoteFileName,
