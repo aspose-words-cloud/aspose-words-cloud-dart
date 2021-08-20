@@ -61,6 +61,9 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   /// Gets or sets a value indicating whether to export document structure.
   bool exportDocumentStructure;
 
+  /// Gets or sets a value determining whether or not to create a "Span" tag in the document structure to export the text language.
+  bool exportLanguageToSpanTag;
+
   /// Gets or sets the font embedding mode.
   String fontEmbeddingMode;
 
@@ -169,6 +172,12 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
       exportDocumentStructure = json['ExportDocumentStructure'] as bool;
     } else {
       exportDocumentStructure = null;
+    }
+
+    if (json.containsKey('ExportLanguageToSpanTag')) {
+      exportLanguageToSpanTag = json['ExportLanguageToSpanTag'] as bool;
+    } else {
+      exportLanguageToSpanTag = null;
     }
 
     if (json.containsKey('FontEmbeddingMode')) {
@@ -306,6 +315,10 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (exportDocumentStructure != null) {
       _result['ExportDocumentStructure'] = exportDocumentStructure;
+    }
+
+    if (exportLanguageToSpanTag != null) {
+      _result['ExportLanguageToSpanTag'] = exportLanguageToSpanTag;
     }
 
     if (fontEmbeddingMode != null) {
