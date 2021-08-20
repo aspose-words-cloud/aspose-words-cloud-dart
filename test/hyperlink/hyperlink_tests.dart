@@ -62,10 +62,10 @@ class HyperlinkTests
   /// Test for getting hyperlink by specified index online.
   Future<void> testGetDocumentHyperlinkByIndexOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetDocumentHyperlinkByIndexOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       0
     );
 
@@ -93,10 +93,10 @@ class HyperlinkTests
   /// Test for getting hyperlinks online.
   Future<void> testGetDocumentHyperlinksOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetDocumentHyperlinksOnlineRequest(
-      requestDocumentData
+      requestDocument
     );
 
     await context.getApi().getDocumentHyperlinksOnline(request);

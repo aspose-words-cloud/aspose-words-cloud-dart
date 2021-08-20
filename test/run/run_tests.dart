@@ -66,12 +66,13 @@ class RunTests
   /// Test for updating run online.
   Future<void> testUpdateRunOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
+
     final requestRun = RunUpdate();
     requestRun.text = 'run with text';
 
     final request = UpdateRunOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'paragraphs/1',
       requestRun,
       0
@@ -104,12 +105,13 @@ class RunTests
   /// Test for adding run online.
   Future<void> testInsertRunOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
+
     final requestRun = RunInsert();
     requestRun.text = 'run with text';
 
     final request = InsertRunOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'paragraphs/1',
       requestRun
     );
@@ -136,10 +138,10 @@ class RunTests
   /// Test for deleting run online.
   Future<void> testDeleteRunOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = DeleteRunOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'paragraphs/1',
       0
     );

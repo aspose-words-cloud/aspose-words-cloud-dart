@@ -67,13 +67,14 @@ class ConvertDocumentTests
   Future<void> testSaveAsOnline() async
   {
     final localName = 'test_multi_pages.docx';
-    final requestDocumentData = await context.loadBinaryFile('Common/' + localName);
+    final requestDocument = await context.loadBinaryFile('Common/' + localName);
+
     final requestSaveOptionsData = SaveOptionsData();
     requestSaveOptionsData.saveFormat = 'pdf';
     requestSaveOptionsData.fileName = context.baseTestOutPath + '/TestSaveAs.pdf';
 
     final request = SaveAsOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       requestSaveOptionsData
     );
 
@@ -126,13 +127,14 @@ class ConvertDocumentTests
   Future<void> testSaveAsTiffOnline() async
   {
     final localName = 'test_multi_pages.docx';
-    final requestDocumentData = await context.loadBinaryFile('Common/' + localName);
+    final requestDocument = await context.loadBinaryFile('Common/' + localName);
+
     final requestSaveOptions = TiffSaveOptionsData();
     requestSaveOptions.saveFormat = 'tiff';
     requestSaveOptions.fileName = context.baseTestOutPath + '/abc.tiff';
 
     final request = SaveAsTiffOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       requestSaveOptions
     );
 
@@ -142,10 +144,10 @@ class ConvertDocumentTests
   /// A test for ConvertDocument.
   Future<void> testConvertDocument() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFolder + '/test_uploadfile.docx');
+    final requestDocument = await context.loadBinaryFile(localFolder + '/test_uploadfile.docx');
 
     final request = ConvertDocumentRequest(
-      requestDocumentData,
+      requestDocument,
       'pdf'
     );
 
