@@ -76,14 +76,15 @@ class CompareDocumentTests
     final localName2 = 'compareTestDoc2.doc';
     final remoteName2 = 'TestCompareDocument2.doc';
     await context.uploadFile(localFolder + '/' + localName2, remoteFolder + '/' + remoteName2);
-    final requestDocumentData = await context.loadBinaryFile(localFolder + '/' + localName1);
+    final requestDocument = await context.loadBinaryFile(localFolder + '/' + localName1);
+
     final requestCompareData = CompareData();
     requestCompareData.author = 'author';
     requestCompareData.comparingWithDocument = remoteFolder + '/' + remoteName2;
     requestCompareData.dateTime = DateTime(2015, 10, 26, 0, 0, 0);
 
     final request = CompareDocumentOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       requestCompareData,
       destFileName: context.baseTestOutPath + '/TestCompareDocumentOut.doc'
     );
@@ -98,17 +99,19 @@ class CompareDocumentTests
     final localName2 = 'compareTestDoc2.doc';
     final remoteName2 = 'TestCompareDocument2.doc';
     await context.uploadFile(localFolder + '/' + localName2, remoteFolder + '/' + remoteName2);
-    final requestDocumentData = await context.loadBinaryFile(localFolder + '/' + localName1);
-    final requestComparingDocumentData = await context.loadBinaryFile(localFolder + '/' + localName2);
+    final requestDocument = await context.loadBinaryFile(localFolder + '/' + localName1);
+
     final requestCompareData = CompareData();
     requestCompareData.author = 'author';
     requestCompareData.comparingWithDocument = remoteFolder + '/' + remoteName2;
     requestCompareData.dateTime = DateTime(2015, 10, 26, 0, 0, 0);
 
+    final requestComparingDocument = await context.loadBinaryFile(localFolder + '/' + localName2);
+
     final request = CompareDocumentOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       requestCompareData,
-      comparingDocument: requestComparingDocumentData,
+      comparingDocument: requestComparingDocument,
       destFileName: context.baseTestOutPath + '/TestCompareDocumentOut.doc'
     );
 

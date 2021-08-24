@@ -65,10 +65,10 @@ class TableBorderTests
   /// Test for getting borders online.
   Future<void> testGetBordersOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetBordersOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       nodePath: 'tables/1/rows/0/cells/0'
     );
 
@@ -97,10 +97,10 @@ class TableBorderTests
   /// Test for getting border online.
   Future<void> testGetBorderOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetBorderOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'left',
       nodePath: 'tables/1/rows/0/cells/0'
     );
@@ -126,10 +126,10 @@ class TableBorderTests
   /// Test for deleting borders online.
   Future<void> testDeleteBordersOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = DeleteBordersOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       nodePath: 'tables/1/rows/0/cells/0'
     );
 
@@ -155,10 +155,10 @@ class TableBorderTests
   /// Test for deleting border online.
   Future<void> testDeleteBorderOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = DeleteBorderOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'left',
       nodePath: 'tables/1/rows/0/cells/0'
     );
@@ -202,7 +202,8 @@ class TableBorderTests
   /// Test for updating border online.
   Future<void> testUpdateBorderOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
+
     final requestBorderPropertiesColor = XmlColor();
     requestBorderPropertiesColor.web = '#AABBCC';
 
@@ -215,7 +216,7 @@ class TableBorderTests
     requestBorderProperties.shadow = true;
 
     final request = UpdateBorderOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       requestBorderProperties,
       'left',
       nodePath: 'tables/1/rows/0/cells/0'

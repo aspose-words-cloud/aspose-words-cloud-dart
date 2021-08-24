@@ -62,10 +62,10 @@ class RangeTests
   /// Test for getting the text from range online.
   Future<void> testGetRangeTextOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetRangeTextOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'id0.0.0',
       rangeEndIdentifier: 'id0.0.1'
     );
@@ -92,10 +92,10 @@ class RangeTests
   /// Test for removing the text for range online.
   Future<void> testRemoveRangeOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = RemoveRangeOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'id0.0.0',
       rangeEndIdentifier: 'id0.0.1'
     );
@@ -127,12 +127,13 @@ class RangeTests
   /// Test for saving a range as a new document online.
   Future<void> testSaveAsRangeOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
+
     final requestDocumentParameters = RangeDocument();
     requestDocumentParameters.documentName = remoteDataFolder + '/NewDoc.docx';
 
     final request = SaveAsRangeOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'id0.0.0',
       requestDocumentParameters,
       rangeEndIdentifier: 'id0.0.1'
@@ -165,12 +166,13 @@ class RangeTests
   /// Test for replacing text in range online.
   Future<void> testReplaceWithTextOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
+
     final requestRangeText = ReplaceRange();
     requestRangeText.text = 'Replaced header';
 
     final request = ReplaceWithTextOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'id0.0.0',
       requestRangeText,
       rangeEndIdentifier: 'id0.0.1'

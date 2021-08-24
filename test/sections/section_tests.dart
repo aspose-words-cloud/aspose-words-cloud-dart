@@ -64,10 +64,10 @@ class SectionTests
   /// Test for getting section by index online.
   Future<void> testGetSectionOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetSectionOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       0
     );
 
@@ -95,10 +95,10 @@ class SectionTests
   /// Test for getting sections online.
   Future<void> testGetSectionsOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetSectionsOnlineRequest(
-      requestDocumentData
+      requestDocument
     );
 
     await context.getApi().getSectionsOnline(request);
@@ -122,10 +122,10 @@ class SectionTests
   /// Test for delete a section online.
   Future<void> testDeleteSectionOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = DeleteSectionOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       0
     );
 

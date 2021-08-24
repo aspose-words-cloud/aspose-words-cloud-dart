@@ -15,15 +15,25 @@ class ExamplesTests
     Future<void> acceptAllRevisions() async
     {
         final wordsApi = WordsApi(config);
-        final acceptRequest = AcceptAllRevisionsRequest('Sample.docx');
-        await wordsApi.acceptAllRevisions(acceptRequest);
+        final fileName  = 'test_doc.docx';
+
+        // Upload original document to cloud storage.
+        final myVar1 = (await File(fileName).readAsBytes()).buffer.asByteData();
+        final myVar2 = fileName;
+        final uploadFileRequest = UploadFileRequest(myVar1, myVar2);
+        await wordsApi.uploadFile(uploadFileRequest);
+
+        // Calls AcceptAllRevisions method for document in cloud.
+        final myVar3 = fileName;
+        final request = AcceptAllRevisionsRequest(myVar3);
+        await wordsApi.acceptAllRevisions(request);
     }
 
     Future<void> acceptAllRevisionsOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final acceptRequest = AcceptAllRevisionsOnlineRequest(requestDocumentData);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final acceptRequest = AcceptAllRevisionsOnlineRequest(requestDocument);
         await wordsApi.acceptAllRevisionsOnline(acceptRequest);
     }
 
@@ -46,7 +56,7 @@ class ExamplesTests
     Future<void> appendDocumentOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestDocumentListDocumentEntries0 = DocumentEntry();
         requestDocumentListDocumentEntries0.href = 'Sample.docx';
         requestDocumentListDocumentEntries0.importFormatMode = 'KeepSourceFormatting';
@@ -54,7 +64,7 @@ class ExamplesTests
           requestDocumentListDocumentEntries0];
         final requestDocumentList = DocumentEntryList();
         requestDocumentList.documentEntries = requestDocumentListDocumentEntries;
-        final appendRequest = AppendDocumentOnlineRequest(requestDocumentData, requestDocumentList);
+        final appendRequest = AppendDocumentOnlineRequest(requestDocument, requestDocumentList);
         await wordsApi.appendDocumentOnline(appendRequest);
     }
 
@@ -70,10 +80,10 @@ class ExamplesTests
     Future<void> applyStyleToDocumentElementOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestStyleApply = StyleApply();
         requestStyleApply.styleName = 'Heading 1';
-        final applyStyleRequest = ApplyStyleToDocumentElementOnlineRequest(requestDocumentData, 'paragraphs/1/paragraphFormat', requestStyleApply);
+        final applyStyleRequest = ApplyStyleToDocumentElementOnlineRequest(requestDocument, 'paragraphs/1/paragraphFormat', requestStyleApply);
         await wordsApi.applyStyleToDocumentElementOnline(applyStyleRequest);
     }
 
@@ -93,11 +103,11 @@ class ExamplesTests
     Future<void> buildReportOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestTemplateData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestTemplate = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestReportEngineSettings = ReportEngineSettings();
         requestReportEngineSettings.dataSourceType = ReportEngineSettings_DataSourceTypeEnum.json;
         requestReportEngineSettings.dataSourceName = 'persons';
-        final buildReportRequest = BuildReportOnlineRequest(requestTemplateData, 'Data.json', requestReportEngineSettings);
+        final buildReportRequest = BuildReportOnlineRequest(requestTemplate, 'Data.json', requestReportEngineSettings);
         await wordsApi.buildReportOnline(buildReportRequest);
     }
 
@@ -118,8 +128,8 @@ class ExamplesTests
     Future<void> classifyDocumentOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final classifyRequest = ClassifyDocumentOnlineRequest(requestDocumentData, bestClassesCount: '3');
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final classifyRequest = ClassifyDocumentOnlineRequest(requestDocument, bestClassesCount: '3');
         await wordsApi.classifyDocumentOnline(classifyRequest);
     }
 
@@ -137,21 +147,21 @@ class ExamplesTests
     Future<void> compareDocumentOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("compareTestDoc1.doc").readAsBytes()).buffer.asByteData();
-        final requestComparingDocumentData = (await File("compareTestDoc2.doc").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('compareTestDoc1.doc').readAsBytes()).buffer.asByteData();
         final requestCompareData = CompareData();
         requestCompareData.author = 'author';
         requestCompareData.comparingWithDocument = 'TestCompareDocument2.doc';
         requestCompareData.dateTime = DateTime(2015, 10, 26, 0, 0, 0);
-        final compareRequest = CompareDocumentOnlineRequest(requestDocumentData, requestCompareData, comparingDocument: requestComparingDocumentData, destFileName: '/TestCompareDocumentOut.doc');
+        final requestComparingDocument = (await File('compareTestDoc2.doc').readAsBytes()).buffer.asByteData();
+        final compareRequest = CompareDocumentOnlineRequest(requestDocument, requestCompareData, comparingDocument: requestComparingDocument, destFileName: '/TestCompareDocumentOut.doc');
         await wordsApi.compareDocumentOnline(compareRequest);
     }
 
     Future<void> convertDocument() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final convertRequest = ConvertDocumentRequest(requestDocumentData, 'pdf');
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final convertRequest = ConvertDocumentRequest(requestDocument, 'pdf');
         await wordsApi.convertDocument(convertRequest);
     }
 
@@ -183,10 +193,10 @@ class ExamplesTests
     Future<void> copyStyleOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestStyleCopy = StyleCopy();
         requestStyleCopy.styleName = 'Heading 1';
-        final copyRequest = CopyStyleOnlineRequest(requestDocumentData, requestStyleCopy);
+        final copyRequest = CopyStyleOnlineRequest(requestDocument, requestStyleCopy);
         await wordsApi.copyStyleOnline(copyRequest);
     }
 
@@ -216,10 +226,10 @@ class ExamplesTests
     Future<void> createOrUpdateDocumentPropertyOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestProperty = DocumentPropertyCreateOrUpdate();
         requestProperty.value = 'Imran Anwar';
-        final createRequest = CreateOrUpdateDocumentPropertyOnlineRequest(requestDocumentData, 'AsposeAuthor', requestProperty);
+        final createRequest = CreateOrUpdateDocumentPropertyOnlineRequest(requestDocument, 'AsposeAuthor', requestProperty);
         await wordsApi.createOrUpdateDocumentPropertyOnline(createRequest);
     }
 
@@ -233,8 +243,8 @@ class ExamplesTests
     Future<void> deleteAllParagraphTabStopsOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final deleteRequest = DeleteAllParagraphTabStopsOnlineRequest(requestDocumentData, 0);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final deleteRequest = DeleteAllParagraphTabStopsOnlineRequest(requestDocument, 0);
         await wordsApi.deleteAllParagraphTabStopsOnline(deleteRequest);
     }
 
@@ -248,8 +258,8 @@ class ExamplesTests
     Future<void> deleteBorderOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final deleteRequest = DeleteBorderOnlineRequest(requestDocumentData, 'left', nodePath: 'tables/1/rows/0/cells/0');
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final deleteRequest = DeleteBorderOnlineRequest(requestDocument, 'left', nodePath: 'tables/1/rows/0/cells/0');
         await wordsApi.deleteBorderOnline(deleteRequest);
     }
 
@@ -263,8 +273,8 @@ class ExamplesTests
     Future<void> deleteBordersOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final deleteRequest = DeleteBordersOnlineRequest(requestDocumentData, nodePath: 'tables/1/rows/0/cells/0');
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final deleteRequest = DeleteBordersOnlineRequest(requestDocument, nodePath: 'tables/1/rows/0/cells/0');
         await wordsApi.deleteBordersOnline(deleteRequest);
     }
 
@@ -278,8 +288,8 @@ class ExamplesTests
     Future<void> deleteCommentOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final deleteRequest = DeleteCommentOnlineRequest(requestDocumentData, 0);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final deleteRequest = DeleteCommentOnlineRequest(requestDocument, 0);
         await wordsApi.deleteCommentOnline(deleteRequest);
     }
 
@@ -293,8 +303,8 @@ class ExamplesTests
     Future<void> deleteCommentsOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final deleteRequest = DeleteCommentsOnlineRequest(requestDocumentData);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final deleteRequest = DeleteCommentsOnlineRequest(requestDocument);
         await wordsApi.deleteCommentsOnline(deleteRequest);
     }
 
@@ -308,8 +318,8 @@ class ExamplesTests
     Future<void> deleteCustomXmlPartOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final deleteRequest = DeleteCustomXmlPartOnlineRequest(requestDocumentData, 0);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final deleteRequest = DeleteCustomXmlPartOnlineRequest(requestDocument, 0);
         await wordsApi.deleteCustomXmlPartOnline(deleteRequest);
     }
 
@@ -323,8 +333,8 @@ class ExamplesTests
     Future<void> deleteCustomXmlPartsOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final deleteRequest = DeleteCustomXmlPartsOnlineRequest(requestDocumentData);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final deleteRequest = DeleteCustomXmlPartsOnlineRequest(requestDocument);
         await wordsApi.deleteCustomXmlPartsOnline(deleteRequest);
     }
 
@@ -338,8 +348,8 @@ class ExamplesTests
     Future<void> deleteDocumentPropertyOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final deleteRequest = DeleteDocumentPropertyOnlineRequest(requestDocumentData, 'testProp');
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final deleteRequest = DeleteDocumentPropertyOnlineRequest(requestDocument, 'testProp');
         await wordsApi.deleteDocumentPropertyOnline(deleteRequest);
     }
 
@@ -353,8 +363,8 @@ class ExamplesTests
     Future<void> deleteDrawingObjectOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final deleteRequest = DeleteDrawingObjectOnlineRequest(requestDocumentData, 0);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final deleteRequest = DeleteDrawingObjectOnlineRequest(requestDocument, 0);
         await wordsApi.deleteDrawingObjectOnline(deleteRequest);
     }
 
@@ -368,8 +378,8 @@ class ExamplesTests
     Future<void> deleteFieldOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final deleteRequest = DeleteFieldOnlineRequest(requestDocumentData, 0, nodePath: 'sections/0/paragraphs/0');
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final deleteRequest = DeleteFieldOnlineRequest(requestDocument, 0, nodePath: 'sections/0/paragraphs/0');
         await wordsApi.deleteFieldOnline(deleteRequest);
     }
 
@@ -383,8 +393,8 @@ class ExamplesTests
     Future<void> deleteFieldsOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final deleteRequest = DeleteFieldsOnlineRequest(requestDocumentData);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final deleteRequest = DeleteFieldsOnlineRequest(requestDocument);
         await wordsApi.deleteFieldsOnline(deleteRequest);
     }
 
@@ -412,8 +422,8 @@ class ExamplesTests
     Future<void> deleteFootnoteOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.doc").readAsBytes()).buffer.asByteData();
-        final deleteRequest = DeleteFootnoteOnlineRequest(requestDocumentData, 0);
+        final requestDocument = (await File('Sample.doc').readAsBytes()).buffer.asByteData();
+        final deleteRequest = DeleteFootnoteOnlineRequest(requestDocument, 0);
         await wordsApi.deleteFootnoteOnline(deleteRequest);
     }
 
@@ -427,8 +437,8 @@ class ExamplesTests
     Future<void> deleteFormFieldOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final deleteRequest = DeleteFormFieldOnlineRequest(requestDocumentData, 0, nodePath: 'sections/0');
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final deleteRequest = DeleteFormFieldOnlineRequest(requestDocument, 0, nodePath: 'sections/0');
         await wordsApi.deleteFormFieldOnline(deleteRequest);
     }
 
@@ -442,8 +452,8 @@ class ExamplesTests
     Future<void> deleteHeaderFooterOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.doc").readAsBytes()).buffer.asByteData();
-        final deleteRequest = DeleteHeaderFooterOnlineRequest(requestDocumentData, '', 0);
+        final requestDocument = (await File('Sample.doc').readAsBytes()).buffer.asByteData();
+        final deleteRequest = DeleteHeaderFooterOnlineRequest(requestDocument, '', 0);
         await wordsApi.deleteHeaderFooterOnline(deleteRequest);
     }
 
@@ -457,8 +467,8 @@ class ExamplesTests
     Future<void> deleteHeadersFootersOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.doc").readAsBytes()).buffer.asByteData();
-        final deleteRequest = DeleteHeadersFootersOnlineRequest(requestDocumentData, '');
+        final requestDocument = (await File('Sample.doc').readAsBytes()).buffer.asByteData();
+        final deleteRequest = DeleteHeadersFootersOnlineRequest(requestDocument, '');
         await wordsApi.deleteHeadersFootersOnline(deleteRequest);
     }
 
@@ -472,8 +482,8 @@ class ExamplesTests
     Future<void> deleteMacrosOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final deleteRequest = DeleteMacrosOnlineRequest(requestDocumentData);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final deleteRequest = DeleteMacrosOnlineRequest(requestDocument);
         await wordsApi.deleteMacrosOnline(deleteRequest);
     }
 
@@ -487,8 +497,8 @@ class ExamplesTests
     Future<void> deleteOfficeMathObjectOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final deleteRequest = DeleteOfficeMathObjectOnlineRequest(requestDocumentData, 0);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final deleteRequest = DeleteOfficeMathObjectOnlineRequest(requestDocument, 0);
         await wordsApi.deleteOfficeMathObjectOnline(deleteRequest);
     }
 
@@ -509,16 +519,16 @@ class ExamplesTests
     Future<void> deleteParagraphListFormatOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.doc").readAsBytes()).buffer.asByteData();
-        final deleteRequest = DeleteParagraphListFormatOnlineRequest(requestDocumentData, 0);
+        final requestDocument = (await File('Sample.doc').readAsBytes()).buffer.asByteData();
+        final deleteRequest = DeleteParagraphListFormatOnlineRequest(requestDocument, 0);
         await wordsApi.deleteParagraphListFormatOnline(deleteRequest);
     }
 
     Future<void> deleteParagraphOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final deleteRequest = DeleteParagraphOnlineRequest(requestDocumentData, 0);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final deleteRequest = DeleteParagraphOnlineRequest(requestDocument, 0);
         await wordsApi.deleteParagraphOnline(deleteRequest);
     }
 
@@ -532,8 +542,8 @@ class ExamplesTests
     Future<void> deleteParagraphTabStopOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final deleteRequest = DeleteParagraphTabStopOnlineRequest(requestDocumentData, 72.0, 0);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final deleteRequest = DeleteParagraphTabStopOnlineRequest(requestDocument, 72.0, 0);
         await wordsApi.deleteParagraphTabStopOnline(deleteRequest);
     }
 
@@ -547,8 +557,8 @@ class ExamplesTests
     Future<void> deleteRunOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.doc").readAsBytes()).buffer.asByteData();
-        final deleteRequest = DeleteRunOnlineRequest(requestDocumentData, 'paragraphs/1', 0);
+        final requestDocument = (await File('Sample.doc').readAsBytes()).buffer.asByteData();
+        final deleteRequest = DeleteRunOnlineRequest(requestDocument, 'paragraphs/1', 0);
         await wordsApi.deleteRunOnline(deleteRequest);
     }
 
@@ -562,8 +572,8 @@ class ExamplesTests
     Future<void> deleteSectionOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final deleteRequest = DeleteSectionOnlineRequest(requestDocumentData, 0);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final deleteRequest = DeleteSectionOnlineRequest(requestDocument, 0);
         await wordsApi.deleteSectionOnline(deleteRequest);
     }
 
@@ -584,16 +594,16 @@ class ExamplesTests
     Future<void> deleteTableCellOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final deleteRequest = DeleteTableCellOnlineRequest(requestDocumentData, 'sections/0/tables/2/rows/0', 0);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final deleteRequest = DeleteTableCellOnlineRequest(requestDocument, 'sections/0/tables/2/rows/0', 0);
         await wordsApi.deleteTableCellOnline(deleteRequest);
     }
 
     Future<void> deleteTableOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final deleteRequest = DeleteTableOnlineRequest(requestDocumentData, 1);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final deleteRequest = DeleteTableOnlineRequest(requestDocument, 1);
         await wordsApi.deleteTableOnline(deleteRequest);
     }
 
@@ -607,8 +617,8 @@ class ExamplesTests
     Future<void> deleteTableRowOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final deleteRequest = DeleteTableRowOnlineRequest(requestDocumentData, 'tables/1', 0);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final deleteRequest = DeleteTableRowOnlineRequest(requestDocument, 'tables/1', 0);
         await wordsApi.deleteTableRowOnline(deleteRequest);
     }
 
@@ -622,8 +632,8 @@ class ExamplesTests
     Future<void> deleteWatermarkOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final deleteRequest = DeleteWatermarkOnlineRequest(requestDocumentData);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final deleteRequest = DeleteWatermarkOnlineRequest(requestDocument);
         await wordsApi.deleteWatermarkOnline(deleteRequest);
     }
 
@@ -644,9 +654,9 @@ class ExamplesTests
     Future<void> executeMailMergeOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestTemplateData = (await File("TestExecuteTemplate.doc").readAsBytes()).buffer.asByteData();
-        final requestDataData = (await File("TestExecuteTemplateData.txt").readAsBytes()).buffer.asByteData();
-        final mailMergeRequest = ExecuteMailMergeOnlineRequest(requestTemplateData, requestDataData);
+        final requestTemplate = (await File('TestExecuteTemplate.doc').readAsBytes()).buffer.asByteData();
+        final requestData = (await File('TestExecuteTemplateData.txt').readAsBytes()).buffer.asByteData();
+        final mailMergeRequest = ExecuteMailMergeOnlineRequest(requestTemplate, requestData);
         await wordsApi.executeMailMergeOnline(mailMergeRequest);
     }
 
@@ -667,8 +677,8 @@ class ExamplesTests
     Future<void> getBookmarkByNameOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetBookmarkByNameOnlineRequest(requestDocumentData, 'aspose');
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetBookmarkByNameOnlineRequest(requestDocument, 'aspose');
         await wordsApi.getBookmarkByNameOnline(request);
     }
 
@@ -682,8 +692,8 @@ class ExamplesTests
     Future<void> getBookmarksOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetBookmarksOnlineRequest(requestDocumentData);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetBookmarksOnlineRequest(requestDocument);
         await wordsApi.getBookmarksOnline(request);
     }
 
@@ -697,8 +707,8 @@ class ExamplesTests
     Future<void> getBorderOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetBorderOnlineRequest(requestDocumentData, 'left', nodePath: 'tables/1/rows/0/cells/0');
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetBorderOnlineRequest(requestDocument, 'left', nodePath: 'tables/1/rows/0/cells/0');
         await wordsApi.getBorderOnline(request);
     }
 
@@ -712,8 +722,8 @@ class ExamplesTests
     Future<void> getBordersOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetBordersOnlineRequest(requestDocumentData, nodePath: 'tables/1/rows/0/cells/0');
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetBordersOnlineRequest(requestDocument, nodePath: 'tables/1/rows/0/cells/0');
         await wordsApi.getBordersOnline(request);
     }
 
@@ -727,8 +737,8 @@ class ExamplesTests
     Future<void> getCommentOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetCommentOnlineRequest(requestDocumentData, 0);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetCommentOnlineRequest(requestDocument, 0);
         await wordsApi.getCommentOnline(request);
     }
 
@@ -742,8 +752,8 @@ class ExamplesTests
     Future<void> getCommentsOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetCommentsOnlineRequest(requestDocumentData);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetCommentsOnlineRequest(requestDocument);
         await wordsApi.getCommentsOnline(request);
     }
 
@@ -757,8 +767,8 @@ class ExamplesTests
     Future<void> getCustomXmlPartOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetCustomXmlPartOnlineRequest(requestDocumentData, 0);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetCustomXmlPartOnlineRequest(requestDocument, 0);
         await wordsApi.getCustomXmlPartOnline(request);
     }
 
@@ -772,8 +782,8 @@ class ExamplesTests
     Future<void> getCustomXmlPartsOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetCustomXmlPartsOnlineRequest(requestDocumentData);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetCustomXmlPartsOnlineRequest(requestDocument);
         await wordsApi.getCustomXmlPartsOnline(request);
     }
 
@@ -794,8 +804,8 @@ class ExamplesTests
     Future<void> getDocumentDrawingObjectByIndexOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetDocumentDrawingObjectByIndexOnlineRequest(requestDocumentData, 0, nodePath: 'sections/0');
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetDocumentDrawingObjectByIndexOnlineRequest(requestDocument, 0, nodePath: 'sections/0');
         await wordsApi.getDocumentDrawingObjectByIndexOnline(request);
     }
 
@@ -809,8 +819,8 @@ class ExamplesTests
     Future<void> getDocumentDrawingObjectImageDataOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetDocumentDrawingObjectImageDataOnlineRequest(requestDocumentData, 0, nodePath: 'sections/0');
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetDocumentDrawingObjectImageDataOnlineRequest(requestDocument, 0, nodePath: 'sections/0');
         await wordsApi.getDocumentDrawingObjectImageDataOnline(request);
     }
 
@@ -824,8 +834,8 @@ class ExamplesTests
     Future<void> getDocumentDrawingObjectOleDataOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetDocumentDrawingObjectOleDataOnlineRequest(requestDocumentData, 0, nodePath: 'sections/0');
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetDocumentDrawingObjectOleDataOnlineRequest(requestDocument, 0, nodePath: 'sections/0');
         await wordsApi.getDocumentDrawingObjectOleDataOnline(request);
     }
 
@@ -839,8 +849,8 @@ class ExamplesTests
     Future<void> getDocumentDrawingObjectsOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetDocumentDrawingObjectsOnlineRequest(requestDocumentData, nodePath: 'sections/0');
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetDocumentDrawingObjectsOnlineRequest(requestDocument, nodePath: 'sections/0');
         await wordsApi.getDocumentDrawingObjectsOnline(request);
     }
 
@@ -854,8 +864,8 @@ class ExamplesTests
     Future<void> getDocumentFieldNamesOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestTemplateData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetDocumentFieldNamesOnlineRequest(requestTemplateData, useNonMergeFields: true);
+        final requestTemplate = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetDocumentFieldNamesOnlineRequest(requestTemplate, useNonMergeFields: true);
         await wordsApi.getDocumentFieldNamesOnline(request);
     }
 
@@ -869,8 +879,8 @@ class ExamplesTests
     Future<void> getDocumentHyperlinkByIndexOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetDocumentHyperlinkByIndexOnlineRequest(requestDocumentData, 0);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetDocumentHyperlinkByIndexOnlineRequest(requestDocument, 0);
         await wordsApi.getDocumentHyperlinkByIndexOnline(request);
     }
 
@@ -884,8 +894,8 @@ class ExamplesTests
     Future<void> getDocumentHyperlinksOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetDocumentHyperlinksOnlineRequest(requestDocumentData);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetDocumentHyperlinksOnlineRequest(requestDocument);
         await wordsApi.getDocumentHyperlinksOnline(request);
     }
 
@@ -899,8 +909,8 @@ class ExamplesTests
     Future<void> getDocumentPropertiesOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetDocumentPropertiesOnlineRequest(requestDocumentData);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetDocumentPropertiesOnlineRequest(requestDocument);
         await wordsApi.getDocumentPropertiesOnline(request);
     }
 
@@ -914,8 +924,8 @@ class ExamplesTests
     Future<void> getDocumentPropertyOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetDocumentPropertyOnlineRequest(requestDocumentData, 'Author');
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetDocumentPropertyOnlineRequest(requestDocument, 'Author');
         await wordsApi.getDocumentPropertyOnline(request);
     }
 
@@ -929,8 +939,8 @@ class ExamplesTests
     Future<void> getDocumentProtectionOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetDocumentProtectionOnlineRequest(requestDocumentData);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetDocumentProtectionOnlineRequest(requestDocument);
         await wordsApi.getDocumentProtectionOnline(request);
     }
 
@@ -944,8 +954,8 @@ class ExamplesTests
     Future<void> getDocumentStatisticsOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetDocumentStatisticsOnlineRequest(requestDocumentData);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetDocumentStatisticsOnlineRequest(requestDocument);
         await wordsApi.getDocumentStatisticsOnline(request);
     }
 
@@ -966,8 +976,8 @@ class ExamplesTests
     Future<void> getFieldOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetFieldOnlineRequest(requestDocumentData, 0, nodePath: 'sections/0/paragraphs/0');
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetFieldOnlineRequest(requestDocument, 0, nodePath: 'sections/0/paragraphs/0');
         await wordsApi.getFieldOnline(request);
     }
 
@@ -981,8 +991,8 @@ class ExamplesTests
     Future<void> getFieldsOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetFieldsOnlineRequest(requestDocumentData, nodePath: 'sections/0');
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetFieldsOnlineRequest(requestDocument, nodePath: 'sections/0');
         await wordsApi.getFieldsOnline(request);
     }
 
@@ -1003,8 +1013,8 @@ class ExamplesTests
     Future<void> getFootnoteOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.doc").readAsBytes()).buffer.asByteData();
-        final request = GetFootnoteOnlineRequest(requestDocumentData, 0);
+        final requestDocument = (await File('Sample.doc').readAsBytes()).buffer.asByteData();
+        final request = GetFootnoteOnlineRequest(requestDocument, 0);
         await wordsApi.getFootnoteOnline(request);
     }
 
@@ -1018,8 +1028,8 @@ class ExamplesTests
     Future<void> getFootnotesOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.doc").readAsBytes()).buffer.asByteData();
-        final request = GetFootnotesOnlineRequest(requestDocumentData);
+        final requestDocument = (await File('Sample.doc').readAsBytes()).buffer.asByteData();
+        final request = GetFootnotesOnlineRequest(requestDocument);
         await wordsApi.getFootnotesOnline(request);
     }
 
@@ -1033,8 +1043,8 @@ class ExamplesTests
     Future<void> getFormFieldOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetFormFieldOnlineRequest(requestDocumentData, 0, nodePath: 'sections/0');
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetFormFieldOnlineRequest(requestDocument, 0, nodePath: 'sections/0');
         await wordsApi.getFormFieldOnline(request);
     }
 
@@ -1048,8 +1058,8 @@ class ExamplesTests
     Future<void> getFormFieldsOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetFormFieldsOnlineRequest(requestDocumentData, nodePath: 'sections/0');
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetFormFieldsOnlineRequest(requestDocument, nodePath: 'sections/0');
         await wordsApi.getFormFieldsOnline(request);
     }
 
@@ -1070,16 +1080,16 @@ class ExamplesTests
     Future<void> getHeaderFooterOfSectionOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.doc").readAsBytes()).buffer.asByteData();
-        final request = GetHeaderFooterOfSectionOnlineRequest(requestDocumentData, 0, 0);
+        final requestDocument = (await File('Sample.doc').readAsBytes()).buffer.asByteData();
+        final request = GetHeaderFooterOfSectionOnlineRequest(requestDocument, 0, 0);
         await wordsApi.getHeaderFooterOfSectionOnline(request);
     }
 
     Future<void> getHeaderFooterOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.doc").readAsBytes()).buffer.asByteData();
-        final request = GetHeaderFooterOnlineRequest(requestDocumentData, 0);
+        final requestDocument = (await File('Sample.doc').readAsBytes()).buffer.asByteData();
+        final request = GetHeaderFooterOnlineRequest(requestDocument, 0);
         await wordsApi.getHeaderFooterOnline(request);
     }
 
@@ -1093,8 +1103,8 @@ class ExamplesTests
     Future<void> getHeaderFootersOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.doc").readAsBytes()).buffer.asByteData();
-        final request = GetHeaderFootersOnlineRequest(requestDocumentData, '');
+        final requestDocument = (await File('Sample.doc').readAsBytes()).buffer.asByteData();
+        final request = GetHeaderFootersOnlineRequest(requestDocument, '');
         await wordsApi.getHeaderFootersOnline(request);
     }
 
@@ -1108,8 +1118,8 @@ class ExamplesTests
     Future<void> getListOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.doc").readAsBytes()).buffer.asByteData();
-        final request = GetListOnlineRequest(requestDocumentData, 1);
+        final requestDocument = (await File('Sample.doc').readAsBytes()).buffer.asByteData();
+        final request = GetListOnlineRequest(requestDocument, 1);
         await wordsApi.getListOnline(request);
     }
 
@@ -1123,8 +1133,8 @@ class ExamplesTests
     Future<void> getListsOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.doc").readAsBytes()).buffer.asByteData();
-        final request = GetListsOnlineRequest(requestDocumentData);
+        final requestDocument = (await File('Sample.doc').readAsBytes()).buffer.asByteData();
+        final request = GetListsOnlineRequest(requestDocument);
         await wordsApi.getListsOnline(request);
     }
 
@@ -1138,8 +1148,8 @@ class ExamplesTests
     Future<void> getOfficeMathObjectOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetOfficeMathObjectOnlineRequest(requestDocumentData, 0);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetOfficeMathObjectOnlineRequest(requestDocument, 0);
         await wordsApi.getOfficeMathObjectOnline(request);
     }
 
@@ -1153,8 +1163,8 @@ class ExamplesTests
     Future<void> getOfficeMathObjectsOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetOfficeMathObjectsOnlineRequest(requestDocumentData);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetOfficeMathObjectsOnlineRequest(requestDocument);
         await wordsApi.getOfficeMathObjectsOnline(request);
     }
 
@@ -1175,8 +1185,8 @@ class ExamplesTests
     Future<void> getParagraphFormatOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetParagraphFormatOnlineRequest(requestDocumentData, 0);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetParagraphFormatOnlineRequest(requestDocument, 0);
         await wordsApi.getParagraphFormatOnline(request);
     }
 
@@ -1190,16 +1200,16 @@ class ExamplesTests
     Future<void> getParagraphListFormatOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.doc").readAsBytes()).buffer.asByteData();
-        final request = GetParagraphListFormatOnlineRequest(requestDocumentData, 0);
+        final requestDocument = (await File('Sample.doc').readAsBytes()).buffer.asByteData();
+        final request = GetParagraphListFormatOnlineRequest(requestDocument, 0);
         await wordsApi.getParagraphListFormatOnline(request);
     }
 
     Future<void> getParagraphOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetParagraphOnlineRequest(requestDocumentData, 0, nodePath: 'sections/0');
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetParagraphOnlineRequest(requestDocument, 0, nodePath: 'sections/0');
         await wordsApi.getParagraphOnline(request);
     }
 
@@ -1213,8 +1223,8 @@ class ExamplesTests
     Future<void> getParagraphsOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetParagraphsOnlineRequest(requestDocumentData, nodePath: 'sections/0');
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetParagraphsOnlineRequest(requestDocument, nodePath: 'sections/0');
         await wordsApi.getParagraphsOnline(request);
     }
 
@@ -1228,8 +1238,8 @@ class ExamplesTests
     Future<void> getParagraphTabStopsOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetParagraphTabStopsOnlineRequest(requestDocumentData, 0);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetParagraphTabStopsOnlineRequest(requestDocument, 0);
         await wordsApi.getParagraphTabStopsOnline(request);
     }
 
@@ -1250,8 +1260,8 @@ class ExamplesTests
     Future<void> getRangeTextOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.doc").readAsBytes()).buffer.asByteData();
-        final request = GetRangeTextOnlineRequest(requestDocumentData, 'id0.0.0', rangeEndIdentifier: 'id0.0.1');
+        final requestDocument = (await File('Sample.doc').readAsBytes()).buffer.asByteData();
+        final request = GetRangeTextOnlineRequest(requestDocument, 'id0.0.0', rangeEndIdentifier: 'id0.0.1');
         await wordsApi.getRangeTextOnline(request);
     }
 
@@ -1272,16 +1282,16 @@ class ExamplesTests
     Future<void> getRunFontOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetRunFontOnlineRequest(requestDocumentData, 'paragraphs/0', 0);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetRunFontOnlineRequest(requestDocument, 'paragraphs/0', 0);
         await wordsApi.getRunFontOnline(request);
     }
 
     Future<void> getRunOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetRunOnlineRequest(requestDocumentData, 'paragraphs/0', 0);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetRunOnlineRequest(requestDocument, 'paragraphs/0', 0);
         await wordsApi.getRunOnline(request);
     }
 
@@ -1295,8 +1305,8 @@ class ExamplesTests
     Future<void> getRunsOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetRunsOnlineRequest(requestDocumentData, 'sections/0/paragraphs/0');
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetRunsOnlineRequest(requestDocument, 'sections/0/paragraphs/0');
         await wordsApi.getRunsOnline(request);
     }
 
@@ -1310,8 +1320,8 @@ class ExamplesTests
     Future<void> getSectionOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetSectionOnlineRequest(requestDocumentData, 0);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetSectionOnlineRequest(requestDocument, 0);
         await wordsApi.getSectionOnline(request);
     }
 
@@ -1325,8 +1335,8 @@ class ExamplesTests
     Future<void> getSectionPageSetupOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetSectionPageSetupOnlineRequest(requestDocumentData, 0);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetSectionPageSetupOnlineRequest(requestDocument, 0);
         await wordsApi.getSectionPageSetupOnline(request);
     }
 
@@ -1340,8 +1350,8 @@ class ExamplesTests
     Future<void> getSectionsOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetSectionsOnlineRequest(requestDocumentData);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetSectionsOnlineRequest(requestDocument);
         await wordsApi.getSectionsOnline(request);
     }
 
@@ -1362,16 +1372,16 @@ class ExamplesTests
     Future<void> getStyleFromDocumentElementOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetStyleFromDocumentElementOnlineRequest(requestDocumentData, 'paragraphs/1/paragraphFormat');
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetStyleFromDocumentElementOnlineRequest(requestDocument, 'paragraphs/1/paragraphFormat');
         await wordsApi.getStyleFromDocumentElementOnline(request);
     }
 
     Future<void> getStyleOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetStyleOnlineRequest(requestDocumentData, 'Heading 1');
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetStyleOnlineRequest(requestDocument, 'Heading 1');
         await wordsApi.getStyleOnline(request);
     }
 
@@ -1385,8 +1395,8 @@ class ExamplesTests
     Future<void> getStylesOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetStylesOnlineRequest(requestDocumentData);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetStylesOnlineRequest(requestDocument);
         await wordsApi.getStylesOnline(request);
     }
 
@@ -1414,24 +1424,24 @@ class ExamplesTests
     Future<void> getTableCellFormatOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetTableCellFormatOnlineRequest(requestDocumentData, 'sections/0/tables/2/rows/0', 0);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetTableCellFormatOnlineRequest(requestDocument, 'sections/0/tables/2/rows/0', 0);
         await wordsApi.getTableCellFormatOnline(request);
     }
 
     Future<void> getTableCellOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetTableCellOnlineRequest(requestDocumentData, 'sections/0/tables/2/rows/0', 0);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetTableCellOnlineRequest(requestDocument, 'sections/0/tables/2/rows/0', 0);
         await wordsApi.getTableCellOnline(request);
     }
 
     Future<void> getTableOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetTableOnlineRequest(requestDocumentData, 1);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetTableOnlineRequest(requestDocument, 1);
         await wordsApi.getTableOnline(request);
     }
 
@@ -1445,8 +1455,8 @@ class ExamplesTests
     Future<void> getTablePropertiesOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetTablePropertiesOnlineRequest(requestDocumentData, 1);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetTablePropertiesOnlineRequest(requestDocument, 1);
         await wordsApi.getTablePropertiesOnline(request);
     }
 
@@ -1467,16 +1477,16 @@ class ExamplesTests
     Future<void> getTableRowFormatOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetTableRowFormatOnlineRequest(requestDocumentData, 'sections/0/tables/2', 0);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetTableRowFormatOnlineRequest(requestDocument, 'sections/0/tables/2', 0);
         await wordsApi.getTableRowFormatOnline(request);
     }
 
     Future<void> getTableRowOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetTableRowOnlineRequest(requestDocumentData, 'tables/1', 0);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetTableRowOnlineRequest(requestDocument, 'tables/1', 0);
         await wordsApi.getTableRowOnline(request);
     }
 
@@ -1490,8 +1500,8 @@ class ExamplesTests
     Future<void> getTablesOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final request = GetTablesOnlineRequest(requestDocumentData);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final request = GetTablesOnlineRequest(requestDocument);
         await wordsApi.getTablesOnline(request);
     }
 
@@ -1521,7 +1531,7 @@ class ExamplesTests
     Future<void> insertCommentOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestCommentRangeStartNode = NodeLink();
         requestCommentRangeStartNode.nodeId = '0.3.0.3';
         final requestCommentRangeStart = DocumentPosition();
@@ -1538,7 +1548,7 @@ class ExamplesTests
         requestComment.initial = 'IA';
         requestComment.author = 'Imran Anwar';
         requestComment.text = 'A new Comment';
-        final insertRequest = InsertCommentOnlineRequest(requestDocumentData, requestComment);
+        final insertRequest = InsertCommentOnlineRequest(requestDocument, requestComment);
         await wordsApi.insertCommentOnline(insertRequest);
     }
 
@@ -1555,18 +1565,17 @@ class ExamplesTests
     Future<void> insertCustomXmlPartOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestCustomXmlPart = CustomXmlPartInsert();
         requestCustomXmlPart.id = 'hello';
         requestCustomXmlPart.data = '<data>Hello world</data>';
-        final insertRequest = InsertCustomXmlPartOnlineRequest(requestDocumentData, requestCustomXmlPart);
+        final insertRequest = InsertCustomXmlPartOnlineRequest(requestDocument, requestCustomXmlPart);
         await wordsApi.insertCustomXmlPartOnline(insertRequest);
     }
 
     Future<void> insertDrawingObject() async
     {
         final wordsApi = WordsApi(config);
-        final requestImageFileData = (await File("Common/aspose-cloud.png").readAsBytes()).buffer.asByteData();
         final requestDrawingObject = DrawingObjectInsert();
         requestDrawingObject.height = 0;
         requestDrawingObject.left = 0;
@@ -1575,15 +1584,15 @@ class ExamplesTests
         requestDrawingObject.relativeHorizontalPosition = DrawingObjectInsert_RelativeHorizontalPositionEnum.margin;
         requestDrawingObject.relativeVerticalPosition = DrawingObjectInsert_RelativeVerticalPositionEnum.margin;
         requestDrawingObject.wrapType = DrawingObjectInsert_WrapTypeEnum.inline;
-        final insertRequest = InsertDrawingObjectRequest('Sample.docx', requestDrawingObject, requestImageFileData);
+        final requestImageFile = (await File('Common/aspose-cloud.png').readAsBytes()).buffer.asByteData();
+        final insertRequest = InsertDrawingObjectRequest('Sample.docx', requestDrawingObject, requestImageFile);
         await wordsApi.insertDrawingObject(insertRequest);
     }
 
     Future<void> insertDrawingObjectOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final requestImageFileData = (await File("Common/aspose-cloud.png").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestDrawingObject = DrawingObjectInsert();
         requestDrawingObject.height = 0;
         requestDrawingObject.left = 0;
@@ -1592,7 +1601,8 @@ class ExamplesTests
         requestDrawingObject.relativeHorizontalPosition = DrawingObjectInsert_RelativeHorizontalPositionEnum.margin;
         requestDrawingObject.relativeVerticalPosition = DrawingObjectInsert_RelativeVerticalPositionEnum.margin;
         requestDrawingObject.wrapType = DrawingObjectInsert_WrapTypeEnum.inline;
-        final insertRequest = InsertDrawingObjectOnlineRequest(requestDocumentData, requestDrawingObject, requestImageFileData);
+        final requestImageFile = (await File('Common/aspose-cloud.png').readAsBytes()).buffer.asByteData();
+        final insertRequest = InsertDrawingObjectOnlineRequest(requestDocument, requestDrawingObject, requestImageFile);
         await wordsApi.insertDrawingObjectOnline(insertRequest);
     }
 
@@ -1608,10 +1618,10 @@ class ExamplesTests
     Future<void> insertFieldOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestField = FieldInsert();
         requestField.fieldCode = '{ NUMPAGES }';
-        final insertRequest = InsertFieldOnlineRequest(requestDocumentData, requestField, nodePath: 'sections/0/paragraphs/0');
+        final insertRequest = InsertFieldOnlineRequest(requestDocument, requestField, nodePath: 'sections/0/paragraphs/0');
         await wordsApi.insertFieldOnline(insertRequest);
     }
 
@@ -1628,11 +1638,11 @@ class ExamplesTests
     Future<void> insertFootnoteOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.doc").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.doc').readAsBytes()).buffer.asByteData();
         final requestFootnoteDto = FootnoteInsert();
         requestFootnoteDto.footnoteType = FootnoteBase_FootnoteTypeEnum.endnote;
         requestFootnoteDto.text = 'test endnote';
-        final insertRequest = InsertFootnoteOnlineRequest(requestDocumentData, requestFootnoteDto);
+        final insertRequest = InsertFootnoteOnlineRequest(requestDocument, requestFootnoteDto);
         await wordsApi.insertFootnoteOnline(insertRequest);
     }
 
@@ -1654,7 +1664,7 @@ class ExamplesTests
     Future<void> insertFormFieldOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestFormField = FormFieldTextInput();
         requestFormField.name = 'FullName';
         requestFormField.enabled = true;
@@ -1663,7 +1673,7 @@ class ExamplesTests
         requestFormField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
         requestFormField.textInputDefault = '123';
         requestFormField.textInputFormat = 'UPPERCASE';
-        final insertRequest = InsertFormFieldOnlineRequest(requestDocumentData, requestFormField, nodePath: 'sections/0/paragraphs/0');
+        final insertRequest = InsertFormFieldOnlineRequest(requestDocument, requestFormField, nodePath: 'sections/0/paragraphs/0');
         await wordsApi.insertFormFieldOnline(insertRequest);
     }
 
@@ -1677,8 +1687,8 @@ class ExamplesTests
     Future<void> insertHeaderFooterOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.doc").readAsBytes()).buffer.asByteData();
-        final insertRequest = InsertHeaderFooterOnlineRequest(requestDocumentData, '', 'FooterEven');
+        final requestDocument = (await File('Sample.doc').readAsBytes()).buffer.asByteData();
+        final insertRequest = InsertHeaderFooterOnlineRequest(requestDocument, '', 'FooterEven');
         await wordsApi.insertHeaderFooterOnline(insertRequest);
     }
 
@@ -1694,10 +1704,10 @@ class ExamplesTests
     Future<void> insertListOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.doc").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.doc').readAsBytes()).buffer.asByteData();
         final requestListInsert = ListInsert();
         requestListInsert.template = ListInsert_TemplateEnum.outlineLegal;
-        final insertRequest = InsertListOnlineRequest(requestDocumentData, requestListInsert);
+        final insertRequest = InsertListOnlineRequest(requestDocument, requestListInsert);
         await wordsApi.insertListOnline(insertRequest);
     }
 
@@ -1715,12 +1725,12 @@ class ExamplesTests
     Future<void> insertOrUpdateParagraphTabStopOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestTabStopInsertDto = TabStopInsert();
         requestTabStopInsertDto.alignment = TabStopBase_AlignmentEnum.left;
         requestTabStopInsertDto.leader = TabStopBase_LeaderEnum.none;
         requestTabStopInsertDto.position = 72;
-        final insertRequest = InsertOrUpdateParagraphTabStopOnlineRequest(requestDocumentData, requestTabStopInsertDto, 0);
+        final insertRequest = InsertOrUpdateParagraphTabStopOnlineRequest(requestDocument, requestTabStopInsertDto, 0);
         await wordsApi.insertOrUpdateParagraphTabStopOnline(insertRequest);
     }
 
@@ -1737,11 +1747,11 @@ class ExamplesTests
     Future<void> insertPageNumbersOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Common/Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Common/Sample.docx').readAsBytes()).buffer.asByteData();
         final requestPageNumber = PageNumber();
         requestPageNumber.alignment = 'center';
         requestPageNumber.format = '{PAGE} of {NUMPAGES}';
-        final insertRequest = InsertPageNumbersOnlineRequest(requestDocumentData, requestPageNumber);
+        final insertRequest = InsertPageNumbersOnlineRequest(requestDocument, requestPageNumber);
         await wordsApi.insertPageNumbersOnline(insertRequest);
     }
 
@@ -1757,10 +1767,10 @@ class ExamplesTests
     Future<void> insertParagraphOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestParagraph = ParagraphInsert();
         requestParagraph.text = 'This is a new paragraph for your document';
-        final insertRequest = InsertParagraphOnlineRequest(requestDocumentData, requestParagraph, nodePath: 'sections/0');
+        final insertRequest = InsertParagraphOnlineRequest(requestDocument, requestParagraph, nodePath: 'sections/0');
         await wordsApi.insertParagraphOnline(insertRequest);
     }
 
@@ -1776,10 +1786,10 @@ class ExamplesTests
     Future<void> insertRunOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.doc").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.doc').readAsBytes()).buffer.asByteData();
         final requestRun = RunInsert();
         requestRun.text = 'run with text';
-        final insertRequest = InsertRunOnlineRequest(requestDocumentData, 'paragraphs/1', requestRun);
+        final insertRequest = InsertRunOnlineRequest(requestDocument, 'paragraphs/1', requestRun);
         await wordsApi.insertRunOnline(insertRequest);
     }
 
@@ -1796,11 +1806,11 @@ class ExamplesTests
     Future<void> insertStyleOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestStyleInsert = StyleInsert();
         requestStyleInsert.styleName = 'My Style';
         requestStyleInsert.styleType = StyleInsert_StyleTypeEnum.paragraph;
-        final insertRequest = InsertStyleOnlineRequest(requestDocumentData, requestStyleInsert);
+        final insertRequest = InsertStyleOnlineRequest(requestDocument, requestStyleInsert);
         await wordsApi.insertStyleOnline(insertRequest);
     }
 
@@ -1826,21 +1836,21 @@ class ExamplesTests
     Future<void> insertTableCellOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestCell = TableCellInsert();
 
-        final insertRequest = InsertTableCellOnlineRequest(requestDocumentData, 'sections/0/tables/2/rows/0', requestCell);
+        final insertRequest = InsertTableCellOnlineRequest(requestDocument, 'sections/0/tables/2/rows/0', requestCell);
         await wordsApi.insertTableCellOnline(insertRequest);
     }
 
     Future<void> insertTableOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestTable = TableInsert();
         requestTable.columnsCount = 5;
         requestTable.rowsCount = 4;
-        final insertRequest = InsertTableOnlineRequest(requestDocumentData, requestTable);
+        final insertRequest = InsertTableOnlineRequest(requestDocument, requestTable);
         await wordsApi.insertTableOnline(insertRequest);
     }
 
@@ -1856,10 +1866,10 @@ class ExamplesTests
     Future<void> insertTableRowOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestRow = TableRowInsert();
         requestRow.columnsCount = 5;
-        final insertRequest = InsertTableRowOnlineRequest(requestDocumentData, 'sections/0/tables/2', requestRow);
+        final insertRequest = InsertTableRowOnlineRequest(requestDocument, 'sections/0/tables/2', requestRow);
         await wordsApi.insertTableRowOnline(insertRequest);
     }
 
@@ -1873,9 +1883,9 @@ class ExamplesTests
     Future<void> insertWatermarkImageOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final requestImageFileData = (await File("Common/aspose-cloud.png").readAsBytes()).buffer.asByteData();
-        final insertRequest = InsertWatermarkImageOnlineRequest(requestDocumentData, requestImageFileData);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final requestImageFile = (await File('Common/aspose-cloud.png').readAsBytes()).buffer.asByteData();
+        final insertRequest = InsertWatermarkImageOnlineRequest(requestDocument, requestImageFile);
         await wordsApi.insertWatermarkImageOnline(insertRequest);
     }
 
@@ -1892,11 +1902,11 @@ class ExamplesTests
     Future<void> insertWatermarkTextOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestWatermarkText = WatermarkText();
         requestWatermarkText.text = 'This is the text';
         requestWatermarkText.rotationAngle = 90;
-        final insertRequest = InsertWatermarkTextOnlineRequest(requestDocumentData, requestWatermarkText);
+        final insertRequest = InsertWatermarkTextOnlineRequest(requestDocument, requestWatermarkText);
         await wordsApi.insertWatermarkTextOnline(insertRequest);
     }
 
@@ -1943,10 +1953,10 @@ class ExamplesTests
     Future<void> optimizeDocumentOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestOptions = OptimizationOptions();
         requestOptions.msWordVersion = OptimizationOptions_MsWordVersionEnum.word2002;
-        final optimizeRequest = OptimizeDocumentOnlineRequest(requestDocumentData, requestOptions);
+        final optimizeRequest = OptimizeDocumentOnlineRequest(requestDocument, requestOptions);
         await wordsApi.optimizeDocumentOnline(optimizeRequest);
     }
 
@@ -1963,10 +1973,10 @@ class ExamplesTests
     Future<void> protectDocumentOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestProtectionRequest = ProtectionRequest();
         requestProtectionRequest.newPassword = '123';
-        final protectRequest = ProtectDocumentOnlineRequest(requestDocumentData, requestProtectionRequest);
+        final protectRequest = ProtectDocumentOnlineRequest(requestDocument, requestProtectionRequest);
         await wordsApi.protectDocumentOnline(protectRequest);
     }
 
@@ -1980,8 +1990,8 @@ class ExamplesTests
     Future<void> rejectAllRevisionsOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final rejectRequest = RejectAllRevisionsOnlineRequest(requestDocumentData);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final rejectRequest = RejectAllRevisionsOnlineRequest(requestDocument);
         await wordsApi.rejectAllRevisionsOnline(rejectRequest);
     }
 
@@ -1995,8 +2005,8 @@ class ExamplesTests
     Future<void> removeRangeOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.doc").readAsBytes()).buffer.asByteData();
-        final removeRequest = RemoveRangeOnlineRequest(requestDocumentData, 'id0.0.0', rangeEndIdentifier: 'id0.0.1');
+        final requestDocument = (await File('Sample.doc').readAsBytes()).buffer.asByteData();
+        final removeRequest = RemoveRangeOnlineRequest(requestDocument, 'id0.0.0', rangeEndIdentifier: 'id0.0.1');
         await wordsApi.removeRangeOnline(removeRequest);
     }
 
@@ -2010,8 +2020,8 @@ class ExamplesTests
     Future<void> renderDrawingObjectOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final renderRequest = RenderDrawingObjectOnlineRequest(requestDocumentData, 'png', 0, nodePath: 'sections/0');
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final renderRequest = RenderDrawingObjectOnlineRequest(requestDocument, 'png', 0, nodePath: 'sections/0');
         await wordsApi.renderDrawingObjectOnline(renderRequest);
     }
 
@@ -2025,8 +2035,8 @@ class ExamplesTests
     Future<void> renderMathObjectOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final renderRequest = RenderMathObjectOnlineRequest(requestDocumentData, 'png', 0);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final renderRequest = RenderMathObjectOnlineRequest(requestDocument, 'png', 0);
         await wordsApi.renderMathObjectOnline(renderRequest);
     }
 
@@ -2040,8 +2050,8 @@ class ExamplesTests
     Future<void> renderPageOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final renderRequest = RenderPageOnlineRequest(requestDocumentData, 1, 'bmp');
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final renderRequest = RenderPageOnlineRequest(requestDocument, 1, 'bmp');
         await wordsApi.renderPageOnline(renderRequest);
     }
 
@@ -2055,8 +2065,8 @@ class ExamplesTests
     Future<void> renderParagraphOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final renderRequest = RenderParagraphOnlineRequest(requestDocumentData, 'png', 0);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final renderRequest = RenderParagraphOnlineRequest(requestDocument, 'png', 0);
         await wordsApi.renderParagraphOnline(renderRequest);
     }
 
@@ -2070,8 +2080,8 @@ class ExamplesTests
     Future<void> renderTableOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final renderRequest = RenderTableOnlineRequest(requestDocumentData, 'png', 0);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final renderRequest = RenderTableOnlineRequest(requestDocument, 'png', 0);
         await wordsApi.renderTableOnline(renderRequest);
     }
 
@@ -2088,11 +2098,11 @@ class ExamplesTests
     Future<void> replaceTextOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestReplaceText = ReplaceTextParameters();
         requestReplaceText.oldValue = 'aspose';
         requestReplaceText.newValue = 'aspose new';
-        final replaceRequest = ReplaceTextOnlineRequest(requestDocumentData, requestReplaceText);
+        final replaceRequest = ReplaceTextOnlineRequest(requestDocument, requestReplaceText);
         await wordsApi.replaceTextOnline(replaceRequest);
     }
 
@@ -2108,10 +2118,10 @@ class ExamplesTests
     Future<void> replaceWithTextOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.doc").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.doc').readAsBytes()).buffer.asByteData();
         final requestRangeText = ReplaceRange();
         requestRangeText.text = 'Replaced header';
-        final replaceRequest = ReplaceWithTextOnlineRequest(requestDocumentData, 'id0.0.0', requestRangeText, rangeEndIdentifier: 'id0.0.1');
+        final replaceRequest = ReplaceWithTextOnlineRequest(requestDocument, 'id0.0.0', requestRangeText, rangeEndIdentifier: 'id0.0.1');
         await wordsApi.replaceWithTextOnline(replaceRequest);
     }
 
@@ -2135,11 +2145,11 @@ class ExamplesTests
     Future<void> saveAsOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Common/test_multi_pages.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Common/test_multi_pages.docx').readAsBytes()).buffer.asByteData();
         final requestSaveOptionsData = SaveOptionsData();
         requestSaveOptionsData.saveFormat = 'pdf';
         requestSaveOptionsData.fileName = '/TestSaveAs.pdf';
-        final saveRequest = SaveAsOnlineRequest(requestDocumentData, requestSaveOptionsData);
+        final saveRequest = SaveAsOnlineRequest(requestDocument, requestSaveOptionsData);
         await wordsApi.saveAsOnline(saveRequest);
     }
 
@@ -2155,10 +2165,10 @@ class ExamplesTests
     Future<void> saveAsRangeOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.doc").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.doc').readAsBytes()).buffer.asByteData();
         final requestDocumentParameters = RangeDocument();
         requestDocumentParameters.documentName = '/NewDoc.docx';
-        final saveRequest = SaveAsRangeOnlineRequest(requestDocumentData, 'id0.0.0', requestDocumentParameters, rangeEndIdentifier: 'id0.0.1');
+        final saveRequest = SaveAsRangeOnlineRequest(requestDocument, 'id0.0.0', requestDocumentParameters, rangeEndIdentifier: 'id0.0.1');
         await wordsApi.saveAsRangeOnline(saveRequest);
     }
 
@@ -2175,11 +2185,11 @@ class ExamplesTests
     Future<void> saveAsTiffOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Common/test_multi_pages.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Common/test_multi_pages.docx').readAsBytes()).buffer.asByteData();
         final requestSaveOptions = TiffSaveOptionsData();
         requestSaveOptions.saveFormat = 'tiff';
         requestSaveOptions.fileName = '/abc.tiff';
-        final saveRequest = SaveAsTiffOnlineRequest(requestDocumentData, requestSaveOptions);
+        final saveRequest = SaveAsTiffOnlineRequest(requestDocument, requestSaveOptions);
         await wordsApi.saveAsTiffOnline(saveRequest);
     }
 
@@ -2193,8 +2203,8 @@ class ExamplesTests
     Future<void> searchOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final searchRequest = SearchOnlineRequest(requestDocumentData, 'aspose');
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final searchRequest = SearchOnlineRequest(requestDocument, 'aspose');
         await wordsApi.searchOnline(searchRequest);
     }
 
@@ -2208,8 +2218,8 @@ class ExamplesTests
     Future<void> splitDocumentOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final splitRequest = SplitDocumentOnlineRequest(requestDocumentData, 'text', destFileName: '/TestSplitDocument.text', from: 1, to: 2);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final splitRequest = SplitDocumentOnlineRequest(requestDocument, 'text', destFileName: '/TestSplitDocument.text', from: 1, to: 2);
         await wordsApi.splitDocumentOnline(splitRequest);
     }
 
@@ -2225,10 +2235,10 @@ class ExamplesTests
     Future<void> unprotectDocumentOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestProtectionRequest = ProtectionRequest();
         requestProtectionRequest.password = 'aspose';
-        final unprotectRequest = UnprotectDocumentOnlineRequest(requestDocumentData, requestProtectionRequest);
+        final unprotectRequest = UnprotectDocumentOnlineRequest(requestDocument, requestProtectionRequest);
         await wordsApi.unprotectDocumentOnline(unprotectRequest);
     }
 
@@ -2249,11 +2259,11 @@ class ExamplesTests
         final wordsApi = WordsApi(config);
         final bookmarkName = 'aspose';
 
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestBookmarkData = BookmarkData();
         requestBookmarkData.name = bookmarkName;
         requestBookmarkData.text = 'This will be the text for Aspose';
-        final updateRequest = UpdateBookmarkOnlineRequest(requestDocumentData, bookmarkName, requestBookmarkData, destFileName: 'Sample.docx');
+        final updateRequest = UpdateBookmarkOnlineRequest(requestDocument, bookmarkName, requestBookmarkData, destFileName: 'Sample.docx');
         await wordsApi.updateBookmarkOnline(updateRequest);
     }
 
@@ -2276,7 +2286,7 @@ class ExamplesTests
     Future<void> updateBorderOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestBorderPropertiesColor = XmlColor();
         requestBorderPropertiesColor.web = '#AABBCC';
         final requestBorderProperties = Border();
@@ -2286,7 +2296,7 @@ class ExamplesTests
         requestBorderProperties.lineStyle = Border_LineStyleEnum.dashDotStroker;
         requestBorderProperties.lineWidth = 2;
         requestBorderProperties.shadow = true;
-        final updateRequest = UpdateBorderOnlineRequest(requestDocumentData, requestBorderProperties, 'left', nodePath: 'tables/1/rows/0/cells/0');
+        final updateRequest = UpdateBorderOnlineRequest(requestDocument, requestBorderProperties, 'left', nodePath: 'tables/1/rows/0/cells/0');
         await wordsApi.updateBorderOnline(updateRequest);
     }
 
@@ -2316,7 +2326,7 @@ class ExamplesTests
     Future<void> updateCommentOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestCommentRangeStartNode = NodeLink();
         requestCommentRangeStartNode.nodeId = '0.3.0';
         final requestCommentRangeStart = DocumentPosition();
@@ -2333,7 +2343,7 @@ class ExamplesTests
         requestComment.initial = 'IA';
         requestComment.author = 'Imran Anwar';
         requestComment.text = 'A new Comment';
-        final updateRequest = UpdateCommentOnlineRequest(requestDocumentData, 0, requestComment);
+        final updateRequest = UpdateCommentOnlineRequest(requestDocument, 0, requestComment);
         await wordsApi.updateCommentOnline(updateRequest);
     }
 
@@ -2349,31 +2359,31 @@ class ExamplesTests
     Future<void> updateCustomXmlPartOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestCustomXmlPart = CustomXmlPartUpdate();
         requestCustomXmlPart.data = '<data>Hello world</data>';
-        final updateRequest = UpdateCustomXmlPartOnlineRequest(requestDocumentData, 0, requestCustomXmlPart);
+        final updateRequest = UpdateCustomXmlPartOnlineRequest(requestDocument, 0, requestCustomXmlPart);
         await wordsApi.updateCustomXmlPartOnline(updateRequest);
     }
 
     Future<void> updateDrawingObject() async
     {
         final wordsApi = WordsApi(config);
-        final requestImageFileData = (await File("Common/aspose-cloud.png").readAsBytes()).buffer.asByteData();
         final requestDrawingObject = DrawingObjectUpdate();
         requestDrawingObject.left = 0;
-        final updateRequest = UpdateDrawingObjectRequest('Sample.docx', requestDrawingObject, requestImageFileData, 0);
+        final requestImageFile = (await File('Common/aspose-cloud.png').readAsBytes()).buffer.asByteData();
+        final updateRequest = UpdateDrawingObjectRequest('Sample.docx', requestDrawingObject, requestImageFile, 0);
         await wordsApi.updateDrawingObject(updateRequest);
     }
 
     Future<void> updateDrawingObjectOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final requestImageFileData = (await File("Common/aspose-cloud.png").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestDrawingObject = DrawingObjectUpdate();
         requestDrawingObject.left = 0;
-        final updateRequest = UpdateDrawingObjectOnlineRequest(requestDocumentData, requestDrawingObject, requestImageFileData, 0);
+        final requestImageFile = (await File('Common/aspose-cloud.png').readAsBytes()).buffer.asByteData();
+        final updateRequest = UpdateDrawingObjectOnlineRequest(requestDocument, requestDrawingObject, requestImageFile, 0);
         await wordsApi.updateDrawingObjectOnline(updateRequest);
     }
 
@@ -2389,10 +2399,10 @@ class ExamplesTests
     Future<void> updateFieldOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestField = FieldUpdate();
         requestField.fieldCode = '{ NUMPAGES }';
-        final updateRequest = UpdateFieldOnlineRequest(requestDocumentData, requestField, 0, nodePath: 'sections/0/paragraphs/0');
+        final updateRequest = UpdateFieldOnlineRequest(requestDocument, requestField, 0, nodePath: 'sections/0/paragraphs/0');
         await wordsApi.updateFieldOnline(updateRequest);
     }
 
@@ -2406,8 +2416,8 @@ class ExamplesTests
     Future<void> updateFieldsOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final updateRequest = UpdateFieldsOnlineRequest(requestDocumentData);
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final updateRequest = UpdateFieldsOnlineRequest(requestDocument);
         await wordsApi.updateFieldsOnline(updateRequest);
     }
 
@@ -2423,10 +2433,10 @@ class ExamplesTests
     Future<void> updateFootnoteOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.doc").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.doc').readAsBytes()).buffer.asByteData();
         final requestFootnoteDto = FootnoteUpdate();
         requestFootnoteDto.text = 'new text is here';
-        final updateRequest = UpdateFootnoteOnlineRequest(requestDocumentData, requestFootnoteDto, 0);
+        final updateRequest = UpdateFootnoteOnlineRequest(requestDocument, requestFootnoteDto, 0);
         await wordsApi.updateFootnoteOnline(updateRequest);
     }
 
@@ -2447,7 +2457,7 @@ class ExamplesTests
     Future<void> updateFormFieldOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestFormField = FormFieldTextInput();
         requestFormField.name = 'FullName';
         requestFormField.enabled = true;
@@ -2455,7 +2465,7 @@ class ExamplesTests
         requestFormField.statusText = '';
         requestFormField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
         requestFormField.textInputDefault = 'No name';
-        final updateRequest = UpdateFormFieldOnlineRequest(requestDocumentData, requestFormField, 0, nodePath: 'sections/0');
+        final updateRequest = UpdateFormFieldOnlineRequest(requestDocument, requestFormField, 0, nodePath: 'sections/0');
         await wordsApi.updateFormFieldOnline(updateRequest);
     }
 
@@ -2480,20 +2490,20 @@ class ExamplesTests
     Future<void> updateListLevelOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.doc").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.doc').readAsBytes()).buffer.asByteData();
         final requestListUpdate = ListLevelUpdate();
         requestListUpdate.alignment = ListLevelUpdate_AlignmentEnum.right;
-        final updateRequest = UpdateListLevelOnlineRequest(requestDocumentData, 1, requestListUpdate, 1);
+        final updateRequest = UpdateListLevelOnlineRequest(requestDocument, 1, requestListUpdate, 1);
         await wordsApi.updateListLevelOnline(updateRequest);
     }
 
     Future<void> updateListOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.doc").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.doc').readAsBytes()).buffer.asByteData();
         final requestListUpdate = ListUpdate();
         requestListUpdate.isRestartAtEachSection = true;
-        final updateRequest = UpdateListOnlineRequest(requestDocumentData, 1, requestListUpdate);
+        final updateRequest = UpdateListOnlineRequest(requestDocument, 1, requestListUpdate);
         await wordsApi.updateListOnline(updateRequest);
     }
 
@@ -2509,10 +2519,10 @@ class ExamplesTests
     Future<void> updateParagraphFormatOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestParagraphFormatDto = ParagraphFormatUpdate();
         requestParagraphFormatDto.alignment = ParagraphFormatBase_AlignmentEnum.right;
-        final updateRequest = UpdateParagraphFormatOnlineRequest(requestDocumentData, requestParagraphFormatDto, 0);
+        final updateRequest = UpdateParagraphFormatOnlineRequest(requestDocument, requestParagraphFormatDto, 0);
         await wordsApi.updateParagraphFormatOnline(updateRequest);
     }
 
@@ -2528,10 +2538,10 @@ class ExamplesTests
     Future<void> updateParagraphListFormatOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.doc").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.doc').readAsBytes()).buffer.asByteData();
         final requestListFormatDto = ListFormatUpdate();
         requestListFormatDto.listId = 2;
-        final updateRequest = UpdateParagraphListFormatOnlineRequest(requestDocumentData, requestListFormatDto, 0);
+        final updateRequest = UpdateParagraphListFormatOnlineRequest(requestDocument, requestListFormatDto, 0);
         await wordsApi.updateParagraphListFormatOnline(updateRequest);
     }
 
@@ -2556,20 +2566,20 @@ class ExamplesTests
     Future<void> updateRunFontOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestFontDto = Font();
         requestFontDto.bold = true;
-        final updateRequest = UpdateRunFontOnlineRequest(requestDocumentData, 'paragraphs/0', requestFontDto, 0);
+        final updateRequest = UpdateRunFontOnlineRequest(requestDocument, 'paragraphs/0', requestFontDto, 0);
         await wordsApi.updateRunFontOnline(updateRequest);
     }
 
     Future<void> updateRunOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.doc").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.doc').readAsBytes()).buffer.asByteData();
         final requestRun = RunUpdate();
         requestRun.text = 'run with text';
-        final updateRequest = UpdateRunOnlineRequest(requestDocumentData, 'paragraphs/1', requestRun, 0);
+        final updateRequest = UpdateRunOnlineRequest(requestDocument, 'paragraphs/1', requestRun, 0);
         await wordsApi.updateRunOnline(updateRequest);
     }
 
@@ -2588,13 +2598,13 @@ class ExamplesTests
     Future<void> updateSectionPageSetupOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestPageSetup = PageSetup();
         requestPageSetup.rtlGutter = true;
         requestPageSetup.leftMargin = 10;
         requestPageSetup.orientation = PageSetup_OrientationEnum.landscape;
         requestPageSetup.paperSize = PageSetup_PaperSizeEnum.a5;
-        final updateRequest = UpdateSectionPageSetupOnlineRequest(requestDocumentData, 0, requestPageSetup);
+        final updateRequest = UpdateSectionPageSetupOnlineRequest(requestDocument, 0, requestPageSetup);
         await wordsApi.updateSectionPageSetupOnline(updateRequest);
     }
 
@@ -2610,10 +2620,10 @@ class ExamplesTests
     Future<void> updateStyleOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestStyleUpdate = StyleUpdate();
         requestStyleUpdate.name = 'My Style';
-        final updateRequest = UpdateStyleOnlineRequest(requestDocumentData, 'Heading 1', requestStyleUpdate);
+        final updateRequest = UpdateStyleOnlineRequest(requestDocument, 'Heading 1', requestStyleUpdate);
         await wordsApi.updateStyleOnline(updateRequest);
     }
 
@@ -2632,13 +2642,13 @@ class ExamplesTests
     Future<void> updateTableCellFormatOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestFormat = TableCellFormat();
         requestFormat.bottomPadding = 5;
         requestFormat.fitText = true;
         requestFormat.horizontalMerge = TableCellFormat_HorizontalMergeEnum.first;
         requestFormat.wrapText = true;
-        final updateRequest = UpdateTableCellFormatOnlineRequest(requestDocumentData, 'sections/0/tables/2/rows/0', requestFormat, 0);
+        final updateRequest = UpdateTableCellFormatOnlineRequest(requestDocument, 'sections/0/tables/2/rows/0', requestFormat, 0);
         await wordsApi.updateTableCellFormatOnline(updateRequest);
     }
 
@@ -2659,7 +2669,7 @@ class ExamplesTests
     Future<void> updateTablePropertiesOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestProperties = TableProperties();
         requestProperties.alignment = TableProperties_AlignmentEnum.right;
         requestProperties.allowAutoFit = false;
@@ -2667,7 +2677,7 @@ class ExamplesTests
         requestProperties.bottomPadding = 1;
         requestProperties.cellSpacing = 2;
         requestProperties.styleOptions = TableProperties_StyleOptionsEnum.columnBands;
-        final updateRequest = UpdateTablePropertiesOnlineRequest(requestDocumentData, requestProperties, 1);
+        final updateRequest = UpdateTablePropertiesOnlineRequest(requestDocument, requestProperties, 1);
         await wordsApi.updateTablePropertiesOnline(updateRequest);
     }
 
@@ -2686,21 +2696,21 @@ class ExamplesTests
     Future<void> updateTableRowFormatOnline() async
     {
         final wordsApi = WordsApi(config);
-        final requestDocumentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
+        final requestDocument = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
         final requestFormat = TableRowFormat();
         requestFormat.allowBreakAcrossPages = true;
         requestFormat.headingFormat = true;
         requestFormat.height = 10;
         requestFormat.heightRule = TableRowFormat_HeightRuleEnum.auto;
-        final updateRequest = UpdateTableRowFormatOnlineRequest(requestDocumentData, 'sections/0/tables/2', requestFormat, 0);
+        final updateRequest = UpdateTableRowFormatOnlineRequest(requestDocument, 'sections/0/tables/2', requestFormat, 0);
         await wordsApi.updateTableRowFormatOnline(updateRequest);
     }
 
     Future<void> uploadFile() async
     {
         final wordsApi = WordsApi(config);
-        final requestFileContentData = (await File("Sample.docx").readAsBytes()).buffer.asByteData();
-        final uploadRequest = UploadFileRequest(requestFileContentData, 'Sample.docx');
+        final requestFileContent = (await File('Sample.docx').readAsBytes()).buffer.asByteData();
+        final uploadRequest = UploadFileRequest(requestFileContent, 'Sample.docx');
         await wordsApi.uploadFile(uploadRequest);
     }
 }

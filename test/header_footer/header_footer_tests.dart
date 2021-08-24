@@ -63,10 +63,10 @@ class HeaderFooterTests
   /// Test for getting headers and footers online.
   Future<void> testGetHeaderFootersOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetHeaderFootersOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       ''
     );
 
@@ -95,10 +95,10 @@ class HeaderFooterTests
   /// Test for getting headerfooter online.
   Future<void> testGetHeaderFooterOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetHeaderFooterOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       0
     );
 
@@ -128,10 +128,10 @@ class HeaderFooterTests
   /// Test for getting headerfooter of section online.
   Future<void> testGetHeaderFooterOfSectionOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetHeaderFooterOfSectionOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       0,
       0
     );
@@ -158,10 +158,10 @@ class HeaderFooterTests
   /// Test for deleting headerfooter online.
   Future<void> testDeleteHeaderFooterOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = DeleteHeaderFooterOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       '',
       0
     );
@@ -187,10 +187,10 @@ class HeaderFooterTests
   /// Test for deleting headerfooters online.
   Future<void> testDeleteHeadersFootersOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = DeleteHeadersFootersOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       ''
     );
 
@@ -216,10 +216,10 @@ class HeaderFooterTests
   /// Test for adding headerfooters online.
   Future<void> testInsertHeaderFooterOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = InsertHeaderFooterOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       '',
       'FooterEven'
     );
