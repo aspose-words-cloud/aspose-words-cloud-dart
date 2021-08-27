@@ -43,6 +43,9 @@ class CompareData implements ModelBase {
   /// Gets or sets the date and time to use for revisions.
   DateTime dateTime;
 
+  /// Gets or sets the result document format.
+  String resultDocumentFormat;
+
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json == null) {
@@ -73,6 +76,12 @@ class CompareData implements ModelBase {
     } else {
       dateTime = null;
     }
+
+    if (json.containsKey('ResultDocumentFormat')) {
+      resultDocumentFormat = json['ResultDocumentFormat'] as String;
+    } else {
+      resultDocumentFormat = null;
+    }
   }
 
   @override
@@ -92,6 +101,10 @@ class CompareData implements ModelBase {
 
     if (dateTime != null) {
       _result['DateTime'] = dateTime.toIso8601String();
+    }
+
+    if (resultDocumentFormat != null) {
+      _result['ResultDocumentFormat'] = resultDocumentFormat;
     }
     return _result;
   }

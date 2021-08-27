@@ -1,3 +1,11 @@
+## [21.8.0] - Aspose Words Cloud for Dart 21.8 Release Notes
+
+- Added new api methods to get, insert, update or delete custom xml parts from documents.
+- Added parameter 'ResultDocumentFormat' to Compare API
+- Added 'ExportLanguageToSpanTag' pdf save option
+- Added 'FlatOpcXmlMappingOnly' save option
+
+
 ## [21.7.0] - Aspose Words Cloud for Dart 21.7 Release Notes
 
 - ImlRenderingMode option introduced witch is used to determine how ink (InkML) objects are rendered

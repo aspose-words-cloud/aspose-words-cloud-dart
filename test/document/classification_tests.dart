@@ -78,10 +78,10 @@ class ClassificationTests
   /// Test for document classification online.
   Future<void> testClassifyDocumentOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = ClassifyDocumentOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       bestClassesCount: '3'
     );
 

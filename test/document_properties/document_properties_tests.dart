@@ -65,10 +65,10 @@ class DocumentPropertiesTests
   /// Test for getting document properties online.
   Future<void> testGetDocumentPropertiesOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetDocumentPropertiesOnlineRequest(
-      requestDocumentData
+      requestDocument
     );
 
     await context.getApi().getDocumentPropertiesOnline(request);
@@ -95,10 +95,10 @@ class DocumentPropertiesTests
   /// A test for GetDocumentProperty online.
   Future<void> testGetDocumentPropertyOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetDocumentPropertyOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'Author'
     );
 
@@ -124,10 +124,10 @@ class DocumentPropertiesTests
   /// Test for deleting document property online.
   Future<void> testDeleteDocumentPropertyOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = DeleteDocumentPropertyOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'testProp'
     );
 
@@ -159,12 +159,13 @@ class DocumentPropertiesTests
   /// Test for updating document property online.
   Future<void> testUpdateDocumentPropertyOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
+
     final requestProperty = DocumentPropertyCreateOrUpdate();
     requestProperty.value = 'Imran Anwar';
 
     final request = CreateOrUpdateDocumentPropertyOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       'AsposeAuthor',
       requestProperty
     );

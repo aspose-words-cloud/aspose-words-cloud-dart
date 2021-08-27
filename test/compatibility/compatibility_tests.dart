@@ -61,12 +61,13 @@ class CompatibilityTests
   /// Test for optimize document to specific MS Word version.
   Future<void> testOptimizeDocumentOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
+
     final requestOptions = OptimizationOptions();
     requestOptions.msWordVersion = OptimizationOptions_MsWordVersionEnum.word2002;
 
     final request = OptimizeDocumentOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       requestOptions
     );
 

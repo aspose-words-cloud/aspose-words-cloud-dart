@@ -62,10 +62,10 @@ class CommentTests
   /// Test for getting comment by specified comment's index online.
   Future<void> testGetCommentOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetCommentOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       0
     );
 
@@ -93,10 +93,10 @@ class CommentTests
   /// Test for getting all comments from document online.
   Future<void> testGetCommentsOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = GetCommentsOnlineRequest(
-      requestDocumentData
+      requestDocument
     );
 
     await context.getApi().getCommentsOnline(request);
@@ -145,7 +145,8 @@ class CommentTests
   /// Test for adding comment online.
   Future<void> testInsertCommentOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
+
     final requestCommentRangeStartNode = NodeLink();
     requestCommentRangeStartNode.nodeId = '0.3.0.3';
 
@@ -168,7 +169,7 @@ class CommentTests
     requestComment.text = 'A new Comment';
 
     final request = InsertCommentOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       requestComment
     );
 
@@ -219,7 +220,8 @@ class CommentTests
   /// Test for updating comment online.
   Future<void> testUpdateCommentOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
+
     final requestCommentRangeStartNode = NodeLink();
     requestCommentRangeStartNode.nodeId = '0.3.0';
 
@@ -242,7 +244,7 @@ class CommentTests
     requestComment.text = 'A new Comment';
 
     final request = UpdateCommentOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       0,
       requestComment
     );
@@ -269,10 +271,10 @@ class CommentTests
   /// A test for DeleteComment online.
   Future<void> testDeleteCommentOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = DeleteCommentOnlineRequest(
-      requestDocumentData,
+      requestDocument,
       0
     );
 
@@ -297,10 +299,10 @@ class CommentTests
   /// A test for DeleteComments online.
   Future<void> testDeleteCommentsOnline() async
   {
-    final requestDocumentData = await context.loadBinaryFile(localFile);
+    final requestDocument = await context.loadBinaryFile(localFile);
 
     final request = DeleteCommentsOnlineRequest(
-      requestDocumentData
+      requestDocument
     );
 
     await context.getApi().deleteCommentsOnline(request);
