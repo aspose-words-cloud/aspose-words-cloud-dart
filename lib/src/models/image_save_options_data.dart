@@ -31,9 +31,6 @@ import '../../aspose_words_cloud.dart';
 
 /// Container abstract class for image save options.
 class ImageSaveOptionsData extends FixedPageSaveOptionsData {
-  /// Gets or sets the additional System.Drawing.Graphics quality options.
-  GraphicsQualityOptionsData graphicsQualityOptions;
-
   /// Gets or sets the horizontal resolution in dots per inch for the generated images.
   /// This property has effect only when saving to raster image formats.
   /// The default value is 96.
@@ -83,13 +80,6 @@ class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     super.deserialize(json);
-    if (json.containsKey('GraphicsQualityOptions')) {
-      graphicsQualityOptions = GraphicsQualityOptionsData();
-      graphicsQualityOptions.deserialize(json['GraphicsQualityOptions'] as Map<String, dynamic>);
-    } else {
-      graphicsQualityOptions = null;
-    }
-
     if (json.containsKey('HorizontalResolution')) {
       horizontalResolution = json['HorizontalResolution'] as double;
     } else {
@@ -167,10 +157,6 @@ class ImageSaveOptionsData extends FixedPageSaveOptionsData {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (graphicsQualityOptions != null) {
-      _result['GraphicsQualityOptions'] = graphicsQualityOptions.serialize();
-    }
-
     if (horizontalResolution != null) {
       _result['HorizontalResolution'] = horizontalResolution;
     }
