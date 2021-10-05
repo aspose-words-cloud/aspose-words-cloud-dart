@@ -415,7 +415,7 @@ class ApiClient {
   }
 
   Future< List<dynamic> > callBatch(final List<BatchRequest> requests) async {
-    var bodyParts = List<ApiRequestPart>();
+    var bodyParts = <ApiRequestPart>[];
     for (final request in requests) {
       bodyParts.add(serializeBatchPart(await request.createRequestData(this)));
     }
