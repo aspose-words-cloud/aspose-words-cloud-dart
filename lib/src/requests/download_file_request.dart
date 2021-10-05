@@ -47,7 +47,7 @@ class DownloadFileRequest implements RequestBase {
   DownloadFileRequest(final this.path, {final this.storageName, final this.versionId});
 
   @override
-  ApiRequestData createRequestData(final ApiClient _apiClient) {
+  Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
     var _path = '/words/storage/file/{path}';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};

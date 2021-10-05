@@ -32,6 +32,6 @@ import '../api_client.dart';
 import '../api_request_data.dart';
 
 abstract class RequestBase {
-  ApiRequestData createRequestData(final ApiClient _apiClient);
+  Future<ApiRequestData> createRequestData(final ApiClient _apiClient);
   dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body);
 }

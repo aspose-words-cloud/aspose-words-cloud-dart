@@ -104,7 +104,7 @@ class SaveAsTiffOnlineRequest implements RequestBase {
   SaveAsTiffOnlineRequest(final this.document, final this.saveOptions, {final this.loadEncoding, final this.password, final this.useAntiAliasing, final this.useHighQualityRendering, final this.imageBrightness, final this.imageColorMode, final this.imageContrast, final this.numeralFormat, final this.pageCount, final this.pageIndex, final this.paperColor, final this.pixelFormat, final this.resolution, final this.scale, final this.tiffCompression, final this.dmlRenderingMode, final this.dmlEffectsRenderingMode, final this.tiffBinarizationMethod, final this.zipOutput, final this.fontsLocation});
 
   @override
-  ApiRequestData createRequestData(final ApiClient _apiClient) {
+  Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
     var _path = '/words/online/put/saveAs/tiff';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -114,7 +114,7 @@ class SaveAsTiffOnlineRequest implements RequestBase {
     }
 
     if (password != null) {
-      _queryParams['password'] = _apiClient.serializeToString(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
     }
 
     if (useAntiAliasing != null) {

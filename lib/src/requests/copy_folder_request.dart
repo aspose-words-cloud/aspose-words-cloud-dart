@@ -50,7 +50,7 @@ class CopyFolderRequest implements RequestBase {
   CopyFolderRequest(final this.destPath, final this.srcPath, {final this.srcStorageName, final this.destStorageName});
 
   @override
-  ApiRequestData createRequestData(final ApiClient _apiClient) {
+  Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
     var _path = '/words/storage/folder/copy/{srcPath}';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};

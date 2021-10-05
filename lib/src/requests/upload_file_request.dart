@@ -50,7 +50,7 @@ class UploadFileRequest implements RequestBase {
   UploadFileRequest(final this.fileContent, final this.path, {final this.storageName});
 
   @override
-  ApiRequestData createRequestData(final ApiClient _apiClient) {
+  Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
     var _path = '/words/storage/file/{path}';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};

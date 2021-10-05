@@ -51,7 +51,7 @@ class GetRunsOnlineRequest implements RequestBase {
   GetRunsOnlineRequest(final this.document, final this.paragraphPath, {final this.loadEncoding, final this.password});
 
   @override
-  ApiRequestData createRequestData(final ApiClient _apiClient) {
+  Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
     var _path = '/words/online/get/{paragraphPath}/runs';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -65,7 +65,7 @@ class GetRunsOnlineRequest implements RequestBase {
     }
 
     if (password != null) {
-      _queryParams['password'] = _apiClient.serializeToString(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
     }
 
     if (document != null) {

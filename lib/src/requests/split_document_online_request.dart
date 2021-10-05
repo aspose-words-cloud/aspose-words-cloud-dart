@@ -65,7 +65,7 @@ class SplitDocumentOnlineRequest implements RequestBase {
   SplitDocumentOnlineRequest(final this.document, final this.format, {final this.loadEncoding, final this.password, final this.destFileName, final this.from, final this.to, final this.zipOutput, final this.fontsLocation});
 
   @override
-  ApiRequestData createRequestData(final ApiClient _apiClient) {
+  Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
     var _path = '/words/online/put/split';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -82,7 +82,7 @@ class SplitDocumentOnlineRequest implements RequestBase {
     }
 
     if (password != null) {
-      _queryParams['password'] = _apiClient.serializeToString(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
     }
 
     if (destFileName != null) {

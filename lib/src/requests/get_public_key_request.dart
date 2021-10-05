@@ -40,7 +40,7 @@ class GetPublicKeyRequest implements RequestBase {
   GetPublicKeyRequest();
 
   @override
-  ApiRequestData createRequestData(final ApiClient _apiClient) {
+  Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
     var _path = '/words/encryption/publickey';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};

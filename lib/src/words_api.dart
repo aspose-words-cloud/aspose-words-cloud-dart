@@ -35,8 +35,10 @@ import './requests/batch_request.dart';
 
 /// Aspose.Words for Cloud API.
 class WordsApi {
-  final ApiClient _apiClient;
-  WordsApi(final Configuration configuration) : _apiClient = ApiClient(configuration);
+  ApiClient _apiClient;
+  WordsApi(final Configuration configuration) {
+    _apiClient = ApiClient(configuration, getPublicKey);
+  }
 
   /// Accepts all revisions in the document.
   Future< RevisionsModificationResponse > acceptAllRevisions(AcceptAllRevisionsRequest request) async {

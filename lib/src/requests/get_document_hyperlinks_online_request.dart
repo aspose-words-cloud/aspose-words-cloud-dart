@@ -48,7 +48,7 @@ class GetDocumentHyperlinksOnlineRequest implements RequestBase {
   GetDocumentHyperlinksOnlineRequest(final this.document, {final this.loadEncoding, final this.password});
 
   @override
-  ApiRequestData createRequestData(final ApiClient _apiClient) {
+  Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
     var _path = '/words/online/get/hyperlinks';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -58,7 +58,7 @@ class GetDocumentHyperlinksOnlineRequest implements RequestBase {
     }
 
     if (password != null) {
-      _queryParams['password'] = _apiClient.serializeToString(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
     }
 
     if (document != null) {

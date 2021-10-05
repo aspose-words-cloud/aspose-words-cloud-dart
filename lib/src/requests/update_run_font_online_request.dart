@@ -65,7 +65,7 @@ class UpdateRunFontOnlineRequest implements RequestBase {
   UpdateRunFontOnlineRequest(final this.document, final this.paragraphPath, final this.fontDto, final this.index, {final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
 
   @override
-  ApiRequestData createRequestData(final ApiClient _apiClient) {
+  Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
     var _path = '/words/online/put/{paragraphPath}/runs/{index}/font';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -84,7 +84,7 @@ class UpdateRunFontOnlineRequest implements RequestBase {
     }
 
     if (password != null) {
-      _queryParams['password'] = _apiClient.serializeToString(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
     }
 
     if (destFileName != null) {

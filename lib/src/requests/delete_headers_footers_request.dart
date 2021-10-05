@@ -68,7 +68,7 @@ class DeleteHeadersFootersRequest implements RequestBase {
   DeleteHeadersFootersRequest(final this.name, final this.sectionPath, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime, final this.headersFootersTypes});
 
   @override
-  ApiRequestData createRequestData(final ApiClient _apiClient) {
+  Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
     var _path = '/words/{name}/{sectionPath}/headersfooters';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -95,7 +95,7 @@ class DeleteHeadersFootersRequest implements RequestBase {
     }
 
     if (password != null) {
-      _queryParams['password'] = _apiClient.serializeToString(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
     }
 
     if (destFileName != null) {

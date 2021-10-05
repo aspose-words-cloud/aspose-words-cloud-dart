@@ -61,8 +61,8 @@ class BatchRequest {
     return request;
   }
 
-  ApiRequestData createRequestData(final ApiClient _apiClient) {
-    var requestData = request.createRequestData(_apiClient);
+  Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
+    var requestData = await request.createRequestData(_apiClient);
     requestData.headers['RequestId'] = requestId;
     if (dependsOn.isNotEmpty) {
       requestData.headers['DependsOn'] = dependsOn;

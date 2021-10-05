@@ -32,6 +32,8 @@ import 'dart:typed_data';
 
 import 'package:http/http.dart' as http;
 import 'package:uuid/uuid.dart';
+import 'package:convert/convert.dart';
+import 'package:pointycastle/export.dart';
 
 import '../aspose_words_cloud.dart';
 import './api_request_data.dart';
@@ -41,13 +43,52 @@ import './requests/batch_request.dart';
 
 class ApiClient {
   String _authToken;
+  bool _encryptorInitialized = false;
+
+  final _publicKeyRequester;
+  final PKCS1Encoding _encrypter = PKCS1Encoding(RSAEngine());
   final _starting = ByteData.view(utf8.encoder.convert('--').buffer);
   final _newline = ByteData.view(utf8.encoder.convert('\r\n').buffer);
   final _newline2x = ByteData.view(utf8.encoder.convert('\r\n\r\n').buffer);
 
   final Configuration configuration;
 
-  ApiClient(final this.configuration);
+  ApiClient(final this.configuration, final this._publicKeyRequester);
+
+  Future _initializeEncrypter() async {
+    if (_encryptorInitialized == true) {
+      return;
+    }
+
+    _encryptorInitialized = true;
+    try {
+        final rsaPublicKey = await _publicKeyRequester(GetPublicKeyRequest());
+        if (rsaPublicKey == null || rsaPublicKey.modulus == null || rsaPublicKey.exponent == null) {
+          throw ApiException(400, 'Invalid public key response.');
+        }
+
+        final modulus = BigInt.parse(hex.encode(base64Decode(rsaPublicKey.modulus as String)), radix: 16);
+        final exponent = BigInt.parse(hex.encode(base64Decode(rsaPublicKey.exponent as String)), radix: 16);
+        var pubKey = RSAPublicKey(modulus, exponent);
+
+        _encrypter.init(true, PublicKeyParameter<RSAPublicKey>(pubKey));
+      }
+      catch(_) {
+        _encryptorInitialized = false;
+        rethrow;
+      }
+  }
+
+  Future<String> encryptPassword(final String password) async {
+    await _initializeEncrypter();
+    return base64Encode(
+      _encrypter.process(
+        Uint8List.fromList(
+          utf8.encode(password)
+        )
+      )
+    );
+  }
 
   void _handleResponse(final int statusCode, final String reasonPhrase, final ByteData body) {
     if (statusCode != 200) {
@@ -364,7 +405,7 @@ class ApiClient {
   }
 
   Future<dynamic> call(final RequestBase request) async {
-    var requestData = request.createRequestData(this);
+    var requestData = await request.createRequestData(this);
     var response = await _callWithChecks(requestData);
     if (response == null) {
       return null;
@@ -374,10 +415,10 @@ class ApiClient {
   }
 
   Future< List<dynamic> > callBatch(final List<BatchRequest> requests) async {
-    var bodyParts = requests
-        .map((request) => request.createRequestData(this))
-        .map((requestData) => serializeBatchPart(requestData))
-        .toList();
+    var bodyParts = List<ApiRequestPart>();
+    for (final request in requests) {
+      bodyParts.add(serializeBatchPart(await request.createRequestData(this)));
+    }
     var boundary = Uuid().v4();
     var batchUrl = '${configuration.getApiRootUrl()}/words/batch';
     var batchHeaders = <String, String>{};

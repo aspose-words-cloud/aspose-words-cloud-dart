@@ -72,7 +72,7 @@ class InsertFieldRequest implements RequestBase {
   InsertFieldRequest(final this.name, final this.field, {final this.nodePath, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime, final this.insertBeforeNode});
 
   @override
-  ApiRequestData createRequestData(final ApiClient _apiClient) {
+  Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
     var _path = '/words/{name}/{nodePath}/fields';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -95,7 +95,7 @@ class InsertFieldRequest implements RequestBase {
     }
 
     if (password != null) {
-      _queryParams['password'] = _apiClient.serializeToString(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
     }
 
     if (destFileName != null) {

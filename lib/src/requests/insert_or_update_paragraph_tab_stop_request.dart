@@ -66,7 +66,7 @@ class InsertOrUpdateParagraphTabStopRequest implements RequestBase {
   InsertOrUpdateParagraphTabStopRequest(final this.name, final this.index, final this.tabStopInsertDto, {final this.nodePath, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName});
 
   @override
-  ApiRequestData createRequestData(final ApiClient _apiClient) {
+  Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
     var _path = '/words/{name}/{nodePath}/paragraphs/{index}/tabstops';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -94,7 +94,7 @@ class InsertOrUpdateParagraphTabStopRequest implements RequestBase {
     }
 
     if (password != null) {
-      _queryParams['password'] = _apiClient.serializeToString(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
     }
 
     if (destFileName != null) {
