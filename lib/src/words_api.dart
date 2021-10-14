@@ -1576,7 +1576,7 @@ class WordsApi {
   }
 
   // Batch request
-  Future< List<dynamic> > batch(final List<BatchRequest> requests) async {
-    return await _apiClient.callBatch(requests);
+  Future< List<dynamic> > batch(final List<BatchRequest> requests, {final bool displayIntermediateResults = true}) async {
+    return await _apiClient.callBatch(requests, displayIntermediateResults);
   }
 }

@@ -107,4 +107,45 @@ class BatchTests
     expect(actual[3], isNull); // DeleteParagraph
     expect(actual[4] is ByteData, isTrue); // BuildReportOnline
   }
+
+  /// Test for batch request.
+  Future<void> testBatch2() async
+  {
+    var remoteFileName = 'TestBatchDocument.docx';
+
+    await context.uploadFile(
+        localFile,
+        '$remoteDataFolder/$remoteFileName'
+    );
+
+    var request1 = BatchRequest(GetParagraphsRequest(
+        remoteFileName,
+        nodePath: 'sections/0',
+        folder: remoteDataFolder
+    ));
+
+    var request2 = BatchRequest(GetParagraphRequest(
+        remoteFileName,
+        0,
+        nodePath: 'sections/0',
+        folder: remoteDataFolder
+    ));
+
+    var localDataFile = await context.loadTextFile(reportingFolder + '/ReportData.json');
+
+    var request3 = BatchRequest(BuildReportOnlineRequest(
+        request2.resultOf(),
+        localDataFile,
+        ReportEngineSettings()
+          ..dataSourceType = ReportEngineSettings_DataSourceTypeEnum.json
+          ..dataSourceName = 'persons'
+    ));
+
+    request3.setDependsOn(request2);
+    request2.setDependsOn(request1);
+
+    var actual = await context.getApi().batch([request1, request2, request3], displayIntermediateResults: false);
+    expect(actual.length, 1);
+    expect(actual[0] is ByteData, isTrue); // BuildReportOnline
+  }
 }

@@ -414,13 +414,13 @@ class ApiClient {
     return request.deserializeResponse(this, response);
   }
 
-  Future< List<dynamic> > callBatch(final List<BatchRequest> requests) async {
+  Future< List<dynamic> > callBatch(final List<BatchRequest> requests, final bool displayIntermediateResults) async {
     var bodyParts = <ApiRequestPart>[];
     for (final request in requests) {
       bodyParts.add(serializeBatchPart(await request.createRequestData(this)));
     }
     var boundary = Uuid().v4();
-    var batchUrl = '${configuration.getApiRootUrl()}/words/batch';
+    var batchUrl = '${configuration.getApiRootUrl()}/words/batch?displayIntermediateResults=$displayIntermediateResults';
     var batchHeaders = <String, String>{};
     var batchBody = serializeMultipart(bodyParts, boundary);
     batchHeaders['Content-Type'] = 'multipart/form-data; boundary="$boundary"';
@@ -428,18 +428,15 @@ class ApiClient {
     var batchRequestData = ApiRequestData('PUT', batchUrl, batchHeaders, batchBody);
     var response = await _callWithChecks(batchRequestData);
     var responseParts = deserializeMultipartBatch(response);
-    if (responseParts.length != requests.length) {
-      throw ApiException(400, 'Response and request parts mismatch.');
-    }
-
-    var result = List<dynamic>.filled(requests.length, null);
-    for (var i = 0; i < requests.length; i++) {
-      if (!responseParts.containsKey(requests[i].getRequestId())) {
+    var result = <dynamic>[];
+    responseParts.forEach((key, value) {
+      var request = requests.firstWhere((element) => element.getRequestId() == key);
+      if (request == null) {
         throw ApiException(400, 'Failed to deserialize batch multipart response.');
       }
 
-      result[i] = deserializeBatchPart(requests[i].getRequest(), responseParts[requests[i].getRequestId()]);
-    }
+      result.add(deserializeBatchPart(request.getRequest(), value));
+    });
 
     return result;
   }
