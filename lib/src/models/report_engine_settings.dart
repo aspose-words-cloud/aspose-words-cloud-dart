@@ -40,8 +40,14 @@ class ReportEngineSettings implements ModelBase {
   /// Gets or sets type of datasource.
   ReportEngineSettings_DataSourceTypeEnum dataSourceType;
 
+  /// Gets or sets the options for parsing JSON data.
+  JsonDataLoadOptions jsonDataLoadOptions;
+
   /// Gets or sets type of options to build report.
   List<ReportBuildOptionsEnum> reportBuildOptions;
+
+  /// Gets or sets the options for parsing XML data.
+  XmlDataLoadOptions xmlDataLoadOptions;
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -73,6 +79,13 @@ class ReportEngineSettings implements ModelBase {
       dataSourceType = null;
     }
 
+    if (json.containsKey('JsonDataLoadOptions')) {
+      jsonDataLoadOptions = JsonDataLoadOptions();
+      jsonDataLoadOptions.deserialize(json['JsonDataLoadOptions'] as Map<String, dynamic>);
+    } else {
+      jsonDataLoadOptions = null;
+    }
+
     if (json.containsKey('ReportBuildOptions')) {
       // Array processing
       reportBuildOptions = <ReportBuildOptionsEnum>[];
@@ -87,6 +100,13 @@ class ReportEngineSettings implements ModelBase {
       }
     } else {
       reportBuildOptions = null;
+    }
+
+    if (json.containsKey('XmlDataLoadOptions')) {
+      xmlDataLoadOptions = XmlDataLoadOptions();
+      xmlDataLoadOptions.deserialize(json['XmlDataLoadOptions'] as Map<String, dynamic>);
+    } else {
+      xmlDataLoadOptions = null;
     }
   }
 
@@ -110,6 +130,10 @@ class ReportEngineSettings implements ModelBase {
       }
     }
 
+    if (jsonDataLoadOptions != null) {
+      _result['JsonDataLoadOptions'] = jsonDataLoadOptions.serialize();
+    }
+
     if (reportBuildOptions != null) {
       _result['ReportBuildOptions'] = reportBuildOptions.map((_element) {
         switch (_element) {
@@ -120,6 +144,10 @@ class ReportEngineSettings implements ModelBase {
             default: return null;
         }
       }).toList();
+    }
+
+    if (xmlDataLoadOptions != null) {
+      _result['XmlDataLoadOptions'] = xmlDataLoadOptions.serialize();
     }
     return _result;
   }

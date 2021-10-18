@@ -2,6 +2,7 @@
 
 - Removed 'GraphicsQualityOptions' image save option as it no longer supported.
 - Added query parameter 'displayIntermediateResults' for batch requests. If 'false', the last response in batch will be returned only. Default is 'true'
+- Added 'JsonDataLoadOptions' and 'XmlDataLoadOptions' to 'ReportEngineSettings'
 
 
 ## [21.8.0] - Aspose Words Cloud for Dart 21.8 Release Notes
