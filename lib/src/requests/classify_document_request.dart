@@ -60,7 +60,7 @@ class ClassifyDocumentRequest implements RequestBase {
   ClassifyDocumentRequest(final this.name, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.bestClassesCount, final this.taxonomy});
 
   @override
-  ApiRequestData createRequestData(final ApiClient _apiClient) {
+  Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
     var _path = '/words/{name}/classify';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -82,7 +82,7 @@ class ClassifyDocumentRequest implements RequestBase {
     }
 
     if (password != null) {
-      _queryParams['password'] = _apiClient.serializeToString(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
     }
 
     if (bestClassesCount != null) {

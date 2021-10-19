@@ -57,7 +57,7 @@ class SearchRequest implements RequestBase {
   SearchRequest(final this.name, final this.pattern, {final this.folder, final this.storage, final this.loadEncoding, final this.password});
 
   @override
-  ApiRequestData createRequestData(final ApiClient _apiClient) {
+  Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
     var _path = '/words/{name}/search';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -86,7 +86,7 @@ class SearchRequest implements RequestBase {
     }
 
     if (password != null) {
-      _queryParams['password'] = _apiClient.serializeToString(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
     }
 
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');

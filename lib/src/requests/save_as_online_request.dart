@@ -53,7 +53,7 @@ class SaveAsOnlineRequest implements RequestBase {
   SaveAsOnlineRequest(final this.document, final this.saveOptionsData, {final this.loadEncoding, final this.password, final this.fontsLocation});
 
   @override
-  ApiRequestData createRequestData(final ApiClient _apiClient) {
+  Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
     var _path = '/words/online/put/saveAs';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -63,7 +63,7 @@ class SaveAsOnlineRequest implements RequestBase {
     }
 
     if (password != null) {
-      _queryParams['password'] = _apiClient.serializeToString(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
     }
 
     if (fontsLocation != null) {

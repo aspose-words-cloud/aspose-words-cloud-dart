@@ -54,7 +54,7 @@ class GetTableCellOnlineRequest implements RequestBase {
   GetTableCellOnlineRequest(final this.document, final this.tableRowPath, final this.index, {final this.loadEncoding, final this.password});
 
   @override
-  ApiRequestData createRequestData(final ApiClient _apiClient) {
+  Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
     var _path = '/words/online/get/{tableRowPath}/cells/{index}';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -73,7 +73,7 @@ class GetTableCellOnlineRequest implements RequestBase {
     }
 
     if (password != null) {
-      _queryParams['password'] = _apiClient.serializeToString(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
     }
 
     if (document != null) {

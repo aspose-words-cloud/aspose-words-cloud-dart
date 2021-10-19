@@ -62,7 +62,7 @@ class RenderPageRequest implements RequestBase {
   RenderPageRequest(final this.name, final this.pageIndex, final this.format, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.fontsLocation});
 
   @override
-  ApiRequestData createRequestData(final ApiClient _apiClient) {
+  Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
     var _path = '/words/{name}/pages/{pageIndex}/render';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -96,7 +96,7 @@ class RenderPageRequest implements RequestBase {
     }
 
     if (password != null) {
-      _queryParams['password'] = _apiClient.serializeToString(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
     }
 
     if (fontsLocation != null) {

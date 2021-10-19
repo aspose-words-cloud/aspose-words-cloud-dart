@@ -39,7 +39,7 @@ class ResetCacheRequest implements RequestBase {
   ResetCacheRequest();
 
   @override
-  ApiRequestData createRequestData(final ApiClient _apiClient) {
+  Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
     var _path = '/words/fonts/cache';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};

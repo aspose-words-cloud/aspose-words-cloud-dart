@@ -62,7 +62,7 @@ class GetDocumentWithFormatRequest implements RequestBase {
   GetDocumentWithFormatRequest(final this.name, final this.format, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.outPath, final this.fontsLocation});
 
   @override
-  ApiRequestData createRequestData(final ApiClient _apiClient) {
+  Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
     var _path = '/words/{name}';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -91,7 +91,7 @@ class GetDocumentWithFormatRequest implements RequestBase {
     }
 
     if (password != null) {
-      _queryParams['password'] = _apiClient.serializeToString(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
     }
 
     if (outPath != null) {

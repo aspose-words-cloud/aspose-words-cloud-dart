@@ -66,7 +66,7 @@ class CopyStyleRequest implements RequestBase {
   CopyStyleRequest(final this.name, final this.styleCopy, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
 
   @override
-  ApiRequestData createRequestData(final ApiClient _apiClient) {
+  Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
     var _path = '/words/{name}/styles/copy';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -88,7 +88,7 @@ class CopyStyleRequest implements RequestBase {
     }
 
     if (password != null) {
-      _queryParams['password'] = _apiClient.serializeToString(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
     }
 
     if (destFileName != null) {

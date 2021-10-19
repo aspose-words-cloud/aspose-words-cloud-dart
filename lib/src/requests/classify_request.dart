@@ -45,7 +45,7 @@ class ClassifyRequest implements RequestBase {
   ClassifyRequest(final this.text, {final this.bestClassesCount});
 
   @override
-  ApiRequestData createRequestData(final ApiClient _apiClient) {
+  Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
     var _path = '/words/classify';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};

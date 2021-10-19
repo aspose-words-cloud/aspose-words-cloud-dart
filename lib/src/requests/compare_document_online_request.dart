@@ -56,7 +56,7 @@ class CompareDocumentOnlineRequest implements RequestBase {
   CompareDocumentOnlineRequest(final this.document, final this.compareData, {final this.comparingDocument, final this.loadEncoding, final this.password, final this.destFileName});
 
   @override
-  ApiRequestData createRequestData(final ApiClient _apiClient) {
+  Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
     var _path = '/words/online/put/compareDocument';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -66,7 +66,7 @@ class CompareDocumentOnlineRequest implements RequestBase {
     }
 
     if (password != null) {
-      _queryParams['password'] = _apiClient.serializeToString(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
     }
 
     if (destFileName != null) {

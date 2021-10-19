@@ -53,7 +53,7 @@ class MoveFileRequest implements RequestBase {
   MoveFileRequest(final this.destPath, final this.srcPath, {final this.srcStorageName, final this.destStorageName, final this.versionId});
 
   @override
-  ApiRequestData createRequestData(final ApiClient _apiClient) {
+  Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
     var _path = '/words/storage/file/move/{srcPath}';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};

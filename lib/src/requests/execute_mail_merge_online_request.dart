@@ -53,7 +53,7 @@ class ExecuteMailMergeOnlineRequest implements RequestBase {
   ExecuteMailMergeOnlineRequest(final this.template, final this.data, {final this.withRegions, final this.cleanup, final this.documentFileName});
 
   @override
-  ApiRequestData createRequestData(final ApiClient _apiClient) {
+  Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
     var _path = '/words/MailMerge';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};

@@ -53,7 +53,7 @@ class ProtectDocumentOnlineRequest implements RequestBase {
   ProtectDocumentOnlineRequest(final this.document, final this.protectionRequest, {final this.loadEncoding, final this.password, final this.destFileName});
 
   @override
-  ApiRequestData createRequestData(final ApiClient _apiClient) {
+  Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
     var _path = '/words/online/put/protection';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -63,7 +63,7 @@ class ProtectDocumentOnlineRequest implements RequestBase {
     }
 
     if (password != null) {
-      _queryParams['password'] = _apiClient.serializeToString(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
     }
 
     if (destFileName != null) {

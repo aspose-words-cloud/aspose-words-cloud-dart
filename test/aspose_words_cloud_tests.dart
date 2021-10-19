@@ -106,6 +106,7 @@ void main() {
 
   group('Batch', () {
     test('TestBatch1', () async => await BatchTests(testContext).testBatch1());
+    test('TestBatch2', () async => await BatchTests(testContext).testBatch2());
   });
 
   group('Bookmark', () {

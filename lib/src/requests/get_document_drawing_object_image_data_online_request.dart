@@ -53,7 +53,7 @@ class GetDocumentDrawingObjectImageDataOnlineRequest implements RequestBase {
   GetDocumentDrawingObjectImageDataOnlineRequest(final this.document, final this.index, {final this.nodePath, final this.loadEncoding, final this.password});
 
   @override
-  ApiRequestData createRequestData(final ApiClient _apiClient) {
+  Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
     var _path = '/words/online/get/{nodePath}/drawingObjects/{index}/imageData';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
@@ -68,7 +68,7 @@ class GetDocumentDrawingObjectImageDataOnlineRequest implements RequestBase {
     }
 
     if (password != null) {
-      _queryParams['password'] = _apiClient.serializeToString(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
     }
 
     if (document != null) {

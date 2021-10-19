@@ -1,3 +1,10 @@
+## [21.10.0] - Aspose Words Cloud for Dart 21.10 Release Notes
+
+- Removed 'GraphicsQualityOptions' image save option as it no longer supported.
+- Added query parameter 'displayIntermediateResults' for batch requests. If 'false', the last response in batch will be returned only. Default is 'true'
+- Added 'JsonDataLoadOptions' and 'XmlDataLoadOptions' to 'ReportEngineSettings'
+
+
 ## [21.8.0] - Aspose Words Cloud for Dart 21.8 Release Notes
 
 - Added new api methods to get, insert, update or delete custom xml parts from documents.

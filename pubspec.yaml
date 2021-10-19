@@ -1,6 +1,6 @@
 name: aspose_words_cloud
 description: This package allows you to work with Aspose.Words Cloud REST APIs in your Dart applications quickly and easily, with zero initial cost.
-version: 21.9.0
+version: 21.10.0
 homepage: https://github.com/aspose-words-cloud/aspose-words-cloud-dart
 
 environment:
@@ -9,6 +9,7 @@ environment:
 dependencies:
   http: ^0.13.3
   uuid: ^3.0.4
+  pointycastle: ^3.3.4
   pedantic: ^1.11.1
 
 dev_dependencies:
