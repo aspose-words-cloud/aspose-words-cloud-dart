@@ -35,7 +35,7 @@ node('words-linux') {
                 }
                 
                 if (needToBuild) {
-                    docker.image('google/dart:2.12.2').inside {
+                    docker.image('google/dart:2.14').inside {
                         stage('prepare'){
                             sh "pub get"
                             sh "pub global activate junitreport"
