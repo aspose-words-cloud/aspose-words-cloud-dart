@@ -1,3 +1,7 @@
+## [21.11.0] - Aspose Words Cloud for Dart 21.11 Release Notes
+
+- Support encryption of 'CommonRequest.Password'. Automatic encryption of all passwords sent to the API server as request parameters.
+
 ## [21.10.0] - Aspose Words Cloud for Dart 21.10 Release Notes
 
 - Removed 'GraphicsQualityOptions' image save option as it no longer supported.
