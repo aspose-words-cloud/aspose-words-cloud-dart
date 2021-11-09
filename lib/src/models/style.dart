@@ -504,6 +504,10 @@ class Style extends LinkElement {
         case 'ListTable6ColorfulAccent6': styleIdentifier = Style_StyleIdentifierEnum.listTable6ColorfulAccent6; break;
         case 'ListTable7ColorfulAccent6': styleIdentifier = Style_StyleIdentifierEnum.listTable7ColorfulAccent6; break;
         case 'SmartLink': styleIdentifier = Style_StyleIdentifierEnum.smartLink; break;
+        case 'Mention': styleIdentifier = Style_StyleIdentifierEnum.mention; break;
+        case 'SmartHyperlink': styleIdentifier = Style_StyleIdentifierEnum.smartHyperlink; break;
+        case 'Hashtag': styleIdentifier = Style_StyleIdentifierEnum.hashtag; break;
+        case 'UnresolvedMention': styleIdentifier = Style_StyleIdentifierEnum.unresolvedMention; break;
         case 'User': styleIdentifier = Style_StyleIdentifierEnum.user; break;
         case 'Nil': styleIdentifier = Style_StyleIdentifierEnum.nil; break;
         default: styleIdentifier = null; break;
@@ -939,6 +943,10 @@ class Style extends LinkElement {
         case Style_StyleIdentifierEnum.listTable6ColorfulAccent6: _result['StyleIdentifier'] = 'ListTable6ColorfulAccent6'; break;
         case Style_StyleIdentifierEnum.listTable7ColorfulAccent6: _result['StyleIdentifier'] = 'ListTable7ColorfulAccent6'; break;
         case Style_StyleIdentifierEnum.smartLink: _result['StyleIdentifier'] = 'SmartLink'; break;
+        case Style_StyleIdentifierEnum.mention: _result['StyleIdentifier'] = 'Mention'; break;
+        case Style_StyleIdentifierEnum.smartHyperlink: _result['StyleIdentifier'] = 'SmartHyperlink'; break;
+        case Style_StyleIdentifierEnum.hashtag: _result['StyleIdentifier'] = 'Hashtag'; break;
+        case Style_StyleIdentifierEnum.unresolvedMention: _result['StyleIdentifier'] = 'UnresolvedMention'; break;
         case Style_StyleIdentifierEnum.user: _result['StyleIdentifier'] = 'User'; break;
         case Style_StyleIdentifierEnum.nil: _result['StyleIdentifier'] = 'Nil'; break;
         default: break;
@@ -1333,6 +1341,10 @@ enum Style_StyleIdentifierEnum
   listTable6ColorfulAccent6,
   listTable7ColorfulAccent6,
   smartLink,
+  mention,
+  smartHyperlink,
+  hashtag,
+  unresolvedMention,
   user,
   nil
 }
