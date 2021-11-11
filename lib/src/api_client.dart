@@ -30,16 +30,16 @@ library aspose_words_cloud;
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:http/http.dart' as http;
-import 'package:uuid/uuid.dart';
 import 'package:convert/convert.dart';
+import 'package:http/http.dart' as http;
 import 'package:pointycastle/export.dart';
+import 'package:uuid/uuid.dart';
 
-import '../aspose_words_cloud.dart';
 import './api_request_data.dart';
 import './api_request_part.dart';
 import './byte_data_extensions.dart';
 import './requests/batch_request.dart';
+import '../aspose_words_cloud.dart';
 
 class ApiClient {
   String _authToken;
@@ -471,7 +471,7 @@ class ApiClient {
 
     var httpRequest = http.Request(requestData.method, Uri.parse(requestData.url));
     httpRequest.headers['x-aspose-client'] = 'dart sdk';
-    httpRequest.headers['x-aspose-client-version'] = '21.10';
+    httpRequest.headers['x-aspose-client-version'] = '21.11';
     httpRequest.headers['Authorization'] = await _getAuthToken();
     if (requestData.headers != null) {
       httpRequest.headers.addAll(requestData.headers);

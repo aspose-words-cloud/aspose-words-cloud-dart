@@ -31,9 +31,10 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:uuid/uuid.dart';
+
+import './request_base.dart';
 import '../api_client.dart';
 import '../api_request_data.dart';
-import './request_base.dart';
 
 class BatchRequest {
   String requestId;

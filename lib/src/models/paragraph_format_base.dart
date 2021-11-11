@@ -651,6 +651,10 @@ class ParagraphFormatBase extends LinkElement {
         case 'ListTable6ColorfulAccent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable6ColorfulAccent6; break;
         case 'ListTable7ColorfulAccent6': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.listTable7ColorfulAccent6; break;
         case 'SmartLink': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.smartLink; break;
+        case 'Mention': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.mention; break;
+        case 'SmartHyperlink': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.smartHyperlink; break;
+        case 'Hashtag': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.hashtag; break;
+        case 'UnresolvedMention': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.unresolvedMention; break;
         case 'User': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.user; break;
         case 'Nil': styleIdentifier = ParagraphFormatBase_StyleIdentifierEnum.nil; break;
         default: styleIdentifier = null; break;
@@ -1179,6 +1183,10 @@ class ParagraphFormatBase extends LinkElement {
         case ParagraphFormatBase_StyleIdentifierEnum.listTable6ColorfulAccent6: _result['StyleIdentifier'] = 'ListTable6ColorfulAccent6'; break;
         case ParagraphFormatBase_StyleIdentifierEnum.listTable7ColorfulAccent6: _result['StyleIdentifier'] = 'ListTable7ColorfulAccent6'; break;
         case ParagraphFormatBase_StyleIdentifierEnum.smartLink: _result['StyleIdentifier'] = 'SmartLink'; break;
+        case ParagraphFormatBase_StyleIdentifierEnum.mention: _result['StyleIdentifier'] = 'Mention'; break;
+        case ParagraphFormatBase_StyleIdentifierEnum.smartHyperlink: _result['StyleIdentifier'] = 'SmartHyperlink'; break;
+        case ParagraphFormatBase_StyleIdentifierEnum.hashtag: _result['StyleIdentifier'] = 'Hashtag'; break;
+        case ParagraphFormatBase_StyleIdentifierEnum.unresolvedMention: _result['StyleIdentifier'] = 'UnresolvedMention'; break;
         case ParagraphFormatBase_StyleIdentifierEnum.user: _result['StyleIdentifier'] = 'User'; break;
         case ParagraphFormatBase_StyleIdentifierEnum.nil: _result['StyleIdentifier'] = 'Nil'; break;
         default: break;
@@ -1624,6 +1632,10 @@ enum ParagraphFormatBase_StyleIdentifierEnum
   listTable6ColorfulAccent6,
   listTable7ColorfulAccent6,
   smartLink,
+  mention,
+  smartHyperlink,
+  hashtag,
+  unresolvedMention,
   user,
   nil
 }
