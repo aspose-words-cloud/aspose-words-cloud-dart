@@ -735,6 +735,11 @@ class WordsApi {
     return await _apiClient.call(request) as HeaderFootersResponse;
   }
 
+  /// Returns application info.
+  Future< InfoResponse > getInfo(GetInfoRequest request) async {
+    return await _apiClient.call(request) as InfoResponse;
+  }
+
   /// Reads a list from the document.
   Future< ListResponse > getList(GetListRequest request) async {
     return await _apiClient.call(request) as ListResponse;

@@ -59,6 +59,7 @@ import './font/font_tests.dart';
 import './footnote/footnote_tests.dart';
 import './header_footer/header_footer_tests.dart';
 import './hyperlink/hyperlink_tests.dart';
+import './info/info_tests.dart';
 import './lists/lists_tests.dart';
 import './macros/macros_tests.dart';
 import './mail_merge/execute_mail_merge_tests.dart';
@@ -350,6 +351,10 @@ void main() {
     test('GetDocumentHyperlinkByIndexOnline', () async => await HyperlinkTests(testContext).testGetDocumentHyperlinkByIndexOnline());
     test('GetDocumentHyperlinks', () async => await HyperlinkTests(testContext).testGetDocumentHyperlinks());
     test('GetDocumentHyperlinksOnline', () async => await HyperlinkTests(testContext).testGetDocumentHyperlinksOnline());
+  });
+
+  group('Info', () {
+    test('GetInfo', () async => await InfoTests(testContext).testGetInfo());
   });
 
   group('Lists', () {
