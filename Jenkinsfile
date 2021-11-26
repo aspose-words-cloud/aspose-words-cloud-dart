@@ -40,7 +40,7 @@ node('words-linux') {
                 if (packageTesting) {
                     docker.image('google/dart:2.14').inside {
                         stage('prepare'){
-                            sh "rm –rf lib"
+                            sh "rm -rf lib"
                             sh "cp ./pubspec_package_testing.yaml ./pubspec.yaml"
                             sh "dart pub add aspose_words_cloud"
                             sh "pub get"
