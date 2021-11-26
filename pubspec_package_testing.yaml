@@ -1,0 +1,8 @@
+name: aspose_words_cloud_package_testing
+version: 1.0.0
+
+environment:
+  sdk: ">=2.6.0 <3.0.0"
+
+dev_dependencies:
+  test: ^1.15.4
