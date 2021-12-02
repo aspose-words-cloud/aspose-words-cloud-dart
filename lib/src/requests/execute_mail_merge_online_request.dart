@@ -41,6 +41,9 @@ class ExecuteMailMergeOnlineRequest implements RequestBase {
   /// File with mailmerge data.
   final ByteData data;
 
+  /// Mail merge options.
+  final FieldOptions options;
+
   /// The flag indicating whether to execute Mail Merge operation with regions.
   final bool withRegions;
 
@@ -50,7 +53,7 @@ class ExecuteMailMergeOnlineRequest implements RequestBase {
   /// The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "template" will be used instead.
   final String documentFileName;
 
-  ExecuteMailMergeOnlineRequest(final this.template, final this.data, {final this.withRegions, final this.cleanup, final this.documentFileName});
+  ExecuteMailMergeOnlineRequest(final this.template, final this.data, {final this.options, final this.withRegions, final this.cleanup, final this.documentFileName});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -82,6 +85,10 @@ class ExecuteMailMergeOnlineRequest implements RequestBase {
     }
     else {
       throw ApiException(400, 'Parameter data is required.');
+    }
+
+    if (options != null) {
+      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(options), 'application/json', name: 'Options'));
     }
 
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');

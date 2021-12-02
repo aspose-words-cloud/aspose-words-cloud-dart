@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="configuration.dart">
+ * <copyright company="Aspose" file="user_information.dart">
  *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,24 +27,60 @@
 
 library aspose_words_cloud;
 
-class Configuration {
-  final String clientId;
-  final String clientSecret;
-  final String baseUrl;
-  final bool debugMode;
-  final Duration timeout;
+import '../../aspose_words_cloud.dart';
 
-  Configuration(final this.clientId, final this.clientSecret, {final this.baseUrl = 'https://api.aspose.cloud', final this.debugMode = false, final this.timeout = const Duration(seconds: 300)});
+/// DTO for user information.
+class UserInformation implements ModelBase {
+  /// Gets or sets user address.
+  String address;
 
-  Configuration.fromJson(final Map<String, dynamic> json)
-    : clientId = json['ClientId'] as String,
-      clientSecret = json['ClientSecret'] as String,
-      baseUrl = json['BaseUrl'] as String ?? 'https://api.aspose.cloud',
-      debugMode = json['DebugMode'] as bool,
-      timeout = Duration(seconds: json['Timeout'] as int ?? 300);
+  /// Gets or sets user initials.
+  String initials;
 
-  String getApiRootUrl()
-  {
-    return '$baseUrl/v4.0';
+  /// Gets or sets user name.
+  String name;
+
+  @override
+  void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize UserInformation data model.');
+    }
+
+    if (json.containsKey('Address')) {
+      address = json['Address'] as String;
+    } else {
+      address = null;
+    }
+
+    if (json.containsKey('Initials')) {
+      initials = json['Initials'] as String;
+    } else {
+      initials = null;
+    }
+
+    if (json.containsKey('Name')) {
+      name = json['Name'] as String;
+    } else {
+      name = null;
+    }
+  }
+
+  @override
+  Map<String, dynamic> serialize() {
+    var _result = <String, dynamic>{};
+    if (address != null) {
+      _result['Address'] = address;
+    }
+
+    if (initials != null) {
+      _result['Initials'] = initials;
+    }
+
+    if (name != null) {
+      _result['Name'] = name;
+    }
+    return _result;
   }
 }
+
+

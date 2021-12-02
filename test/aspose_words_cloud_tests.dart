@@ -64,6 +64,7 @@ import './lists/lists_tests.dart';
 import './macros/macros_tests.dart';
 import './mail_merge/execute_mail_merge_tests.dart';
 import './mail_merge/execute_template_tests.dart';
+import './mail_merge/execute_template_with_field_options_tests.dart';
 import './mail_merge/mail_merge_fileds_tests.dart';
 import './math_object/math_object_tests.dart';
 import './page_setup/page_setup_tests.dart';
@@ -383,6 +384,11 @@ void main() {
   group('ExecuteTemplate', () {
     test('ExecuteTemplate', () async => await ExecuteTemplateTests(testContext).testExecuteTemplate());
     test('ExecuteTemplateOnline', () async => await ExecuteTemplateTests(testContext).testExecuteTemplateOnline());
+  });
+
+  group('ExecuteTemplateWithFieldOptions', () {
+    test('ExecuteTemplateWithFieldOptions', () async => await ExecuteTemplateWithFieldOptionsTests(testContext).testExecuteTemplateWithFieldOptions());
+    test('ExecuteTemplateOnlineWithFieldOptions', () async => await ExecuteTemplateWithFieldOptionsTests(testContext).testExecuteTemplateOnlineWithFieldOptions());
   });
 
   group('MailMergeFileds', () {
