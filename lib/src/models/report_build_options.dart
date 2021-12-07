@@ -33,5 +33,6 @@ enum ReportBuildOptionsEnum {
   none,
   allowMissingMembers,
   removeEmptyParagraphs,
-  inlineErrorMessages
+  inlineErrorMessages,
+  useLegacyHeaderFooterVisiting
 }

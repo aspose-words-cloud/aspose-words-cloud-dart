@@ -42,7 +42,7 @@ class ExecuteMailMergeRequest implements RequestBase {
   /// Mail merge data.
   final String data;
 
-  /// Mail merge options.
+  /// Field options.
   final FieldOptions options;
 
   /// Original document folder.

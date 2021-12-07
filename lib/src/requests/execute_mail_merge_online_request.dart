@@ -41,7 +41,7 @@ class ExecuteMailMergeOnlineRequest implements RequestBase {
   /// File with mailmerge data.
   final ByteData data;
 
-  /// Mail merge options.
+  /// Field options.
   final FieldOptions options;
 
   /// The flag indicating whether to execute Mail Merge operation with regions.
