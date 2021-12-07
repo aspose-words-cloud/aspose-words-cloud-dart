@@ -1,6 +1,6 @@
 ## [21.12.0] - Aspose Words Cloud for Dart 21.12 Release Notes
 
-
+- Added 'timeout' parameter to api configuration
 
 ## [21.11.0] - Aspose Words Cloud for Dart 21.11 Release Notes
 

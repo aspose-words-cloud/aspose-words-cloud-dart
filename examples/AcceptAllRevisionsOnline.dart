@@ -2,7 +2,7 @@ final clientId = "####-####-####-####-####";
 final clientSecret = "##################";
 final config = Configuration(clientId, clientSecret);
 final wordsApi = WordsApi(config);
-final fileName  = 'test_doc.docx';
+final fileName = 'test_doc.docx';
 
 // Calls AcceptAllRevisionsOnline method for document in cloud.
 final requestDocument = (await File(fileName).readAsBytes()).buffer.asByteData();

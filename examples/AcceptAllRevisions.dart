@@ -5,7 +5,7 @@ final clientId = "####-####-####-####-####";
 final clientSecret = "##################";
 final config = Configuration(clientId, clientSecret);
 final wordsApi = WordsApi(config);
-final fileName  = 'test_doc.docx';
+final fileName = 'test_doc.docx';
 
 // Upload original document to cloud storage.
 final myVar1 = (await File(fileName).readAsBytes()).buffer.asByteData();
