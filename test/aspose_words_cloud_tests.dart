@@ -59,10 +59,12 @@ import './font/font_tests.dart';
 import './footnote/footnote_tests.dart';
 import './header_footer/header_footer_tests.dart';
 import './hyperlink/hyperlink_tests.dart';
+import './info/info_tests.dart';
 import './lists/lists_tests.dart';
 import './macros/macros_tests.dart';
 import './mail_merge/execute_mail_merge_tests.dart';
 import './mail_merge/execute_template_tests.dart';
+import './mail_merge/execute_template_with_field_options_tests.dart';
 import './mail_merge/mail_merge_fileds_tests.dart';
 import './math_object/math_object_tests.dart';
 import './page_setup/page_setup_tests.dart';
@@ -352,6 +354,10 @@ void main() {
     test('GetDocumentHyperlinksOnline', () async => await HyperlinkTests(testContext).testGetDocumentHyperlinksOnline());
   });
 
+  group('Info', () {
+    test('GetInfo', () async => await InfoTests(testContext).testGetInfo());
+  });
+
   group('Lists', () {
     test('GetLists', () async => await ListsTests(testContext).testGetLists());
     test('GetListsOnline', () async => await ListsTests(testContext).testGetListsOnline());
@@ -378,6 +384,11 @@ void main() {
   group('ExecuteTemplate', () {
     test('ExecuteTemplate', () async => await ExecuteTemplateTests(testContext).testExecuteTemplate());
     test('ExecuteTemplateOnline', () async => await ExecuteTemplateTests(testContext).testExecuteTemplateOnline());
+  });
+
+  group('ExecuteTemplateWithFieldOptions', () {
+    test('ExecuteTemplateWithFieldOptions', () async => await ExecuteTemplateWithFieldOptionsTests(testContext).testExecuteTemplateWithFieldOptions());
+    test('ExecuteTemplateOnlineWithFieldOptions', () async => await ExecuteTemplateWithFieldOptionsTests(testContext).testExecuteTemplateOnlineWithFieldOptions());
   });
 
   group('MailMergeFileds', () {

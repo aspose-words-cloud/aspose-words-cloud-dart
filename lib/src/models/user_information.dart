@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="report_build_options.dart">
+ * <copyright company="Aspose" file="user_information.dart">
  *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,12 +27,60 @@
 
 library aspose_words_cloud;
 
+import '../../aspose_words_cloud.dart';
 
-/// Specifies options controlling behavior of ReportingEngine while building a report.
-enum ReportBuildOptionsEnum {
-  none,
-  allowMissingMembers,
-  removeEmptyParagraphs,
-  inlineErrorMessages,
-  useLegacyHeaderFooterVisiting
+/// DTO for user information.
+class UserInformation implements ModelBase {
+  /// Gets or sets user address.
+  String address;
+
+  /// Gets or sets user initials.
+  String initials;
+
+  /// Gets or sets user name.
+  String name;
+
+  @override
+  void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize UserInformation data model.');
+    }
+
+    if (json.containsKey('Address')) {
+      address = json['Address'] as String;
+    } else {
+      address = null;
+    }
+
+    if (json.containsKey('Initials')) {
+      initials = json['Initials'] as String;
+    } else {
+      initials = null;
+    }
+
+    if (json.containsKey('Name')) {
+      name = json['Name'] as String;
+    } else {
+      name = null;
+    }
+  }
+
+  @override
+  Map<String, dynamic> serialize() {
+    var _result = <String, dynamic>{};
+    if (address != null) {
+      _result['Address'] = address;
+    }
+
+    if (initials != null) {
+      _result['Initials'] = initials;
+    }
+
+    if (name != null) {
+      _result['Name'] = name;
+    }
+    return _result;
+  }
 }
+
+

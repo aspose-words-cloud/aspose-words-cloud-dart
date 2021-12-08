@@ -20,7 +20,7 @@ class ExamplesTests
     Future<void> acceptAllRevisions() async
     {
         final wordsApi = WordsApi(config);
-        final fileName  = 'test_doc.docx';
+        final fileName = 'test_doc.docx';
 
         // Upload original document to cloud storage.
         final myVar1 = (await File(fileName).readAsBytes()).buffer.asByteData();
@@ -37,7 +37,7 @@ class ExamplesTests
     Future<void> acceptAllRevisionsOnline() async
     {
         final wordsApi = WordsApi(config);
-        final fileName  = 'test_doc.docx';
+        final fileName = 'test_doc.docx';
 
         // Calls AcceptAllRevisionsOnline method for document in cloud.
         final requestDocument = (await File(fileName).readAsBytes()).buffer.asByteData();

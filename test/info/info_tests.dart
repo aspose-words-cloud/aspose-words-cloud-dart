@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="report_build_options.dart">
+ * <copyright company="Aspose" file="info_tests.dart">
  *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -25,14 +25,24 @@
  * --------------------------------------------------------------------------------
  */
 
-library aspose_words_cloud;
+import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 
+import '../test_context.dart';
 
-/// Specifies options controlling behavior of ReportingEngine while building a report.
-enum ReportBuildOptionsEnum {
-  none,
-  allowMissingMembers,
-  removeEmptyParagraphs,
-  inlineErrorMessages,
-  useLegacyHeaderFooterVisiting
+/// Example of how to work api info.
+class InfoTests
+{
+  final TestContext context;
+
+  InfoTests(final this.context);
+
+  /// Test for getting api info.
+  Future<void> testGetInfo() async
+  {
+
+    final request = GetInfoRequest(
+    );
+
+    await context.getApi().getInfo(request);
+  }
 }

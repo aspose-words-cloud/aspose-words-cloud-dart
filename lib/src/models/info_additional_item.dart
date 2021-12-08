@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="report_build_options.dart">
+ * <copyright company="Aspose" file="info_additional_item.dart">
  *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,12 +27,47 @@
 
 library aspose_words_cloud;
 
+import '../../aspose_words_cloud.dart';
 
-/// Specifies options controlling behavior of ReportingEngine while building a report.
-enum ReportBuildOptionsEnum {
-  none,
-  allowMissingMembers,
-  removeEmptyParagraphs,
-  inlineErrorMessages,
-  useLegacyHeaderFooterVisiting
+/// Info additional item.
+class InfoAdditionalItem implements ModelBase {
+  /// Gets or sets Key.
+  String key;
+
+  /// Gets or sets Value.
+  String value;
+
+  @override
+  void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize InfoAdditionalItem data model.');
+    }
+
+    if (json.containsKey('Key')) {
+      key = json['Key'] as String;
+    } else {
+      key = null;
+    }
+
+    if (json.containsKey('Value')) {
+      value = json['Value'] as String;
+    } else {
+      value = null;
+    }
+  }
+
+  @override
+  Map<String, dynamic> serialize() {
+    var _result = <String, dynamic>{};
+    if (key != null) {
+      _result['Key'] = key;
+    }
+
+    if (value != null) {
+      _result['Value'] = value;
+    }
+    return _result;
+  }
 }
+
+

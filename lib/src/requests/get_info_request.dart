@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="execute_mail_merge_online_request.dart">
+ * <copyright company="Aspose" file="get_info_request.dart">
  *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,77 +27,35 @@
 
 library aspose_words_cloud;
 
+import 'dart:convert';
 import 'dart:typed_data';
 import '../../aspose_words_cloud.dart';
 import '../api_client.dart';
 import '../api_request_data.dart';
 import '../api_request_part.dart';
 
-/// Request model for ExecuteMailMergeOnline operation.
-class ExecuteMailMergeOnlineRequest implements RequestBase {
-  /// File with template.
-  final ByteData template;
+/// Request model for GetInfo operation.
+class GetInfoRequest implements RequestBase {
 
-  /// File with mailmerge data.
-  final ByteData data;
-
-  /// Field options.
-  final FieldOptions options;
-
-  /// The flag indicating whether to execute Mail Merge operation with regions.
-  final bool withRegions;
-
-  /// The cleanup options.
-  final String cleanup;
-
-  /// The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "template" will be used instead.
-  final String documentFileName;
-
-  ExecuteMailMergeOnlineRequest(final this.template, final this.data, {final this.options, final this.withRegions, final this.cleanup, final this.documentFileName});
+  GetInfoRequest();
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
-    var _path = '/words/MailMerge';
+    var _path = '/words/info';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
-    if (withRegions != null) {
-      _queryParams['withRegions'] = _apiClient.serializeToString(withRegions);
-    }
-
-    if (cleanup != null) {
-      _queryParams['cleanup'] = _apiClient.serializeToString(cleanup);
-    }
-
-    if (documentFileName != null) {
-      _queryParams['documentFileName'] = _apiClient.serializeToString(documentFileName);
-    }
-
-    if (template != null) {
-      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(template), 'application/octet-stream', name: 'Template'));
-    }
-    else {
-      throw ApiException(400, 'Parameter template is required.');
-    }
-
-    if (data != null) {
-      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(data), 'application/octet-stream', name: 'Data'));
-    }
-    else {
-      throw ApiException(400, 'Parameter data is required.');
-    }
-
-    if (options != null) {
-      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(options), 'application/json', name: 'Options'));
-    }
-
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('PUT', _url, _headers, _body);
+    return ApiRequestData('GET', _url, _headers, _body);
   }
 
   @override
   dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
-    return _body;
+    var _result = InfoResponse();
+    var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
+    var _json = jsonDecode(_jsonData);
+    _result.deserialize(_json as Map<String, dynamic>);
+    return _result;
   }
 }

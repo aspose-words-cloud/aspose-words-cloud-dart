@@ -116,7 +116,7 @@ class ApiClient {
     final url = configuration.baseUrl + '/connect/token';
     final data = 'grant_type=client_credentials&client_id=${configuration.clientId}&client_secret=${configuration.clientSecret}';
     final headers = {'Content-Type' : 'application/x-www-form-urlencoded'};
-    final response = await http.post(Uri.parse(url), headers: headers, body: data);
+    final response = await http.post(Uri.parse(url), headers: headers, body: data).timeout(configuration.timeout);
     if (response.statusCode == 400) {
       throw ApiException(response.statusCode, 'Invalid server credentials. Please check your ClientSecret and ClientId.');
     }
@@ -471,7 +471,7 @@ class ApiClient {
 
     var httpRequest = http.Request(requestData.method, Uri.parse(requestData.url));
     httpRequest.headers['x-aspose-client'] = 'dart sdk';
-    httpRequest.headers['x-aspose-client-version'] = '21.11';
+    httpRequest.headers['x-aspose-client-version'] = '21.12';
     httpRequest.headers['Authorization'] = await _getAuthToken();
     if (requestData.headers != null) {
       httpRequest.headers.addAll(requestData.headers);
@@ -481,7 +481,7 @@ class ApiClient {
       httpRequest.bodyBytes = requestData.body.buffer.asUint8List(requestData.body.offsetInBytes, requestData.body.lengthInBytes);
     }
 
-    var response = await httpRequest.send();
+    var response = await httpRequest.send().timeout(configuration.timeout);
     var bytes = await response.stream.toBytes();
     var responseData = ByteData.view(bytes.buffer);
 

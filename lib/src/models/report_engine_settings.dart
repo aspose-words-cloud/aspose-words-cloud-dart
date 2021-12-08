@@ -95,6 +95,7 @@ class ReportEngineSettings implements ModelBase {
           case 'AllowMissingMembers': reportBuildOptions.add(ReportBuildOptionsEnum.allowMissingMembers); break;
           case 'RemoveEmptyParagraphs': reportBuildOptions.add(ReportBuildOptionsEnum.removeEmptyParagraphs); break;
           case 'InlineErrorMessages': reportBuildOptions.add(ReportBuildOptionsEnum.inlineErrorMessages); break;
+          case 'UseLegacyHeaderFooterVisiting': reportBuildOptions.add(ReportBuildOptionsEnum.useLegacyHeaderFooterVisiting); break;
           default: break;
         }
       }
@@ -141,6 +142,7 @@ class ReportEngineSettings implements ModelBase {
             case ReportBuildOptionsEnum.allowMissingMembers: return 'AllowMissingMembers';
             case ReportBuildOptionsEnum.removeEmptyParagraphs: return 'RemoveEmptyParagraphs';
             case ReportBuildOptionsEnum.inlineErrorMessages: return 'InlineErrorMessages';
+            case ReportBuildOptionsEnum.useLegacyHeaderFooterVisiting: return 'UseLegacyHeaderFooterVisiting';
             default: return null;
         }
       }).toList();

@@ -32,14 +32,16 @@ class Configuration {
   final String clientSecret;
   final String baseUrl;
   final bool debugMode;
+  final Duration timeout;
 
-  Configuration(final this.clientId, final this.clientSecret, {final this.baseUrl = 'https://api.aspose.cloud', final this.debugMode = false});
+  Configuration(final this.clientId, final this.clientSecret, {final this.baseUrl = 'https://api.aspose.cloud', final this.debugMode = false, final this.timeout = const Duration(seconds: 300)});
 
   Configuration.fromJson(final Map<String, dynamic> json)
     : clientId = json['ClientId'] as String,
       clientSecret = json['ClientSecret'] as String,
       baseUrl = json['BaseUrl'] as String ?? 'https://api.aspose.cloud',
-      debugMode = json['DebugMode'] as bool;
+      debugMode = json['DebugMode'] as bool,
+      timeout = Duration(seconds: json['Timeout'] as int ?? 300);
 
   String getApiRootUrl()
   {
