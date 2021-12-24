@@ -44,8 +44,11 @@ class DeleteCommentOnlineRequest implements RequestBase {
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
   final String loadEncoding;
 
-  /// Password for opening an encrypted document.
+  /// Password for opening an encrypted document. The password is provided as is (obsolete).
   final String password;
+
+  /// Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+  final String encryptedPassword;
 
   /// Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
   final String destFileName;
@@ -56,7 +59,7 @@ class DeleteCommentOnlineRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String revisionDateTime;
 
-  DeleteCommentOnlineRequest(final this.document, final this.commentIndex, {final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
+  DeleteCommentOnlineRequest(final this.document, final this.commentIndex, {final this.loadEncoding, final this.password, final this.encryptedPassword, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -74,6 +77,10 @@ class DeleteCommentOnlineRequest implements RequestBase {
 
     if (password != null) {
       _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
+    }
+
+    if (encryptedPassword != null) {
+      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword);
     }
 
     if (destFileName != null) {

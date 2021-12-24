@@ -54,13 +54,16 @@ class GetHeaderFooterOfSectionRequest implements RequestBase {
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
   final String loadEncoding;
 
-  /// Password for opening an encrypted document.
+  /// Password for opening an encrypted document. The password is provided as is (obsolete).
   final String password;
+
+  /// Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+  final String encryptedPassword;
 
   /// The list of HeaderFooter types.
   final String filterByType;
 
-  GetHeaderFooterOfSectionRequest(final this.name, final this.headerFooterIndex, final this.sectionIndex, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.filterByType});
+  GetHeaderFooterOfSectionRequest(final this.name, final this.headerFooterIndex, final this.sectionIndex, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.encryptedPassword, final this.filterByType});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -96,6 +99,10 @@ class GetHeaderFooterOfSectionRequest implements RequestBase {
 
     if (password != null) {
       _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
+    }
+
+    if (encryptedPassword != null) {
+      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword);
     }
 
     if (filterByType != null) {

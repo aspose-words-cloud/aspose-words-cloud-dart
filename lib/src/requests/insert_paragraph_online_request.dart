@@ -47,8 +47,11 @@ class InsertParagraphOnlineRequest implements RequestBase {
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
   final String loadEncoding;
 
-  /// Password for opening an encrypted document.
+  /// Password for opening an encrypted document. The password is provided as is (obsolete).
   final String password;
+
+  /// Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+  final String encryptedPassword;
 
   /// Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
   final String destFileName;
@@ -62,7 +65,7 @@ class InsertParagraphOnlineRequest implements RequestBase {
   /// The index of the node. A new paragraph will be inserted before the node with the specified index.
   final String insertBeforeNode;
 
-  InsertParagraphOnlineRequest(final this.document, final this.paragraph, {final this.nodePath, final this.loadEncoding, final this.password, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime, final this.insertBeforeNode});
+  InsertParagraphOnlineRequest(final this.document, final this.paragraph, {final this.nodePath, final this.loadEncoding, final this.password, final this.encryptedPassword, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime, final this.insertBeforeNode});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -77,6 +80,10 @@ class InsertParagraphOnlineRequest implements RequestBase {
 
     if (password != null) {
       _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
+    }
+
+    if (encryptedPassword != null) {
+      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword);
     }
 
     if (destFileName != null) {

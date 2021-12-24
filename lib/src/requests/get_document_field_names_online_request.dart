@@ -42,13 +42,16 @@ class GetDocumentFieldNamesOnlineRequest implements RequestBase {
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
   final String loadEncoding;
 
-  /// Password for opening an encrypted document.
+  /// Password for opening an encrypted document. The password is provided as is (obsolete).
   final String password;
+
+  /// Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+  final String encryptedPassword;
 
   /// The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
   final bool useNonMergeFields;
 
-  GetDocumentFieldNamesOnlineRequest(final this.template, {final this.loadEncoding, final this.password, final this.useNonMergeFields});
+  GetDocumentFieldNamesOnlineRequest(final this.template, {final this.loadEncoding, final this.password, final this.encryptedPassword, final this.useNonMergeFields});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -62,6 +65,10 @@ class GetDocumentFieldNamesOnlineRequest implements RequestBase {
 
     if (password != null) {
       _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
+    }
+
+    if (encryptedPassword != null) {
+      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword);
     }
 
     if (useNonMergeFields != null) {
