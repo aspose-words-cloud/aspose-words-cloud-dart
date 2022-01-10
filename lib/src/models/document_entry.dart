@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="document_entry.dart">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -37,6 +37,9 @@ class DocumentEntry implements ModelBase {
   /// Gets or sets the option that controls formatting will be used: appended or destination document. Can be KeepSourceFormatting or UseDestinationStyles.
   String importFormatMode;
 
+  /// Gets or sets document password encrypted on API public key. The default value is null (the document has no password).
+  String password;
+
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json == null) {
@@ -54,6 +57,12 @@ class DocumentEntry implements ModelBase {
     } else {
       importFormatMode = null;
     }
+
+    if (json.containsKey('Password')) {
+      password = json['Password'] as String;
+    } else {
+      password = null;
+    }
   }
 
   @override
@@ -65,6 +74,10 @@ class DocumentEntry implements ModelBase {
 
     if (importFormatMode != null) {
       _result['ImportFormatMode'] = importFormatMode;
+    }
+
+    if (password != null) {
+      _result['Password'] = password;
     }
     return _result;
   }
