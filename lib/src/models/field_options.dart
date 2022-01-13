@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="field_options.dart">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -46,6 +46,10 @@ class FieldOptions implements ModelBase {
   /// Gets or sets Field Index Format.
   FieldOptions_FieldIndexFormatEnum fieldIndexFormat;
 
+  /// Gets or sets Field Update Culture Name.
+  /// It is used for all fields if FieldUpdateCultureSource is FieldCode.
+  String fieldUpdateCultureName;
+
   /// Gets or sets Field Update Culture Source.
   FieldOptions_FieldUpdateCultureSourceEnum fieldUpdateCultureSource;
 
@@ -59,6 +63,7 @@ class FieldOptions implements ModelBase {
   bool legacyNumberFormat;
 
   /// Gets or sets PreProcess Culture Name.
+  /// It is a culture code for DOC fields.
   String preProcessCultureName;
 
   /// Gets or sets Template Name.
@@ -115,6 +120,12 @@ class FieldOptions implements ModelBase {
       }
     } else {
       fieldIndexFormat = null;
+    }
+
+    if (json.containsKey('FieldUpdateCultureName')) {
+      fieldUpdateCultureName = json['FieldUpdateCultureName'] as String;
+    } else {
+      fieldUpdateCultureName = null;
     }
 
     if (json.containsKey('FieldUpdateCultureSource')) {
@@ -194,6 +205,10 @@ class FieldOptions implements ModelBase {
         case FieldOptions_FieldIndexFormatEnum.simple: _result['FieldIndexFormat'] = 'Simple'; break;
         default: break;
       }
+    }
+
+    if (fieldUpdateCultureName != null) {
+      _result['FieldUpdateCultureName'] = fieldUpdateCultureName;
     }
 
     if (fieldUpdateCultureSource != null) {

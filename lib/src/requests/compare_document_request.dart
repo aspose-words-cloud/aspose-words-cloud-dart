@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="compare_document_request.dart">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -51,13 +51,19 @@ class CompareDocumentRequest implements RequestBase {
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
   final String loadEncoding;
 
-  /// Password for opening an encrypted document.
+  /// Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
   final String password;
+
+  /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+  final String encryptedPassword;
 
   /// Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
   final String destFileName;
 
-  CompareDocumentRequest(final this.name, final this.compareData, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.destFileName});
+  /// encrypted password for the second document.
+  final String encryptedPassword2;
+
+  CompareDocumentRequest(final this.name, final this.compareData, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.encryptedPassword, final this.destFileName, final this.encryptedPassword2});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -85,8 +91,16 @@ class CompareDocumentRequest implements RequestBase {
       _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
     }
 
+    if (encryptedPassword != null) {
+      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword);
+    }
+
     if (destFileName != null) {
       _queryParams['destFileName'] = _apiClient.serializeToString(destFileName);
+    }
+
+    if (encryptedPassword2 != null) {
+      _queryParams['encryptedPassword2'] = _apiClient.serializeToString(encryptedPassword2);
     }
 
     if (compareData != null) {
