@@ -1,3 +1,10 @@
+## [22.1.0] - Aspose Words Cloud for Dart 22.1 Release Notes
+
+- Added 'FieldOptions.FieldUpdateCultureName' to set Culture for fields
+- Added 'DocumentEntry.Password' to set an encrypted password for appending document
+- Added 'encryptedPassword2' query parameter to CompareDocuments to set an encrypted password for the second comparing document
+
+
 ## [21.12.0] - Aspose Words Cloud for Dart 21.12 Release Notes
 
 - Added FieldOptions parameter to mail merge operations
