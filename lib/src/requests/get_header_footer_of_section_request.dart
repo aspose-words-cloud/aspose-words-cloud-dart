@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="get_header_footer_of_section_request.dart">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -54,13 +54,16 @@ class GetHeaderFooterOfSectionRequest implements RequestBase {
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
   final String loadEncoding;
 
-  /// Password for opening an encrypted document.
+  /// Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
   final String password;
+
+  /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+  final String encryptedPassword;
 
   /// The list of HeaderFooter types.
   final String filterByType;
 
-  GetHeaderFooterOfSectionRequest(final this.name, final this.headerFooterIndex, final this.sectionIndex, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.filterByType});
+  GetHeaderFooterOfSectionRequest(final this.name, final this.headerFooterIndex, final this.sectionIndex, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.encryptedPassword, final this.filterByType});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -96,6 +99,10 @@ class GetHeaderFooterOfSectionRequest implements RequestBase {
 
     if (password != null) {
       _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
+    }
+
+    if (encryptedPassword != null) {
+      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword);
     }
 
     if (filterByType != null) {
