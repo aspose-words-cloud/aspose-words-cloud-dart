@@ -4,11 +4,12 @@ analyzer:
     implicit-casts: false
   errors:
     prefer_adjacent_string_concatenation: ignore
+    unnecessary_getters_setters: ignore
+    prefer_final_fields: ignore
   exclude:
     - examples/**
 linter:
   rules:
-    unnecessary_getters_setters: false
     - avoid_empty_else
     - avoid_init_to_null
     - avoid_null_checks_in_equality_operators
