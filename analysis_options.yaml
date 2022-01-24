@@ -4,8 +4,6 @@ analyzer:
     implicit-casts: false
   errors:
     prefer_adjacent_string_concatenation: ignore
-    unnecessary_getters_setters: ignore
-    prefer_final_fields: ignore
   exclude:
     - examples/**
 linter:
