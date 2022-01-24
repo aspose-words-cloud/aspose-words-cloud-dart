@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// Collection of Hyperlink.
 class Hyperlinks extends LinkElement {
   /// Gets or sets the array of Hyperlink.
-  List<Hyperlink> hyperlinkList;
+  List<Hyperlink> _hyperlinkList;
+
+  List<Hyperlink> get hyperlinkList => _hyperlinkList;
+  set hyperlinkList(List<Hyperlink> val) => _hyperlinkList = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,13 @@ class Hyperlinks extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('HyperlinkList')) {
       // Array processing
       hyperlinkList = <Hyperlink>[];

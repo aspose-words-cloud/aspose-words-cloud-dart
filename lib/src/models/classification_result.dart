@@ -32,10 +32,18 @@ import '../../aspose_words_cloud.dart';
 /// Represents a single classification result.
 class ClassificationResult implements ModelBase {
   /// Gets or sets the name of the class.
-  String className;
+  String _className;
+
+  String get className => _className;
+  set className(String val) => _className = val;
+
 
   /// Gets or sets the probability of class.
-  double classProbability;
+  double _classProbability;
+
+  double get classProbability => _classProbability;
+  set classProbability(double val) => _classProbability = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

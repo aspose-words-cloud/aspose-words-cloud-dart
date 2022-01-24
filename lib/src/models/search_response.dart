@@ -32,10 +32,18 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a regular expression pattern and a collection of search results.
 class SearchResponse extends WordsResponse {
   /// Gets or sets the regular expression pattern used to find matches.
-  String searchingPattern;
+  String _searchingPattern;
+
+  String get searchingPattern => _searchingPattern;
+  set searchingPattern(String val) => _searchingPattern = val;
+
 
   /// Gets or sets the collection of search results.
-  SearchResultsCollection searchResults;
+  SearchResultsCollection _searchResults;
+
+  SearchResultsCollection get searchResults => _searchResults;
+  set searchResults(SearchResultsCollection val) => _searchResults = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -44,6 +52,12 @@ class SearchResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('SearchingPattern')) {
       searchingPattern = json['SearchingPattern'] as String;
     } else {

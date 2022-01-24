@@ -32,16 +32,32 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with font info.
 class FontInfo implements ModelBase {
   /// Gets or sets the path to the font file if any.
-  String filePath;
+  String _filePath;
+
+  String get filePath => _filePath;
+  set filePath(String val) => _filePath = val;
+
 
   /// Gets or sets the family name of the font.
-  String fontFamilyName;
+  String _fontFamilyName;
+
+  String get fontFamilyName => _fontFamilyName;
+  set fontFamilyName(String val) => _fontFamilyName = val;
+
 
   /// Gets or sets the full name of the font.
-  String fullFontName;
+  String _fullFontName;
+
+  String get fullFontName => _fullFontName;
+  set fullFontName(String val) => _fullFontName = val;
+
 
   /// Gets or sets the version string of the font.
-  String version;
+  String _version;
+
+  String get version => _version;
+  set version(String val) => _version = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

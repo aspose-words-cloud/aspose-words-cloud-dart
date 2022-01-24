@@ -32,16 +32,32 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with an OfficeMath object.
 class OfficeMathObject extends OfficeMathLink {
   /// Gets or sets the content of a footnote.
-  StoryChildNodes content;
+  StoryChildNodes _content;
+
+  StoryChildNodes get content => _content;
+  set content(StoryChildNodes val) => _content = val;
+
 
   /// Gets or sets the display format type of the OfficeMath object. This display format defines whether an equation is displayed inline with the text or displayed on its own line.
-  OfficeMathObject_DisplayTypeEnum displayType;
+  OfficeMathObject_DisplayTypeEnum _displayType;
+
+  OfficeMathObject_DisplayTypeEnum get displayType => _displayType;
+  set displayType(OfficeMathObject_DisplayTypeEnum val) => _displayType = val;
+
 
   /// Gets or sets the justification of the OfficeMath object.
-  OfficeMathObject_JustificationEnum justification;
+  OfficeMathObject_JustificationEnum _justification;
+
+  OfficeMathObject_JustificationEnum get justification => _justification;
+  set justification(OfficeMathObject_JustificationEnum val) => _justification = val;
+
 
   /// Gets or sets the type of the OfficeMath object.
-  OfficeMathObject_MathObjectTypeEnum mathObjectType;
+  OfficeMathObject_MathObjectTypeEnum _mathObjectType;
+
+  OfficeMathObject_MathObjectTypeEnum get mathObjectType => _mathObjectType;
+  set mathObjectType(OfficeMathObject_MathObjectTypeEnum val) => _mathObjectType = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -50,6 +66,19 @@ class OfficeMathObject extends OfficeMathLink {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
+    if (json.containsKey('NodeId')) {
+      nodeId = json['NodeId'] as String;
+    } else {
+      nodeId = null;
+    }
+
     if (json.containsKey('Content')) {
       content = StoryChildNodes();
       content.deserialize(json['Content'] as Map<String, dynamic>);

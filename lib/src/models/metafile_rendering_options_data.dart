@@ -32,20 +32,40 @@ import '../../aspose_words_cloud.dart';
 /// Container class for options of metafile rendering.
 class MetafileRenderingOptionsData implements ModelBase {
   /// Gets or sets the option that controls how EMF+ Dual metafiles should be rendered.
-  String emfPlusDualRenderingMode;
+  String _emfPlusDualRenderingMode;
+
+  String get emfPlusDualRenderingMode => _emfPlusDualRenderingMode;
+  set emfPlusDualRenderingMode(String val) => _emfPlusDualRenderingMode = val;
+
 
   /// Gets or sets a value indicating whether the raster operations should be emulated.
-  bool emulateRasterOperations;
+  bool _emulateRasterOperations;
+
+  bool get emulateRasterOperations => _emulateRasterOperations;
+  set emulateRasterOperations(bool val) => _emulateRasterOperations = val;
+
 
   /// Gets or sets the option that controls how metafile images should be rendered.
-  String renderingMode;
+  String _renderingMode;
+
+  String get renderingMode => _renderingMode;
+  set renderingMode(String val) => _renderingMode = val;
+
 
   /// Gets or sets a value indicating whether to scale fonts in WMF metafile according to metafile size on the page.
   /// The default value is true.
-  bool scaleWmfFontsToMetafileSize;
+  bool _scaleWmfFontsToMetafileSize;
+
+  bool get scaleWmfFontsToMetafileSize => _scaleWmfFontsToMetafileSize;
+  set scaleWmfFontsToMetafileSize(bool val) => _scaleWmfFontsToMetafileSize = val;
+
 
   /// Gets or sets the flag, that controls how WMF metafiles with embedded EMF metafiles should be rendered.
-  bool useEmfEmbeddedToWmf;
+  bool _useEmfEmbeddedToWmf;
+
+  bool get useEmfEmbeddedToWmf => _useEmfEmbeddedToWmf;
+  set useEmfEmbeddedToWmf(bool val) => _useEmfEmbeddedToWmf = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

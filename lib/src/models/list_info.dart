@@ -32,25 +32,53 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a single document list.
 class ListInfo extends LinkElement {
   /// Gets or sets a value indicating whether this list is a definition of a list style.
-  bool isListStyleDefinition;
+  bool _isListStyleDefinition;
+
+  bool get isListStyleDefinition => _isListStyleDefinition;
+  set isListStyleDefinition(bool val) => _isListStyleDefinition = val;
+
 
   /// Gets or sets a value indicating whether this list is a reference to a list style.
-  bool isListStyleReference;
+  bool _isListStyleReference;
+
+  bool get isListStyleReference => _isListStyleReference;
+  set isListStyleReference(bool val) => _isListStyleReference = val;
+
 
   /// Gets or sets a value indicating whether the list contains 9 levels; false when 1 level.
-  bool isMultiLevel;
+  bool _isMultiLevel;
+
+  bool get isMultiLevel => _isMultiLevel;
+  set isMultiLevel(bool val) => _isMultiLevel = val;
+
 
   /// Gets or sets a value indicating whether list should be restarted at each section. The default value is false.
-  bool isRestartAtEachSection;
+  bool _isRestartAtEachSection;
+
+  bool get isRestartAtEachSection => _isRestartAtEachSection;
+  set isRestartAtEachSection(bool val) => _isRestartAtEachSection = val;
+
 
   /// Gets or sets the unique identifier of the list.
-  int listId;
+  int _listId;
+
+  int get listId => _listId;
+  set listId(int val) => _listId = val;
+
 
   /// Gets or sets the collection of list levels for this list.
-  ListLevels listLevels;
+  ListLevels _listLevels;
+
+  ListLevels get listLevels => _listLevels;
+  set listLevels(ListLevels val) => _listLevels = val;
+
 
   /// Gets or sets the list style that this list references or defines.
-  Style style;
+  Style _style;
+
+  Style get style => _style;
+  set style(Style val) => _style = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -59,6 +87,13 @@ class ListInfo extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('IsListStyleDefinition')) {
       isListStyleDefinition = json['IsListStyleDefinition'] as bool;
     } else {

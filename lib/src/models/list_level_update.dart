@@ -32,34 +32,74 @@ import '../../aspose_words_cloud.dart';
 /// Represents a document list levels.
 class ListLevelUpdate implements ModelBase {
   /// Gets or sets the justification of the actual number of the list item.
-  ListLevelUpdate_AlignmentEnum alignment;
+  ListLevelUpdate_AlignmentEnum _alignment;
+
+  ListLevelUpdate_AlignmentEnum get alignment => _alignment;
+  set alignment(ListLevelUpdate_AlignmentEnum val) => _alignment = val;
+
 
   /// Gets or sets a value indicating whether the level turns all inherited numbers to Arabic, false if it preserves their number style.
-  bool isLegal;
+  bool _isLegal;
+
+  bool get isLegal => _isLegal;
+  set isLegal(bool val) => _isLegal = val;
+
 
   /// Gets or sets the number format for the list level.
-  String numberFormat;
+  String _numberFormat;
+
+  String get numberFormat => _numberFormat;
+  set numberFormat(String val) => _numberFormat = val;
+
 
   /// Gets or sets the position (in points) of the number or bullet for the list level.
-  double numberPosition;
+  double _numberPosition;
+
+  double get numberPosition => _numberPosition;
+  set numberPosition(double val) => _numberPosition = val;
+
 
   /// Gets or sets the number style for this list level.
-  ListLevelUpdate_NumberStyleEnum numberStyle;
+  ListLevelUpdate_NumberStyleEnum _numberStyle;
+
+  ListLevelUpdate_NumberStyleEnum get numberStyle => _numberStyle;
+  set numberStyle(ListLevelUpdate_NumberStyleEnum val) => _numberStyle = val;
+
 
   /// Gets or sets the list level that must appear before the specified list level restarts numbering.
-  int restartAfterLevel;
+  int _restartAfterLevel;
+
+  int get restartAfterLevel => _restartAfterLevel;
+  set restartAfterLevel(int val) => _restartAfterLevel = val;
+
 
   /// Gets or sets the starting number for this list level.
-  int startAt;
+  int _startAt;
+
+  int get startAt => _startAt;
+  set startAt(int val) => _startAt = val;
+
 
   /// Gets or sets the tab position (in points) for the list level.
-  double tabPosition;
+  double _tabPosition;
+
+  double get tabPosition => _tabPosition;
+  set tabPosition(double val) => _tabPosition = val;
+
 
   /// Gets or sets the position (in points) for the second line of wrapping text for the list level.
-  double textPosition;
+  double _textPosition;
+
+  double get textPosition => _textPosition;
+  set textPosition(double val) => _textPosition = val;
+
 
   /// Gets or sets the character to be inserted after the number for the list level.
-  ListLevelUpdate_TrailingCharacterEnum trailingCharacter;
+  ListLevelUpdate_TrailingCharacterEnum _trailingCharacter;
+
+  ListLevelUpdate_TrailingCharacterEnum get trailingCharacter => _trailingCharacter;
+  set trailingCharacter(ListLevelUpdate_TrailingCharacterEnum val) => _trailingCharacter = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

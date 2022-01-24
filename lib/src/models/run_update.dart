@@ -39,6 +39,11 @@ class RunUpdate extends RunBase {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Text')) {
+      text = json['Text'] as String;
+    } else {
+      text = null;
+    }
   }
 
   @override

@@ -32,16 +32,32 @@ import '../../aspose_words_cloud.dart';
 /// Error.
 class Error implements ModelBase {
   /// Code.
-  String code;
+  String _code;
+
+  String get code => _code;
+  set code(String val) => _code = val;
+
 
   /// Description.
-  String description;
+  String _description;
+
+  String get description => _description;
+  set description(String val) => _description = val;
+
 
   /// Inner Error.
-  ErrorDetails innerError;
+  ErrorDetails _innerError;
+
+  ErrorDetails get innerError => _innerError;
+  set innerError(ErrorDetails val) => _innerError = val;
+
 
   /// Message.
-  String message;
+  String _message;
+
+  String get message => _message;
+  set message(String val) => _message = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with an array of document lists.
 class Lists extends LinkElement {
   /// Gets or sets the array of document lists.
-  List<ListInfo> listInfo;
+  List<ListInfo> _listInfo;
+
+  List<ListInfo> get listInfo => _listInfo;
+  set listInfo(List<ListInfo> val) => _listInfo = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,13 @@ class Lists extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('ListInfo')) {
       // Array processing
       listInfo = <ListInfo>[];

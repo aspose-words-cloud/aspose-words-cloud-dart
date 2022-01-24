@@ -32,10 +32,18 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a table row element.
 class TableRow extends NodeLink {
   /// Gets or sets the formatting properties of a row.
-  TableRowFormat rowFormat;
+  TableRowFormat _rowFormat;
+
+  TableRowFormat get rowFormat => _rowFormat;
+  set rowFormat(TableRowFormat val) => _rowFormat = val;
+
 
   /// Gets or sets the collection of rows.
-  List<TableCell> tableCellList;
+  List<TableCell> _tableCellList;
+
+  List<TableCell> get tableCellList => _tableCellList;
+  set tableCellList(List<TableCell> val) => _tableCellList = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -44,6 +52,19 @@ class TableRow extends NodeLink {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
+    if (json.containsKey('NodeId')) {
+      nodeId = json['NodeId'] as String;
+    } else {
+      nodeId = null;
+    }
+
     if (json.containsKey('RowFormat')) {
       rowFormat = TableRowFormat();
       rowFormat.deserialize(json['RowFormat'] as Map<String, dynamic>);

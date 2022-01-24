@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The collection of section's links.
 class SectionLinkCollection extends LinkElement {
   /// Gets or sets the collection of section's links.
-  List<SectionLink> sectionLinkList;
+  List<SectionLink> _sectionLinkList;
+
+  List<SectionLink> get sectionLinkList => _sectionLinkList;
+  set sectionLinkList(List<SectionLink> val) => _sectionLinkList = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,13 @@ class SectionLinkCollection extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('SectionLinkList')) {
       // Array processing
       sectionLinkList = <SectionLink>[];

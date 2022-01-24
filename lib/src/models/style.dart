@@ -32,37 +32,81 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a single document style.
 class Style extends LinkElement {
   /// Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.
-  List<String> aliases;
+  List<String> _aliases;
+
+  List<String> get aliases => _aliases;
+  set aliases(List<String> val) => _aliases = val;
+
 
   /// Gets or sets the name of the style this style is based on.
-  String baseStyleName;
+  String _baseStyleName;
+
+  String get baseStyleName => _baseStyleName;
+  set baseStyleName(String val) => _baseStyleName = val;
+
 
   /// Gets or sets a value indicating whether this style is one of the built-in styles in MS Word.
-  bool builtIn;
+  bool _builtIn;
+
+  bool get builtIn => _builtIn;
+  set builtIn(bool val) => _builtIn = val;
+
 
   /// Gets or sets the character formatting of the style.
-  Font font;
+  Font _font;
+
+  Font get font => _font;
+  set font(Font val) => _font = val;
+
 
   /// Gets or sets a value indicating whether the style is one of the built-in Heading styles.
-  bool isHeading;
+  bool _isHeading;
+
+  bool get isHeading => _isHeading;
+  set isHeading(bool val) => _isHeading = val;
+
 
   /// Gets or sets a value indicating whether this style is shown in the Quick Style gallery inside MS Word UI.
-  bool isQuickStyle;
+  bool _isQuickStyle;
+
+  bool get isQuickStyle => _isQuickStyle;
+  set isQuickStyle(bool val) => _isQuickStyle = val;
+
 
   /// Gets or sets the name of the Style linked to this one. Returns Empty string if no styles are linked.
-  String linkedStyleName;
+  String _linkedStyleName;
+
+  String get linkedStyleName => _linkedStyleName;
+  set linkedStyleName(String val) => _linkedStyleName = val;
+
 
   /// Gets or sets the name of the style.
-  String name;
+  String _name;
+
+  String get name => _name;
+  set name(String val) => _name = val;
+
 
   /// Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
-  String nextParagraphStyleName;
+  String _nextParagraphStyleName;
+
+  String get nextParagraphStyleName => _nextParagraphStyleName;
+  set nextParagraphStyleName(String val) => _nextParagraphStyleName = val;
+
 
   /// Gets or sets the locale independent style identifier for a built-in style.
-  Style_StyleIdentifierEnum styleIdentifier;
+  Style_StyleIdentifierEnum _styleIdentifier;
+
+  Style_StyleIdentifierEnum get styleIdentifier => _styleIdentifier;
+  set styleIdentifier(Style_StyleIdentifierEnum val) => _styleIdentifier = val;
+
 
   /// Gets or sets the style type (paragraph or character).
-  Style_TypeEnum type;
+  Style_TypeEnum _type;
+
+  Style_TypeEnum get type => _type;
+  set type(Style_TypeEnum val) => _type = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -71,6 +115,13 @@ class Style extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('Aliases')) {
       // Array processing
       aliases = <String>[];

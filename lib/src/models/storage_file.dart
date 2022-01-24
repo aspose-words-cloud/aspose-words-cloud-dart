@@ -32,19 +32,39 @@ import '../../aspose_words_cloud.dart';
 /// File or folder information.
 class StorageFile implements ModelBase {
   /// True if it is a folder.
-  bool isFolder;
+  bool _isFolder;
+
+  bool get isFolder => _isFolder;
+  set isFolder(bool val) => _isFolder = val;
+
 
   /// File or folder last modified DateTime.
-  DateTime modifiedDate;
+  DateTime _modifiedDate;
+
+  DateTime get modifiedDate => _modifiedDate;
+  set modifiedDate(DateTime val) => _modifiedDate = val;
+
 
   /// File or folder name.
-  String name;
+  String _name;
+
+  String get name => _name;
+  set name(String val) => _name = val;
+
 
   /// File or folder path.
-  String path;
+  String _path;
+
+  String get path => _path;
+  set path(String val) => _path = val;
+
 
   /// File or folder size.
-  int size;
+  int _size;
+
+  int get size => _size;
+  set size(int val) => _size = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

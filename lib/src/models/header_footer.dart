@@ -32,13 +32,25 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a section element.
 class HeaderFooter extends HeaderFooterLink {
   /// Gets or sets the child nodes.
-  List<NodeLink> childNodes;
+  List<NodeLink> _childNodes;
+
+  List<NodeLink> get childNodes => _childNodes;
+  set childNodes(List<NodeLink> val) => _childNodes = val;
+
 
   /// Gets or sets the link to DrawingObjects resource.
-  LinkElement drawingObjects;
+  LinkElement _drawingObjects;
+
+  LinkElement get drawingObjects => _drawingObjects;
+  set drawingObjects(LinkElement val) => _drawingObjects = val;
+
 
   /// Gets or sets the link to Paragraphs resource.
-  LinkElement paragraphs;
+  LinkElement _paragraphs;
+
+  LinkElement get paragraphs => _paragraphs;
+  set paragraphs(LinkElement val) => _paragraphs = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -47,6 +59,27 @@ class HeaderFooter extends HeaderFooterLink {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
+    if (json.containsKey('Type')) {
+      switch (json['Type'] as String) {
+        case 'HeaderEven': type = HeaderFooterLink_TypeEnum.headerEven; break;
+        case 'HeaderPrimary': type = HeaderFooterLink_TypeEnum.headerPrimary; break;
+        case 'FooterEven': type = HeaderFooterLink_TypeEnum.footerEven; break;
+        case 'FooterPrimary': type = HeaderFooterLink_TypeEnum.footerPrimary; break;
+        case 'HeaderFirst': type = HeaderFooterLink_TypeEnum.headerFirst; break;
+        case 'FooterFirst': type = HeaderFooterLink_TypeEnum.footerFirst; break;
+        default: type = null; break;
+      }
+    } else {
+      type = null;
+    }
+
     if (json.containsKey('ChildNodes')) {
       // Array processing
       childNodes = <NodeLink>[];

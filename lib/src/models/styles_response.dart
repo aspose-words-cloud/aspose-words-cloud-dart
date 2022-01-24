@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with an array of styles.
 class StylesResponse extends WordsResponse {
   /// Gets or sets the array of styles.
-  List<Style> styles;
+  List<Style> _styles;
+
+  List<Style> get styles => _styles;
+  set styles(List<Style> val) => _styles = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,12 @@ class StylesResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('Styles')) {
       // Array processing
       styles = <Style>[];

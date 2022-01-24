@@ -33,49 +33,112 @@ import '../../aspose_words_cloud.dart';
 class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   /// Gets or sets the prefix which is added to all class names in style.css file.
   /// Default value is "aw".
-  String cssClassNamesPrefix;
+  String _cssClassNamesPrefix;
+
+  String get cssClassNamesPrefix => _cssClassNamesPrefix;
+  set cssClassNamesPrefix(String val) => _cssClassNamesPrefix = val;
+
 
   /// Gets or sets the character encoding.
-  String encoding;
+  String _encoding;
+
+  String get encoding => _encoding;
+  set encoding(String val) => _encoding = val;
+
 
   /// Gets or sets a value indicating whether the CSS (Cascading Style Sheet) should be embedded into the Html document.
-  bool exportEmbeddedCss;
+  bool _exportEmbeddedCss;
+
+  bool get exportEmbeddedCss => _exportEmbeddedCss;
+  set exportEmbeddedCss(bool val) => _exportEmbeddedCss = val;
+
 
   /// Gets or sets a value indicating whether fonts should be embedded into the Html document in Base64 format.
-  bool exportEmbeddedFonts;
+  bool _exportEmbeddedFonts;
+
+  bool get exportEmbeddedFonts => _exportEmbeddedFonts;
+  set exportEmbeddedFonts(bool val) => _exportEmbeddedFonts = val;
+
 
   /// Gets or sets a value indicating whether images should be embedded into the Html document in Base64 format.
-  bool exportEmbeddedImages;
+  bool _exportEmbeddedImages;
+
+  bool get exportEmbeddedImages => _exportEmbeddedImages;
+  set exportEmbeddedImages(bool val) => _exportEmbeddedImages = val;
+
 
   /// Gets or sets a value indicating whether form fields are exported as interactive items (as 'input' tag) rather than converted to text or graphics.
-  bool exportFormFields;
+  bool _exportFormFields;
+
+  bool get exportFormFields => _exportFormFields;
+  set exportFormFields(bool val) => _exportFormFields = val;
+
 
   /// Gets or sets the export format of fonts.
-  String fontFormat;
+  String _fontFormat;
+
+  String get fontFormat => _fontFormat;
+  set fontFormat(String val) => _fontFormat = val;
+
 
   /// Gets or sets the horizontal alignment of pages in the HTML document.
   /// The default value is HtmlFixedHorizontalPageAlignment.Center.
-  String pageHorizontalAlignment;
+  String _pageHorizontalAlignment;
+
+  String get pageHorizontalAlignment => _pageHorizontalAlignment;
+  set pageHorizontalAlignment(String val) => _pageHorizontalAlignment = val;
+
 
   /// Gets or sets the margin around pages in HTML document.
   /// The margins value is measured in points and should be equal to or greater than 0.
   /// Default value is 10 points.
-  double pageMargins;
+  double _pageMargins;
+
+  double get pageMargins => _pageMargins;
+  set pageMargins(double val) => _pageMargins = val;
+
 
   /// Gets or sets the physical folder where resources are saved when exporting the document.
-  String resourcesFolder;
+  String _resourcesFolder;
+
+  String get resourcesFolder => _resourcesFolder;
+  set resourcesFolder(String val) => _resourcesFolder = val;
+
 
   /// Gets or sets the name of the folder used to construct resource URIs.
-  String resourcesFolderAlias;
+  String _resourcesFolderAlias;
+
+  String get resourcesFolderAlias => _resourcesFolderAlias;
+  set resourcesFolderAlias(String val) => _resourcesFolderAlias = val;
+
 
   /// Gets or sets a value indicating whether "@font-face" CSS rules should be placed into a separate file "fontFaces.css" when a document is being saved with external stylesheet (that is, when Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedCss is false). The default value is false, all CSS rules are written into single file "styles.css".
-  bool saveFontFaceCssSeparately;
+  bool _saveFontFaceCssSeparately;
+
+  bool get saveFontFaceCssSeparately => _saveFontFaceCssSeparately;
+  set saveFontFaceCssSeparately(bool val) => _saveFontFaceCssSeparately = val;
+
+
+  /// Gets or sets the format of save.
+  String _saveFormat = 'htmlfixed';
+
+  @override
+  String get saveFormat => _saveFormat;
+
 
   /// Gets or sets a value indicating whether to show border around pages.
-  bool showPageBorder;
+  bool _showPageBorder;
+
+  bool get showPageBorder => _showPageBorder;
+  set showPageBorder(bool val) => _showPageBorder = val;
+
 
   /// Gets or sets a value indicating whether fonts from target machine must be used to display the document. If this flag is set to true, Aspose.Words.Saving.HtmlFixedSaveOptions.FontFormat and Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedFonts properties do not have effect, also Aspose.Words.Saving.HtmlFixedSaveOptions.ResourceSavingCallback is not fired for fonts. The default value is false.
-  bool useTargetMachineFonts;
+  bool _useTargetMachineFonts;
+
+  bool get useTargetMachineFonts => _useTargetMachineFonts;
+  set useTargetMachineFonts(bool val) => _useTargetMachineFonts = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -84,6 +147,138 @@ class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     super.deserialize(json);
+    if (json.containsKey('AllowEmbeddingPostScriptFonts')) {
+      allowEmbeddingPostScriptFonts = json['AllowEmbeddingPostScriptFonts'] as bool;
+    } else {
+      allowEmbeddingPostScriptFonts = null;
+    }
+
+    if (json.containsKey('CustomTimeZoneInfoData')) {
+      customTimeZoneInfoData = TimeZoneInfoData();
+      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+    } else {
+      customTimeZoneInfoData = null;
+    }
+
+    if (json.containsKey('Dml3DEffectsRenderingMode')) {
+      switch (json['Dml3DEffectsRenderingMode'] as String) {
+        case 'Basic': dml3DEffectsRenderingMode = SaveOptionsData_Dml3DEffectsRenderingModeEnum.basic; break;
+        case 'Advanced': dml3DEffectsRenderingMode = SaveOptionsData_Dml3DEffectsRenderingModeEnum.advanced; break;
+        default: dml3DEffectsRenderingMode = null; break;
+      }
+    } else {
+      dml3DEffectsRenderingMode = null;
+    }
+
+    if (json.containsKey('DmlEffectsRenderingMode')) {
+      dmlEffectsRenderingMode = json['DmlEffectsRenderingMode'] as String;
+    } else {
+      dmlEffectsRenderingMode = null;
+    }
+
+    if (json.containsKey('DmlRenderingMode')) {
+      dmlRenderingMode = json['DmlRenderingMode'] as String;
+    } else {
+      dmlRenderingMode = null;
+    }
+
+    if (json.containsKey('FileName')) {
+      fileName = json['FileName'] as String;
+    } else {
+      fileName = null;
+    }
+
+    if (json.containsKey('FlatOpcXmlMappingOnly')) {
+      flatOpcXmlMappingOnly = json['FlatOpcXmlMappingOnly'] as bool;
+    } else {
+      flatOpcXmlMappingOnly = null;
+    }
+
+    if (json.containsKey('ImlRenderingMode')) {
+      imlRenderingMode = json['ImlRenderingMode'] as String;
+    } else {
+      imlRenderingMode = null;
+    }
+
+    if (json.containsKey('UpdateCreatedTimeProperty')) {
+      updateCreatedTimeProperty = json['UpdateCreatedTimeProperty'] as bool;
+    } else {
+      updateCreatedTimeProperty = null;
+    }
+
+    if (json.containsKey('UpdateFields')) {
+      updateFields = json['UpdateFields'] as bool;
+    } else {
+      updateFields = null;
+    }
+
+    if (json.containsKey('UpdateLastPrintedProperty')) {
+      updateLastPrintedProperty = json['UpdateLastPrintedProperty'] as bool;
+    } else {
+      updateLastPrintedProperty = null;
+    }
+
+    if (json.containsKey('UpdateLastSavedTimeProperty')) {
+      updateLastSavedTimeProperty = json['UpdateLastSavedTimeProperty'] as bool;
+    } else {
+      updateLastSavedTimeProperty = null;
+    }
+
+    if (json.containsKey('UpdateSdtContent')) {
+      updateSdtContent = json['UpdateSdtContent'] as bool;
+    } else {
+      updateSdtContent = null;
+    }
+
+    if (json.containsKey('ZipOutput')) {
+      zipOutput = json['ZipOutput'] as bool;
+    } else {
+      zipOutput = null;
+    }
+
+    if (json.containsKey('ColorMode')) {
+      colorMode = json['ColorMode'] as String;
+    } else {
+      colorMode = null;
+    }
+
+    if (json.containsKey('JpegQuality')) {
+      jpegQuality = json['JpegQuality'] as int;
+    } else {
+      jpegQuality = null;
+    }
+
+    if (json.containsKey('MetafileRenderingOptions')) {
+      metafileRenderingOptions = MetafileRenderingOptionsData();
+      metafileRenderingOptions.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
+    } else {
+      metafileRenderingOptions = null;
+    }
+
+    if (json.containsKey('NumeralFormat')) {
+      numeralFormat = json['NumeralFormat'] as String;
+    } else {
+      numeralFormat = null;
+    }
+
+    if (json.containsKey('OptimizeOutput')) {
+      optimizeOutput = json['OptimizeOutput'] as bool;
+    } else {
+      optimizeOutput = null;
+    }
+
+    if (json.containsKey('PageCount')) {
+      pageCount = json['PageCount'] as int;
+    } else {
+      pageCount = null;
+    }
+
+    if (json.containsKey('PageIndex')) {
+      pageIndex = json['PageIndex'] as int;
+    } else {
+      pageIndex = null;
+    }
+
     if (json.containsKey('CssClassNamesPrefix')) {
       cssClassNamesPrefix = json['CssClassNamesPrefix'] as String;
     } else {
@@ -219,6 +414,10 @@ class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (saveFontFaceCssSeparately != null) {
       _result['SaveFontFaceCssSeparately'] = saveFontFaceCssSeparately;
+    }
+
+    if (saveFormat != null) {
+      _result['SaveFormat'] = saveFormat;
     }
 
     if (showPageBorder != null) {

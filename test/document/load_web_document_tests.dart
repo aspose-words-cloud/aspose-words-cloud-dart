@@ -40,9 +40,8 @@ class LoadWebDocumentTests
   /// Test for loading web document.
   Future<void> testLoadWebDocument() async
   {
-    final requestDataSaveOptions = SaveOptionsData();
+    final requestDataSaveOptions = DocSaveOptionsData();
     requestDataSaveOptions.fileName = 'google.doc';
-    requestDataSaveOptions.saveFormat = 'doc';
     requestDataSaveOptions.dmlEffectsRenderingMode = '1';
     requestDataSaveOptions.dmlRenderingMode = '1';
     requestDataSaveOptions.updateSdtContent = false;

@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a collection of HeaderFooter elements.
 class HeaderFootersResponse extends WordsResponse {
   /// Gets or sets the collection of HeaderFooter elements.
-  HeaderFooterLinkCollection headerFooters;
+  HeaderFooterLinkCollection _headerFooters;
+
+  HeaderFooterLinkCollection get headerFooters => _headerFooters;
+  set headerFooters(HeaderFooterLinkCollection val) => _headerFooters = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,12 @@ class HeaderFootersResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('HeaderFooters')) {
       headerFooters = HeaderFooterLinkCollection();
       headerFooters.deserialize(json['HeaderFooters'] as Map<String, dynamic>);

@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a collection of sections.
 class SectionLinkCollectionResponse extends WordsResponse {
   /// Gets or sets the collection of sections.
-  SectionLinkCollection sections;
+  SectionLinkCollection _sections;
+
+  SectionLinkCollection get sections => _sections;
+  set sections(SectionLinkCollection val) => _sections = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,12 @@ class SectionLinkCollectionResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('Sections')) {
       sections = SectionLinkCollection();
       sections.deserialize(json['Sections'] as Map<String, dynamic>);

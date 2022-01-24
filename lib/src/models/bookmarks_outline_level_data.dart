@@ -32,10 +32,18 @@ import '../../aspose_words_cloud.dart';
 /// Container class for individual bookmarks outline level.
 class BookmarksOutlineLevelData implements ModelBase {
   /// Gets or sets the bookmark's level.
-  int bookmarksOutlineLevel;
+  int _bookmarksOutlineLevel;
+
+  int get bookmarksOutlineLevel => _bookmarksOutlineLevel;
+  set bookmarksOutlineLevel(int val) => _bookmarksOutlineLevel = val;
+
 
   /// Gets or sets the bookmark's name.
-  String name;
+  String _name;
+
+  String get name => _name;
+  set name(String val) => _name = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

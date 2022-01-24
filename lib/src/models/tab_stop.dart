@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with paragraph format tab stop.
 class TabStop extends TabStopBase {
   /// Gets or sets a value indicating whether this tab stop clears any existing tab stops in this position.
-  bool isClear;
+  bool _isClear;
+
+  bool get isClear => _isClear;
+  set isClear(bool val) => _isClear = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,41 @@ class TabStop extends TabStopBase {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Alignment')) {
+      switch (json['Alignment'] as String) {
+        case 'Left': alignment = TabStopBase_AlignmentEnum.left; break;
+        case 'Center': alignment = TabStopBase_AlignmentEnum.center; break;
+        case 'Right': alignment = TabStopBase_AlignmentEnum.right; break;
+        case 'Decimal': alignment = TabStopBase_AlignmentEnum.decimal; break;
+        case 'Bar': alignment = TabStopBase_AlignmentEnum.bar; break;
+        case 'List': alignment = TabStopBase_AlignmentEnum.list; break;
+        case 'Clear': alignment = TabStopBase_AlignmentEnum.clear; break;
+        default: alignment = null; break;
+      }
+    } else {
+      alignment = null;
+    }
+
+    if (json.containsKey('Leader')) {
+      switch (json['Leader'] as String) {
+        case 'None': leader = TabStopBase_LeaderEnum.none; break;
+        case 'Dots': leader = TabStopBase_LeaderEnum.dots; break;
+        case 'Dashes': leader = TabStopBase_LeaderEnum.dashes; break;
+        case 'Line': leader = TabStopBase_LeaderEnum.line; break;
+        case 'Heavy': leader = TabStopBase_LeaderEnum.heavy; break;
+        case 'MiddleDot': leader = TabStopBase_LeaderEnum.middleDot; break;
+        default: leader = null; break;
+      }
+    } else {
+      leader = null;
+    }
+
+    if (json.containsKey('Position')) {
+      position = json['Position'] as double;
+    } else {
+      position = null;
+    }
+
     if (json.containsKey('IsClear')) {
       isClear = json['IsClear'] as bool;
     } else {

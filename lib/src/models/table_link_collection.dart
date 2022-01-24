@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The collection of table's links.
 class TableLinkCollection extends LinkElement {
   /// Gets or sets the collection of table's links.
-  List<TableLink> tableLinkList;
+  List<TableLink> _tableLinkList;
+
+  List<TableLink> get tableLinkList => _tableLinkList;
+  set tableLinkList(List<TableLink> val) => _tableLinkList = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,13 @@ class TableLinkCollection extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('TableLinkList')) {
       // Array processing
       tableLinkList = <TableLink>[];

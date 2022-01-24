@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a collection of document properties.
 class DocumentPropertiesResponse extends WordsResponse {
   /// Gets or sets the collection of document properties.
-  DocumentProperties documentProperties;
+  DocumentProperties _documentProperties;
+
+  DocumentProperties get documentProperties => _documentProperties;
+  set documentProperties(DocumentProperties val) => _documentProperties = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,12 @@ class DocumentPropertiesResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('DocumentProperties')) {
       documentProperties = DocumentProperties();
       documentProperties.deserialize(json['DocumentProperties'] as Map<String, dynamic>);

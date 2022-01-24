@@ -32,34 +32,74 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a DrawingObject.
 class DrawingObject extends DrawingObjectLink {
   /// Gets or sets the height of the DrawingObject in points.
-  double height;
+  double _height;
+
+  double get height => _height;
+  set height(double val) => _height = val;
+
 
   /// Gets or sets the link to image data. Can be null if shape does not have an image.
-  WordsApiLink imageDataLink;
+  WordsApiLink _imageDataLink;
+
+  WordsApiLink get imageDataLink => _imageDataLink;
+  set imageDataLink(WordsApiLink val) => _imageDataLink = val;
+
 
   /// Gets or sets the distance in points from the origin to the left side of the image.
-  double left;
+  double _left;
+
+  double get left => _left;
+  set left(double val) => _left = val;
+
 
   /// Gets or sets the link to OLE object. Can be null if shape does not have OLE data.
-  WordsApiLink oleDataLink;
+  WordsApiLink _oleDataLink;
+
+  WordsApiLink get oleDataLink => _oleDataLink;
+  set oleDataLink(WordsApiLink val) => _oleDataLink = val;
+
 
   /// Gets or sets the relative horizontal position, from which the distance to the image is measured.
-  DrawingObject_RelativeHorizontalPositionEnum relativeHorizontalPosition;
+  DrawingObject_RelativeHorizontalPositionEnum _relativeHorizontalPosition;
+
+  DrawingObject_RelativeHorizontalPositionEnum get relativeHorizontalPosition => _relativeHorizontalPosition;
+  set relativeHorizontalPosition(DrawingObject_RelativeHorizontalPositionEnum val) => _relativeHorizontalPosition = val;
+
 
   /// Gets or sets the relative vertical position, from which the distance to the image is measured.
-  DrawingObject_RelativeVerticalPositionEnum relativeVerticalPosition;
+  DrawingObject_RelativeVerticalPositionEnum _relativeVerticalPosition;
+
+  DrawingObject_RelativeVerticalPositionEnum get relativeVerticalPosition => _relativeVerticalPosition;
+  set relativeVerticalPosition(DrawingObject_RelativeVerticalPositionEnum val) => _relativeVerticalPosition = val;
+
 
   /// Gets or sets the list of links that originate from this DrawingObjectDto.
-  List<WordsApiLink> renderLinks;
+  List<WordsApiLink> _renderLinks;
+
+  List<WordsApiLink> get renderLinks => _renderLinks;
+  set renderLinks(List<WordsApiLink> val) => _renderLinks = val;
+
 
   /// Gets or sets the distance in points from the origin to the top side of the image.
-  double top;
+  double _top;
+
+  double get top => _top;
+  set top(double val) => _top = val;
+
 
   /// Gets or sets the width of the DrawingObjects in points.
-  double width;
+  double _width;
+
+  double get width => _width;
+  set width(double val) => _width = val;
+
 
   /// Gets or sets the option that controls how to wrap text around the image.
-  DrawingObject_WrapTypeEnum wrapType;
+  DrawingObject_WrapTypeEnum _wrapType;
+
+  DrawingObject_WrapTypeEnum get wrapType => _wrapType;
+  set wrapType(DrawingObject_WrapTypeEnum val) => _wrapType = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -68,6 +108,19 @@ class DrawingObject extends DrawingObjectLink {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
+    if (json.containsKey('NodeId')) {
+      nodeId = json['NodeId'] as String;
+    } else {
+      nodeId = null;
+    }
+
     if (json.containsKey('Height')) {
       height = json['Height'] as double;
     } else {

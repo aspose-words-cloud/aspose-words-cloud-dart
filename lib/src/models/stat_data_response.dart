@@ -32,10 +32,18 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with document's statistical data.
 class StatDataResponse extends WordsResponse {
   /// Gets or sets the link to the document.
-  FileLink documentLink;
+  FileLink _documentLink;
+
+  FileLink get documentLink => _documentLink;
+  set documentLink(FileLink val) => _documentLink = val;
+
 
   /// Gets or sets the statistical data of the document.
-  DocumentStatData statData;
+  DocumentStatData _statData;
+
+  DocumentStatData get statData => _statData;
+  set statData(DocumentStatData val) => _statData = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -44,6 +52,12 @@ class StatDataResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('DocumentLink')) {
       documentLink = FileLink();
       documentLink.deserialize(json['DocumentLink'] as Map<String, dynamic>);

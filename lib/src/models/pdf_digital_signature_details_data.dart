@@ -32,19 +32,39 @@ import '../../aspose_words_cloud.dart';
 /// Container class for details of digital signature.
 class PdfDigitalSignatureDetailsData implements ModelBase {
   /// Gets or sets the certificate's filename using for signing.
-  String certificateFilename;
+  String _certificateFilename;
+
+  String get certificateFilename => _certificateFilename;
+  set certificateFilename(String val) => _certificateFilename = val;
+
 
   /// Gets or sets the hash algorithm.
-  String hashAlgorithm;
+  String _hashAlgorithm;
+
+  String get hashAlgorithm => _hashAlgorithm;
+  set hashAlgorithm(String val) => _hashAlgorithm = val;
+
 
   /// Gets or sets the location of the signing.
-  String location;
+  String _location;
+
+  String get location => _location;
+  set location(String val) => _location = val;
+
 
   /// Gets or sets the reason for the signing.
-  String reason;
+  String _reason;
+
+  String get reason => _reason;
+  set reason(String val) => _reason = val;
+
 
   /// Gets or sets the date of the signing.
-  DateTime signatureDate;
+  DateTime _signatureDate;
+
+  DateTime get signatureDate => _signatureDate;
+  set signatureDate(DateTime val) => _signatureDate = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

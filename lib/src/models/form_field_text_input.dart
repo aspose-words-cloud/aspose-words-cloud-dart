@@ -32,16 +32,32 @@ import '../../aspose_words_cloud.dart';
 /// FormField text input element.
 class FormFieldTextInput extends FormField {
   /// Gets or sets the maximum length for the text field. Zero when the length is not limited.
-  int maxLength;
+  int _maxLength;
+
+  int get maxLength => _maxLength;
+  set maxLength(int val) => _maxLength = val;
+
 
   /// Gets or sets the default string or a calculation expression of the text form field.
-  String textInputDefault;
+  String _textInputDefault;
+
+  String get textInputDefault => _textInputDefault;
+  set textInputDefault(String val) => _textInputDefault = val;
+
 
   /// Gets or sets text formatting for the text form field.
-  String textInputFormat;
+  String _textInputFormat;
+
+  String get textInputFormat => _textInputFormat;
+  set textInputFormat(String val) => _textInputFormat = val;
+
 
   /// Gets or sets the type of the text form field.
-  FormFieldTextInput_TextInputTypeEnum textInputType;
+  FormFieldTextInput_TextInputTypeEnum _textInputType;
+
+  FormFieldTextInput_TextInputTypeEnum get textInputType => _textInputType;
+  set textInputType(FormFieldTextInput_TextInputTypeEnum val) => _textInputType = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -50,6 +66,73 @@ class FormFieldTextInput extends FormField {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
+    if (json.containsKey('NodeId')) {
+      nodeId = json['NodeId'] as String;
+    } else {
+      nodeId = null;
+    }
+
+    if (json.containsKey('CalculateOnExit')) {
+      calculateOnExit = json['CalculateOnExit'] as bool;
+    } else {
+      calculateOnExit = null;
+    }
+
+    if (json.containsKey('Enabled')) {
+      enabled = json['Enabled'] as bool;
+    } else {
+      enabled = null;
+    }
+
+    if (json.containsKey('EntryMacro')) {
+      entryMacro = json['EntryMacro'] as String;
+    } else {
+      entryMacro = null;
+    }
+
+    if (json.containsKey('ExitMacro')) {
+      exitMacro = json['ExitMacro'] as String;
+    } else {
+      exitMacro = null;
+    }
+
+    if (json.containsKey('HelpText')) {
+      helpText = json['HelpText'] as String;
+    } else {
+      helpText = null;
+    }
+
+    if (json.containsKey('Name')) {
+      name = json['Name'] as String;
+    } else {
+      name = null;
+    }
+
+    if (json.containsKey('OwnHelp')) {
+      ownHelp = json['OwnHelp'] as bool;
+    } else {
+      ownHelp = null;
+    }
+
+    if (json.containsKey('OwnStatus')) {
+      ownStatus = json['OwnStatus'] as bool;
+    } else {
+      ownStatus = null;
+    }
+
+    if (json.containsKey('StatusText')) {
+      statusText = json['StatusText'] as String;
+    } else {
+      statusText = null;
+    }
+
     if (json.containsKey('MaxLength')) {
       maxLength = json['MaxLength'] as int;
     } else {

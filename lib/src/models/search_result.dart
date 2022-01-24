@@ -32,10 +32,18 @@ import '../../aspose_words_cloud.dart';
 /// Result of search operation.
 class SearchResult implements ModelBase {
   /// Gets or sets the link to result range end node.
-  DocumentPosition rangeEnd;
+  DocumentPosition _rangeEnd;
+
+  DocumentPosition get rangeEnd => _rangeEnd;
+  set rangeEnd(DocumentPosition val) => _rangeEnd = val;
+
 
   /// Gets or sets the link to result range start node.
-  DocumentPosition rangeStart;
+  DocumentPosition _rangeStart;
+
+  DocumentPosition get rangeStart => _rangeStart;
+  set rangeStart(DocumentPosition val) => _rangeStart = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

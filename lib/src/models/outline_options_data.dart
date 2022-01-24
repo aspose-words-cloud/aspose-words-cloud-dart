@@ -32,22 +32,46 @@ import '../../aspose_words_cloud.dart';
 /// Container class for outline options.
 class OutlineOptionsData implements ModelBase {
   /// Gets or sets the individual bookmarks outline level.
-  List<BookmarksOutlineLevelData> bookmarksOutlineLevels;
+  List<BookmarksOutlineLevelData> _bookmarksOutlineLevels;
+
+  List<BookmarksOutlineLevelData> get bookmarksOutlineLevels => _bookmarksOutlineLevels;
+  set bookmarksOutlineLevels(List<BookmarksOutlineLevelData> val) => _bookmarksOutlineLevels = val;
+
 
   /// Gets or sets a value indicating whether to create missing outline levels when the document is exported. The default value is false.
-  bool createMissingOutlineLevels;
+  bool _createMissingOutlineLevels;
+
+  bool get createMissingOutlineLevels => _createMissingOutlineLevels;
+  set createMissingOutlineLevels(bool val) => _createMissingOutlineLevels = val;
+
 
   /// Gets or sets a value indicating whether to create outlines for headings (paragraphs formatted with the Heading styles) inside tables.
-  bool createOutlinesForHeadingsInTables;
+  bool _createOutlinesForHeadingsInTables;
+
+  bool get createOutlinesForHeadingsInTables => _createOutlinesForHeadingsInTables;
+  set createOutlinesForHeadingsInTables(bool val) => _createOutlinesForHeadingsInTables = val;
+
 
   /// Gets or sets the default level in the document outline at which to display Word bookmarks.
-  int defaultBookmarksOutlineLevel;
+  int _defaultBookmarksOutlineLevel;
+
+  int get defaultBookmarksOutlineLevel => _defaultBookmarksOutlineLevel;
+  set defaultBookmarksOutlineLevel(int val) => _defaultBookmarksOutlineLevel = val;
+
 
   /// Gets or sets the number of levels in the document outline to show expanded when the file is viewed.
-  int expandedOutlineLevels;
+  int _expandedOutlineLevels;
+
+  int get expandedOutlineLevels => _expandedOutlineLevels;
+  set expandedOutlineLevels(int val) => _expandedOutlineLevels = val;
+
 
   /// Gets or sets the number of levels of headings (paragraphs formatted with the Heading styles) to include in the document outline.
-  int headingsOutlineLevels;
+  int _headingsOutlineLevels;
+
+  int get headingsOutlineLevels => _headingsOutlineLevels;
+  set headingsOutlineLevels(int val) => _headingsOutlineLevels = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a range's text.
 class RangeTextResponse extends WordsResponse {
   /// Gets or sets the range's text.
-  String text;
+  String _text;
+
+  String get text => _text;
+  set text(String val) => _text = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,12 @@ class RangeTextResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('Text')) {
       text = json['Text'] as String;
     } else {

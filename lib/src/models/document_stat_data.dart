@@ -32,19 +32,39 @@ import '../../aspose_words_cloud.dart';
 /// Container for the document's statistical data.
 class DocumentStatData implements ModelBase {
   /// Gets or sets the detailed statistics on footnotes.
-  FootnotesStatData footnotesStatData;
+  FootnotesStatData _footnotesStatData;
+
+  FootnotesStatData get footnotesStatData => _footnotesStatData;
+  set footnotesStatData(FootnotesStatData val) => _footnotesStatData = val;
+
 
   /// Gets or sets the total count of pages in the document.
-  int pageCount;
+  int _pageCount;
+
+  int get pageCount => _pageCount;
+  set pageCount(int val) => _pageCount = val;
+
 
   /// Gets or sets the detailed statistics on all pages.
-  List<PageStatData> pageStatData;
+  List<PageStatData> _pageStatData;
+
+  List<PageStatData> get pageStatData => _pageStatData;
+  set pageStatData(List<PageStatData> val) => _pageStatData = val;
+
 
   /// Gets or sets the total count of paragraphs in the document.
-  int paragraphCount;
+  int _paragraphCount;
+
+  int get paragraphCount => _paragraphCount;
+  set paragraphCount(int val) => _paragraphCount = val;
+
 
   /// Gets or sets the total count of words in the document.
-  int wordCount;
+  int _wordCount;
+
+  int get wordCount => _wordCount;
+  set wordCount(int val) => _wordCount = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

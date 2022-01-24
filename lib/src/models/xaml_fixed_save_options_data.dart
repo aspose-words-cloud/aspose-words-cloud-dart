@@ -33,10 +33,25 @@ import '../../aspose_words_cloud.dart';
 class XamlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   /// Gets or sets the physical folder where resources (images and fonts) are saved when exporting a document to fixed page Xaml format.
   /// The default value is null.
-  String resourcesFolder;
+  String _resourcesFolder;
+
+  String get resourcesFolder => _resourcesFolder;
+  set resourcesFolder(String val) => _resourcesFolder = val;
+
 
   /// Gets or sets the name of the folder used to construct image URIs written into an fixed page Xaml document. The default value is null.
-  String resourcesFolderAlias;
+  String _resourcesFolderAlias;
+
+  String get resourcesFolderAlias => _resourcesFolderAlias;
+  set resourcesFolderAlias(String val) => _resourcesFolderAlias = val;
+
+
+  /// Gets or sets the format of save.
+  String _saveFormat = 'xamlfixed';
+
+  @override
+  String get saveFormat => _saveFormat;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -45,6 +60,138 @@ class XamlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     super.deserialize(json);
+    if (json.containsKey('AllowEmbeddingPostScriptFonts')) {
+      allowEmbeddingPostScriptFonts = json['AllowEmbeddingPostScriptFonts'] as bool;
+    } else {
+      allowEmbeddingPostScriptFonts = null;
+    }
+
+    if (json.containsKey('CustomTimeZoneInfoData')) {
+      customTimeZoneInfoData = TimeZoneInfoData();
+      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+    } else {
+      customTimeZoneInfoData = null;
+    }
+
+    if (json.containsKey('Dml3DEffectsRenderingMode')) {
+      switch (json['Dml3DEffectsRenderingMode'] as String) {
+        case 'Basic': dml3DEffectsRenderingMode = SaveOptionsData_Dml3DEffectsRenderingModeEnum.basic; break;
+        case 'Advanced': dml3DEffectsRenderingMode = SaveOptionsData_Dml3DEffectsRenderingModeEnum.advanced; break;
+        default: dml3DEffectsRenderingMode = null; break;
+      }
+    } else {
+      dml3DEffectsRenderingMode = null;
+    }
+
+    if (json.containsKey('DmlEffectsRenderingMode')) {
+      dmlEffectsRenderingMode = json['DmlEffectsRenderingMode'] as String;
+    } else {
+      dmlEffectsRenderingMode = null;
+    }
+
+    if (json.containsKey('DmlRenderingMode')) {
+      dmlRenderingMode = json['DmlRenderingMode'] as String;
+    } else {
+      dmlRenderingMode = null;
+    }
+
+    if (json.containsKey('FileName')) {
+      fileName = json['FileName'] as String;
+    } else {
+      fileName = null;
+    }
+
+    if (json.containsKey('FlatOpcXmlMappingOnly')) {
+      flatOpcXmlMappingOnly = json['FlatOpcXmlMappingOnly'] as bool;
+    } else {
+      flatOpcXmlMappingOnly = null;
+    }
+
+    if (json.containsKey('ImlRenderingMode')) {
+      imlRenderingMode = json['ImlRenderingMode'] as String;
+    } else {
+      imlRenderingMode = null;
+    }
+
+    if (json.containsKey('UpdateCreatedTimeProperty')) {
+      updateCreatedTimeProperty = json['UpdateCreatedTimeProperty'] as bool;
+    } else {
+      updateCreatedTimeProperty = null;
+    }
+
+    if (json.containsKey('UpdateFields')) {
+      updateFields = json['UpdateFields'] as bool;
+    } else {
+      updateFields = null;
+    }
+
+    if (json.containsKey('UpdateLastPrintedProperty')) {
+      updateLastPrintedProperty = json['UpdateLastPrintedProperty'] as bool;
+    } else {
+      updateLastPrintedProperty = null;
+    }
+
+    if (json.containsKey('UpdateLastSavedTimeProperty')) {
+      updateLastSavedTimeProperty = json['UpdateLastSavedTimeProperty'] as bool;
+    } else {
+      updateLastSavedTimeProperty = null;
+    }
+
+    if (json.containsKey('UpdateSdtContent')) {
+      updateSdtContent = json['UpdateSdtContent'] as bool;
+    } else {
+      updateSdtContent = null;
+    }
+
+    if (json.containsKey('ZipOutput')) {
+      zipOutput = json['ZipOutput'] as bool;
+    } else {
+      zipOutput = null;
+    }
+
+    if (json.containsKey('ColorMode')) {
+      colorMode = json['ColorMode'] as String;
+    } else {
+      colorMode = null;
+    }
+
+    if (json.containsKey('JpegQuality')) {
+      jpegQuality = json['JpegQuality'] as int;
+    } else {
+      jpegQuality = null;
+    }
+
+    if (json.containsKey('MetafileRenderingOptions')) {
+      metafileRenderingOptions = MetafileRenderingOptionsData();
+      metafileRenderingOptions.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
+    } else {
+      metafileRenderingOptions = null;
+    }
+
+    if (json.containsKey('NumeralFormat')) {
+      numeralFormat = json['NumeralFormat'] as String;
+    } else {
+      numeralFormat = null;
+    }
+
+    if (json.containsKey('OptimizeOutput')) {
+      optimizeOutput = json['OptimizeOutput'] as bool;
+    } else {
+      optimizeOutput = null;
+    }
+
+    if (json.containsKey('PageCount')) {
+      pageCount = json['PageCount'] as int;
+    } else {
+      pageCount = null;
+    }
+
+    if (json.containsKey('PageIndex')) {
+      pageIndex = json['PageIndex'] as int;
+    } else {
+      pageIndex = null;
+    }
+
     if (json.containsKey('ResourcesFolder')) {
       resourcesFolder = json['ResourcesFolder'] as String;
     } else {
@@ -68,6 +215,10 @@ class XamlFixedSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (resourcesFolderAlias != null) {
       _result['ResourcesFolderAlias'] = resourcesFolderAlias;
+    }
+
+    if (saveFormat != null) {
+      _result['SaveFormat'] = saveFormat;
     }
     return _result;
   }

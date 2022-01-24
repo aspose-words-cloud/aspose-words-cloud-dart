@@ -39,6 +39,11 @@ class DocumentPropertyCreateOrUpdate extends DocumentPropertyBase {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Value')) {
+      value = json['Value'] as String;
+    } else {
+      value = null;
+    }
   }
 
   @override

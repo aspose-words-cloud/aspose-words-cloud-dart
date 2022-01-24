@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a field.
 class FieldResponse extends WordsResponse {
   /// Gets or sets the field.
-  Field field;
+  Field _field;
+
+  Field get field => _field;
+  set field(Field val) => _field = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,12 @@ class FieldResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('Field')) {
       field = Field();
       field.deserialize(json['Field'] as Map<String, dynamic>);

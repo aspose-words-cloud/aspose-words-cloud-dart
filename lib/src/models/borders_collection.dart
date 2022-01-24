@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The collection of borders.
 class BordersCollection extends LinkElement {
   /// Gets or sets the collection of comments.
-  List<Border> list;
+  List<Border> _list;
+
+  List<Border> get list => _list;
+  set list(List<Border> val) => _list = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,13 @@ class BordersCollection extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('List')) {
       // Array processing
       list = <Border>[];

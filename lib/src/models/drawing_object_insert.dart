@@ -32,28 +32,60 @@ import '../../aspose_words_cloud.dart';
 /// Drawing object element for insert.
 class DrawingObjectInsert implements ModelBase {
   /// Gets or sets the height of the DrawingObject in points.
-  double height;
+  double _height;
+
+  double get height => _height;
+  set height(double val) => _height = val;
+
 
   /// Gets or sets the distance in points from the origin to the left side of the image.
-  double left;
+  double _left;
+
+  double get left => _left;
+  set left(double val) => _left = val;
+
 
   /// Gets or sets the position, before which the DrawingObject will be inserted.
-  DocumentPosition position;
+  DocumentPosition _position;
+
+  DocumentPosition get position => _position;
+  set position(DocumentPosition val) => _position = val;
+
 
   /// Gets or sets the relative horizontal position, from which the distance to the image is measured.
-  DrawingObjectInsert_RelativeHorizontalPositionEnum relativeHorizontalPosition;
+  DrawingObjectInsert_RelativeHorizontalPositionEnum _relativeHorizontalPosition;
+
+  DrawingObjectInsert_RelativeHorizontalPositionEnum get relativeHorizontalPosition => _relativeHorizontalPosition;
+  set relativeHorizontalPosition(DrawingObjectInsert_RelativeHorizontalPositionEnum val) => _relativeHorizontalPosition = val;
+
 
   /// Gets or sets the relative vertical position, from which the distance to the image is measured.
-  DrawingObjectInsert_RelativeVerticalPositionEnum relativeVerticalPosition;
+  DrawingObjectInsert_RelativeVerticalPositionEnum _relativeVerticalPosition;
+
+  DrawingObjectInsert_RelativeVerticalPositionEnum get relativeVerticalPosition => _relativeVerticalPosition;
+  set relativeVerticalPosition(DrawingObjectInsert_RelativeVerticalPositionEnum val) => _relativeVerticalPosition = val;
+
 
   /// Gets or sets the distance in points from the origin to the top side of the image.
-  double top;
+  double _top;
+
+  double get top => _top;
+  set top(double val) => _top = val;
+
 
   /// Gets or sets the width of the DrawingObjects in points.
-  double width;
+  double _width;
+
+  double get width => _width;
+  set width(double val) => _width = val;
+
 
   /// Gets or sets the option indicating how to wrap text around the image.
-  DrawingObjectInsert_WrapTypeEnum wrapType;
+  DrawingObjectInsert_WrapTypeEnum _wrapType;
+
+  DrawingObjectInsert_WrapTypeEnum get wrapType => _wrapType;
+  set wrapType(DrawingObjectInsert_WrapTypeEnum val) => _wrapType = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

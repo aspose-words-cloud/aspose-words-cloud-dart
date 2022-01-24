@@ -32,22 +32,46 @@ import '../../aspose_words_cloud.dart';
 /// Represents Words document DTO.
 class Document implements ModelBase {
   /// Gets or sets the document properties.
-  DocumentProperties documentProperties;
+  DocumentProperties _documentProperties;
+
+  DocumentProperties get documentProperties => _documentProperties;
+  set documentProperties(DocumentProperties val) => _documentProperties = val;
+
 
   /// Gets or sets the name of the file.
-  String fileName;
+  String _fileName;
+
+  String get fileName => _fileName;
+  set fileName(String val) => _fileName = val;
+
 
   /// Gets or sets a value indicating whether the document is encrypted and requires a password to open.
-  bool isEncrypted;
+  bool _isEncrypted;
+
+  bool get isEncrypted => _isEncrypted;
+  set isEncrypted(bool val) => _isEncrypted = val;
+
 
   /// Gets or sets a value indicating whether the document contains a digital signature. This property merely informs that a digital signature is present on a document, but it does not specify whether the signature is valid or not.
-  bool isSigned;
+  bool _isSigned;
+
+  bool get isSigned => _isSigned;
+  set isSigned(bool val) => _isSigned = val;
+
 
   /// Gets or sets the list of links that originate from this document.
-  List<Link> links;
+  List<Link> _links;
+
+  List<Link> get links => _links;
+  set links(List<Link> val) => _links = val;
+
 
   /// Gets or sets the original format of the document.
-  Document_SourceFormatEnum sourceFormat;
+  Document_SourceFormatEnum _sourceFormat;
+
+  Document_SourceFormatEnum get sourceFormat => _sourceFormat;
+  set sourceFormat(Document_SourceFormatEnum val) => _sourceFormat = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

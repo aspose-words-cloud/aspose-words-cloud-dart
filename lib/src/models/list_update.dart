@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// Update document properties if document list.
 class ListUpdate implements ModelBase {
   /// Gets or sets a value indicating whether list should be restarted at each section. The default value is false.
-  bool isRestartAtEachSection;
+  bool _isRestartAtEachSection;
+
+  bool get isRestartAtEachSection => _isRestartAtEachSection;
+  set isRestartAtEachSection(bool val) => _isRestartAtEachSection = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

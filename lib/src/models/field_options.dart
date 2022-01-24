@@ -32,45 +32,97 @@ import '../../aspose_words_cloud.dart';
 /// DTO for field options.
 class FieldOptions implements ModelBase {
   /// Gets or sets BuiltIn Templates Paths.
-  List<String> builtInTemplatesPaths;
+  List<String> _builtInTemplatesPaths;
+
+  List<String> get builtInTemplatesPaths => _builtInTemplatesPaths;
+  set builtInTemplatesPaths(List<String> val) => _builtInTemplatesPaths = val;
+
 
   /// Gets or sets Curren tUser.
-  UserInformation currentUser;
+  UserInformation _currentUser;
+
+  UserInformation get currentUser => _currentUser;
+  set currentUser(UserInformation val) => _currentUser = val;
+
 
   /// Gets or sets Custom Toc Style Separator.
-  String customTocStyleSeparator;
+  String _customTocStyleSeparator;
+
+  String get customTocStyleSeparator => _customTocStyleSeparator;
+  set customTocStyleSeparator(String val) => _customTocStyleSeparator = val;
+
 
   /// Gets or sets Default Document Author.
-  String defaultDocumentAuthor;
+  String _defaultDocumentAuthor;
+
+  String get defaultDocumentAuthor => _defaultDocumentAuthor;
+  set defaultDocumentAuthor(String val) => _defaultDocumentAuthor = val;
+
 
   /// Gets or sets Field Index Format.
-  FieldOptions_FieldIndexFormatEnum fieldIndexFormat;
+  FieldOptions_FieldIndexFormatEnum _fieldIndexFormat;
+
+  FieldOptions_FieldIndexFormatEnum get fieldIndexFormat => _fieldIndexFormat;
+  set fieldIndexFormat(FieldOptions_FieldIndexFormatEnum val) => _fieldIndexFormat = val;
+
 
   /// Gets or sets Field Update Culture Name.
   /// It is used for all fields if FieldUpdateCultureSource is FieldCode.
-  String fieldUpdateCultureName;
+  String _fieldUpdateCultureName;
+
+  String get fieldUpdateCultureName => _fieldUpdateCultureName;
+  set fieldUpdateCultureName(String val) => _fieldUpdateCultureName = val;
+
 
   /// Gets or sets Field Update Culture Source.
-  FieldOptions_FieldUpdateCultureSourceEnum fieldUpdateCultureSource;
+  FieldOptions_FieldUpdateCultureSourceEnum _fieldUpdateCultureSource;
+
+  FieldOptions_FieldUpdateCultureSourceEnum get fieldUpdateCultureSource => _fieldUpdateCultureSource;
+  set fieldUpdateCultureSource(FieldOptions_FieldUpdateCultureSourceEnum val) => _fieldUpdateCultureSource = val;
+
 
   /// Gets or sets File Name.
-  String fileName;
+  String _fileName;
+
+  String get fileName => _fileName;
+  set fileName(String val) => _fileName = val;
+
 
   /// Gets or sets if Bidi Text Supported OnUpdate.
-  bool isBidiTextSupportedOnUpdate;
+  bool _isBidiTextSupportedOnUpdate;
+
+  bool get isBidiTextSupportedOnUpdate => _isBidiTextSupportedOnUpdate;
+  set isBidiTextSupportedOnUpdate(bool val) => _isBidiTextSupportedOnUpdate = val;
+
 
   /// Gets or sets if Legacy Number Format.
-  bool legacyNumberFormat;
+  bool _legacyNumberFormat;
+
+  bool get legacyNumberFormat => _legacyNumberFormat;
+  set legacyNumberFormat(bool val) => _legacyNumberFormat = val;
+
 
   /// Gets or sets PreProcess Culture Name.
   /// It is a culture code for DOC fields.
-  String preProcessCultureName;
+  String _preProcessCultureName;
+
+  String get preProcessCultureName => _preProcessCultureName;
+  set preProcessCultureName(String val) => _preProcessCultureName = val;
+
 
   /// Gets or sets Template Name.
-  String templateName;
+  String _templateName;
+
+  String get templateName => _templateName;
+  set templateName(String val) => _templateName = val;
+
 
   /// Gets or sets if Use Invariant Culture Number Format.
-  bool useInvariantCultureNumberFormat;
+  bool _useInvariantCultureNumberFormat;
+
+  bool get useInvariantCultureNumberFormat => _useInvariantCultureNumberFormat;
+  set useInvariantCultureNumberFormat(bool val) => _useInvariantCultureNumberFormat = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

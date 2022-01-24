@@ -32,10 +32,18 @@ import '../../aspose_words_cloud.dart';
 /// File upload result.
 class FilesUploadResult implements ModelBase {
   /// List of errors.
-  List<Error> errors;
+  List<Error> _errors;
+
+  List<Error> get errors => _errors;
+  set errors(List<Error> val) => _errors = val;
+
 
   /// List of uploaded file names.
-  List<String> uploaded;
+  List<String> _uploaded;
+
+  List<String> get uploaded => _uploaded;
+  set uploaded(List<String> val) => _uploaded = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

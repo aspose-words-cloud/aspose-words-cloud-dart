@@ -32,13 +32,25 @@ import '../../aspose_words_cloud.dart';
 /// Response with API info.
 class InfoResponse extends WordsResponse {
   /// Gets or sets additional info.
-  List<InfoAdditionalItem> additionalInfo;
+  List<InfoAdditionalItem> _additionalInfo;
+
+  List<InfoAdditionalItem> get additionalInfo => _additionalInfo;
+  set additionalInfo(List<InfoAdditionalItem> val) => _additionalInfo = val;
+
 
   /// Gets or sets application name.
-  String name;
+  String _name;
+
+  String get name => _name;
+  set name(String val) => _name = val;
+
 
   /// Gets or sets version.
-  String version;
+  String _version;
+
+  String get version => _version;
+  set version(String val) => _version = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -47,6 +59,12 @@ class InfoResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('AdditionalInfo')) {
       // Array processing
       additionalInfo = <InfoAdditionalItem>[];

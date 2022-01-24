@@ -32,10 +32,18 @@ import '../../aspose_words_cloud.dart';
 /// Class for insert watermark text request building.
 class WatermarkText implements ModelBase {
   /// Gets or sets the watermark rotation angle.
-  double rotationAngle;
+  double _rotationAngle;
+
+  double get rotationAngle => _rotationAngle;
+  set rotationAngle(double val) => _rotationAngle = val;
+
 
   /// Gets or sets the watermark text.
-  String text;
+  String _text;
+
+  String get text => _text;
+  set text(String val) => _text = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

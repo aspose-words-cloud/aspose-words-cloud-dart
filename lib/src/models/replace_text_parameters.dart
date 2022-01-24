@@ -32,19 +32,39 @@ import '../../aspose_words_cloud.dart';
 /// Class for document replace text request building.
 class ReplaceTextParameters implements ModelBase {
   /// Gets or sets a value indicating whether flag, true means the search is case-sensitive; false means the search is not case-sensitive.
-  bool isMatchCase;
+  bool _isMatchCase;
+
+  bool get isMatchCase => _isMatchCase;
+  set isMatchCase(bool val) => _isMatchCase = val;
+
 
   /// Gets or sets a value indicating whether flag, means that only whole word matched are replaced.
-  bool isMatchWholeWord;
+  bool _isMatchWholeWord;
+
+  bool get isMatchWholeWord => _isMatchWholeWord;
+  set isMatchWholeWord(bool val) => _isMatchWholeWord = val;
+
 
   /// Gets or sets a value indicating whether flag, means that OldValue contains regex expression.
-  bool isOldValueRegex;
+  bool _isOldValueRegex;
+
+  bool get isOldValueRegex => _isOldValueRegex;
+  set isOldValueRegex(bool val) => _isOldValueRegex = val;
+
 
   /// Gets or sets the new text value to replace by.
-  String newValue;
+  String _newValue;
+
+  String get newValue => _newValue;
+  set newValue(String val) => _newValue = val;
+
 
   /// Gets or sets the old text value (or regex pattern IsOldValueRegex) to replace.
-  String oldValue;
+  String _oldValue;
+
+  String get oldValue => _oldValue;
+  set oldValue(String val) => _oldValue = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a save result.
 class SaveResponse extends WordsResponse {
   /// Gets or sets the save result.
-  SaveResult saveResult;
+  SaveResult _saveResult;
+
+  SaveResult get saveResult => _saveResult;
+  set saveResult(SaveResult val) => _saveResult = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,12 @@ class SaveResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('SaveResult')) {
       saveResult = SaveResult();
       saveResult.deserialize(json['SaveResult'] as Map<String, dynamic>);
