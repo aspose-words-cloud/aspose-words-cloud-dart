@@ -175,6 +175,7 @@ export 'src/models/office_math_object_response.dart';
 export 'src/models/office_math_objects_collection.dart';
 export 'src/models/office_math_objects_response.dart';
 export 'src/models/ooxml_save_options_data.dart';
+export 'src/models/open_xps_save_options_data.dart';
 export 'src/models/optimization_options.dart';
 export 'src/models/ott_save_options_data.dart';
 export 'src/models/outline_options_data.dart';
