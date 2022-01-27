@@ -32,20 +32,40 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a footnote.
 class Footnote extends FootnoteLink {
   /// Gets or sets the content of the footnote.
-  StoryChildNodes content;
+  StoryChildNodes _content;
+
+  StoryChildNodes get content => _content;
+  set content(StoryChildNodes val) => _content = val;
+
 
   /// Gets or sets the value, that specifies whether this is a footnote or endnote.
-  Footnote_FootnoteTypeEnum footnoteType;
+  Footnote_FootnoteTypeEnum _footnoteType;
+
+  Footnote_FootnoteTypeEnum get footnoteType => _footnoteType;
+  set footnoteType(Footnote_FootnoteTypeEnum val) => _footnoteType = val;
+
 
   /// Gets or sets the link to comment range start node.
-  DocumentPosition position;
+  DocumentPosition _position;
+
+  DocumentPosition get position => _position;
+  set position(DocumentPosition val) => _position = val;
+
 
   /// Gets or sets the custom reference mark to be used for this footnote.
   /// Default value is Empty, meaning auto-numbered footnotes are used.
-  String referenceMark;
+  String _referenceMark;
+
+  String get referenceMark => _referenceMark;
+  set referenceMark(String val) => _referenceMark = val;
+
 
   /// Gets or sets text of the footnote.
-  String text;
+  String _text;
+
+  String get text => _text;
+  set text(String val) => _text = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -54,6 +74,19 @@ class Footnote extends FootnoteLink {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
+    if (json.containsKey('NodeId')) {
+      nodeId = json['NodeId'] as String;
+    } else {
+      nodeId = null;
+    }
+
     if (json.containsKey('Content')) {
       content = StoryChildNodes();
       content.deserialize(json['Content'] as Map<String, dynamic>);

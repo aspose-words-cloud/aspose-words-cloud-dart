@@ -32,10 +32,18 @@ import '../../aspose_words_cloud.dart';
 /// REST response for RSA public key info.
 class PublicKeyResponse extends WordsResponse {
   /// Gets or sets RSA key exponent as Base64 string.
-  String exponent;
+  String _exponent;
+
+  String get exponent => _exponent;
+  set exponent(String val) => _exponent = val;
+
 
   /// Gets or sets RSA key modulus as Base64 string.
-  String modulus;
+  String _modulus;
+
+  String get modulus => _modulus;
+  set modulus(String val) => _modulus = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -44,6 +52,12 @@ class PublicKeyResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('Exponent')) {
       exponent = json['Exponent'] as String;
     } else {

@@ -32,19 +32,39 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a section element.
 class Section extends LinkElement {
   /// Gets or sets the list of child nodes.
-  List<NodeLink> childNodes;
+  List<NodeLink> _childNodes;
+
+  List<NodeLink> get childNodes => _childNodes;
+  set childNodes(List<NodeLink> val) => _childNodes = val;
+
 
   /// Gets or sets the link to HeaderFooters resource.
-  LinkElement headerFooters;
+  LinkElement _headerFooters;
+
+  LinkElement get headerFooters => _headerFooters;
+  set headerFooters(LinkElement val) => _headerFooters = val;
+
 
   /// Gets or sets the link to PageSetup resource.
-  LinkElement pageSetup;
+  LinkElement _pageSetup;
+
+  LinkElement get pageSetup => _pageSetup;
+  set pageSetup(LinkElement val) => _pageSetup = val;
+
 
   /// Gets or sets the link to Paragraphs resource.
-  LinkElement paragraphs;
+  LinkElement _paragraphs;
+
+  LinkElement get paragraphs => _paragraphs;
+  set paragraphs(LinkElement val) => _paragraphs = val;
+
 
   /// Gets or sets the link to Tables resource.
-  LinkElement tables;
+  LinkElement _tables;
+
+  LinkElement get tables => _tables;
+  set tables(LinkElement val) => _tables = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -53,6 +73,13 @@ class Section extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('ChildNodes')) {
       // Array processing
       childNodes = <NodeLink>[];

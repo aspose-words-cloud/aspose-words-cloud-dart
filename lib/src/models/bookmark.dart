@@ -32,10 +32,18 @@ import '../../aspose_words_cloud.dart';
 /// Represents a single bookmark.
 class Bookmark extends LinkElement {
   /// Gets or sets the name of the bookmark.
-  String name;
+  String _name;
+
+  String get name => _name;
+  set name(String val) => _name = val;
+
 
   /// Gets or sets text, enclosed in the bookmark.
-  String text;
+  String _text;
+
+  String get text => _text;
+  set text(String val) => _text = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -44,6 +52,13 @@ class Bookmark extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('Name')) {
       name = json['Name'] as String;
     } else {

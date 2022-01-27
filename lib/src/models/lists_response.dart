@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a collection of lists, contained in the document.
 class ListsResponse extends WordsResponse {
   /// Gets or sets the collection of lists, contained in the document.
-  Lists lists;
+  Lists _lists;
+
+  Lists get lists => _lists;
+  set lists(Lists val) => _lists = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,12 @@ class ListsResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('Lists')) {
       lists = Lists();
       lists.deserialize(json['Lists'] as Map<String, dynamic>);

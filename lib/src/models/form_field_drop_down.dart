@@ -32,10 +32,18 @@ import '../../aspose_words_cloud.dart';
 /// FormField dropdownlist element.
 class FormFieldDropDown extends FormField {
   /// Gets or sets the items array of a dropdown form field.
-  List<String> dropDownItems;
+  List<String> _dropDownItems;
+
+  List<String> get dropDownItems => _dropDownItems;
+  set dropDownItems(List<String> val) => _dropDownItems = val;
+
 
   /// Gets or sets the index specifying the currently selected item in a dropdown form field.
-  int dropDownSelectedIndex;
+  int _dropDownSelectedIndex;
+
+  int get dropDownSelectedIndex => _dropDownSelectedIndex;
+  set dropDownSelectedIndex(int val) => _dropDownSelectedIndex = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -44,6 +52,73 @@ class FormFieldDropDown extends FormField {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
+    if (json.containsKey('NodeId')) {
+      nodeId = json['NodeId'] as String;
+    } else {
+      nodeId = null;
+    }
+
+    if (json.containsKey('CalculateOnExit')) {
+      calculateOnExit = json['CalculateOnExit'] as bool;
+    } else {
+      calculateOnExit = null;
+    }
+
+    if (json.containsKey('Enabled')) {
+      enabled = json['Enabled'] as bool;
+    } else {
+      enabled = null;
+    }
+
+    if (json.containsKey('EntryMacro')) {
+      entryMacro = json['EntryMacro'] as String;
+    } else {
+      entryMacro = null;
+    }
+
+    if (json.containsKey('ExitMacro')) {
+      exitMacro = json['ExitMacro'] as String;
+    } else {
+      exitMacro = null;
+    }
+
+    if (json.containsKey('HelpText')) {
+      helpText = json['HelpText'] as String;
+    } else {
+      helpText = null;
+    }
+
+    if (json.containsKey('Name')) {
+      name = json['Name'] as String;
+    } else {
+      name = null;
+    }
+
+    if (json.containsKey('OwnHelp')) {
+      ownHelp = json['OwnHelp'] as bool;
+    } else {
+      ownHelp = null;
+    }
+
+    if (json.containsKey('OwnStatus')) {
+      ownStatus = json['OwnStatus'] as bool;
+    } else {
+      ownStatus = null;
+    }
+
+    if (json.containsKey('StatusText')) {
+      statusText = json['StatusText'] as String;
+    } else {
+      statusText = null;
+    }
+
     if (json.containsKey('DropDownItems')) {
       // Array processing
       dropDownItems = <String>[];

@@ -32,13 +32,25 @@ import '../../aspose_words_cloud.dart';
 /// Request on changing of protection.
 class ProtectionRequest implements ModelBase {
   /// Gets or sets the new password.
-  String newPassword;
+  String _newPassword;
+
+  String get newPassword => _newPassword;
+  set newPassword(String val) => _newPassword = val;
+
 
   /// Gets or sets the current password.
-  String password;
+  String _password;
+
+  String get password => _password;
+  set password(String val) => _password = val;
+
 
   /// Gets or sets the new type of protection.
-  String protectionType;
+  String _protectionType;
+
+  String get protectionType => _protectionType;
+  set protectionType(String val) => _protectionType = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

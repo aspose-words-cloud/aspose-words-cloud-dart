@@ -33,13 +33,25 @@ import '../../aspose_words_cloud.dart';
 class DocumentProperty extends LinkElement {
   /// Gets or sets a value indicating whether the property is built-in or not.
   /// If true the property is built-in, if false the property is custom.
-  bool builtIn;
+  bool _builtIn;
+
+  bool get builtIn => _builtIn;
+  set builtIn(bool val) => _builtIn = val;
+
 
   /// Gets or sets the name of the document property.
-  String name;
+  String _name;
+
+  String get name => _name;
+  set name(String val) => _name = val;
+
 
   /// Gets or sets the value of the document property.
-  String value;
+  String _value;
+
+  String get value => _value;
+  set value(String val) => _value = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -48,6 +60,13 @@ class DocumentProperty extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('BuiltIn')) {
       builtIn = json['BuiltIn'] as bool;
     } else {

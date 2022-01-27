@@ -39,6 +39,29 @@ class FileLink extends Link {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Href')) {
+      href = json['Href'] as String;
+    } else {
+      href = null;
+    }
+
+    if (json.containsKey('Rel')) {
+      rel = json['Rel'] as String;
+    } else {
+      rel = null;
+    }
+
+    if (json.containsKey('Title')) {
+      title = json['Title'] as String;
+    } else {
+      title = null;
+    }
+
+    if (json.containsKey('Type')) {
+      type = json['Type'] as String;
+    } else {
+      type = null;
+    }
   }
 
   @override

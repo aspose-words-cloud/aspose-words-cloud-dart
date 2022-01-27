@@ -32,10 +32,18 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a field.
 class Field extends FieldLink {
   /// Gets or sets the LCID of the field.
-  String localeId;
+  String _localeId;
+
+  String get localeId => _localeId;
+  set localeId(String val) => _localeId = val;
+
 
   /// Gets or sets the field result.
-  String result;
+  String _result;
+
+  String get result => _result;
+  set result(String val) => _result = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -44,6 +52,25 @@ class Field extends FieldLink {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
+    if (json.containsKey('NodeId')) {
+      nodeId = json['NodeId'] as String;
+    } else {
+      nodeId = null;
+    }
+
+    if (json.containsKey('FieldCode')) {
+      fieldCode = json['FieldCode'] as String;
+    } else {
+      fieldCode = null;
+    }
+
     if (json.containsKey('LocaleId')) {
       localeId = json['LocaleId'] as String;
     } else {

@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The base class for all responses.
 class WordsResponse implements ModelBase {
   /// Gets or sets the request Id.
-  String requestId;
+  String _requestId;
+
+  String get requestId => _requestId;
+  set requestId(String val) => _requestId = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

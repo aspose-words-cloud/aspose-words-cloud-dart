@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a collection of form fields.
 class FormFieldsResponse extends WordsResponse {
   /// Gets or sets the collection of form fields.
-  FormFieldCollection formFields;
+  FormFieldCollection _formFields;
+
+  FormFieldCollection get formFields => _formFields;
+  set formFields(FormFieldCollection val) => _formFields = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,12 @@ class FormFieldsResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('FormFields')) {
       formFields = FormFieldCollection();
       formFields.deserialize(json['FormFields'] as Map<String, dynamic>);

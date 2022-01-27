@@ -32,13 +32,25 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a paragraph format shading element.
 class Shading implements ModelBase {
   /// Gets or sets the color that's applied to the background of the Shading object.
-  XmlColor backgroundPatternColor;
+  XmlColor _backgroundPatternColor;
+
+  XmlColor get backgroundPatternColor => _backgroundPatternColor;
+  set backgroundPatternColor(XmlColor val) => _backgroundPatternColor = val;
+
 
   /// Gets or sets the color that's applied to the foreground of the Shading object.
-  XmlColor foregroundPatternColor;
+  XmlColor _foregroundPatternColor;
+
+  XmlColor get foregroundPatternColor => _foregroundPatternColor;
+  set foregroundPatternColor(XmlColor val) => _foregroundPatternColor = val;
+
 
   /// Gets or sets the shading texture.
-  Shading_TextureEnum texture;
+  Shading_TextureEnum _texture;
+
+  Shading_TextureEnum get texture => _texture;
+  set texture(Shading_TextureEnum val) => _texture = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

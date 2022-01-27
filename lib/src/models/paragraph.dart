@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a paragraph element.
 class Paragraph extends NodeLink {
   /// Gets or sets the list of child nodes.
-  List<NodeLink> childNodes;
+  List<NodeLink> _childNodes;
+
+  List<NodeLink> get childNodes => _childNodes;
+  set childNodes(List<NodeLink> val) => _childNodes = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,19 @@ class Paragraph extends NodeLink {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
+    if (json.containsKey('NodeId')) {
+      nodeId = json['NodeId'] as String;
+    } else {
+      nodeId = null;
+    }
+
     if (json.containsKey('ChildNodes')) {
       // Array processing
       childNodes = <NodeLink>[];

@@ -32,10 +32,18 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a table element.
 class Table extends NodeLink {
   /// Gets or sets table properties.
-  TableProperties tableProperties;
+  TableProperties _tableProperties;
+
+  TableProperties get tableProperties => _tableProperties;
+  set tableProperties(TableProperties val) => _tableProperties = val;
+
 
   /// Gets or sets the collection of table's rows.
-  List<TableRow> tableRowList;
+  List<TableRow> _tableRowList;
+
+  List<TableRow> get tableRowList => _tableRowList;
+  set tableRowList(List<TableRow> val) => _tableRowList = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -44,6 +52,19 @@ class Table extends NodeLink {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
+    if (json.containsKey('NodeId')) {
+      nodeId = json['NodeId'] as String;
+    } else {
+      nodeId = null;
+    }
+
     if (json.containsKey('TableProperties')) {
       tableProperties = TableProperties();
       tableProperties.deserialize(json['TableProperties'] as Map<String, dynamic>);

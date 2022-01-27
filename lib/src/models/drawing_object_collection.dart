@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a collection of DrawingObjects links.
 class DrawingObjectCollection extends LinkElement {
   /// Gets or sets the collection of DrawingObjects links.
-  List<LinkElement> list;
+  List<LinkElement> _list;
+
+  List<LinkElement> get list => _list;
+  set list(List<LinkElement> val) => _list = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,13 @@ class DrawingObjectCollection extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('List')) {
       // Array processing
       list = <LinkElement>[];

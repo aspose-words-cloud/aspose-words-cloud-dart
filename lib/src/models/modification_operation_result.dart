@@ -32,10 +32,18 @@ import '../../aspose_words_cloud.dart';
 /// result of the operation which modifies the original document and saves the result.
 class ModificationOperationResult implements ModelBase {
   /// Gets or sets the link to the dest document (result of the modification operation).
-  FileLink dest;
+  FileLink _dest;
+
+  FileLink get dest => _dest;
+  set dest(FileLink val) => _dest = val;
+
 
   /// Gets or sets the link to the source document (source for the modification operation).
-  FileLink source;
+  FileLink _source;
+
+  FileLink get source => _source;
+  set source(FileLink val) => _source = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

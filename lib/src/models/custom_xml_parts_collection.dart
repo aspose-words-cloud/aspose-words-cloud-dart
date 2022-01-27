@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The collection of CustomXmlPart.
 class CustomXmlPartsCollection extends LinkElement {
   /// Gets or sets the collection of CustomXmlPart.
-  List<CustomXmlPart> customXmlPartsList;
+  List<CustomXmlPart> _customXmlPartsList;
+
+  List<CustomXmlPart> get customXmlPartsList => _customXmlPartsList;
+  set customXmlPartsList(List<CustomXmlPart> val) => _customXmlPartsList = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,13 @@ class CustomXmlPartsCollection extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('CustomXmlPartsList')) {
       // Array processing
       customXmlPartsList = <CustomXmlPart>[];

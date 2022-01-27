@@ -32,13 +32,25 @@ import '../../aspose_words_cloud.dart';
 /// FormField checkbox element.
 class FormFieldCheckbox extends FormField {
   /// Gets or sets the size of the checkbox in points. Has effect only when IsCheckBoxExactSize is true.
-  double checkBoxSize;
+  double _checkBoxSize;
+
+  double get checkBoxSize => _checkBoxSize;
+  set checkBoxSize(double val) => _checkBoxSize = val;
+
 
   /// Gets or sets the checked status of the check box form field.
-  bool checked;
+  bool _checked;
+
+  bool get checked => _checked;
+  set checked(bool val) => _checked = val;
+
 
   /// Gets or sets a value indicating whether the size of the textbox is automatic or specified explicitly.
-  bool isCheckBoxExactSize;
+  bool _isCheckBoxExactSize;
+
+  bool get isCheckBoxExactSize => _isCheckBoxExactSize;
+  set isCheckBoxExactSize(bool val) => _isCheckBoxExactSize = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -47,6 +59,73 @@ class FormFieldCheckbox extends FormField {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
+    if (json.containsKey('NodeId')) {
+      nodeId = json['NodeId'] as String;
+    } else {
+      nodeId = null;
+    }
+
+    if (json.containsKey('CalculateOnExit')) {
+      calculateOnExit = json['CalculateOnExit'] as bool;
+    } else {
+      calculateOnExit = null;
+    }
+
+    if (json.containsKey('Enabled')) {
+      enabled = json['Enabled'] as bool;
+    } else {
+      enabled = null;
+    }
+
+    if (json.containsKey('EntryMacro')) {
+      entryMacro = json['EntryMacro'] as String;
+    } else {
+      entryMacro = null;
+    }
+
+    if (json.containsKey('ExitMacro')) {
+      exitMacro = json['ExitMacro'] as String;
+    } else {
+      exitMacro = null;
+    }
+
+    if (json.containsKey('HelpText')) {
+      helpText = json['HelpText'] as String;
+    } else {
+      helpText = null;
+    }
+
+    if (json.containsKey('Name')) {
+      name = json['Name'] as String;
+    } else {
+      name = null;
+    }
+
+    if (json.containsKey('OwnHelp')) {
+      ownHelp = json['OwnHelp'] as bool;
+    } else {
+      ownHelp = null;
+    }
+
+    if (json.containsKey('OwnStatus')) {
+      ownStatus = json['OwnStatus'] as bool;
+    } else {
+      ownStatus = null;
+    }
+
+    if (json.containsKey('StatusText')) {
+      statusText = json['StatusText'] as String;
+    } else {
+      statusText = null;
+    }
+
     if (json.containsKey('CheckBoxSize')) {
       checkBoxSize = json['CheckBoxSize'] as double;
     } else {

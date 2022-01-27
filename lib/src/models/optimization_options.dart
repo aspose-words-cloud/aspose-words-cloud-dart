@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// Container class for the document optimization options.
 class OptimizationOptions implements ModelBase {
   /// Gets or sets the specific MSWord version.
-  OptimizationOptions_MsWordVersionEnum msWordVersion;
+  OptimizationOptions_MsWordVersionEnum _msWordVersion;
+
+  OptimizationOptions_MsWordVersionEnum get msWordVersion => _msWordVersion;
+  set msWordVersion(OptimizationOptions_MsWordVersionEnum val) => _msWordVersion = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

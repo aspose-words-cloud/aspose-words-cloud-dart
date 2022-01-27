@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a collection of custom xml parts.
 class CustomXmlPartsResponse extends WordsResponse {
   /// Gets or sets the collection of comments.
-  CustomXmlPartsCollection customXmlParts;
+  CustomXmlPartsCollection _customXmlParts;
+
+  CustomXmlPartsCollection get customXmlParts => _customXmlParts;
+  set customXmlParts(CustomXmlPartsCollection val) => _customXmlParts = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,12 @@ class CustomXmlPartsResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('CustomXmlParts')) {
       customXmlParts = CustomXmlPartsCollection();
       customXmlParts.deserialize(json['CustomXmlParts'] as Map<String, dynamic>);

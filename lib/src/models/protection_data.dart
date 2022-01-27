@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// Container for the data about protection of the document.
 class ProtectionData implements ModelBase {
   /// Gets or sets type of the protection.
-  String protectionType;
+  String _protectionType;
+
+  String get protectionType => _protectionType;
+  set protectionType(String val) => _protectionType = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

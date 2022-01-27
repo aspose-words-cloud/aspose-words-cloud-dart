@@ -32,16 +32,32 @@ import '../../aspose_words_cloud.dart';
 /// Container class for docx/docm/dotx/dotm/flatopc save options.
 class OoxmlSaveOptionsData extends SaveOptionsData {
   /// Gets or sets the oOXML version for the output document.
-  String compliance;
+  String _compliance;
+
+  String get compliance => _compliance;
+  set compliance(String val) => _compliance = val;
+
 
   /// Gets or sets the compression level.
-  OoxmlSaveOptionsData_CompressionLevelEnum compressionLevel;
+  OoxmlSaveOptionsData_CompressionLevelEnum _compressionLevel;
+
+  OoxmlSaveOptionsData_CompressionLevelEnum get compressionLevel => _compressionLevel;
+  set compressionLevel(OoxmlSaveOptionsData_CompressionLevelEnum val) => _compressionLevel = val;
+
 
   /// Gets or sets the password to encrypt document using ECMA376 Standard encryption algorithm.
-  String password;
+  String _password;
+
+  String get password => _password;
+  set password(String val) => _password = val;
+
 
   /// Gets or sets a value indicating whether to use pretty formats output.
-  bool prettyFormat;
+  bool _prettyFormat;
+
+  bool get prettyFormat => _prettyFormat;
+  set prettyFormat(bool val) => _prettyFormat = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -50,6 +66,95 @@ class OoxmlSaveOptionsData extends SaveOptionsData {
     }
 
     super.deserialize(json);
+    if (json.containsKey('AllowEmbeddingPostScriptFonts')) {
+      allowEmbeddingPostScriptFonts = json['AllowEmbeddingPostScriptFonts'] as bool;
+    } else {
+      allowEmbeddingPostScriptFonts = null;
+    }
+
+    if (json.containsKey('CustomTimeZoneInfoData')) {
+      customTimeZoneInfoData = TimeZoneInfoData();
+      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+    } else {
+      customTimeZoneInfoData = null;
+    }
+
+    if (json.containsKey('Dml3DEffectsRenderingMode')) {
+      switch (json['Dml3DEffectsRenderingMode'] as String) {
+        case 'Basic': dml3DEffectsRenderingMode = SaveOptionsData_Dml3DEffectsRenderingModeEnum.basic; break;
+        case 'Advanced': dml3DEffectsRenderingMode = SaveOptionsData_Dml3DEffectsRenderingModeEnum.advanced; break;
+        default: dml3DEffectsRenderingMode = null; break;
+      }
+    } else {
+      dml3DEffectsRenderingMode = null;
+    }
+
+    if (json.containsKey('DmlEffectsRenderingMode')) {
+      dmlEffectsRenderingMode = json['DmlEffectsRenderingMode'] as String;
+    } else {
+      dmlEffectsRenderingMode = null;
+    }
+
+    if (json.containsKey('DmlRenderingMode')) {
+      dmlRenderingMode = json['DmlRenderingMode'] as String;
+    } else {
+      dmlRenderingMode = null;
+    }
+
+    if (json.containsKey('FileName')) {
+      fileName = json['FileName'] as String;
+    } else {
+      fileName = null;
+    }
+
+    if (json.containsKey('FlatOpcXmlMappingOnly')) {
+      flatOpcXmlMappingOnly = json['FlatOpcXmlMappingOnly'] as bool;
+    } else {
+      flatOpcXmlMappingOnly = null;
+    }
+
+    if (json.containsKey('ImlRenderingMode')) {
+      imlRenderingMode = json['ImlRenderingMode'] as String;
+    } else {
+      imlRenderingMode = null;
+    }
+
+    if (json.containsKey('UpdateCreatedTimeProperty')) {
+      updateCreatedTimeProperty = json['UpdateCreatedTimeProperty'] as bool;
+    } else {
+      updateCreatedTimeProperty = null;
+    }
+
+    if (json.containsKey('UpdateFields')) {
+      updateFields = json['UpdateFields'] as bool;
+    } else {
+      updateFields = null;
+    }
+
+    if (json.containsKey('UpdateLastPrintedProperty')) {
+      updateLastPrintedProperty = json['UpdateLastPrintedProperty'] as bool;
+    } else {
+      updateLastPrintedProperty = null;
+    }
+
+    if (json.containsKey('UpdateLastSavedTimeProperty')) {
+      updateLastSavedTimeProperty = json['UpdateLastSavedTimeProperty'] as bool;
+    } else {
+      updateLastSavedTimeProperty = null;
+    }
+
+    if (json.containsKey('UpdateSdtContent')) {
+      updateSdtContent = json['UpdateSdtContent'] as bool;
+    } else {
+      updateSdtContent = null;
+    }
+
+    if (json.containsKey('ZipOutput')) {
+      zipOutput = json['ZipOutput'] as bool;
+    } else {
+      zipOutput = null;
+    }
+
     if (json.containsKey('Compliance')) {
       compliance = json['Compliance'] as String;
     } else {

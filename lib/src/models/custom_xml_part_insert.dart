@@ -39,6 +39,24 @@ class CustomXmlPartInsert extends CustomXmlPart {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
+    if (json.containsKey('Data')) {
+      data = json['Data'] as String;
+    } else {
+      data = null;
+    }
+
+    if (json.containsKey('Id')) {
+      id = json['Id'] as String;
+    } else {
+      id = null;
+    }
   }
 
   @override

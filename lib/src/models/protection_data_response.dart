@@ -32,10 +32,18 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with data on document's protection.
 class ProtectionDataResponse extends WordsResponse {
   /// Gets or sets the link to the document.
-  FileLink documentLink;
+  FileLink _documentLink;
+
+  FileLink get documentLink => _documentLink;
+  set documentLink(FileLink val) => _documentLink = val;
+
 
   /// Gets or sets the protection properties of the document.
-  ProtectionData protectionData;
+  ProtectionData _protectionData;
+
+  ProtectionData get protectionData => _protectionData;
+  set protectionData(ProtectionData val) => _protectionData = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -44,6 +52,12 @@ class ProtectionDataResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('DocumentLink')) {
       documentLink = FileLink();
       documentLink.deserialize(json['DocumentLink'] as Map<String, dynamic>);

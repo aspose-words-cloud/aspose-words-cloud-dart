@@ -32,10 +32,18 @@ import '../../aspose_words_cloud.dart';
 /// The error details.
 class ErrorDetails implements ModelBase {
   /// Error datetime.
-  DateTime errorDateTime;
+  DateTime _errorDateTime;
+
+  DateTime get errorDateTime => _errorDateTime;
+  set errorDateTime(DateTime val) => _errorDateTime = val;
+
 
   /// The request id.
-  String requestId;
+  String _requestId;
+
+  String get requestId => _requestId;
+  set requestId(String val) => _requestId = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

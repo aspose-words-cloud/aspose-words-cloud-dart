@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The collection of document properties.
 class DocumentProperties extends LinkElement {
   /// Gets or sets the collection of document properties.
-  List<DocumentProperty> list;
+  List<DocumentProperty> _list;
+
+  List<DocumentProperty> get list => _list;
+  set list(List<DocumentProperty> val) => _list = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,13 @@ class DocumentProperties extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('List')) {
       // Array processing
       list = <DocumentProperty>[];

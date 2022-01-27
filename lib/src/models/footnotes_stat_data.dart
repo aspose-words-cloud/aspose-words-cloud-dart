@@ -32,10 +32,18 @@ import '../../aspose_words_cloud.dart';
 /// Container for the footnotes statistical data.
 class FootnotesStatData implements ModelBase {
   /// Gets or sets the total count of paragraphs in footnotes.
-  int paragraphCount;
+  int _paragraphCount;
+
+  int get paragraphCount => _paragraphCount;
+  set paragraphCount(int val) => _paragraphCount = val;
+
 
   /// Gets or sets the total count of words in footnotes.
-  int wordCount;
+  int _wordCount;
+
+  int get wordCount => _wordCount;
+  set wordCount(int val) => _wordCount = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

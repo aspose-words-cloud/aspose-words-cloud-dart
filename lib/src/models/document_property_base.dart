@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// Words document property DTO base class.
 class DocumentPropertyBase implements ModelBase {
   /// Gets or sets the value of the document property.
-  String value;
+  String _value;
+
+  String get value => _value;
+  set value(String val) => _value = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

@@ -32,13 +32,25 @@ import '../../aspose_words_cloud.dart';
 /// Result of saving.
 class SaveResult implements ModelBase {
   /// Gets or sets the list of links to additional items (css, images etc).
-  List<FileLink> additionalItems;
+  List<FileLink> _additionalItems;
+
+  List<FileLink> get additionalItems => _additionalItems;
+  set additionalItems(List<FileLink> val) => _additionalItems = val;
+
 
   /// Gets or sets the link to destination document.
-  FileLink destDocument;
+  FileLink _destDocument;
+
+  FileLink get destDocument => _destDocument;
+  set destDocument(FileLink val) => _destDocument = val;
+
 
   /// Gets or sets the link to source document.
-  FileLink sourceDocument;
+  FileLink _sourceDocument;
+
+  FileLink get sourceDocument => _sourceDocument;
+  set sourceDocument(FileLink val) => _sourceDocument = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

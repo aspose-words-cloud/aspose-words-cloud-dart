@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a bookmark.
 class BookmarkResponse extends WordsResponse {
   /// Gets or sets the bookmark.
-  Bookmark bookmark;
+  Bookmark _bookmark;
+
+  Bookmark get bookmark => _bookmark;
+  set bookmark(Bookmark val) => _bookmark = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,12 @@ class BookmarkResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('Bookmark')) {
       bookmark = Bookmark();
       bookmark.deserialize(json['Bookmark'] as Map<String, dynamic>);

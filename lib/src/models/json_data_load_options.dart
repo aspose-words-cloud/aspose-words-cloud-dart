@@ -34,16 +34,28 @@ class JsonDataLoadOptions implements ModelBase {
   /// Gets or sets a value indicating whether a generated data source will always contain
   /// an object for a JSON root element. If a JSON root element contains a single complex
   /// property, such an object is not created by default.
-  bool alwaysGenerateRootObject;
+  bool _alwaysGenerateRootObject;
+
+  bool get alwaysGenerateRootObject => _alwaysGenerateRootObject;
+  set alwaysGenerateRootObject(bool val) => _alwaysGenerateRootObject = val;
+
 
   /// Gets or sets exact formats for parsing JSON date-time values while loading JSON.
   /// The default is null.
-  List<String> exactDateTimeParseFormats;
+  List<String> _exactDateTimeParseFormats;
+
+  List<String> get exactDateTimeParseFormats => _exactDateTimeParseFormats;
+  set exactDateTimeParseFormats(List<String> val) => _exactDateTimeParseFormats = val;
+
 
   /// Gets or sets a mode for parsing JSON simple values (null, boolean, number, integer,
   /// and string) while loading JSON. Such a mode does not affect parsing of date-time
   /// values. The default is Aspose.Words.Reporting.JsonSimpleValueParseMode.Loose.
-  JsonDataLoadOptions_SimpleValueParseModeEnum simpleValueParseMode;
+  JsonDataLoadOptions_SimpleValueParseModeEnum _simpleValueParseMode;
+
+  JsonDataLoadOptions_SimpleValueParseModeEnum get simpleValueParseMode => _simpleValueParseMode;
+  set simpleValueParseMode(JsonDataLoadOptions_SimpleValueParseModeEnum val) => _simpleValueParseMode = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

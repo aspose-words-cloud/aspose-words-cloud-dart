@@ -32,10 +32,18 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a number of occurrences of the captured text in the document.
 class ReplaceTextResponse extends WordsResponse {
   /// Gets or sets the link to the document.
-  FileLink documentLink;
+  FileLink _documentLink;
+
+  FileLink get documentLink => _documentLink;
+  set documentLink(FileLink val) => _documentLink = val;
+
 
   /// Gets or sets the number of occurrences of the captured text in the document.
-  int matches;
+  int _matches;
+
+  int get matches => _matches;
+  set matches(int val) => _matches = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -44,6 +52,12 @@ class ReplaceTextResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('DocumentLink')) {
       documentLink = FileLink();
       documentLink.deserialize(json['DocumentLink'] as Map<String, dynamic>);

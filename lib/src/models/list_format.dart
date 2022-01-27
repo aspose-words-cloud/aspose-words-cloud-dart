@@ -32,13 +32,25 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a paragraph list format element.
 class ListFormat extends LinkElement {
   /// Gets or sets a value indicating whether the paragraph has bulleted or numbered formatting applied to it.
-  bool isListItem;
+  bool _isListItem;
+
+  bool get isListItem => _isListItem;
+  set isListItem(bool val) => _isListItem = val;
+
 
   /// Gets or sets the list id of this paragraph.
-  int listId;
+  int _listId;
+
+  int get listId => _listId;
+  set listId(int val) => _listId = val;
+
 
   /// Gets or sets the list level number (0 to 8) for the paragraph.
-  int listLevelNumber;
+  int _listLevelNumber;
+
+  int get listLevelNumber => _listLevelNumber;
+  set listLevelNumber(int val) => _listLevelNumber = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -47,6 +59,13 @@ class ListFormat extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('IsListItem')) {
       isListItem = json['IsListItem'] as bool;
     } else {

@@ -32,13 +32,25 @@ import '../../aspose_words_cloud.dart';
 /// Base class for paragraph format tab stop DTO.
 class TabStopBase implements ModelBase {
   /// Gets or sets the alignment of text at this tab stop.
-  TabStopBase_AlignmentEnum alignment;
+  TabStopBase_AlignmentEnum _alignment;
+
+  TabStopBase_AlignmentEnum get alignment => _alignment;
+  set alignment(TabStopBase_AlignmentEnum val) => _alignment = val;
+
 
   /// Gets or sets the type of the leader line displayed under the tab character.
-  TabStopBase_LeaderEnum leader;
+  TabStopBase_LeaderEnum _leader;
+
+  TabStopBase_LeaderEnum get leader => _leader;
+  set leader(TabStopBase_LeaderEnum val) => _leader = val;
+
 
   /// Gets or sets the position of the tab stop in points.
-  double position;
+  double _position;
+
+  double get position => _position;
+  set position(double val) => _position = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// Files list.
 class FilesList implements ModelBase {
   /// Files and folders contained by folder StorageFile.
-  List<StorageFile> value;
+  List<StorageFile> _value;
+
+  List<StorageFile> get value => _value;
+  set value(List<StorageFile> val) => _value = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

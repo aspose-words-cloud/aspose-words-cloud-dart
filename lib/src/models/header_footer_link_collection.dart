@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The collection of HeaderFooter's links.
 class HeaderFooterLinkCollection extends LinkElement {
   /// Gets or sets the collection of HeaderFooter's links.
-  List<HeaderFooterLink> list;
+  List<HeaderFooterLink> _list;
+
+  List<HeaderFooterLink> get list => _list;
+  set list(List<HeaderFooterLink> val) => _list = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,13 @@ class HeaderFooterLinkCollection extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('List')) {
       // Array processing
       list = <HeaderFooterLink>[];

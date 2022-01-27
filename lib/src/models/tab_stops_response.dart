@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with an array of tab stops.
 class TabStopsResponse extends WordsResponse {
   /// Gets or sets the array of tab stops.
-  List<TabStop> tabStops;
+  List<TabStop> _tabStops;
+
+  List<TabStop> get tabStops => _tabStops;
+  set tabStops(List<TabStop> val) => _tabStops = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,12 @@ class TabStopsResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('TabStops')) {
       // Array processing
       tabStops = <TabStop>[];

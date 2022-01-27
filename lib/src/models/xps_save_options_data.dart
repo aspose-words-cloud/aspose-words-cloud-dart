@@ -32,16 +32,39 @@ import '../../aspose_words_cloud.dart';
 /// Container class for xps save options.
 class XpsSaveOptionsData extends FixedPageSaveOptionsData {
   /// Gets or sets the level in the XPS document outline at which to display Word bookmarks.
-  int bookmarksOutlineLevel;
+  int _bookmarksOutlineLevel;
+
+  int get bookmarksOutlineLevel => _bookmarksOutlineLevel;
+  set bookmarksOutlineLevel(int val) => _bookmarksOutlineLevel = val;
+
 
   /// Gets or sets the number of heading levels (paragraphs formatted with the Heading styles) to include in the XPS document outline.
-  int headingsOutlineLevels;
+  int _headingsOutlineLevels;
+
+  int get headingsOutlineLevels => _headingsOutlineLevels;
+  set headingsOutlineLevels(int val) => _headingsOutlineLevels = val;
+
 
   /// Gets or sets the outline options.
-  OutlineOptionsData outlineOptions;
+  OutlineOptionsData _outlineOptions;
+
+  OutlineOptionsData get outlineOptions => _outlineOptions;
+  set outlineOptions(OutlineOptionsData val) => _outlineOptions = val;
+
+
+  /// Gets or sets the format of save.
+  String _saveFormat = 'xps';
+
+  @override
+  String get saveFormat => _saveFormat;
+
 
   /// Gets or sets a value indicating whether the document should be saved using a booklet printing layout.
-  bool useBookFoldPrintingSettings;
+  bool _useBookFoldPrintingSettings;
+
+  bool get useBookFoldPrintingSettings => _useBookFoldPrintingSettings;
+  set useBookFoldPrintingSettings(bool val) => _useBookFoldPrintingSettings = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -50,6 +73,138 @@ class XpsSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     super.deserialize(json);
+    if (json.containsKey('AllowEmbeddingPostScriptFonts')) {
+      allowEmbeddingPostScriptFonts = json['AllowEmbeddingPostScriptFonts'] as bool;
+    } else {
+      allowEmbeddingPostScriptFonts = null;
+    }
+
+    if (json.containsKey('CustomTimeZoneInfoData')) {
+      customTimeZoneInfoData = TimeZoneInfoData();
+      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+    } else {
+      customTimeZoneInfoData = null;
+    }
+
+    if (json.containsKey('Dml3DEffectsRenderingMode')) {
+      switch (json['Dml3DEffectsRenderingMode'] as String) {
+        case 'Basic': dml3DEffectsRenderingMode = SaveOptionsData_Dml3DEffectsRenderingModeEnum.basic; break;
+        case 'Advanced': dml3DEffectsRenderingMode = SaveOptionsData_Dml3DEffectsRenderingModeEnum.advanced; break;
+        default: dml3DEffectsRenderingMode = null; break;
+      }
+    } else {
+      dml3DEffectsRenderingMode = null;
+    }
+
+    if (json.containsKey('DmlEffectsRenderingMode')) {
+      dmlEffectsRenderingMode = json['DmlEffectsRenderingMode'] as String;
+    } else {
+      dmlEffectsRenderingMode = null;
+    }
+
+    if (json.containsKey('DmlRenderingMode')) {
+      dmlRenderingMode = json['DmlRenderingMode'] as String;
+    } else {
+      dmlRenderingMode = null;
+    }
+
+    if (json.containsKey('FileName')) {
+      fileName = json['FileName'] as String;
+    } else {
+      fileName = null;
+    }
+
+    if (json.containsKey('FlatOpcXmlMappingOnly')) {
+      flatOpcXmlMappingOnly = json['FlatOpcXmlMappingOnly'] as bool;
+    } else {
+      flatOpcXmlMappingOnly = null;
+    }
+
+    if (json.containsKey('ImlRenderingMode')) {
+      imlRenderingMode = json['ImlRenderingMode'] as String;
+    } else {
+      imlRenderingMode = null;
+    }
+
+    if (json.containsKey('UpdateCreatedTimeProperty')) {
+      updateCreatedTimeProperty = json['UpdateCreatedTimeProperty'] as bool;
+    } else {
+      updateCreatedTimeProperty = null;
+    }
+
+    if (json.containsKey('UpdateFields')) {
+      updateFields = json['UpdateFields'] as bool;
+    } else {
+      updateFields = null;
+    }
+
+    if (json.containsKey('UpdateLastPrintedProperty')) {
+      updateLastPrintedProperty = json['UpdateLastPrintedProperty'] as bool;
+    } else {
+      updateLastPrintedProperty = null;
+    }
+
+    if (json.containsKey('UpdateLastSavedTimeProperty')) {
+      updateLastSavedTimeProperty = json['UpdateLastSavedTimeProperty'] as bool;
+    } else {
+      updateLastSavedTimeProperty = null;
+    }
+
+    if (json.containsKey('UpdateSdtContent')) {
+      updateSdtContent = json['UpdateSdtContent'] as bool;
+    } else {
+      updateSdtContent = null;
+    }
+
+    if (json.containsKey('ZipOutput')) {
+      zipOutput = json['ZipOutput'] as bool;
+    } else {
+      zipOutput = null;
+    }
+
+    if (json.containsKey('ColorMode')) {
+      colorMode = json['ColorMode'] as String;
+    } else {
+      colorMode = null;
+    }
+
+    if (json.containsKey('JpegQuality')) {
+      jpegQuality = json['JpegQuality'] as int;
+    } else {
+      jpegQuality = null;
+    }
+
+    if (json.containsKey('MetafileRenderingOptions')) {
+      metafileRenderingOptions = MetafileRenderingOptionsData();
+      metafileRenderingOptions.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
+    } else {
+      metafileRenderingOptions = null;
+    }
+
+    if (json.containsKey('NumeralFormat')) {
+      numeralFormat = json['NumeralFormat'] as String;
+    } else {
+      numeralFormat = null;
+    }
+
+    if (json.containsKey('OptimizeOutput')) {
+      optimizeOutput = json['OptimizeOutput'] as bool;
+    } else {
+      optimizeOutput = null;
+    }
+
+    if (json.containsKey('PageCount')) {
+      pageCount = json['PageCount'] as int;
+    } else {
+      pageCount = null;
+    }
+
+    if (json.containsKey('PageIndex')) {
+      pageIndex = json['PageIndex'] as int;
+    } else {
+      pageIndex = null;
+    }
+
     if (json.containsKey('BookmarksOutlineLevel')) {
       bookmarksOutlineLevel = json['BookmarksOutlineLevel'] as int;
     } else {
@@ -90,6 +245,10 @@ class XpsSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (outlineOptions != null) {
       _result['OutlineOptions'] = outlineOptions.serialize();
+    }
+
+    if (saveFormat != null) {
+      _result['SaveFormat'] = saveFormat;
     }
 
     if (useBookFoldPrintingSettings != null) {

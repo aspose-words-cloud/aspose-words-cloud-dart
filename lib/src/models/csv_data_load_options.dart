@@ -32,16 +32,32 @@ import '../../aspose_words_cloud.dart';
 /// Represents options for parsing CSV data.
 class CsvDataLoadOptions implements ModelBase {
   /// Gets or sets the character that is used to comment lines of CSV data.
-  String commentChar;
+  String _commentChar;
+
+  String get commentChar => _commentChar;
+  set commentChar(String val) => _commentChar = val;
+
 
   /// Gets or sets the character to be used as a column delimiter.
-  String delimiter;
+  String _delimiter;
+
+  String get delimiter => _delimiter;
+  set delimiter(String val) => _delimiter = val;
+
 
   /// Gets or sets a value indicating whether the first record of CSV data contains column names.
-  bool hasHeaders;
+  bool _hasHeaders;
+
+  bool get hasHeaders => _hasHeaders;
+  set hasHeaders(bool val) => _hasHeaders = val;
+
 
   /// Gets or sets the character that is used to quote field values.
-  String quoteChar;
+  String _quoteChar;
+
+  String get quoteChar => _quoteChar;
+  set quoteChar(String val) => _quoteChar = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

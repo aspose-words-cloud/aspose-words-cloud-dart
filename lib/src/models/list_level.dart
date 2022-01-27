@@ -32,40 +32,88 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a document list level.
 class ListLevel extends LinkElement {
   /// Gets or sets the justification of the actual number of the list item.
-  ListLevel_AlignmentEnum alignment;
+  ListLevel_AlignmentEnum _alignment;
+
+  ListLevel_AlignmentEnum get alignment => _alignment;
+  set alignment(ListLevel_AlignmentEnum val) => _alignment = val;
+
 
   /// Gets or sets character formatting used for the list label.
-  Font font;
+  Font _font;
+
+  Font get font => _font;
+  set font(Font val) => _font = val;
+
 
   /// Gets or sets a value indicating whether the level turns all inherited numbers to Arabic, false if it preserves their number style.
-  bool isLegal;
+  bool _isLegal;
+
+  bool get isLegal => _isLegal;
+  set isLegal(bool val) => _isLegal = val;
+
 
   /// Gets or sets the paragraph style that is linked to this list level.
-  Style linkedStyle;
+  Style _linkedStyle;
+
+  Style get linkedStyle => _linkedStyle;
+  set linkedStyle(Style val) => _linkedStyle = val;
+
 
   /// Gets or sets the number format for the list level.
-  String numberFormat;
+  String _numberFormat;
+
+  String get numberFormat => _numberFormat;
+  set numberFormat(String val) => _numberFormat = val;
+
 
   /// Gets or sets the position (in points) of the number or bullet for the list level.
-  double numberPosition;
+  double _numberPosition;
+
+  double get numberPosition => _numberPosition;
+  set numberPosition(double val) => _numberPosition = val;
+
 
   /// Gets or sets the number style for this list level.
-  ListLevel_NumberStyleEnum numberStyle;
+  ListLevel_NumberStyleEnum _numberStyle;
+
+  ListLevel_NumberStyleEnum get numberStyle => _numberStyle;
+  set numberStyle(ListLevel_NumberStyleEnum val) => _numberStyle = val;
+
 
   /// Gets or sets the list level, that must appear before the specified list level restarts numbering.
-  int restartAfterLevel;
+  int _restartAfterLevel;
+
+  int get restartAfterLevel => _restartAfterLevel;
+  set restartAfterLevel(int val) => _restartAfterLevel = val;
+
 
   /// Gets or sets the starting number for this list level.
-  int startAt;
+  int _startAt;
+
+  int get startAt => _startAt;
+  set startAt(int val) => _startAt = val;
+
 
   /// Gets or sets the tab position (in points) for the list level.
-  double tabPosition;
+  double _tabPosition;
+
+  double get tabPosition => _tabPosition;
+  set tabPosition(double val) => _tabPosition = val;
+
 
   /// Gets or sets the position (in points) for the second line of wrapping text for the list level.
-  double textPosition;
+  double _textPosition;
+
+  double get textPosition => _textPosition;
+  set textPosition(double val) => _textPosition = val;
+
 
   /// Gets or sets the character inserted after the number for the list level.
-  ListLevel_TrailingCharacterEnum trailingCharacter;
+  ListLevel_TrailingCharacterEnum _trailingCharacter;
+
+  ListLevel_TrailingCharacterEnum get trailingCharacter => _trailingCharacter;
+  set trailingCharacter(ListLevel_TrailingCharacterEnum val) => _trailingCharacter = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -74,6 +122,13 @@ class ListLevel extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('Alignment')) {
       switch (json['Alignment'] as String) {
         case 'Left': alignment = ListLevel_AlignmentEnum.left; break;

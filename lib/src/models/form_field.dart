@@ -32,31 +32,67 @@ import '../../aspose_words_cloud.dart';
 /// FromField.
 class FormField extends NodeLink {
   /// Gets or sets a value indicating whether references to the specified form field are automatically updated whenever the field is exited.
-  bool calculateOnExit;
+  bool _calculateOnExit;
+
+  bool get calculateOnExit => _calculateOnExit;
+  set calculateOnExit(bool val) => _calculateOnExit = val;
+
 
   /// Gets or sets a value indicating whether a form field is enabled.
-  bool enabled;
+  bool _enabled;
+
+  bool get enabled => _enabled;
+  set enabled(bool val) => _enabled = val;
+
 
   /// Gets or sets the entry macro name for the form field.
-  String entryMacro;
+  String _entryMacro;
+
+  String get entryMacro => _entryMacro;
+  set entryMacro(String val) => _entryMacro = val;
+
 
   /// Gets or sets the exit macro name for the form field.
-  String exitMacro;
+  String _exitMacro;
+
+  String get exitMacro => _exitMacro;
+  set exitMacro(String val) => _exitMacro = val;
+
 
   /// Gets or sets text, displayed in a message box when the form field has the focus and the user presses F1.
-  String helpText;
+  String _helpText;
+
+  String get helpText => _helpText;
+  set helpText(String val) => _helpText = val;
+
 
   /// Gets or sets the form field name.
-  String name;
+  String _name;
+
+  String get name => _name;
+  set name(String val) => _name = val;
+
 
   /// Gets or sets a value indicating whether the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.
-  bool ownHelp;
+  bool _ownHelp;
+
+  bool get ownHelp => _ownHelp;
+  set ownHelp(bool val) => _ownHelp = val;
+
 
   /// Gets or sets a value indicating whether the source of the text that's displayed in the status bar when a form field has the focus.
-  bool ownStatus;
+  bool _ownStatus;
+
+  bool get ownStatus => _ownStatus;
+  set ownStatus(bool val) => _ownStatus = val;
+
 
   /// Gets or sets text, displayed in the status bar when a form field has the focus.
-  String statusText;
+  String _statusText;
+
+  String get statusText => _statusText;
+  set statusText(String val) => _statusText = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -65,6 +101,19 @@ class FormField extends NodeLink {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
+    if (json.containsKey('NodeId')) {
+      nodeId = json['NodeId'] as String;
+    } else {
+      nodeId = null;
+    }
+
     if (json.containsKey('CalculateOnExit')) {
       calculateOnExit = json['CalculateOnExit'] as bool;
     } else {

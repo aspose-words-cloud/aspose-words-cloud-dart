@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The collection of comments.
 class CommentsCollection extends LinkElement {
   /// Gets or sets the collection of comments.
-  List<Comment> commentList;
+  List<Comment> _commentList;
+
+  List<Comment> get commentList => _commentList;
+  set commentList(List<Comment> val) => _commentList = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,13 @@ class CommentsCollection extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('CommentList')) {
       // Array processing
       commentList = <Comment>[];

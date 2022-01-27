@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a style.
 class StyleResponse extends WordsResponse {
   /// Gets or sets the style, containded in the document.
-  Style style;
+  Style _style;
+
+  Style get style => _style;
+  set style(Style val) => _style = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,12 @@ class StyleResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('Style')) {
       style = Style();
       style.deserialize(json['Style'] as Map<String, dynamic>);

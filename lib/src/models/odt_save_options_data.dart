@@ -32,17 +32,40 @@ import '../../aspose_words_cloud.dart';
 /// Container class for odt/ott save options.
 class OdtSaveOptionsData extends SaveOptionsData {
   /// Gets or sets a value indicating whether export should correspond to ODT specification 1.1 strictly.
-  bool isStrictSchema11;
+  bool _isStrictSchema11;
+
+  bool get isStrictSchema11 => _isStrictSchema11;
+  set isStrictSchema11(bool val) => _isStrictSchema11 = val;
+
 
   /// Gets or sets the units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters.
   /// Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.
-  OdtSaveOptionsData_MeasureUnitEnum measureUnit;
+  OdtSaveOptionsData_MeasureUnitEnum _measureUnit;
+
+  OdtSaveOptionsData_MeasureUnitEnum get measureUnit => _measureUnit;
+  set measureUnit(OdtSaveOptionsData_MeasureUnitEnum val) => _measureUnit = val;
+
 
   /// Gets or sets the password to encrypt document.
-  String password;
+  String _password;
+
+  String get password => _password;
+  set password(String val) => _password = val;
+
 
   /// Gets or sets a value indicating whether to use pretty formats output.
-  bool prettyFormat;
+  bool _prettyFormat;
+
+  bool get prettyFormat => _prettyFormat;
+  set prettyFormat(bool val) => _prettyFormat = val;
+
+
+  /// Gets or sets the format of save.
+  String _saveFormat = 'odt';
+
+  @override
+  String get saveFormat => _saveFormat;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -51,6 +74,95 @@ class OdtSaveOptionsData extends SaveOptionsData {
     }
 
     super.deserialize(json);
+    if (json.containsKey('AllowEmbeddingPostScriptFonts')) {
+      allowEmbeddingPostScriptFonts = json['AllowEmbeddingPostScriptFonts'] as bool;
+    } else {
+      allowEmbeddingPostScriptFonts = null;
+    }
+
+    if (json.containsKey('CustomTimeZoneInfoData')) {
+      customTimeZoneInfoData = TimeZoneInfoData();
+      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+    } else {
+      customTimeZoneInfoData = null;
+    }
+
+    if (json.containsKey('Dml3DEffectsRenderingMode')) {
+      switch (json['Dml3DEffectsRenderingMode'] as String) {
+        case 'Basic': dml3DEffectsRenderingMode = SaveOptionsData_Dml3DEffectsRenderingModeEnum.basic; break;
+        case 'Advanced': dml3DEffectsRenderingMode = SaveOptionsData_Dml3DEffectsRenderingModeEnum.advanced; break;
+        default: dml3DEffectsRenderingMode = null; break;
+      }
+    } else {
+      dml3DEffectsRenderingMode = null;
+    }
+
+    if (json.containsKey('DmlEffectsRenderingMode')) {
+      dmlEffectsRenderingMode = json['DmlEffectsRenderingMode'] as String;
+    } else {
+      dmlEffectsRenderingMode = null;
+    }
+
+    if (json.containsKey('DmlRenderingMode')) {
+      dmlRenderingMode = json['DmlRenderingMode'] as String;
+    } else {
+      dmlRenderingMode = null;
+    }
+
+    if (json.containsKey('FileName')) {
+      fileName = json['FileName'] as String;
+    } else {
+      fileName = null;
+    }
+
+    if (json.containsKey('FlatOpcXmlMappingOnly')) {
+      flatOpcXmlMappingOnly = json['FlatOpcXmlMappingOnly'] as bool;
+    } else {
+      flatOpcXmlMappingOnly = null;
+    }
+
+    if (json.containsKey('ImlRenderingMode')) {
+      imlRenderingMode = json['ImlRenderingMode'] as String;
+    } else {
+      imlRenderingMode = null;
+    }
+
+    if (json.containsKey('UpdateCreatedTimeProperty')) {
+      updateCreatedTimeProperty = json['UpdateCreatedTimeProperty'] as bool;
+    } else {
+      updateCreatedTimeProperty = null;
+    }
+
+    if (json.containsKey('UpdateFields')) {
+      updateFields = json['UpdateFields'] as bool;
+    } else {
+      updateFields = null;
+    }
+
+    if (json.containsKey('UpdateLastPrintedProperty')) {
+      updateLastPrintedProperty = json['UpdateLastPrintedProperty'] as bool;
+    } else {
+      updateLastPrintedProperty = null;
+    }
+
+    if (json.containsKey('UpdateLastSavedTimeProperty')) {
+      updateLastSavedTimeProperty = json['UpdateLastSavedTimeProperty'] as bool;
+    } else {
+      updateLastSavedTimeProperty = null;
+    }
+
+    if (json.containsKey('UpdateSdtContent')) {
+      updateSdtContent = json['UpdateSdtContent'] as bool;
+    } else {
+      updateSdtContent = null;
+    }
+
+    if (json.containsKey('ZipOutput')) {
+      zipOutput = json['ZipOutput'] as bool;
+    } else {
+      zipOutput = null;
+    }
+
     if (json.containsKey('IsStrictSchema11')) {
       isStrictSchema11 = json['IsStrictSchema11'] as bool;
     } else {
@@ -102,6 +214,10 @@ class OdtSaveOptionsData extends SaveOptionsData {
 
     if (prettyFormat != null) {
       _result['PrettyFormat'] = prettyFormat;
+    }
+
+    if (saveFormat != null) {
+      _result['SaveFormat'] = saveFormat;
     }
     return _result;
   }

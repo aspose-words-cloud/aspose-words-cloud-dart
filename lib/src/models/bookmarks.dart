@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// Represents an array of bookmarks.
 class Bookmarks extends LinkElement {
   /// Gets or sets the array of bookmarks.
-  List<Bookmark> bookmarkList;
+  List<Bookmark> _bookmarkList;
+
+  List<Bookmark> get bookmarkList => _bookmarkList;
+  set bookmarkList(List<Bookmark> val) => _bookmarkList = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,13 @@ class Bookmarks extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('BookmarkList')) {
       // Array processing
       bookmarkList = <Bookmark>[];

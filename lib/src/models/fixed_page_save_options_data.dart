@@ -33,27 +33,55 @@ import '../../aspose_words_cloud.dart';
 class FixedPageSaveOptionsData extends SaveOptionsData {
   /// Gets or sets the value determining how colors are rendered.
   /// { Normal | Grayscale}.
-  String colorMode;
+  String _colorMode;
+
+  String get colorMode => _colorMode;
+  set colorMode(String val) => _colorMode = val;
+
 
   /// Gets or sets the quality of the JPEG images inside PDF document.
-  int jpegQuality;
+  int _jpegQuality;
+
+  int get jpegQuality => _jpegQuality;
+  set jpegQuality(int val) => _jpegQuality = val;
+
 
   /// Gets or sets the metafile rendering options.
-  MetafileRenderingOptionsData metafileRenderingOptions;
+  MetafileRenderingOptionsData _metafileRenderingOptions;
+
+  MetafileRenderingOptionsData get metafileRenderingOptions => _metafileRenderingOptions;
+  set metafileRenderingOptions(MetafileRenderingOptionsData val) => _metafileRenderingOptions = val;
+
 
   /// Gets or sets the symbol set, that is used to represent numbers while rendering to fixed page formats.
-  String numeralFormat;
+  String _numeralFormat;
+
+  String get numeralFormat => _numeralFormat;
+  set numeralFormat(String val) => _numeralFormat = val;
+
 
   /// Gets or sets a value indicating whether it is required to optimize output of XPS.
   /// If this flag is set redundant nested canvases and empty canvases are removed, also neighbor glyphs with the same formatting are concatenated.
   /// Note: The accuracy of the content display may be affected if this property is set to true.. The default value is false.
-  bool optimizeOutput;
+  bool _optimizeOutput;
+
+  bool get optimizeOutput => _optimizeOutput;
+  set optimizeOutput(bool val) => _optimizeOutput = val;
+
 
   /// Gets or sets the number of pages to render.
-  int pageCount;
+  int _pageCount;
+
+  int get pageCount => _pageCount;
+  set pageCount(int val) => _pageCount = val;
+
 
   /// Gets or sets the 0-based index of the first page to render.
-  int pageIndex;
+  int _pageIndex;
+
+  int get pageIndex => _pageIndex;
+  set pageIndex(int val) => _pageIndex = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -62,6 +90,95 @@ class FixedPageSaveOptionsData extends SaveOptionsData {
     }
 
     super.deserialize(json);
+    if (json.containsKey('AllowEmbeddingPostScriptFonts')) {
+      allowEmbeddingPostScriptFonts = json['AllowEmbeddingPostScriptFonts'] as bool;
+    } else {
+      allowEmbeddingPostScriptFonts = null;
+    }
+
+    if (json.containsKey('CustomTimeZoneInfoData')) {
+      customTimeZoneInfoData = TimeZoneInfoData();
+      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+    } else {
+      customTimeZoneInfoData = null;
+    }
+
+    if (json.containsKey('Dml3DEffectsRenderingMode')) {
+      switch (json['Dml3DEffectsRenderingMode'] as String) {
+        case 'Basic': dml3DEffectsRenderingMode = SaveOptionsData_Dml3DEffectsRenderingModeEnum.basic; break;
+        case 'Advanced': dml3DEffectsRenderingMode = SaveOptionsData_Dml3DEffectsRenderingModeEnum.advanced; break;
+        default: dml3DEffectsRenderingMode = null; break;
+      }
+    } else {
+      dml3DEffectsRenderingMode = null;
+    }
+
+    if (json.containsKey('DmlEffectsRenderingMode')) {
+      dmlEffectsRenderingMode = json['DmlEffectsRenderingMode'] as String;
+    } else {
+      dmlEffectsRenderingMode = null;
+    }
+
+    if (json.containsKey('DmlRenderingMode')) {
+      dmlRenderingMode = json['DmlRenderingMode'] as String;
+    } else {
+      dmlRenderingMode = null;
+    }
+
+    if (json.containsKey('FileName')) {
+      fileName = json['FileName'] as String;
+    } else {
+      fileName = null;
+    }
+
+    if (json.containsKey('FlatOpcXmlMappingOnly')) {
+      flatOpcXmlMappingOnly = json['FlatOpcXmlMappingOnly'] as bool;
+    } else {
+      flatOpcXmlMappingOnly = null;
+    }
+
+    if (json.containsKey('ImlRenderingMode')) {
+      imlRenderingMode = json['ImlRenderingMode'] as String;
+    } else {
+      imlRenderingMode = null;
+    }
+
+    if (json.containsKey('UpdateCreatedTimeProperty')) {
+      updateCreatedTimeProperty = json['UpdateCreatedTimeProperty'] as bool;
+    } else {
+      updateCreatedTimeProperty = null;
+    }
+
+    if (json.containsKey('UpdateFields')) {
+      updateFields = json['UpdateFields'] as bool;
+    } else {
+      updateFields = null;
+    }
+
+    if (json.containsKey('UpdateLastPrintedProperty')) {
+      updateLastPrintedProperty = json['UpdateLastPrintedProperty'] as bool;
+    } else {
+      updateLastPrintedProperty = null;
+    }
+
+    if (json.containsKey('UpdateLastSavedTimeProperty')) {
+      updateLastSavedTimeProperty = json['UpdateLastSavedTimeProperty'] as bool;
+    } else {
+      updateLastSavedTimeProperty = null;
+    }
+
+    if (json.containsKey('UpdateSdtContent')) {
+      updateSdtContent = json['UpdateSdtContent'] as bool;
+    } else {
+      updateSdtContent = null;
+    }
+
+    if (json.containsKey('ZipOutput')) {
+      zipOutput = json['ZipOutput'] as bool;
+    } else {
+      zipOutput = null;
+    }
+
     if (json.containsKey('ColorMode')) {
       colorMode = json['ColorMode'] as String;
     } else {

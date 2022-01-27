@@ -32,16 +32,32 @@ import '../../aspose_words_cloud.dart';
 /// Class is used for insert page number request building.
 class PageNumber implements ModelBase {
   /// Gets or sets text alignment, possible values are left, right, center or justify.
-  String alignment;
+  String _alignment;
+
+  String get alignment => _alignment;
+  set alignment(String val) => _alignment = val;
+
 
   /// Gets or sets the page number format, e.g. "{PAGE} of {NUMPAGES}".
-  String format;
+  String _format;
+
+  String get format => _format;
+  set format(String val) => _format = val;
+
 
   /// Gets or sets a value indicating whether if true the page number is added at the top of the page, else at the bottom.
-  bool isTop;
+  bool _isTop;
+
+  bool get isTop => _isTop;
+  set isTop(bool val) => _isTop = val;
+
 
   /// Gets or sets a value indicating whether if true the page number is added on first page too.
-  bool setPageNumberOnFirstPage;
+  bool _setPageNumberOnFirstPage;
+
+  bool get setPageNumberOnFirstPage => _setPageNumberOnFirstPage;
+  set setPageNumberOnFirstPage(bool val) => _setPageNumberOnFirstPage = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

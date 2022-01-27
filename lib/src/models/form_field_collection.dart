@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a collection of form fields.
 class FormFieldCollection extends LinkElement {
   /// Gets or sets the collection of form fields.
-  List<FormField> list;
+  List<FormField> _list;
+
+  List<FormField> get list => _list;
+  set list(List<FormField> val) => _list = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,13 @@ class FormFieldCollection extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('List')) {
       // Array processing
       list = <FormField>[];

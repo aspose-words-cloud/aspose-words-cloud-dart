@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a table.
 class TablePropertiesResponse extends WordsResponse {
   /// Gets or sets the table.
-  TableProperties properties;
+  TableProperties _properties;
+
+  TableProperties get properties => _properties;
+  set properties(TableProperties val) => _properties = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,12 @@ class TablePropertiesResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('Properties')) {
       properties = TableProperties();
       properties.deserialize(json['Properties'] as Map<String, dynamic>);
