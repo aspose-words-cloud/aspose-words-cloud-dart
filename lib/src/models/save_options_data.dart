@@ -89,7 +89,7 @@ class SaveOptionsData implements ModelBase {
   set imlRenderingMode(String val) => _imlRenderingMode = val;
 
 
-  /// Gets or sets the format of save.
+  /// Gets the format of save.
   String _saveFormat;
 
   String get saveFormat => _saveFormat;

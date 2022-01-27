@@ -54,7 +54,7 @@ class TextSaveOptionsData extends TxtSaveOptionsBaseData {
   set preserveTableLayout(bool val) => _preserveTableLayout = val;
 
 
-  /// Gets or sets the format of save.
+  /// Gets the format of save.
   String _saveFormat = 'txt';
 
   @override

@@ -31,7 +31,7 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for xamlflow_pack save options.
 class XamlFlowPackSaveOptionsData extends XamlFlowSaveOptionsData {
-  /// Gets or sets the format of save.
+  /// Gets the format of save.
   String _saveFormat = 'xamlflow_pack';
 
   @override

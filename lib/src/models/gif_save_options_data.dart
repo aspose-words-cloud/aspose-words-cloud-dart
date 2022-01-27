@@ -31,7 +31,7 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for gif save options.
 class GifSaveOptionsData extends ImageSaveOptionsData {
-  /// Gets or sets the format of save.
+  /// Gets the format of save.
   String _saveFormat = 'gif';
 
   @override

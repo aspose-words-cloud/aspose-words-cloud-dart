@@ -31,7 +31,7 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for emf save options.
 class EmfSaveOptionsData extends ImageSaveOptionsData {
-  /// Gets or sets the format of save.
+  /// Gets the format of save.
   String _saveFormat = 'emf';
 
   @override

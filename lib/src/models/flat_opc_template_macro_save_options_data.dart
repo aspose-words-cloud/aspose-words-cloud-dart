@@ -31,7 +31,7 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for fopc_template_macro save options.
 class FlatOpcTemplateMacroSaveOptionsData extends OoxmlSaveOptionsData {
-  /// Gets or sets the format of save.
+  /// Gets the format of save.
   String _saveFormat = 'fopc_template_macro';
 
   @override

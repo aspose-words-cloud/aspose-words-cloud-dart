@@ -31,7 +31,7 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for bmp save options.
 class BmpSaveOptionsData extends ImageSaveOptionsData {
-  /// Gets or sets the format of save.
+  /// Gets the format of save.
   String _saveFormat = 'bmp';
 
   @override

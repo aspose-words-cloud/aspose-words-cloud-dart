@@ -45,7 +45,7 @@ class PclSaveOptionsData extends FixedPageSaveOptionsData {
   set rasterizeTransformedElements(bool val) => _rasterizeTransformedElements = val;
 
 
-  /// Gets or sets the format of save.
+  /// Gets the format of save.
   String _saveFormat = 'pcl';
 
   @override

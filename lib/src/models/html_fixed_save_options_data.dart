@@ -119,7 +119,7 @@ class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   set saveFontFaceCssSeparately(bool val) => _saveFontFaceCssSeparately = val;
 
 
-  /// Gets or sets the format of save.
+  /// Gets the format of save.
   String _saveFormat = 'htmlfixed';
 
   @override

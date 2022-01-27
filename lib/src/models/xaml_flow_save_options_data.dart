@@ -45,7 +45,7 @@ class XamlFlowSaveOptionsData extends SaveOptionsData {
   set imagesFolderAlias(String val) => _imagesFolderAlias = val;
 
 
-  /// Gets or sets the format of save.
+  /// Gets the format of save.
   String _saveFormat = 'xamlflow';
 
   @override

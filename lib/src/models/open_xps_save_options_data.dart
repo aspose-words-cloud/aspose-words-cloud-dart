@@ -31,7 +31,7 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for xps save options.
 class OpenXpsSaveOptionsData extends XpsSaveOptionsData {
-  /// Gets or sets the format of save.
+  /// Gets the format of save.
   String _saveFormat = 'openxps';
 
   @override

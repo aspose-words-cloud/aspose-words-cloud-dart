@@ -31,7 +31,7 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for png save options.
 class PngSaveOptionsData extends ImageSaveOptionsData {
-  /// Gets or sets the format of save.
+  /// Gets the format of save.
   String _saveFormat = 'png';
 
   @override

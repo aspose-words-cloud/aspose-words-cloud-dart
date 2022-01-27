@@ -301,7 +301,7 @@ class HtmlSaveOptionsData extends SaveOptionsData {
   set resourceFolderAlias(String val) => _resourceFolderAlias = val;
 
 
-  /// Gets or sets the format of save.
+  /// Gets the format of save.
   String _saveFormat = 'html';
 
   @override

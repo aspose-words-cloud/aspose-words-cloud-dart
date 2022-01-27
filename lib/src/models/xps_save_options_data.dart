@@ -52,7 +52,7 @@ class XpsSaveOptionsData extends FixedPageSaveOptionsData {
   set outlineOptions(OutlineOptionsData val) => _outlineOptions = val;
 
 
-  /// Gets or sets the format of save.
+  /// Gets the format of save.
   String _saveFormat = 'xps';
 
   @override

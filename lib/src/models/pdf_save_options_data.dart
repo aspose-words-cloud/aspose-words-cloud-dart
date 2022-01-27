@@ -175,7 +175,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   set preserveFormFields(bool val) => _preserveFormFields = val;
 
 
-  /// Gets or sets the format of save.
+  /// Gets the format of save.
   String _saveFormat = 'pdf';
 
   @override

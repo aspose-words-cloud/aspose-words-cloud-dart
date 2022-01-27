@@ -31,7 +31,7 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for dotm save options.
 class DotmSaveOptionsData extends OoxmlSaveOptionsData {
-  /// Gets or sets the format of save.
+  /// Gets the format of save.
   String _saveFormat = 'dotm';
 
   @override

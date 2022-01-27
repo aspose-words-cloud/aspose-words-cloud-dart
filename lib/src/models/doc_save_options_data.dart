@@ -46,7 +46,7 @@ class DocSaveOptionsData extends SaveOptionsData {
   set password(String val) => _password = val;
 
 
-  /// Gets or sets the format of save.
+  /// Gets the format of save.
   String _saveFormat = 'doc';
 
   @override

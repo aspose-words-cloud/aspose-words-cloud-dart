@@ -38,7 +38,7 @@ class MhtmlSaveOptionsData extends HtmlSaveOptionsData {
   set exportCidUrlsForMhtmlResources(bool val) => _exportCidUrlsForMhtmlResources = val;
 
 
-  /// Gets or sets the format of save.
+  /// Gets the format of save.
   String _saveFormat = 'mht';
 
   @override

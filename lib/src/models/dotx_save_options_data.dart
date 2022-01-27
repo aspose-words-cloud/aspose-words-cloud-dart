@@ -31,7 +31,7 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for dotx save options.
 class DotxSaveOptionsData extends OoxmlSaveOptionsData {
-  /// Gets or sets the format of save.
+  /// Gets the format of save.
   String _saveFormat = 'dotx';
 
   @override

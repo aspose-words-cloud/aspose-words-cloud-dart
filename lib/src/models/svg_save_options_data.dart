@@ -59,7 +59,7 @@ class SvgSaveOptionsData extends FixedPageSaveOptionsData {
   set resourcesFolderAlias(String val) => _resourcesFolderAlias = val;
 
 
-  /// Gets or sets the format of save.
+  /// Gets the format of save.
   String _saveFormat = 'svg';
 
   @override

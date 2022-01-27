@@ -38,7 +38,7 @@ class EpubSaveOptionsData extends HtmlSaveOptionsData {
   set epubNavigationMapLevel(int val) => _epubNavigationMapLevel = val;
 
 
-  /// Gets or sets the format of save.
+  /// Gets the format of save.
   String _saveFormat = 'epub';
 
   @override

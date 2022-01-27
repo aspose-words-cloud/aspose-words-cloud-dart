@@ -60,7 +60,7 @@ class OdtSaveOptionsData extends SaveOptionsData {
   set prettyFormat(bool val) => _prettyFormat = val;
 
 
-  /// Gets or sets the format of save.
+  /// Gets the format of save.
   String _saveFormat = 'odt';
 
   @override
