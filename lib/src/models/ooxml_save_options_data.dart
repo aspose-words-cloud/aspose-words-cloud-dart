@@ -30,7 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Container class for docx/docm/dotx/dotm/flatopc save options.
-class OoxmlSaveOptionsData extends SaveOptionsData {
+abstract class OoxmlSaveOptionsData extends SaveOptionsData {
   /// Gets or sets the oOXML version for the output document.
   String _compliance;
 

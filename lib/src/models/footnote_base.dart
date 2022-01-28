@@ -30,7 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Footnote base class.
-class FootnoteBase implements ModelBase {
+abstract class FootnoteBase implements ModelBase {
   /// Gets or sets the option, that specifies whether this is a footnote or endnote.
   FootnoteBase_FootnoteTypeEnum _footnoteType;
 

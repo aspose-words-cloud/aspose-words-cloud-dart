@@ -30,7 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// base container class for save options data.
-class SaveOptionsData implements ModelBase {
+abstract class SaveOptionsData implements ModelBase {
   /// Gets or sets a boolean value indicating whether to allow embedding fonts with PostScript outlines when embedding TrueType fonts in a document upon it is saved. The default value is false..
   bool _allowEmbeddingPostScriptFonts;
 
