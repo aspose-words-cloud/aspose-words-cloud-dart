@@ -62,8 +62,8 @@ class ApiClient {
 
     _encryptorInitialized = true;
     try {
-        String? exponentString = configuration.rsaExponent;
-        String? modulusString = configuration.rsaModulus;
+        var exponentString = configuration.rsaExponent;
+        var modulusString = configuration.rsaModulus;
     
         if (exponentString == null || exponentString.isEmpty || modulusString == null || modulusString.isEmpty)
         {
