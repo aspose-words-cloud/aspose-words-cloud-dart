@@ -30,7 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Container abstract class for image save options.
-class ImageSaveOptionsData extends FixedPageSaveOptionsData {
+abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
   /// Gets or sets the horizontal resolution in dots per inch for the generated images.
   /// This property has effect only when saving to raster image formats.
   /// The default value is 96.

@@ -109,6 +109,5 @@ class DeleteCustomXmlPartOnlineRequest implements RequestBase {
 
   @override
   dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
-    return _body;
   }
 }

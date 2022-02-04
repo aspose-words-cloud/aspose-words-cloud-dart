@@ -1,7 +1,10 @@
 ## [22.2.0] - Aspose Words Cloud for Dart 22.2 Release Notes
 
-- Made 'SaveOprionsData.SaveFormat' property readonly with default value.
+- Made 'SaveOptionsData.SaveFormat' property readonly with default value.
 - Added subclasses for all formats of SaveOprionsData with specified SaveFormat.
+- 'SaveOptionsData', 'FixedPageSaveOptionsData', 'ImageSaveOptionsData', 'OoxmlSaveOptionsData', 'TxtSaveOptionsBaseData' classes now is abstract.
+- Online methods returns the dictionary of files with included original filename as key instead of single file content in 'Document' property.
+- Changed 'CssStyleSheetType' property type to enum instead of string in 'HtmlSaveOptionsData'.
 
 
 ## [22.1.0] - Aspose Words Cloud for Dart 22.1 Release Notes

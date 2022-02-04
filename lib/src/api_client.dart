@@ -37,6 +37,7 @@ import 'package:uuid/uuid.dart';
 
 import './api_request_data.dart';
 import './api_request_part.dart';
+import './body_part_data.dart';
 import './byte_data_extensions.dart';
 import './requests/batch_request.dart';
 import '../aspose_words_cloud.dart';
@@ -333,26 +334,51 @@ class ApiClient {
     return result;
   }
 
-  Map<String, ByteData> deserializeMultipartMap(final ByteData data) {
-    var result = <String, ByteData>{};
+  Map<String, BodyPartData> deserializeMultipartMap(final ByteData data) {
+    var result = <String, BodyPartData>{};
     for (final part in _deserializeMultipartBase(data)) {
       var headersEndIndex = part.indexOf(_newline2x);
       if (headersEndIndex == null) {
         throw ApiException(400, 'Failed to parse multipart response.');
       }
 
+      const contentDispositionStr = 'Content-Disposition:';
+      const contentTypeStr = 'Content-Disposition:';
       var headersData = ByteData.sublistView(part, 0, headersEndIndex);
       var headersStr = utf8.decoder.convert(headersData.buffer.asUint8List(headersData.offsetInBytes, headersData.lengthInBytes));
-      var contentDisposition = headersStr.split('\r\n').firstWhere((x) => x.trim().startsWith('Content-Disposition:'));
+      var headersRaw = headersStr.split('\r\n');
+      var contentDisposition = headersRaw.firstWhere((x) => x.trim().startsWith(contentDispositionStr)).replaceFirst(contentDispositionStr, '').trim();
+      var contentType = headersRaw.firstWhere((x) => x.trim().startsWith(contentTypeStr))?.replaceFirst(contentTypeStr, '')?.trim();
       var nameHeaderPart = contentDisposition.split(';').map((x) => x.trim()).firstWhere((x) => x.toLowerCase().startsWith('name'));
+      var filenameHeaderPart = contentDisposition.split(';').map((x) => x.trim()).firstWhere((x) => x.toLowerCase().startsWith('name'));
       var nameValueParts = nameHeaderPart.split('=');
+      var filenameValueParts = filenameHeaderPart?.split('=');
       if (nameValueParts.length != 2) {
         throw ApiException(400, 'Failed to parse multipart response.');
       }
 
-      var nameValue = nameValueParts.elementAt(1).trim().toLowerCase();
-      result[nameValue] = ByteData.sublistView(part, headersEndIndex + _newline2x.lengthInBytes, part.lengthInBytes - _newline.lengthInBytes);
+      var nameValue = nameValueParts.elementAt(1).trim().replaceAll('"', '').toLowerCase();
+      var filenameValue = filenameValueParts?.elementAt(1)?.trim()?.replaceAll('"', '');
+      var content = ByteData.sublistView(part, headersEndIndex + _newline2x.lengthInBytes, part.lengthInBytes - _newline.lengthInBytes);
+      result[nameValue] = BodyPartData(contentType, filenameValue, content);
     }
+    return result;
+  }
+
+  Map<String, ByteData> deserializeFilesCollection(final BodyPartData bodyPartData) {
+    var result = <String, ByteData>{};
+    if (bodyPartData.contentType != null && bodyPartData.contentType.startsWith('multipart/mixed'))
+    {
+      var subParts = deserializeMultipartMap(bodyPartData.content);
+      subParts.forEach((key, value) {
+        result[value.filename] = value.content;
+      });
+    }
+    else
+    {
+      result[bodyPartData.filename ?? ''] = bodyPartData.content;
+    }
+
     return result;
   }
 

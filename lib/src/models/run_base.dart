@@ -30,7 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Run element.
-class RunBase implements ModelBase {
+abstract class RunBase implements ModelBase {
   /// Gets or sets the run's text.
   String _text;
 

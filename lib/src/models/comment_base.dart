@@ -30,7 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Comment.
-class CommentBase implements ModelBase {
+abstract class CommentBase implements ModelBase {
   /// Gets or sets the author name for a comment.
   String _author;
 

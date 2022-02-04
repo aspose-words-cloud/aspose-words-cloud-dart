@@ -160,6 +160,7 @@ void main() {
   group('ConvertDocument', () {
     test('SaveAs', () async => await ConvertDocumentTests(testContext).testSaveAs());
     test('SaveAsOnline', () async => await ConvertDocumentTests(testContext).testSaveAsOnline());
+    test('SaveAsOnlineHtmlMultifile', () async => await ConvertDocumentTests(testContext).testSaveAsOnlineHtmlMultifile());
     test('SaveAsDocx', () async => await ConvertDocumentTests(testContext).testSaveAsDocx());
     test('SaveAsTiff', () async => await ConvertDocumentTests(testContext).testSaveAsTiff());
     test('SaveAsTiffOnline', () async => await ConvertDocumentTests(testContext).testSaveAsTiffOnline());

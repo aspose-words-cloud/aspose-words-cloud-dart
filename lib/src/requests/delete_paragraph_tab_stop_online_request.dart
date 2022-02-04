@@ -110,7 +110,7 @@ class DeleteParagraphTabStopOnlineRequest implements RequestBase {
   @override
   dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
     var _result = DeleteParagraphTabStopOnlineResponse();
-    _result.deserialize(_apiClient.deserializeMultipartMap(_body));
+    _result.deserialize(_apiClient, _apiClient.deserializeMultipartMap(_body));
     return _result;
   }
 }

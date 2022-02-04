@@ -160,7 +160,12 @@ class MhtmlSaveOptionsData extends HtmlSaveOptionsData {
     }
 
     if (json.containsKey('CssStyleSheetType')) {
-      cssStyleSheetType = json['CssStyleSheetType'] as String;
+      switch (json['CssStyleSheetType'] as String) {
+        case 'Inline': cssStyleSheetType = HtmlSaveOptionsData_CssStyleSheetTypeEnum.inline; break;
+        case 'Embedded': cssStyleSheetType = HtmlSaveOptionsData_CssStyleSheetTypeEnum.embedded; break;
+        case 'External': cssStyleSheetType = HtmlSaveOptionsData_CssStyleSheetTypeEnum.external; break;
+        default: cssStyleSheetType = null; break;
+      }
     } else {
       cssStyleSheetType = null;
     }

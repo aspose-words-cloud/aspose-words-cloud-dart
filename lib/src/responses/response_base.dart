@@ -27,8 +27,9 @@
 
 library aspose_words_cloud;
 
-import 'dart:typed_data';
+import '../api_client.dart';
+import '../body_part_data.dart';
 
 abstract class ResponseBase {
-  void deserialize(Map<String, ByteData> _parts);
+  void deserialize(ApiClient apiClient, Map<String, BodyPartData> _parts);
 }

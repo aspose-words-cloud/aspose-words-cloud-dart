@@ -30,7 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Base class for save options of text formats.
-class TxtSaveOptionsBaseData extends SaveOptionsData {
+abstract class TxtSaveOptionsBaseData extends SaveOptionsData {
   /// Gets or sets the character encoding to use when exporting in plain text format.
   String _encoding;
 

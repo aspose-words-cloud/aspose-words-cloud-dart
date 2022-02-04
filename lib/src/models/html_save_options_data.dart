@@ -55,10 +55,10 @@ class HtmlSaveOptionsData extends SaveOptionsData {
 
 
   /// Gets or sets the option that controls how the CSS styles are exported.
-  String _cssStyleSheetType;
+  HtmlSaveOptionsData_CssStyleSheetTypeEnum _cssStyleSheetType;
 
-  String get cssStyleSheetType => _cssStyleSheetType;
-  set cssStyleSheetType(String val) => _cssStyleSheetType = val;
+  HtmlSaveOptionsData_CssStyleSheetTypeEnum get cssStyleSheetType => _cssStyleSheetType;
+  set cssStyleSheetType(HtmlSaveOptionsData_CssStyleSheetTypeEnum val) => _cssStyleSheetType = val;
 
 
   /// Gets or sets the option that controls how the document should be split when saving.
@@ -437,7 +437,12 @@ class HtmlSaveOptionsData extends SaveOptionsData {
     }
 
     if (json.containsKey('CssStyleSheetType')) {
-      cssStyleSheetType = json['CssStyleSheetType'] as String;
+      switch (json['CssStyleSheetType'] as String) {
+        case 'Inline': cssStyleSheetType = HtmlSaveOptionsData_CssStyleSheetTypeEnum.inline; break;
+        case 'Embedded': cssStyleSheetType = HtmlSaveOptionsData_CssStyleSheetTypeEnum.embedded; break;
+        case 'External': cssStyleSheetType = HtmlSaveOptionsData_CssStyleSheetTypeEnum.external; break;
+        default: cssStyleSheetType = null; break;
+      }
     } else {
       cssStyleSheetType = null;
     }
@@ -684,7 +689,12 @@ class HtmlSaveOptionsData extends SaveOptionsData {
     }
 
     if (cssStyleSheetType != null) {
-      _result['CssStyleSheetType'] = cssStyleSheetType;
+      switch (cssStyleSheetType) {
+        case HtmlSaveOptionsData_CssStyleSheetTypeEnum.inline: _result['CssStyleSheetType'] = 'Inline'; break;
+        case HtmlSaveOptionsData_CssStyleSheetTypeEnum.embedded: _result['CssStyleSheetType'] = 'Embedded'; break;
+        case HtmlSaveOptionsData_CssStyleSheetTypeEnum.external: _result['CssStyleSheetType'] = 'External'; break;
+        default: break;
+      }
     }
 
     if (documentSplitCriteria != null) {
@@ -846,6 +856,14 @@ class HtmlSaveOptionsData extends SaveOptionsData {
     }
     return _result;
   }
+}
+
+/// Gets or sets the option that controls how the CSS styles are exported.
+enum HtmlSaveOptionsData_CssStyleSheetTypeEnum
+{ 
+  inline,
+  embedded,
+  external
 }
 
 /// Gets or sets the version of HTML standard, that should be used when saving the document to HTML or MHTML.
