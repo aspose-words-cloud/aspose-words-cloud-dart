@@ -30,7 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Field.
-class FieldBase implements ModelBase {
+abstract class FieldBase implements ModelBase {
   /// Gets or sets the field code.
   String _fieldCode;
 

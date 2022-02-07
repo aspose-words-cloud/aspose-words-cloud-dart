@@ -30,7 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
-class FixedPageSaveOptionsData extends SaveOptionsData {
+abstract class FixedPageSaveOptionsData extends SaveOptionsData {
   /// Gets or sets the value determining how colors are rendered.
   /// { Normal | Grayscale}.
   String _colorMode;
