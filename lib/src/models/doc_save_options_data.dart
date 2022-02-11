@@ -33,17 +33,40 @@ import '../../aspose_words_cloud.dart';
 class DocSaveOptionsData extends SaveOptionsData {
   /// Gets or sets a value indicating when False, that small metafiles are not compressed for performance reason.
   /// The default value is true, all metafiles are compressed regardless of its size.
-  bool alwaysCompressMetafiles;
+  bool _alwaysCompressMetafiles;
+
+  bool get alwaysCompressMetafiles => _alwaysCompressMetafiles;
+  set alwaysCompressMetafiles(bool val) => _alwaysCompressMetafiles = val;
+
 
   /// Gets or sets the password.
-  String password;
+  String _password;
+
+  String get password => _password;
+  set password(String val) => _password = val;
+
+
+  /// Gets the format of save.
+  String _saveFormat = 'doc';
+
+  @override
+  String get saveFormat => _saveFormat;
+
 
   /// Gets or sets a value indicating when False, that PictureBullet data is not saved to the output document.
   /// The default value is true.
-  bool savePictureBullet;
+  bool _savePictureBullet;
+
+  bool get savePictureBullet => _savePictureBullet;
+  set savePictureBullet(bool val) => _savePictureBullet = val;
+
 
   /// Gets or sets a value indicating whether to save RoutingSlip data to output document.
-  bool saveRoutingSlip;
+  bool _saveRoutingSlip;
+
+  bool get saveRoutingSlip => _saveRoutingSlip;
+  set saveRoutingSlip(bool val) => _saveRoutingSlip = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -52,6 +75,95 @@ class DocSaveOptionsData extends SaveOptionsData {
     }
 
     super.deserialize(json);
+    if (json.containsKey('AllowEmbeddingPostScriptFonts')) {
+      allowEmbeddingPostScriptFonts = json['AllowEmbeddingPostScriptFonts'] as bool;
+    } else {
+      allowEmbeddingPostScriptFonts = null;
+    }
+
+    if (json.containsKey('CustomTimeZoneInfoData')) {
+      customTimeZoneInfoData = TimeZoneInfoData();
+      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+    } else {
+      customTimeZoneInfoData = null;
+    }
+
+    if (json.containsKey('Dml3DEffectsRenderingMode')) {
+      switch (json['Dml3DEffectsRenderingMode'] as String) {
+        case 'Basic': dml3DEffectsRenderingMode = SaveOptionsData_Dml3DEffectsRenderingModeEnum.basic; break;
+        case 'Advanced': dml3DEffectsRenderingMode = SaveOptionsData_Dml3DEffectsRenderingModeEnum.advanced; break;
+        default: dml3DEffectsRenderingMode = null; break;
+      }
+    } else {
+      dml3DEffectsRenderingMode = null;
+    }
+
+    if (json.containsKey('DmlEffectsRenderingMode')) {
+      dmlEffectsRenderingMode = json['DmlEffectsRenderingMode'] as String;
+    } else {
+      dmlEffectsRenderingMode = null;
+    }
+
+    if (json.containsKey('DmlRenderingMode')) {
+      dmlRenderingMode = json['DmlRenderingMode'] as String;
+    } else {
+      dmlRenderingMode = null;
+    }
+
+    if (json.containsKey('FileName')) {
+      fileName = json['FileName'] as String;
+    } else {
+      fileName = null;
+    }
+
+    if (json.containsKey('FlatOpcXmlMappingOnly')) {
+      flatOpcXmlMappingOnly = json['FlatOpcXmlMappingOnly'] as bool;
+    } else {
+      flatOpcXmlMappingOnly = null;
+    }
+
+    if (json.containsKey('ImlRenderingMode')) {
+      imlRenderingMode = json['ImlRenderingMode'] as String;
+    } else {
+      imlRenderingMode = null;
+    }
+
+    if (json.containsKey('UpdateCreatedTimeProperty')) {
+      updateCreatedTimeProperty = json['UpdateCreatedTimeProperty'] as bool;
+    } else {
+      updateCreatedTimeProperty = null;
+    }
+
+    if (json.containsKey('UpdateFields')) {
+      updateFields = json['UpdateFields'] as bool;
+    } else {
+      updateFields = null;
+    }
+
+    if (json.containsKey('UpdateLastPrintedProperty')) {
+      updateLastPrintedProperty = json['UpdateLastPrintedProperty'] as bool;
+    } else {
+      updateLastPrintedProperty = null;
+    }
+
+    if (json.containsKey('UpdateLastSavedTimeProperty')) {
+      updateLastSavedTimeProperty = json['UpdateLastSavedTimeProperty'] as bool;
+    } else {
+      updateLastSavedTimeProperty = null;
+    }
+
+    if (json.containsKey('UpdateSdtContent')) {
+      updateSdtContent = json['UpdateSdtContent'] as bool;
+    } else {
+      updateSdtContent = null;
+    }
+
+    if (json.containsKey('ZipOutput')) {
+      zipOutput = json['ZipOutput'] as bool;
+    } else {
+      zipOutput = null;
+    }
+
     if (json.containsKey('AlwaysCompressMetafiles')) {
       alwaysCompressMetafiles = json['AlwaysCompressMetafiles'] as bool;
     } else {
@@ -87,6 +199,10 @@ class DocSaveOptionsData extends SaveOptionsData {
 
     if (password != null) {
       _result['Password'] = password;
+    }
+
+    if (saveFormat != null) {
+      _result['SaveFormat'] = saveFormat;
     }
 
     if (savePictureBullet != null) {

@@ -33,17 +33,40 @@ import '../../aspose_words_cloud.dart';
 class TextSaveOptionsData extends TxtSaveOptionsBaseData {
   /// Gets or sets a value indicating whether to add bi-directional marks before each BiDi run when exporting in plain text format.
   /// The default value is true.
-  bool addBidiMarks;
+  bool _addBidiMarks;
+
+  bool get addBidiMarks => _addBidiMarks;
+  set addBidiMarks(bool val) => _addBidiMarks = val;
+
 
   /// Gets or sets an integer value that specifies the maximum number of characters per one line.
   /// The default value is 0, that means no limit.
-  int maxCharactersPerLine;
+  int _maxCharactersPerLine;
+
+  int get maxCharactersPerLine => _maxCharactersPerLine;
+  set maxCharactersPerLine(int val) => _maxCharactersPerLine = val;
+
 
   /// Gets or sets a value indicating whether the program should attempt to preserve layout of tables when saving in the plain text format.
-  bool preserveTableLayout;
+  bool _preserveTableLayout;
+
+  bool get preserveTableLayout => _preserveTableLayout;
+  set preserveTableLayout(bool val) => _preserveTableLayout = val;
+
+
+  /// Gets the format of save.
+  String _saveFormat = 'txt';
+
+  @override
+  String get saveFormat => _saveFormat;
+
 
   /// Gets or sets a value indicating whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.
-  bool simplifyListLabels;
+  bool _simplifyListLabels;
+
+  bool get simplifyListLabels => _simplifyListLabels;
+  set simplifyListLabels(bool val) => _simplifyListLabels = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -52,6 +75,124 @@ class TextSaveOptionsData extends TxtSaveOptionsBaseData {
     }
 
     super.deserialize(json);
+    if (json.containsKey('AllowEmbeddingPostScriptFonts')) {
+      allowEmbeddingPostScriptFonts = json['AllowEmbeddingPostScriptFonts'] as bool;
+    } else {
+      allowEmbeddingPostScriptFonts = null;
+    }
+
+    if (json.containsKey('CustomTimeZoneInfoData')) {
+      customTimeZoneInfoData = TimeZoneInfoData();
+      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+    } else {
+      customTimeZoneInfoData = null;
+    }
+
+    if (json.containsKey('Dml3DEffectsRenderingMode')) {
+      switch (json['Dml3DEffectsRenderingMode'] as String) {
+        case 'Basic': dml3DEffectsRenderingMode = SaveOptionsData_Dml3DEffectsRenderingModeEnum.basic; break;
+        case 'Advanced': dml3DEffectsRenderingMode = SaveOptionsData_Dml3DEffectsRenderingModeEnum.advanced; break;
+        default: dml3DEffectsRenderingMode = null; break;
+      }
+    } else {
+      dml3DEffectsRenderingMode = null;
+    }
+
+    if (json.containsKey('DmlEffectsRenderingMode')) {
+      dmlEffectsRenderingMode = json['DmlEffectsRenderingMode'] as String;
+    } else {
+      dmlEffectsRenderingMode = null;
+    }
+
+    if (json.containsKey('DmlRenderingMode')) {
+      dmlRenderingMode = json['DmlRenderingMode'] as String;
+    } else {
+      dmlRenderingMode = null;
+    }
+
+    if (json.containsKey('FileName')) {
+      fileName = json['FileName'] as String;
+    } else {
+      fileName = null;
+    }
+
+    if (json.containsKey('FlatOpcXmlMappingOnly')) {
+      flatOpcXmlMappingOnly = json['FlatOpcXmlMappingOnly'] as bool;
+    } else {
+      flatOpcXmlMappingOnly = null;
+    }
+
+    if (json.containsKey('ImlRenderingMode')) {
+      imlRenderingMode = json['ImlRenderingMode'] as String;
+    } else {
+      imlRenderingMode = null;
+    }
+
+    if (json.containsKey('UpdateCreatedTimeProperty')) {
+      updateCreatedTimeProperty = json['UpdateCreatedTimeProperty'] as bool;
+    } else {
+      updateCreatedTimeProperty = null;
+    }
+
+    if (json.containsKey('UpdateFields')) {
+      updateFields = json['UpdateFields'] as bool;
+    } else {
+      updateFields = null;
+    }
+
+    if (json.containsKey('UpdateLastPrintedProperty')) {
+      updateLastPrintedProperty = json['UpdateLastPrintedProperty'] as bool;
+    } else {
+      updateLastPrintedProperty = null;
+    }
+
+    if (json.containsKey('UpdateLastSavedTimeProperty')) {
+      updateLastSavedTimeProperty = json['UpdateLastSavedTimeProperty'] as bool;
+    } else {
+      updateLastSavedTimeProperty = null;
+    }
+
+    if (json.containsKey('UpdateSdtContent')) {
+      updateSdtContent = json['UpdateSdtContent'] as bool;
+    } else {
+      updateSdtContent = null;
+    }
+
+    if (json.containsKey('ZipOutput')) {
+      zipOutput = json['ZipOutput'] as bool;
+    } else {
+      zipOutput = null;
+    }
+
+    if (json.containsKey('Encoding')) {
+      encoding = json['Encoding'] as String;
+    } else {
+      encoding = null;
+    }
+
+    if (json.containsKey('ExportHeadersFootersMode')) {
+      switch (json['ExportHeadersFootersMode'] as String) {
+        case 'None': exportHeadersFootersMode = TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum.none; break;
+        case 'PrimaryOnly': exportHeadersFootersMode = TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum.primaryOnly; break;
+        case 'AllAtEnd': exportHeadersFootersMode = TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum.allAtEnd; break;
+        default: exportHeadersFootersMode = null; break;
+      }
+    } else {
+      exportHeadersFootersMode = null;
+    }
+
+    if (json.containsKey('ForcePageBreaks')) {
+      forcePageBreaks = json['ForcePageBreaks'] as bool;
+    } else {
+      forcePageBreaks = null;
+    }
+
+    if (json.containsKey('ParagraphBreak')) {
+      paragraphBreak = json['ParagraphBreak'] as String;
+    } else {
+      paragraphBreak = null;
+    }
+
     if (json.containsKey('AddBidiMarks')) {
       addBidiMarks = json['AddBidiMarks'] as bool;
     } else {
@@ -91,6 +232,10 @@ class TextSaveOptionsData extends TxtSaveOptionsBaseData {
 
     if (preserveTableLayout != null) {
       _result['PreserveTableLayout'] = preserveTableLayout;
+    }
+
+    if (saveFormat != null) {
+      _result['SaveFormat'] = saveFormat;
     }
 
     if (simplifyListLabels != null) {

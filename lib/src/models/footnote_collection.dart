@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a collection of footnotes.
 class FootnoteCollection extends LinkElement {
   /// Gets or sets the collection of footnotes.
-  List<Footnote> list;
+  List<Footnote> _list;
+
+  List<Footnote> get list => _list;
+  set list(List<Footnote> val) => _list = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,13 @@ class FootnoteCollection extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('List')) {
       // Array processing
       list = <Footnote>[];

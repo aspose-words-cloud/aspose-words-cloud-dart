@@ -39,6 +39,24 @@ class Run extends RunLink {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
+    if (json.containsKey('NodeId')) {
+      nodeId = json['NodeId'] as String;
+    } else {
+      nodeId = null;
+    }
+
+    if (json.containsKey('Text')) {
+      text = json['Text'] as String;
+    } else {
+      text = null;
+    }
   }
 
   @override

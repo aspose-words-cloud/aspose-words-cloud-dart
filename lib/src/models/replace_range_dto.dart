@@ -32,10 +32,18 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a range element.
 class ReplaceRangeDto implements ModelBase {
   /// Gets or sets the range's text.
-  String text;
+  String _text;
+
+  String get text => _text;
+  set text(String val) => _text = val;
+
 
   /// Gets or sets the range's text type.
-  ReplaceRangeDto_TextTypeEnum textType;
+  ReplaceRangeDto_TextTypeEnum _textType;
+
+  ReplaceRangeDto_TextTypeEnum get textType => _textType;
+  set textType(ReplaceRangeDto_TextTypeEnum val) => _textType = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

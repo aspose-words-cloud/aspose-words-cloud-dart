@@ -32,22 +32,46 @@ import '../../aspose_words_cloud.dart';
 /// Represents a border of an object.
 class Border extends LinkElement {
   /// Gets or sets the border type.
-  Border_BorderTypeEnum borderType;
+  Border_BorderTypeEnum _borderType;
+
+  Border_BorderTypeEnum get borderType => _borderType;
+  set borderType(Border_BorderTypeEnum val) => _borderType = val;
+
 
   /// Gets or sets the border color.
-  XmlColor color;
+  XmlColor _color;
+
+  XmlColor get color => _color;
+  set color(XmlColor val) => _color = val;
+
 
   /// Gets or sets the distance of the border from text or from the page edge in points.
-  double distanceFromText;
+  double _distanceFromText;
+
+  double get distanceFromText => _distanceFromText;
+  set distanceFromText(double val) => _distanceFromText = val;
+
 
   /// Gets or sets the border style.
-  Border_LineStyleEnum lineStyle;
+  Border_LineStyleEnum _lineStyle;
+
+  Border_LineStyleEnum get lineStyle => _lineStyle;
+  set lineStyle(Border_LineStyleEnum val) => _lineStyle = val;
+
 
   /// Gets or sets the border width in points.
-  double lineWidth;
+  double _lineWidth;
+
+  double get lineWidth => _lineWidth;
+  set lineWidth(double val) => _lineWidth = val;
+
 
   /// Gets or sets a value indicating whether the border has a shadow.
-  bool shadow;
+  bool _shadow;
+
+  bool get shadow => _shadow;
+  set shadow(bool val) => _shadow = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -56,6 +80,13 @@ class Border extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('BorderType')) {
       switch (json['BorderType'] as String) {
         case 'Bottom': borderType = Border_BorderTypeEnum.bottom; break;

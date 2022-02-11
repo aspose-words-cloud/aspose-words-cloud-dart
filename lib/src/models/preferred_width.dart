@@ -32,10 +32,18 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a preferred width value.
 class PreferredWidth implements ModelBase {
   /// Gets or sets the unit of measure used for this preferred width value.
-  PreferredWidth_TypeEnum type;
+  PreferredWidth_TypeEnum _type;
+
+  PreferredWidth_TypeEnum get type => _type;
+  set type(PreferredWidth_TypeEnum val) => _type = val;
+
 
   /// Gets or sets the preferred width value. The unit of measure is specified in the Type property.
-  double value;
+  double _value;
+
+  double get value => _value;
+  set value(double val) => _value = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

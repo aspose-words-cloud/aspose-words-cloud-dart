@@ -32,10 +32,18 @@ import '../../aspose_words_cloud.dart';
 /// Hyperlink element.
 class Hyperlink extends LinkElement {
   /// Gets or sets the hypelink's display text.
-  String displayText;
+  String _displayText;
+
+  String get displayText => _displayText;
+  set displayText(String val) => _displayText = val;
+
 
   /// Gets or sets the value.
-  String value;
+  String _value;
+
+  String get value => _value;
+  set value(String val) => _value = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -44,6 +52,13 @@ class Hyperlink extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('DisplayText')) {
       displayText = json['DisplayText'] as String;
     } else {

@@ -32,13 +32,25 @@ import '../../aspose_words_cloud.dart';
 /// DTO for user information.
 class UserInformation implements ModelBase {
   /// Gets or sets user address.
-  String address;
+  String _address;
+
+  String get address => _address;
+  set address(String val) => _address = val;
+
 
   /// Gets or sets user initials.
-  String initials;
+  String _initials;
+
+  String get initials => _initials;
+  set initials(String val) => _initials = val;
+
 
   /// Gets or sets user name.
-  String name;
+  String _name;
+
+  String get name => _name;
+  set name(String val) => _name = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

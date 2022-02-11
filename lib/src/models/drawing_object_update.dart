@@ -32,25 +32,53 @@ import '../../aspose_words_cloud.dart';
 /// Drawing object element for update.
 class DrawingObjectUpdate implements ModelBase {
   /// Gets or sets the height of the DrawingObject in points.
-  double height;
+  double _height;
+
+  double get height => _height;
+  set height(double val) => _height = val;
+
 
   /// Gets or sets the distance in points from the origin to the left side of the image.
-  double left;
+  double _left;
+
+  double get left => _left;
+  set left(double val) => _left = val;
+
 
   /// Gets or sets the relative horizontal position, from which the distance to the image is measured.
-  DrawingObjectUpdate_RelativeHorizontalPositionEnum relativeHorizontalPosition;
+  DrawingObjectUpdate_RelativeHorizontalPositionEnum _relativeHorizontalPosition;
+
+  DrawingObjectUpdate_RelativeHorizontalPositionEnum get relativeHorizontalPosition => _relativeHorizontalPosition;
+  set relativeHorizontalPosition(DrawingObjectUpdate_RelativeHorizontalPositionEnum val) => _relativeHorizontalPosition = val;
+
 
   /// Gets or sets the relative vertical position, from which the distance to the image measured.
-  DrawingObjectUpdate_RelativeVerticalPositionEnum relativeVerticalPosition;
+  DrawingObjectUpdate_RelativeVerticalPositionEnum _relativeVerticalPosition;
+
+  DrawingObjectUpdate_RelativeVerticalPositionEnum get relativeVerticalPosition => _relativeVerticalPosition;
+  set relativeVerticalPosition(DrawingObjectUpdate_RelativeVerticalPositionEnum val) => _relativeVerticalPosition = val;
+
 
   /// Gets or sets the distance in points from the origin to the top side of the image.
-  double top;
+  double _top;
+
+  double get top => _top;
+  set top(double val) => _top = val;
+
 
   /// Gets or sets the width of the DrawingObjects in points.
-  double width;
+  double _width;
+
+  double get width => _width;
+  set width(double val) => _width = val;
+
 
   /// Gets or sets the option that controls how to wrap text around the image.
-  DrawingObjectUpdate_WrapTypeEnum wrapType;
+  DrawingObjectUpdate_WrapTypeEnum _wrapType;
+
+  DrawingObjectUpdate_WrapTypeEnum get wrapType => _wrapType;
+  set wrapType(DrawingObjectUpdate_WrapTypeEnum val) => _wrapType = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

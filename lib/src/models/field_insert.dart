@@ -39,6 +39,17 @@ class FieldInsert extends FieldBase {
     }
 
     super.deserialize(json);
+    if (json.containsKey('FieldCode')) {
+      fieldCode = json['FieldCode'] as String;
+    } else {
+      fieldCode = null;
+    }
+
+    if (json.containsKey('LocaleId')) {
+      localeId = json['LocaleId'] as String;
+    } else {
+      localeId = null;
+    }
   }
 
   @override

@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// Insert document to document list.
 class ListInsert implements ModelBase {
   /// Gets or sets the option that controls how list should be restarted at each section.
-  ListInsert_TemplateEnum template;
+  ListInsert_TemplateEnum _template;
+
+  ListInsert_TemplateEnum get template => _template;
+  set template(ListInsert_TemplateEnum val) => _template = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

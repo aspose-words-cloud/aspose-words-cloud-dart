@@ -30,55 +30,114 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// base container class for save options data.
-class SaveOptionsData implements ModelBase {
+abstract class SaveOptionsData implements ModelBase {
   /// Gets or sets a boolean value indicating whether to allow embedding fonts with PostScript outlines when embedding TrueType fonts in a document upon it is saved. The default value is false..
-  bool allowEmbeddingPostScriptFonts;
+  bool _allowEmbeddingPostScriptFonts;
+
+  bool get allowEmbeddingPostScriptFonts => _allowEmbeddingPostScriptFonts;
+  set allowEmbeddingPostScriptFonts(bool val) => _allowEmbeddingPostScriptFonts = val;
+
 
   /// Gets or sets CustomTimeZoneInfo.
-  TimeZoneInfoData customTimeZoneInfoData;
+  TimeZoneInfoData _customTimeZoneInfoData;
+
+  TimeZoneInfoData get customTimeZoneInfoData => _customTimeZoneInfoData;
+  set customTimeZoneInfoData(TimeZoneInfoData val) => _customTimeZoneInfoData = val;
+
 
   /// Gets or sets the value determining how 3D effects are rendered.
-  SaveOptionsData_Dml3DEffectsRenderingModeEnum dml3DEffectsRenderingMode;
+  SaveOptionsData_Dml3DEffectsRenderingModeEnum _dml3DEffectsRenderingMode;
+
+  SaveOptionsData_Dml3DEffectsRenderingModeEnum get dml3DEffectsRenderingMode => _dml3DEffectsRenderingMode;
+  set dml3DEffectsRenderingMode(SaveOptionsData_Dml3DEffectsRenderingModeEnum val) => _dml3DEffectsRenderingMode = val;
+
 
   /// Gets or sets the value determining how DrawingML effects are rendered.
   /// { Simplified | None | Fine }.
-  String dmlEffectsRenderingMode;
+  String _dmlEffectsRenderingMode;
+
+  String get dmlEffectsRenderingMode => _dmlEffectsRenderingMode;
+  set dmlEffectsRenderingMode(String val) => _dmlEffectsRenderingMode = val;
+
 
   /// Gets or sets the option that controls how DrawingML shapes are rendered.
-  String dmlRenderingMode;
+  String _dmlRenderingMode;
+
+  String get dmlRenderingMode => _dmlRenderingMode;
+  set dmlRenderingMode(String val) => _dmlRenderingMode = val;
+
 
   /// Gets or sets the name of destination file.
-  String fileName;
+  String _fileName;
+
+  String get fileName => _fileName;
+  set fileName(String val) => _fileName = val;
+
 
   /// Gets or sets value determining which document formats are allowed to be mapped by Aspose.Words.Markup.StructuredDocumentTag.XmlMapping.
   /// By default only Aspose.Words.LoadFormat.FlatOpc document format is allowed to be mapped.
-  bool flatOpcXmlMappingOnly;
+  bool _flatOpcXmlMappingOnly;
+
+  bool get flatOpcXmlMappingOnly => _flatOpcXmlMappingOnly;
+  set flatOpcXmlMappingOnly(bool val) => _flatOpcXmlMappingOnly = val;
+
 
   /// Gets or sets the value determining how ink (InkML) objects are rendered.
-  String imlRenderingMode;
+  String _imlRenderingMode;
 
-  /// Gets or sets the format of save.
-  String saveFormat;
+  String get imlRenderingMode => _imlRenderingMode;
+  set imlRenderingMode(String val) => _imlRenderingMode = val;
+
+
+  /// Gets the format of save.
+  String _saveFormat;
+
+  String get saveFormat => _saveFormat;
+
 
   /// Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.CreatedTime property is updated before saving.
   /// Default value is false.
-  bool updateCreatedTimeProperty;
+  bool _updateCreatedTimeProperty;
+
+  bool get updateCreatedTimeProperty => _updateCreatedTimeProperty;
+  set updateCreatedTimeProperty(bool val) => _updateCreatedTimeProperty = val;
+
 
   /// Gets or sets a value indicating whether fields should be updated before saving the document to a fixed page format. The default value is true.
-  bool updateFields;
+  bool _updateFields;
+
+  bool get updateFields => _updateFields;
+  set updateFields(bool val) => _updateFields = val;
+
 
   /// Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastPrinted property is updated before saving.
-  bool updateLastPrintedProperty;
+  bool _updateLastPrintedProperty;
+
+  bool get updateLastPrintedProperty => _updateLastPrintedProperty;
+  set updateLastPrintedProperty(bool val) => _updateLastPrintedProperty = val;
+
 
   /// Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
-  bool updateLastSavedTimeProperty;
+  bool _updateLastSavedTimeProperty;
+
+  bool get updateLastSavedTimeProperty => _updateLastSavedTimeProperty;
+  set updateLastSavedTimeProperty(bool val) => _updateLastSavedTimeProperty = val;
+
 
   /// Gets or sets a value indicating whether content of StructuredDocumentTag is updated before saving.
-  bool updateSdtContent;
+  bool _updateSdtContent;
+
+  bool get updateSdtContent => _updateSdtContent;
+  set updateSdtContent(bool val) => _updateSdtContent = val;
+
 
   /// Gets or sets a value indicating whether to zip output or not.
   /// The default value is false.
-  bool zipOutput;
+  bool _zipOutput;
+
+  bool get zipOutput => _zipOutput;
+  set zipOutput(bool val) => _zipOutput = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -137,12 +196,6 @@ class SaveOptionsData implements ModelBase {
       imlRenderingMode = json['ImlRenderingMode'] as String;
     } else {
       imlRenderingMode = null;
-    }
-
-    if (json.containsKey('SaveFormat')) {
-      saveFormat = json['SaveFormat'] as String;
-    } else {
-      saveFormat = null;
     }
 
     if (json.containsKey('UpdateCreatedTimeProperty')) {

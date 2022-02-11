@@ -48,8 +48,7 @@ class ConvertDocumentTests
     final localName = 'test_multi_pages.docx';
     final remoteName = 'TestSaveAs.docx';
     await context.uploadFile('Common/' + localName, remoteFolder + '/' + remoteName);
-    final requestSaveOptionsData = SaveOptionsData();
-    requestSaveOptionsData.saveFormat = 'pdf';
+    final requestSaveOptionsData = PdfSaveOptionsData();
     requestSaveOptionsData.fileName = context.baseTestOutPath + '/TestSaveAs.pdf';
 
     final request = SaveAsRequest(
@@ -69,8 +68,7 @@ class ConvertDocumentTests
     final localName = 'test_multi_pages.docx';
     final requestDocument = await context.loadBinaryFile('Common/' + localName);
 
-    final requestSaveOptionsData = SaveOptionsData();
-    requestSaveOptionsData.saveFormat = 'pdf';
+    final requestSaveOptionsData = PdfSaveOptionsData();
     requestSaveOptionsData.fileName = context.baseTestOutPath + '/TestSaveAs.pdf';
 
     final request = SaveAsOnlineRequest(
@@ -87,8 +85,7 @@ class ConvertDocumentTests
     final localName = '45.pdf';
     final remoteName = 'TestSaveAsFromPdfToDoc.pdf';
     await context.uploadFile(localFolder + '/' + localName, remoteFolder + '/' + remoteName);
-    final requestSaveOptionsData = SaveOptionsData();
-    requestSaveOptionsData.saveFormat = 'docx';
+    final requestSaveOptionsData = DocxSaveOptionsData();
     requestSaveOptionsData.fileName = context.baseTestOutPath + '/TestSaveAsFromPdfToDoc.docx';
 
     final request = SaveAsRequest(
@@ -109,7 +106,6 @@ class ConvertDocumentTests
     final remoteName = 'TestSaveAsTiff.pdf';
     await context.uploadFile('Common/' + localName, remoteFolder + '/' + remoteName);
     final requestSaveOptions = TiffSaveOptionsData();
-    requestSaveOptions.saveFormat = 'tiff';
     requestSaveOptions.fileName = context.baseTestOutPath + '/abc.tiff';
 
     final request = SaveAsTiffRequest(
@@ -130,7 +126,6 @@ class ConvertDocumentTests
     final requestDocument = await context.loadBinaryFile('Common/' + localName);
 
     final requestSaveOptions = TiffSaveOptionsData();
-    requestSaveOptions.saveFormat = 'tiff';
     requestSaveOptions.fileName = context.baseTestOutPath + '/abc.tiff';
 
     final request = SaveAsTiffOnlineRequest(

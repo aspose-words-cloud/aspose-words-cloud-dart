@@ -30,12 +30,20 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Field.
-class FieldBase implements ModelBase {
+abstract class FieldBase implements ModelBase {
   /// Gets or sets the field code.
-  String fieldCode;
+  String _fieldCode;
+
+  String get fieldCode => _fieldCode;
+  set fieldCode(String val) => _fieldCode = val;
+
 
   /// Gets or sets the LCID of the field.
-  String localeId;
+  String _localeId;
+
+  String get localeId => _localeId;
+  set localeId(String val) => _localeId = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

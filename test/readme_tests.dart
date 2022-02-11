@@ -52,8 +52,7 @@ class ReadmeTests
     await wordsApi.uploadFile(uploadRequest);
 
     // Save file as pdf in cloud
-    var saveOptionsData = SaveOptionsData()
-      ..saveFormat = 'pdf'
+    var saveOptionsData = PdfSaveOptionsData()
       ..fileName = 'destStoredInCloud.pdf';
     var saveAsRequest = SaveAsRequest('fileStoredInCloud.docx', saveOptionsData);
     await wordsApi.saveAs(saveAsRequest);

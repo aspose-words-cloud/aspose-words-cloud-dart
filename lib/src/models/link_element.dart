@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// Reference to a document.
 class LinkElement implements ModelBase {
   /// Gets or sets the link to the document.
-  WordsApiLink link;
+  WordsApiLink _link;
+
+  WordsApiLink get link => _link;
+  set link(WordsApiLink val) => _link = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

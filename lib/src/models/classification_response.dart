@@ -32,13 +32,25 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with data on multi-class text classification.
 class ClassificationResponse extends WordsResponse {
   /// Gets or sets the best class name.
-  String bestClassName;
+  String _bestClassName;
+
+  String get bestClassName => _bestClassName;
+  set bestClassName(String val) => _bestClassName = val;
+
 
   /// Gets or sets the best class probability.
-  double bestClassProbability;
+  double _bestClassProbability;
+
+  double get bestClassProbability => _bestClassProbability;
+  set bestClassProbability(double val) => _bestClassProbability = val;
+
 
   /// Gets or sets the array of best classes results.
-  List<ClassificationResult> bestResults;
+  List<ClassificationResult> _bestResults;
+
+  List<ClassificationResult> get bestResults => _bestResults;
+  set bestResults(List<ClassificationResult> val) => _bestResults = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -47,6 +59,12 @@ class ClassificationResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('BestClassName')) {
       bestClassName = json['BestClassName'] as String;
     } else {

@@ -32,10 +32,18 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a table row element.
 class TableRowInsert implements ModelBase {
   /// Gets or sets the count of columns. The default value is 1.
-  int columnsCount;
+  int _columnsCount;
+
+  int get columnsCount => _columnsCount;
+  set columnsCount(int val) => _columnsCount = val;
+
 
   /// Gets or sets table row will be inserted after row with specified 0-based index.
-  int insertAfter;
+  int _insertAfter;
+
+  int get insertAfter => _insertAfter;
+  set insertAfter(int val) => _insertAfter = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

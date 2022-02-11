@@ -32,19 +32,39 @@ import '../../aspose_words_cloud.dart';
 /// Api error.
 class ApiError implements ModelBase {
   /// Gets or sets the API error code.
-  String code;
+  String _code;
+
+  String get code => _code;
+  set code(String val) => _code = val;
+
 
   /// Gets or sets the server DateTime.
-  DateTime dateTime;
+  DateTime _dateTime;
+
+  DateTime get dateTime => _dateTime;
+  set dateTime(DateTime val) => _dateTime = val;
+
 
   /// Gets or sets the error description.
-  String description;
+  String _description;
+
+  String get description => _description;
+  set description(String val) => _description = val;
+
 
   /// Gets or sets the inner error.
-  ApiError innerError;
+  ApiError _innerError;
+
+  ApiError get innerError => _innerError;
+  set innerError(ApiError val) => _innerError = val;
+
 
   /// Gets or sets the error message.
-  String message;
+  String _message;
+
+  String get message => _message;
+  set message(String val) => _message = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

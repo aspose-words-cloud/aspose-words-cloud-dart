@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a table cell.
 class TableCellResponse extends WordsResponse {
   /// Gets or sets the table cell.
-  TableCell cell;
+  TableCell _cell;
+
+  TableCell get cell => _cell;
+  set cell(TableCell val) => _cell = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,12 @@ class TableCellResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('Cell')) {
       cell = TableCell();
       cell.deserialize(json['Cell'] as Map<String, dynamic>);

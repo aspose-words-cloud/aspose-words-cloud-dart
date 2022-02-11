@@ -32,13 +32,25 @@ import '../../aspose_words_cloud.dart';
 /// Result of splitting document.
 class SplitDocumentResult implements ModelBase {
   /// Gets or sets the list of pages.
-  List<FileLink> pages;
+  List<FileLink> _pages;
+
+  List<FileLink> get pages => _pages;
+  set pages(List<FileLink> val) => _pages = val;
+
 
   /// Gets or sets the link to the source document.
-  FileLink sourceDocument;
+  FileLink _sourceDocument;
+
+  FileLink get sourceDocument => _sourceDocument;
+  set sourceDocument(FileLink val) => _sourceDocument = val;
+
 
   /// Gets or sets the link to the file archive with pages.
-  FileLink zippedPages;
+  FileLink _zippedPages;
+
+  FileLink get zippedPages => _zippedPages;
+  set zippedPages(FileLink val) => _zippedPages = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

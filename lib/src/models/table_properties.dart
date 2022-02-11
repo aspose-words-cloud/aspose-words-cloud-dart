@@ -32,47 +32,103 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with table properties.
 class TableProperties extends LinkElement {
   /// Gets or sets the option that controls how an inline table is aligned in the document.
-  TableProperties_AlignmentEnum alignment;
+  TableProperties_AlignmentEnum _alignment;
+
+  TableProperties_AlignmentEnum get alignment => _alignment;
+  set alignment(TableProperties_AlignmentEnum val) => _alignment = val;
+
 
   /// Gets or sets a value indicating whether to automatically resize cells in a table to fit their contents.
-  bool allowAutoFit;
+  bool _allowAutoFit;
+
+  bool get allowAutoFit => _allowAutoFit;
+  set allowAutoFit(bool val) => _allowAutoFit = val;
+
 
   /// Gets or sets a value indicating whether this is a right-to-left table.
-  bool bidi;
+  bool _bidi;
+
+  bool get bidi => _bidi;
+  set bidi(bool val) => _bidi = val;
+
 
   /// Gets or sets the amount of space (in points) to add below the contents of cells.
-  double bottomPadding;
+  double _bottomPadding;
+
+  double get bottomPadding => _bottomPadding;
+  set bottomPadding(double val) => _bottomPadding = val;
+
 
   /// Gets or sets the amount of space (in points) between the cells.
-  double cellSpacing;
+  double _cellSpacing;
+
+  double get cellSpacing => _cellSpacing;
+  set cellSpacing(double val) => _cellSpacing = val;
+
 
   /// Gets or sets the value, that represents the left indent of the table.
-  double leftIndent;
+  double _leftIndent;
+
+  double get leftIndent => _leftIndent;
+  set leftIndent(double val) => _leftIndent = val;
+
 
   /// Gets or sets the amount of space (in points) to add to the left of the contents of cells.
-  double leftPadding;
+  double _leftPadding;
+
+  double get leftPadding => _leftPadding;
+  set leftPadding(double val) => _leftPadding = val;
+
 
   /// Gets or sets the table preferred width.
   /// Preferred width can be specified as a percentage, number of points or a special "auto" value.
-  PreferredWidth preferredWidth;
+  PreferredWidth _preferredWidth;
+
+  PreferredWidth get preferredWidth => _preferredWidth;
+  set preferredWidth(PreferredWidth val) => _preferredWidth = val;
+
 
   /// Gets or sets the amount of space (in points) to add to the right of the contents of cells.
-  double rightPadding;
+  double _rightPadding;
+
+  double get rightPadding => _rightPadding;
+  set rightPadding(double val) => _rightPadding = val;
+
 
   /// Gets or sets the locale independent style identifier of the table style applied to this table.
-  TableProperties_StyleIdentifierEnum styleIdentifier;
+  TableProperties_StyleIdentifierEnum _styleIdentifier;
+
+  TableProperties_StyleIdentifierEnum get styleIdentifier => _styleIdentifier;
+  set styleIdentifier(TableProperties_StyleIdentifierEnum val) => _styleIdentifier = val;
+
 
   /// Gets or sets the name of the table style applied to this table.
-  String styleName;
+  String _styleName;
+
+  String get styleName => _styleName;
+  set styleName(String val) => _styleName = val;
+
 
   /// Gets or sets the bit flags, that specify how a table style is applied to this table.
-  TableProperties_StyleOptionsEnum styleOptions;
+  TableProperties_StyleOptionsEnum _styleOptions;
+
+  TableProperties_StyleOptionsEnum get styleOptions => _styleOptions;
+  set styleOptions(TableProperties_StyleOptionsEnum val) => _styleOptions = val;
+
 
   /// Gets or sets the option that controls text wrapping for the table.
-  TableProperties_TextWrappingEnum textWrapping;
+  TableProperties_TextWrappingEnum _textWrapping;
+
+  TableProperties_TextWrappingEnum get textWrapping => _textWrapping;
+  set textWrapping(TableProperties_TextWrappingEnum val) => _textWrapping = val;
+
 
   /// Gets or sets the amount of space (in points) to add above the contents of cells.
-  double topPadding;
+  double _topPadding;
+
+  double get topPadding => _topPadding;
+  set topPadding(double val) => _topPadding = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -81,6 +137,13 @@ class TableProperties extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('Alignment')) {
       switch (json['Alignment'] as String) {
         case 'Left': alignment = TableProperties_AlignmentEnum.left; break;

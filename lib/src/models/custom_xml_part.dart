@@ -32,10 +32,18 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a CustomXmlPart.
 class CustomXmlPart extends CustomXmlPartLink {
   /// Gets or sets the custom xml part data.
-  String data;
+  String _data;
+
+  String get data => _data;
+  set data(String val) => _data = val;
+
 
   /// Gets or sets the custom xml part id.
-  String id;
+  String _id;
+
+  String get id => _id;
+  set id(String val) => _id = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -44,6 +52,13 @@ class CustomXmlPart extends CustomXmlPartLink {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('Data')) {
       data = json['Data'] as String;
     } else {

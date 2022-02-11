@@ -32,10 +32,18 @@ import '../../aspose_words_cloud.dart';
 /// Contains data for load web document.
 class LoadWebDocumentData implements ModelBase {
   /// Gets or sets the web document URL.
-  String loadingDocumentUrl;
+  String _loadingDocumentUrl;
+
+  String get loadingDocumentUrl => _loadingDocumentUrl;
+  set loadingDocumentUrl(String val) => _loadingDocumentUrl = val;
+
 
   /// Gets or sets the save options.
-  SaveOptionsData saveOptions;
+  SaveOptionsData _saveOptions;
+
+  SaveOptionsData get saveOptions => _saveOptions;
+  set saveOptions(SaveOptionsData val) => _saveOptions = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -50,8 +58,7 @@ class LoadWebDocumentData implements ModelBase {
     }
 
     if (json.containsKey('SaveOptions')) {
-      saveOptions = SaveOptionsData();
-      saveOptions.deserialize(json['SaveOptions'] as Map<String, dynamic>);
+      throw ApiException(400, 'Cannot deserialize abstract data model SaveOptionsData.');
     } else {
       saveOptions = null;
     }

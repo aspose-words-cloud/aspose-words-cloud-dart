@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a collection of comments.
 class CommentsResponse extends WordsResponse {
   /// Gets or sets the collection of comments.
-  CommentsCollection comments;
+  CommentsCollection _comments;
+
+  CommentsCollection get comments => _comments;
+  set comments(CommentsCollection val) => _comments = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,12 @@ class CommentsResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('Comments')) {
       comments = CommentsCollection();
       comments.deserialize(json['Comments'] as Map<String, dynamic>);

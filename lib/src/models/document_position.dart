@@ -32,10 +32,18 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a position in the document tree.
 class DocumentPosition implements ModelBase {
   /// Gets or sets the link to a node.
-  NodeLink node;
+  NodeLink _node;
+
+  NodeLink get node => _node;
+  set node(NodeLink val) => _node = val;
+
 
   /// Gets or sets the offset in the node.
-  int offset;
+  int _offset;
+
+  int get offset => _offset;
+  set offset(int val) => _offset = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

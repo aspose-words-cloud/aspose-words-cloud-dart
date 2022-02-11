@@ -32,40 +32,88 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with all formatting for a table row.
 class TableCellFormat extends LinkElement {
   /// Gets or sets the amount of space (in points) to add below the contents of the cell.
-  double bottomPadding;
+  double _bottomPadding;
+
+  double get bottomPadding => _bottomPadding;
+  set bottomPadding(double val) => _bottomPadding = val;
+
 
   /// Gets or sets a value indicating whether to fit text in the cell, compress each paragraph to the width of the cell.
-  bool fitText;
+  bool _fitText;
+
+  bool get fitText => _fitText;
+  set fitText(bool val) => _fitText = val;
+
 
   /// Gets or sets the option that controls how the cell is merged horizontally with other cells in the row.
-  TableCellFormat_HorizontalMergeEnum horizontalMerge;
+  TableCellFormat_HorizontalMergeEnum _horizontalMerge;
+
+  TableCellFormat_HorizontalMergeEnum get horizontalMerge => _horizontalMerge;
+  set horizontalMerge(TableCellFormat_HorizontalMergeEnum val) => _horizontalMerge = val;
+
 
   /// Gets or sets the amount of space (in points) to add to the left of the contents of the cell.
-  double leftPadding;
+  double _leftPadding;
+
+  double get leftPadding => _leftPadding;
+  set leftPadding(double val) => _leftPadding = val;
+
 
   /// Gets or sets the orientation of text in a table cell.
-  TableCellFormat_OrientationEnum orientation;
+  TableCellFormat_OrientationEnum _orientation;
+
+  TableCellFormat_OrientationEnum get orientation => _orientation;
+  set orientation(TableCellFormat_OrientationEnum val) => _orientation = val;
+
 
   /// Gets or sets the preferred width of the cell.
-  PreferredWidth preferredWidth;
+  PreferredWidth _preferredWidth;
+
+  PreferredWidth get preferredWidth => _preferredWidth;
+  set preferredWidth(PreferredWidth val) => _preferredWidth = val;
+
 
   /// Gets or sets the amount of space (in points) to add to the right of the contents of the cell.
-  double rightPadding;
+  double _rightPadding;
+
+  double get rightPadding => _rightPadding;
+  set rightPadding(double val) => _rightPadding = val;
+
 
   /// Gets or sets the amount of space (in points) to add above the contents of the cell.
-  double topPadding;
+  double _topPadding;
+
+  double get topPadding => _topPadding;
+  set topPadding(double val) => _topPadding = val;
+
 
   /// Gets or sets the vertical alignment of text in the cell.
-  TableCellFormat_VerticalAlignmentEnum verticalAlignment;
+  TableCellFormat_VerticalAlignmentEnum _verticalAlignment;
+
+  TableCellFormat_VerticalAlignmentEnum get verticalAlignment => _verticalAlignment;
+  set verticalAlignment(TableCellFormat_VerticalAlignmentEnum val) => _verticalAlignment = val;
+
 
   /// Gets or sets the option that controls how the cell is merged with other cells vertically.
-  TableCellFormat_VerticalMergeEnum verticalMerge;
+  TableCellFormat_VerticalMergeEnum _verticalMerge;
+
+  TableCellFormat_VerticalMergeEnum get verticalMerge => _verticalMerge;
+  set verticalMerge(TableCellFormat_VerticalMergeEnum val) => _verticalMerge = val;
+
 
   /// Gets or sets the width of the cell in points.
-  double width;
+  double _width;
+
+  double get width => _width;
+  set width(double val) => _width = val;
+
 
   /// Gets or sets a value indicating whether to wrap text in the cell.
-  bool wrapText;
+  bool _wrapText;
+
+  bool get wrapText => _wrapText;
+  set wrapText(bool val) => _wrapText = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -74,6 +122,13 @@ class TableCellFormat extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('BottomPadding')) {
       bottomPadding = json['BottomPadding'] as double;
     } else {

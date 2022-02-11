@@ -32,13 +32,25 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with data on system, additional and custom fonts, available for document processing.
 class AvailableFontsResponse extends WordsResponse {
   /// Gets or sets the list of additional fonts, provided by Aspose team.
-  List<FontInfo> additionalFonts;
+  List<FontInfo> _additionalFonts;
+
+  List<FontInfo> get additionalFonts => _additionalFonts;
+  set additionalFonts(List<FontInfo> val) => _additionalFonts = val;
+
 
   /// Gets or sets the list of custom user fonts from user cloud storage. To use them, you should specify "fontsLocation" parameter in any request.
-  List<FontInfo> customFonts;
+  List<FontInfo> _customFonts;
+
+  List<FontInfo> get customFonts => _customFonts;
+  set customFonts(List<FontInfo> val) => _customFonts = val;
+
 
   /// Gets or sets the list of system fonts, available on the server.
-  List<FontInfo> systemFonts;
+  List<FontInfo> _systemFonts;
+
+  List<FontInfo> get systemFonts => _systemFonts;
+  set systemFonts(List<FontInfo> val) => _systemFonts = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -47,6 +59,12 @@ class AvailableFontsResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('AdditionalFonts')) {
       // Array processing
       additionalFonts = <FontInfo>[];

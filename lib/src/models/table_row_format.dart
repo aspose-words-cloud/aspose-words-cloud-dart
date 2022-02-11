@@ -32,16 +32,32 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with formatting for a table row.
 class TableRowFormat extends LinkElement {
   /// Gets or sets a value indicating whether the text in a table row is allowed to split across a page break.
-  bool allowBreakAcrossPages;
+  bool _allowBreakAcrossPages;
+
+  bool get allowBreakAcrossPages => _allowBreakAcrossPages;
+  set allowBreakAcrossPages(bool val) => _allowBreakAcrossPages = val;
+
 
   /// Gets or sets a value indicating whether the row is repeated as a table heading on every page when the table spans more than one page.
-  bool headingFormat;
+  bool _headingFormat;
+
+  bool get headingFormat => _headingFormat;
+  set headingFormat(bool val) => _headingFormat = val;
+
 
   /// Gets or sets the height of the table row in points.
-  double height;
+  double _height;
+
+  double get height => _height;
+  set height(double val) => _height = val;
+
 
   /// Gets or sets the rule for determining the height of the table row.
-  TableRowFormat_HeightRuleEnum heightRule;
+  TableRowFormat_HeightRuleEnum _heightRule;
+
+  TableRowFormat_HeightRuleEnum get heightRule => _heightRule;
+  set heightRule(TableRowFormat_HeightRuleEnum val) => _heightRule = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -50,6 +66,13 @@ class TableRowFormat extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('AllowBreakAcrossPages')) {
       allowBreakAcrossPages = json['AllowBreakAcrossPages'] as bool;
     } else {

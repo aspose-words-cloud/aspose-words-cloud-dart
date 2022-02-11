@@ -30,20 +30,36 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Base class for save options of text formats.
-class TxtSaveOptionsBaseData extends SaveOptionsData {
+abstract class TxtSaveOptionsBaseData extends SaveOptionsData {
   /// Gets or sets the character encoding to use when exporting in plain text format.
-  String encoding;
+  String _encoding;
+
+  String get encoding => _encoding;
+  set encoding(String val) => _encoding = val;
+
 
   /// Gets or sets the option that controls whether to output headers and footers when exporting in plain text format.
   /// default value is TxtExportHeadersFootersMode.PrimaryOnly.
-  TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum exportHeadersFootersMode;
+  TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum _exportHeadersFootersMode;
+
+  TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum get exportHeadersFootersMode => _exportHeadersFootersMode;
+  set exportHeadersFootersMode(TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum val) => _exportHeadersFootersMode = val;
+
 
   /// Gets or sets a value indicating whether the page breaks should be preserved during export.
   /// The default value is false.
-  bool forcePageBreaks;
+  bool _forcePageBreaks;
+
+  bool get forcePageBreaks => _forcePageBreaks;
+  set forcePageBreaks(bool val) => _forcePageBreaks = val;
+
 
   /// Gets or sets the string to use as a paragraph break when exporting in plain text format.
-  String paragraphBreak;
+  String _paragraphBreak;
+
+  String get paragraphBreak => _paragraphBreak;
+  set paragraphBreak(String val) => _paragraphBreak = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -52,6 +68,95 @@ class TxtSaveOptionsBaseData extends SaveOptionsData {
     }
 
     super.deserialize(json);
+    if (json.containsKey('AllowEmbeddingPostScriptFonts')) {
+      allowEmbeddingPostScriptFonts = json['AllowEmbeddingPostScriptFonts'] as bool;
+    } else {
+      allowEmbeddingPostScriptFonts = null;
+    }
+
+    if (json.containsKey('CustomTimeZoneInfoData')) {
+      customTimeZoneInfoData = TimeZoneInfoData();
+      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+    } else {
+      customTimeZoneInfoData = null;
+    }
+
+    if (json.containsKey('Dml3DEffectsRenderingMode')) {
+      switch (json['Dml3DEffectsRenderingMode'] as String) {
+        case 'Basic': dml3DEffectsRenderingMode = SaveOptionsData_Dml3DEffectsRenderingModeEnum.basic; break;
+        case 'Advanced': dml3DEffectsRenderingMode = SaveOptionsData_Dml3DEffectsRenderingModeEnum.advanced; break;
+        default: dml3DEffectsRenderingMode = null; break;
+      }
+    } else {
+      dml3DEffectsRenderingMode = null;
+    }
+
+    if (json.containsKey('DmlEffectsRenderingMode')) {
+      dmlEffectsRenderingMode = json['DmlEffectsRenderingMode'] as String;
+    } else {
+      dmlEffectsRenderingMode = null;
+    }
+
+    if (json.containsKey('DmlRenderingMode')) {
+      dmlRenderingMode = json['DmlRenderingMode'] as String;
+    } else {
+      dmlRenderingMode = null;
+    }
+
+    if (json.containsKey('FileName')) {
+      fileName = json['FileName'] as String;
+    } else {
+      fileName = null;
+    }
+
+    if (json.containsKey('FlatOpcXmlMappingOnly')) {
+      flatOpcXmlMappingOnly = json['FlatOpcXmlMappingOnly'] as bool;
+    } else {
+      flatOpcXmlMappingOnly = null;
+    }
+
+    if (json.containsKey('ImlRenderingMode')) {
+      imlRenderingMode = json['ImlRenderingMode'] as String;
+    } else {
+      imlRenderingMode = null;
+    }
+
+    if (json.containsKey('UpdateCreatedTimeProperty')) {
+      updateCreatedTimeProperty = json['UpdateCreatedTimeProperty'] as bool;
+    } else {
+      updateCreatedTimeProperty = null;
+    }
+
+    if (json.containsKey('UpdateFields')) {
+      updateFields = json['UpdateFields'] as bool;
+    } else {
+      updateFields = null;
+    }
+
+    if (json.containsKey('UpdateLastPrintedProperty')) {
+      updateLastPrintedProperty = json['UpdateLastPrintedProperty'] as bool;
+    } else {
+      updateLastPrintedProperty = null;
+    }
+
+    if (json.containsKey('UpdateLastSavedTimeProperty')) {
+      updateLastSavedTimeProperty = json['UpdateLastSavedTimeProperty'] as bool;
+    } else {
+      updateLastSavedTimeProperty = null;
+    }
+
+    if (json.containsKey('UpdateSdtContent')) {
+      updateSdtContent = json['UpdateSdtContent'] as bool;
+    } else {
+      updateSdtContent = null;
+    }
+
+    if (json.containsKey('ZipOutput')) {
+      zipOutput = json['ZipOutput'] as bool;
+    } else {
+      zipOutput = null;
+    }
+
     if (json.containsKey('Encoding')) {
       encoding = json['Encoding'] as String;
     } else {

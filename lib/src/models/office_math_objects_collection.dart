@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a collection of OfficeMath objects.
 class OfficeMathObjectsCollection extends LinkElement {
   /// Gets or sets the collection of OfficeMath objects.
-  List<OfficeMathObject> list;
+  List<OfficeMathObject> _list;
+
+  List<OfficeMathObject> get list => _list;
+  set list(List<OfficeMathObject> val) => _list = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,13 @@ class OfficeMathObjectsCollection extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('List')) {
       // Array processing
       list = <OfficeMathObject>[];

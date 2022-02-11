@@ -1,3 +1,10 @@
+## [22.2.0] - Aspose Words Cloud for Dart 22.2 Release Notes
+
+- Made 'SaveOprionsData.SaveFormat' property readonly with default value.
+- Added subclasses for all formats of SaveOprionsData with specified SaveFormat.
+- 'SaveOptionsData', 'FixedPageSaveOptionsData', 'ImageSaveOptionsData', 'OoxmlSaveOptionsData', 'TxtSaveOptionsBaseData' classes now is abstract.
+
+
 ## [22.1.0] - Aspose Words Cloud for Dart 22.1 Release Notes
 
 - Added 'FieldOptions.FieldUpdateCultureName' to set Culture for fields

@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// HeaderFooter link element.
 class HeaderFooterLink extends LinkElement {
   /// Gets or sets the paragraph's text.
-  HeaderFooterLink_TypeEnum type;
+  HeaderFooterLink_TypeEnum _type;
+
+  HeaderFooterLink_TypeEnum get type => _type;
+  set type(HeaderFooterLink_TypeEnum val) => _type = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,13 @@ class HeaderFooterLink extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('Type')) {
       switch (json['Type'] as String) {
         case 'HeaderEven': type = HeaderFooterLink_TypeEnum.headerEven; break;

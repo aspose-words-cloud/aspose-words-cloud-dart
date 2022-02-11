@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a paragraph.
 class ParagraphResponse extends WordsResponse {
   /// Gets or sets the paragraph.
-  Paragraph paragraph;
+  Paragraph _paragraph;
+
+  Paragraph get paragraph => _paragraph;
+  set paragraph(Paragraph val) => _paragraph = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,12 @@ class ParagraphResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('Paragraph')) {
       paragraph = Paragraph();
       paragraph.deserialize(json['Paragraph'] as Map<String, dynamic>);

@@ -32,19 +32,39 @@ import '../../aspose_words_cloud.dart';
 /// Container class for compare documents.
 class CompareData implements ModelBase {
   /// Gets or sets the initials of the author to use for revisions.
-  String author;
+  String _author;
+
+  String get author => _author;
+  set author(String val) => _author = val;
+
 
   /// Gets or sets the compare options.
-  CompareOptions compareOptions;
+  CompareOptions _compareOptions;
+
+  CompareOptions get compareOptions => _compareOptions;
+  set compareOptions(CompareOptions val) => _compareOptions = val;
+
 
   /// Gets or sets the path to document to compare at the server.
-  String comparingWithDocument;
+  String _comparingWithDocument;
+
+  String get comparingWithDocument => _comparingWithDocument;
+  set comparingWithDocument(String val) => _comparingWithDocument = val;
+
 
   /// Gets or sets the date and time to use for revisions.
-  DateTime dateTime;
+  DateTime _dateTime;
+
+  DateTime get dateTime => _dateTime;
+  set dateTime(DateTime val) => _dateTime = val;
+
 
   /// Gets or sets the result document format.
-  String resultDocumentFormat;
+  String _resultDocumentFormat;
+
+  String get resultDocumentFormat => _resultDocumentFormat;
+  set resultDocumentFormat(String val) => _resultDocumentFormat = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

@@ -27,7 +27,7 @@ Add this dependency to your *pubspec.yaml*:
 
 ```yaml
 dependencies:
-  aspose_words_cloud: 22.1.0
+  aspose_words_cloud: 22.2.0
 ```
 
 ## Getting Started
@@ -48,8 +48,7 @@ var uploadRequest = UploadFileRequest(ByteData.view(localFileContent.buffer), 'f
 await wordsApi.uploadFile(uploadRequest);
 
 // Save file as pdf in cloud
-var saveOptionsData = SaveOptionsData()
-  ..saveFormat = 'pdf'
+var saveOptionsData = PdfSaveOptionsData()
   ..fileName = 'destStoredInCloud.pdf';
 var saveAsRequest = SaveAsRequest('fileStoredInCloud.docx', saveOptionsData);
 await wordsApi.saveAs(saveAsRequest);

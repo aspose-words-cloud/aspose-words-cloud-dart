@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// Represents a single document style to insert.
 class StyleCopy implements ModelBase {
   /// Gets or sets the case sensitive name of the style to copy from it.
-  String styleName;
+  String _styleName;
+
+  String get styleName => _styleName;
+  set styleName(String val) => _styleName = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

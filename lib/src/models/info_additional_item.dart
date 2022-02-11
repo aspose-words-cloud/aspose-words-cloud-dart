@@ -32,10 +32,18 @@ import '../../aspose_words_cloud.dart';
 /// Info additional item.
 class InfoAdditionalItem implements ModelBase {
   /// Gets or sets Key.
-  String key;
+  String _key;
+
+  String get key => _key;
+  set key(String val) => _key = val;
+
 
   /// Gets or sets Value.
-  String value;
+  String _value;
+
+  String get value => _value;
+  set value(String val) => _value = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

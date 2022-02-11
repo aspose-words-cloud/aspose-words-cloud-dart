@@ -39,6 +39,43 @@ class CommentInsert extends CommentBase {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Author')) {
+      author = json['Author'] as String;
+    } else {
+      author = null;
+    }
+
+    if (json.containsKey('DateTime')) {
+      dateTime = DateTime.parse(json['DateTime'] as String);
+    } else {
+      dateTime = null;
+    }
+
+    if (json.containsKey('Initial')) {
+      initial = json['Initial'] as String;
+    } else {
+      initial = null;
+    }
+
+    if (json.containsKey('RangeEnd')) {
+      rangeEnd = DocumentPosition();
+      rangeEnd.deserialize(json['RangeEnd'] as Map<String, dynamic>);
+    } else {
+      rangeEnd = null;
+    }
+
+    if (json.containsKey('RangeStart')) {
+      rangeStart = DocumentPosition();
+      rangeStart.deserialize(json['RangeStart'] as Map<String, dynamic>);
+    } else {
+      rangeStart = null;
+    }
+
+    if (json.containsKey('Text')) {
+      text = json['Text'] as String;
+    } else {
+      text = null;
+    }
   }
 
   @override

@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a table cell.
 class TableCellInsert implements ModelBase {
   /// Gets or sets the 0-based index, the table cell will be inserted after.
-  int insertAfter;
+  int _insertAfter;
+
+  int get insertAfter => _insertAfter;
+  set insertAfter(int val) => _insertAfter = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

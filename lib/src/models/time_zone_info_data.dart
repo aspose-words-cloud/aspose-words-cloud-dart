@@ -32,16 +32,32 @@ import '../../aspose_words_cloud.dart';
 /// Class to specify TimeZoneInfo parameters.
 class TimeZoneInfoData implements ModelBase {
   /// Gets or sets base utc offset in hh:mm:ss format.
-  String baseUtcOffset;
+  String _baseUtcOffset;
+
+  String get baseUtcOffset => _baseUtcOffset;
+  set baseUtcOffset(String val) => _baseUtcOffset = val;
+
 
   /// Gets or sets display name.
-  String displayName;
+  String _displayName;
+
+  String get displayName => _displayName;
+  set displayName(String val) => _displayName = val;
+
 
   /// Gets or sets an Id string for CustomTimeZoneInfo.
-  String id;
+  String _id;
+
+  String get id => _id;
+  set id(String val) => _id = val;
+
 
   /// Gets or sets standard display name.
-  String standardDisplayName;
+  String _standardDisplayName;
+
+  String get standardDisplayName => _standardDisplayName;
+  set standardDisplayName(String val) => _standardDisplayName = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

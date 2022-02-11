@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a Range element.
 class RangeDocumentDto implements ModelBase {
   /// Gets or sets the name for a new document.
-  String documentName;
+  String _documentName;
+
+  String get documentName => _documentName;
+  set documentName(String val) => _documentName = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

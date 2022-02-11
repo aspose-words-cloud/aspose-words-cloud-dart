@@ -32,13 +32,25 @@ import '../../aspose_words_cloud.dart';
 /// Represents a document which will be appended to the original resource document.
 class DocumentEntry implements ModelBase {
   /// Gets or sets the path to document to append at the server.
-  String href;
+  String _href;
+
+  String get href => _href;
+  set href(String val) => _href = val;
+
 
   /// Gets or sets the option that controls formatting will be used: appended or destination document. Can be KeepSourceFormatting or UseDestinationStyles.
-  String importFormatMode;
+  String _importFormatMode;
+
+  String get importFormatMode => _importFormatMode;
+  set importFormatMode(String val) => _importFormatMode = val;
+
 
   /// Gets or sets document password encrypted on API public key. The default value is null (the document has no password).
-  String password;
+  String _password;
+
+  String get password => _password;
+  set password(String val) => _password = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

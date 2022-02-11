@@ -30,19 +30,35 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Footnote base class.
-class FootnoteBase implements ModelBase {
+abstract class FootnoteBase implements ModelBase {
   /// Gets or sets the option, that specifies whether this is a footnote or endnote.
-  FootnoteBase_FootnoteTypeEnum footnoteType;
+  FootnoteBase_FootnoteTypeEnum _footnoteType;
+
+  FootnoteBase_FootnoteTypeEnum get footnoteType => _footnoteType;
+  set footnoteType(FootnoteBase_FootnoteTypeEnum val) => _footnoteType = val;
+
 
   /// Gets or sets the link to comment range start node.
-  DocumentPosition position;
+  DocumentPosition _position;
+
+  DocumentPosition get position => _position;
+  set position(DocumentPosition val) => _position = val;
+
 
   /// Gets or sets the custom reference mark to be used for this footnote.
   /// Default value is Empty, meaning auto-numbered footnotes are used.
-  String referenceMark;
+  String _referenceMark;
+
+  String get referenceMark => _referenceMark;
+  set referenceMark(String val) => _referenceMark = val;
+
 
   /// Gets or sets text of the footnote.
-  String text;
+  String _text;
+
+  String get text => _text;
+  set text(String val) => _text = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

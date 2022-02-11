@@ -32,125 +32,285 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a font element.
 class Font extends LinkElement {
   /// Gets or sets a value indicating whether the font is formatted as all capital letters.
-  bool allCaps;
+  bool _allCaps;
+
+  bool get allCaps => _allCaps;
+  set allCaps(bool val) => _allCaps = val;
+
 
   /// Gets or sets a value indicating whether the contents of this run shall have right-to-left characteristics.
-  bool bidi;
+  bool _bidi;
+
+  bool get bidi => _bidi;
+  set bidi(bool val) => _bidi = val;
+
 
   /// Gets or sets a value indicating whether the font is formatted as bold.
-  bool bold;
+  bool _bold;
+
+  bool get bold => _bold;
+  set bold(bool val) => _bold = val;
+
 
   /// Gets or sets a value indicating whether the right-to-left text is formatted as bold.
-  bool boldBi;
+  bool _boldBi;
+
+  bool get boldBi => _boldBi;
+  set boldBi(bool val) => _boldBi = val;
+
 
   /// Gets or sets the border object, that specifies border for the font.
-  Border border;
+  Border _border;
+
+  Border get border => _border;
+  set border(Border val) => _border = val;
+
 
   /// Gets or sets the color of the font.
-  XmlColor color;
+  XmlColor _color;
+
+  XmlColor get color => _color;
+  set color(XmlColor val) => _color = val;
+
 
   /// Gets or sets a value indicating whether the contents of this run shall be treated as complex script text regardless of their Unicode character values when determining the formatting for this run.
-  bool complexScript;
+  bool _complexScript;
+
+  bool get complexScript => _complexScript;
+  set complexScript(bool val) => _complexScript = val;
+
 
   /// Gets or sets a value indicating whether the font is formatted as double strikethrough text.
-  bool doubleStrikeThrough;
+  bool _doubleStrikeThrough;
+
+  bool get doubleStrikeThrough => _doubleStrikeThrough;
+  set doubleStrikeThrough(bool val) => _doubleStrikeThrough = val;
+
 
   /// Gets or sets a value indicating whether the font is formatted as embossed.
-  bool emboss;
+  bool _emboss;
+
+  bool get emboss => _emboss;
+  set emboss(bool val) => _emboss = val;
+
 
   /// Gets or sets a value indicating whether the font is formatted as engraved.
-  bool engrave;
+  bool _engrave;
+
+  bool get engrave => _engrave;
+  set engrave(bool val) => _engrave = val;
+
 
   /// Gets or sets a value indicating whether the font is formatted as hidden text.
-  bool hidden;
+  bool _hidden;
+
+  bool get hidden => _hidden;
+  set hidden(bool val) => _hidden = val;
+
 
   /// Gets or sets the highlight (marker) color.
-  XmlColor highlightColor;
+  XmlColor _highlightColor;
+
+  XmlColor get highlightColor => _highlightColor;
+  set highlightColor(XmlColor val) => _highlightColor = val;
+
 
   /// Gets or sets a value indicating whether the font is formatted as italic.
-  bool italic;
+  bool _italic;
+
+  bool get italic => _italic;
+  set italic(bool val) => _italic = val;
+
 
   /// Gets or sets a value indicating whether the right-to-left text is formatted as italic.
-  bool italicBi;
+  bool _italicBi;
+
+  bool get italicBi => _italicBi;
+  set italicBi(bool val) => _italicBi = val;
+
 
   /// Gets or sets the font size at which kerning starts.
-  double kerning;
+  double _kerning;
+
+  double get kerning => _kerning;
+  set kerning(double val) => _kerning = val;
+
 
   /// Gets or sets the locale identifier (language) of the formatted characters.
-  int localeId;
+  int _localeId;
+
+  int get localeId => _localeId;
+  set localeId(int val) => _localeId = val;
+
 
   /// Gets or sets the locale identifier (language) of the formatted right-to-left characters.
-  int localeIdBi;
+  int _localeIdBi;
+
+  int get localeIdBi => _localeIdBi;
+  set localeIdBi(int val) => _localeIdBi = val;
+
 
   /// Gets or sets the locale identifier (language) of the formatted Asian characters.
-  int localeIdFarEast;
+  int _localeIdFarEast;
+
+  int get localeIdFarEast => _localeIdFarEast;
+  set localeIdFarEast(int val) => _localeIdFarEast = val;
+
 
   /// Gets or sets the name of the font.
-  String name;
+  String _name;
+
+  String get name => _name;
+  set name(String val) => _name = val;
+
 
   /// Gets or sets the font used for Latin text (characters with character codes from 0 (zero) through 127).
-  String nameAscii;
+  String _nameAscii;
+
+  String get nameAscii => _nameAscii;
+  set nameAscii(String val) => _nameAscii = val;
+
 
   /// Gets or sets the name of the font in a right-to-left language document.
-  String nameBi;
+  String _nameBi;
+
+  String get nameBi => _nameBi;
+  set nameBi(String val) => _nameBi = val;
+
 
   /// Gets or sets the East Asian font name.
-  String nameFarEast;
+  String _nameFarEast;
+
+  String get nameFarEast => _nameFarEast;
+  set nameFarEast(String val) => _nameFarEast = val;
+
 
   /// Gets or sets the font used for characters with character codes from 128 through 255.
-  String nameOther;
+  String _nameOther;
+
+  String get nameOther => _nameOther;
+  set nameOther(String val) => _nameOther = val;
+
 
   /// Gets or sets a value indicating whether the formatted characters are not to be spell checked.
-  bool noProofing;
+  bool _noProofing;
+
+  bool get noProofing => _noProofing;
+  set noProofing(bool val) => _noProofing = val;
+
 
   /// Gets or sets a value indicating whether the font is formatted as outline.
-  bool outline;
+  bool _outline;
+
+  bool get outline => _outline;
+  set outline(bool val) => _outline = val;
+
 
   /// Gets or sets the position of text (in points) relative to the base line.
   /// A positive number raises the text, and a negative number lowers it.
-  double position;
+  double _position;
+
+  double get position => _position;
+  set position(double val) => _position = val;
+
 
   /// Gets or sets character width scaling in percent.
-  int scaling;
+  int _scaling;
+
+  int get scaling => _scaling;
+  set scaling(int val) => _scaling = val;
+
 
   /// Gets or sets a value indicating whether the font is formatted as shadowed.
-  bool shadow;
+  bool _shadow;
+
+  bool get shadow => _shadow;
+  set shadow(bool val) => _shadow = val;
+
 
   /// Gets or sets the font size in points.
-  double size;
+  double _size;
+
+  double get size => _size;
+  set size(double val) => _size = val;
+
 
   /// Gets or sets the font size in points used in a right-to-left document.
-  double sizeBi;
+  double _sizeBi;
+
+  double get sizeBi => _sizeBi;
+  set sizeBi(double val) => _sizeBi = val;
+
 
   /// Gets or sets a value indicating whether the font is formatted as small capital letters.
-  bool smallCaps;
+  bool _smallCaps;
+
+  bool get smallCaps => _smallCaps;
+  set smallCaps(bool val) => _smallCaps = val;
+
 
   /// Gets or sets the spacing (in points) between characters.
-  double spacing;
+  double _spacing;
+
+  double get spacing => _spacing;
+  set spacing(double val) => _spacing = val;
+
 
   /// Gets or sets a value indicating whether the font is formatted as strikethrough text.
-  bool strikeThrough;
+  bool _strikeThrough;
+
+  bool get strikeThrough => _strikeThrough;
+  set strikeThrough(bool val) => _strikeThrough = val;
+
 
   /// Gets or sets the locale independent style identifier of the character style applied to this formatting.
-  Font_StyleIdentifierEnum styleIdentifier;
+  Font_StyleIdentifierEnum _styleIdentifier;
+
+  Font_StyleIdentifierEnum get styleIdentifier => _styleIdentifier;
+  set styleIdentifier(Font_StyleIdentifierEnum val) => _styleIdentifier = val;
+
 
   /// Gets or sets the name of the character style applied to this formatting.
-  String styleName;
+  String _styleName;
+
+  String get styleName => _styleName;
+  set styleName(String val) => _styleName = val;
+
 
   /// Gets or sets a value indicating whether the font is formatted as subscript.
-  bool subscript;
+  bool _subscript;
+
+  bool get subscript => _subscript;
+  set subscript(bool val) => _subscript = val;
+
 
   /// Gets or sets a value indicating whether the font is formatted as superscript.
-  bool superscript;
+  bool _superscript;
+
+  bool get superscript => _superscript;
+  set superscript(bool val) => _superscript = val;
+
 
   /// Gets or sets the font animation effect.
-  Font_TextEffectEnum textEffect;
+  Font_TextEffectEnum _textEffect;
+
+  Font_TextEffectEnum get textEffect => _textEffect;
+  set textEffect(Font_TextEffectEnum val) => _textEffect = val;
+
 
   /// Gets or sets the type of underline applied to the font.
-  Font_UnderlineEnum underline;
+  Font_UnderlineEnum _underline;
+
+  Font_UnderlineEnum get underline => _underline;
+  set underline(Font_UnderlineEnum val) => _underline = val;
+
 
   /// Gets or sets the color of the underline applied to the font.
-  XmlColor underlineColor;
+  XmlColor _underlineColor;
+
+  XmlColor get underlineColor => _underlineColor;
+  set underlineColor(XmlColor val) => _underlineColor = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -159,6 +319,13 @@ class Font extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('AllCaps')) {
       allCaps = json['AllCaps'] as bool;
     } else {

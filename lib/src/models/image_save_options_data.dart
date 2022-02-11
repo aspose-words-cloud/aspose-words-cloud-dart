@@ -30,48 +30,96 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Container abstract class for image save options.
-class ImageSaveOptionsData extends FixedPageSaveOptionsData {
+abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
   /// Gets or sets the horizontal resolution in dots per inch for the generated images.
   /// This property has effect only when saving to raster image formats.
   /// The default value is 96.
-  double horizontalResolution;
+  double _horizontalResolution;
+
+  double get horizontalResolution => _horizontalResolution;
+  set horizontalResolution(double val) => _horizontalResolution = val;
+
 
   /// Gets or sets the brightness level of the image.
-  double imageBrightness;
+  double _imageBrightness;
+
+  double get imageBrightness => _imageBrightness;
+  set imageBrightness(double val) => _imageBrightness = val;
+
 
   /// Gets or sets the color mode of the image.
-  String imageColorMode;
+  String _imageColorMode;
+
+  String get imageColorMode => _imageColorMode;
+  set imageColorMode(String val) => _imageColorMode = val;
+
 
   /// Gets or sets the contrast level of the image.
-  double imageContrast;
+  double _imageContrast;
+
+  double get imageContrast => _imageContrast;
+  set imageContrast(double val) => _imageContrast = val;
+
 
   /// Gets or sets the background (paper) color of the image.
-  String paperColor;
+  String _paperColor;
+
+  String get paperColor => _paperColor;
+  set paperColor(String val) => _paperColor = val;
+
 
   /// Gets or sets the pixel format of the image.
-  String pixelFormat;
+  String _pixelFormat;
+
+  String get pixelFormat => _pixelFormat;
+  set pixelFormat(String val) => _pixelFormat = val;
+
 
   /// Gets or sets both horizontal and vertical resolution in dots per inch for the generated images.
   /// This property has effect only when saving to raster image formats.
   /// The default value is 96.
-  double resolution;
+  double _resolution;
+
+  double get resolution => _resolution;
+  set resolution(double val) => _resolution = val;
+
 
   /// Gets or sets the zoom factor of the image.
-  double scale;
+  double _scale;
+
+  double get scale => _scale;
+  set scale(double val) => _scale = val;
+
 
   /// Gets or sets a value indicating whether to use anti-aliasing for rendering.
-  bool useAntiAliasing;
+  bool _useAntiAliasing;
+
+  bool get useAntiAliasing => _useAntiAliasing;
+  set useAntiAliasing(bool val) => _useAntiAliasing = val;
+
 
   /// Gets or sets a value indicating whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.
-  bool useGdiEmfRenderer;
+  bool _useGdiEmfRenderer;
+
+  bool get useGdiEmfRenderer => _useGdiEmfRenderer;
+  set useGdiEmfRenderer(bool val) => _useGdiEmfRenderer = val;
+
 
   /// Gets or sets a value indicating whether to use high quality (i.e. slow) rendering algorithms.
-  bool useHighQualityRendering;
+  bool _useHighQualityRendering;
+
+  bool get useHighQualityRendering => _useHighQualityRendering;
+  set useHighQualityRendering(bool val) => _useHighQualityRendering = val;
+
 
   /// Gets or sets the vertical resolution in dots per inch for the generated images.
   /// This property has effect only when saving to raster image formats.
   /// The default value is 96.
-  double verticalResolution;
+  double _verticalResolution;
+
+  double get verticalResolution => _verticalResolution;
+  set verticalResolution(double val) => _verticalResolution = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -80,6 +128,138 @@ class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     super.deserialize(json);
+    if (json.containsKey('AllowEmbeddingPostScriptFonts')) {
+      allowEmbeddingPostScriptFonts = json['AllowEmbeddingPostScriptFonts'] as bool;
+    } else {
+      allowEmbeddingPostScriptFonts = null;
+    }
+
+    if (json.containsKey('CustomTimeZoneInfoData')) {
+      customTimeZoneInfoData = TimeZoneInfoData();
+      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+    } else {
+      customTimeZoneInfoData = null;
+    }
+
+    if (json.containsKey('Dml3DEffectsRenderingMode')) {
+      switch (json['Dml3DEffectsRenderingMode'] as String) {
+        case 'Basic': dml3DEffectsRenderingMode = SaveOptionsData_Dml3DEffectsRenderingModeEnum.basic; break;
+        case 'Advanced': dml3DEffectsRenderingMode = SaveOptionsData_Dml3DEffectsRenderingModeEnum.advanced; break;
+        default: dml3DEffectsRenderingMode = null; break;
+      }
+    } else {
+      dml3DEffectsRenderingMode = null;
+    }
+
+    if (json.containsKey('DmlEffectsRenderingMode')) {
+      dmlEffectsRenderingMode = json['DmlEffectsRenderingMode'] as String;
+    } else {
+      dmlEffectsRenderingMode = null;
+    }
+
+    if (json.containsKey('DmlRenderingMode')) {
+      dmlRenderingMode = json['DmlRenderingMode'] as String;
+    } else {
+      dmlRenderingMode = null;
+    }
+
+    if (json.containsKey('FileName')) {
+      fileName = json['FileName'] as String;
+    } else {
+      fileName = null;
+    }
+
+    if (json.containsKey('FlatOpcXmlMappingOnly')) {
+      flatOpcXmlMappingOnly = json['FlatOpcXmlMappingOnly'] as bool;
+    } else {
+      flatOpcXmlMappingOnly = null;
+    }
+
+    if (json.containsKey('ImlRenderingMode')) {
+      imlRenderingMode = json['ImlRenderingMode'] as String;
+    } else {
+      imlRenderingMode = null;
+    }
+
+    if (json.containsKey('UpdateCreatedTimeProperty')) {
+      updateCreatedTimeProperty = json['UpdateCreatedTimeProperty'] as bool;
+    } else {
+      updateCreatedTimeProperty = null;
+    }
+
+    if (json.containsKey('UpdateFields')) {
+      updateFields = json['UpdateFields'] as bool;
+    } else {
+      updateFields = null;
+    }
+
+    if (json.containsKey('UpdateLastPrintedProperty')) {
+      updateLastPrintedProperty = json['UpdateLastPrintedProperty'] as bool;
+    } else {
+      updateLastPrintedProperty = null;
+    }
+
+    if (json.containsKey('UpdateLastSavedTimeProperty')) {
+      updateLastSavedTimeProperty = json['UpdateLastSavedTimeProperty'] as bool;
+    } else {
+      updateLastSavedTimeProperty = null;
+    }
+
+    if (json.containsKey('UpdateSdtContent')) {
+      updateSdtContent = json['UpdateSdtContent'] as bool;
+    } else {
+      updateSdtContent = null;
+    }
+
+    if (json.containsKey('ZipOutput')) {
+      zipOutput = json['ZipOutput'] as bool;
+    } else {
+      zipOutput = null;
+    }
+
+    if (json.containsKey('ColorMode')) {
+      colorMode = json['ColorMode'] as String;
+    } else {
+      colorMode = null;
+    }
+
+    if (json.containsKey('JpegQuality')) {
+      jpegQuality = json['JpegQuality'] as int;
+    } else {
+      jpegQuality = null;
+    }
+
+    if (json.containsKey('MetafileRenderingOptions')) {
+      metafileRenderingOptions = MetafileRenderingOptionsData();
+      metafileRenderingOptions.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
+    } else {
+      metafileRenderingOptions = null;
+    }
+
+    if (json.containsKey('NumeralFormat')) {
+      numeralFormat = json['NumeralFormat'] as String;
+    } else {
+      numeralFormat = null;
+    }
+
+    if (json.containsKey('OptimizeOutput')) {
+      optimizeOutput = json['OptimizeOutput'] as bool;
+    } else {
+      optimizeOutput = null;
+    }
+
+    if (json.containsKey('PageCount')) {
+      pageCount = json['PageCount'] as int;
+    } else {
+      pageCount = null;
+    }
+
+    if (json.containsKey('PageIndex')) {
+      pageIndex = json['PageIndex'] as int;
+    } else {
+      pageIndex = null;
+    }
+
     if (json.containsKey('HorizontalResolution')) {
       horizontalResolution = json['HorizontalResolution'] as double;
     } else {

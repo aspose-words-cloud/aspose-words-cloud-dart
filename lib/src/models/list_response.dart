@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a list information.
 class ListResponse extends WordsResponse {
   /// Gets or sets the list information.
-  ListInfo list;
+  ListInfo _list;
+
+  ListInfo get list => _list;
+  set list(ListInfo val) => _list = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,12 @@ class ListResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('List')) {
       list = ListInfo();
       list.deserialize(json['List'] as Map<String, dynamic>);

@@ -32,10 +32,18 @@ import '../../aspose_words_cloud.dart';
 /// Paragraph list format element for update.
 class ListFormatUpdate implements ModelBase {
   /// Gets or sets the list id of this paragraph.
-  int listId;
+  int _listId;
+
+  int get listId => _listId;
+  set listId(int val) => _listId = val;
+
 
   /// Gets or sets the list level number (0 to 8) for the paragraph.
-  int listLevelNumber;
+  int _listLevelNumber;
+
+  int get listLevelNumber => _listLevelNumber;
+  set listLevelNumber(int val) => _listLevelNumber = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

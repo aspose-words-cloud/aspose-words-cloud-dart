@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a collection of OfficeMath objects.
 class OfficeMathObjectsResponse extends WordsResponse {
   /// Gets or sets the collection of OfficeMath objects.
-  OfficeMathObjectsCollection officeMathObjects;
+  OfficeMathObjectsCollection _officeMathObjects;
+
+  OfficeMathObjectsCollection get officeMathObjects => _officeMathObjects;
+  set officeMathObjects(OfficeMathObjectsCollection val) => _officeMathObjects = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,12 @@ class OfficeMathObjectsResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('OfficeMathObjects')) {
       officeMathObjects = OfficeMathObjectsCollection();
       officeMathObjects.deserialize(json['OfficeMathObjects'] as Map<String, dynamic>);

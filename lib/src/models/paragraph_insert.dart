@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a paragraph's text.
 class ParagraphInsert implements ModelBase {
   /// Gets or sets the paragraph's text.
-  String text;
+  String _text;
+
+  String get text => _text;
+  set text(String val) => _text = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

@@ -32,22 +32,46 @@ import '../../aspose_words_cloud.dart';
 /// Report engine settings.
 class ReportEngineSettings implements ModelBase {
   /// Gets or sets the options for parsing CSV data.
-  CsvDataLoadOptions csvDataLoadOptions;
+  CsvDataLoadOptions _csvDataLoadOptions;
+
+  CsvDataLoadOptions get csvDataLoadOptions => _csvDataLoadOptions;
+  set csvDataLoadOptions(CsvDataLoadOptions val) => _csvDataLoadOptions = val;
+
 
   /// Gets or sets the name to reference the data source object in the template.
-  String dataSourceName;
+  String _dataSourceName;
+
+  String get dataSourceName => _dataSourceName;
+  set dataSourceName(String val) => _dataSourceName = val;
+
 
   /// Gets or sets type of datasource.
-  ReportEngineSettings_DataSourceTypeEnum dataSourceType;
+  ReportEngineSettings_DataSourceTypeEnum _dataSourceType;
+
+  ReportEngineSettings_DataSourceTypeEnum get dataSourceType => _dataSourceType;
+  set dataSourceType(ReportEngineSettings_DataSourceTypeEnum val) => _dataSourceType = val;
+
 
   /// Gets or sets the options for parsing JSON data.
-  JsonDataLoadOptions jsonDataLoadOptions;
+  JsonDataLoadOptions _jsonDataLoadOptions;
+
+  JsonDataLoadOptions get jsonDataLoadOptions => _jsonDataLoadOptions;
+  set jsonDataLoadOptions(JsonDataLoadOptions val) => _jsonDataLoadOptions = val;
+
 
   /// Gets or sets type of options to build report.
-  List<ReportBuildOptionsEnum> reportBuildOptions;
+  List<ReportBuildOptionsEnum> _reportBuildOptions;
+
+  List<ReportBuildOptionsEnum> get reportBuildOptions => _reportBuildOptions;
+  set reportBuildOptions(List<ReportBuildOptionsEnum> val) => _reportBuildOptions = val;
+
 
   /// Gets or sets the options for parsing XML data.
-  XmlDataLoadOptions xmlDataLoadOptions;
+  XmlDataLoadOptions _xmlDataLoadOptions;
+
+  XmlDataLoadOptions get xmlDataLoadOptions => _xmlDataLoadOptions;
+  set xmlDataLoadOptions(XmlDataLoadOptions val) => _xmlDataLoadOptions = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

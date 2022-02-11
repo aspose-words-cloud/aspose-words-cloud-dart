@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a single document list.
 class ListLevels extends LinkElement {
   /// Gets or sets the collection of list levels for this list.
-  List<ListLevel> listLevel;
+  List<ListLevel> _listLevel;
+
+  List<ListLevel> get listLevel => _listLevel;
+  set listLevel(List<ListLevel> val) => _listLevel = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,13 @@ class ListLevels extends LinkElement {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Link')) {
+      link = WordsApiLink();
+      link.deserialize(json['Link'] as Map<String, dynamic>);
+    } else {
+      link = null;
+    }
+
     if (json.containsKey('ListLevel')) {
       // Array processing
       listLevel = <ListLevel>[];

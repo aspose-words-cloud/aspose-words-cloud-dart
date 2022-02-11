@@ -30,24 +30,48 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Comment.
-class CommentBase implements ModelBase {
+abstract class CommentBase implements ModelBase {
   /// Gets or sets the author name for a comment.
-  String author;
+  String _author;
+
+  String get author => _author;
+  set author(String val) => _author = val;
+
 
   /// Gets or sets the date and time that the comment was made.
-  DateTime dateTime;
+  DateTime _dateTime;
+
+  DateTime get dateTime => _dateTime;
+  set dateTime(DateTime val) => _dateTime = val;
+
 
   /// Gets or sets the initials of the user associated with a specific comment.
-  String initial;
+  String _initial;
+
+  String get initial => _initial;
+  set initial(String val) => _initial = val;
+
 
   /// Gets or sets the link to comment range end node.
-  DocumentPosition rangeEnd;
+  DocumentPosition _rangeEnd;
+
+  DocumentPosition get rangeEnd => _rangeEnd;
+  set rangeEnd(DocumentPosition val) => _rangeEnd = val;
+
 
   /// Gets or sets the link to comment range start node.
-  DocumentPosition rangeStart;
+  DocumentPosition _rangeStart;
+
+  DocumentPosition get rangeStart => _rangeStart;
+  set rangeStart(DocumentPosition val) => _rangeStart = val;
+
 
   /// Gets or sets text of the comment.
-  String text;
+  String _text;
+
+  String get text => _text;
+  set text(String val) => _text = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {

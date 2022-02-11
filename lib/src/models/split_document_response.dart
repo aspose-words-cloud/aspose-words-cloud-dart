@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a result of document splitting.
 class SplitDocumentResponse extends WordsResponse {
   /// Gets or sets the result of document splitting.
-  SplitDocumentResult splitResult;
+  SplitDocumentResult _splitResult;
+
+  SplitDocumentResult get splitResult => _splitResult;
+  set splitResult(SplitDocumentResult val) => _splitResult = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,12 @@ class SplitDocumentResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('SplitResult')) {
       splitResult = SplitDocumentResult();
       splitResult.deserialize(json['SplitResult'] as Map<String, dynamic>);

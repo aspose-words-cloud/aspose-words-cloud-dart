@@ -32,7 +32,11 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a DrawingObject.
 class DrawingObjectResponse extends WordsResponse {
   /// Gets or sets the DrawingObject.
-  DrawingObject drawingObject;
+  DrawingObject _drawingObject;
+
+  DrawingObject get drawingObject => _drawingObject;
+  set drawingObject(DrawingObject val) => _drawingObject = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -41,6 +45,12 @@ class DrawingObjectResponse extends WordsResponse {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
     if (json.containsKey('DrawingObject')) {
       drawingObject = DrawingObject();
       drawingObject.deserialize(json['DrawingObject'] as Map<String, dynamic>);
