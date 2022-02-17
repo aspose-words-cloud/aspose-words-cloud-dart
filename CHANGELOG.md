@@ -1,3 +1,8 @@
+## [22.3.0] - Aspose Words Cloud for Dart 22.3 Release Notes
+
+- Online methods returns the dictionary of files with included original filename as key instead of single file content in responses.
+
+
 ## [22.2.0] - Aspose Words Cloud for Dart 22.2 Release Notes
 
 - Made 'SaveOprionsData.SaveFormat' property readonly with default value.

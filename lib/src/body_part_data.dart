@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="insert_page_numbers_online_response.dart">
+ * <copyright company="Aspose" file="body_part_data.dart">
  *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,29 +27,11 @@
 
 library aspose_words_cloud;
 
-import 'dart:convert';
 import 'dart:typed_data';
 
-import '../../aspose_words_cloud.dart';
-import '../api_client.dart';
-import '../body_part_data.dart';
-
-/// Inserts page numbers to the document.
-class InsertPageNumbersOnlineResponse implements ResponseBase {
-  /// The response model.
-  DocumentResponse model;
-
-  /// The document after modification.
-  Map<String, ByteData> document;
-
-  @override
-  void deserialize(ApiClient apiClient, Map<String, BodyPartData> _parts) {
-    model = DocumentResponse();
-    final _modelBody = _parts['model'];
-    final _modelJsonData = utf8.decode(_modelBody.content.buffer.asUint8List(_modelBody.content.offsetInBytes, _modelBody.content.lengthInBytes));
-    model.deserialize(jsonDecode(_modelJsonData) as Map<String, dynamic>);
-
-    document = apiClient.deserializeFilesCollection(_parts['document']);
-  }
+class BodyPartData {
+  final String contentType;
+  final String filename;
+  final ByteData content;
+  BodyPartData(final this.contentType, final this.filename, final this.content);
 }
-

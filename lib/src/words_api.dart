@@ -186,8 +186,8 @@ class WordsApi {
   }
 
   /// Removes a comment from the document.
-  Future< ByteData > deleteCommentOnline(DeleteCommentOnlineRequest request) async {
-    return await _apiClient.call(request) as ByteData;
+  Future< Map<String, ByteData> > deleteCommentOnline(DeleteCommentOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
   }
 
   /// Removes all comments from the document.
@@ -196,8 +196,8 @@ class WordsApi {
   }
 
   /// Removes all comments from the document.
-  Future< ByteData > deleteCommentsOnline(DeleteCommentsOnlineRequest request) async {
-    return await _apiClient.call(request) as ByteData;
+  Future< Map<String, ByteData> > deleteCommentsOnline(DeleteCommentsOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
   }
 
   /// Removes the custom xml part from the document.
@@ -206,8 +206,8 @@ class WordsApi {
   }
 
   /// Removes the custom xml part from the document.
-  Future< ByteData > deleteCustomXmlPartOnline(DeleteCustomXmlPartOnlineRequest request) async {
-    return await _apiClient.call(request) as ByteData;
+  Future< Map<String, ByteData> > deleteCustomXmlPartOnline(DeleteCustomXmlPartOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
   }
 
   /// Removes all custom xml parts from the document.
@@ -216,8 +216,8 @@ class WordsApi {
   }
 
   /// Removes all custom xml parts from the document.
-  Future< ByteData > deleteCustomXmlPartsOnline(DeleteCustomXmlPartsOnlineRequest request) async {
-    return await _apiClient.call(request) as ByteData;
+  Future< Map<String, ByteData> > deleteCustomXmlPartsOnline(DeleteCustomXmlPartsOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
   }
 
   /// Removes a document property.
@@ -226,8 +226,8 @@ class WordsApi {
   }
 
   /// Removes a document property.
-  Future< ByteData > deleteDocumentPropertyOnline(DeleteDocumentPropertyOnlineRequest request) async {
-    return await _apiClient.call(request) as ByteData;
+  Future< Map<String, ByteData> > deleteDocumentPropertyOnline(DeleteDocumentPropertyOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
   }
 
   /// Removes a DrawingObject from the document node.
@@ -236,8 +236,8 @@ class WordsApi {
   }
 
   /// Removes a DrawingObject from the document node.
-  Future< ByteData > deleteDrawingObjectOnline(DeleteDrawingObjectOnlineRequest request) async {
-    return await _apiClient.call(request) as ByteData;
+  Future< Map<String, ByteData> > deleteDrawingObjectOnline(DeleteDrawingObjectOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
   }
 
   /// Removes a field from the document node.
@@ -246,8 +246,8 @@ class WordsApi {
   }
 
   /// Removes a field from the document node.
-  Future< ByteData > deleteFieldOnline(DeleteFieldOnlineRequest request) async {
-    return await _apiClient.call(request) as ByteData;
+  Future< Map<String, ByteData> > deleteFieldOnline(DeleteFieldOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
   }
 
   /// Removes fields from the document node.
@@ -256,8 +256,8 @@ class WordsApi {
   }
 
   /// Removes fields from the document node.
-  Future< ByteData > deleteFieldsOnline(DeleteFieldsOnlineRequest request) async {
-    return await _apiClient.call(request) as ByteData;
+  Future< Map<String, ByteData> > deleteFieldsOnline(DeleteFieldsOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
   }
 
   /// Delete file.
@@ -276,8 +276,8 @@ class WordsApi {
   }
 
   /// Removes a footnote from the document node.
-  Future< ByteData > deleteFootnoteOnline(DeleteFootnoteOnlineRequest request) async {
-    return await _apiClient.call(request) as ByteData;
+  Future< Map<String, ByteData> > deleteFootnoteOnline(DeleteFootnoteOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
   }
 
   /// Removes a form field from the document node.
@@ -286,8 +286,8 @@ class WordsApi {
   }
 
   /// Removes a form field from the document node.
-  Future< ByteData > deleteFormFieldOnline(DeleteFormFieldOnlineRequest request) async {
-    return await _apiClient.call(request) as ByteData;
+  Future< Map<String, ByteData> > deleteFormFieldOnline(DeleteFormFieldOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
   }
 
   /// Removes a HeaderFooter object from the document section.
@@ -296,8 +296,8 @@ class WordsApi {
   }
 
   /// Removes a HeaderFooter object from the document section.
-  Future< ByteData > deleteHeaderFooterOnline(DeleteHeaderFooterOnlineRequest request) async {
-    return await _apiClient.call(request) as ByteData;
+  Future< Map<String, ByteData> > deleteHeaderFooterOnline(DeleteHeaderFooterOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
   }
 
   /// Removes HeaderFooter objects from the document section.
@@ -306,8 +306,8 @@ class WordsApi {
   }
 
   /// Removes HeaderFooter objects from the document section.
-  Future< ByteData > deleteHeadersFootersOnline(DeleteHeadersFootersOnlineRequest request) async {
-    return await _apiClient.call(request) as ByteData;
+  Future< Map<String, ByteData> > deleteHeadersFootersOnline(DeleteHeadersFootersOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
   }
 
   /// Removes macros from the document.
@@ -316,8 +316,8 @@ class WordsApi {
   }
 
   /// Removes macros from the document.
-  Future< ByteData > deleteMacrosOnline(DeleteMacrosOnlineRequest request) async {
-    return await _apiClient.call(request) as ByteData;
+  Future< Map<String, ByteData> > deleteMacrosOnline(DeleteMacrosOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
   }
 
   /// Removes an OfficeMath object from the document node.
@@ -326,8 +326,8 @@ class WordsApi {
   }
 
   /// Removes an OfficeMath object from the document node.
-  Future< ByteData > deleteOfficeMathObjectOnline(DeleteOfficeMathObjectOnlineRequest request) async {
-    return await _apiClient.call(request) as ByteData;
+  Future< Map<String, ByteData> > deleteOfficeMathObjectOnline(DeleteOfficeMathObjectOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
   }
 
   /// Removes a paragraph from the document node.
@@ -346,8 +346,8 @@ class WordsApi {
   }
 
   /// Removes a paragraph from the document node.
-  Future< ByteData > deleteParagraphOnline(DeleteParagraphOnlineRequest request) async {
-    return await _apiClient.call(request) as ByteData;
+  Future< Map<String, ByteData> > deleteParagraphOnline(DeleteParagraphOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
   }
 
   /// Removes a paragraph tab stop from the document node.
@@ -366,8 +366,8 @@ class WordsApi {
   }
 
   /// Removes a Run object from the paragraph.
-  Future< ByteData > deleteRunOnline(DeleteRunOnlineRequest request) async {
-    return await _apiClient.call(request) as ByteData;
+  Future< Map<String, ByteData> > deleteRunOnline(DeleteRunOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
   }
 
   /// Removes a section from the document.
@@ -376,8 +376,8 @@ class WordsApi {
   }
 
   /// Removes a section from the document.
-  Future< ByteData > deleteSectionOnline(DeleteSectionOnlineRequest request) async {
-    return await _apiClient.call(request) as ByteData;
+  Future< Map<String, ByteData> > deleteSectionOnline(DeleteSectionOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
   }
 
   /// Removes a table from the document node.
@@ -391,13 +391,13 @@ class WordsApi {
   }
 
   /// Removes a cell from the table row.
-  Future< ByteData > deleteTableCellOnline(DeleteTableCellOnlineRequest request) async {
-    return await _apiClient.call(request) as ByteData;
+  Future< Map<String, ByteData> > deleteTableCellOnline(DeleteTableCellOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
   }
 
   /// Removes a table from the document node.
-  Future< ByteData > deleteTableOnline(DeleteTableOnlineRequest request) async {
-    return await _apiClient.call(request) as ByteData;
+  Future< Map<String, ByteData> > deleteTableOnline(DeleteTableOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
   }
 
   /// Removes a row from the table.
@@ -406,8 +406,8 @@ class WordsApi {
   }
 
   /// Removes a row from the table.
-  Future< ByteData > deleteTableRowOnline(DeleteTableRowOnlineRequest request) async {
-    return await _apiClient.call(request) as ByteData;
+  Future< Map<String, ByteData> > deleteTableRowOnline(DeleteTableRowOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
   }
 
   /// Removes a watermark from the document.
@@ -1206,8 +1206,8 @@ class WordsApi {
   }
 
   /// Applies document content optimization options, specific to a particular versions of Microsoft Word.
-  Future< ByteData > optimizeDocumentOnline(OptimizeDocumentOnlineRequest request) async {
-    return await _apiClient.call(request) as ByteData;
+  Future< Map<String, ByteData> > optimizeDocumentOnline(OptimizeDocumentOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
   }
 
   /// Adds protection to the document.

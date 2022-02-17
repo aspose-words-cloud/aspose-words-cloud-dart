@@ -79,6 +79,25 @@ class ConvertDocumentTests
     await context.getApi().saveAsOnline(request);
   }
 
+  /// Test for converting document online to html with additional files like css and images.
+  Future<void> testSaveAsOnlineHtmlMultifile() async
+  {
+    final localName = 'test_multi_pages.docx';
+    final requestDocument = await context.loadBinaryFile('Common/' + localName);
+
+    final requestSaveOptionsData = HtmlSaveOptionsData();
+    requestSaveOptionsData.fileName = context.baseTestOutPath + '/TestSaveAsHtml.html';
+    requestSaveOptionsData.cssStyleSheetType = HtmlSaveOptionsData_CssStyleSheetTypeEnum.external;
+    requestSaveOptionsData.cssStyleSheetFileName = context.baseTestOutPath + '/TestSaveAsHtml.css';
+
+    final request = SaveAsOnlineRequest(
+      requestDocument,
+      requestSaveOptionsData
+    );
+
+    await context.getApi().saveAsOnline(request);
+  }
+
   /// Test for converting document to one of the available formats.
   Future<void> testSaveAsDocx() async
   {
