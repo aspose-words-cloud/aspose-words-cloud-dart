@@ -62,10 +62,10 @@ class HtmlSaveOptionsData extends SaveOptionsData {
 
 
   /// Gets or sets the option that controls how the document should be split when saving.
-  String _documentSplitCriteria;
+  HtmlSaveOptionsData_DocumentSplitCriteriaEnum _documentSplitCriteria;
 
-  String get documentSplitCriteria => _documentSplitCriteria;
-  set documentSplitCriteria(String val) => _documentSplitCriteria = val;
+  HtmlSaveOptionsData_DocumentSplitCriteriaEnum get documentSplitCriteria => _documentSplitCriteria;
+  set documentSplitCriteria(HtmlSaveOptionsData_DocumentSplitCriteriaEnum val) => _documentSplitCriteria = val;
 
 
   /// Gets or sets the maximum level of headings at which to split the document.
@@ -112,10 +112,10 @@ class HtmlSaveOptionsData extends SaveOptionsData {
 
 
   /// Gets or sets the option that controls how headers and footers are exported.
-  String _exportHeadersFootersMode;
+  HtmlSaveOptionsData_ExportHeadersFootersModeEnum _exportHeadersFootersMode;
 
-  String get exportHeadersFootersMode => _exportHeadersFootersMode;
-  set exportHeadersFootersMode(String val) => _exportHeadersFootersMode = val;
+  HtmlSaveOptionsData_ExportHeadersFootersModeEnum get exportHeadersFootersMode => _exportHeadersFootersMode;
+  set exportHeadersFootersMode(HtmlSaveOptionsData_ExportHeadersFootersModeEnum val) => _exportHeadersFootersMode = val;
 
 
   /// Gets or sets a value indicating whether images are saved in Base64 format.
@@ -133,10 +133,10 @@ class HtmlSaveOptionsData extends SaveOptionsData {
 
 
   /// Gets or sets the option that controls how list labels are exported.
-  String _exportListLabels;
+  HtmlSaveOptionsData_ExportListLabelsEnum _exportListLabels;
 
-  String get exportListLabels => _exportListLabels;
-  set exportListLabels(String val) => _exportListLabels = val;
+  HtmlSaveOptionsData_ExportListLabelsEnum get exportListLabels => _exportListLabels;
+  set exportListLabels(HtmlSaveOptionsData_ExportListLabelsEnum val) => _exportListLabels = val;
 
 
   /// Gets or sets a value indicating whether the original URL should be used as the URL of the linked images.
@@ -316,10 +316,10 @@ class HtmlSaveOptionsData extends SaveOptionsData {
 
 
   /// Gets or sets the option that controls how table, row and cell widths are exported.
-  String _tableWidthOutputMode;
+  HtmlSaveOptionsData_TableWidthOutputModeEnum _tableWidthOutputMode;
 
-  String get tableWidthOutputMode => _tableWidthOutputMode;
-  set tableWidthOutputMode(String val) => _tableWidthOutputMode = val;
+  HtmlSaveOptionsData_TableWidthOutputModeEnum get tableWidthOutputMode => _tableWidthOutputMode;
+  set tableWidthOutputMode(HtmlSaveOptionsData_TableWidthOutputModeEnum val) => _tableWidthOutputMode = val;
 
 
   @override
@@ -353,13 +353,22 @@ class HtmlSaveOptionsData extends SaveOptionsData {
     }
 
     if (json.containsKey('DmlEffectsRenderingMode')) {
-      dmlEffectsRenderingMode = json['DmlEffectsRenderingMode'] as String;
+      switch (json['DmlEffectsRenderingMode'] as String) {
+        case 'Simplified': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.simplified; break;
+        case 'None': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.none; break;
+        case 'Fine': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.fine; break;
+        default: dmlEffectsRenderingMode = null; break;
+      }
     } else {
       dmlEffectsRenderingMode = null;
     }
 
     if (json.containsKey('DmlRenderingMode')) {
-      dmlRenderingMode = json['DmlRenderingMode'] as String;
+      switch (json['DmlRenderingMode'] as String) {
+        case 'Fallback': dmlRenderingMode = SaveOptionsData_DmlRenderingModeEnum.fallback; break;
+        case 'DrawingML': dmlRenderingMode = SaveOptionsData_DmlRenderingModeEnum.drawingML; break;
+        default: dmlRenderingMode = null; break;
+      }
     } else {
       dmlRenderingMode = null;
     }
@@ -377,7 +386,11 @@ class HtmlSaveOptionsData extends SaveOptionsData {
     }
 
     if (json.containsKey('ImlRenderingMode')) {
-      imlRenderingMode = json['ImlRenderingMode'] as String;
+      switch (json['ImlRenderingMode'] as String) {
+        case 'Fallback': imlRenderingMode = SaveOptionsData_ImlRenderingModeEnum.fallback; break;
+        case 'InkML': imlRenderingMode = SaveOptionsData_ImlRenderingModeEnum.inkML; break;
+        default: imlRenderingMode = null; break;
+      }
     } else {
       imlRenderingMode = null;
     }
@@ -448,7 +461,14 @@ class HtmlSaveOptionsData extends SaveOptionsData {
     }
 
     if (json.containsKey('DocumentSplitCriteria')) {
-      documentSplitCriteria = json['DocumentSplitCriteria'] as String;
+      switch (json['DocumentSplitCriteria'] as String) {
+        case 'None': documentSplitCriteria = HtmlSaveOptionsData_DocumentSplitCriteriaEnum.none; break;
+        case 'PageBreak': documentSplitCriteria = HtmlSaveOptionsData_DocumentSplitCriteriaEnum.pageBreak; break;
+        case 'ColumnBreak': documentSplitCriteria = HtmlSaveOptionsData_DocumentSplitCriteriaEnum.columnBreak; break;
+        case 'SectionBreak': documentSplitCriteria = HtmlSaveOptionsData_DocumentSplitCriteriaEnum.sectionBreak; break;
+        case 'HeadingParagraph': documentSplitCriteria = HtmlSaveOptionsData_DocumentSplitCriteriaEnum.headingParagraph; break;
+        default: documentSplitCriteria = null; break;
+      }
     } else {
       documentSplitCriteria = null;
     }
@@ -490,7 +510,13 @@ class HtmlSaveOptionsData extends SaveOptionsData {
     }
 
     if (json.containsKey('ExportHeadersFootersMode')) {
-      exportHeadersFootersMode = json['ExportHeadersFootersMode'] as String;
+      switch (json['ExportHeadersFootersMode'] as String) {
+        case 'None': exportHeadersFootersMode = HtmlSaveOptionsData_ExportHeadersFootersModeEnum.none; break;
+        case 'PerSection': exportHeadersFootersMode = HtmlSaveOptionsData_ExportHeadersFootersModeEnum.perSection; break;
+        case 'FirstSectionHeaderLastSectionFooter': exportHeadersFootersMode = HtmlSaveOptionsData_ExportHeadersFootersModeEnum.firstSectionHeaderLastSectionFooter; break;
+        case 'FirstPageHeaderFooterPerSection': exportHeadersFootersMode = HtmlSaveOptionsData_ExportHeadersFootersModeEnum.firstPageHeaderFooterPerSection; break;
+        default: exportHeadersFootersMode = null; break;
+      }
     } else {
       exportHeadersFootersMode = null;
     }
@@ -508,7 +534,12 @@ class HtmlSaveOptionsData extends SaveOptionsData {
     }
 
     if (json.containsKey('ExportListLabels')) {
-      exportListLabels = json['ExportListLabels'] as String;
+      switch (json['ExportListLabels'] as String) {
+        case 'Auto': exportListLabels = HtmlSaveOptionsData_ExportListLabelsEnum.auto; break;
+        case 'AsInlineText': exportListLabels = HtmlSaveOptionsData_ExportListLabelsEnum.asInlineText; break;
+        case 'ByHtmlTags': exportListLabels = HtmlSaveOptionsData_ExportListLabelsEnum.byHtmlTags; break;
+        default: exportListLabels = null; break;
+      }
     } else {
       exportListLabels = null;
     }
@@ -666,7 +697,12 @@ class HtmlSaveOptionsData extends SaveOptionsData {
     }
 
     if (json.containsKey('TableWidthOutputMode')) {
-      tableWidthOutputMode = json['TableWidthOutputMode'] as String;
+      switch (json['TableWidthOutputMode'] as String) {
+        case 'All': tableWidthOutputMode = HtmlSaveOptionsData_TableWidthOutputModeEnum.all; break;
+        case 'RelativeOnly': tableWidthOutputMode = HtmlSaveOptionsData_TableWidthOutputModeEnum.relativeOnly; break;
+        case 'None': tableWidthOutputMode = HtmlSaveOptionsData_TableWidthOutputModeEnum.none; break;
+        default: tableWidthOutputMode = null; break;
+      }
     } else {
       tableWidthOutputMode = null;
     }
@@ -698,7 +734,14 @@ class HtmlSaveOptionsData extends SaveOptionsData {
     }
 
     if (documentSplitCriteria != null) {
-      _result['DocumentSplitCriteria'] = documentSplitCriteria;
+      switch (documentSplitCriteria) {
+        case HtmlSaveOptionsData_DocumentSplitCriteriaEnum.none: _result['DocumentSplitCriteria'] = 'None'; break;
+        case HtmlSaveOptionsData_DocumentSplitCriteriaEnum.pageBreak: _result['DocumentSplitCriteria'] = 'PageBreak'; break;
+        case HtmlSaveOptionsData_DocumentSplitCriteriaEnum.columnBreak: _result['DocumentSplitCriteria'] = 'ColumnBreak'; break;
+        case HtmlSaveOptionsData_DocumentSplitCriteriaEnum.sectionBreak: _result['DocumentSplitCriteria'] = 'SectionBreak'; break;
+        case HtmlSaveOptionsData_DocumentSplitCriteriaEnum.headingParagraph: _result['DocumentSplitCriteria'] = 'HeadingParagraph'; break;
+        default: break;
+      }
     }
 
     if (documentSplitHeadingLevel != null) {
@@ -726,7 +769,13 @@ class HtmlSaveOptionsData extends SaveOptionsData {
     }
 
     if (exportHeadersFootersMode != null) {
-      _result['ExportHeadersFootersMode'] = exportHeadersFootersMode;
+      switch (exportHeadersFootersMode) {
+        case HtmlSaveOptionsData_ExportHeadersFootersModeEnum.none: _result['ExportHeadersFootersMode'] = 'None'; break;
+        case HtmlSaveOptionsData_ExportHeadersFootersModeEnum.perSection: _result['ExportHeadersFootersMode'] = 'PerSection'; break;
+        case HtmlSaveOptionsData_ExportHeadersFootersModeEnum.firstSectionHeaderLastSectionFooter: _result['ExportHeadersFootersMode'] = 'FirstSectionHeaderLastSectionFooter'; break;
+        case HtmlSaveOptionsData_ExportHeadersFootersModeEnum.firstPageHeaderFooterPerSection: _result['ExportHeadersFootersMode'] = 'FirstPageHeaderFooterPerSection'; break;
+        default: break;
+      }
     }
 
     if (exportImagesAsBase64 != null) {
@@ -738,7 +787,12 @@ class HtmlSaveOptionsData extends SaveOptionsData {
     }
 
     if (exportListLabels != null) {
-      _result['ExportListLabels'] = exportListLabels;
+      switch (exportListLabels) {
+        case HtmlSaveOptionsData_ExportListLabelsEnum.auto: _result['ExportListLabels'] = 'Auto'; break;
+        case HtmlSaveOptionsData_ExportListLabelsEnum.asInlineText: _result['ExportListLabels'] = 'AsInlineText'; break;
+        case HtmlSaveOptionsData_ExportListLabelsEnum.byHtmlTags: _result['ExportListLabels'] = 'ByHtmlTags'; break;
+        default: break;
+      }
     }
 
     if (exportOriginalUrlForLinkedImages != null) {
@@ -852,7 +906,12 @@ class HtmlSaveOptionsData extends SaveOptionsData {
     }
 
     if (tableWidthOutputMode != null) {
-      _result['TableWidthOutputMode'] = tableWidthOutputMode;
+      switch (tableWidthOutputMode) {
+        case HtmlSaveOptionsData_TableWidthOutputModeEnum.all: _result['TableWidthOutputMode'] = 'All'; break;
+        case HtmlSaveOptionsData_TableWidthOutputModeEnum.relativeOnly: _result['TableWidthOutputMode'] = 'RelativeOnly'; break;
+        case HtmlSaveOptionsData_TableWidthOutputModeEnum.none: _result['TableWidthOutputMode'] = 'None'; break;
+        default: break;
+      }
     }
     return _result;
   }
@@ -864,6 +923,33 @@ enum HtmlSaveOptionsData_CssStyleSheetTypeEnum
   inline,
   embedded,
   external
+}
+
+/// Gets or sets the option that controls how the document should be split when saving.
+enum HtmlSaveOptionsData_DocumentSplitCriteriaEnum
+{ 
+  none,
+  pageBreak,
+  columnBreak,
+  sectionBreak,
+  headingParagraph
+}
+
+/// Gets or sets the option that controls how headers and footers are exported.
+enum HtmlSaveOptionsData_ExportHeadersFootersModeEnum
+{ 
+  none,
+  perSection,
+  firstSectionHeaderLastSectionFooter,
+  firstPageHeaderFooterPerSection
+}
+
+/// Gets or sets the option that controls how list labels are exported.
+enum HtmlSaveOptionsData_ExportListLabelsEnum
+{ 
+  auto,
+  asInlineText,
+  byHtmlTags
 }
 
 /// Gets or sets the version of HTML standard, that should be used when saving the document to HTML or MHTML.
@@ -891,5 +977,13 @@ enum HtmlSaveOptionsData_OfficeMathOutputModeEnum
   image,
   mathML,
   text
+}
+
+/// Gets or sets the option that controls how table, row and cell widths are exported.
+enum HtmlSaveOptionsData_TableWidthOutputModeEnum
+{ 
+  all,
+  relativeOnly,
+  none
 }
 

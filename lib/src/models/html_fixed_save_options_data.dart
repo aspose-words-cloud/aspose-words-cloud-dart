@@ -75,18 +75,18 @@ class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
 
 
   /// Gets or sets the export format of fonts.
-  String _fontFormat;
+  HtmlFixedSaveOptionsData_FontFormatEnum _fontFormat;
 
-  String get fontFormat => _fontFormat;
-  set fontFormat(String val) => _fontFormat = val;
+  HtmlFixedSaveOptionsData_FontFormatEnum get fontFormat => _fontFormat;
+  set fontFormat(HtmlFixedSaveOptionsData_FontFormatEnum val) => _fontFormat = val;
 
 
   /// Gets or sets the horizontal alignment of pages in the HTML document.
   /// The default value is HtmlFixedHorizontalPageAlignment.Center.
-  String _pageHorizontalAlignment;
+  HtmlFixedSaveOptionsData_PageHorizontalAlignmentEnum _pageHorizontalAlignment;
 
-  String get pageHorizontalAlignment => _pageHorizontalAlignment;
-  set pageHorizontalAlignment(String val) => _pageHorizontalAlignment = val;
+  HtmlFixedSaveOptionsData_PageHorizontalAlignmentEnum get pageHorizontalAlignment => _pageHorizontalAlignment;
+  set pageHorizontalAlignment(HtmlFixedSaveOptionsData_PageHorizontalAlignmentEnum val) => _pageHorizontalAlignment = val;
 
 
   /// Gets or sets the margin around pages in HTML document.
@@ -171,13 +171,22 @@ class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('DmlEffectsRenderingMode')) {
-      dmlEffectsRenderingMode = json['DmlEffectsRenderingMode'] as String;
+      switch (json['DmlEffectsRenderingMode'] as String) {
+        case 'Simplified': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.simplified; break;
+        case 'None': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.none; break;
+        case 'Fine': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.fine; break;
+        default: dmlEffectsRenderingMode = null; break;
+      }
     } else {
       dmlEffectsRenderingMode = null;
     }
 
     if (json.containsKey('DmlRenderingMode')) {
-      dmlRenderingMode = json['DmlRenderingMode'] as String;
+      switch (json['DmlRenderingMode'] as String) {
+        case 'Fallback': dmlRenderingMode = SaveOptionsData_DmlRenderingModeEnum.fallback; break;
+        case 'DrawingML': dmlRenderingMode = SaveOptionsData_DmlRenderingModeEnum.drawingML; break;
+        default: dmlRenderingMode = null; break;
+      }
     } else {
       dmlRenderingMode = null;
     }
@@ -195,7 +204,11 @@ class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('ImlRenderingMode')) {
-      imlRenderingMode = json['ImlRenderingMode'] as String;
+      switch (json['ImlRenderingMode'] as String) {
+        case 'Fallback': imlRenderingMode = SaveOptionsData_ImlRenderingModeEnum.fallback; break;
+        case 'InkML': imlRenderingMode = SaveOptionsData_ImlRenderingModeEnum.inkML; break;
+        default: imlRenderingMode = null; break;
+      }
     } else {
       imlRenderingMode = null;
     }
@@ -237,7 +250,11 @@ class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('ColorMode')) {
-      colorMode = json['ColorMode'] as String;
+      switch (json['ColorMode'] as String) {
+        case 'Normal': colorMode = FixedPageSaveOptionsData_ColorModeEnum.normal; break;
+        case 'Grayscale': colorMode = FixedPageSaveOptionsData_ColorModeEnum.grayscale; break;
+        default: colorMode = null; break;
+      }
     } else {
       colorMode = null;
     }
@@ -256,7 +273,14 @@ class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('NumeralFormat')) {
-      numeralFormat = json['NumeralFormat'] as String;
+      switch (json['NumeralFormat'] as String) {
+        case 'European': numeralFormat = FixedPageSaveOptionsData_NumeralFormatEnum.european; break;
+        case 'ArabicIndic': numeralFormat = FixedPageSaveOptionsData_NumeralFormatEnum.arabicIndic; break;
+        case 'EasternArabicIndic': numeralFormat = FixedPageSaveOptionsData_NumeralFormatEnum.easternArabicIndic; break;
+        case 'Context': numeralFormat = FixedPageSaveOptionsData_NumeralFormatEnum.context; break;
+        case 'System': numeralFormat = FixedPageSaveOptionsData_NumeralFormatEnum.system; break;
+        default: numeralFormat = null; break;
+      }
     } else {
       numeralFormat = null;
     }
@@ -316,13 +340,22 @@ class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('FontFormat')) {
-      fontFormat = json['FontFormat'] as String;
+      switch (json['FontFormat'] as String) {
+        case 'Woff': fontFormat = HtmlFixedSaveOptionsData_FontFormatEnum.woff; break;
+        case 'Ttf': fontFormat = HtmlFixedSaveOptionsData_FontFormatEnum.ttf; break;
+        default: fontFormat = null; break;
+      }
     } else {
       fontFormat = null;
     }
 
     if (json.containsKey('PageHorizontalAlignment')) {
-      pageHorizontalAlignment = json['PageHorizontalAlignment'] as String;
+      switch (json['PageHorizontalAlignment'] as String) {
+        case 'Left': pageHorizontalAlignment = HtmlFixedSaveOptionsData_PageHorizontalAlignmentEnum.left; break;
+        case 'Center': pageHorizontalAlignment = HtmlFixedSaveOptionsData_PageHorizontalAlignmentEnum.center; break;
+        case 'Right': pageHorizontalAlignment = HtmlFixedSaveOptionsData_PageHorizontalAlignmentEnum.right; break;
+        default: pageHorizontalAlignment = null; break;
+      }
     } else {
       pageHorizontalAlignment = null;
     }
@@ -393,11 +426,20 @@ class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (fontFormat != null) {
-      _result['FontFormat'] = fontFormat;
+      switch (fontFormat) {
+        case HtmlFixedSaveOptionsData_FontFormatEnum.woff: _result['FontFormat'] = 'Woff'; break;
+        case HtmlFixedSaveOptionsData_FontFormatEnum.ttf: _result['FontFormat'] = 'Ttf'; break;
+        default: break;
+      }
     }
 
     if (pageHorizontalAlignment != null) {
-      _result['PageHorizontalAlignment'] = pageHorizontalAlignment;
+      switch (pageHorizontalAlignment) {
+        case HtmlFixedSaveOptionsData_PageHorizontalAlignmentEnum.left: _result['PageHorizontalAlignment'] = 'Left'; break;
+        case HtmlFixedSaveOptionsData_PageHorizontalAlignmentEnum.center: _result['PageHorizontalAlignment'] = 'Center'; break;
+        case HtmlFixedSaveOptionsData_PageHorizontalAlignmentEnum.right: _result['PageHorizontalAlignment'] = 'Right'; break;
+        default: break;
+      }
     }
 
     if (pageMargins != null) {
@@ -431,4 +473,19 @@ class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   }
 }
 
+/// Gets or sets the export format of fonts.
+enum HtmlFixedSaveOptionsData_FontFormatEnum
+{ 
+  woff,
+  ttf
+}
+
+/// Gets or sets the horizontal alignment of pages in the HTML document.
+/// The default value is HtmlFixedHorizontalPageAlignment.Center.
+enum HtmlFixedSaveOptionsData_PageHorizontalAlignmentEnum
+{ 
+  left,
+  center,
+  right
+}
 

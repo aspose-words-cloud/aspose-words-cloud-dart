@@ -83,13 +83,22 @@ class PclSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('DmlEffectsRenderingMode')) {
-      dmlEffectsRenderingMode = json['DmlEffectsRenderingMode'] as String;
+      switch (json['DmlEffectsRenderingMode'] as String) {
+        case 'Simplified': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.simplified; break;
+        case 'None': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.none; break;
+        case 'Fine': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.fine; break;
+        default: dmlEffectsRenderingMode = null; break;
+      }
     } else {
       dmlEffectsRenderingMode = null;
     }
 
     if (json.containsKey('DmlRenderingMode')) {
-      dmlRenderingMode = json['DmlRenderingMode'] as String;
+      switch (json['DmlRenderingMode'] as String) {
+        case 'Fallback': dmlRenderingMode = SaveOptionsData_DmlRenderingModeEnum.fallback; break;
+        case 'DrawingML': dmlRenderingMode = SaveOptionsData_DmlRenderingModeEnum.drawingML; break;
+        default: dmlRenderingMode = null; break;
+      }
     } else {
       dmlRenderingMode = null;
     }
@@ -107,7 +116,11 @@ class PclSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('ImlRenderingMode')) {
-      imlRenderingMode = json['ImlRenderingMode'] as String;
+      switch (json['ImlRenderingMode'] as String) {
+        case 'Fallback': imlRenderingMode = SaveOptionsData_ImlRenderingModeEnum.fallback; break;
+        case 'InkML': imlRenderingMode = SaveOptionsData_ImlRenderingModeEnum.inkML; break;
+        default: imlRenderingMode = null; break;
+      }
     } else {
       imlRenderingMode = null;
     }
@@ -149,7 +162,11 @@ class PclSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('ColorMode')) {
-      colorMode = json['ColorMode'] as String;
+      switch (json['ColorMode'] as String) {
+        case 'Normal': colorMode = FixedPageSaveOptionsData_ColorModeEnum.normal; break;
+        case 'Grayscale': colorMode = FixedPageSaveOptionsData_ColorModeEnum.grayscale; break;
+        default: colorMode = null; break;
+      }
     } else {
       colorMode = null;
     }
@@ -168,7 +185,14 @@ class PclSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('NumeralFormat')) {
-      numeralFormat = json['NumeralFormat'] as String;
+      switch (json['NumeralFormat'] as String) {
+        case 'European': numeralFormat = FixedPageSaveOptionsData_NumeralFormatEnum.european; break;
+        case 'ArabicIndic': numeralFormat = FixedPageSaveOptionsData_NumeralFormatEnum.arabicIndic; break;
+        case 'EasternArabicIndic': numeralFormat = FixedPageSaveOptionsData_NumeralFormatEnum.easternArabicIndic; break;
+        case 'Context': numeralFormat = FixedPageSaveOptionsData_NumeralFormatEnum.context; break;
+        case 'System': numeralFormat = FixedPageSaveOptionsData_NumeralFormatEnum.system; break;
+        default: numeralFormat = null; break;
+      }
     } else {
       numeralFormat = null;
     }

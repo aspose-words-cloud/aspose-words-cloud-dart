@@ -47,17 +47,17 @@ class TiffSaveOptionsData extends ImageSaveOptionsData {
 
 
   /// Gets or sets the method used while converting images to 1 bpp format.
-  String _tiffBinarizationMethod;
+  TiffSaveOptionsData_TiffBinarizationMethodEnum _tiffBinarizationMethod;
 
-  String get tiffBinarizationMethod => _tiffBinarizationMethod;
-  set tiffBinarizationMethod(String val) => _tiffBinarizationMethod = val;
+  TiffSaveOptionsData_TiffBinarizationMethodEnum get tiffBinarizationMethod => _tiffBinarizationMethod;
+  set tiffBinarizationMethod(TiffSaveOptionsData_TiffBinarizationMethodEnum val) => _tiffBinarizationMethod = val;
 
 
   /// Gets or sets the type of compression.
-  String _tiffCompression;
+  TiffSaveOptionsData_TiffCompressionEnum _tiffCompression;
 
-  String get tiffCompression => _tiffCompression;
-  set tiffCompression(String val) => _tiffCompression = val;
+  TiffSaveOptionsData_TiffCompressionEnum get tiffCompression => _tiffCompression;
+  set tiffCompression(TiffSaveOptionsData_TiffCompressionEnum val) => _tiffCompression = val;
 
 
   @override
@@ -91,13 +91,22 @@ class TiffSaveOptionsData extends ImageSaveOptionsData {
     }
 
     if (json.containsKey('DmlEffectsRenderingMode')) {
-      dmlEffectsRenderingMode = json['DmlEffectsRenderingMode'] as String;
+      switch (json['DmlEffectsRenderingMode'] as String) {
+        case 'Simplified': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.simplified; break;
+        case 'None': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.none; break;
+        case 'Fine': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.fine; break;
+        default: dmlEffectsRenderingMode = null; break;
+      }
     } else {
       dmlEffectsRenderingMode = null;
     }
 
     if (json.containsKey('DmlRenderingMode')) {
-      dmlRenderingMode = json['DmlRenderingMode'] as String;
+      switch (json['DmlRenderingMode'] as String) {
+        case 'Fallback': dmlRenderingMode = SaveOptionsData_DmlRenderingModeEnum.fallback; break;
+        case 'DrawingML': dmlRenderingMode = SaveOptionsData_DmlRenderingModeEnum.drawingML; break;
+        default: dmlRenderingMode = null; break;
+      }
     } else {
       dmlRenderingMode = null;
     }
@@ -115,7 +124,11 @@ class TiffSaveOptionsData extends ImageSaveOptionsData {
     }
 
     if (json.containsKey('ImlRenderingMode')) {
-      imlRenderingMode = json['ImlRenderingMode'] as String;
+      switch (json['ImlRenderingMode'] as String) {
+        case 'Fallback': imlRenderingMode = SaveOptionsData_ImlRenderingModeEnum.fallback; break;
+        case 'InkML': imlRenderingMode = SaveOptionsData_ImlRenderingModeEnum.inkML; break;
+        default: imlRenderingMode = null; break;
+      }
     } else {
       imlRenderingMode = null;
     }
@@ -157,7 +170,11 @@ class TiffSaveOptionsData extends ImageSaveOptionsData {
     }
 
     if (json.containsKey('ColorMode')) {
-      colorMode = json['ColorMode'] as String;
+      switch (json['ColorMode'] as String) {
+        case 'Normal': colorMode = FixedPageSaveOptionsData_ColorModeEnum.normal; break;
+        case 'Grayscale': colorMode = FixedPageSaveOptionsData_ColorModeEnum.grayscale; break;
+        default: colorMode = null; break;
+      }
     } else {
       colorMode = null;
     }
@@ -176,7 +193,14 @@ class TiffSaveOptionsData extends ImageSaveOptionsData {
     }
 
     if (json.containsKey('NumeralFormat')) {
-      numeralFormat = json['NumeralFormat'] as String;
+      switch (json['NumeralFormat'] as String) {
+        case 'European': numeralFormat = FixedPageSaveOptionsData_NumeralFormatEnum.european; break;
+        case 'ArabicIndic': numeralFormat = FixedPageSaveOptionsData_NumeralFormatEnum.arabicIndic; break;
+        case 'EasternArabicIndic': numeralFormat = FixedPageSaveOptionsData_NumeralFormatEnum.easternArabicIndic; break;
+        case 'Context': numeralFormat = FixedPageSaveOptionsData_NumeralFormatEnum.context; break;
+        case 'System': numeralFormat = FixedPageSaveOptionsData_NumeralFormatEnum.system; break;
+        default: numeralFormat = null; break;
+      }
     } else {
       numeralFormat = null;
     }
@@ -212,7 +236,12 @@ class TiffSaveOptionsData extends ImageSaveOptionsData {
     }
 
     if (json.containsKey('ImageColorMode')) {
-      imageColorMode = json['ImageColorMode'] as String;
+      switch (json['ImageColorMode'] as String) {
+        case 'None': imageColorMode = ImageSaveOptionsData_ImageColorModeEnum.none; break;
+        case 'Grayscale': imageColorMode = ImageSaveOptionsData_ImageColorModeEnum.grayscale; break;
+        case 'BlackAndWhite': imageColorMode = ImageSaveOptionsData_ImageColorModeEnum.blackAndWhite; break;
+        default: imageColorMode = null; break;
+      }
     } else {
       imageColorMode = null;
     }
@@ -230,7 +259,20 @@ class TiffSaveOptionsData extends ImageSaveOptionsData {
     }
 
     if (json.containsKey('PixelFormat')) {
-      pixelFormat = json['PixelFormat'] as String;
+      switch (json['PixelFormat'] as String) {
+        case 'Format16BppRgb555': pixelFormat = ImageSaveOptionsData_PixelFormatEnum.format16BppRgb555; break;
+        case 'Format16BppRgb565': pixelFormat = ImageSaveOptionsData_PixelFormatEnum.format16BppRgb565; break;
+        case 'Format16BppArgb1555': pixelFormat = ImageSaveOptionsData_PixelFormatEnum.format16BppArgb1555; break;
+        case 'Format24BppRgb': pixelFormat = ImageSaveOptionsData_PixelFormatEnum.format24BppRgb; break;
+        case 'Format32BppRgb': pixelFormat = ImageSaveOptionsData_PixelFormatEnum.format32BppRgb; break;
+        case 'Format32BppArgb': pixelFormat = ImageSaveOptionsData_PixelFormatEnum.format32BppArgb; break;
+        case 'Format32BppPArgb': pixelFormat = ImageSaveOptionsData_PixelFormatEnum.format32BppPArgb; break;
+        case 'Format48BppRgb': pixelFormat = ImageSaveOptionsData_PixelFormatEnum.format48BppRgb; break;
+        case 'Format64BppArgb': pixelFormat = ImageSaveOptionsData_PixelFormatEnum.format64BppArgb; break;
+        case 'Format64BppPArgb': pixelFormat = ImageSaveOptionsData_PixelFormatEnum.format64BppPArgb; break;
+        case 'Format1bppIndexed': pixelFormat = ImageSaveOptionsData_PixelFormatEnum.format1bppIndexed; break;
+        default: pixelFormat = null; break;
+      }
     } else {
       pixelFormat = null;
     }
@@ -278,13 +320,24 @@ class TiffSaveOptionsData extends ImageSaveOptionsData {
     }
 
     if (json.containsKey('TiffBinarizationMethod')) {
-      tiffBinarizationMethod = json['TiffBinarizationMethod'] as String;
+      switch (json['TiffBinarizationMethod'] as String) {
+        case 'Threshold': tiffBinarizationMethod = TiffSaveOptionsData_TiffBinarizationMethodEnum.threshold; break;
+        case 'FloydSteinbergDithering': tiffBinarizationMethod = TiffSaveOptionsData_TiffBinarizationMethodEnum.floydSteinbergDithering; break;
+        default: tiffBinarizationMethod = null; break;
+      }
     } else {
       tiffBinarizationMethod = null;
     }
 
     if (json.containsKey('TiffCompression')) {
-      tiffCompression = json['TiffCompression'] as String;
+      switch (json['TiffCompression'] as String) {
+        case 'None': tiffCompression = TiffSaveOptionsData_TiffCompressionEnum.none; break;
+        case 'Rle': tiffCompression = TiffSaveOptionsData_TiffCompressionEnum.rle; break;
+        case 'Lzw': tiffCompression = TiffSaveOptionsData_TiffCompressionEnum.lzw; break;
+        case 'Ccitt3': tiffCompression = TiffSaveOptionsData_TiffCompressionEnum.ccitt3; break;
+        case 'Ccitt4': tiffCompression = TiffSaveOptionsData_TiffCompressionEnum.ccitt4; break;
+        default: tiffCompression = null; break;
+      }
     } else {
       tiffCompression = null;
     }
@@ -303,14 +356,41 @@ class TiffSaveOptionsData extends ImageSaveOptionsData {
     }
 
     if (tiffBinarizationMethod != null) {
-      _result['TiffBinarizationMethod'] = tiffBinarizationMethod;
+      switch (tiffBinarizationMethod) {
+        case TiffSaveOptionsData_TiffBinarizationMethodEnum.threshold: _result['TiffBinarizationMethod'] = 'Threshold'; break;
+        case TiffSaveOptionsData_TiffBinarizationMethodEnum.floydSteinbergDithering: _result['TiffBinarizationMethod'] = 'FloydSteinbergDithering'; break;
+        default: break;
+      }
     }
 
     if (tiffCompression != null) {
-      _result['TiffCompression'] = tiffCompression;
+      switch (tiffCompression) {
+        case TiffSaveOptionsData_TiffCompressionEnum.none: _result['TiffCompression'] = 'None'; break;
+        case TiffSaveOptionsData_TiffCompressionEnum.rle: _result['TiffCompression'] = 'Rle'; break;
+        case TiffSaveOptionsData_TiffCompressionEnum.lzw: _result['TiffCompression'] = 'Lzw'; break;
+        case TiffSaveOptionsData_TiffCompressionEnum.ccitt3: _result['TiffCompression'] = 'Ccitt3'; break;
+        case TiffSaveOptionsData_TiffCompressionEnum.ccitt4: _result['TiffCompression'] = 'Ccitt4'; break;
+        default: break;
+      }
     }
     return _result;
   }
 }
 
+/// Gets or sets the method used while converting images to 1 bpp format.
+enum TiffSaveOptionsData_TiffBinarizationMethodEnum
+{ 
+  threshold,
+  floydSteinbergDithering
+}
+
+/// Gets or sets the type of compression.
+enum TiffSaveOptionsData_TiffCompressionEnum
+{ 
+  none,
+  rle,
+  lzw,
+  ccitt3,
+  ccitt4
+}
 
