@@ -196,6 +196,7 @@ export 'src/models/paragraph_response.dart';
 export 'src/models/pcl_save_options_data.dart';
 export 'src/models/pdf_digital_signature_details_data.dart';
 export 'src/models/pdf_encryption_details_data.dart';
+export 'src/models/pdf_permissions.dart';
 export 'src/models/pdf_save_options_data.dart';
 export 'src/models/png_save_options_data.dart';
 export 'src/models/preferred_width.dart';

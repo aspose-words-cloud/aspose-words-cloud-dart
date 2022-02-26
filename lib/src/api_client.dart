@@ -63,13 +63,21 @@ class ApiClient {
 
     _encryptorInitialized = true;
     try {
-        final rsaPublicKey = await _publicKeyRequester(GetPublicKeyRequest());
-        if (rsaPublicKey == null || rsaPublicKey.modulus == null || rsaPublicKey.exponent == null) {
-          throw ApiException(400, 'Invalid public key response.');
+        var exponentString = configuration.rsaExponent;
+        var modulusString = configuration.rsaModulus;
+
+        if (exponentString == null || exponentString.isEmpty || modulusString == null || modulusString.isEmpty)
+        {
+            final rsaPublicKey = await _publicKeyRequester(GetPublicKeyRequest());
+            if (rsaPublicKey == null || rsaPublicKey.modulus == null || rsaPublicKey.exponent == null) {
+              throw ApiException(400, 'Invalid public key response.');
+            }
+            exponentString = rsaPublicKey.modulus as String;
+            modulusString = rsaPublicKey.exponent as String;
         }
 
-        final modulus = BigInt.parse(hex.encode(base64Decode(rsaPublicKey.modulus as String)), radix: 16);
-        final exponent = BigInt.parse(hex.encode(base64Decode(rsaPublicKey.exponent as String)), radix: 16);
+        final modulus = BigInt.parse(hex.encode(base64Decode(modulusString)), radix: 16);
+        final exponent = BigInt.parse(hex.encode(base64Decode(exponentString)), radix: 16);
         var pubKey = RSAPublicKey(modulus, exponent);
 
         _encrypter.init(true, PublicKeyParameter<RSAPublicKey>(pubKey));

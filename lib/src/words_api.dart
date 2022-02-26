@@ -1584,4 +1584,9 @@ class WordsApi {
   Future< List<dynamic> > batch(final List<BatchRequest> requests, {final bool displayIntermediateResults = true}) async {
     return await _apiClient.callBatch(requests, displayIntermediateResults);
   }
+
+  // Encrypt string
+  Future<String> encryptPassword(final String data) async {
+    return await _apiClient.encryptPassword(data);
+  }
 }

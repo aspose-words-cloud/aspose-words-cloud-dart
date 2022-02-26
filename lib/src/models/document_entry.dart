@@ -31,6 +31,13 @@ import '../../aspose_words_cloud.dart';
 
 /// Represents a document which will be appended to the original resource document.
 class DocumentEntry implements ModelBase {
+  /// Gets or sets document password encrypted on API public key. The default value is null (the document has no password).
+  String _encryptedPassword;
+
+  String get encryptedPassword => _encryptedPassword;
+  set encryptedPassword(String val) => _encryptedPassword = val;
+
+
   /// Gets or sets the path to document to append at the server.
   String _href;
 
@@ -45,17 +52,16 @@ class DocumentEntry implements ModelBase {
   set importFormatMode(String val) => _importFormatMode = val;
 
 
-  /// Gets or sets document password encrypted on API public key. The default value is null (the document has no password).
-  String _password;
-
-  String get password => _password;
-  set password(String val) => _password = val;
-
-
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize DocumentEntry data model.');
+    }
+
+    if (json.containsKey('EncryptedPassword')) {
+      encryptedPassword = json['EncryptedPassword'] as String;
+    } else {
+      encryptedPassword = null;
     }
 
     if (json.containsKey('Href')) {
@@ -69,27 +75,21 @@ class DocumentEntry implements ModelBase {
     } else {
       importFormatMode = null;
     }
-
-    if (json.containsKey('Password')) {
-      password = json['Password'] as String;
-    } else {
-      password = null;
-    }
   }
 
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
+    if (encryptedPassword != null) {
+      _result['EncryptedPassword'] = encryptedPassword;
+    }
+
     if (href != null) {
       _result['Href'] = href;
     }
 
     if (importFormatMode != null) {
       _result['ImportFormatMode'] = importFormatMode;
-    }
-
-    if (password != null) {
-      _result['Password'] = password;
     }
     return _result;
   }

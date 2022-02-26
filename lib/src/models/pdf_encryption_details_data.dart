@@ -32,10 +32,10 @@ import '../../aspose_words_cloud.dart';
 /// Container class for details of encryption.
 class PdfEncryptionDetailsData implements ModelBase {
   /// Gets or sets the encryption algorithm to use.
-  String _encryptionAlgorithm;
+  PdfEncryptionDetailsData_EncryptionAlgorithmEnum _encryptionAlgorithm;
 
-  String get encryptionAlgorithm => _encryptionAlgorithm;
-  set encryptionAlgorithm(String val) => _encryptionAlgorithm = val;
+  PdfEncryptionDetailsData_EncryptionAlgorithmEnum get encryptionAlgorithm => _encryptionAlgorithm;
+  set encryptionAlgorithm(PdfEncryptionDetailsData_EncryptionAlgorithmEnum val) => _encryptionAlgorithm = val;
 
 
   /// Gets or sets the owner password for the encrypted PDF document.
@@ -46,10 +46,10 @@ class PdfEncryptionDetailsData implements ModelBase {
 
 
   /// Gets or sets the operations that are allowed to a user on the encrypted PDF document.
-  String _permissions;
+  List<PdfPermissionsEnum> _permissions;
 
-  String get permissions => _permissions;
-  set permissions(String val) => _permissions = val;
+  List<PdfPermissionsEnum> get permissions => _permissions;
+  set permissions(List<PdfPermissionsEnum> val) => _permissions = val;
 
 
   /// Gets or sets the user password required for opening the encrypted PDF document.
@@ -66,7 +66,11 @@ class PdfEncryptionDetailsData implements ModelBase {
     }
 
     if (json.containsKey('EncryptionAlgorithm')) {
-      encryptionAlgorithm = json['EncryptionAlgorithm'] as String;
+      switch (json['EncryptionAlgorithm'] as String) {
+        case 'RC4_40': encryptionAlgorithm = PdfEncryptionDetailsData_EncryptionAlgorithmEnum.rC4_40; break;
+        case 'RC4_128': encryptionAlgorithm = PdfEncryptionDetailsData_EncryptionAlgorithmEnum.rC4_128; break;
+        default: encryptionAlgorithm = null; break;
+      }
     } else {
       encryptionAlgorithm = null;
     }
@@ -78,7 +82,23 @@ class PdfEncryptionDetailsData implements ModelBase {
     }
 
     if (json.containsKey('Permissions')) {
-      permissions = json['Permissions'] as String;
+      // Array processing
+      permissions = <PdfPermissionsEnum>[];
+      for(final _element in json['Permissions']) {
+        switch (_element as String) {
+          case 'DisallowAll': permissions.add(PdfPermissionsEnum.disallowAll); break;
+          case 'Printing': permissions.add(PdfPermissionsEnum.printing); break;
+          case 'ModifyContents': permissions.add(PdfPermissionsEnum.modifyContents); break;
+          case 'ContentCopy': permissions.add(PdfPermissionsEnum.contentCopy); break;
+          case 'ModifyAnnotations': permissions.add(PdfPermissionsEnum.modifyAnnotations); break;
+          case 'FillIn': permissions.add(PdfPermissionsEnum.fillIn); break;
+          case 'ContentCopyForAccessibility': permissions.add(PdfPermissionsEnum.contentCopyForAccessibility); break;
+          case 'DocumentAssembly': permissions.add(PdfPermissionsEnum.documentAssembly); break;
+          case 'HighResolutionPrinting': permissions.add(PdfPermissionsEnum.highResolutionPrinting); break;
+          case 'AllowAll': permissions.add(PdfPermissionsEnum.allowAll); break;
+          default: break;
+        }
+      }
     } else {
       permissions = null;
     }
@@ -94,7 +114,11 @@ class PdfEncryptionDetailsData implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (encryptionAlgorithm != null) {
-      _result['EncryptionAlgorithm'] = encryptionAlgorithm;
+      switch (encryptionAlgorithm) {
+        case PdfEncryptionDetailsData_EncryptionAlgorithmEnum.rC4_40: _result['EncryptionAlgorithm'] = 'RC4_40'; break;
+        case PdfEncryptionDetailsData_EncryptionAlgorithmEnum.rC4_128: _result['EncryptionAlgorithm'] = 'RC4_128'; break;
+        default: break;
+      }
     }
 
     if (ownerPassword != null) {
@@ -102,7 +126,21 @@ class PdfEncryptionDetailsData implements ModelBase {
     }
 
     if (permissions != null) {
-      _result['Permissions'] = permissions;
+      _result['Permissions'] = permissions.map((_element) {
+        switch (_element) {
+            case PdfPermissionsEnum.disallowAll: return 'DisallowAll';
+            case PdfPermissionsEnum.printing: return 'Printing';
+            case PdfPermissionsEnum.modifyContents: return 'ModifyContents';
+            case PdfPermissionsEnum.contentCopy: return 'ContentCopy';
+            case PdfPermissionsEnum.modifyAnnotations: return 'ModifyAnnotations';
+            case PdfPermissionsEnum.fillIn: return 'FillIn';
+            case PdfPermissionsEnum.contentCopyForAccessibility: return 'ContentCopyForAccessibility';
+            case PdfPermissionsEnum.documentAssembly: return 'DocumentAssembly';
+            case PdfPermissionsEnum.highResolutionPrinting: return 'HighResolutionPrinting';
+            case PdfPermissionsEnum.allowAll: return 'AllowAll';
+            default: return null;
+        }
+      }).toList();
     }
 
     if (userPassword != null) {
@@ -112,4 +150,10 @@ class PdfEncryptionDetailsData implements ModelBase {
   }
 }
 
+/// Gets or sets the encryption algorithm to use.
+enum PdfEncryptionDetailsData_EncryptionAlgorithmEnum
+{ 
+  rC4_40,
+  rC4_128
+}
 

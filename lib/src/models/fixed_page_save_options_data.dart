@@ -33,10 +33,10 @@ import '../../aspose_words_cloud.dart';
 abstract class FixedPageSaveOptionsData extends SaveOptionsData {
   /// Gets or sets the value determining how colors are rendered.
   /// { Normal | Grayscale}.
-  String _colorMode;
+  FixedPageSaveOptionsData_ColorModeEnum _colorMode;
 
-  String get colorMode => _colorMode;
-  set colorMode(String val) => _colorMode = val;
+  FixedPageSaveOptionsData_ColorModeEnum get colorMode => _colorMode;
+  set colorMode(FixedPageSaveOptionsData_ColorModeEnum val) => _colorMode = val;
 
 
   /// Gets or sets the quality of the JPEG images inside PDF document.
@@ -54,10 +54,10 @@ abstract class FixedPageSaveOptionsData extends SaveOptionsData {
 
 
   /// Gets or sets the symbol set, that is used to represent numbers while rendering to fixed page formats.
-  String _numeralFormat;
+  FixedPageSaveOptionsData_NumeralFormatEnum _numeralFormat;
 
-  String get numeralFormat => _numeralFormat;
-  set numeralFormat(String val) => _numeralFormat = val;
+  FixedPageSaveOptionsData_NumeralFormatEnum get numeralFormat => _numeralFormat;
+  set numeralFormat(FixedPageSaveOptionsData_NumeralFormatEnum val) => _numeralFormat = val;
 
 
   /// Gets or sets a value indicating whether it is required to optimize output of XPS.
@@ -114,13 +114,22 @@ abstract class FixedPageSaveOptionsData extends SaveOptionsData {
     }
 
     if (json.containsKey('DmlEffectsRenderingMode')) {
-      dmlEffectsRenderingMode = json['DmlEffectsRenderingMode'] as String;
+      switch (json['DmlEffectsRenderingMode'] as String) {
+        case 'Simplified': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.simplified; break;
+        case 'None': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.none; break;
+        case 'Fine': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.fine; break;
+        default: dmlEffectsRenderingMode = null; break;
+      }
     } else {
       dmlEffectsRenderingMode = null;
     }
 
     if (json.containsKey('DmlRenderingMode')) {
-      dmlRenderingMode = json['DmlRenderingMode'] as String;
+      switch (json['DmlRenderingMode'] as String) {
+        case 'Fallback': dmlRenderingMode = SaveOptionsData_DmlRenderingModeEnum.fallback; break;
+        case 'DrawingML': dmlRenderingMode = SaveOptionsData_DmlRenderingModeEnum.drawingML; break;
+        default: dmlRenderingMode = null; break;
+      }
     } else {
       dmlRenderingMode = null;
     }
@@ -138,7 +147,11 @@ abstract class FixedPageSaveOptionsData extends SaveOptionsData {
     }
 
     if (json.containsKey('ImlRenderingMode')) {
-      imlRenderingMode = json['ImlRenderingMode'] as String;
+      switch (json['ImlRenderingMode'] as String) {
+        case 'Fallback': imlRenderingMode = SaveOptionsData_ImlRenderingModeEnum.fallback; break;
+        case 'InkML': imlRenderingMode = SaveOptionsData_ImlRenderingModeEnum.inkML; break;
+        default: imlRenderingMode = null; break;
+      }
     } else {
       imlRenderingMode = null;
     }
@@ -180,7 +193,11 @@ abstract class FixedPageSaveOptionsData extends SaveOptionsData {
     }
 
     if (json.containsKey('ColorMode')) {
-      colorMode = json['ColorMode'] as String;
+      switch (json['ColorMode'] as String) {
+        case 'Normal': colorMode = FixedPageSaveOptionsData_ColorModeEnum.normal; break;
+        case 'Grayscale': colorMode = FixedPageSaveOptionsData_ColorModeEnum.grayscale; break;
+        default: colorMode = null; break;
+      }
     } else {
       colorMode = null;
     }
@@ -199,7 +216,14 @@ abstract class FixedPageSaveOptionsData extends SaveOptionsData {
     }
 
     if (json.containsKey('NumeralFormat')) {
-      numeralFormat = json['NumeralFormat'] as String;
+      switch (json['NumeralFormat'] as String) {
+        case 'European': numeralFormat = FixedPageSaveOptionsData_NumeralFormatEnum.european; break;
+        case 'ArabicIndic': numeralFormat = FixedPageSaveOptionsData_NumeralFormatEnum.arabicIndic; break;
+        case 'EasternArabicIndic': numeralFormat = FixedPageSaveOptionsData_NumeralFormatEnum.easternArabicIndic; break;
+        case 'Context': numeralFormat = FixedPageSaveOptionsData_NumeralFormatEnum.context; break;
+        case 'System': numeralFormat = FixedPageSaveOptionsData_NumeralFormatEnum.system; break;
+        default: numeralFormat = null; break;
+      }
     } else {
       numeralFormat = null;
     }
@@ -228,7 +252,11 @@ abstract class FixedPageSaveOptionsData extends SaveOptionsData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (colorMode != null) {
-      _result['ColorMode'] = colorMode;
+      switch (colorMode) {
+        case FixedPageSaveOptionsData_ColorModeEnum.normal: _result['ColorMode'] = 'Normal'; break;
+        case FixedPageSaveOptionsData_ColorModeEnum.grayscale: _result['ColorMode'] = 'Grayscale'; break;
+        default: break;
+      }
     }
 
     if (jpegQuality != null) {
@@ -240,7 +268,14 @@ abstract class FixedPageSaveOptionsData extends SaveOptionsData {
     }
 
     if (numeralFormat != null) {
-      _result['NumeralFormat'] = numeralFormat;
+      switch (numeralFormat) {
+        case FixedPageSaveOptionsData_NumeralFormatEnum.european: _result['NumeralFormat'] = 'European'; break;
+        case FixedPageSaveOptionsData_NumeralFormatEnum.arabicIndic: _result['NumeralFormat'] = 'ArabicIndic'; break;
+        case FixedPageSaveOptionsData_NumeralFormatEnum.easternArabicIndic: _result['NumeralFormat'] = 'EasternArabicIndic'; break;
+        case FixedPageSaveOptionsData_NumeralFormatEnum.context: _result['NumeralFormat'] = 'Context'; break;
+        case FixedPageSaveOptionsData_NumeralFormatEnum.system: _result['NumeralFormat'] = 'System'; break;
+        default: break;
+      }
     }
 
     if (optimizeOutput != null) {
@@ -258,4 +293,21 @@ abstract class FixedPageSaveOptionsData extends SaveOptionsData {
   }
 }
 
+/// Gets or sets the value determining how colors are rendered.
+/// { Normal | Grayscale}.
+enum FixedPageSaveOptionsData_ColorModeEnum
+{ 
+  normal,
+  grayscale
+}
+
+/// Gets or sets the symbol set, that is used to represent numbers while rendering to fixed page formats.
+enum FixedPageSaveOptionsData_NumeralFormatEnum
+{ 
+  european,
+  arabicIndic,
+  easternArabicIndic,
+  context,
+  system
+}
 

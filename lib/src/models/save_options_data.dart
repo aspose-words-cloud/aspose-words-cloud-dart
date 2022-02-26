@@ -54,17 +54,17 @@ abstract class SaveOptionsData implements ModelBase {
 
   /// Gets or sets the value determining how DrawingML effects are rendered.
   /// { Simplified | None | Fine }.
-  String _dmlEffectsRenderingMode;
+  SaveOptionsData_DmlEffectsRenderingModeEnum _dmlEffectsRenderingMode;
 
-  String get dmlEffectsRenderingMode => _dmlEffectsRenderingMode;
-  set dmlEffectsRenderingMode(String val) => _dmlEffectsRenderingMode = val;
+  SaveOptionsData_DmlEffectsRenderingModeEnum get dmlEffectsRenderingMode => _dmlEffectsRenderingMode;
+  set dmlEffectsRenderingMode(SaveOptionsData_DmlEffectsRenderingModeEnum val) => _dmlEffectsRenderingMode = val;
 
 
   /// Gets or sets the option that controls how DrawingML shapes are rendered.
-  String _dmlRenderingMode;
+  SaveOptionsData_DmlRenderingModeEnum _dmlRenderingMode;
 
-  String get dmlRenderingMode => _dmlRenderingMode;
-  set dmlRenderingMode(String val) => _dmlRenderingMode = val;
+  SaveOptionsData_DmlRenderingModeEnum get dmlRenderingMode => _dmlRenderingMode;
+  set dmlRenderingMode(SaveOptionsData_DmlRenderingModeEnum val) => _dmlRenderingMode = val;
 
 
   /// Gets or sets the name of destination file.
@@ -83,10 +83,10 @@ abstract class SaveOptionsData implements ModelBase {
 
 
   /// Gets or sets the value determining how ink (InkML) objects are rendered.
-  String _imlRenderingMode;
+  SaveOptionsData_ImlRenderingModeEnum _imlRenderingMode;
 
-  String get imlRenderingMode => _imlRenderingMode;
-  set imlRenderingMode(String val) => _imlRenderingMode = val;
+  SaveOptionsData_ImlRenderingModeEnum get imlRenderingMode => _imlRenderingMode;
+  set imlRenderingMode(SaveOptionsData_ImlRenderingModeEnum val) => _imlRenderingMode = val;
 
 
   /// Gets the format of save.
@@ -169,13 +169,22 @@ abstract class SaveOptionsData implements ModelBase {
     }
 
     if (json.containsKey('DmlEffectsRenderingMode')) {
-      dmlEffectsRenderingMode = json['DmlEffectsRenderingMode'] as String;
+      switch (json['DmlEffectsRenderingMode'] as String) {
+        case 'Simplified': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.simplified; break;
+        case 'None': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.none; break;
+        case 'Fine': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.fine; break;
+        default: dmlEffectsRenderingMode = null; break;
+      }
     } else {
       dmlEffectsRenderingMode = null;
     }
 
     if (json.containsKey('DmlRenderingMode')) {
-      dmlRenderingMode = json['DmlRenderingMode'] as String;
+      switch (json['DmlRenderingMode'] as String) {
+        case 'Fallback': dmlRenderingMode = SaveOptionsData_DmlRenderingModeEnum.fallback; break;
+        case 'DrawingML': dmlRenderingMode = SaveOptionsData_DmlRenderingModeEnum.drawingML; break;
+        default: dmlRenderingMode = null; break;
+      }
     } else {
       dmlRenderingMode = null;
     }
@@ -193,7 +202,11 @@ abstract class SaveOptionsData implements ModelBase {
     }
 
     if (json.containsKey('ImlRenderingMode')) {
-      imlRenderingMode = json['ImlRenderingMode'] as String;
+      switch (json['ImlRenderingMode'] as String) {
+        case 'Fallback': imlRenderingMode = SaveOptionsData_ImlRenderingModeEnum.fallback; break;
+        case 'InkML': imlRenderingMode = SaveOptionsData_ImlRenderingModeEnum.inkML; break;
+        default: imlRenderingMode = null; break;
+      }
     } else {
       imlRenderingMode = null;
     }
@@ -255,11 +268,20 @@ abstract class SaveOptionsData implements ModelBase {
     }
 
     if (dmlEffectsRenderingMode != null) {
-      _result['DmlEffectsRenderingMode'] = dmlEffectsRenderingMode;
+      switch (dmlEffectsRenderingMode) {
+        case SaveOptionsData_DmlEffectsRenderingModeEnum.simplified: _result['DmlEffectsRenderingMode'] = 'Simplified'; break;
+        case SaveOptionsData_DmlEffectsRenderingModeEnum.none: _result['DmlEffectsRenderingMode'] = 'None'; break;
+        case SaveOptionsData_DmlEffectsRenderingModeEnum.fine: _result['DmlEffectsRenderingMode'] = 'Fine'; break;
+        default: break;
+      }
     }
 
     if (dmlRenderingMode != null) {
-      _result['DmlRenderingMode'] = dmlRenderingMode;
+      switch (dmlRenderingMode) {
+        case SaveOptionsData_DmlRenderingModeEnum.fallback: _result['DmlRenderingMode'] = 'Fallback'; break;
+        case SaveOptionsData_DmlRenderingModeEnum.drawingML: _result['DmlRenderingMode'] = 'DrawingML'; break;
+        default: break;
+      }
     }
 
     if (fileName != null) {
@@ -271,7 +293,11 @@ abstract class SaveOptionsData implements ModelBase {
     }
 
     if (imlRenderingMode != null) {
-      _result['ImlRenderingMode'] = imlRenderingMode;
+      switch (imlRenderingMode) {
+        case SaveOptionsData_ImlRenderingModeEnum.fallback: _result['ImlRenderingMode'] = 'Fallback'; break;
+        case SaveOptionsData_ImlRenderingModeEnum.inkML: _result['ImlRenderingMode'] = 'InkML'; break;
+        default: break;
+      }
     }
 
     if (saveFormat != null) {
@@ -310,5 +336,28 @@ enum SaveOptionsData_Dml3DEffectsRenderingModeEnum
 { 
   basic,
   advanced
+}
+
+/// Gets or sets the value determining how DrawingML effects are rendered.
+/// { Simplified | None | Fine }.
+enum SaveOptionsData_DmlEffectsRenderingModeEnum
+{ 
+  simplified,
+  none,
+  fine
+}
+
+/// Gets or sets the option that controls how DrawingML shapes are rendered.
+enum SaveOptionsData_DmlRenderingModeEnum
+{ 
+  fallback,
+  drawingML
+}
+
+/// Gets or sets the value determining how ink (InkML) objects are rendered.
+enum SaveOptionsData_ImlRenderingModeEnum
+{ 
+  fallback,
+  inkML
 }
 

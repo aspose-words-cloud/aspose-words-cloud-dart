@@ -83,13 +83,22 @@ class XamlFlowSaveOptionsData extends SaveOptionsData {
     }
 
     if (json.containsKey('DmlEffectsRenderingMode')) {
-      dmlEffectsRenderingMode = json['DmlEffectsRenderingMode'] as String;
+      switch (json['DmlEffectsRenderingMode'] as String) {
+        case 'Simplified': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.simplified; break;
+        case 'None': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.none; break;
+        case 'Fine': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.fine; break;
+        default: dmlEffectsRenderingMode = null; break;
+      }
     } else {
       dmlEffectsRenderingMode = null;
     }
 
     if (json.containsKey('DmlRenderingMode')) {
-      dmlRenderingMode = json['DmlRenderingMode'] as String;
+      switch (json['DmlRenderingMode'] as String) {
+        case 'Fallback': dmlRenderingMode = SaveOptionsData_DmlRenderingModeEnum.fallback; break;
+        case 'DrawingML': dmlRenderingMode = SaveOptionsData_DmlRenderingModeEnum.drawingML; break;
+        default: dmlRenderingMode = null; break;
+      }
     } else {
       dmlRenderingMode = null;
     }
@@ -107,7 +116,11 @@ class XamlFlowSaveOptionsData extends SaveOptionsData {
     }
 
     if (json.containsKey('ImlRenderingMode')) {
-      imlRenderingMode = json['ImlRenderingMode'] as String;
+      switch (json['ImlRenderingMode'] as String) {
+        case 'Fallback': imlRenderingMode = SaveOptionsData_ImlRenderingModeEnum.fallback; break;
+        case 'InkML': imlRenderingMode = SaveOptionsData_ImlRenderingModeEnum.inkML; break;
+        default: imlRenderingMode = null; break;
+      }
     } else {
       imlRenderingMode = null;
     }

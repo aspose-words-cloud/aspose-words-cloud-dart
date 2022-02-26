@@ -69,13 +69,22 @@ class FlatOpcTemplateMacroSaveOptionsData extends OoxmlSaveOptionsData {
     }
 
     if (json.containsKey('DmlEffectsRenderingMode')) {
-      dmlEffectsRenderingMode = json['DmlEffectsRenderingMode'] as String;
+      switch (json['DmlEffectsRenderingMode'] as String) {
+        case 'Simplified': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.simplified; break;
+        case 'None': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.none; break;
+        case 'Fine': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.fine; break;
+        default: dmlEffectsRenderingMode = null; break;
+      }
     } else {
       dmlEffectsRenderingMode = null;
     }
 
     if (json.containsKey('DmlRenderingMode')) {
-      dmlRenderingMode = json['DmlRenderingMode'] as String;
+      switch (json['DmlRenderingMode'] as String) {
+        case 'Fallback': dmlRenderingMode = SaveOptionsData_DmlRenderingModeEnum.fallback; break;
+        case 'DrawingML': dmlRenderingMode = SaveOptionsData_DmlRenderingModeEnum.drawingML; break;
+        default: dmlRenderingMode = null; break;
+      }
     } else {
       dmlRenderingMode = null;
     }
@@ -93,7 +102,11 @@ class FlatOpcTemplateMacroSaveOptionsData extends OoxmlSaveOptionsData {
     }
 
     if (json.containsKey('ImlRenderingMode')) {
-      imlRenderingMode = json['ImlRenderingMode'] as String;
+      switch (json['ImlRenderingMode'] as String) {
+        case 'Fallback': imlRenderingMode = SaveOptionsData_ImlRenderingModeEnum.fallback; break;
+        case 'InkML': imlRenderingMode = SaveOptionsData_ImlRenderingModeEnum.inkML; break;
+        default: imlRenderingMode = null; break;
+      }
     } else {
       imlRenderingMode = null;
     }
@@ -135,7 +148,12 @@ class FlatOpcTemplateMacroSaveOptionsData extends OoxmlSaveOptionsData {
     }
 
     if (json.containsKey('Compliance')) {
-      compliance = json['Compliance'] as String;
+      switch (json['Compliance'] as String) {
+        case 'Ecma376_2006': compliance = OoxmlSaveOptionsData_ComplianceEnum.ecma376_2006; break;
+        case 'Iso29500_2008_Transitional': compliance = OoxmlSaveOptionsData_ComplianceEnum.iso29500_2008_Transitional; break;
+        case 'Iso29500_2008_Strict': compliance = OoxmlSaveOptionsData_ComplianceEnum.iso29500_2008_Strict; break;
+        default: compliance = null; break;
+      }
     } else {
       compliance = null;
     }

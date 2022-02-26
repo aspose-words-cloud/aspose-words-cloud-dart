@@ -76,13 +76,22 @@ class EpubSaveOptionsData extends HtmlSaveOptionsData {
     }
 
     if (json.containsKey('DmlEffectsRenderingMode')) {
-      dmlEffectsRenderingMode = json['DmlEffectsRenderingMode'] as String;
+      switch (json['DmlEffectsRenderingMode'] as String) {
+        case 'Simplified': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.simplified; break;
+        case 'None': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.none; break;
+        case 'Fine': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.fine; break;
+        default: dmlEffectsRenderingMode = null; break;
+      }
     } else {
       dmlEffectsRenderingMode = null;
     }
 
     if (json.containsKey('DmlRenderingMode')) {
-      dmlRenderingMode = json['DmlRenderingMode'] as String;
+      switch (json['DmlRenderingMode'] as String) {
+        case 'Fallback': dmlRenderingMode = SaveOptionsData_DmlRenderingModeEnum.fallback; break;
+        case 'DrawingML': dmlRenderingMode = SaveOptionsData_DmlRenderingModeEnum.drawingML; break;
+        default: dmlRenderingMode = null; break;
+      }
     } else {
       dmlRenderingMode = null;
     }
@@ -100,7 +109,11 @@ class EpubSaveOptionsData extends HtmlSaveOptionsData {
     }
 
     if (json.containsKey('ImlRenderingMode')) {
-      imlRenderingMode = json['ImlRenderingMode'] as String;
+      switch (json['ImlRenderingMode'] as String) {
+        case 'Fallback': imlRenderingMode = SaveOptionsData_ImlRenderingModeEnum.fallback; break;
+        case 'InkML': imlRenderingMode = SaveOptionsData_ImlRenderingModeEnum.inkML; break;
+        default: imlRenderingMode = null; break;
+      }
     } else {
       imlRenderingMode = null;
     }
@@ -171,7 +184,14 @@ class EpubSaveOptionsData extends HtmlSaveOptionsData {
     }
 
     if (json.containsKey('DocumentSplitCriteria')) {
-      documentSplitCriteria = json['DocumentSplitCriteria'] as String;
+      switch (json['DocumentSplitCriteria'] as String) {
+        case 'None': documentSplitCriteria = HtmlSaveOptionsData_DocumentSplitCriteriaEnum.none; break;
+        case 'PageBreak': documentSplitCriteria = HtmlSaveOptionsData_DocumentSplitCriteriaEnum.pageBreak; break;
+        case 'ColumnBreak': documentSplitCriteria = HtmlSaveOptionsData_DocumentSplitCriteriaEnum.columnBreak; break;
+        case 'SectionBreak': documentSplitCriteria = HtmlSaveOptionsData_DocumentSplitCriteriaEnum.sectionBreak; break;
+        case 'HeadingParagraph': documentSplitCriteria = HtmlSaveOptionsData_DocumentSplitCriteriaEnum.headingParagraph; break;
+        default: documentSplitCriteria = null; break;
+      }
     } else {
       documentSplitCriteria = null;
     }
@@ -213,7 +233,13 @@ class EpubSaveOptionsData extends HtmlSaveOptionsData {
     }
 
     if (json.containsKey('ExportHeadersFootersMode')) {
-      exportHeadersFootersMode = json['ExportHeadersFootersMode'] as String;
+      switch (json['ExportHeadersFootersMode'] as String) {
+        case 'None': exportHeadersFootersMode = HtmlSaveOptionsData_ExportHeadersFootersModeEnum.none; break;
+        case 'PerSection': exportHeadersFootersMode = HtmlSaveOptionsData_ExportHeadersFootersModeEnum.perSection; break;
+        case 'FirstSectionHeaderLastSectionFooter': exportHeadersFootersMode = HtmlSaveOptionsData_ExportHeadersFootersModeEnum.firstSectionHeaderLastSectionFooter; break;
+        case 'FirstPageHeaderFooterPerSection': exportHeadersFootersMode = HtmlSaveOptionsData_ExportHeadersFootersModeEnum.firstPageHeaderFooterPerSection; break;
+        default: exportHeadersFootersMode = null; break;
+      }
     } else {
       exportHeadersFootersMode = null;
     }
@@ -231,7 +257,12 @@ class EpubSaveOptionsData extends HtmlSaveOptionsData {
     }
 
     if (json.containsKey('ExportListLabels')) {
-      exportListLabels = json['ExportListLabels'] as String;
+      switch (json['ExportListLabels'] as String) {
+        case 'Auto': exportListLabels = HtmlSaveOptionsData_ExportListLabelsEnum.auto; break;
+        case 'AsInlineText': exportListLabels = HtmlSaveOptionsData_ExportListLabelsEnum.asInlineText; break;
+        case 'ByHtmlTags': exportListLabels = HtmlSaveOptionsData_ExportListLabelsEnum.byHtmlTags; break;
+        default: exportListLabels = null; break;
+      }
     } else {
       exportListLabels = null;
     }
@@ -389,7 +420,12 @@ class EpubSaveOptionsData extends HtmlSaveOptionsData {
     }
 
     if (json.containsKey('TableWidthOutputMode')) {
-      tableWidthOutputMode = json['TableWidthOutputMode'] as String;
+      switch (json['TableWidthOutputMode'] as String) {
+        case 'All': tableWidthOutputMode = HtmlSaveOptionsData_TableWidthOutputModeEnum.all; break;
+        case 'RelativeOnly': tableWidthOutputMode = HtmlSaveOptionsData_TableWidthOutputModeEnum.relativeOnly; break;
+        case 'None': tableWidthOutputMode = HtmlSaveOptionsData_TableWidthOutputModeEnum.none; break;
+        default: tableWidthOutputMode = null; break;
+      }
     } else {
       tableWidthOutputMode = null;
     }
