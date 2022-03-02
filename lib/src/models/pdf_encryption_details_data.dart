@@ -31,13 +31,6 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for details of encryption.
 class PdfEncryptionDetailsData implements ModelBase {
-  /// Gets or sets the encryption algorithm to use.
-  PdfEncryptionDetailsData_EncryptionAlgorithmEnum _encryptionAlgorithm;
-
-  PdfEncryptionDetailsData_EncryptionAlgorithmEnum get encryptionAlgorithm => _encryptionAlgorithm;
-  set encryptionAlgorithm(PdfEncryptionDetailsData_EncryptionAlgorithmEnum val) => _encryptionAlgorithm = val;
-
-
   /// Gets or sets the owner password for the encrypted PDF document.
   String _ownerPassword;
 
@@ -63,16 +56,6 @@ class PdfEncryptionDetailsData implements ModelBase {
   void deserialize(Map<String, dynamic> json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize PdfEncryptionDetailsData data model.');
-    }
-
-    if (json.containsKey('EncryptionAlgorithm')) {
-      switch (json['EncryptionAlgorithm'] as String) {
-        case 'RC4_40': encryptionAlgorithm = PdfEncryptionDetailsData_EncryptionAlgorithmEnum.rC4_40; break;
-        case 'RC4_128': encryptionAlgorithm = PdfEncryptionDetailsData_EncryptionAlgorithmEnum.rC4_128; break;
-        default: encryptionAlgorithm = null; break;
-      }
-    } else {
-      encryptionAlgorithm = null;
     }
 
     if (json.containsKey('OwnerPassword')) {
@@ -113,14 +96,6 @@ class PdfEncryptionDetailsData implements ModelBase {
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
-    if (encryptionAlgorithm != null) {
-      switch (encryptionAlgorithm) {
-        case PdfEncryptionDetailsData_EncryptionAlgorithmEnum.rC4_40: _result['EncryptionAlgorithm'] = 'RC4_40'; break;
-        case PdfEncryptionDetailsData_EncryptionAlgorithmEnum.rC4_128: _result['EncryptionAlgorithm'] = 'RC4_128'; break;
-        default: break;
-      }
-    }
-
     if (ownerPassword != null) {
       _result['OwnerPassword'] = ownerPassword;
     }
@@ -150,10 +125,4 @@ class PdfEncryptionDetailsData implements ModelBase {
   }
 }
 
-/// Gets or sets the encryption algorithm to use.
-enum PdfEncryptionDetailsData_EncryptionAlgorithmEnum
-{ 
-  rC4_40,
-  rC4_128
-}
 

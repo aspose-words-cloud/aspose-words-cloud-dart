@@ -383,7 +383,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     if (json.containsKey('Compliance')) {
       switch (json['Compliance'] as String) {
         case 'Pdf17': compliance = PdfSaveOptionsData_ComplianceEnum.pdf17; break;
-        case 'Pdf15': compliance = PdfSaveOptionsData_ComplianceEnum.pdf15; break;
+        case 'Pdf20': compliance = PdfSaveOptionsData_ComplianceEnum.pdf20; break;
         case 'PdfA1a': compliance = PdfSaveOptionsData_ComplianceEnum.pdfA1a; break;
         case 'PdfA1b': compliance = PdfSaveOptionsData_ComplianceEnum.pdfA1b; break;
         case 'PdfA2a': compliance = PdfSaveOptionsData_ComplianceEnum.pdfA2a; break;
@@ -590,7 +590,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     if (compliance != null) {
       switch (compliance) {
         case PdfSaveOptionsData_ComplianceEnum.pdf17: _result['Compliance'] = 'Pdf17'; break;
-        case PdfSaveOptionsData_ComplianceEnum.pdf15: _result['Compliance'] = 'Pdf15'; break;
+        case PdfSaveOptionsData_ComplianceEnum.pdf20: _result['Compliance'] = 'Pdf20'; break;
         case PdfSaveOptionsData_ComplianceEnum.pdfA1a: _result['Compliance'] = 'PdfA1a'; break;
         case PdfSaveOptionsData_ComplianceEnum.pdfA1b: _result['Compliance'] = 'PdfA1b'; break;
         case PdfSaveOptionsData_ComplianceEnum.pdfA2a: _result['Compliance'] = 'PdfA2a'; break;
@@ -746,7 +746,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 enum PdfSaveOptionsData_ComplianceEnum
 { 
   pdf17,
-  pdf15,
+  pdf20,
   pdfA1a,
   pdfA1b,
   pdfA2a,
