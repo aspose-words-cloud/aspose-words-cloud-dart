@@ -31,6 +31,8 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import '../../aspose_words_cloud.dart';
+import '../api_client.dart';
+import '../body_part_data.dart';
 
 /// Accepts all revisions in the document.
 class AcceptAllRevisionsOnlineResponse implements ResponseBase {
@@ -38,16 +40,16 @@ class AcceptAllRevisionsOnlineResponse implements ResponseBase {
   RevisionsModificationResponse model;
 
   /// The document after modification.
-  ByteData document;
+  Map<String, ByteData> document;
 
   @override
-  void deserialize(Map<String, ByteData> _parts) {
+  void deserialize(ApiClient apiClient, Map<String, BodyPartData> _parts) {
     model = RevisionsModificationResponse();
     final _modelBody = _parts['model'];
-    final _modelJsonData = utf8.decode(_modelBody.buffer.asUint8List(_modelBody.offsetInBytes, _modelBody.lengthInBytes));
+    final _modelJsonData = utf8.decode(_modelBody.content.buffer.asUint8List(_modelBody.content.offsetInBytes, _modelBody.content.lengthInBytes));
     model.deserialize(jsonDecode(_modelJsonData) as Map<String, dynamic>);
 
-    document = _parts['document'];
+    document = apiClient.deserializeFilesCollection(_parts['document']);
   }
 }
 

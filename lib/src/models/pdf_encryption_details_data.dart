@@ -31,13 +31,6 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for details of encryption.
 class PdfEncryptionDetailsData implements ModelBase {
-  /// Gets or sets the encryption algorithm to use.
-  String _encryptionAlgorithm;
-
-  String get encryptionAlgorithm => _encryptionAlgorithm;
-  set encryptionAlgorithm(String val) => _encryptionAlgorithm = val;
-
-
   /// Gets or sets the owner password for the encrypted PDF document.
   String _ownerPassword;
 
@@ -46,10 +39,10 @@ class PdfEncryptionDetailsData implements ModelBase {
 
 
   /// Gets or sets the operations that are allowed to a user on the encrypted PDF document.
-  String _permissions;
+  List<PdfPermissionsEnum> _permissions;
 
-  String get permissions => _permissions;
-  set permissions(String val) => _permissions = val;
+  List<PdfPermissionsEnum> get permissions => _permissions;
+  set permissions(List<PdfPermissionsEnum> val) => _permissions = val;
 
 
   /// Gets or sets the user password required for opening the encrypted PDF document.
@@ -65,12 +58,6 @@ class PdfEncryptionDetailsData implements ModelBase {
       throw ApiException(400, 'Failed to deserialize PdfEncryptionDetailsData data model.');
     }
 
-    if (json.containsKey('EncryptionAlgorithm')) {
-      encryptionAlgorithm = json['EncryptionAlgorithm'] as String;
-    } else {
-      encryptionAlgorithm = null;
-    }
-
     if (json.containsKey('OwnerPassword')) {
       ownerPassword = json['OwnerPassword'] as String;
     } else {
@@ -78,7 +65,23 @@ class PdfEncryptionDetailsData implements ModelBase {
     }
 
     if (json.containsKey('Permissions')) {
-      permissions = json['Permissions'] as String;
+      // Array processing
+      permissions = <PdfPermissionsEnum>[];
+      for(final _element in json['Permissions']) {
+        switch (_element as String) {
+          case 'DisallowAll': permissions.add(PdfPermissionsEnum.disallowAll); break;
+          case 'Printing': permissions.add(PdfPermissionsEnum.printing); break;
+          case 'ModifyContents': permissions.add(PdfPermissionsEnum.modifyContents); break;
+          case 'ContentCopy': permissions.add(PdfPermissionsEnum.contentCopy); break;
+          case 'ModifyAnnotations': permissions.add(PdfPermissionsEnum.modifyAnnotations); break;
+          case 'FillIn': permissions.add(PdfPermissionsEnum.fillIn); break;
+          case 'ContentCopyForAccessibility': permissions.add(PdfPermissionsEnum.contentCopyForAccessibility); break;
+          case 'DocumentAssembly': permissions.add(PdfPermissionsEnum.documentAssembly); break;
+          case 'HighResolutionPrinting': permissions.add(PdfPermissionsEnum.highResolutionPrinting); break;
+          case 'AllowAll': permissions.add(PdfPermissionsEnum.allowAll); break;
+          default: break;
+        }
+      }
     } else {
       permissions = null;
     }
@@ -93,16 +96,26 @@ class PdfEncryptionDetailsData implements ModelBase {
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
-    if (encryptionAlgorithm != null) {
-      _result['EncryptionAlgorithm'] = encryptionAlgorithm;
-    }
-
     if (ownerPassword != null) {
       _result['OwnerPassword'] = ownerPassword;
     }
 
     if (permissions != null) {
-      _result['Permissions'] = permissions;
+      _result['Permissions'] = permissions.map((_element) {
+        switch (_element) {
+            case PdfPermissionsEnum.disallowAll: return 'DisallowAll';
+            case PdfPermissionsEnum.printing: return 'Printing';
+            case PdfPermissionsEnum.modifyContents: return 'ModifyContents';
+            case PdfPermissionsEnum.contentCopy: return 'ContentCopy';
+            case PdfPermissionsEnum.modifyAnnotations: return 'ModifyAnnotations';
+            case PdfPermissionsEnum.fillIn: return 'FillIn';
+            case PdfPermissionsEnum.contentCopyForAccessibility: return 'ContentCopyForAccessibility';
+            case PdfPermissionsEnum.documentAssembly: return 'DocumentAssembly';
+            case PdfPermissionsEnum.highResolutionPrinting: return 'HighResolutionPrinting';
+            case PdfPermissionsEnum.allowAll: return 'AllowAll';
+            default: return null;
+        }
+      }).toList();
     }
 
     if (userPassword != null) {

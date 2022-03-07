@@ -44,7 +44,7 @@ class ExamplesTests
         final request = AcceptAllRevisionsOnlineRequest(requestDocument);
         final acceptAllRevisionsOnlineResult = await wordsApi.acceptAllRevisionsOnline(request);
         await File('test_result.docx').writeAsBytes(
-            acceptAllRevisionsOnlineResult.document.buffer.asUint8List(acceptAllRevisionsOnlineResult.document.offsetInBytes, acceptAllRevisionsOnlineResult.document.lengthInBytes)
+            acceptAllRevisionsOnlineResult.document.values.first.buffer.asUint8List(acceptAllRevisionsOnlineResult.document.values.first.offsetInBytes, acceptAllRevisionsOnlineResult.document.values.first.lengthInBytes)
         );
     }
 }

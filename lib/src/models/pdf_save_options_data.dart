@@ -32,10 +32,10 @@ import '../../aspose_words_cloud.dart';
 /// Container class for pdf save options.
 class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   /// Gets or sets the PDF standards compliance level for output documents.
-  String _compliance;
+  PdfSaveOptionsData_ComplianceEnum _compliance;
 
-  String get compliance => _compliance;
-  set compliance(String val) => _compliance = val;
+  PdfSaveOptionsData_ComplianceEnum get compliance => _compliance;
+  set compliance(PdfSaveOptionsData_ComplianceEnum val) => _compliance = val;
 
 
   /// Gets or sets a value indicating whether to convert footnote/endnote references in main text story into active hyperlinks.
@@ -49,10 +49,10 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
   /// Gets or sets the option that controls the way CustomDocumentProperties are exported to PDF file.
   /// The default value is None.
-  String _customPropertiesExport;
+  PdfSaveOptionsData_CustomPropertiesExportEnum _customPropertiesExport;
 
-  String get customPropertiesExport => _customPropertiesExport;
-  set customPropertiesExport(String val) => _customPropertiesExport = val;
+  PdfSaveOptionsData_CustomPropertiesExportEnum get customPropertiesExport => _customPropertiesExport;
+  set customPropertiesExport(PdfSaveOptionsData_CustomPropertiesExportEnum val) => _customPropertiesExport = val;
 
 
   /// Gets or sets the details for signing the output PDF document.
@@ -105,10 +105,10 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
 
   /// Gets or sets the font embedding mode.
-  String _fontEmbeddingMode;
+  PdfSaveOptionsData_FontEmbeddingModeEnum _fontEmbeddingMode;
 
-  String get fontEmbeddingMode => _fontEmbeddingMode;
-  set fontEmbeddingMode(String val) => _fontEmbeddingMode = val;
+  PdfSaveOptionsData_FontEmbeddingModeEnum get fontEmbeddingMode => _fontEmbeddingMode;
+  set fontEmbeddingMode(PdfSaveOptionsData_FontEmbeddingModeEnum val) => _fontEmbeddingMode = val;
 
 
   /// Gets or sets the option that controls how bookmarks in headers/footers are exported.
@@ -120,10 +120,10 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
 
   /// Gets or sets the option that controls how the color space will be selected for the images in PDF document.
-  String _imageColorSpaceExportMode;
+  PdfSaveOptionsData_ImageColorSpaceExportModeEnum _imageColorSpaceExportMode;
 
-  String get imageColorSpaceExportMode => _imageColorSpaceExportMode;
-  set imageColorSpaceExportMode(String val) => _imageColorSpaceExportMode = val;
+  PdfSaveOptionsData_ImageColorSpaceExportModeEnum get imageColorSpaceExportMode => _imageColorSpaceExportMode;
+  set imageColorSpaceExportMode(PdfSaveOptionsData_ImageColorSpaceExportModeEnum val) => _imageColorSpaceExportMode = val;
 
 
   /// Gets or sets the compression type to be used for all images in the document.
@@ -155,10 +155,10 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
 
   /// Gets or sets the option that controls how the PDF document should be displayed when opened in the PDF reader.
-  String _pageMode;
+  PdfSaveOptionsData_PageModeEnum _pageMode;
 
-  String get pageMode => _pageMode;
-  set pageMode(String val) => _pageMode = val;
+  PdfSaveOptionsData_PageModeEnum get pageMode => _pageMode;
+  set pageMode(PdfSaveOptionsData_PageModeEnum val) => _pageMode = val;
 
 
   /// Gets or sets a value indicating whether to preblend transparent images with black background color.
@@ -183,10 +183,10 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
 
   /// Gets or sets the compression type to be used for all textual content in the document.
-  String _textCompression;
+  PdfSaveOptionsData_TextCompressionEnum _textCompression;
 
-  String get textCompression => _textCompression;
-  set textCompression(String val) => _textCompression = val;
+  PdfSaveOptionsData_TextCompressionEnum get textCompression => _textCompression;
+  set textCompression(PdfSaveOptionsData_TextCompressionEnum val) => _textCompression = val;
 
 
   /// Gets or sets a value indicating whether the document should be saved using a booklet printing layout.
@@ -204,10 +204,10 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
 
   /// Gets or sets the option that controls what type of zoom should be applied when a document is opened with a PDF viewer.
-  String _zoomBehavior;
+  PdfSaveOptionsData_ZoomBehaviorEnum _zoomBehavior;
 
-  String get zoomBehavior => _zoomBehavior;
-  set zoomBehavior(String val) => _zoomBehavior = val;
+  PdfSaveOptionsData_ZoomBehaviorEnum get zoomBehavior => _zoomBehavior;
+  set zoomBehavior(PdfSaveOptionsData_ZoomBehaviorEnum val) => _zoomBehavior = val;
 
 
   /// Gets or sets the zoom factor (in percentages) for a document.
@@ -248,13 +248,22 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('DmlEffectsRenderingMode')) {
-      dmlEffectsRenderingMode = json['DmlEffectsRenderingMode'] as String;
+      switch (json['DmlEffectsRenderingMode'] as String) {
+        case 'Simplified': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.simplified; break;
+        case 'None': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.none; break;
+        case 'Fine': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.fine; break;
+        default: dmlEffectsRenderingMode = null; break;
+      }
     } else {
       dmlEffectsRenderingMode = null;
     }
 
     if (json.containsKey('DmlRenderingMode')) {
-      dmlRenderingMode = json['DmlRenderingMode'] as String;
+      switch (json['DmlRenderingMode'] as String) {
+        case 'Fallback': dmlRenderingMode = SaveOptionsData_DmlRenderingModeEnum.fallback; break;
+        case 'DrawingML': dmlRenderingMode = SaveOptionsData_DmlRenderingModeEnum.drawingML; break;
+        default: dmlRenderingMode = null; break;
+      }
     } else {
       dmlRenderingMode = null;
     }
@@ -272,7 +281,11 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('ImlRenderingMode')) {
-      imlRenderingMode = json['ImlRenderingMode'] as String;
+      switch (json['ImlRenderingMode'] as String) {
+        case 'Fallback': imlRenderingMode = SaveOptionsData_ImlRenderingModeEnum.fallback; break;
+        case 'InkML': imlRenderingMode = SaveOptionsData_ImlRenderingModeEnum.inkML; break;
+        default: imlRenderingMode = null; break;
+      }
     } else {
       imlRenderingMode = null;
     }
@@ -314,7 +327,11 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('ColorMode')) {
-      colorMode = json['ColorMode'] as String;
+      switch (json['ColorMode'] as String) {
+        case 'Normal': colorMode = FixedPageSaveOptionsData_ColorModeEnum.normal; break;
+        case 'Grayscale': colorMode = FixedPageSaveOptionsData_ColorModeEnum.grayscale; break;
+        default: colorMode = null; break;
+      }
     } else {
       colorMode = null;
     }
@@ -333,7 +350,14 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('NumeralFormat')) {
-      numeralFormat = json['NumeralFormat'] as String;
+      switch (json['NumeralFormat'] as String) {
+        case 'European': numeralFormat = FixedPageSaveOptionsData_NumeralFormatEnum.european; break;
+        case 'ArabicIndic': numeralFormat = FixedPageSaveOptionsData_NumeralFormatEnum.arabicIndic; break;
+        case 'EasternArabicIndic': numeralFormat = FixedPageSaveOptionsData_NumeralFormatEnum.easternArabicIndic; break;
+        case 'Context': numeralFormat = FixedPageSaveOptionsData_NumeralFormatEnum.context; break;
+        case 'System': numeralFormat = FixedPageSaveOptionsData_NumeralFormatEnum.system; break;
+        default: numeralFormat = null; break;
+      }
     } else {
       numeralFormat = null;
     }
@@ -357,7 +381,16 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('Compliance')) {
-      compliance = json['Compliance'] as String;
+      switch (json['Compliance'] as String) {
+        case 'Pdf17': compliance = PdfSaveOptionsData_ComplianceEnum.pdf17; break;
+        case 'Pdf20': compliance = PdfSaveOptionsData_ComplianceEnum.pdf20; break;
+        case 'PdfA1a': compliance = PdfSaveOptionsData_ComplianceEnum.pdfA1a; break;
+        case 'PdfA1b': compliance = PdfSaveOptionsData_ComplianceEnum.pdfA1b; break;
+        case 'PdfA2a': compliance = PdfSaveOptionsData_ComplianceEnum.pdfA2a; break;
+        case 'PdfA2u': compliance = PdfSaveOptionsData_ComplianceEnum.pdfA2u; break;
+        case 'PdfUa1': compliance = PdfSaveOptionsData_ComplianceEnum.pdfUa1; break;
+        default: compliance = null; break;
+      }
     } else {
       compliance = null;
     }
@@ -369,7 +402,12 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('CustomPropertiesExport')) {
-      customPropertiesExport = json['CustomPropertiesExport'] as String;
+      switch (json['CustomPropertiesExport'] as String) {
+        case 'None': customPropertiesExport = PdfSaveOptionsData_CustomPropertiesExportEnum.none; break;
+        case 'Standard': customPropertiesExport = PdfSaveOptionsData_CustomPropertiesExportEnum.standard; break;
+        case 'Metadata': customPropertiesExport = PdfSaveOptionsData_CustomPropertiesExportEnum.metadata; break;
+        default: customPropertiesExport = null; break;
+      }
     } else {
       customPropertiesExport = null;
     }
@@ -420,7 +458,12 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('FontEmbeddingMode')) {
-      fontEmbeddingMode = json['FontEmbeddingMode'] as String;
+      switch (json['FontEmbeddingMode'] as String) {
+        case 'EmbedAll': fontEmbeddingMode = PdfSaveOptionsData_FontEmbeddingModeEnum.embedAll; break;
+        case 'EmbedNonstandard': fontEmbeddingMode = PdfSaveOptionsData_FontEmbeddingModeEnum.embedNonstandard; break;
+        case 'EmbedNone': fontEmbeddingMode = PdfSaveOptionsData_FontEmbeddingModeEnum.embedNone; break;
+        default: fontEmbeddingMode = null; break;
+      }
     } else {
       fontEmbeddingMode = null;
     }
@@ -437,7 +480,11 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('ImageColorSpaceExportMode')) {
-      imageColorSpaceExportMode = json['ImageColorSpaceExportMode'] as String;
+      switch (json['ImageColorSpaceExportMode'] as String) {
+        case 'Auto': imageColorSpaceExportMode = PdfSaveOptionsData_ImageColorSpaceExportModeEnum.auto; break;
+        case 'SimpleCmyk': imageColorSpaceExportMode = PdfSaveOptionsData_ImageColorSpaceExportModeEnum.simpleCmyk; break;
+        default: imageColorSpaceExportMode = null; break;
+      }
     } else {
       imageColorSpaceExportMode = null;
     }
@@ -468,7 +515,15 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('PageMode')) {
-      pageMode = json['PageMode'] as String;
+      switch (json['PageMode'] as String) {
+        case 'UseNone': pageMode = PdfSaveOptionsData_PageModeEnum.useNone; break;
+        case 'UseOutlines': pageMode = PdfSaveOptionsData_PageModeEnum.useOutlines; break;
+        case 'UseThumbs': pageMode = PdfSaveOptionsData_PageModeEnum.useThumbs; break;
+        case 'FullScreen': pageMode = PdfSaveOptionsData_PageModeEnum.fullScreen; break;
+        case 'UseOC': pageMode = PdfSaveOptionsData_PageModeEnum.useOC; break;
+        case 'UseAttachments': pageMode = PdfSaveOptionsData_PageModeEnum.useAttachments; break;
+        default: pageMode = null; break;
+      }
     } else {
       pageMode = null;
     }
@@ -486,7 +541,11 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('TextCompression')) {
-      textCompression = json['TextCompression'] as String;
+      switch (json['TextCompression'] as String) {
+        case 'None': textCompression = PdfSaveOptionsData_TextCompressionEnum.none; break;
+        case 'Flate': textCompression = PdfSaveOptionsData_TextCompressionEnum.flate; break;
+        default: textCompression = null; break;
+      }
     } else {
       textCompression = null;
     }
@@ -504,7 +563,15 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('ZoomBehavior')) {
-      zoomBehavior = json['ZoomBehavior'] as String;
+      switch (json['ZoomBehavior'] as String) {
+        case 'None': zoomBehavior = PdfSaveOptionsData_ZoomBehaviorEnum.none; break;
+        case 'ZoomFactor': zoomBehavior = PdfSaveOptionsData_ZoomBehaviorEnum.zoomFactor; break;
+        case 'FitPage': zoomBehavior = PdfSaveOptionsData_ZoomBehaviorEnum.fitPage; break;
+        case 'FitWidth': zoomBehavior = PdfSaveOptionsData_ZoomBehaviorEnum.fitWidth; break;
+        case 'FitHeight': zoomBehavior = PdfSaveOptionsData_ZoomBehaviorEnum.fitHeight; break;
+        case 'FitBox': zoomBehavior = PdfSaveOptionsData_ZoomBehaviorEnum.fitBox; break;
+        default: zoomBehavior = null; break;
+      }
     } else {
       zoomBehavior = null;
     }
@@ -521,7 +588,16 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (compliance != null) {
-      _result['Compliance'] = compliance;
+      switch (compliance) {
+        case PdfSaveOptionsData_ComplianceEnum.pdf17: _result['Compliance'] = 'Pdf17'; break;
+        case PdfSaveOptionsData_ComplianceEnum.pdf20: _result['Compliance'] = 'Pdf20'; break;
+        case PdfSaveOptionsData_ComplianceEnum.pdfA1a: _result['Compliance'] = 'PdfA1a'; break;
+        case PdfSaveOptionsData_ComplianceEnum.pdfA1b: _result['Compliance'] = 'PdfA1b'; break;
+        case PdfSaveOptionsData_ComplianceEnum.pdfA2a: _result['Compliance'] = 'PdfA2a'; break;
+        case PdfSaveOptionsData_ComplianceEnum.pdfA2u: _result['Compliance'] = 'PdfA2u'; break;
+        case PdfSaveOptionsData_ComplianceEnum.pdfUa1: _result['Compliance'] = 'PdfUa1'; break;
+        default: break;
+      }
     }
 
     if (createNoteHyperlinks != null) {
@@ -529,7 +605,12 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (customPropertiesExport != null) {
-      _result['CustomPropertiesExport'] = customPropertiesExport;
+      switch (customPropertiesExport) {
+        case PdfSaveOptionsData_CustomPropertiesExportEnum.none: _result['CustomPropertiesExport'] = 'None'; break;
+        case PdfSaveOptionsData_CustomPropertiesExportEnum.standard: _result['CustomPropertiesExport'] = 'Standard'; break;
+        case PdfSaveOptionsData_CustomPropertiesExportEnum.metadata: _result['CustomPropertiesExport'] = 'Metadata'; break;
+        default: break;
+      }
     }
 
     if (digitalSignatureDetails != null) {
@@ -561,7 +642,12 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (fontEmbeddingMode != null) {
-      _result['FontEmbeddingMode'] = fontEmbeddingMode;
+      switch (fontEmbeddingMode) {
+        case PdfSaveOptionsData_FontEmbeddingModeEnum.embedAll: _result['FontEmbeddingMode'] = 'EmbedAll'; break;
+        case PdfSaveOptionsData_FontEmbeddingModeEnum.embedNonstandard: _result['FontEmbeddingMode'] = 'EmbedNonstandard'; break;
+        case PdfSaveOptionsData_FontEmbeddingModeEnum.embedNone: _result['FontEmbeddingMode'] = 'EmbedNone'; break;
+        default: break;
+      }
     }
 
     if (headerFooterBookmarksExportMode != null) {
@@ -574,7 +660,11 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (imageColorSpaceExportMode != null) {
-      _result['ImageColorSpaceExportMode'] = imageColorSpaceExportMode;
+      switch (imageColorSpaceExportMode) {
+        case PdfSaveOptionsData_ImageColorSpaceExportModeEnum.auto: _result['ImageColorSpaceExportMode'] = 'Auto'; break;
+        case PdfSaveOptionsData_ImageColorSpaceExportModeEnum.simpleCmyk: _result['ImageColorSpaceExportMode'] = 'SimpleCmyk'; break;
+        default: break;
+      }
     }
 
     if (imageCompression != null) {
@@ -594,7 +684,15 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (pageMode != null) {
-      _result['PageMode'] = pageMode;
+      switch (pageMode) {
+        case PdfSaveOptionsData_PageModeEnum.useNone: _result['PageMode'] = 'UseNone'; break;
+        case PdfSaveOptionsData_PageModeEnum.useOutlines: _result['PageMode'] = 'UseOutlines'; break;
+        case PdfSaveOptionsData_PageModeEnum.useThumbs: _result['PageMode'] = 'UseThumbs'; break;
+        case PdfSaveOptionsData_PageModeEnum.fullScreen: _result['PageMode'] = 'FullScreen'; break;
+        case PdfSaveOptionsData_PageModeEnum.useOC: _result['PageMode'] = 'UseOC'; break;
+        case PdfSaveOptionsData_PageModeEnum.useAttachments: _result['PageMode'] = 'UseAttachments'; break;
+        default: break;
+      }
     }
 
     if (preblendImages != null) {
@@ -610,7 +708,11 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (textCompression != null) {
-      _result['TextCompression'] = textCompression;
+      switch (textCompression) {
+        case PdfSaveOptionsData_TextCompressionEnum.none: _result['TextCompression'] = 'None'; break;
+        case PdfSaveOptionsData_TextCompressionEnum.flate: _result['TextCompression'] = 'Flate'; break;
+        default: break;
+      }
     }
 
     if (useBookFoldPrintingSettings != null) {
@@ -622,7 +724,15 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (zoomBehavior != null) {
-      _result['ZoomBehavior'] = zoomBehavior;
+      switch (zoomBehavior) {
+        case PdfSaveOptionsData_ZoomBehaviorEnum.none: _result['ZoomBehavior'] = 'None'; break;
+        case PdfSaveOptionsData_ZoomBehaviorEnum.zoomFactor: _result['ZoomBehavior'] = 'ZoomFactor'; break;
+        case PdfSaveOptionsData_ZoomBehaviorEnum.fitPage: _result['ZoomBehavior'] = 'FitPage'; break;
+        case PdfSaveOptionsData_ZoomBehaviorEnum.fitWidth: _result['ZoomBehavior'] = 'FitWidth'; break;
+        case PdfSaveOptionsData_ZoomBehaviorEnum.fitHeight: _result['ZoomBehavior'] = 'FitHeight'; break;
+        case PdfSaveOptionsData_ZoomBehaviorEnum.fitBox: _result['ZoomBehavior'] = 'FitBox'; break;
+        default: break;
+      }
     }
 
     if (zoomFactor != null) {
@@ -632,6 +742,35 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 }
 
+/// Gets or sets the PDF standards compliance level for output documents.
+enum PdfSaveOptionsData_ComplianceEnum
+{ 
+  pdf17,
+  pdf20,
+  pdfA1a,
+  pdfA1b,
+  pdfA2a,
+  pdfA2u,
+  pdfUa1
+}
+
+/// Gets or sets the option that controls the way CustomDocumentProperties are exported to PDF file.
+/// The default value is None.
+enum PdfSaveOptionsData_CustomPropertiesExportEnum
+{ 
+  none,
+  standard,
+  metadata
+}
+
+/// Gets or sets the font embedding mode.
+enum PdfSaveOptionsData_FontEmbeddingModeEnum
+{ 
+  embedAll,
+  embedNonstandard,
+  embedNone
+}
+
 /// Gets or sets the option that controls how bookmarks in headers/footers are exported.
 /// The default value is Aspose.Words.Saving.HeaderFooterBookmarksExportMode.All.
 enum PdfSaveOptionsData_HeaderFooterBookmarksExportModeEnum
@@ -639,5 +778,41 @@ enum PdfSaveOptionsData_HeaderFooterBookmarksExportModeEnum
   none,
   first,
   all
+}
+
+/// Gets or sets the option that controls how the color space will be selected for the images in PDF document.
+enum PdfSaveOptionsData_ImageColorSpaceExportModeEnum
+{ 
+  auto,
+  simpleCmyk
+}
+
+/// Gets or sets the option that controls how the PDF document should be displayed when opened in the PDF reader.
+enum PdfSaveOptionsData_PageModeEnum
+{ 
+  useNone,
+  useOutlines,
+  useThumbs,
+  fullScreen,
+  useOC,
+  useAttachments
+}
+
+/// Gets or sets the compression type to be used for all textual content in the document.
+enum PdfSaveOptionsData_TextCompressionEnum
+{ 
+  none,
+  flate
+}
+
+/// Gets or sets the option that controls what type of zoom should be applied when a document is opened with a PDF viewer.
+enum PdfSaveOptionsData_ZoomBehaviorEnum
+{ 
+  none,
+  zoomFactor,
+  fitPage,
+  fitWidth,
+  fitHeight,
+  fitBox
 }
 

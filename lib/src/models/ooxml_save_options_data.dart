@@ -32,10 +32,10 @@ import '../../aspose_words_cloud.dart';
 /// Container class for docx/docm/dotx/dotm/flatopc save options.
 abstract class OoxmlSaveOptionsData extends SaveOptionsData {
   /// Gets or sets the oOXML version for the output document.
-  String _compliance;
+  OoxmlSaveOptionsData_ComplianceEnum _compliance;
 
-  String get compliance => _compliance;
-  set compliance(String val) => _compliance = val;
+  OoxmlSaveOptionsData_ComplianceEnum get compliance => _compliance;
+  set compliance(OoxmlSaveOptionsData_ComplianceEnum val) => _compliance = val;
 
 
   /// Gets or sets the compression level.
@@ -90,13 +90,22 @@ abstract class OoxmlSaveOptionsData extends SaveOptionsData {
     }
 
     if (json.containsKey('DmlEffectsRenderingMode')) {
-      dmlEffectsRenderingMode = json['DmlEffectsRenderingMode'] as String;
+      switch (json['DmlEffectsRenderingMode'] as String) {
+        case 'Simplified': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.simplified; break;
+        case 'None': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.none; break;
+        case 'Fine': dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.fine; break;
+        default: dmlEffectsRenderingMode = null; break;
+      }
     } else {
       dmlEffectsRenderingMode = null;
     }
 
     if (json.containsKey('DmlRenderingMode')) {
-      dmlRenderingMode = json['DmlRenderingMode'] as String;
+      switch (json['DmlRenderingMode'] as String) {
+        case 'Fallback': dmlRenderingMode = SaveOptionsData_DmlRenderingModeEnum.fallback; break;
+        case 'DrawingML': dmlRenderingMode = SaveOptionsData_DmlRenderingModeEnum.drawingML; break;
+        default: dmlRenderingMode = null; break;
+      }
     } else {
       dmlRenderingMode = null;
     }
@@ -114,7 +123,11 @@ abstract class OoxmlSaveOptionsData extends SaveOptionsData {
     }
 
     if (json.containsKey('ImlRenderingMode')) {
-      imlRenderingMode = json['ImlRenderingMode'] as String;
+      switch (json['ImlRenderingMode'] as String) {
+        case 'Fallback': imlRenderingMode = SaveOptionsData_ImlRenderingModeEnum.fallback; break;
+        case 'InkML': imlRenderingMode = SaveOptionsData_ImlRenderingModeEnum.inkML; break;
+        default: imlRenderingMode = null; break;
+      }
     } else {
       imlRenderingMode = null;
     }
@@ -156,7 +169,12 @@ abstract class OoxmlSaveOptionsData extends SaveOptionsData {
     }
 
     if (json.containsKey('Compliance')) {
-      compliance = json['Compliance'] as String;
+      switch (json['Compliance'] as String) {
+        case 'Ecma376_2006': compliance = OoxmlSaveOptionsData_ComplianceEnum.ecma376_2006; break;
+        case 'Iso29500_2008_Transitional': compliance = OoxmlSaveOptionsData_ComplianceEnum.iso29500_2008_Transitional; break;
+        case 'Iso29500_2008_Strict': compliance = OoxmlSaveOptionsData_ComplianceEnum.iso29500_2008_Strict; break;
+        default: compliance = null; break;
+      }
     } else {
       compliance = null;
     }
@@ -191,7 +209,12 @@ abstract class OoxmlSaveOptionsData extends SaveOptionsData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (compliance != null) {
-      _result['Compliance'] = compliance;
+      switch (compliance) {
+        case OoxmlSaveOptionsData_ComplianceEnum.ecma376_2006: _result['Compliance'] = 'Ecma376_2006'; break;
+        case OoxmlSaveOptionsData_ComplianceEnum.iso29500_2008_Transitional: _result['Compliance'] = 'Iso29500_2008_Transitional'; break;
+        case OoxmlSaveOptionsData_ComplianceEnum.iso29500_2008_Strict: _result['Compliance'] = 'Iso29500_2008_Strict'; break;
+        default: break;
+      }
     }
 
     if (compressionLevel != null) {
@@ -213,6 +236,14 @@ abstract class OoxmlSaveOptionsData extends SaveOptionsData {
     }
     return _result;
   }
+}
+
+/// Gets or sets the oOXML version for the output document.
+enum OoxmlSaveOptionsData_ComplianceEnum
+{ 
+  ecma376_2006,
+  iso29500_2008_Transitional,
+  iso29500_2008_Strict
 }
 
 /// Gets or sets the compression level.

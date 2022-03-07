@@ -31,6 +31,8 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import '../../aspose_words_cloud.dart';
+import '../api_client.dart';
+import '../body_part_data.dart';
 
 /// Removes a paragraph tab stop from the document node.
 class DeleteParagraphTabStopOnlineResponse implements ResponseBase {
@@ -38,16 +40,16 @@ class DeleteParagraphTabStopOnlineResponse implements ResponseBase {
   TabStopsResponse model;
 
   /// The document after modification.
-  ByteData document;
+  Map<String, ByteData> document;
 
   @override
-  void deserialize(Map<String, ByteData> _parts) {
+  void deserialize(ApiClient apiClient, Map<String, BodyPartData> _parts) {
     model = TabStopsResponse();
     final _modelBody = _parts['model'];
-    final _modelJsonData = utf8.decode(_modelBody.buffer.asUint8List(_modelBody.offsetInBytes, _modelBody.lengthInBytes));
+    final _modelJsonData = utf8.decode(_modelBody.content.buffer.asUint8List(_modelBody.content.offsetInBytes, _modelBody.content.lengthInBytes));
     model.deserialize(jsonDecode(_modelJsonData) as Map<String, dynamic>);
 
-    document = _parts['document'];
+    document = apiClient.deserializeFilesCollection(_parts['document']);
   }
 }
 

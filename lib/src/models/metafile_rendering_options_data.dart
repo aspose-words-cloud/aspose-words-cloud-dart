@@ -32,10 +32,10 @@ import '../../aspose_words_cloud.dart';
 /// Container class for options of metafile rendering.
 class MetafileRenderingOptionsData implements ModelBase {
   /// Gets or sets the option that controls how EMF+ Dual metafiles should be rendered.
-  String _emfPlusDualRenderingMode;
+  MetafileRenderingOptionsData_EmfPlusDualRenderingModeEnum _emfPlusDualRenderingMode;
 
-  String get emfPlusDualRenderingMode => _emfPlusDualRenderingMode;
-  set emfPlusDualRenderingMode(String val) => _emfPlusDualRenderingMode = val;
+  MetafileRenderingOptionsData_EmfPlusDualRenderingModeEnum get emfPlusDualRenderingMode => _emfPlusDualRenderingMode;
+  set emfPlusDualRenderingMode(MetafileRenderingOptionsData_EmfPlusDualRenderingModeEnum val) => _emfPlusDualRenderingMode = val;
 
 
   /// Gets or sets a value indicating whether the raster operations should be emulated.
@@ -46,10 +46,10 @@ class MetafileRenderingOptionsData implements ModelBase {
 
 
   /// Gets or sets the option that controls how metafile images should be rendered.
-  String _renderingMode;
+  MetafileRenderingOptionsData_RenderingModeEnum _renderingMode;
 
-  String get renderingMode => _renderingMode;
-  set renderingMode(String val) => _renderingMode = val;
+  MetafileRenderingOptionsData_RenderingModeEnum get renderingMode => _renderingMode;
+  set renderingMode(MetafileRenderingOptionsData_RenderingModeEnum val) => _renderingMode = val;
 
 
   /// Gets or sets a value indicating whether to scale fonts in WMF metafile according to metafile size on the page.
@@ -74,7 +74,12 @@ class MetafileRenderingOptionsData implements ModelBase {
     }
 
     if (json.containsKey('EmfPlusDualRenderingMode')) {
-      emfPlusDualRenderingMode = json['EmfPlusDualRenderingMode'] as String;
+      switch (json['EmfPlusDualRenderingMode'] as String) {
+        case 'EmfPlusWithFallback': emfPlusDualRenderingMode = MetafileRenderingOptionsData_EmfPlusDualRenderingModeEnum.emfPlusWithFallback; break;
+        case 'EmfPlus': emfPlusDualRenderingMode = MetafileRenderingOptionsData_EmfPlusDualRenderingModeEnum.emfPlus; break;
+        case 'Emf': emfPlusDualRenderingMode = MetafileRenderingOptionsData_EmfPlusDualRenderingModeEnum.emf; break;
+        default: emfPlusDualRenderingMode = null; break;
+      }
     } else {
       emfPlusDualRenderingMode = null;
     }
@@ -86,7 +91,12 @@ class MetafileRenderingOptionsData implements ModelBase {
     }
 
     if (json.containsKey('RenderingMode')) {
-      renderingMode = json['RenderingMode'] as String;
+      switch (json['RenderingMode'] as String) {
+        case 'VectorWithFallback': renderingMode = MetafileRenderingOptionsData_RenderingModeEnum.vectorWithFallback; break;
+        case 'Vector': renderingMode = MetafileRenderingOptionsData_RenderingModeEnum.vector; break;
+        case 'Bitmap': renderingMode = MetafileRenderingOptionsData_RenderingModeEnum.bitmap; break;
+        default: renderingMode = null; break;
+      }
     } else {
       renderingMode = null;
     }
@@ -108,7 +118,12 @@ class MetafileRenderingOptionsData implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (emfPlusDualRenderingMode != null) {
-      _result['EmfPlusDualRenderingMode'] = emfPlusDualRenderingMode;
+      switch (emfPlusDualRenderingMode) {
+        case MetafileRenderingOptionsData_EmfPlusDualRenderingModeEnum.emfPlusWithFallback: _result['EmfPlusDualRenderingMode'] = 'EmfPlusWithFallback'; break;
+        case MetafileRenderingOptionsData_EmfPlusDualRenderingModeEnum.emfPlus: _result['EmfPlusDualRenderingMode'] = 'EmfPlus'; break;
+        case MetafileRenderingOptionsData_EmfPlusDualRenderingModeEnum.emf: _result['EmfPlusDualRenderingMode'] = 'Emf'; break;
+        default: break;
+      }
     }
 
     if (emulateRasterOperations != null) {
@@ -116,7 +131,12 @@ class MetafileRenderingOptionsData implements ModelBase {
     }
 
     if (renderingMode != null) {
-      _result['RenderingMode'] = renderingMode;
+      switch (renderingMode) {
+        case MetafileRenderingOptionsData_RenderingModeEnum.vectorWithFallback: _result['RenderingMode'] = 'VectorWithFallback'; break;
+        case MetafileRenderingOptionsData_RenderingModeEnum.vector: _result['RenderingMode'] = 'Vector'; break;
+        case MetafileRenderingOptionsData_RenderingModeEnum.bitmap: _result['RenderingMode'] = 'Bitmap'; break;
+        default: break;
+      }
     }
 
     if (scaleWmfFontsToMetafileSize != null) {
@@ -130,4 +150,19 @@ class MetafileRenderingOptionsData implements ModelBase {
   }
 }
 
+/// Gets or sets the option that controls how EMF+ Dual metafiles should be rendered.
+enum MetafileRenderingOptionsData_EmfPlusDualRenderingModeEnum
+{ 
+  emfPlusWithFallback,
+  emfPlus,
+  emf
+}
+
+/// Gets or sets the option that controls how metafile images should be rendered.
+enum MetafileRenderingOptionsData_RenderingModeEnum
+{ 
+  vectorWithFallback,
+  vector,
+  bitmap
+}
 
