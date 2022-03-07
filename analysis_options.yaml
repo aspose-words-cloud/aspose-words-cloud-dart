@@ -6,6 +6,7 @@ analyzer:
     prefer_adjacent_string_concatenation: ignore
     unnecessary_getters_setters: ignore
     prefer_final_fields: ignore
+    constant_identifier_names: ignore
   exclude:
     - examples/**
 linter:
