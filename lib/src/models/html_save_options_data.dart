@@ -176,6 +176,13 @@ class HtmlSaveOptionsData extends SaveOptionsData {
   set exportRoundtripInformation(bool val) => _exportRoundtripInformation = val;
 
 
+  /// Gets or sets the flag, that controls whether Aspose.Words.Drawing.Shape nodes are converted to SVG images when saving to HTML, MHTML or EPUB. Default value is false.
+  bool _exportShapesAsSvg;
+
+  bool get exportShapesAsSvg => _exportShapesAsSvg;
+  set exportShapesAsSvg(bool val) => _exportShapesAsSvg = val;
+
+
   /// Gets or sets the flag, that controls how textboxes represented by Aspose.Words.Drawing.Shape are saved to HTML, MHTML or EPUB. The default value is false.
   /// When set to true, exports textboxes as inline "svg" elements. When false, exports as "image" elements.
   bool _exportTextBoxAsSvg;
@@ -574,6 +581,12 @@ class HtmlSaveOptionsData extends SaveOptionsData {
       exportRoundtripInformation = null;
     }
 
+    if (json.containsKey('ExportShapesAsSvg')) {
+      exportShapesAsSvg = json['ExportShapesAsSvg'] as bool;
+    } else {
+      exportShapesAsSvg = null;
+    }
+
     if (json.containsKey('ExportTextBoxAsSvg')) {
       exportTextBoxAsSvg = json['ExportTextBoxAsSvg'] as bool;
     } else {
@@ -813,6 +826,10 @@ class HtmlSaveOptionsData extends SaveOptionsData {
 
     if (exportRoundtripInformation != null) {
       _result['ExportRoundtripInformation'] = exportRoundtripInformation;
+    }
+
+    if (exportShapesAsSvg != null) {
+      _result['ExportShapesAsSvg'] = exportShapesAsSvg;
     }
 
     if (exportTextBoxAsSvg != null) {
