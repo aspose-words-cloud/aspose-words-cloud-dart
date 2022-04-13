@@ -313,6 +313,7 @@ export 'src/requests/copy_file_request.dart';
 export 'src/requests/copy_folder_request.dart';
 export 'src/requests/copy_style_online_request.dart';
 export 'src/requests/copy_style_request.dart';
+export 'src/requests/copy_styles_from_template_request.dart';
 export 'src/requests/create_document_request.dart';
 export 'src/requests/create_folder_request.dart';
 export 'src/requests/create_or_update_document_property_online_request.dart';
