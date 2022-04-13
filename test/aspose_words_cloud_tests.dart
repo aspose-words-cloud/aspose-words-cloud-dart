@@ -538,6 +538,7 @@ void main() {
     test('GetStyleFromDocumentElementOnline', () async => await StylesTests(testContext).testGetStyleFromDocumentElementOnline());
     test('ApplyStyleToDocumentElement', () async => await StylesTests(testContext).testApplyStyleToDocumentElement());
     test('ApplyStyleToDocumentElementOnline', () async => await StylesTests(testContext).testApplyStyleToDocumentElementOnline());
+    test('CopyStylesFromTemplate', () async => await StylesTests(testContext).testCopyStylesFromTemplate());
   });
 
   group('Table', () {

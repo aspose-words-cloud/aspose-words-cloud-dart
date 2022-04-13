@@ -274,4 +274,23 @@ class StylesTests
 
     await context.getApi().applyStyleToDocumentElementOnline(request);
   }
+
+  /// Test for copying styles from a template.
+  Future<void> testCopyStylesFromTemplate() async
+  {
+    final remoteFileName = 'TestCopyStylesFromTemplate.docx';
+    final templateFolder = 'DocumentElements/Styles';
+    final templateName = 'StyleTemplate.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+
+    await context.uploadFile(templateFolder + '/' + templateName, remoteDataFolder + '/' + templateName);
+
+    final request = CopyStylesFromTemplateRequest(
+      remoteFileName,
+      templateName,
+      folder: remoteDataFolder
+    );
+
+    await context.getApi().copyStylesFromTemplate(request);
+  }
 }

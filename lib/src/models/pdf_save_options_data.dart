@@ -388,6 +388,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         case 'PdfA1b': compliance = PdfSaveOptionsData_ComplianceEnum.pdfA1b; break;
         case 'PdfA2a': compliance = PdfSaveOptionsData_ComplianceEnum.pdfA2a; break;
         case 'PdfA2u': compliance = PdfSaveOptionsData_ComplianceEnum.pdfA2u; break;
+        case 'PdfA4': compliance = PdfSaveOptionsData_ComplianceEnum.pdfA4; break;
         case 'PdfUa1': compliance = PdfSaveOptionsData_ComplianceEnum.pdfUa1; break;
         default: compliance = null; break;
       }
@@ -595,6 +596,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         case PdfSaveOptionsData_ComplianceEnum.pdfA1b: _result['Compliance'] = 'PdfA1b'; break;
         case PdfSaveOptionsData_ComplianceEnum.pdfA2a: _result['Compliance'] = 'PdfA2a'; break;
         case PdfSaveOptionsData_ComplianceEnum.pdfA2u: _result['Compliance'] = 'PdfA2u'; break;
+        case PdfSaveOptionsData_ComplianceEnum.pdfA4: _result['Compliance'] = 'PdfA4'; break;
         case PdfSaveOptionsData_ComplianceEnum.pdfUa1: _result['Compliance'] = 'PdfUa1'; break;
         default: break;
       }
@@ -751,6 +753,7 @@ enum PdfSaveOptionsData_ComplianceEnum
   pdfA1b,
   pdfA2a,
   pdfA2u,
+  pdfA4,
   pdfUa1
 }
 

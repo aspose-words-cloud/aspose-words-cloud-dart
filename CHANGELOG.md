@@ -1,3 +1,9 @@
+## [22.4.0] - Aspose Words Cloud for Dart 22.4 Release Notes
+
+- Added ExportShapesAsSvg to HtmlSaveOption.
+- Added new endpoint '~/styles/copy_from'.
+
+
 ## [22.3.0] - Aspose Words Cloud for Dart 22.3 Release Notes
 
 - Online methods returns the dictionary of files with included original filename as key instead of single file content in responses.
