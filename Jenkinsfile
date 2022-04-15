@@ -29,7 +29,7 @@ node('words-linux') {
                     packageTesting = params.packageTesting
                     sh 'git clean -fdx'
                     
-                    if (needToBuild) {
+                    if (needToBuild || packageTesting) {
                         withCredentials([usernamePassword(credentialsId: params.credentialsId, passwordVariable: 'ClientSecret', usernameVariable: 'ClientId')]) {
                             sh 'mkdir -p settings'
                             sh 'echo "{\\"ClientId\\": \\"$ClientId\\", \\"ClientSecret\\": \\"$ClientSecret\\",\\"BaseUrl\\": \\"$apiUrl\\"}" > settings/servercreds.json'
