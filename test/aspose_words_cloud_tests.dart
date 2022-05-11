@@ -505,6 +505,7 @@ void main() {
     test('GetSectionsOnline', () async => await SectionTests(testContext).testGetSectionsOnline());
     test('DeleteSection', () async => await SectionTests(testContext).testDeleteSection());
     test('DeleteSectionOnline', () async => await SectionTests(testContext).testDeleteSectionOnline());
+    test('LinkHeaderFootersToPrevious', () async => await SectionTests(testContext).testLinkHeaderFootersToPrevious());
   });
 
   group('File', () {
