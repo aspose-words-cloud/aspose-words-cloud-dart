@@ -80,11 +80,9 @@ class PdfDigitalSignatureDetailsData implements ModelBase {
 
     if (json.containsKey('HashAlgorithm')) {
       switch (json['HashAlgorithm'] as String) {
-        case 'Sha1': hashAlgorithm = PdfDigitalSignatureDetailsData_HashAlgorithmEnum.sha1; break;
         case 'Sha256': hashAlgorithm = PdfDigitalSignatureDetailsData_HashAlgorithmEnum.sha256; break;
         case 'Sha384': hashAlgorithm = PdfDigitalSignatureDetailsData_HashAlgorithmEnum.sha384; break;
         case 'Sha512': hashAlgorithm = PdfDigitalSignatureDetailsData_HashAlgorithmEnum.sha512; break;
-        case 'Md5': hashAlgorithm = PdfDigitalSignatureDetailsData_HashAlgorithmEnum.md5; break;
         case 'RipeMD160': hashAlgorithm = PdfDigitalSignatureDetailsData_HashAlgorithmEnum.ripeMD160; break;
         default: hashAlgorithm = null; break;
       }
@@ -120,11 +118,9 @@ class PdfDigitalSignatureDetailsData implements ModelBase {
 
     if (hashAlgorithm != null) {
       switch (hashAlgorithm) {
-        case PdfDigitalSignatureDetailsData_HashAlgorithmEnum.sha1: _result['HashAlgorithm'] = 'Sha1'; break;
         case PdfDigitalSignatureDetailsData_HashAlgorithmEnum.sha256: _result['HashAlgorithm'] = 'Sha256'; break;
         case PdfDigitalSignatureDetailsData_HashAlgorithmEnum.sha384: _result['HashAlgorithm'] = 'Sha384'; break;
         case PdfDigitalSignatureDetailsData_HashAlgorithmEnum.sha512: _result['HashAlgorithm'] = 'Sha512'; break;
-        case PdfDigitalSignatureDetailsData_HashAlgorithmEnum.md5: _result['HashAlgorithm'] = 'Md5'; break;
         case PdfDigitalSignatureDetailsData_HashAlgorithmEnum.ripeMD160: _result['HashAlgorithm'] = 'RipeMD160'; break;
         default: break;
       }
@@ -148,11 +144,9 @@ class PdfDigitalSignatureDetailsData implements ModelBase {
 /// Gets or sets the hash algorithm.
 enum PdfDigitalSignatureDetailsData_HashAlgorithmEnum
 { 
-  sha1,
   sha256,
   sha384,
   sha512,
-  md5,
   ripeMD160
 }
 
