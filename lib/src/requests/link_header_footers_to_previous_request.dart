@@ -123,7 +123,7 @@ class LinkHeaderFootersToPreviousRequest implements RequestBase {
 
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('POST', _url, _headers, _body);
+    return ApiRequestData('PUT', _url, _headers, _body);
   }
 
   @override

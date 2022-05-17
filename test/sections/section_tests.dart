@@ -135,10 +135,13 @@ class SectionTests
   /// Test for linking headers and footers to previous section.
   Future<void> testLinkHeaderFootersToPrevious() async
   {
+    final remoteFileName = 'TestLinkHeaderFootersToPrevious.docx';
+    await context.uploadFile('DocumentElements/Sections/Source.docx', remoteDataFolder + '/' + remoteFileName);
 
     final request = LinkHeaderFootersToPreviousRequest(
-      'DocumentElements/Sections/Source.docx',
-      1
+      remoteFileName,
+      1,
+      folder: remoteDataFolder
     );
 
     await context.getApi().linkHeaderFootersToPrevious(request);
