@@ -69,6 +69,7 @@ class ParagraphFormatUpdate extends ParagraphFormatBase {
         case 'ArabicHighKashida': alignment = ParagraphFormatBase_AlignmentEnum.arabicHighKashida; break;
         case 'ArabicLowKashida': alignment = ParagraphFormatBase_AlignmentEnum.arabicLowKashida; break;
         case 'ThaiDistributed': alignment = ParagraphFormatBase_AlignmentEnum.thaiDistributed; break;
+        case 'MathElementCenterAsGroup': alignment = ParagraphFormatBase_AlignmentEnum.mathElementCenterAsGroup; break;
         default: alignment = null; break;
       }
     } else {

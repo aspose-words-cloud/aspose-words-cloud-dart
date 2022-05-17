@@ -251,6 +251,7 @@ class ParagraphFormatBase extends LinkElement {
         case 'ArabicHighKashida': alignment = ParagraphFormatBase_AlignmentEnum.arabicHighKashida; break;
         case 'ArabicLowKashida': alignment = ParagraphFormatBase_AlignmentEnum.arabicLowKashida; break;
         case 'ThaiDistributed': alignment = ParagraphFormatBase_AlignmentEnum.thaiDistributed; break;
+        case 'MathElementCenterAsGroup': alignment = ParagraphFormatBase_AlignmentEnum.mathElementCenterAsGroup; break;
         default: alignment = null; break;
       }
     } else {
@@ -822,6 +823,7 @@ class ParagraphFormatBase extends LinkElement {
         case ParagraphFormatBase_AlignmentEnum.arabicHighKashida: _result['Alignment'] = 'ArabicHighKashida'; break;
         case ParagraphFormatBase_AlignmentEnum.arabicLowKashida: _result['Alignment'] = 'ArabicLowKashida'; break;
         case ParagraphFormatBase_AlignmentEnum.thaiDistributed: _result['Alignment'] = 'ThaiDistributed'; break;
+        case ParagraphFormatBase_AlignmentEnum.mathElementCenterAsGroup: _result['Alignment'] = 'MathElementCenterAsGroup'; break;
         default: break;
       }
     }
@@ -1334,7 +1336,8 @@ enum ParagraphFormatBase_AlignmentEnum
   arabicMediumKashida,
   arabicHighKashida,
   arabicLowKashida,
-  thaiDistributed
+  thaiDistributed,
+  mathElementCenterAsGroup
 }
 
 /// Gets or sets the position for a drop cap text.
