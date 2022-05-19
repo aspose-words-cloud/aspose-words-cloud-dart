@@ -1,3 +1,8 @@
+## [22.5.0] - Aspose Words Cloud for Dart 22.5 Release Notes
+
+- Internal API fixes and improvments.
+
+
 ## [22.4.0] - Aspose Words Cloud for Dart 22.4 Release Notes
 
 - Added ExportShapesAsSvg to HtmlSaveOption.

@@ -1190,6 +1190,11 @@ class WordsApi {
     return await _apiClient.call(request) as InsertWatermarkTextOnlineResponse;
   }
 
+  /// Links headers / footers of the section to the previous one.
+  Future< void > linkHeaderFootersToPrevious(LinkHeaderFootersToPreviousRequest request) async {
+  await _apiClient.call(request);
+  }
+
   /// Downloads a document from the Web using URL and saves it to cloud storage in the specified format.
   Future< SaveResponse > loadWebDocument(LoadWebDocumentRequest request) async {
     return await _apiClient.call(request) as SaveResponse;
