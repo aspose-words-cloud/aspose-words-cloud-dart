@@ -137,4 +137,121 @@ class BookmarkTests
 
     await context.getApi().updateBookmarkOnline(request);
   }
+
+  /// Test for deleting bookmark by specified name.
+  Future<void> testDeleteBookmark() async
+  {
+    final remoteFileName = 'TestDeleteBookmark.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+
+    final request = DeleteBookmarkRequest(
+      remoteFileName,
+      bookmarkName,
+      folder: remoteDataFolder
+    );
+
+    await context.getApi().deleteBookmark(request);
+  }
+
+  /// Test for deleting bookmark by specified name online.
+  Future<void> testDeleteBookmarkOnline() async
+  {
+    final requestDocument = await context.loadBinaryFile(localFile);
+
+    final request = DeleteBookmarkOnlineRequest(
+      requestDocument,
+      bookmarkName
+    );
+
+    await context.getApi().deleteBookmarkOnline(request);
+  }
+
+  /// Test for deleting all bookmarks from document.
+  Future<void> testDeleteBookmarks() async
+  {
+    final remoteFileName = 'TestDeleteBookmarks.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+
+    final request = DeleteBookmarksRequest(
+      remoteFileName,
+      folder: remoteDataFolder
+    );
+
+    await context.getApi().deleteBookmarks(request);
+  }
+
+  /// Test for deleting all bookmarks from document online.
+  Future<void> testDeleteBookmarksOnline() async
+  {
+    final requestDocument = await context.loadBinaryFile(localFile);
+
+    final request = DeleteBookmarksOnlineRequest(
+      requestDocument
+    );
+
+    await context.getApi().deleteBookmarksOnline(request);
+  }
+
+  /// Test for inserting new bookmark.
+  Future<void> testInsertBookmark() async
+  {
+    final remoteFileName = 'TestInsertBookmark.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final requestBookmarkStartRangeNode = NodeLink();
+    requestBookmarkStartRangeNode.nodeId = '0.0.0.0';
+
+    final requestBookmarkStartRange = DocumentPosition();
+    requestBookmarkStartRange.node = requestBookmarkStartRangeNode;
+
+    final requestBookmarkEndRangeNode = NodeLink();
+    requestBookmarkEndRangeNode.nodeId = '0.0.0.0';
+
+    final requestBookmarkEndRange = DocumentPosition();
+    requestBookmarkEndRange.node = requestBookmarkEndRangeNode;
+
+    final requestBookmark = BookmarkInsert();
+    requestBookmark.startRange = requestBookmarkStartRange;
+    requestBookmark.endRange = requestBookmarkEndRange;
+    requestBookmark.name = 'new_bookmark';
+    requestBookmark.text = 'Some text';
+
+    final request = InsertBookmarkRequest(
+      remoteFileName,
+      requestBookmark,
+      folder: remoteDataFolder
+    );
+
+    await context.getApi().insertBookmark(request);
+  }
+
+  /// Test for inserting new bookmark online.
+  Future<void> testInsertBookmarkOnline() async
+  {
+    final requestDocument = await context.loadBinaryFile(localFile);
+
+    final requestBookmarkStartRangeNode = NodeLink();
+    requestBookmarkStartRangeNode.nodeId = '0.0.0.0';
+
+    final requestBookmarkStartRange = DocumentPosition();
+    requestBookmarkStartRange.node = requestBookmarkStartRangeNode;
+
+    final requestBookmarkEndRangeNode = NodeLink();
+    requestBookmarkEndRangeNode.nodeId = '0.0.0.0';
+
+    final requestBookmarkEndRange = DocumentPosition();
+    requestBookmarkEndRange.node = requestBookmarkEndRangeNode;
+
+    final requestBookmark = BookmarkInsert();
+    requestBookmark.startRange = requestBookmarkStartRange;
+    requestBookmark.endRange = requestBookmarkEndRange;
+    requestBookmark.name = 'new_bookmark';
+    requestBookmark.text = 'Some text';
+
+    final request = InsertBookmarkOnlineRequest(
+      requestDocument,
+      requestBookmark
+    );
+
+    await context.getApi().insertBookmarkOnline(request);
+  }
 }

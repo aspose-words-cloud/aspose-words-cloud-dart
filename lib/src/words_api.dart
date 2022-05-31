@@ -165,6 +165,26 @@ class WordsApi {
     return await _apiClient.call(request) as DeleteAllParagraphTabStopsOnlineResponse;
   }
 
+  /// Removes a bookmark from the document.
+  Future< void > deleteBookmark(DeleteBookmarkRequest request) async {
+  await _apiClient.call(request);
+  }
+
+  /// Removes a bookmark from the document.
+  Future< Map<String, ByteData> > deleteBookmarkOnline(DeleteBookmarkOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
+  }
+
+  /// Removes all bookmarks from the document.
+  Future< void > deleteBookmarks(DeleteBookmarksRequest request) async {
+  await _apiClient.call(request);
+  }
+
+  /// Removes all bookmarks from the document.
+  Future< Map<String, ByteData> > deleteBookmarksOnline(DeleteBookmarksOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
+  }
+
   /// The 'nodePath' parameter should refer to a paragraph, a cell or a row.
   Future< BorderResponse > deleteBorder(DeleteBorderRequest request) async {
     return await _apiClient.call(request) as BorderResponse;
@@ -1008,6 +1028,16 @@ class WordsApi {
   /// Reads tables from the document node.
   Future< TableLinkCollectionResponse > getTablesOnline(GetTablesOnlineRequest request) async {
     return await _apiClient.call(request) as TableLinkCollectionResponse;
+  }
+
+  /// Inserts a new bookmark to the document.
+  Future< BookmarkResponse > insertBookmark(InsertBookmarkRequest request) async {
+    return await _apiClient.call(request) as BookmarkResponse;
+  }
+
+  /// Inserts a new bookmark to the document.
+  Future< InsertBookmarkOnlineResponse > insertBookmarkOnline(InsertBookmarkOnlineRequest request) async {
+    return await _apiClient.call(request) as InsertBookmarkOnlineResponse;
   }
 
   /// Inserts a new comment to the document.
