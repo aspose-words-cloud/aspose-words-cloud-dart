@@ -3,6 +3,7 @@
 - Added 'DeleteBookmark' and 'DeleteBookmarkOnline' API methods for delete bookmarks by name from the document.
 - Added 'DeleteBookmarks' and 'DeleteBookmarksOnline' API methods for delete all bookmarks from the document.
 - Added 'InsertBookmark' and 'InsertBookmarkOnline' API methods for create new bookmarks in the document.
+- Support all save formats for 'CreateDocument' operation.
 
 
 ## [22.5.0] - Aspose Words Cloud for Dart 22.5 Release Notes
