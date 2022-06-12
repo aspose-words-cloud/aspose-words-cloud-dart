@@ -135,7 +135,7 @@ class WordsApi {
     return await _apiClient.call(request) as WordsResponse;
   }
 
-  /// Supported extensions: ".doc", ".docx", ".docm", ".dot", ".dotm", ".dotx", ".flatopc", ".fopc", ".flatopc_macro", ".fopc_macro", ".flatopc_template", ".fopc_template", ".flatopc_template_macro", ".fopc_template_macro", ".wordml", ".wml", ".rtf".
+  /// Supported all save format extensions.
   Future< DocumentResponse > createDocument(CreateDocumentRequest request) async {
     return await _apiClient.call(request) as DocumentResponse;
   }
@@ -163,6 +163,26 @@ class WordsApi {
   /// Removes paragraph tab stops from the document node.
   Future< DeleteAllParagraphTabStopsOnlineResponse > deleteAllParagraphTabStopsOnline(DeleteAllParagraphTabStopsOnlineRequest request) async {
     return await _apiClient.call(request) as DeleteAllParagraphTabStopsOnlineResponse;
+  }
+
+  /// Removes a bookmark from the document.
+  Future< void > deleteBookmark(DeleteBookmarkRequest request) async {
+  await _apiClient.call(request);
+  }
+
+  /// Removes a bookmark from the document.
+  Future< Map<String, ByteData> > deleteBookmarkOnline(DeleteBookmarkOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
+  }
+
+  /// Removes all bookmarks from the document.
+  Future< void > deleteBookmarks(DeleteBookmarksRequest request) async {
+  await _apiClient.call(request);
+  }
+
+  /// Removes all bookmarks from the document.
+  Future< Map<String, ByteData> > deleteBookmarksOnline(DeleteBookmarksOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
   }
 
   /// The 'nodePath' parameter should refer to a paragraph, a cell or a row.
@@ -1010,6 +1030,16 @@ class WordsApi {
     return await _apiClient.call(request) as TableLinkCollectionResponse;
   }
 
+  /// Inserts a new bookmark to the document.
+  Future< BookmarkResponse > insertBookmark(InsertBookmarkRequest request) async {
+    return await _apiClient.call(request) as BookmarkResponse;
+  }
+
+  /// Inserts a new bookmark to the document.
+  Future< InsertBookmarkOnlineResponse > insertBookmarkOnline(InsertBookmarkOnlineRequest request) async {
+    return await _apiClient.call(request) as InsertBookmarkOnlineResponse;
+  }
+
   /// Inserts a new comment to the document.
   Future< CommentResponse > insertComment(InsertCommentRequest request) async {
     return await _apiClient.call(request) as CommentResponse;
@@ -1188,6 +1218,11 @@ class WordsApi {
   /// Inserts a new watermark text to the document.
   Future< InsertWatermarkTextOnlineResponse > insertWatermarkTextOnline(InsertWatermarkTextOnlineRequest request) async {
     return await _apiClient.call(request) as InsertWatermarkTextOnlineResponse;
+  }
+
+  /// Links headers / footers of the section to the previous one.
+  Future< void > linkHeaderFootersToPrevious(LinkHeaderFootersToPreviousRequest request) async {
+  await _apiClient.call(request);
   }
 
   /// Downloads a document from the Web using URL and saves it to cloud storage in the specified format.

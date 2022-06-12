@@ -297,18 +297,6 @@ class MhtmlSaveOptionsData extends HtmlSaveOptionsData {
       exportRoundtripInformation = null;
     }
 
-    if (json.containsKey('ExportShapesAsSvg')) {
-      exportShapesAsSvg = json['ExportShapesAsSvg'] as bool;
-    } else {
-      exportShapesAsSvg = null;
-    }
-
-    if (json.containsKey('ExportTextBoxAsSvg')) {
-      exportTextBoxAsSvg = json['ExportTextBoxAsSvg'] as bool;
-    } else {
-      exportTextBoxAsSvg = null;
-    }
-
     if (json.containsKey('ExportTextInputFormFieldAsText')) {
       exportTextInputFormFieldAsText = json['ExportTextInputFormFieldAsText'] as bool;
     } else {

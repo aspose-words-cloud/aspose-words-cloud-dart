@@ -118,6 +118,12 @@ void main() {
     test('GetBookmarkByNameOnline', () async => await BookmarkTests(testContext).testGetBookmarkByNameOnline());
     test('UpdateBookmark', () async => await BookmarkTests(testContext).testUpdateBookmark());
     test('UpdateBookmarkOnline', () async => await BookmarkTests(testContext).testUpdateBookmarkOnline());
+    test('DeleteBookmark', () async => await BookmarkTests(testContext).testDeleteBookmark());
+    test('DeleteBookmarkOnline', () async => await BookmarkTests(testContext).testDeleteBookmarkOnline());
+    test('DeleteBookmarks', () async => await BookmarkTests(testContext).testDeleteBookmarks());
+    test('DeleteBookmarksOnline', () async => await BookmarkTests(testContext).testDeleteBookmarksOnline());
+    test('InsertBookmark', () async => await BookmarkTests(testContext).testInsertBookmark());
+    test('InsertBookmarkOnline', () async => await BookmarkTests(testContext).testInsertBookmarkOnline());
   });
 
   group('Compatibility', () {
@@ -505,6 +511,7 @@ void main() {
     test('GetSectionsOnline', () async => await SectionTests(testContext).testGetSectionsOnline());
     test('DeleteSection', () async => await SectionTests(testContext).testDeleteSection());
     test('DeleteSectionOnline', () async => await SectionTests(testContext).testDeleteSectionOnline());
+    test('LinkHeaderFootersToPrevious', () async => await SectionTests(testContext).testLinkHeaderFootersToPrevious());
   });
 
   group('File', () {
