@@ -38,8 +38,8 @@ class AppendDocumentOnlineRequest implements RequestBase {
   /// Original document.
   final ByteData document;
 
-  /// <see cref="DocumentEntryList"/> with a list of documents to append.
-  final DocumentEntryList documentList;
+  /// <see cref="BaseEntryList"/> with a list of entries to append.
+  final BaseEntryList documentList;
 
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
   final String loadEncoding;

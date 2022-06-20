@@ -1,3 +1,8 @@
+## [22.7.0] - Aspose Words Cloud for Dart 22.7 Release Notes
+
+- Expand 'AppendDocument' API method to support 'ImageEntryList' for directly appending images to documents and another images.
+
+
 ## [22.6.0] - Aspose Words Cloud for Dart 22.6 Release Notes
 
 - Added 'DeleteBookmark' and 'DeleteBookmarkOnline' API methods for delete bookmarks by name from the document.
