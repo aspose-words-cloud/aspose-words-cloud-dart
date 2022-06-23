@@ -39,6 +39,7 @@ import './document/append_document_tests.dart';
 import './document/classification_tests.dart';
 import './document/comment_tests.dart';
 import './document/compare_document_tests.dart';
+import './document/compress_document_tests.dart';
 import './document/convert_document_tests.dart';
 import './document/custom_xml_parts_tests.dart';
 import './document/document_statistics_tests.dart';
@@ -161,6 +162,11 @@ void main() {
     test('CompareDocument', () async => await CompareDocumentTests(testContext).testCompareDocument());
     test('CompareDocumentOnline', () async => await CompareDocumentTests(testContext).testCompareDocumentOnline());
     test('CompareTwoDocumentOnline', () async => await CompareDocumentTests(testContext).testCompareTwoDocumentOnline());
+  });
+
+  group('CompressDocument', () {
+    test('CompressDocument', () async => await CompressDocumentTests(testContext).testCompressDocument());
+    test('CompressDocumentOnline', () async => await CompressDocumentTests(testContext).testCompressDocumentOnline());
   });
 
   group('ConvertDocument', () {
