@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="report_build_options.dart">
+ * <copyright company="Aspose" file="compress_document_online_response.dart">
  *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,13 +27,29 @@
 
 library aspose_words_cloud;
 
+import 'dart:convert';
+import 'dart:typed_data';
 
-/// Specifies options controlling behavior of ReportingEngine while building a report.
-enum ReportBuildOptionsEnum {
-  none,
-  allowMissingMembers,
-  removeEmptyParagraphs,
-  inlineErrorMessages,
-  useLegacyHeaderFooterVisiting,
-  respectJpegExifOrientation
+import '../../aspose_words_cloud.dart';
+import '../api_client.dart';
+import '../body_part_data.dart';
+
+/// Compress and resize images inside the document.
+class CompressDocumentOnlineResponse implements ResponseBase {
+  /// The response model.
+  CompressResponse model;
+
+  /// The document after modification.
+  Map<String, ByteData> document;
+
+  @override
+  void deserialize(ApiClient apiClient, Map<String, BodyPartData> _parts) {
+    model = CompressResponse();
+    final _modelBody = _parts['model'];
+    final _modelJsonData = utf8.decode(_modelBody.content.buffer.asUint8List(_modelBody.content.offsetInBytes, _modelBody.content.lengthInBytes));
+    model.deserialize(jsonDecode(_modelJsonData) as Map<String, dynamic>);
+
+    document = apiClient.deserializeFilesCollection(_parts['document']);
+  }
 }
+

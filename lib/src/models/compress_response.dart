@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="report_build_options.dart">
+ * <copyright company="Aspose" file="compress_response.dart">
  *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,13 +27,47 @@
 
 library aspose_words_cloud;
 
+import '../../aspose_words_cloud.dart';
 
-/// Specifies options controlling behavior of ReportingEngine while building a report.
-enum ReportBuildOptionsEnum {
-  none,
-  allowMissingMembers,
-  removeEmptyParagraphs,
-  inlineErrorMessages,
-  useLegacyHeaderFooterVisiting,
-  respectJpegExifOrientation
+/// The REST response of compressed document.
+class CompressResponse extends WordsResponse {
+  /// Gets or sets the destination document info.
+  Document _document;
+
+  Document get document => _document;
+  set document(Document val) => _document = val;
+
+
+  @override
+  void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize CompressResponse data model.');
+    }
+
+    super.deserialize(json);
+    if (json.containsKey('RequestId')) {
+      requestId = json['RequestId'] as String;
+    } else {
+      requestId = null;
+    }
+
+    if (json.containsKey('Document')) {
+      document = Document();
+      document.deserialize(json['Document'] as Map<String, dynamic>);
+    } else {
+      document = null;
+    }
+  }
+
+  @override
+  Map<String, dynamic> serialize() {
+    var _result = <String, dynamic>{};
+    _result.addAll(super.serialize());
+    if (document != null) {
+      _result['Document'] = document.serialize();
+    }
+    return _result;
+  }
 }
+
+
