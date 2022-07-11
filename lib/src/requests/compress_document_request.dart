@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="append_document_online_request.dart">
+ * <copyright company="Aspose" file="compress_document_request.dart">
  *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,19 +27,26 @@
 
 library aspose_words_cloud;
 
+import 'dart:convert';
 import 'dart:typed_data';
 import '../../aspose_words_cloud.dart';
 import '../api_client.dart';
 import '../api_request_data.dart';
 import '../api_request_part.dart';
 
-/// Request model for AppendDocumentOnline operation.
-class AppendDocumentOnlineRequest implements RequestBase {
-  /// Original document.
-  final ByteData document;
+/// Request model for CompressDocument operation.
+class CompressDocumentRequest implements RequestBase {
+  /// The filename of the input document.
+  final String name;
 
-  /// <see cref="BaseEntryList"/> with a list of entries to append.
-  final BaseEntryList documentList;
+  /// Options for compress the document.
+  final CompressOptions compressOptions;
+
+  /// Original document folder.
+  final String folder;
+
+  /// Original document storage.
+  final String storage;
 
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
   final String loadEncoding;
@@ -53,20 +60,26 @@ class AppendDocumentOnlineRequest implements RequestBase {
   /// Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
   final String destFileName;
 
-  /// Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-  final String revisionAuthor;
-
-  /// The date and time to use for revisions.
-  final String revisionDateTime;
-
-  AppendDocumentOnlineRequest(final this.document, final this.documentList, {final this.loadEncoding, final this.password, final this.encryptedPassword, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
+  CompressDocumentRequest(final this.name, final this.compressOptions, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.encryptedPassword, final this.destFileName});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
-    var _path = '/words/online/put/appendDocument';
+    var _path = '/words/{name}/compress';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
+    if (name == null) {
+      throw ApiException(400, 'Parameter name is required.');
+    }
+    _path = _path.replaceAll('{name}', _apiClient.serializeToString(name));
+    if (folder != null) {
+      _queryParams['folder'] = _apiClient.serializeToString(folder);
+    }
+
+    if (storage != null) {
+      _queryParams['storage'] = _apiClient.serializeToString(storage);
+    }
+
     if (loadEncoding != null) {
       _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
     }
@@ -83,26 +96,11 @@ class AppendDocumentOnlineRequest implements RequestBase {
       _queryParams['destFileName'] = _apiClient.serializeToString(destFileName);
     }
 
-    if (revisionAuthor != null) {
-      _queryParams['revisionAuthor'] = _apiClient.serializeToString(revisionAuthor);
-    }
-
-    if (revisionDateTime != null) {
-      _queryParams['revisionDateTime'] = _apiClient.serializeToString(revisionDateTime);
-    }
-
-    if (document != null) {
-      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(document), 'application/octet-stream', name: 'Document'));
+    if (compressOptions != null) {
+      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(compressOptions), 'application/json'));
     }
     else {
-      throw ApiException(400, 'Parameter document is required.');
-    }
-
-    if (documentList != null) {
-      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(documentList), 'application/json', name: 'DocumentList'));
-    }
-    else {
-      throw ApiException(400, 'Parameter documentList is required.');
+      throw ApiException(400, 'Parameter compressOptions is required.');
     }
 
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
@@ -112,8 +110,10 @@ class AppendDocumentOnlineRequest implements RequestBase {
 
   @override
   dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
-    var _result = AppendDocumentOnlineResponse();
-    _result.deserialize(_apiClient, _apiClient.deserializeMultipartMap(_body));
+    var _result = CompressResponse();
+    var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
+    var _json = jsonDecode(_jsonData);
+    _result.deserialize(_json as Map<String, dynamic>);
     return _result;
   }
 }

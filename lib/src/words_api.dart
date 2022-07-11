@@ -105,6 +105,16 @@ class WordsApi {
     return await _apiClient.call(request) as CompareDocumentOnlineResponse;
   }
 
+  /// The default settings allows to reduce the size of the document without any visible degradation of images quality.
+  Future< CompressResponse > compressDocument(CompressDocumentRequest request) async {
+    return await _apiClient.call(request) as CompressResponse;
+  }
+
+  /// Compress and resize images inside the document.
+  Future< CompressDocumentOnlineResponse > compressDocumentOnline(CompressDocumentOnlineRequest request) async {
+    return await _apiClient.call(request) as CompressDocumentOnlineResponse;
+  }
+
   /// Converts a document on a local drive to the specified format.
   Future< ByteData > convertDocument(ConvertDocumentRequest request) async {
     return await _apiClient.call(request) as ByteData;

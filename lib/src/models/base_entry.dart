@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="report_build_options.dart">
+ * <copyright company="Aspose" file="base_entry.dart">
  *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,13 +27,38 @@
 
 library aspose_words_cloud;
 
+import '../../aspose_words_cloud.dart';
 
-/// Specifies options controlling behavior of ReportingEngine while building a report.
-enum ReportBuildOptionsEnum {
-  none,
-  allowMissingMembers,
-  removeEmptyParagraphs,
-  inlineErrorMessages,
-  useLegacyHeaderFooterVisiting,
-  respectJpegExifOrientation
+/// Represents a entry which will be appended to the original resource document.
+class BaseEntry implements ModelBase {
+  /// Gets or sets the path to entry to append at the server.
+  String _href;
+
+  String get href => _href;
+  set href(String val) => _href = val;
+
+
+  @override
+  void deserialize(Map<String, dynamic> json) {
+    if (json == null) {
+      throw ApiException(400, 'Failed to deserialize BaseEntry data model.');
+    }
+
+    if (json.containsKey('Href')) {
+      href = json['Href'] as String;
+    } else {
+      href = null;
+    }
+  }
+
+  @override
+  Map<String, dynamic> serialize() {
+    var _result = <String, dynamic>{};
+    if (href != null) {
+      _result['Href'] = href;
+    }
+    return _result;
+  }
 }
+
+

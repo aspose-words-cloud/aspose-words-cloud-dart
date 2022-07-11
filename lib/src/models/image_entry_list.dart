@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="document_entry_list.dart">
+ * <copyright company="Aspose" file="image_entry_list.dart">
  *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -29,45 +29,45 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Represents a list of documents which will be appended to the original resource document.
-class DocumentEntryList extends BaseEntryList {
-  /// Gets or sets a value indicating whether to apply headers and footers from base document to appending documents. The default value is true.
-  bool _applyBaseDocumentHeadersAndFootersToAppendingDocuments;
+/// Represents a list of images which will be appended to the original resource document or image.
+class ImageEntryList extends BaseEntryList {
+  /// Gets or sets a value indicating whether each image should be added to a new page in the document.
+  bool _appendEachImageOnNewPage;
 
-  bool get applyBaseDocumentHeadersAndFootersToAppendingDocuments => _applyBaseDocumentHeadersAndFootersToAppendingDocuments;
-  set applyBaseDocumentHeadersAndFootersToAppendingDocuments(bool val) => _applyBaseDocumentHeadersAndFootersToAppendingDocuments = val;
+  bool get appendEachImageOnNewPage => _appendEachImageOnNewPage;
+  set appendEachImageOnNewPage(bool val) => _appendEachImageOnNewPage = val;
 
 
-  /// Gets or sets the list of documents.
-  List<DocumentEntry> _documentEntries;
+  /// Gets or sets the list of images.
+  List<ImageEntry> _imageEntries;
 
-  List<DocumentEntry> get documentEntries => _documentEntries;
-  set documentEntries(List<DocumentEntry> val) => _documentEntries = val;
+  List<ImageEntry> get imageEntries => _imageEntries;
+  set imageEntries(List<ImageEntry> val) => _imageEntries = val;
 
 
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json == null) {
-      throw ApiException(400, 'Failed to deserialize DocumentEntryList data model.');
+      throw ApiException(400, 'Failed to deserialize ImageEntryList data model.');
     }
 
     super.deserialize(json);
-    if (json.containsKey('ApplyBaseDocumentHeadersAndFootersToAppendingDocuments')) {
-      applyBaseDocumentHeadersAndFootersToAppendingDocuments = json['ApplyBaseDocumentHeadersAndFootersToAppendingDocuments'] as bool;
+    if (json.containsKey('AppendEachImageOnNewPage')) {
+      appendEachImageOnNewPage = json['AppendEachImageOnNewPage'] as bool;
     } else {
-      applyBaseDocumentHeadersAndFootersToAppendingDocuments = null;
+      appendEachImageOnNewPage = null;
     }
 
-    if (json.containsKey('DocumentEntries')) {
+    if (json.containsKey('ImageEntries')) {
       // Array processing
-      documentEntries = <DocumentEntry>[];
-      for(final _element in json['DocumentEntries']) {
-        var _elementValue = DocumentEntry();
+      imageEntries = <ImageEntry>[];
+      for(final _element in json['ImageEntries']) {
+        var _elementValue = ImageEntry();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        documentEntries.add(_elementValue);
+        imageEntries.add(_elementValue);
       }
     } else {
-      documentEntries = null;
+      imageEntries = null;
     }
   }
 
@@ -75,12 +75,12 @@ class DocumentEntryList extends BaseEntryList {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (applyBaseDocumentHeadersAndFootersToAppendingDocuments != null) {
-      _result['ApplyBaseDocumentHeadersAndFootersToAppendingDocuments'] = applyBaseDocumentHeadersAndFootersToAppendingDocuments;
+    if (appendEachImageOnNewPage != null) {
+      _result['AppendEachImageOnNewPage'] = appendEachImageOnNewPage;
     }
 
-    if (documentEntries != null) {
-      _result['DocumentEntries'] = documentEntries.map((_element) => _element.serialize()).toList();
+    if (imageEntries != null) {
+      _result['ImageEntries'] = imageEntries.map((_element) => _element.serialize()).toList();
     }
     return _result;
   }

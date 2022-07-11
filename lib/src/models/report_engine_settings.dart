@@ -120,6 +120,7 @@ class ReportEngineSettings implements ModelBase {
           case 'RemoveEmptyParagraphs': reportBuildOptions.add(ReportBuildOptionsEnum.removeEmptyParagraphs); break;
           case 'InlineErrorMessages': reportBuildOptions.add(ReportBuildOptionsEnum.inlineErrorMessages); break;
           case 'UseLegacyHeaderFooterVisiting': reportBuildOptions.add(ReportBuildOptionsEnum.useLegacyHeaderFooterVisiting); break;
+          case 'RespectJpegExifOrientation': reportBuildOptions.add(ReportBuildOptionsEnum.respectJpegExifOrientation); break;
           default: break;
         }
       }
@@ -167,6 +168,7 @@ class ReportEngineSettings implements ModelBase {
             case ReportBuildOptionsEnum.removeEmptyParagraphs: return 'RemoveEmptyParagraphs';
             case ReportBuildOptionsEnum.inlineErrorMessages: return 'InlineErrorMessages';
             case ReportBuildOptionsEnum.useLegacyHeaderFooterVisiting: return 'UseLegacyHeaderFooterVisiting';
+            case ReportBuildOptionsEnum.respectJpegExifOrientation: return 'RespectJpegExifOrientation';
             default: return null;
         }
       }).toList();
