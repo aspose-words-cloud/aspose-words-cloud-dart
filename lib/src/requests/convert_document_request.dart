@@ -70,12 +70,15 @@ class ConvertDocumentRequest implements RequestBase {
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
-    _path = _path.replaceAll('{outPath}', _apiClient.serializeToString(outPath) ?? '');
     if (format != null) {
       _queryParams['format'] = _apiClient.serializeToString(format);
     }
     else {
       throw ApiException(400, 'Parameter format is required.');
+    }
+
+    if (outPath != null) {
+      _queryParams['outPath'] = _apiClient.serializeToString(outPath);
     }
 
     if (fileNameFieldValue != null) {
