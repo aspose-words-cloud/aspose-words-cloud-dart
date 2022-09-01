@@ -98,6 +98,24 @@ class TableRow extends NodeLink {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (rowFormat != null)
+    {
+        rowFormat.getFilesContent(resultFilesContent);
+    }
+
+    if (tableCellList != null)
+    {
+        for (final element in tableCellList)
+        {
+            element.getFilesContent(resultFilesContent);
+        }
+    }
+
+  }
 }
 
 

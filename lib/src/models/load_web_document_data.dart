@@ -76,6 +76,15 @@ class LoadWebDocumentData implements ModelBase {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    if (saveOptions != null)
+    {
+        saveOptions.getFilesContent(resultFilesContent);
+    }
+
+  }
 }
 
 

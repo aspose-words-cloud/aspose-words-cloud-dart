@@ -74,6 +74,19 @@ class CustomXmlPartsCollection extends LinkElement {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (customXmlPartsList != null)
+    {
+        for (final element in customXmlPartsList)
+        {
+            element.getFilesContent(resultFilesContent);
+        }
+    }
+
+  }
 }
 
 

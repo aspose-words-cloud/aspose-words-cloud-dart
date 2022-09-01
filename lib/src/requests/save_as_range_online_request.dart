@@ -64,6 +64,7 @@ class SaveAsRangeOnlineRequest implements RequestBase {
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
+    var _fileContentParts = <FileContent>[];
     if (rangeStartIdentifier == null) {
       throw ApiException(400, 'Parameter rangeStartIdentifier is required.');
     }
@@ -82,19 +83,23 @@ class SaveAsRangeOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
-      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(document), 'application/octet-stream', name: 'Document'));
+      _bodyParts.add(_apiClient.serializeBody(document, 'Document'));
     }
     else {
       throw ApiException(400, 'Parameter document is required.');
     }
 
     if (documentParameters != null) {
-      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(documentParameters), 'application/json', name: 'DocumentParameters'));
+      _bodyParts.add(_apiClient.serializeBody(documentParameters, 'DocumentParameters'));
+      documentParameters.getFilesContent(_fileContentParts);
     }
     else {
       throw ApiException(400, 'Parameter documentParameters is required.');
     }
 
+    for (final _fileContentPart in _fileContentParts) {
+        _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.id, filename: _fileContentPart.filename));
+    }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
     return ApiRequestData('PUT', _url, _headers, _body);

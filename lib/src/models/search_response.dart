@@ -85,6 +85,16 @@ class SearchResponse extends WordsResponse {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (searchResults != null)
+    {
+        searchResults.getFilesContent(resultFilesContent);
+    }
+
+  }
 }
 
 

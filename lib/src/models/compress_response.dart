@@ -68,6 +68,16 @@ class CompressResponse extends WordsResponse {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (document != null)
+    {
+        document.getFilesContent(resultFilesContent);
+    }
+
+  }
 }
 
 

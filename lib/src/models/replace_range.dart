@@ -84,6 +84,10 @@ class ReplaceRange implements ModelBase {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+  }
 }
 
 /// Gets or sets the range's text type.

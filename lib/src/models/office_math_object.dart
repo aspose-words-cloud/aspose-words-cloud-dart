@@ -214,6 +214,19 @@ class OfficeMathObject extends OfficeMathLink {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (content != null)
+    {
+        content.getFilesContent(resultFilesContent);
+    }
+
+
+
+
+  }
 }
 
 /// Gets or sets the display format type of the OfficeMath object. This display format defines whether an equation is displayed inline with the text or displayed on its own line.

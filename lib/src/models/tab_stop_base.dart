@@ -127,6 +127,10 @@ class TabStopBase implements ModelBase {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+  }
 }
 
 /// Gets or sets the alignment of text at this tab stop.

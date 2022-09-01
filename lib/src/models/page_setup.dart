@@ -776,6 +776,11 @@ class PageSetup extends LinkElement {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+  }
 }
 
 /// Gets or sets the option that controls which pages the page border is printed on.

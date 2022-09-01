@@ -1323,6 +1323,25 @@ class ParagraphFormatBase extends LinkElement {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (shading != null)
+    {
+        shading.getFilesContent(resultFilesContent);
+    }
+
+
+
+
+
+
+
+
+
+
+  }
 }
 
 /// Gets or sets text alignment for the paragraph.

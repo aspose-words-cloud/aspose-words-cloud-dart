@@ -68,6 +68,16 @@ class TableLinkCollectionResponse extends WordsResponse {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (tables != null)
+    {
+        tables.getFilesContent(resultFilesContent);
+    }
+
+  }
 }
 
 

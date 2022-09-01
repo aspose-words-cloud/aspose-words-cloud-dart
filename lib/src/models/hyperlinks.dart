@@ -74,6 +74,19 @@ class Hyperlinks extends LinkElement {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (hyperlinkList != null)
+    {
+        for (final element in hyperlinkList)
+        {
+            element.getFilesContent(resultFilesContent);
+        }
+    }
+
+  }
 }
 
 

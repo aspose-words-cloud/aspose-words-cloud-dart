@@ -296,6 +296,26 @@ class FieldOptions implements ModelBase {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    if (currentUser != null)
+    {
+        currentUser.getFilesContent(resultFilesContent);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
 
 /// Gets or sets Field Index Format.

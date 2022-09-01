@@ -195,6 +195,11 @@ class FormFieldTextInput extends FormField {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+  }
 }
 
 /// Gets or sets the type of the text form field.

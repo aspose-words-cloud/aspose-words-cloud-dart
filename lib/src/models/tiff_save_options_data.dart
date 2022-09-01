@@ -375,6 +375,11 @@ class TiffSaveOptionsData extends ImageSaveOptionsData {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+  }
 }
 
 /// Gets or sets the method used while converting images to 1 bpp format.

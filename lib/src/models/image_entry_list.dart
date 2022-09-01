@@ -30,14 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Represents a list of images which will be appended to the original resource document or image.
-class ImageEntryList extends BaseEntryList {
-  /// Gets or sets a value indicating whether each image should be added to a new page in the document.
-  bool _appendEachImageOnNewPage;
-
-  bool get appendEachImageOnNewPage => _appendEachImageOnNewPage;
-  set appendEachImageOnNewPage(bool val) => _appendEachImageOnNewPage = val;
-
-
+class ImageEntryList extends BaseImageEntryList {
   /// Gets or sets the list of images.
   List<ImageEntry> _imageEntries;
 
@@ -75,14 +68,23 @@ class ImageEntryList extends BaseEntryList {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (appendEachImageOnNewPage != null) {
-      _result['AppendEachImageOnNewPage'] = appendEachImageOnNewPage;
-    }
-
     if (imageEntries != null) {
       _result['ImageEntries'] = imageEntries.map((_element) => _element.serialize()).toList();
     }
     return _result;
+  }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (imageEntries != null)
+    {
+        for (final element in imageEntries)
+        {
+            element.getFilesContent(resultFilesContent);
+        }
+    }
+
   }
 }
 

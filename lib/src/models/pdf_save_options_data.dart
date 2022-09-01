@@ -742,6 +742,50 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (digitalSignatureDetails != null)
+    {
+        digitalSignatureDetails.getFilesContent(resultFilesContent);
+    }
+
+
+    if (downsampleOptions != null)
+    {
+        downsampleOptions.getFilesContent(resultFilesContent);
+    }
+
+
+    if (encryptionDetails != null)
+    {
+        encryptionDetails.getFilesContent(resultFilesContent);
+    }
+
+
+
+
+
+
+
+
+
+    if (outlineOptions != null)
+    {
+        outlineOptions.getFilesContent(resultFilesContent);
+    }
+
+
+
+
+
+
+
+
+
+
+  }
 }
 
 /// Gets or sets the PDF standards compliance level for output documents.

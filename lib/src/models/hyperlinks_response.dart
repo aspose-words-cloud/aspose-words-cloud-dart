@@ -68,6 +68,16 @@ class HyperlinksResponse extends WordsResponse {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (hyperlinks != null)
+    {
+        hyperlinks.getFilesContent(resultFilesContent);
+    }
+
+  }
 }
 
 

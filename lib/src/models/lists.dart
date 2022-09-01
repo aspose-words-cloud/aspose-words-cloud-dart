@@ -74,6 +74,19 @@ class Lists extends LinkElement {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (listInfo != null)
+    {
+        for (final element in listInfo)
+        {
+            element.getFilesContent(resultFilesContent);
+        }
+    }
+
+  }
 }
 
 

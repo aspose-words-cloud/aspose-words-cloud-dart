@@ -92,6 +92,21 @@ class BookmarkInsert extends BookmarkData {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (endRange != null)
+    {
+        endRange.getFilesContent(resultFilesContent);
+    }
+
+    if (startRange != null)
+    {
+        startRange.getFilesContent(resultFilesContent);
+    }
+
+  }
 }
 
 

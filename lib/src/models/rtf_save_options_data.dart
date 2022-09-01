@@ -225,6 +225,11 @@ class RtfSaveOptionsData extends SaveOptionsData {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+  }
 }
 
 

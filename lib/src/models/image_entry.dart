@@ -30,7 +30,13 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Represents a image which will be appended to the original resource image or document.
-class ImageEntry extends BaseEntry {
+class ImageEntry implements ModelBase {
+  /// Gets or sets the path to entry to append at the server.
+  String _href;
+
+  String get href => _href;
+  set href(String val) => _href = val;
+
 
   @override
   void deserialize(Map<String, dynamic> json) {
@@ -38,7 +44,6 @@ class ImageEntry extends BaseEntry {
       throw ApiException(400, 'Failed to deserialize ImageEntry data model.');
     }
 
-    super.deserialize(json);
     if (json.containsKey('Href')) {
       href = json['Href'] as String;
     } else {
@@ -49,8 +54,14 @@ class ImageEntry extends BaseEntry {
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
-    _result.addAll(super.serialize());
+    if (href != null) {
+      _result['Href'] = href;
+    }
     return _result;
+  }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
   }
 }
 

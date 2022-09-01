@@ -68,6 +68,16 @@ class ListsResponse extends WordsResponse {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (lists != null)
+    {
+        lists.getFilesContent(resultFilesContent);
+    }
+
+  }
 }
 
 

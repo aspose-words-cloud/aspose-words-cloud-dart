@@ -78,6 +78,20 @@ class SearchResult implements ModelBase {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    if (rangeEnd != null)
+    {
+        rangeEnd.getFilesContent(resultFilesContent);
+    }
+
+    if (rangeStart != null)
+    {
+        rangeStart.getFilesContent(resultFilesContent);
+    }
+
+  }
 }
 
 

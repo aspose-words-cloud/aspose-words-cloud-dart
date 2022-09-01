@@ -110,6 +110,10 @@ class JsonDataLoadOptions implements ModelBase {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+  }
 }
 
 /// Gets or sets a mode for parsing JSON simple values (null, boolean, number, integer,

@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="base_entry.dart">
+ * <copyright company="Aspose" file="base_document_entry_list.dart">
  *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -29,35 +29,42 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Represents a entry which will be appended to the original resource document.
-class BaseEntry implements ModelBase {
-  /// Gets or sets the path to entry to append at the server.
-  String _href;
+/// Represents a list of documents which will be appended to the original resource document.
+class BaseDocumentEntryList extends BaseEntryList {
+  /// Gets or sets a value indicating whether to apply headers and footers from base document to appending documents. The default value is true.
+  bool _applyBaseDocumentHeadersAndFootersToAppendingDocuments;
 
-  String get href => _href;
-  set href(String val) => _href = val;
+  bool get applyBaseDocumentHeadersAndFootersToAppendingDocuments => _applyBaseDocumentHeadersAndFootersToAppendingDocuments;
+  set applyBaseDocumentHeadersAndFootersToAppendingDocuments(bool val) => _applyBaseDocumentHeadersAndFootersToAppendingDocuments = val;
 
 
   @override
   void deserialize(Map<String, dynamic> json) {
     if (json == null) {
-      throw ApiException(400, 'Failed to deserialize BaseEntry data model.');
+      throw ApiException(400, 'Failed to deserialize BaseDocumentEntryList data model.');
     }
 
-    if (json.containsKey('Href')) {
-      href = json['Href'] as String;
+    super.deserialize(json);
+    if (json.containsKey('ApplyBaseDocumentHeadersAndFootersToAppendingDocuments')) {
+      applyBaseDocumentHeadersAndFootersToAppendingDocuments = json['ApplyBaseDocumentHeadersAndFootersToAppendingDocuments'] as bool;
     } else {
-      href = null;
+      applyBaseDocumentHeadersAndFootersToAppendingDocuments = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
-    if (href != null) {
-      _result['Href'] = href;
+    _result.addAll(super.serialize());
+    if (applyBaseDocumentHeadersAndFootersToAppendingDocuments != null) {
+      _result['ApplyBaseDocumentHeadersAndFootersToAppendingDocuments'] = applyBaseDocumentHeadersAndFootersToAppendingDocuments;
     }
     return _result;
+  }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
   }
 }
 

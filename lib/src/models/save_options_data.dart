@@ -329,6 +329,28 @@ abstract class SaveOptionsData implements ModelBase {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    if (customTimeZoneInfoData != null)
+    {
+        customTimeZoneInfoData.getFilesContent(resultFilesContent);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
 
 /// Gets or sets the value determining how 3D effects are rendered.

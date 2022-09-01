@@ -73,6 +73,7 @@ class UpdateTableRowFormatOnlineRequest implements RequestBase {
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
+    var _fileContentParts = <FileContent>[];
     if (tablePath == null) {
       throw ApiException(400, 'Parameter tablePath is required.');
     }
@@ -107,19 +108,23 @@ class UpdateTableRowFormatOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
-      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(document), 'application/octet-stream', name: 'Document'));
+      _bodyParts.add(_apiClient.serializeBody(document, 'Document'));
     }
     else {
       throw ApiException(400, 'Parameter document is required.');
     }
 
     if (format != null) {
-      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(format), 'application/json', name: 'Format'));
+      _bodyParts.add(_apiClient.serializeBody(format, 'Format'));
+      format.getFilesContent(_fileContentParts);
     }
     else {
       throw ApiException(400, 'Parameter format is required.');
     }
 
+    for (final _fileContentPart in _fileContentParts) {
+        _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.id, filename: _fileContentPart.filename));
+    }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
     return ApiRequestData('PUT', _url, _headers, _body);

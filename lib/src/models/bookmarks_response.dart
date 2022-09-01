@@ -68,6 +68,16 @@ class BookmarksResponse extends WordsResponse {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (bookmarks != null)
+    {
+        bookmarks.getFilesContent(resultFilesContent);
+    }
+
+  }
 }
 
 

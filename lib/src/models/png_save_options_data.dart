@@ -301,6 +301,11 @@ class PngSaveOptionsData extends ImageSaveOptionsData {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+  }
 }
 
 

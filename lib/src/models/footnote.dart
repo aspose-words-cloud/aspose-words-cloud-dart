@@ -153,6 +153,24 @@ class Footnote extends FootnoteLink {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (content != null)
+    {
+        content.getFilesContent(resultFilesContent);
+    }
+
+
+    if (position != null)
+    {
+        position.getFilesContent(resultFilesContent);
+    }
+
+
+
+  }
 }
 
 /// Gets or sets the value, that specifies whether this is a footnote or endnote.

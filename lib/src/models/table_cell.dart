@@ -80,6 +80,19 @@ class TableCell extends NodeLink {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (childNodes != null)
+    {
+        for (final element in childNodes)
+        {
+            element.getFilesContent(resultFilesContent);
+        }
+    }
+
+  }
 }
 
 

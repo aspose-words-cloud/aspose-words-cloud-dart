@@ -65,6 +65,18 @@ class StoryChildNodes implements ModelBase {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    if (childNodes != null)
+    {
+        for (final element in childNodes)
+        {
+            element.getFilesContent(resultFilesContent);
+        }
+    }
+
+  }
 }
 
 

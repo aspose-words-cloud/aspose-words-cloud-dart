@@ -223,6 +223,10 @@ class DrawingObjectUpdate implements ModelBase {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+  }
 }
 
 /// Gets or sets the relative horizontal position, from which the distance to the image is measured.

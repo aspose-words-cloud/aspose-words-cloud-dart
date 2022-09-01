@@ -86,6 +86,10 @@ class PreferredWidth implements ModelBase {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+  }
 }
 
 /// Gets or sets the unit of measure used for this preferred width value.

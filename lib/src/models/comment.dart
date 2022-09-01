@@ -173,6 +173,29 @@ class Comment extends CommentLink {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (content != null)
+    {
+        content.getFilesContent(resultFilesContent);
+    }
+
+
+
+    if (rangeEnd != null)
+    {
+        rangeEnd.getFilesContent(resultFilesContent);
+    }
+
+    if (rangeStart != null)
+    {
+        rangeStart.getFilesContent(resultFilesContent);
+    }
+
+
+  }
 }
 
 

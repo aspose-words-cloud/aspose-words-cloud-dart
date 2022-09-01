@@ -68,6 +68,16 @@ class ParagraphLinkCollectionResponse extends WordsResponse {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (paragraphs != null)
+    {
+        paragraphs.getFilesContent(resultFilesContent);
+    }
+
+  }
 }
 
 

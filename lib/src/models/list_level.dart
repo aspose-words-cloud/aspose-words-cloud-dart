@@ -405,6 +405,30 @@ class ListLevel extends LinkElement {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (font != null)
+    {
+        font.getFilesContent(resultFilesContent);
+    }
+
+
+    if (linkedStyle != null)
+    {
+        linkedStyle.getFilesContent(resultFilesContent);
+    }
+
+
+
+
+
+
+
+
+
+  }
 }
 
 /// Gets or sets the justification of the actual number of the list item.

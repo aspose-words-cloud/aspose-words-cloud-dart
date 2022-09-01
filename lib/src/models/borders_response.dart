@@ -68,6 +68,16 @@ class BordersResponse extends WordsResponse {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (borders != null)
+    {
+        borders.getFilesContent(resultFilesContent);
+    }
+
+  }
 }
 
 

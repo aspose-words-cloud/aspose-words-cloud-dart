@@ -60,6 +60,15 @@ class LinkElement implements ModelBase {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    if (link != null)
+    {
+        link.getFilesContent(resultFilesContent);
+    }
+
+  }
 }
 
 

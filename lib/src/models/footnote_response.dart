@@ -68,6 +68,16 @@ class FootnoteResponse extends WordsResponse {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (footnote != null)
+    {
+        footnote.getFilesContent(resultFilesContent);
+    }
+
+  }
 }
 
 

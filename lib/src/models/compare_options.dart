@@ -220,6 +220,10 @@ class CompareOptions implements ModelBase {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+  }
 }
 
 /// Gets or sets the option that controls which document shall be used as a target during comparison.

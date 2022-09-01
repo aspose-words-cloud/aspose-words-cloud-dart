@@ -302,6 +302,22 @@ class TableCellFormat extends LinkElement {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (preferredWidth != null)
+    {
+        preferredWidth.getFilesContent(resultFilesContent);
+    }
+
+
+
+
+
+
+
+  }
 }
 
 /// Gets or sets the option that controls how the cell is merged horizontally with other cells in the row.

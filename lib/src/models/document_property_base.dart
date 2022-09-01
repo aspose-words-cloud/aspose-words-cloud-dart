@@ -59,6 +59,10 @@ abstract class DocumentPropertyBase implements ModelBase {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+  }
 }
 
 

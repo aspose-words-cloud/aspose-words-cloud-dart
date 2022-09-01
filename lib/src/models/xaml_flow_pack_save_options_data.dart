@@ -169,6 +169,11 @@ class XamlFlowPackSaveOptionsData extends XamlFlowSaveOptionsData {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+  }
 }
 
 

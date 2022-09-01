@@ -624,6 +624,11 @@ class ParagraphFormatUpdate extends ParagraphFormatBase {
     _result.addAll(super.serialize());
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+  }
 }
 
 

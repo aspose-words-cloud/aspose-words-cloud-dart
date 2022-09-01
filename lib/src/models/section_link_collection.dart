@@ -74,6 +74,19 @@ class SectionLinkCollection extends LinkElement {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (sectionLinkList != null)
+    {
+        for (final element in sectionLinkList)
+        {
+            element.getFilesContent(resultFilesContent);
+        }
+    }
+
+  }
 }
 
 

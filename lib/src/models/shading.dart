@@ -207,6 +207,21 @@ class Shading implements ModelBase {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    if (backgroundPatternColor != null)
+    {
+        backgroundPatternColor.getFilesContent(resultFilesContent);
+    }
+
+    if (foregroundPatternColor != null)
+    {
+        foregroundPatternColor.getFilesContent(resultFilesContent);
+    }
+
+
+  }
 }
 
 /// Gets or sets the shading texture.

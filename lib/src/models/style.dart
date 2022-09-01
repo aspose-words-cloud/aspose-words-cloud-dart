@@ -1015,6 +1015,23 @@ class Style extends LinkElement {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (font != null)
+    {
+        font.getFilesContent(resultFilesContent);
+    }
+
+
+
+
+
+
+
+
+  }
 }
 
 /// Gets or sets the locale independent style identifier for a built-in style.

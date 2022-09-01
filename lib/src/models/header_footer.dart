@@ -124,6 +124,29 @@ class HeaderFooter extends HeaderFooterLink {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (childNodes != null)
+    {
+        for (final element in childNodes)
+        {
+            element.getFilesContent(resultFilesContent);
+        }
+    }
+
+    if (drawingObjects != null)
+    {
+        drawingObjects.getFilesContent(resultFilesContent);
+    }
+
+    if (paragraphs != null)
+    {
+        paragraphs.getFilesContent(resultFilesContent);
+    }
+
+  }
 }
 
 

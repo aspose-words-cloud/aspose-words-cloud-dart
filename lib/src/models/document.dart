@@ -197,6 +197,27 @@ class Document implements ModelBase {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    if (documentProperties != null)
+    {
+        documentProperties.getFilesContent(resultFilesContent);
+    }
+
+
+
+
+    if (links != null)
+    {
+        for (final element in links)
+        {
+            element.getFilesContent(resultFilesContent);
+        }
+    }
+
+
+  }
 }
 
 /// Gets or sets the original format of the document.

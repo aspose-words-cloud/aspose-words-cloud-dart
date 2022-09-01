@@ -74,6 +74,19 @@ class ParagraphLinkCollection extends LinkElement {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (paragraphLinkList != null)
+    {
+        for (final element in paragraphLinkList)
+        {
+            element.getFilesContent(resultFilesContent);
+        }
+    }
+
+  }
 }
 
 

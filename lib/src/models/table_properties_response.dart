@@ -68,6 +68,16 @@ class TablePropertiesResponse extends WordsResponse {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (properties != null)
+    {
+        properties.getFilesContent(resultFilesContent);
+    }
+
+  }
 }
 
 

@@ -68,6 +68,16 @@ class TableCellResponse extends WordsResponse {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (cell != null)
+    {
+        cell.getFilesContent(resultFilesContent);
+    }
+
+  }
 }
 
 

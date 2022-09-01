@@ -179,6 +179,28 @@ class ReportEngineSettings implements ModelBase {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    if (csvDataLoadOptions != null)
+    {
+        csvDataLoadOptions.getFilesContent(resultFilesContent);
+    }
+
+
+
+    if (jsonDataLoadOptions != null)
+    {
+        jsonDataLoadOptions.getFilesContent(resultFilesContent);
+    }
+
+
+    if (xmlDataLoadOptions != null)
+    {
+        xmlDataLoadOptions.getFilesContent(resultFilesContent);
+    }
+
+  }
 }
 
 /// Gets or sets type of datasource.

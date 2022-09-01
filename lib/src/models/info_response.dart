@@ -107,6 +107,21 @@ class InfoResponse extends WordsResponse {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (additionalInfo != null)
+    {
+        for (final element in additionalInfo)
+        {
+            element.getFilesContent(resultFilesContent);
+        }
+    }
+
+
+
+  }
 }
 
 

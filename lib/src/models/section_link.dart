@@ -59,6 +59,11 @@ class SectionLink extends NodeLink {
     _result.addAll(super.serialize());
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+  }
 }
 
 

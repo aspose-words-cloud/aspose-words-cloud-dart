@@ -68,6 +68,16 @@ class OfficeMathObjectResponse extends WordsResponse {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (officeMathObject != null)
+    {
+        officeMathObject.getFilesContent(resultFilesContent);
+    }
+
+  }
 }
 
 

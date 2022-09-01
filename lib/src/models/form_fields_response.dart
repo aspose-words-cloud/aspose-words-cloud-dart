@@ -68,6 +68,16 @@ class FormFieldsResponse extends WordsResponse {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileContent> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (formFields != null)
+    {
+        formFields.getFilesContent(resultFilesContent);
+    }
+
+  }
 }
 
 
