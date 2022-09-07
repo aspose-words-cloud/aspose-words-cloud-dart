@@ -50,10 +50,19 @@ class ConvertDocumentRequest implements RequestBase {
   /// Original document storage.
   final String storage;
 
+  /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+  final String loadEncoding;
+
+  /// Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
+  final String password;
+
+  /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+  final String encryptedPassword;
+
   /// Folder in filestorage with custom fonts.
   final String fontsLocation;
 
-  ConvertDocumentRequest(final this.document, final this.format, {final this.outPath, final this.fileNameFieldValue, final this.storage, final this.fontsLocation});
+  ConvertDocumentRequest(final this.document, final this.format, {final this.outPath, final this.fileNameFieldValue, final this.storage, final this.loadEncoding, final this.password, final this.encryptedPassword, final this.fontsLocation});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -78,6 +87,18 @@ class ConvertDocumentRequest implements RequestBase {
 
     if (storage != null) {
       _queryParams['storage'] = _apiClient.serializeToString(storage);
+    }
+
+    if (loadEncoding != null) {
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
+    }
+
+    if (password != null) {
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
+    }
+
+    if (encryptedPassword != null) {
+      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword);
     }
 
     if (fontsLocation != null) {

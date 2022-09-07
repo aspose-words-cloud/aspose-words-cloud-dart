@@ -1,3 +1,8 @@
+## [22.8.0] - Aspose Words Cloud for Dart 22.8 Release Notes
+
+- Added optional loadEncoding and password parameters for ConvertDocument API method.
+
+
 ## [22.7.0] - Aspose Words Cloud for Dart 22.7 Release Notes
 
 - Expand 'AppendDocument' API method to support 'ImageEntryList' for directly appending images to documents and another images.
