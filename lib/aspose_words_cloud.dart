@@ -27,6 +27,7 @@
 
 library aspose_words_cloud;
 
+export 'src/models/file_reference.dart';
 export 'src/api_exception.dart';
 export 'src/configuration.dart';
 export 'src/models/api_error.dart';
