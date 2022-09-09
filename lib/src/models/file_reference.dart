@@ -45,10 +45,10 @@ class FileReference implements ModelBase {
   /// Gets the file content
   ByteData get content => _content;
 
-  FileReference(String remoteFilePath)
+  FileReference.fromRemoteFile(String remoteFilePath)
     : _source = 'Storage', _content = null, _reference = remoteFilePath;
 
-  FileReference(ByteData localFileContent)
+  FileReference.fromLocalFile(ByteData localFileContent)
     : _source = 'Request', _content = localFileContent, _reference = Uuid().v4();
 
   @override
