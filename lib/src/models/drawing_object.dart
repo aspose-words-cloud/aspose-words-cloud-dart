@@ -299,32 +299,7 @@ class DrawingObject extends DrawingObjectLink {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    super.getFilesContent(resultFilesContent);
-    if (imageDataLink != null)
-    {
-        imageDataLink.getFilesContent(resultFilesContent);
-    }
-
-
-    if (oleDataLink != null)
-    {
-        oleDataLink.getFilesContent(resultFilesContent);
-    }
-
-
-
-    if (renderLinks != null)
-    {
-        for (final element in renderLinks)
-        {
-            element.getFilesContent(resultFilesContent);
-        }
-    }
-
-
-
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

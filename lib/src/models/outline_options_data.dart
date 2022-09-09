@@ -152,20 +152,7 @@ class OutlineOptionsData implements ModelBase {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    if (bookmarksOutlineLevels != null)
-    {
-        for (final element in bookmarksOutlineLevels)
-        {
-            element.getFilesContent(resultFilesContent);
-        }
-    }
-
-
-
-
-
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

@@ -70,13 +70,7 @@ class CustomXmlPartResponse extends WordsResponse {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    super.getFilesContent(resultFilesContent);
-    if (customXmlPart != null)
-    {
-        customXmlPart.getFilesContent(resultFilesContent);
-    }
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

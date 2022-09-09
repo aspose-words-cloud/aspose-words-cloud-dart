@@ -148,18 +148,7 @@ abstract class CommentBase implements ModelBase {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    if (rangeEnd != null)
-    {
-        rangeEnd.getFilesContent(resultFilesContent);
-    }
-
-    if (rangeStart != null)
-    {
-        rangeStart.getFilesContent(resultFilesContent);
-    }
-
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

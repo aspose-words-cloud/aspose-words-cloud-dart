@@ -1,3 +1,9 @@
+## [22.9.0] - Aspose Words Cloud for Dart 22.9 Release Notes
+
+- CompressDocument method now can handle images.
+- Added support to convert password protected document using ConvertDocument API.
+
+
 ## [22.8.0] - Aspose Words Cloud for Dart 22.8 Release Notes
 
 - Added optional loadEncoding and password parameters for ConvertDocument API method.

@@ -331,25 +331,7 @@ abstract class SaveOptionsData implements ModelBase {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    if (customTimeZoneInfoData != null)
-    {
-        customTimeZoneInfoData.getFilesContent(resultFilesContent);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

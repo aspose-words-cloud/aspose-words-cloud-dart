@@ -407,27 +407,7 @@ class ListLevel extends LinkElement {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    super.getFilesContent(resultFilesContent);
-    if (font != null)
-    {
-        font.getFilesContent(resultFilesContent);
-    }
-
-
-    if (linkedStyle != null)
-    {
-        linkedStyle.getFilesContent(resultFilesContent);
-    }
-
-
-
-
-
-
-
-
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

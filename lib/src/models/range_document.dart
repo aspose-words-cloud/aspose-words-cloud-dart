@@ -61,7 +61,7 @@ class RangeDocument implements ModelBase {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

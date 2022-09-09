@@ -70,13 +70,7 @@ class ListsResponse extends WordsResponse {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    super.getFilesContent(resultFilesContent);
-    if (lists != null)
-    {
-        lists.getFilesContent(resultFilesContent);
-    }
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

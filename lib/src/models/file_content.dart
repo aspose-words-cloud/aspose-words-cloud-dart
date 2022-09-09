@@ -31,58 +31,47 @@ import 'dart:typed_data';
 import 'package:uuid/uuid.dart';
 import '../../aspose_words_cloud.dart';
 
-class FileContent implements ModelBase {
-  String _filename;
-  String _id;
+class FileReference implements ModelBase {
+  String _source;
+  String _reference;
   ByteData _content;
 
-  /// Gets the file name.
-  String get filename => _filename;
+  /// Gets the file source.
+  String get source => _source;
 
-  /// Gets the file id in multipart.
-  String get id => _id;
+  /// Gets the file reference.
+  String get reference => _reference;
 
   /// Gets the file content
   ByteData get content => _content;
 
-  FileContent(String filename, ByteData content)
-    : _filename = filename, _content = content, _id = Uuid().v4();
+  FileReference(String remoteFilePath)
+    : _source = 'Storage', _content = null, _reference = remoteFilePath;
+
+  FileReference(ByteData localFileContent)
+    : _source = 'Request', _content = localFileContent, _reference = Uuid().v4();
 
   @override
   void deserialize(Map<String, dynamic> json) {
-    if (json == null) {
-      throw ApiException(400, 'Failed to deserialize FileContent data model.');
-    }
-
-    if (json.containsKey('Filename')) {
-      _filename = json['Filename'] as String;
-    } else {
-      _filename = null;
-    }
-
-    if (json.containsKey('Id')) {
-      _id = json['Id'] as String;
-    } else {
-      _id = null;
-    }
+    throw ApiException(400, 'Failed to deserialize FileReference data model.');
   }
 
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
-    if (_filename != null) {
-      _result['Filename'] = _filename;
+    if (_source != null) {
+      _result['Source'] = _source;
     }
 
-    if (_id != null) {
-      _result['Id'] = _id;
+    if (_reference != null) {
+      _result['Reference'] = _reference;
     }
 
     return _result;
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
+  void getFilesContent(List<FileReference> resultFilesContent) {
     resultFilesContent.add(this);
   }
 }

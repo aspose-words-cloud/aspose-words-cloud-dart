@@ -70,13 +70,7 @@ class OfficeMathObjectResponse extends WordsResponse {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    super.getFilesContent(resultFilesContent);
-    if (officeMathObject != null)
-    {
-        officeMathObject.getFilesContent(resultFilesContent);
-    }
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

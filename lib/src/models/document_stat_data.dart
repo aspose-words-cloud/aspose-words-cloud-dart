@@ -136,23 +136,7 @@ class DocumentStatData implements ModelBase {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    if (footnotesStatData != null)
-    {
-        footnotesStatData.getFilesContent(resultFilesContent);
-    }
-
-
-    if (pageStatData != null)
-    {
-        for (final element in pageStatData)
-        {
-            element.getFilesContent(resultFilesContent);
-        }
-    }
-
-
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

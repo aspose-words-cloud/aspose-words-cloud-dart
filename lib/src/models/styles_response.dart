@@ -75,16 +75,7 @@ class StylesResponse extends WordsResponse {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    super.getFilesContent(resultFilesContent);
-    if (styles != null)
-    {
-        for (final element in styles)
-        {
-            element.getFilesContent(resultFilesContent);
-        }
-    }
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

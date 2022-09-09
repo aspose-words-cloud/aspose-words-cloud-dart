@@ -50,7 +50,7 @@ class GetFilesListRequest implements RequestBase {
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
-    var _fileContentParts = <FileContent>[];
+    var _fileContentParts = <FileReference>[];
     if (path == null) {
       throw ApiException(400, 'Parameter path is required.');
     }
@@ -60,7 +60,9 @@ class GetFilesListRequest implements RequestBase {
     }
 
     for (final _fileContentPart in _fileContentParts) {
-        _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.id, filename: _fileContentPart.filename));
+        if (_fileContentPart.source == 'Request') {
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+        }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);

@@ -86,7 +86,7 @@ class ReplaceRangeDto implements ModelBase {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

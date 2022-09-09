@@ -30,12 +30,19 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Represents a document which will be appended to the original resource document.
-class DocumentEntry extends BaseDocumentEntry {
-  /// Gets or sets the path to document to append at the server.
-  String _href;
+class DocumentEntry extends BaseEntry {
+  /// Gets or sets document password encrypted on API public key. The default value is null (the document has no password).
+  String _encryptedPassword;
 
-  String get href => _href;
-  set href(String val) => _href = val;
+  String get encryptedPassword => _encryptedPassword;
+  set encryptedPassword(String val) => _encryptedPassword = val;
+
+
+  /// Gets or sets the option that controls formatting will be used: appended or destination document. Can be KeepSourceFormatting or UseDestinationStyles.
+  String _importFormatMode;
+
+  String get importFormatMode => _importFormatMode;
+  set importFormatMode(String val) => _importFormatMode = val;
 
 
   @override
@@ -45,6 +52,12 @@ class DocumentEntry extends BaseDocumentEntry {
     }
 
     super.deserialize(json);
+    if (json.containsKey('FileReference')) {
+      throw ApiException(400, 'File content is not supported for deserialization.');
+    } else {
+      fileReference = null;
+    }
+
     if (json.containsKey('EncryptedPassword')) {
       encryptedPassword = json['EncryptedPassword'] as String;
     } else {
@@ -56,26 +69,24 @@ class DocumentEntry extends BaseDocumentEntry {
     } else {
       importFormatMode = null;
     }
-
-    if (json.containsKey('Href')) {
-      href = json['Href'] as String;
-    } else {
-      href = null;
-    }
   }
 
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (href != null) {
-      _result['Href'] = href;
+    if (encryptedPassword != null) {
+      _result['EncryptedPassword'] = encryptedPassword;
+    }
+
+    if (importFormatMode != null) {
+      _result['ImportFormatMode'] = importFormatMode;
     }
     return _result;
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
+  void getFilesContent(List<FileReference> resultFilesContent) {
     super.getFilesContent(resultFilesContent);
   }
 }

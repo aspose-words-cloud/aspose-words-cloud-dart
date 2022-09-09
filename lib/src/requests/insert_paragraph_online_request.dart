@@ -73,7 +73,7 @@ class InsertParagraphOnlineRequest implements RequestBase {
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
-    var _fileContentParts = <FileContent>[];
+    var _fileContentParts = <FileReference>[];
     _path = _path.replaceAll('{nodePath}', _apiClient.serializeToString(nodePath) ?? '');
     if (loadEncoding != null) {
       _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
@@ -112,14 +112,15 @@ class InsertParagraphOnlineRequest implements RequestBase {
 
     if (paragraph != null) {
       _bodyParts.add(_apiClient.serializeBody(paragraph, 'Paragraph'));
-      paragraph.getFilesContent(_fileContentParts);
     }
     else {
       throw ApiException(400, 'Parameter paragraph is required.');
     }
 
     for (final _fileContentPart in _fileContentParts) {
-        _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.id, filename: _fileContentPart.filename));
+        if (_fileContentPart.source == 'Request') {
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+        }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);

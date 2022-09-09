@@ -87,14 +87,7 @@ class ReplaceTextResponse extends WordsResponse {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    super.getFilesContent(resultFilesContent);
-    if (documentLink != null)
-    {
-        documentLink.getFilesContent(resultFilesContent);
-    }
-
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

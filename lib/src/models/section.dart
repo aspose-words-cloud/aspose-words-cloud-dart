@@ -148,36 +148,7 @@ class Section extends LinkElement {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    super.getFilesContent(resultFilesContent);
-    if (childNodes != null)
-    {
-        for (final element in childNodes)
-        {
-            element.getFilesContent(resultFilesContent);
-        }
-    }
-
-    if (headerFooters != null)
-    {
-        headerFooters.getFilesContent(resultFilesContent);
-    }
-
-    if (pageSetup != null)
-    {
-        pageSetup.getFilesContent(resultFilesContent);
-    }
-
-    if (paragraphs != null)
-    {
-        paragraphs.getFilesContent(resultFilesContent);
-    }
-
-    if (tables != null)
-    {
-        tables.getFilesContent(resultFilesContent);
-    }
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

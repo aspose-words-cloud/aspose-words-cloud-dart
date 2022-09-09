@@ -304,19 +304,7 @@ class TableCellFormat extends LinkElement {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    super.getFilesContent(resultFilesContent);
-    if (preferredWidth != null)
-    {
-        preferredWidth.getFilesContent(resultFilesContent);
-    }
-
-
-
-
-
-
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

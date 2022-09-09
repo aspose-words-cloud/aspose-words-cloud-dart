@@ -298,23 +298,7 @@ class FieldOptions implements ModelBase {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    if (currentUser != null)
-    {
-        currentUser.getFilesContent(resultFilesContent);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

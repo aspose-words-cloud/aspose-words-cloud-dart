@@ -103,25 +103,7 @@ class SaveResult implements ModelBase {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    if (additionalItems != null)
-    {
-        for (final element in additionalItems)
-        {
-            element.getFilesContent(resultFilesContent);
-        }
-    }
-
-    if (destDocument != null)
-    {
-        destDocument.getFilesContent(resultFilesContent);
-    }
-
-    if (sourceDocument != null)
-    {
-        sourceDocument.getFilesContent(resultFilesContent);
-    }
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

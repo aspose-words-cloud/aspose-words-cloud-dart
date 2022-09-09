@@ -100,21 +100,7 @@ class Table extends NodeLink {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    super.getFilesContent(resultFilesContent);
-    if (tableProperties != null)
-    {
-        tableProperties.getFilesContent(resultFilesContent);
-    }
-
-    if (tableRowList != null)
-    {
-        for (final element in tableRowList)
-        {
-            element.getFilesContent(resultFilesContent);
-        }
-    }
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

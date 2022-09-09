@@ -76,16 +76,7 @@ class ParagraphLinkCollection extends LinkElement {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    super.getFilesContent(resultFilesContent);
-    if (paragraphLinkList != null)
-    {
-        for (final element in paragraphLinkList)
-        {
-            element.getFilesContent(resultFilesContent);
-        }
-    }
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

@@ -113,15 +113,7 @@ class PageStatData implements ModelBase {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    if (footnotesStatData != null)
-    {
-        footnotesStatData.getFilesContent(resultFilesContent);
-    }
-
-
-
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

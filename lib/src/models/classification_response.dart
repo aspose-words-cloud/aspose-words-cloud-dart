@@ -109,16 +109,7 @@ class ClassificationResponse extends WordsResponse {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    super.getFilesContent(resultFilesContent);
-    if (bestResults != null)
-    {
-        for (final element in bestResults)
-        {
-            element.getFilesContent(resultFilesContent);
-        }
-    }
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

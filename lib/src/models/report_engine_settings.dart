@@ -181,25 +181,7 @@ class ReportEngineSettings implements ModelBase {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    if (csvDataLoadOptions != null)
-    {
-        csvDataLoadOptions.getFilesContent(resultFilesContent);
-    }
-
-
-
-    if (jsonDataLoadOptions != null)
-    {
-        jsonDataLoadOptions.getFilesContent(resultFilesContent);
-    }
-
-
-    if (xmlDataLoadOptions != null)
-    {
-        xmlDataLoadOptions.getFilesContent(resultFilesContent);
-    }
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

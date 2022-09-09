@@ -71,7 +71,7 @@ class BuildReportRequest implements RequestBase {
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
-    var _fileContentParts = <FileContent>[];
+    var _fileContentParts = <FileReference>[];
     if (name == null) {
       throw ApiException(400, 'Parameter name is required.');
     }
@@ -109,14 +109,15 @@ class BuildReportRequest implements RequestBase {
 
     if (reportEngineSettings != null) {
       _bodyParts.add(_apiClient.serializeBody(reportEngineSettings, 'ReportEngineSettings'));
-      reportEngineSettings.getFilesContent(_fileContentParts);
     }
     else {
       throw ApiException(400, 'Parameter reportEngineSettings is required.');
     }
 
     for (final _fileContentPart in _fileContentParts) {
-        _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.id, filename: _fileContentPart.filename));
+        if (_fileContentPart.source == 'Request') {
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+        }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);

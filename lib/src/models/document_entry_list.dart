@@ -30,7 +30,14 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Represents a list of documents which will be appended to the original resource document.
-class DocumentEntryList extends BaseDocumentEntryList {
+class DocumentEntryList extends BaseEntryList {
+  /// Gets or sets a value indicating whether to apply headers and footers from base document to appending documents. The default value is true.
+  bool _applyBaseDocumentHeadersAndFootersToAppendingDocuments;
+
+  bool get applyBaseDocumentHeadersAndFootersToAppendingDocuments => _applyBaseDocumentHeadersAndFootersToAppendingDocuments;
+  set applyBaseDocumentHeadersAndFootersToAppendingDocuments(bool val) => _applyBaseDocumentHeadersAndFootersToAppendingDocuments = val;
+
+
   /// Gets or sets the list of documents.
   List<DocumentEntry> _documentEntries;
 
@@ -68,6 +75,10 @@ class DocumentEntryList extends BaseDocumentEntryList {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
+    if (applyBaseDocumentHeadersAndFootersToAppendingDocuments != null) {
+      _result['ApplyBaseDocumentHeadersAndFootersToAppendingDocuments'] = applyBaseDocumentHeadersAndFootersToAppendingDocuments;
+    }
+
     if (documentEntries != null) {
       _result['DocumentEntries'] = documentEntries.map((_element) => _element.serialize()).toList();
     }
@@ -75,7 +86,7 @@ class DocumentEntryList extends BaseDocumentEntryList {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
+  void getFilesContent(List<FileReference> resultFilesContent) {
     super.getFilesContent(resultFilesContent);
     if (documentEntries != null)
     {

@@ -67,15 +67,7 @@ class FilesList implements ModelBase {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    if (value != null)
-    {
-        for (final element in value)
-        {
-            element.getFilesContent(resultFilesContent);
-        }
-    }
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

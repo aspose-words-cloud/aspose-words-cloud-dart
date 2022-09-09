@@ -155,21 +155,7 @@ class Footnote extends FootnoteLink {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    super.getFilesContent(resultFilesContent);
-    if (content != null)
-    {
-        content.getFilesContent(resultFilesContent);
-    }
-
-
-    if (position != null)
-    {
-        position.getFilesContent(resultFilesContent);
-    }
-
-
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

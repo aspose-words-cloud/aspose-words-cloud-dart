@@ -76,16 +76,7 @@ class SearchResultsCollection extends LinkElement {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    super.getFilesContent(resultFilesContent);
-    if (resultsList != null)
-    {
-        for (final element in resultsList)
-        {
-            element.getFilesContent(resultFilesContent);
-        }
-    }
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

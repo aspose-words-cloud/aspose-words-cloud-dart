@@ -199,24 +199,7 @@ class Document implements ModelBase {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    if (documentProperties != null)
-    {
-        documentProperties.getFilesContent(resultFilesContent);
-    }
-
-
-
-
-    if (links != null)
-    {
-        for (final element in links)
-        {
-            element.getFilesContent(resultFilesContent);
-        }
-    }
-
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

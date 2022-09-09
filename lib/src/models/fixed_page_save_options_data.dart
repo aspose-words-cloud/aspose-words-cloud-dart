@@ -293,17 +293,7 @@ abstract class FixedPageSaveOptionsData extends SaveOptionsData {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    super.getFilesContent(resultFilesContent);
-    if (metafileRenderingOptions != null)
-    {
-        metafileRenderingOptions.getFilesContent(resultFilesContent);
-    }
-
-
-
-
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

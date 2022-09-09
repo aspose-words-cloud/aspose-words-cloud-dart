@@ -72,8 +72,7 @@ class WordsApiLink extends Link {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    super.getFilesContent(resultFilesContent);
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

@@ -209,18 +209,7 @@ class Shading implements ModelBase {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    if (backgroundPatternColor != null)
-    {
-        backgroundPatternColor.getFilesContent(resultFilesContent);
-    }
-
-    if (foregroundPatternColor != null)
-    {
-        foregroundPatternColor.getFilesContent(resultFilesContent);
-    }
-
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

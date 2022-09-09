@@ -1017,20 +1017,7 @@ class Style extends LinkElement {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    super.getFilesContent(resultFilesContent);
-    if (font != null)
-    {
-        font.getFilesContent(resultFilesContent);
-    }
-
-
-
-
-
-
-
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

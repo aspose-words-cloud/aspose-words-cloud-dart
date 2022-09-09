@@ -80,17 +80,7 @@ class ModificationOperationResult implements ModelBase {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    if (dest != null)
-    {
-        dest.getFilesContent(resultFilesContent);
-    }
-
-    if (source != null)
-    {
-        source.getFilesContent(resultFilesContent);
-    }
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

@@ -32,5 +32,5 @@ import '../../aspose_words_cloud.dart';
 abstract class ModelBase {
   void deserialize(Map<String, dynamic> json);
   Map<String, dynamic> serialize();
-  void getFilesContent(List<FileContent> resultFilesContent);
+  void getFilesContent(List<FileReference> resultFilesContent);
 }

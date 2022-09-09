@@ -121,32 +121,7 @@ class AvailableFontsResponse extends WordsResponse {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    super.getFilesContent(resultFilesContent);
-    if (additionalFonts != null)
-    {
-        for (final element in additionalFonts)
-        {
-            element.getFilesContent(resultFilesContent);
-        }
-    }
-
-    if (customFonts != null)
-    {
-        for (final element in customFonts)
-        {
-            element.getFilesContent(resultFilesContent);
-        }
-    }
-
-    if (systemFonts != null)
-    {
-        for (final element in systemFonts)
-        {
-            element.getFilesContent(resultFilesContent);
-        }
-    }
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

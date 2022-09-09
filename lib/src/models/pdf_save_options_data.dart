@@ -744,47 +744,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    super.getFilesContent(resultFilesContent);
-    if (digitalSignatureDetails != null)
-    {
-        digitalSignatureDetails.getFilesContent(resultFilesContent);
-    }
-
-
-    if (downsampleOptions != null)
-    {
-        downsampleOptions.getFilesContent(resultFilesContent);
-    }
-
-
-    if (encryptionDetails != null)
-    {
-        encryptionDetails.getFilesContent(resultFilesContent);
-    }
-
-
-
-
-
-
-
-
-
-    if (outlineOptions != null)
-    {
-        outlineOptions.getFilesContent(resultFilesContent);
-    }
-
-
-
-
-
-
-
-
-
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

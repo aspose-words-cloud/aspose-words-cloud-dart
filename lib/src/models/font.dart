@@ -1556,60 +1556,7 @@ class Font extends LinkElement {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    super.getFilesContent(resultFilesContent);
-    if (border != null)
-    {
-        border.getFilesContent(resultFilesContent);
-    }
-
-    if (color != null)
-    {
-        color.getFilesContent(resultFilesContent);
-    }
-
-
-
-
-
-
-    if (highlightColor != null)
-    {
-        highlightColor.getFilesContent(resultFilesContent);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    if (underlineColor != null)
-    {
-        underlineColor.getFilesContent(resultFilesContent);
-    }
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

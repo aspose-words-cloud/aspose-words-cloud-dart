@@ -228,8 +228,7 @@ abstract class TxtSaveOptionsBaseData extends SaveOptionsData {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    super.getFilesContent(resultFilesContent);
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

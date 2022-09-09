@@ -174,18 +174,7 @@ class ListInfo extends LinkElement {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    super.getFilesContent(resultFilesContent);
-    if (listLevels != null)
-    {
-        listLevels.getFilesContent(resultFilesContent);
-    }
-
-    if (style != null)
-    {
-        style.getFilesContent(resultFilesContent);
-    }
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

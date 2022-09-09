@@ -96,13 +96,7 @@ class TableInsertDto implements ModelBase {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    if (position != null)
-    {
-        position.getFilesContent(resultFilesContent);
-    }
-
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

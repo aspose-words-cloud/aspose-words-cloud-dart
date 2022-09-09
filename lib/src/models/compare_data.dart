@@ -130,15 +130,7 @@ class CompareData implements ModelBase {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    if (compareOptions != null)
-    {
-        compareOptions.getFilesContent(resultFilesContent);
-    }
-
-
-
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

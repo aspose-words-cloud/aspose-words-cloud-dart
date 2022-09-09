@@ -216,16 +216,7 @@ class OfficeMathObject extends OfficeMathLink {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    super.getFilesContent(resultFilesContent);
-    if (content != null)
-    {
-        content.getFilesContent(resultFilesContent);
-    }
-
-
-
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

@@ -282,15 +282,7 @@ class XpsSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    super.getFilesContent(resultFilesContent);
-    if (outlineOptions != null)
-    {
-        outlineOptions.getFilesContent(resultFilesContent);
-    }
-
-
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

@@ -130,13 +130,7 @@ class ApiError implements ModelBase {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    if (innerError != null)
-    {
-        innerError.getFilesContent(resultFilesContent);
-    }
-
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

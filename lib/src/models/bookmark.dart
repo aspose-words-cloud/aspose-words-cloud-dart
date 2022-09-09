@@ -87,8 +87,7 @@ class Bookmark extends LinkElement {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    super.getFilesContent(resultFilesContent);
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

@@ -103,25 +103,7 @@ class SplitDocumentResult implements ModelBase {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    if (pages != null)
-    {
-        for (final element in pages)
-        {
-            element.getFilesContent(resultFilesContent);
-        }
-    }
-
-    if (sourceDocument != null)
-    {
-        sourceDocument.getFilesContent(resultFilesContent);
-    }
-
-    if (zippedPages != null)
-    {
-        zippedPages.getFilesContent(resultFilesContent);
-    }
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

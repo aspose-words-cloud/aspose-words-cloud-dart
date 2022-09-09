@@ -88,16 +88,7 @@ class FilesUploadResult implements ModelBase {
   }
 
   @override
-  void getFilesContent(List<FileContent> resultFilesContent) {
-    if (errors != null)
-    {
-        for (final element in errors)
-        {
-            element.getFilesContent(resultFilesContent);
-        }
-    }
-
-
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 
