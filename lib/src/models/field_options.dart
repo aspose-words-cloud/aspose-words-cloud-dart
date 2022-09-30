@@ -296,6 +296,10 @@ class FieldOptions implements ModelBase {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 /// Gets or sets Field Index Format.

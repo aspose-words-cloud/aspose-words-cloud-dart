@@ -446,6 +446,10 @@ abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 /// Gets or sets the color mode of the image.

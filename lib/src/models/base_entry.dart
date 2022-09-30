@@ -29,13 +29,13 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Represents a entry which will be appended to the original resource document.
-class BaseEntry implements ModelBase {
-  /// Gets or sets the path to entry to append at the server.
-  String _href;
+/// Represents a base class for document which will be appended to the original resource document.
+abstract class BaseEntry implements ModelBase {
+  /// Gets or sets the file reference.
+  FileReference _fileReference;
 
-  String get href => _href;
-  set href(String val) => _href = val;
+  FileReference get fileReference => _fileReference;
+  set fileReference(FileReference val) => _fileReference = val;
 
 
   @override
@@ -44,20 +44,29 @@ class BaseEntry implements ModelBase {
       throw ApiException(400, 'Failed to deserialize BaseEntry data model.');
     }
 
-    if (json.containsKey('Href')) {
-      href = json['Href'] as String;
+    if (json.containsKey('FileReference')) {
+      throw ApiException(400, 'File content is not supported for deserialization.');
     } else {
-      href = null;
+      fileReference = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
-    if (href != null) {
-      _result['Href'] = href;
+    if (fileReference != null) {
+      _result['FileReference'] = fileReference.serialize();
     }
     return _result;
+  }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+    if (fileReference != null)
+    {
+        fileReference.getFilesContent(resultFilesContent);
+    }
+
   }
 }
 

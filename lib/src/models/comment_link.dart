@@ -53,6 +53,10 @@ class CommentLink extends LinkElement {
     _result.addAll(super.serialize());
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 

@@ -194,33 +194,29 @@ class ApiClient {
     }
   }
 
-  ByteData serializeBody(final dynamic value, {bool isJson = false}) {
+  ApiRequestPart serializeBody(final dynamic value, final String name) {
     if (value == null) {
       return null;
     }
     else if (value is ModelBase) {
       var json = jsonEncode(value.serialize());
-      return ByteData.view(utf8.encoder.convert(json).buffer);
+      var data = ByteData.view(utf8.encoder.convert(json).buffer);
+      return ApiRequestPart(data, 'application/json', name: name);
     }
     else if (value is ByteData) {
-      return value;
+      return ApiRequestPart(value, 'application/octet-stream', name: name);
     }
     else if (value is String) {
-      if (isJson) {
-        return ByteData.view(utf8.encoder.convert('"$value"').buffer);
-      }
-      else {
-        return ByteData.view(utf8.encoder.convert(value).buffer);
-      }
+      return ApiRequestPart(ByteData.view(utf8.encoder.convert(value).buffer), 'text/plain', name: name);
     }
     else if (value is int) {
-      return ByteData.view(utf8.encoder.convert(value.toString()).buffer);
+      return ApiRequestPart(ByteData.view(utf8.encoder.convert(value.toString()).buffer), 'text/plain', name: name);
     }
     else if (value is bool) {
-      return ByteData.view(utf8.encoder.convert(value ? 'true' : 'false').buffer);
+      return ApiRequestPart(ByteData.view(utf8.encoder.convert(value ? 'true' : 'false').buffer), 'text/plain', name: name);
     }
     else if (value is double) {
-      return ByteData.view(utf8.encoder.convert(value.toString().replaceFirst(',', '.')).buffer);
+      return ApiRequestPart(ByteData.view(utf8.encoder.convert(value.toString().replaceFirst(',', '.')).buffer), 'text/plain', name: name);
     }
     else {
       throw ApiException(400, 'Unable to serialize ${value.runtimeType}.');
@@ -273,8 +269,12 @@ class ApiClient {
       formBody.add(utf8.encoder.convert('Content-Type: ${formParam.mimeType}\r\n'));
       formBody.add(utf8.encoder.convert('Content-Disposition: form-data'));
 
-      if (formParam.name != null) {
+      if (formParam.name != null && formParam.name.isNotEmpty) {
         formBody.add(utf8.encoder.convert('; name="${formParam.name}"'));
+      }
+
+      if (formParam.filename != null && formParam.filename.isNotEmpty) {
+        formBody.add(utf8.encoder.convert('; filename="${formParam.filename}"'));
       }
 
       formBody.add(utf8.encoder.convert('\r\n\r\n'));

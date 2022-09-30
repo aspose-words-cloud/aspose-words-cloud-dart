@@ -129,6 +129,10 @@ class TableRowFormat extends LinkElement {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 /// Gets or sets the rule for determining the height of the table row.

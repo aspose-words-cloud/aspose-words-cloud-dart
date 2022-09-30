@@ -742,6 +742,10 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 /// Gets or sets the PDF standards compliance level for output documents.

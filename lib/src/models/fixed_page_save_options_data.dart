@@ -291,6 +291,10 @@ abstract class FixedPageSaveOptionsData extends SaveOptionsData {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 /// Gets or sets the value determining how colors are rendered.

@@ -897,6 +897,10 @@ class HtmlSaveOptionsData extends SaveOptionsData {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 /// Gets or sets the option that controls how the CSS styles are exported.

@@ -107,6 +107,10 @@ class ListInsert implements ModelBase {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 /// Gets or sets the option that controls how list should be restarted at each section.

@@ -61,6 +61,7 @@ class ExecuteMailMergeOnlineRequest implements RequestBase {
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
+    var _fileContentParts = <FileReference>[];
     if (withRegions != null) {
       _queryParams['withRegions'] = _apiClient.serializeToString(withRegions);
     }
@@ -74,23 +75,28 @@ class ExecuteMailMergeOnlineRequest implements RequestBase {
     }
 
     if (template != null) {
-      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(template), 'application/octet-stream', name: 'Template'));
+      _bodyParts.add(_apiClient.serializeBody(template, 'Template'));
     }
     else {
       throw ApiException(400, 'Parameter template is required.');
     }
 
     if (data != null) {
-      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(data), 'application/octet-stream', name: 'Data'));
+      _bodyParts.add(_apiClient.serializeBody(data, 'Data'));
     }
     else {
       throw ApiException(400, 'Parameter data is required.');
     }
 
     if (options != null) {
-      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(options), 'application/json', name: 'Options'));
+      _bodyParts.add(_apiClient.serializeBody(options, 'Options'));
     }
 
+    for (final _fileContentPart in _fileContentParts) {
+        if (_fileContentPart.source == 'Request') {
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+        }
+    }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
     return ApiRequestData('PUT', _url, _headers, _body);

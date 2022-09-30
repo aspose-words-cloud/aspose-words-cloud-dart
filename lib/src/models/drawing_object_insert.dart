@@ -241,6 +241,10 @@ class DrawingObjectInsert implements ModelBase {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 /// Gets or sets the relative horizontal position, from which the distance to the image is measured.

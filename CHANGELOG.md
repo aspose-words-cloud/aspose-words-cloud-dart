@@ -1,3 +1,9 @@
+## [22.10.0] - Aspose Words Cloud for Dart 22.10 Release Notes
+
+- FileReference structure has been added that allows to determine how the document will be accessed: from the remote storage, or loaded directly in the request.
+- The 'AppendDocument' and 'AppendDocumentOnline' methods takes a 'FileReference' instead of an 'href' property.
+
+
 ## [22.9.0] - Aspose Words Cloud for Dart 22.9 Release Notes
 
 - CompressDocument method now can handle images.

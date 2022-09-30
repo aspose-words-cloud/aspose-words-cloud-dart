@@ -236,6 +236,10 @@ class OpenXpsSaveOptionsData extends XpsSaveOptionsData {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 

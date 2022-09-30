@@ -88,6 +88,10 @@ class StyleInsert implements ModelBase {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 /// Gets or sets the StyleType value that specifies the type of the style to create.

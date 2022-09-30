@@ -162,6 +162,10 @@ class FormFieldCheckbox extends FormField {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 

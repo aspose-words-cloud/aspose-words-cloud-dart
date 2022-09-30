@@ -74,6 +74,7 @@ class AppendDocumentRequest implements RequestBase {
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
+    var _fileContentParts = <FileReference>[];
     if (name == null) {
       throw ApiException(400, 'Parameter name is required.');
     }
@@ -111,12 +112,18 @@ class AppendDocumentRequest implements RequestBase {
     }
 
     if (documentList != null) {
-      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(documentList), 'application/json'));
+      _bodyParts.add(_apiClient.serializeBody(documentList, 'Body'));
+      documentList.getFilesContent(_fileContentParts);
     }
     else {
       throw ApiException(400, 'Parameter documentList is required.');
     }
 
+    for (final _fileContentPart in _fileContentParts) {
+        if (_fileContentPart.source == 'Request') {
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+        }
+    }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
     return ApiRequestData('PUT', _url, _headers, _body);

@@ -84,6 +84,19 @@ class DocumentEntryList extends BaseEntryList {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (documentEntries != null)
+    {
+        for (final element in documentEntries)
+        {
+            element.getFilesContent(resultFilesContent);
+        }
+    }
+
+  }
 }
 
 

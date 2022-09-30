@@ -124,6 +124,10 @@ class HeaderFooter extends HeaderFooterLink {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 

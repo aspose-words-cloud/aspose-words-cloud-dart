@@ -45,6 +45,10 @@ class TablePropertiesDto implements ModelBase {
     var _result = <String, dynamic>{};
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 

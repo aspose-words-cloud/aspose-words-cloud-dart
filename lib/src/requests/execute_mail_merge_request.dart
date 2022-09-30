@@ -83,6 +83,7 @@ class ExecuteMailMergeRequest implements RequestBase {
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
+    var _fileContentParts = <FileReference>[];
     if (name == null) {
       throw ApiException(400, 'Parameter name is required.');
     }
@@ -128,13 +129,18 @@ class ExecuteMailMergeRequest implements RequestBase {
     }
 
     if (data != null) {
-      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(data), 'application/json', name: 'Data'));
+      _bodyParts.add(_apiClient.serializeBody(data, 'Data'));
     }
 
     if (options != null) {
-      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(options), 'application/json', name: 'Options'));
+      _bodyParts.add(_apiClient.serializeBody(options, 'Options'));
     }
 
+    for (final _fileContentPart in _fileContentParts) {
+        if (_fileContentPart.source == 'Request') {
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+        }
+    }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
     return ApiRequestData('PUT', _url, _headers, _body);

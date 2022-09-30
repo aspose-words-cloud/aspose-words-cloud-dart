@@ -75,6 +75,10 @@ class FootnoteUpdate extends FootnoteBase {
     _result.addAll(super.serialize());
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 

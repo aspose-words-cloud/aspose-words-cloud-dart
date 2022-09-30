@@ -301,6 +301,10 @@ class BmpSaveOptionsData extends ImageSaveOptionsData {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 

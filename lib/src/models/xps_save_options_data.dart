@@ -280,6 +280,10 @@ class XpsSaveOptionsData extends FixedPageSaveOptionsData {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 

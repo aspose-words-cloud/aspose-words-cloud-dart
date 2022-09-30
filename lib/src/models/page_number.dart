@@ -52,6 +52,13 @@ class PageNumber implements ModelBase {
   set isTop(bool val) => _isTop = val;
 
 
+  /// Gets or sets the starting page number of the document.
+  int _pageStartingNumber;
+
+  int get pageStartingNumber => _pageStartingNumber;
+  set pageStartingNumber(int val) => _pageStartingNumber = val;
+
+
   /// Gets or sets a value indicating whether if true the page number is added on first page too.
   bool _setPageNumberOnFirstPage;
 
@@ -83,6 +90,12 @@ class PageNumber implements ModelBase {
       isTop = null;
     }
 
+    if (json.containsKey('PageStartingNumber')) {
+      pageStartingNumber = json['PageStartingNumber'] as int;
+    } else {
+      pageStartingNumber = null;
+    }
+
     if (json.containsKey('SetPageNumberOnFirstPage')) {
       setPageNumberOnFirstPage = json['SetPageNumberOnFirstPage'] as bool;
     } else {
@@ -105,10 +118,18 @@ class PageNumber implements ModelBase {
       _result['IsTop'] = isTop;
     }
 
+    if (pageStartingNumber != null) {
+      _result['PageStartingNumber'] = pageStartingNumber;
+    }
+
     if (setPageNumberOnFirstPage != null) {
       _result['SetPageNumberOnFirstPage'] = setPageNumberOnFirstPage;
     }
     return _result;
+  }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

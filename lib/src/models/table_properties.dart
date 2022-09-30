@@ -1093,6 +1093,10 @@ class TableProperties extends LinkElement {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 /// Gets or sets the option that controls how an inline table is aligned in the document.

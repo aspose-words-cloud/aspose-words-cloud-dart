@@ -1015,6 +1015,10 @@ class Style extends LinkElement {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 /// Gets or sets the locale independent style identifier for a built-in style.

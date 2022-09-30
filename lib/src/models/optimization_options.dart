@@ -79,6 +79,10 @@ class OptimizationOptions implements ModelBase {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 /// Gets or sets the specific MSWord version.

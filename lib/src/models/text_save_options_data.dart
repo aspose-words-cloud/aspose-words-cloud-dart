@@ -256,6 +256,10 @@ class TextSaveOptionsData extends TxtSaveOptionsBaseData {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 

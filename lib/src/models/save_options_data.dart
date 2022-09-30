@@ -329,6 +329,10 @@ abstract class SaveOptionsData implements ModelBase {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 /// Gets or sets the value determining how 3D effects are rendered.
