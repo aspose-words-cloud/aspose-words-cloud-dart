@@ -197,12 +197,6 @@ class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
       fileName = null;
     }
 
-    if (json.containsKey('FlatOpcXmlMappingOnly')) {
-      flatOpcXmlMappingOnly = json['FlatOpcXmlMappingOnly'] as bool;
-    } else {
-      flatOpcXmlMappingOnly = null;
-    }
-
     if (json.containsKey('ImlRenderingMode')) {
       switch (json['ImlRenderingMode'] as String) {
         case 'Fallback': imlRenderingMode = SaveOptionsData_ImlRenderingModeEnum.fallback; break;

@@ -74,14 +74,6 @@ abstract class SaveOptionsData implements ModelBase {
   set fileName(String val) => _fileName = val;
 
 
-  /// Gets or sets value determining which document formats are allowed to be mapped by Aspose.Words.Markup.StructuredDocumentTag.XmlMapping.
-  /// By default only Aspose.Words.LoadFormat.FlatOpc document format is allowed to be mapped.
-  bool _flatOpcXmlMappingOnly;
-
-  bool get flatOpcXmlMappingOnly => _flatOpcXmlMappingOnly;
-  set flatOpcXmlMappingOnly(bool val) => _flatOpcXmlMappingOnly = val;
-
-
   /// Gets or sets the value determining how ink (InkML) objects are rendered.
   SaveOptionsData_ImlRenderingModeEnum _imlRenderingMode;
 
@@ -195,12 +187,6 @@ abstract class SaveOptionsData implements ModelBase {
       fileName = null;
     }
 
-    if (json.containsKey('FlatOpcXmlMappingOnly')) {
-      flatOpcXmlMappingOnly = json['FlatOpcXmlMappingOnly'] as bool;
-    } else {
-      flatOpcXmlMappingOnly = null;
-    }
-
     if (json.containsKey('ImlRenderingMode')) {
       switch (json['ImlRenderingMode'] as String) {
         case 'Fallback': imlRenderingMode = SaveOptionsData_ImlRenderingModeEnum.fallback; break;
@@ -286,10 +272,6 @@ abstract class SaveOptionsData implements ModelBase {
 
     if (fileName != null) {
       _result['FileName'] = fileName;
-    }
-
-    if (flatOpcXmlMappingOnly != null) {
-      _result['FlatOpcXmlMappingOnly'] = flatOpcXmlMappingOnly;
     }
 
     if (imlRenderingMode != null) {

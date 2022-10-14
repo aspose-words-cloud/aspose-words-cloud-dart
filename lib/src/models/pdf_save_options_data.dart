@@ -31,6 +31,13 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for pdf save options.
 class PdfSaveOptionsData extends FixedPageSaveOptionsData {
+  /// Gets or sets a value indicating whether or not to cache shapes placed in header and footer of document.
+  bool _cacheHeaderFooterShapes;
+
+  bool get cacheHeaderFooterShapes => _cacheHeaderFooterShapes;
+  set cacheHeaderFooterShapes(bool val) => _cacheHeaderFooterShapes = val;
+
+
   /// Gets or sets the PDF standards compliance level for output documents.
   PdfSaveOptionsData_ComplianceEnum _compliance;
 
@@ -274,12 +281,6 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
       fileName = null;
     }
 
-    if (json.containsKey('FlatOpcXmlMappingOnly')) {
-      flatOpcXmlMappingOnly = json['FlatOpcXmlMappingOnly'] as bool;
-    } else {
-      flatOpcXmlMappingOnly = null;
-    }
-
     if (json.containsKey('ImlRenderingMode')) {
       switch (json['ImlRenderingMode'] as String) {
         case 'Fallback': imlRenderingMode = SaveOptionsData_ImlRenderingModeEnum.fallback; break;
@@ -378,6 +379,12 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
       pageIndex = json['PageIndex'] as int;
     } else {
       pageIndex = null;
+    }
+
+    if (json.containsKey('CacheHeaderFooterShapes')) {
+      cacheHeaderFooterShapes = json['CacheHeaderFooterShapes'] as bool;
+    } else {
+      cacheHeaderFooterShapes = null;
     }
 
     if (json.containsKey('Compliance')) {
@@ -588,6 +595,10 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
+    if (cacheHeaderFooterShapes != null) {
+      _result['CacheHeaderFooterShapes'] = cacheHeaderFooterShapes;
+    }
+
     if (compliance != null) {
       switch (compliance) {
         case PdfSaveOptionsData_ComplianceEnum.pdf17: _result['Compliance'] = 'Pdf17'; break;
