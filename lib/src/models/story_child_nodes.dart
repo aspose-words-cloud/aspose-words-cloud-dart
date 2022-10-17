@@ -65,6 +65,10 @@ class StoryChildNodes implements ModelBase {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 

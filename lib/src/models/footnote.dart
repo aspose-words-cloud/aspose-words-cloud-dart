@@ -153,6 +153,10 @@ class Footnote extends FootnoteLink {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 /// Gets or sets the value, that specifies whether this is a footnote or endnote.

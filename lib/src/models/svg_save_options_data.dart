@@ -137,12 +137,6 @@ class SvgSaveOptionsData extends FixedPageSaveOptionsData {
       fileName = null;
     }
 
-    if (json.containsKey('FlatOpcXmlMappingOnly')) {
-      flatOpcXmlMappingOnly = json['FlatOpcXmlMappingOnly'] as bool;
-    } else {
-      flatOpcXmlMappingOnly = null;
-    }
-
     if (json.containsKey('ImlRenderingMode')) {
       switch (json['ImlRenderingMode'] as String) {
         case 'Fallback': imlRenderingMode = SaveOptionsData_ImlRenderingModeEnum.fallback; break;
@@ -322,6 +316,10 @@ class SvgSaveOptionsData extends FixedPageSaveOptionsData {
       }
     }
     return _result;
+  }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

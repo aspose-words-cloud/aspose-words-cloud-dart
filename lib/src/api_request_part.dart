@@ -33,7 +33,8 @@ class ApiRequestPart {
   final ByteData data;
   final String mimeType;
   final String name;
+  final String filename;
   final Map<String, String> headers;
 
-  ApiRequestPart(final this.data, final this.mimeType, { final this.name, final this.headers });
+  ApiRequestPart(final this.data, final this.mimeType, { final this.name, final this.filename, final this.headers });
 }

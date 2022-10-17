@@ -47,10 +47,16 @@ class GetAvailableFontsRequest implements RequestBase {
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
+    var _fileContentParts = <FileReference>[];
     if (fontsLocation != null) {
       _queryParams['fontsLocation'] = _apiClient.serializeToString(fontsLocation);
     }
 
+    for (final _fileContentPart in _fileContentParts) {
+        if (_fileContentPart.source == 'Request') {
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+        }
+    }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
     return ApiRequestData('GET', _url, _headers, _body);

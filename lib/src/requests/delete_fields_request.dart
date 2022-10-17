@@ -73,6 +73,7 @@ class DeleteFieldsRequest implements RequestBase {
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
+    var _fileContentParts = <FileReference>[];
     if (name == null) {
       throw ApiException(400, 'Parameter name is required.');
     }
@@ -110,6 +111,11 @@ class DeleteFieldsRequest implements RequestBase {
       _queryParams['revisionDateTime'] = _apiClient.serializeToString(revisionDateTime);
     }
 
+    for (final _fileContentPart in _fileContentParts) {
+        if (_fileContentPart.source == 'Request') {
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+        }
+    }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
     return ApiRequestData('DELETE', _url, _headers, _body);

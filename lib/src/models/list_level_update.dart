@@ -360,6 +360,10 @@ class ListLevelUpdate implements ModelBase {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 /// Gets or sets the justification of the actual number of the list item.

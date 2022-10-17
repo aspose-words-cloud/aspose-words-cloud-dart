@@ -98,6 +98,10 @@ class TableRow extends NodeLink {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 

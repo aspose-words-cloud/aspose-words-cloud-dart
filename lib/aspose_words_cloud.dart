@@ -109,6 +109,7 @@ export 'src/models/field_response.dart';
 export 'src/models/field_update.dart';
 export 'src/models/fields_response.dart';
 export 'src/models/file_link.dart';
+export 'src/models/file_reference.dart';
 export 'src/models/files_list.dart';
 export 'src/models/files_upload_result.dart';
 export 'src/models/fixed_page_save_options_data.dart';

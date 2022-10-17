@@ -173,6 +173,10 @@ class Comment extends CommentLink {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 

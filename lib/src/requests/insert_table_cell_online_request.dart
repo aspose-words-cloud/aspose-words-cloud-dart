@@ -70,6 +70,7 @@ class InsertTableCellOnlineRequest implements RequestBase {
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
+    var _fileContentParts = <FileReference>[];
     if (tableRowPath == null) {
       throw ApiException(400, 'Parameter tableRowPath is required.');
     }
@@ -99,19 +100,24 @@ class InsertTableCellOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
-      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(document), 'application/octet-stream', name: 'Document'));
+      _bodyParts.add(_apiClient.serializeBody(document, 'Document'));
     }
     else {
       throw ApiException(400, 'Parameter document is required.');
     }
 
     if (cell != null) {
-      _bodyParts.add(ApiRequestPart(_apiClient.serializeBody(cell), 'application/json', name: 'Cell'));
+      _bodyParts.add(_apiClient.serializeBody(cell, 'Cell'));
     }
     else {
       throw ApiException(400, 'Parameter cell is required.');
     }
 
+    for (final _fileContentPart in _fileContentParts) {
+        if (_fileContentPart.source == 'Request') {
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+        }
+    }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
     return ApiRequestData('PUT', _url, _headers, _body);

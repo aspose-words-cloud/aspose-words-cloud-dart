@@ -146,6 +146,10 @@ abstract class CommentBase implements ModelBase {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 

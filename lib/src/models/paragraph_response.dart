@@ -68,6 +68,10 @@ class ParagraphResponse extends WordsResponse {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 

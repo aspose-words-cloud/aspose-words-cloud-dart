@@ -125,12 +125,6 @@ class DocSaveOptionsData extends SaveOptionsData {
       fileName = null;
     }
 
-    if (json.containsKey('FlatOpcXmlMappingOnly')) {
-      flatOpcXmlMappingOnly = json['FlatOpcXmlMappingOnly'] as bool;
-    } else {
-      flatOpcXmlMappingOnly = null;
-    }
-
     if (json.containsKey('ImlRenderingMode')) {
       switch (json['ImlRenderingMode'] as String) {
         case 'Fallback': imlRenderingMode = SaveOptionsData_ImlRenderingModeEnum.fallback; break;
@@ -226,6 +220,10 @@ class DocSaveOptionsData extends SaveOptionsData {
       _result['SaveRoutingSlip'] = saveRoutingSlip;
     }
     return _result;
+  }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 

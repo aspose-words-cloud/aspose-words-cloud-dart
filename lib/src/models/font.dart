@@ -1554,6 +1554,10 @@ class Font extends LinkElement {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 /// Gets or sets the locale independent style identifier of the character style applied to this formatting.

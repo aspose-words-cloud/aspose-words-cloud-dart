@@ -39,10 +39,10 @@ class ImageEntry extends BaseEntry {
     }
 
     super.deserialize(json);
-    if (json.containsKey('Href')) {
-      href = json['Href'] as String;
+    if (json.containsKey('FileReference')) {
+      throw ApiException(400, 'File content is not supported for deserialization.');
     } else {
-      href = null;
+      fileReference = null;
     }
   }
 
@@ -51,6 +51,11 @@ class ImageEntry extends BaseEntry {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     return _result;
+  }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
   }
 }
 

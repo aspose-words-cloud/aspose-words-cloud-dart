@@ -84,6 +84,19 @@ class ImageEntryList extends BaseEntryList {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+    super.getFilesContent(resultFilesContent);
+    if (imageEntries != null)
+    {
+        for (final element in imageEntries)
+        {
+            element.getFilesContent(resultFilesContent);
+        }
+    }
+
+  }
 }
 
 

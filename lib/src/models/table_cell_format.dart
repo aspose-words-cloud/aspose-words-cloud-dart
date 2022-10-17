@@ -302,6 +302,10 @@ class TableCellFormat extends LinkElement {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 /// Gets or sets the option that controls how the cell is merged horizontally with other cells in the row.

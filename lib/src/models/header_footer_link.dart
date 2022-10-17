@@ -84,6 +84,10 @@ class HeaderFooterLink extends LinkElement {
     }
     return _result;
   }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
+  }
 }
 
 /// Gets or sets the paragraph's text.

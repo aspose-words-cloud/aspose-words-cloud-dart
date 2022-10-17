@@ -102,12 +102,6 @@ class PsSaveOptionsData extends FixedPageSaveOptionsData {
       fileName = null;
     }
 
-    if (json.containsKey('FlatOpcXmlMappingOnly')) {
-      flatOpcXmlMappingOnly = json['FlatOpcXmlMappingOnly'] as bool;
-    } else {
-      flatOpcXmlMappingOnly = null;
-    }
-
     if (json.containsKey('ImlRenderingMode')) {
       switch (json['ImlRenderingMode'] as String) {
         case 'Fallback': imlRenderingMode = SaveOptionsData_ImlRenderingModeEnum.fallback; break;
@@ -227,6 +221,10 @@ class PsSaveOptionsData extends FixedPageSaveOptionsData {
       _result['UseBookFoldPrintingSettings'] = useBookFoldPrintingSettings;
     }
     return _result;
+  }
+
+  @override
+  void getFilesContent(List<FileReference> resultFilesContent) {
   }
 }
 
