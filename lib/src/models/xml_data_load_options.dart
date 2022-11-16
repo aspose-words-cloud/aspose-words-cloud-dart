@@ -30,6 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Represents options for XML data loading.
+/// To learn more, visit the LINQ Reporting Engine documentation article.
 class XmlDataLoadOptions implements ModelBase {
   /// Gets or sets a flag indicating whether a generated data source will always contain an object for an XML root
   /// element. If an XML root element has no attributes and all its child elements have same names, such an object

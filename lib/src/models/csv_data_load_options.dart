@@ -30,6 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Represents options for parsing CSV data.
+/// To learn more, visit the LINQ Reporting Engine documentation article.
 class CsvDataLoadOptions implements ModelBase {
   /// Gets or sets the character that is used to comment lines of CSV data.
   String _commentChar;
