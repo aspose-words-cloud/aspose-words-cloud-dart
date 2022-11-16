@@ -1,3 +1,8 @@
+## [22.11.0] - Aspose Words Cloud for Dart 22.11 Release Notes
+
+- Added 'EmbedAttachments' property for PdfSaveOptionsData class.
+
+
 ## [22.10.0] - Aspose Words Cloud for Dart 22.10 Release Notes
 
 - Added 'CacheHeaderFooterShapes' property for PdfSaveOptionsData class.

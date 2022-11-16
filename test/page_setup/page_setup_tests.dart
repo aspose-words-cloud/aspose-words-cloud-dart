@@ -128,7 +128,7 @@ class PageSetupTests
     final request = RenderPageRequest(
       remoteFileName,
       1,
-      'bmp',
+      'jpg',
       folder: remoteDataFolder
     );
 
@@ -143,7 +143,7 @@ class PageSetupTests
     final request = RenderPageOnlineRequest(
       requestDocument,
       1,
-      'bmp'
+      'jpg'
     );
 
     await context.getApi().renderPageOnline(request);

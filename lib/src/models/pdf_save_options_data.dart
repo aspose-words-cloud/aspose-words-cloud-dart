@@ -31,11 +31,11 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for pdf save options.
 class PdfSaveOptionsData extends FixedPageSaveOptionsData {
-  /// Gets or sets a value indicating whether or not to cache shapes placed in header and footer of document.
-  bool _cacheHeaderFooterShapes;
+  /// Gets or sets a value determining whether or not to cache graphics placed in document's background.
+  bool _cacheBackgroundGraphics;
 
-  bool get cacheHeaderFooterShapes => _cacheHeaderFooterShapes;
-  set cacheHeaderFooterShapes(bool val) => _cacheHeaderFooterShapes = val;
+  bool get cacheBackgroundGraphics => _cacheBackgroundGraphics;
+  set cacheBackgroundGraphics(bool val) => _cacheBackgroundGraphics = val;
 
 
   /// Gets or sets the PDF standards compliance level for output documents.
@@ -81,6 +81,13 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
   DownsampleOptionsData get downsampleOptions => _downsampleOptions;
   set downsampleOptions(DownsampleOptionsData val) => _downsampleOptions = val;
+
+
+  /// Gets or sets a value determining whether or not to embed attachments to the PDF document.
+  bool _embedAttachments;
+
+  bool get embedAttachments => _embedAttachments;
+  set embedAttachments(bool val) => _embedAttachments = val;
 
 
   /// Gets or sets a value indicating whether fonts are embedded into the resulting PDF documents.
@@ -381,10 +388,10 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
       pageIndex = null;
     }
 
-    if (json.containsKey('CacheHeaderFooterShapes')) {
-      cacheHeaderFooterShapes = json['CacheHeaderFooterShapes'] as bool;
+    if (json.containsKey('CacheBackgroundGraphics')) {
+      cacheBackgroundGraphics = json['CacheBackgroundGraphics'] as bool;
     } else {
-      cacheHeaderFooterShapes = null;
+      cacheBackgroundGraphics = null;
     }
 
     if (json.containsKey('Compliance')) {
@@ -438,6 +445,12 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
       downsampleOptions.deserialize(json['DownsampleOptions'] as Map<String, dynamic>);
     } else {
       downsampleOptions = null;
+    }
+
+    if (json.containsKey('EmbedAttachments')) {
+      embedAttachments = json['EmbedAttachments'] as bool;
+    } else {
+      embedAttachments = null;
     }
 
     if (json.containsKey('EmbedFullFonts')) {
@@ -595,8 +608,8 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (cacheHeaderFooterShapes != null) {
-      _result['CacheHeaderFooterShapes'] = cacheHeaderFooterShapes;
+    if (cacheBackgroundGraphics != null) {
+      _result['CacheBackgroundGraphics'] = cacheBackgroundGraphics;
     }
 
     if (compliance != null) {
@@ -636,6 +649,10 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (downsampleOptions != null) {
       _result['DownsampleOptions'] = downsampleOptions.serialize();
+    }
+
+    if (embedAttachments != null) {
+      _result['EmbedAttachments'] = embedAttachments;
     }
 
     if (embedFullFonts != null) {
