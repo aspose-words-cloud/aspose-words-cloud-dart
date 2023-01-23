@@ -1,3 +1,13 @@
+## [23.1.0] - Aspose Words Cloud for Dart 23.1 Release Notes
+
+- Various changes related to stability and performance
+
+
+## [22.12.0] - Aspose Words Cloud for Dart 22.12 Release Notes
+
+- Various changes related to stability and performance
+
+
 ## [22.11.0] - Aspose Words Cloud for Dart 22.11 Release Notes
 
 - Added 'EmbedAttachments' property for PdfSaveOptionsData class.
@@ -53,7 +63,6 @@
 - Online methods returns the dictionary of files with included original filename as key instead of single file content in responses.
 - Parameters contained sensitive data should be passed in encrypted form. Names of the parameters have 'encrypted' prefix.
 - Added Encrypt method to encrypt data on the API public key. Use it to prepare values for parameters required encrypted data.
-- GetPublicKey method is not billable.
 - Changed type of enumerations for members of SaveOptionsData and other inherited classes from string to enum.
 
 
