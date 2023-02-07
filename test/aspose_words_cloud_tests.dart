@@ -77,6 +77,7 @@ import './run/run_tests.dart';
 import './sections/section_tests.dart';
 import './storage/file_tests.dart';
 import './storage/folder_tests.dart';
+import './structured_document_tag/structured_document_tag_tests.dart';
 import './styles/styles_tests.dart';
 import './table/table_border_tests.dart';
 import './table/table_tests.dart';
@@ -534,6 +535,19 @@ void main() {
     test('GetFilesList', () async => await FolderTests(testContext).testGetFilesList());
     test('CopyFolder', () async => await FolderTests(testContext).testCopyFolder());
     test('MoveFolder', () async => await FolderTests(testContext).testMoveFolder());
+  });
+
+  group('StructuredDocumentTag', () {
+    test('GetStructuredDocumentTags', () async => await StructuredDocumentTagTests(testContext).testGetStructuredDocumentTags());
+    test('GetStructuredDocumentTagsOnline', () async => await StructuredDocumentTagTests(testContext).testGetStructuredDocumentTagsOnline());
+    test('GetStructuredDocumentTag', () async => await StructuredDocumentTagTests(testContext).testGetStructuredDocumentTag());
+    test('GetStructuredDocumentTagOnline', () async => await StructuredDocumentTagTests(testContext).testGetStructuredDocumentTagOnline());
+    test('InsertStructuredDocumentTag', () async => await StructuredDocumentTagTests(testContext).testInsertStructuredDocumentTag());
+    test('InsertStructuredDocumentTagOnline', () async => await StructuredDocumentTagTests(testContext).testInsertStructuredDocumentTagOnline());
+    test('DeleteStructuredDocumentTag', () async => await StructuredDocumentTagTests(testContext).testDeleteStructuredDocumentTag());
+    test('DeleteStructuredDocumentTagOnline', () async => await StructuredDocumentTagTests(testContext).testDeleteStructuredDocumentTagOnline());
+    test('UpdateStructuredDocumentTag', () async => await StructuredDocumentTagTests(testContext).testUpdateStructuredDocumentTag());
+    test('UpdateStructuredDocumentTagOnline', () async => await StructuredDocumentTagTests(testContext).testUpdateStructuredDocumentTagOnline());
   });
 
   group('Styles', () {

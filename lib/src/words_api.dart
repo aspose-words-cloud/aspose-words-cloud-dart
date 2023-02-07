@@ -415,6 +415,16 @@ class WordsApi {
     return await _apiClient.call(request) as Map<String, ByteData>;
   }
 
+  /// Removes a StructuredDocumentTag (SDT) from the document node.
+  Future< void > deleteStructuredDocumentTag(DeleteStructuredDocumentTagRequest request) async {
+  await _apiClient.call(request);
+  }
+
+  /// Removes a StructuredDocumentTag (SDT) from the document node.
+  Future< Map<String, ByteData> > deleteStructuredDocumentTagOnline(DeleteStructuredDocumentTagOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
+  }
+
   /// Removes a table from the document node.
   Future< void > deleteTable(DeleteTableRequest request) async {
   await _apiClient.call(request);
@@ -940,6 +950,26 @@ class WordsApi {
     return await _apiClient.call(request) as SectionLinkCollectionResponse;
   }
 
+  /// Reads a StructuredDocumentTag (SDT) from the document node.
+  Future< StructuredDocumentTagResponse > getStructuredDocumentTag(GetStructuredDocumentTagRequest request) async {
+    return await _apiClient.call(request) as StructuredDocumentTagResponse;
+  }
+
+  /// Reads a StructuredDocumentTag (SDT) from the document node.
+  Future< StructuredDocumentTagResponse > getStructuredDocumentTagOnline(GetStructuredDocumentTagOnlineRequest request) async {
+    return await _apiClient.call(request) as StructuredDocumentTagResponse;
+  }
+
+  /// Reads StructuredDocumentTags (SDT) from the document node.
+  Future< StructuredDocumentTagsResponse > getStructuredDocumentTags(GetStructuredDocumentTagsRequest request) async {
+    return await _apiClient.call(request) as StructuredDocumentTagsResponse;
+  }
+
+  /// Reads StructuredDocumentTags (SDT) from the document node.
+  Future< StructuredDocumentTagsResponse > getStructuredDocumentTagsOnline(GetStructuredDocumentTagsOnlineRequest request) async {
+    return await _apiClient.call(request) as StructuredDocumentTagsResponse;
+  }
+
   /// Reads a style from the document.
   Future< StyleResponse > getStyle(GetStyleRequest request) async {
     return await _apiClient.call(request) as StyleResponse;
@@ -1168,6 +1198,16 @@ class WordsApi {
   /// Inserts a new Run object to the paragraph.
   Future< InsertRunOnlineResponse > insertRunOnline(InsertRunOnlineRequest request) async {
     return await _apiClient.call(request) as InsertRunOnlineResponse;
+  }
+
+  /// Inserts a new StructuredDocumentTag (SDT) to the document node.
+  Future< StructuredDocumentTagResponse > insertStructuredDocumentTag(InsertStructuredDocumentTagRequest request) async {
+    return await _apiClient.call(request) as StructuredDocumentTagResponse;
+  }
+
+  /// Inserts a new StructuredDocumentTag (SDT) to the document node.
+  Future< InsertStructuredDocumentTagOnlineResponse > insertStructuredDocumentTagOnline(InsertStructuredDocumentTagOnlineRequest request) async {
+    return await _apiClient.call(request) as InsertStructuredDocumentTagOnlineResponse;
   }
 
   /// Inserts a new style to the document.
@@ -1583,6 +1623,16 @@ class WordsApi {
   /// Updates the page setup of a section in the document.
   Future< UpdateSectionPageSetupOnlineResponse > updateSectionPageSetupOnline(UpdateSectionPageSetupOnlineRequest request) async {
     return await _apiClient.call(request) as UpdateSectionPageSetupOnlineResponse;
+  }
+
+  /// Updates a StructuredDocumentTag (SDT) in the document node.
+  Future< StructuredDocumentTagResponse > updateStructuredDocumentTag(UpdateStructuredDocumentTagRequest request) async {
+    return await _apiClient.call(request) as StructuredDocumentTagResponse;
+  }
+
+  /// Updates a StructuredDocumentTag (SDT) in the document node.
+  Future< UpdateStructuredDocumentTagOnlineResponse > updateStructuredDocumentTagOnline(UpdateStructuredDocumentTagOnlineRequest request) async {
+    return await _apiClient.call(request) as UpdateStructuredDocumentTagOnlineResponse;
   }
 
   /// Updates a style in the document.

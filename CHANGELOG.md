@@ -1,3 +1,8 @@
+## [23.2.0] - Aspose Words Cloud for Dart 23.2 Release Notes
+
+- Added operations to manipulate with Structure Document Tags (SDT) in documents.
+
+
 ## [23.1.0] - Aspose Words Cloud for Dart 23.1 Release Notes
 
 - Various changes related to stability and performance
