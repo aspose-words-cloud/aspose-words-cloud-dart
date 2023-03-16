@@ -32,35 +32,35 @@ import '../../aspose_words_cloud.dart';
 /// Class to specify TimeZoneInfo parameters.
 class TimeZoneInfoData implements ModelBase {
   /// Gets or sets base utc offset in hh:mm:ss format.
-  String _baseUtcOffset;
+  String? _baseUtcOffset;
 
-  String get baseUtcOffset => _baseUtcOffset;
-  set baseUtcOffset(String val) => _baseUtcOffset = val;
+  String? get baseUtcOffset => _baseUtcOffset;
+  set baseUtcOffset(String? val) => _baseUtcOffset = val;
 
 
   /// Gets or sets display name.
-  String _displayName;
+  String? _displayName;
 
-  String get displayName => _displayName;
-  set displayName(String val) => _displayName = val;
+  String? get displayName => _displayName;
+  set displayName(String? val) => _displayName = val;
 
 
   /// Gets or sets an Id string for CustomTimeZoneInfo.
-  String _id;
+  String? _id;
 
-  String get id => _id;
-  set id(String val) => _id = val;
+  String? get id => _id;
+  set id(String? val) => _id = val;
 
 
   /// Gets or sets standard display name.
-  String _standardDisplayName;
+  String? _standardDisplayName;
 
-  String get standardDisplayName => _standardDisplayName;
-  set standardDisplayName(String val) => _standardDisplayName = val;
+  String? get standardDisplayName => _standardDisplayName;
+  set standardDisplayName(String? val) => _standardDisplayName = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize TimeZoneInfoData data model.');
     }
@@ -94,19 +94,19 @@ class TimeZoneInfoData implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (baseUtcOffset != null) {
-      _result['BaseUtcOffset'] = baseUtcOffset;
+      _result['BaseUtcOffset'] = baseUtcOffset!;
     }
 
     if (displayName != null) {
-      _result['DisplayName'] = displayName;
+      _result['DisplayName'] = displayName!;
     }
 
     if (id != null) {
-      _result['Id'] = id;
+      _result['Id'] = id!;
     }
 
     if (standardDisplayName != null) {
-      _result['StandardDisplayName'] = standardDisplayName;
+      _result['StandardDisplayName'] = standardDisplayName!;
     }
     return _result;
   }

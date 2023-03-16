@@ -34,10 +34,10 @@ import '../test_context.dart';
 class SectionTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
+  late String remoteDataFolder;
+  late String localFile;
 
-  SectionTests(final this.context) {
+  SectionTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Section';
     localFile = 'Common/test_multi_pages.docx';
   }
@@ -56,9 +56,9 @@ class SectionTests
 
     final result = await context.getApi().getSection(request);
     expect(result.section, isNotNull);
-    expect(result.section.childNodes, isNotNull);
-    expect(result.section.childNodes.length, 13);
-    expect(result.section.childNodes[0].nodeId, '0.3.0');
+    expect(result.section?.childNodes, isNotNull);
+    expect(result.section?.childNodes?.length, 13);
+    expect(result.section?.childNodes?[0]?.nodeId, '0.3.0');
   }
 
   /// Test for getting section by index online.
@@ -87,9 +87,9 @@ class SectionTests
 
     final result = await context.getApi().getSections(request);
     expect(result.sections, isNotNull);
-    expect(result.sections.sectionLinkList, isNotNull);
-    expect(result.sections.sectionLinkList.length, 1);
-    expect(result.sections.sectionLinkList[0].nodeId, '0');
+    expect(result.sections?.sectionLinkList, isNotNull);
+    expect(result.sections?.sectionLinkList?.length, 1);
+    expect(result.sections?.sectionLinkList?[0]?.nodeId, '0');
   }
 
   /// Test for getting sections online.

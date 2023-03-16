@@ -33,7 +33,7 @@ import '../../aspose_words_cloud.dart';
 class ParagraphFormatUpdate extends ParagraphFormatBase {
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize ParagraphFormatUpdate data model.');
     }
@@ -41,7 +41,7 @@ class ParagraphFormatUpdate extends ParagraphFormatBase {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -178,7 +178,7 @@ class ParagraphFormatUpdate extends ParagraphFormatBase {
 
     if (json.containsKey('Shading')) {
       shading = Shading();
-      shading.deserialize(json['Shading'] as Map<String, dynamic>);
+      shading!.deserialize(json['Shading'] as Map<String, dynamic>);
     } else {
       shading = null;
     }

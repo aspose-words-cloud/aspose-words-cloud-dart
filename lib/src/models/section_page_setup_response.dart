@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a page setup of a section.
 class SectionPageSetupResponse extends WordsResponse {
   /// Gets or sets the page setup of a section.
-  PageSetup _pageSetup;
+  PageSetup? _pageSetup;
 
-  PageSetup get pageSetup => _pageSetup;
-  set pageSetup(PageSetup val) => _pageSetup = val;
+  PageSetup? get pageSetup => _pageSetup;
+  set pageSetup(PageSetup? val) => _pageSetup = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize SectionPageSetupResponse data model.');
     }
@@ -53,7 +53,7 @@ class SectionPageSetupResponse extends WordsResponse {
 
     if (json.containsKey('PageSetup')) {
       pageSetup = PageSetup();
-      pageSetup.deserialize(json['PageSetup'] as Map<String, dynamic>);
+      pageSetup!.deserialize(json['PageSetup'] as Map<String, dynamic>);
     } else {
       pageSetup = null;
     }
@@ -64,7 +64,7 @@ class SectionPageSetupResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (pageSetup != null) {
-      _result['PageSetup'] = pageSetup.serialize();
+      _result['PageSetup'] = pageSetup!.serialize();
     }
     return _result;
   }

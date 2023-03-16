@@ -30,12 +30,11 @@ library aspose_words_cloud;
 import 'dart:typed_data';
 
 import './api_client.dart';
-import './requests/batch_request.dart';
 import '../aspose_words_cloud.dart';
 
 /// Aspose.Words for Cloud API.
 class WordsApi {
-  ApiClient _apiClient;
+  late ApiClient _apiClient;
   WordsApi(final Configuration configuration) {
     _apiClient = ApiClient(configuration, getPublicKey);
   }

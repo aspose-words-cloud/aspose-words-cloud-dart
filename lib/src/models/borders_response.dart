@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a collection of borders.
 class BordersResponse extends WordsResponse {
   /// Gets or sets the collection of borders.
-  BordersCollection _borders;
+  BordersCollection? _borders;
 
-  BordersCollection get borders => _borders;
-  set borders(BordersCollection val) => _borders = val;
+  BordersCollection? get borders => _borders;
+  set borders(BordersCollection? val) => _borders = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize BordersResponse data model.');
     }
@@ -53,7 +53,7 @@ class BordersResponse extends WordsResponse {
 
     if (json.containsKey('Borders')) {
       borders = BordersCollection();
-      borders.deserialize(json['Borders'] as Map<String, dynamic>);
+      borders!.deserialize(json['Borders'] as Map<String, dynamic>);
     } else {
       borders = null;
     }
@@ -64,7 +64,7 @@ class BordersResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (borders != null) {
-      _result['Borders'] = borders.serialize();
+      _result['Borders'] = borders!.serialize();
     }
     return _result;
   }

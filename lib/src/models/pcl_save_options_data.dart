@@ -32,28 +32,28 @@ import '../../aspose_words_cloud.dart';
 /// Container class for pcl save options.
 class PclSaveOptionsData extends FixedPageSaveOptionsData {
   /// Gets or sets the font name, that will be used if no expected font is found in printer and built-in fonts collections.
-  String _falllbackFontName;
+  String? _falllbackFontName;
 
-  String get falllbackFontName => _falllbackFontName;
-  set falllbackFontName(String val) => _falllbackFontName = val;
+  String? get falllbackFontName => _falllbackFontName;
+  set falllbackFontName(String? val) => _falllbackFontName = val;
 
 
   /// Gets or sets a value indicating whether complex transformed elements should be rasterized before saving to PCL document.. The default value is true.
-  bool _rasterizeTransformedElements;
+  bool? _rasterizeTransformedElements;
 
-  bool get rasterizeTransformedElements => _rasterizeTransformedElements;
-  set rasterizeTransformedElements(bool val) => _rasterizeTransformedElements = val;
+  bool? get rasterizeTransformedElements => _rasterizeTransformedElements;
+  set rasterizeTransformedElements(bool? val) => _rasterizeTransformedElements = val;
 
 
   /// Gets the format of save.
-  String _saveFormat = 'pcl';
+  String? _saveFormat = 'pcl';
 
   @override
-  String get saveFormat => _saveFormat;
+  String? get saveFormat => _saveFormat;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize PclSaveOptionsData data model.');
     }
@@ -67,7 +67,7 @@ class PclSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (json.containsKey('CustomTimeZoneInfoData')) {
       customTimeZoneInfoData = TimeZoneInfoData();
-      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+      customTimeZoneInfoData!.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
     } else {
       customTimeZoneInfoData = null;
     }
@@ -173,7 +173,7 @@ class PclSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (json.containsKey('MetafileRenderingOptions')) {
       metafileRenderingOptions = MetafileRenderingOptionsData();
-      metafileRenderingOptions.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
+      metafileRenderingOptions!.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
     } else {
       metafileRenderingOptions = null;
     }
@@ -227,15 +227,15 @@ class PclSaveOptionsData extends FixedPageSaveOptionsData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (falllbackFontName != null) {
-      _result['FalllbackFontName'] = falllbackFontName;
+      _result['FalllbackFontName'] = falllbackFontName!;
     }
 
     if (rasterizeTransformedElements != null) {
-      _result['RasterizeTransformedElements'] = rasterizeTransformedElements;
+      _result['RasterizeTransformedElements'] = rasterizeTransformedElements!;
     }
 
     if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat;
+      _result['SaveFormat'] = saveFormat!;
     }
     return _result;
   }

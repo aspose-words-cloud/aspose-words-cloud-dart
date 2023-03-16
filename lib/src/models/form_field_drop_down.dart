@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// FormField dropdownlist element.
 class FormFieldDropDown extends FormField {
   /// Gets or sets the items array of a dropdown form field.
-  List<String> _dropDownItems;
+  List<String?>? _dropDownItems;
 
-  List<String> get dropDownItems => _dropDownItems;
-  set dropDownItems(List<String> val) => _dropDownItems = val;
+  List<String?>? get dropDownItems => _dropDownItems;
+  set dropDownItems(List<String?>? val) => _dropDownItems = val;
 
 
   /// Gets or sets the index specifying the currently selected item in a dropdown form field.
-  int _dropDownSelectedIndex;
+  int? _dropDownSelectedIndex;
 
-  int get dropDownSelectedIndex => _dropDownSelectedIndex;
-  set dropDownSelectedIndex(int val) => _dropDownSelectedIndex = val;
+  int? get dropDownSelectedIndex => _dropDownSelectedIndex;
+  set dropDownSelectedIndex(int? val) => _dropDownSelectedIndex = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize FormFieldDropDown data model.');
     }
@@ -54,7 +54,7 @@ class FormFieldDropDown extends FormField {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -123,7 +123,7 @@ class FormFieldDropDown extends FormField {
       // Array processing
       dropDownItems = <String>[];
       for(final _element in json['DropDownItems']) {
-        dropDownItems.add(_element as String);
+        dropDownItems!.add(_element as String);
       }
     } else {
       dropDownItems = null;
@@ -141,11 +141,11 @@ class FormFieldDropDown extends FormField {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (dropDownItems != null) {
-      _result['DropDownItems'] = dropDownItems;
+      _result['DropDownItems'] = dropDownItems!;
     }
 
     if (dropDownSelectedIndex != null) {
-      _result['DropDownSelectedIndex'] = dropDownSelectedIndex;
+      _result['DropDownSelectedIndex'] = dropDownSelectedIndex!;
     }
     return _result;
   }

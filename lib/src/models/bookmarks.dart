@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// Represents an array of bookmarks.
 class Bookmarks extends LinkElement {
   /// Gets or sets the array of bookmarks.
-  List<Bookmark> _bookmarkList;
+  List<Bookmark?>? _bookmarkList;
 
-  List<Bookmark> get bookmarkList => _bookmarkList;
-  set bookmarkList(List<Bookmark> val) => _bookmarkList = val;
+  List<Bookmark?>? get bookmarkList => _bookmarkList;
+  set bookmarkList(List<Bookmark?>? val) => _bookmarkList = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize Bookmarks data model.');
     }
@@ -47,7 +47,7 @@ class Bookmarks extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -58,7 +58,7 @@ class Bookmarks extends LinkElement {
       for(final _element in json['BookmarkList']) {
         var _elementValue = Bookmark();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        bookmarkList.add(_elementValue);
+        bookmarkList!.add(_elementValue);
       }
     } else {
       bookmarkList = null;
@@ -70,7 +70,7 @@ class Bookmarks extends LinkElement {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (bookmarkList != null) {
-      _result['BookmarkList'] = bookmarkList.map((_element) => _element.serialize()).toList();
+      _result['BookmarkList'] = bookmarkList!.map((_element) => _element?.serialize()).toList();
     }
     return _result;
   }

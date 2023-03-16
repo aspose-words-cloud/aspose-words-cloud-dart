@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a table.
 class TablePropertiesResponse extends WordsResponse {
   /// Gets or sets the table.
-  TableProperties _properties;
+  TableProperties? _properties;
 
-  TableProperties get properties => _properties;
-  set properties(TableProperties val) => _properties = val;
+  TableProperties? get properties => _properties;
+  set properties(TableProperties? val) => _properties = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize TablePropertiesResponse data model.');
     }
@@ -53,7 +53,7 @@ class TablePropertiesResponse extends WordsResponse {
 
     if (json.containsKey('Properties')) {
       properties = TableProperties();
-      properties.deserialize(json['Properties'] as Map<String, dynamic>);
+      properties!.deserialize(json['Properties'] as Map<String, dynamic>);
     } else {
       properties = null;
     }
@@ -64,7 +64,7 @@ class TablePropertiesResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (properties != null) {
-      _result['Properties'] = properties.serialize();
+      _result['Properties'] = properties!.serialize();
     }
     return _result;
   }

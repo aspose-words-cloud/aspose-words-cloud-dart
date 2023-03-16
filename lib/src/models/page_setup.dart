@@ -32,212 +32,212 @@ import '../../aspose_words_cloud.dart';
 /// Represents the page setup properties of a section.
 class PageSetup extends LinkElement {
   /// Gets or sets a value indicating whether this section contains bidirectional (complex scripts) text.
-  bool _bidi;
+  bool? _bidi;
 
-  bool get bidi => _bidi;
-  set bidi(bool val) => _bidi = val;
+  bool? get bidi => _bidi;
+  set bidi(bool? val) => _bidi = val;
 
 
   /// Gets or sets a value indicating whether the page border is positioned relative to intersecting texts and objects.
-  bool _borderAlwaysInFront;
+  bool? _borderAlwaysInFront;
 
-  bool get borderAlwaysInFront => _borderAlwaysInFront;
-  set borderAlwaysInFront(bool val) => _borderAlwaysInFront = val;
+  bool? get borderAlwaysInFront => _borderAlwaysInFront;
+  set borderAlwaysInFront(bool? val) => _borderAlwaysInFront = val;
 
 
   /// Gets or sets the option that controls which pages the page border is printed on.
-  PageSetup_BorderAppliesToEnum _borderAppliesTo;
+  PageSetup_BorderAppliesToEnum? _borderAppliesTo;
 
-  PageSetup_BorderAppliesToEnum get borderAppliesTo => _borderAppliesTo;
-  set borderAppliesTo(PageSetup_BorderAppliesToEnum val) => _borderAppliesTo = val;
+  PageSetup_BorderAppliesToEnum? get borderAppliesTo => _borderAppliesTo;
+  set borderAppliesTo(PageSetup_BorderAppliesToEnum? val) => _borderAppliesTo = val;
 
 
   /// Gets or sets the value, that indicates whether the specified page border is measured from the edge of the page or from the text it surrounds.
-  PageSetup_BorderDistanceFromEnum _borderDistanceFrom;
+  PageSetup_BorderDistanceFromEnum? _borderDistanceFrom;
 
-  PageSetup_BorderDistanceFromEnum get borderDistanceFrom => _borderDistanceFrom;
-  set borderDistanceFrom(PageSetup_BorderDistanceFromEnum val) => _borderDistanceFrom = val;
+  PageSetup_BorderDistanceFromEnum? get borderDistanceFrom => _borderDistanceFrom;
+  set borderDistanceFrom(PageSetup_BorderDistanceFromEnum? val) => _borderDistanceFrom = val;
 
 
   /// Gets or sets the distance (in points) between the bottom edge of the page and the bottom boundary of the body text.
-  double _bottomMargin;
+  double? _bottomMargin;
 
-  double get bottomMargin => _bottomMargin;
-  set bottomMargin(double val) => _bottomMargin = val;
+  double? get bottomMargin => _bottomMargin;
+  set bottomMargin(double? val) => _bottomMargin = val;
 
 
   /// Gets or sets a value indicating whether a different header or footer is used on the first page.
-  bool _differentFirstPageHeaderFooter;
+  bool? _differentFirstPageHeaderFooter;
 
-  bool get differentFirstPageHeaderFooter => _differentFirstPageHeaderFooter;
-  set differentFirstPageHeaderFooter(bool val) => _differentFirstPageHeaderFooter = val;
+  bool? get differentFirstPageHeaderFooter => _differentFirstPageHeaderFooter;
+  set differentFirstPageHeaderFooter(bool? val) => _differentFirstPageHeaderFooter = val;
 
 
   /// Gets or sets the paper tray (bin) to use for the first page of a section.
   /// The value is implementation (printer) specific.
-  int _firstPageTray;
+  int? _firstPageTray;
 
-  int get firstPageTray => _firstPageTray;
-  set firstPageTray(int val) => _firstPageTray = val;
+  int? get firstPageTray => _firstPageTray;
+  set firstPageTray(int? val) => _firstPageTray = val;
 
 
   /// Gets or sets the distance (in points) between the footer and the bottom of the page.
-  double _footerDistance;
+  double? _footerDistance;
 
-  double get footerDistance => _footerDistance;
-  set footerDistance(double val) => _footerDistance = val;
+  double? get footerDistance => _footerDistance;
+  set footerDistance(double? val) => _footerDistance = val;
 
 
   /// Gets or sets the amount of extra space added to the margin for document binding.
-  double _gutter;
+  double? _gutter;
 
-  double get gutter => _gutter;
-  set gutter(double val) => _gutter = val;
+  double? get gutter => _gutter;
+  set gutter(double? val) => _gutter = val;
 
 
   /// Gets or sets the distance (in points) between the header and the top of the page.
-  double _headerDistance;
+  double? _headerDistance;
 
-  double get headerDistance => _headerDistance;
-  set headerDistance(double val) => _headerDistance = val;
+  double? get headerDistance => _headerDistance;
+  set headerDistance(double? val) => _headerDistance = val;
 
 
   /// Gets or sets the distance (in points) between the left edge of the page and the left boundary of the body text.
-  double _leftMargin;
+  double? _leftMargin;
 
-  double get leftMargin => _leftMargin;
-  set leftMargin(double val) => _leftMargin = val;
+  double? get leftMargin => _leftMargin;
+  set leftMargin(double? val) => _leftMargin = val;
 
 
   /// Gets or sets the numeric increment for line numbers.
-  int _lineNumberCountBy;
+  int? _lineNumberCountBy;
 
-  int get lineNumberCountBy => _lineNumberCountBy;
-  set lineNumberCountBy(int val) => _lineNumberCountBy = val;
+  int? get lineNumberCountBy => _lineNumberCountBy;
+  set lineNumberCountBy(int? val) => _lineNumberCountBy = val;
 
 
   /// Gets or sets the distance between the right edge of line numbers and the left edge of the document.
-  double _lineNumberDistanceFromText;
+  double? _lineNumberDistanceFromText;
 
-  double get lineNumberDistanceFromText => _lineNumberDistanceFromText;
-  set lineNumberDistanceFromText(double val) => _lineNumberDistanceFromText = val;
+  double? get lineNumberDistanceFromText => _lineNumberDistanceFromText;
+  set lineNumberDistanceFromText(double? val) => _lineNumberDistanceFromText = val;
 
 
   /// Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new page or section or runs continuously.
-  PageSetup_LineNumberRestartModeEnum _lineNumberRestartMode;
+  PageSetup_LineNumberRestartModeEnum? _lineNumberRestartMode;
 
-  PageSetup_LineNumberRestartModeEnum get lineNumberRestartMode => _lineNumberRestartMode;
-  set lineNumberRestartMode(PageSetup_LineNumberRestartModeEnum val) => _lineNumberRestartMode = val;
+  PageSetup_LineNumberRestartModeEnum? get lineNumberRestartMode => _lineNumberRestartMode;
+  set lineNumberRestartMode(PageSetup_LineNumberRestartModeEnum? val) => _lineNumberRestartMode = val;
 
 
   /// Gets or sets the starting line number.
-  int _lineStartingNumber;
+  int? _lineStartingNumber;
 
-  int get lineStartingNumber => _lineStartingNumber;
-  set lineStartingNumber(int val) => _lineStartingNumber = val;
+  int? get lineStartingNumber => _lineStartingNumber;
+  set lineStartingNumber(int? val) => _lineStartingNumber = val;
 
 
   /// Gets or sets the orientation of the page.
-  PageSetup_OrientationEnum _orientation;
+  PageSetup_OrientationEnum? _orientation;
 
-  PageSetup_OrientationEnum get orientation => _orientation;
-  set orientation(PageSetup_OrientationEnum val) => _orientation = val;
+  PageSetup_OrientationEnum? get orientation => _orientation;
+  set orientation(PageSetup_OrientationEnum? val) => _orientation = val;
 
 
   /// Gets or sets the paper tray (bin) to be used for all but the first page of a section.
   /// The value is implementation (printer) specific.
-  int _otherPagesTray;
+  int? _otherPagesTray;
 
-  int get otherPagesTray => _otherPagesTray;
-  set otherPagesTray(int val) => _otherPagesTray = val;
+  int? get otherPagesTray => _otherPagesTray;
+  set otherPagesTray(int? val) => _otherPagesTray = val;
 
 
   /// Gets or sets the height of the page in points.
-  double _pageHeight;
+  double? _pageHeight;
 
-  double get pageHeight => _pageHeight;
-  set pageHeight(double val) => _pageHeight = val;
+  double? get pageHeight => _pageHeight;
+  set pageHeight(double? val) => _pageHeight = val;
 
 
   /// Gets or sets the page number format.
-  PageSetup_PageNumberStyleEnum _pageNumberStyle;
+  PageSetup_PageNumberStyleEnum? _pageNumberStyle;
 
-  PageSetup_PageNumberStyleEnum get pageNumberStyle => _pageNumberStyle;
-  set pageNumberStyle(PageSetup_PageNumberStyleEnum val) => _pageNumberStyle = val;
+  PageSetup_PageNumberStyleEnum? get pageNumberStyle => _pageNumberStyle;
+  set pageNumberStyle(PageSetup_PageNumberStyleEnum? val) => _pageNumberStyle = val;
 
 
   /// Gets or sets the starting page number of the section.
-  int _pageStartingNumber;
+  int? _pageStartingNumber;
 
-  int get pageStartingNumber => _pageStartingNumber;
-  set pageStartingNumber(int val) => _pageStartingNumber = val;
+  int? get pageStartingNumber => _pageStartingNumber;
+  set pageStartingNumber(int? val) => _pageStartingNumber = val;
 
 
   /// Gets or sets the width of the page in points.
-  double _pageWidth;
+  double? _pageWidth;
 
-  double get pageWidth => _pageWidth;
-  set pageWidth(double val) => _pageWidth = val;
+  double? get pageWidth => _pageWidth;
+  set pageWidth(double? val) => _pageWidth = val;
 
 
   /// Gets or sets the paper size.
-  PageSetup_PaperSizeEnum _paperSize;
+  PageSetup_PaperSizeEnum? _paperSize;
 
-  PageSetup_PaperSizeEnum get paperSize => _paperSize;
-  set paperSize(PageSetup_PaperSizeEnum val) => _paperSize = val;
+  PageSetup_PaperSizeEnum? get paperSize => _paperSize;
+  set paperSize(PageSetup_PaperSizeEnum? val) => _paperSize = val;
 
 
   /// Gets or sets a value indicating whether page numbering restarts at the beginning of the section.
-  bool _restartPageNumbering;
+  bool? _restartPageNumbering;
 
-  bool get restartPageNumbering => _restartPageNumbering;
-  set restartPageNumbering(bool val) => _restartPageNumbering = val;
+  bool? get restartPageNumbering => _restartPageNumbering;
+  set restartPageNumbering(bool? val) => _restartPageNumbering = val;
 
 
   /// Gets or sets the distance (in points) between the right edge of the page and the right boundary of the body text.
-  double _rightMargin;
+  double? _rightMargin;
 
-  double get rightMargin => _rightMargin;
-  set rightMargin(double val) => _rightMargin = val;
+  double? get rightMargin => _rightMargin;
+  set rightMargin(double? val) => _rightMargin = val;
 
 
   /// Gets or sets a value indicating whether Microsoft Word uses gutters for the section based on a right-to-left language or a left-to-right language.
-  bool _rtlGutter;
+  bool? _rtlGutter;
 
-  bool get rtlGutter => _rtlGutter;
-  set rtlGutter(bool val) => _rtlGutter = val;
+  bool? get rtlGutter => _rtlGutter;
+  set rtlGutter(bool? val) => _rtlGutter = val;
 
 
   /// Gets or sets the type of section break for the specified object.
-  PageSetup_SectionStartEnum _sectionStart;
+  PageSetup_SectionStartEnum? _sectionStart;
 
-  PageSetup_SectionStartEnum get sectionStart => _sectionStart;
-  set sectionStart(PageSetup_SectionStartEnum val) => _sectionStart = val;
+  PageSetup_SectionStartEnum? get sectionStart => _sectionStart;
+  set sectionStart(PageSetup_SectionStartEnum? val) => _sectionStart = val;
 
 
   /// Gets or sets a value indicating whether endnotes are printed at the end of the next section that doesn't suppress endnotes. Suppressed endnotes are printed before the endnotes in that section.
-  bool _suppressEndnotes;
+  bool? _suppressEndnotes;
 
-  bool get suppressEndnotes => _suppressEndnotes;
-  set suppressEndnotes(bool val) => _suppressEndnotes = val;
+  bool? get suppressEndnotes => _suppressEndnotes;
+  set suppressEndnotes(bool? val) => _suppressEndnotes = val;
 
 
   /// Gets or sets the distance (in points) between the top edge of the page and the top boundary of the body text.
-  double _topMargin;
+  double? _topMargin;
 
-  double get topMargin => _topMargin;
-  set topMargin(double val) => _topMargin = val;
+  double? get topMargin => _topMargin;
+  set topMargin(double? val) => _topMargin = val;
 
 
   /// Gets or sets the vertical alignment of text on each page in the document.or section.
-  PageSetup_VerticalAlignmentEnum _verticalAlignment;
+  PageSetup_VerticalAlignmentEnum? _verticalAlignment;
 
-  PageSetup_VerticalAlignmentEnum get verticalAlignment => _verticalAlignment;
-  set verticalAlignment(PageSetup_VerticalAlignmentEnum val) => _verticalAlignment = val;
+  PageSetup_VerticalAlignmentEnum? get verticalAlignment => _verticalAlignment;
+  set verticalAlignment(PageSetup_VerticalAlignmentEnum? val) => _verticalAlignment = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize PageSetup data model.');
     }
@@ -245,7 +245,7 @@ class PageSetup extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -545,15 +545,15 @@ class PageSetup extends LinkElement {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (bidi != null) {
-      _result['Bidi'] = bidi;
+      _result['Bidi'] = bidi!;
     }
 
     if (borderAlwaysInFront != null) {
-      _result['BorderAlwaysInFront'] = borderAlwaysInFront;
+      _result['BorderAlwaysInFront'] = borderAlwaysInFront!;
     }
 
     if (borderAppliesTo != null) {
-      switch (borderAppliesTo) {
+      switch (borderAppliesTo!) {
         case PageSetup_BorderAppliesToEnum.allPages: _result['BorderAppliesTo'] = 'AllPages'; break;
         case PageSetup_BorderAppliesToEnum.firstPage: _result['BorderAppliesTo'] = 'FirstPage'; break;
         case PageSetup_BorderAppliesToEnum.otherPages: _result['BorderAppliesTo'] = 'OtherPages'; break;
@@ -562,7 +562,7 @@ class PageSetup extends LinkElement {
     }
 
     if (borderDistanceFrom != null) {
-      switch (borderDistanceFrom) {
+      switch (borderDistanceFrom!) {
         case PageSetup_BorderDistanceFromEnum.text: _result['BorderDistanceFrom'] = 'Text'; break;
         case PageSetup_BorderDistanceFromEnum.pageEdge: _result['BorderDistanceFrom'] = 'PageEdge'; break;
         default: break;
@@ -570,43 +570,43 @@ class PageSetup extends LinkElement {
     }
 
     if (bottomMargin != null) {
-      _result['BottomMargin'] = bottomMargin;
+      _result['BottomMargin'] = bottomMargin!;
     }
 
     if (differentFirstPageHeaderFooter != null) {
-      _result['DifferentFirstPageHeaderFooter'] = differentFirstPageHeaderFooter;
+      _result['DifferentFirstPageHeaderFooter'] = differentFirstPageHeaderFooter!;
     }
 
     if (firstPageTray != null) {
-      _result['FirstPageTray'] = firstPageTray;
+      _result['FirstPageTray'] = firstPageTray!;
     }
 
     if (footerDistance != null) {
-      _result['FooterDistance'] = footerDistance;
+      _result['FooterDistance'] = footerDistance!;
     }
 
     if (gutter != null) {
-      _result['Gutter'] = gutter;
+      _result['Gutter'] = gutter!;
     }
 
     if (headerDistance != null) {
-      _result['HeaderDistance'] = headerDistance;
+      _result['HeaderDistance'] = headerDistance!;
     }
 
     if (leftMargin != null) {
-      _result['LeftMargin'] = leftMargin;
+      _result['LeftMargin'] = leftMargin!;
     }
 
     if (lineNumberCountBy != null) {
-      _result['LineNumberCountBy'] = lineNumberCountBy;
+      _result['LineNumberCountBy'] = lineNumberCountBy!;
     }
 
     if (lineNumberDistanceFromText != null) {
-      _result['LineNumberDistanceFromText'] = lineNumberDistanceFromText;
+      _result['LineNumberDistanceFromText'] = lineNumberDistanceFromText!;
     }
 
     if (lineNumberRestartMode != null) {
-      switch (lineNumberRestartMode) {
+      switch (lineNumberRestartMode!) {
         case PageSetup_LineNumberRestartModeEnum.restartPage: _result['LineNumberRestartMode'] = 'RestartPage'; break;
         case PageSetup_LineNumberRestartModeEnum.restartSection: _result['LineNumberRestartMode'] = 'RestartSection'; break;
         case PageSetup_LineNumberRestartModeEnum.continuous: _result['LineNumberRestartMode'] = 'Continuous'; break;
@@ -615,11 +615,11 @@ class PageSetup extends LinkElement {
     }
 
     if (lineStartingNumber != null) {
-      _result['LineStartingNumber'] = lineStartingNumber;
+      _result['LineStartingNumber'] = lineStartingNumber!;
     }
 
     if (orientation != null) {
-      switch (orientation) {
+      switch (orientation!) {
         case PageSetup_OrientationEnum.portrait: _result['Orientation'] = 'Portrait'; break;
         case PageSetup_OrientationEnum.landscape: _result['Orientation'] = 'Landscape'; break;
         default: break;
@@ -627,15 +627,15 @@ class PageSetup extends LinkElement {
     }
 
     if (otherPagesTray != null) {
-      _result['OtherPagesTray'] = otherPagesTray;
+      _result['OtherPagesTray'] = otherPagesTray!;
     }
 
     if (pageHeight != null) {
-      _result['PageHeight'] = pageHeight;
+      _result['PageHeight'] = pageHeight!;
     }
 
     if (pageNumberStyle != null) {
-      switch (pageNumberStyle) {
+      switch (pageNumberStyle!) {
         case PageSetup_PageNumberStyleEnum.arabic: _result['PageNumberStyle'] = 'Arabic'; break;
         case PageSetup_PageNumberStyleEnum.uppercaseRoman: _result['PageNumberStyle'] = 'UppercaseRoman'; break;
         case PageSetup_PageNumberStyleEnum.lowercaseRoman: _result['PageNumberStyle'] = 'LowercaseRoman'; break;
@@ -703,15 +703,15 @@ class PageSetup extends LinkElement {
     }
 
     if (pageStartingNumber != null) {
-      _result['PageStartingNumber'] = pageStartingNumber;
+      _result['PageStartingNumber'] = pageStartingNumber!;
     }
 
     if (pageWidth != null) {
-      _result['PageWidth'] = pageWidth;
+      _result['PageWidth'] = pageWidth!;
     }
 
     if (paperSize != null) {
-      switch (paperSize) {
+      switch (paperSize!) {
         case PageSetup_PaperSizeEnum.a3: _result['PaperSize'] = 'A3'; break;
         case PageSetup_PaperSizeEnum.a4: _result['PaperSize'] = 'A4'; break;
         case PageSetup_PaperSizeEnum.a5: _result['PaperSize'] = 'A5'; break;
@@ -735,19 +735,19 @@ class PageSetup extends LinkElement {
     }
 
     if (restartPageNumbering != null) {
-      _result['RestartPageNumbering'] = restartPageNumbering;
+      _result['RestartPageNumbering'] = restartPageNumbering!;
     }
 
     if (rightMargin != null) {
-      _result['RightMargin'] = rightMargin;
+      _result['RightMargin'] = rightMargin!;
     }
 
     if (rtlGutter != null) {
-      _result['RtlGutter'] = rtlGutter;
+      _result['RtlGutter'] = rtlGutter!;
     }
 
     if (sectionStart != null) {
-      switch (sectionStart) {
+      switch (sectionStart!) {
         case PageSetup_SectionStartEnum.continuous: _result['SectionStart'] = 'Continuous'; break;
         case PageSetup_SectionStartEnum.newColumn: _result['SectionStart'] = 'NewColumn'; break;
         case PageSetup_SectionStartEnum.newPage: _result['SectionStart'] = 'NewPage'; break;
@@ -758,15 +758,15 @@ class PageSetup extends LinkElement {
     }
 
     if (suppressEndnotes != null) {
-      _result['SuppressEndnotes'] = suppressEndnotes;
+      _result['SuppressEndnotes'] = suppressEndnotes!;
     }
 
     if (topMargin != null) {
-      _result['TopMargin'] = topMargin;
+      _result['TopMargin'] = topMargin!;
     }
 
     if (verticalAlignment != null) {
-      switch (verticalAlignment) {
+      switch (verticalAlignment!) {
         case PageSetup_VerticalAlignmentEnum.top: _result['VerticalAlignment'] = 'Top'; break;
         case PageSetup_VerticalAlignmentEnum.center: _result['VerticalAlignment'] = 'Center'; break;
         case PageSetup_VerticalAlignmentEnum.justify: _result['VerticalAlignment'] = 'Justify'; break;

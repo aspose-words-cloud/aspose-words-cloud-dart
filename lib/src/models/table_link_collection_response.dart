@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a collection of tables.
 class TableLinkCollectionResponse extends WordsResponse {
   /// Gets or sets the collection of tables.
-  TableLinkCollection _tables;
+  TableLinkCollection? _tables;
 
-  TableLinkCollection get tables => _tables;
-  set tables(TableLinkCollection val) => _tables = val;
+  TableLinkCollection? get tables => _tables;
+  set tables(TableLinkCollection? val) => _tables = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize TableLinkCollectionResponse data model.');
     }
@@ -53,7 +53,7 @@ class TableLinkCollectionResponse extends WordsResponse {
 
     if (json.containsKey('Tables')) {
       tables = TableLinkCollection();
-      tables.deserialize(json['Tables'] as Map<String, dynamic>);
+      tables!.deserialize(json['Tables'] as Map<String, dynamic>);
     } else {
       tables = null;
     }
@@ -64,7 +64,7 @@ class TableLinkCollectionResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (tables != null) {
-      _result['Tables'] = tables.serialize();
+      _result['Tables'] = tables!.serialize();
     }
     return _result;
   }

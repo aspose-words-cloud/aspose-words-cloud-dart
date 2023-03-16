@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// Represents a single document style to insert.
 class StyleInsert implements ModelBase {
   /// Gets or sets the case sensitive name of the style to create.
-  String _styleName;
+  String? _styleName;
 
-  String get styleName => _styleName;
-  set styleName(String val) => _styleName = val;
+  String? get styleName => _styleName;
+  set styleName(String? val) => _styleName = val;
 
 
   /// Gets or sets the StyleType value that specifies the type of the style to create.
-  StyleInsert_StyleTypeEnum _styleType;
+  StyleInsert_StyleTypeEnum? _styleType;
 
-  StyleInsert_StyleTypeEnum get styleType => _styleType;
-  set styleType(StyleInsert_StyleTypeEnum val) => _styleType = val;
+  StyleInsert_StyleTypeEnum? get styleType => _styleType;
+  set styleType(StyleInsert_StyleTypeEnum? val) => _styleType = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize StyleInsert data model.');
     }
@@ -74,11 +74,11 @@ class StyleInsert implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (styleName != null) {
-      _result['StyleName'] = styleName;
+      _result['StyleName'] = styleName!;
     }
 
     if (styleType != null) {
-      switch (styleType) {
+      switch (styleType!) {
         case StyleInsert_StyleTypeEnum.paragraph: _result['StyleType'] = 'Paragraph'; break;
         case StyleInsert_StyleTypeEnum.character: _result['StyleType'] = 'Character'; break;
         case StyleInsert_StyleTypeEnum.table: _result['StyleType'] = 'Table'; break;

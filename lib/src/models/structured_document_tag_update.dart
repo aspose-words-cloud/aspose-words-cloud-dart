@@ -33,7 +33,7 @@ import '../../aspose_words_cloud.dart';
 class StructuredDocumentTagUpdate extends StructuredDocumentTag {
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize StructuredDocumentTagUpdate data model.');
     }
@@ -41,7 +41,7 @@ class StructuredDocumentTagUpdate extends StructuredDocumentTag {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -178,7 +178,7 @@ class StructuredDocumentTagUpdate extends StructuredDocumentTag {
       for(final _element in json['ListItems']) {
         var _elementValue = StructuredDocumentTagListItem();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        listItems.add(_elementValue);
+        listItems!.add(_elementValue);
       }
     } else {
       listItems = null;

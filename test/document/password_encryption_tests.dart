@@ -34,10 +34,10 @@ import '../test_context.dart';
 class PasswordEncryptionTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
+  late String remoteDataFolder;
+  late String localFile;
 
-  PasswordEncryptionTests(final this.context) {
+  PasswordEncryptionTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/PasswordEncryption';
     localFile = 'Common/test_multi_pages.docx';
   }

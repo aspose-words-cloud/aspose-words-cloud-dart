@@ -32,28 +32,28 @@ import '../../aspose_words_cloud.dart';
 /// Result of saving.
 class SaveResult implements ModelBase {
   /// Gets or sets the list of links to additional items (css, images etc).
-  List<FileLink> _additionalItems;
+  List<FileLink?>? _additionalItems;
 
-  List<FileLink> get additionalItems => _additionalItems;
-  set additionalItems(List<FileLink> val) => _additionalItems = val;
+  List<FileLink?>? get additionalItems => _additionalItems;
+  set additionalItems(List<FileLink?>? val) => _additionalItems = val;
 
 
   /// Gets or sets the link to destination document.
-  FileLink _destDocument;
+  FileLink? _destDocument;
 
-  FileLink get destDocument => _destDocument;
-  set destDocument(FileLink val) => _destDocument = val;
+  FileLink? get destDocument => _destDocument;
+  set destDocument(FileLink? val) => _destDocument = val;
 
 
   /// Gets or sets the link to source document.
-  FileLink _sourceDocument;
+  FileLink? _sourceDocument;
 
-  FileLink get sourceDocument => _sourceDocument;
-  set sourceDocument(FileLink val) => _sourceDocument = val;
+  FileLink? get sourceDocument => _sourceDocument;
+  set sourceDocument(FileLink? val) => _sourceDocument = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize SaveResult data model.');
     }
@@ -64,7 +64,7 @@ class SaveResult implements ModelBase {
       for(final _element in json['AdditionalItems']) {
         var _elementValue = FileLink();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        additionalItems.add(_elementValue);
+        additionalItems!.add(_elementValue);
       }
     } else {
       additionalItems = null;
@@ -72,14 +72,14 @@ class SaveResult implements ModelBase {
 
     if (json.containsKey('DestDocument')) {
       destDocument = FileLink();
-      destDocument.deserialize(json['DestDocument'] as Map<String, dynamic>);
+      destDocument!.deserialize(json['DestDocument'] as Map<String, dynamic>);
     } else {
       destDocument = null;
     }
 
     if (json.containsKey('SourceDocument')) {
       sourceDocument = FileLink();
-      sourceDocument.deserialize(json['SourceDocument'] as Map<String, dynamic>);
+      sourceDocument!.deserialize(json['SourceDocument'] as Map<String, dynamic>);
     } else {
       sourceDocument = null;
     }
@@ -89,15 +89,15 @@ class SaveResult implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (additionalItems != null) {
-      _result['AdditionalItems'] = additionalItems.map((_element) => _element.serialize()).toList();
+      _result['AdditionalItems'] = additionalItems!.map((_element) => _element?.serialize()).toList();
     }
 
     if (destDocument != null) {
-      _result['DestDocument'] = destDocument.serialize();
+      _result['DestDocument'] = destDocument!.serialize();
     }
 
     if (sourceDocument != null) {
-      _result['SourceDocument'] = sourceDocument.serialize();
+      _result['SourceDocument'] = sourceDocument!.serialize();
     }
     return _result;
   }

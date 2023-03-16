@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with an array of document lists.
 class Lists extends LinkElement {
   /// Gets or sets the array of document lists.
-  List<ListInfo> _listInfo;
+  List<ListInfo?>? _listInfo;
 
-  List<ListInfo> get listInfo => _listInfo;
-  set listInfo(List<ListInfo> val) => _listInfo = val;
+  List<ListInfo?>? get listInfo => _listInfo;
+  set listInfo(List<ListInfo?>? val) => _listInfo = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize Lists data model.');
     }
@@ -47,7 +47,7 @@ class Lists extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -58,7 +58,7 @@ class Lists extends LinkElement {
       for(final _element in json['ListInfo']) {
         var _elementValue = ListInfo();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        listInfo.add(_elementValue);
+        listInfo!.add(_elementValue);
       }
     } else {
       listInfo = null;
@@ -70,7 +70,7 @@ class Lists extends LinkElement {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (listInfo != null) {
-      _result['ListInfo'] = listInfo.map((_element) => _element.serialize()).toList();
+      _result['ListInfo'] = listInfo!.map((_element) => _element?.serialize()).toList();
     }
     return _result;
   }

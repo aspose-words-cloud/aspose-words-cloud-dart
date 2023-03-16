@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a table row element.
 class TableRow extends NodeLink {
   /// Gets or sets the formatting properties of a row.
-  TableRowFormat _rowFormat;
+  TableRowFormat? _rowFormat;
 
-  TableRowFormat get rowFormat => _rowFormat;
-  set rowFormat(TableRowFormat val) => _rowFormat = val;
+  TableRowFormat? get rowFormat => _rowFormat;
+  set rowFormat(TableRowFormat? val) => _rowFormat = val;
 
 
   /// Gets or sets the collection of rows.
-  List<TableCell> _tableCellList;
+  List<TableCell?>? _tableCellList;
 
-  List<TableCell> get tableCellList => _tableCellList;
-  set tableCellList(List<TableCell> val) => _tableCellList = val;
+  List<TableCell?>? get tableCellList => _tableCellList;
+  set tableCellList(List<TableCell?>? val) => _tableCellList = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize TableRow data model.');
     }
@@ -54,7 +54,7 @@ class TableRow extends NodeLink {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -67,7 +67,7 @@ class TableRow extends NodeLink {
 
     if (json.containsKey('RowFormat')) {
       rowFormat = TableRowFormat();
-      rowFormat.deserialize(json['RowFormat'] as Map<String, dynamic>);
+      rowFormat!.deserialize(json['RowFormat'] as Map<String, dynamic>);
     } else {
       rowFormat = null;
     }
@@ -78,7 +78,7 @@ class TableRow extends NodeLink {
       for(final _element in json['TableCellList']) {
         var _elementValue = TableCell();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        tableCellList.add(_elementValue);
+        tableCellList!.add(_elementValue);
       }
     } else {
       tableCellList = null;
@@ -90,11 +90,11 @@ class TableRow extends NodeLink {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (rowFormat != null) {
-      _result['RowFormat'] = rowFormat.serialize();
+      _result['RowFormat'] = rowFormat!.serialize();
     }
 
     if (tableCellList != null) {
-      _result['TableCellList'] = tableCellList.map((_element) => _element.serialize()).toList();
+      _result['TableCellList'] = tableCellList!.map((_element) => _element?.serialize()).toList();
     }
     return _result;
   }

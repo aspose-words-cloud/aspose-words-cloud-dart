@@ -32,100 +32,100 @@ import '../../aspose_words_cloud.dart';
 /// DTO for field options.
 class FieldOptions implements ModelBase {
   /// Gets or sets BuiltIn Templates Paths.
-  List<String> _builtInTemplatesPaths;
+  List<String?>? _builtInTemplatesPaths;
 
-  List<String> get builtInTemplatesPaths => _builtInTemplatesPaths;
-  set builtInTemplatesPaths(List<String> val) => _builtInTemplatesPaths = val;
+  List<String?>? get builtInTemplatesPaths => _builtInTemplatesPaths;
+  set builtInTemplatesPaths(List<String?>? val) => _builtInTemplatesPaths = val;
 
 
   /// Gets or sets Curren tUser.
-  UserInformation _currentUser;
+  UserInformation? _currentUser;
 
-  UserInformation get currentUser => _currentUser;
-  set currentUser(UserInformation val) => _currentUser = val;
+  UserInformation? get currentUser => _currentUser;
+  set currentUser(UserInformation? val) => _currentUser = val;
 
 
   /// Gets or sets Custom Toc Style Separator.
-  String _customTocStyleSeparator;
+  String? _customTocStyleSeparator;
 
-  String get customTocStyleSeparator => _customTocStyleSeparator;
-  set customTocStyleSeparator(String val) => _customTocStyleSeparator = val;
+  String? get customTocStyleSeparator => _customTocStyleSeparator;
+  set customTocStyleSeparator(String? val) => _customTocStyleSeparator = val;
 
 
   /// Gets or sets Default Document Author.
-  String _defaultDocumentAuthor;
+  String? _defaultDocumentAuthor;
 
-  String get defaultDocumentAuthor => _defaultDocumentAuthor;
-  set defaultDocumentAuthor(String val) => _defaultDocumentAuthor = val;
+  String? get defaultDocumentAuthor => _defaultDocumentAuthor;
+  set defaultDocumentAuthor(String? val) => _defaultDocumentAuthor = val;
 
 
   /// Gets or sets Field Index Format.
-  FieldOptions_FieldIndexFormatEnum _fieldIndexFormat;
+  FieldOptions_FieldIndexFormatEnum? _fieldIndexFormat;
 
-  FieldOptions_FieldIndexFormatEnum get fieldIndexFormat => _fieldIndexFormat;
-  set fieldIndexFormat(FieldOptions_FieldIndexFormatEnum val) => _fieldIndexFormat = val;
+  FieldOptions_FieldIndexFormatEnum? get fieldIndexFormat => _fieldIndexFormat;
+  set fieldIndexFormat(FieldOptions_FieldIndexFormatEnum? val) => _fieldIndexFormat = val;
 
 
   /// Gets or sets Field Update Culture Name.
   /// It is used for all fields if FieldUpdateCultureSource is FieldCode.
-  String _fieldUpdateCultureName;
+  String? _fieldUpdateCultureName;
 
-  String get fieldUpdateCultureName => _fieldUpdateCultureName;
-  set fieldUpdateCultureName(String val) => _fieldUpdateCultureName = val;
+  String? get fieldUpdateCultureName => _fieldUpdateCultureName;
+  set fieldUpdateCultureName(String? val) => _fieldUpdateCultureName = val;
 
 
   /// Gets or sets Field Update Culture Source.
-  FieldOptions_FieldUpdateCultureSourceEnum _fieldUpdateCultureSource;
+  FieldOptions_FieldUpdateCultureSourceEnum? _fieldUpdateCultureSource;
 
-  FieldOptions_FieldUpdateCultureSourceEnum get fieldUpdateCultureSource => _fieldUpdateCultureSource;
-  set fieldUpdateCultureSource(FieldOptions_FieldUpdateCultureSourceEnum val) => _fieldUpdateCultureSource = val;
+  FieldOptions_FieldUpdateCultureSourceEnum? get fieldUpdateCultureSource => _fieldUpdateCultureSource;
+  set fieldUpdateCultureSource(FieldOptions_FieldUpdateCultureSourceEnum? val) => _fieldUpdateCultureSource = val;
 
 
   /// Gets or sets File Name.
-  String _fileName;
+  String? _fileName;
 
-  String get fileName => _fileName;
-  set fileName(String val) => _fileName = val;
+  String? get fileName => _fileName;
+  set fileName(String? val) => _fileName = val;
 
 
   /// Gets or sets if Bidi Text Supported OnUpdate.
-  bool _isBidiTextSupportedOnUpdate;
+  bool? _isBidiTextSupportedOnUpdate;
 
-  bool get isBidiTextSupportedOnUpdate => _isBidiTextSupportedOnUpdate;
-  set isBidiTextSupportedOnUpdate(bool val) => _isBidiTextSupportedOnUpdate = val;
+  bool? get isBidiTextSupportedOnUpdate => _isBidiTextSupportedOnUpdate;
+  set isBidiTextSupportedOnUpdate(bool? val) => _isBidiTextSupportedOnUpdate = val;
 
 
   /// Gets or sets if Legacy Number Format.
-  bool _legacyNumberFormat;
+  bool? _legacyNumberFormat;
 
-  bool get legacyNumberFormat => _legacyNumberFormat;
-  set legacyNumberFormat(bool val) => _legacyNumberFormat = val;
+  bool? get legacyNumberFormat => _legacyNumberFormat;
+  set legacyNumberFormat(bool? val) => _legacyNumberFormat = val;
 
 
   /// Gets or sets PreProcess Culture Name.
   /// It is a culture code for DOC fields.
-  String _preProcessCultureName;
+  String? _preProcessCultureName;
 
-  String get preProcessCultureName => _preProcessCultureName;
-  set preProcessCultureName(String val) => _preProcessCultureName = val;
+  String? get preProcessCultureName => _preProcessCultureName;
+  set preProcessCultureName(String? val) => _preProcessCultureName = val;
 
 
   /// Gets or sets Template Name.
-  String _templateName;
+  String? _templateName;
 
-  String get templateName => _templateName;
-  set templateName(String val) => _templateName = val;
+  String? get templateName => _templateName;
+  set templateName(String? val) => _templateName = val;
 
 
   /// Gets or sets if Use Invariant Culture Number Format.
-  bool _useInvariantCultureNumberFormat;
+  bool? _useInvariantCultureNumberFormat;
 
-  bool get useInvariantCultureNumberFormat => _useInvariantCultureNumberFormat;
-  set useInvariantCultureNumberFormat(bool val) => _useInvariantCultureNumberFormat = val;
+  bool? get useInvariantCultureNumberFormat => _useInvariantCultureNumberFormat;
+  set useInvariantCultureNumberFormat(bool? val) => _useInvariantCultureNumberFormat = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize FieldOptions data model.');
     }
@@ -134,7 +134,7 @@ class FieldOptions implements ModelBase {
       // Array processing
       builtInTemplatesPaths = <String>[];
       for(final _element in json['BuiltInTemplatesPaths']) {
-        builtInTemplatesPaths.add(_element as String);
+        builtInTemplatesPaths!.add(_element as String);
       }
     } else {
       builtInTemplatesPaths = null;
@@ -142,7 +142,7 @@ class FieldOptions implements ModelBase {
 
     if (json.containsKey('CurrentUser')) {
       currentUser = UserInformation();
-      currentUser.deserialize(json['CurrentUser'] as Map<String, dynamic>);
+      currentUser!.deserialize(json['CurrentUser'] as Map<String, dynamic>);
     } else {
       currentUser = null;
     }
@@ -231,23 +231,23 @@ class FieldOptions implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (builtInTemplatesPaths != null) {
-      _result['BuiltInTemplatesPaths'] = builtInTemplatesPaths;
+      _result['BuiltInTemplatesPaths'] = builtInTemplatesPaths!;
     }
 
     if (currentUser != null) {
-      _result['CurrentUser'] = currentUser.serialize();
+      _result['CurrentUser'] = currentUser!.serialize();
     }
 
     if (customTocStyleSeparator != null) {
-      _result['CustomTocStyleSeparator'] = customTocStyleSeparator;
+      _result['CustomTocStyleSeparator'] = customTocStyleSeparator!;
     }
 
     if (defaultDocumentAuthor != null) {
-      _result['DefaultDocumentAuthor'] = defaultDocumentAuthor;
+      _result['DefaultDocumentAuthor'] = defaultDocumentAuthor!;
     }
 
     if (fieldIndexFormat != null) {
-      switch (fieldIndexFormat) {
+      switch (fieldIndexFormat!) {
         case FieldOptions_FieldIndexFormatEnum.template: _result['FieldIndexFormat'] = 'Template'; break;
         case FieldOptions_FieldIndexFormatEnum.classic: _result['FieldIndexFormat'] = 'Classic'; break;
         case FieldOptions_FieldIndexFormatEnum.fancy: _result['FieldIndexFormat'] = 'Fancy'; break;
@@ -260,11 +260,11 @@ class FieldOptions implements ModelBase {
     }
 
     if (fieldUpdateCultureName != null) {
-      _result['FieldUpdateCultureName'] = fieldUpdateCultureName;
+      _result['FieldUpdateCultureName'] = fieldUpdateCultureName!;
     }
 
     if (fieldUpdateCultureSource != null) {
-      switch (fieldUpdateCultureSource) {
+      switch (fieldUpdateCultureSource!) {
         case FieldOptions_FieldUpdateCultureSourceEnum.currentThread: _result['FieldUpdateCultureSource'] = 'CurrentThread'; break;
         case FieldOptions_FieldUpdateCultureSourceEnum.fieldCode: _result['FieldUpdateCultureSource'] = 'FieldCode'; break;
         default: break;
@@ -272,27 +272,27 @@ class FieldOptions implements ModelBase {
     }
 
     if (fileName != null) {
-      _result['FileName'] = fileName;
+      _result['FileName'] = fileName!;
     }
 
     if (isBidiTextSupportedOnUpdate != null) {
-      _result['IsBidiTextSupportedOnUpdate'] = isBidiTextSupportedOnUpdate;
+      _result['IsBidiTextSupportedOnUpdate'] = isBidiTextSupportedOnUpdate!;
     }
 
     if (legacyNumberFormat != null) {
-      _result['LegacyNumberFormat'] = legacyNumberFormat;
+      _result['LegacyNumberFormat'] = legacyNumberFormat!;
     }
 
     if (preProcessCultureName != null) {
-      _result['PreProcessCultureName'] = preProcessCultureName;
+      _result['PreProcessCultureName'] = preProcessCultureName!;
     }
 
     if (templateName != null) {
-      _result['TemplateName'] = templateName;
+      _result['TemplateName'] = templateName!;
     }
 
     if (useInvariantCultureNumberFormat != null) {
-      _result['UseInvariantCultureNumberFormat'] = useInvariantCultureNumberFormat;
+      _result['UseInvariantCultureNumberFormat'] = useInvariantCultureNumberFormat!;
     }
     return _result;
   }

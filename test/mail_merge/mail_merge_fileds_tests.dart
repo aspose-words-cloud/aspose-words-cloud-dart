@@ -34,10 +34,10 @@ import '../test_context.dart';
 class MailMergeFiledsTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String mailMergeFolder;
+  late String remoteDataFolder;
+  late String mailMergeFolder;
 
-  MailMergeFiledsTests(final this.context) {
+  MailMergeFiledsTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/MailMerge';
     mailMergeFolder = 'DocumentActions/MailMerge';
   }
@@ -55,9 +55,9 @@ class MailMergeFiledsTests
 
     final result = await context.getApi().getDocumentFieldNamesOnline(request);
     expect(result.fieldNames, isNotNull);
-    expect(result.fieldNames.names, isNotNull);
-    expect(result.fieldNames.names.length, 15);
-    expect(result.fieldNames.names[0], 'TableStart:Order');
+    expect(result.fieldNames?.names, isNotNull);
+    expect(result.fieldNames?.names?.length, 15);
+    expect(result.fieldNames?.names?[0], 'TableStart:Order');
   }
 
   /// Test for getting mailmerge fields.
@@ -73,7 +73,7 @@ class MailMergeFiledsTests
 
     final result = await context.getApi().getDocumentFieldNames(request);
     expect(result.fieldNames, isNotNull);
-    expect(result.fieldNames.names, isNotNull);
-    expect(result.fieldNames.names.length, 0);
+    expect(result.fieldNames?.names, isNotNull);
+    expect(result.fieldNames?.names?.length, 0);
   }
 }

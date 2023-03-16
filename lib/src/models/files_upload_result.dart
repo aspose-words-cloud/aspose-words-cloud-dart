@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// File upload result.
 class FilesUploadResult implements ModelBase {
   /// List of errors.
-  List<Error> _errors;
+  List<Error?>? _errors;
 
-  List<Error> get errors => _errors;
-  set errors(List<Error> val) => _errors = val;
+  List<Error?>? get errors => _errors;
+  set errors(List<Error?>? val) => _errors = val;
 
 
   /// List of uploaded file names.
-  List<String> _uploaded;
+  List<String?>? _uploaded;
 
-  List<String> get uploaded => _uploaded;
-  set uploaded(List<String> val) => _uploaded = val;
+  List<String?>? get uploaded => _uploaded;
+  set uploaded(List<String?>? val) => _uploaded = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize FilesUploadResult data model.');
     }
@@ -57,7 +57,7 @@ class FilesUploadResult implements ModelBase {
       for(final _element in json['Errors']) {
         var _elementValue = Error();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        errors.add(_elementValue);
+        errors!.add(_elementValue);
       }
     } else {
       errors = null;
@@ -67,7 +67,7 @@ class FilesUploadResult implements ModelBase {
       // Array processing
       uploaded = <String>[];
       for(final _element in json['Uploaded']) {
-        uploaded.add(_element as String);
+        uploaded!.add(_element as String);
       }
     } else {
       uploaded = null;
@@ -78,11 +78,11 @@ class FilesUploadResult implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (errors != null) {
-      _result['Errors'] = errors.map((_element) => _element.serialize()).toList();
+      _result['Errors'] = errors!.map((_element) => _element?.serialize()).toList();
     }
 
     if (uploaded != null) {
-      _result['Uploaded'] = uploaded;
+      _result['Uploaded'] = uploaded!;
     }
     return _result;
   }

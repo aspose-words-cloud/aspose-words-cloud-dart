@@ -36,21 +36,21 @@ import '../api_request_part.dart';
 /// Request model for CopyFile operation.
 class CopyFileRequest implements RequestBase {
   /// Destination file path.
-  final String destPath;
+  final String? destPath;
 
   /// Source file's path e.g. '/Folder 1/file.ext' or '/Bucket/Folder 1/file.ext'.
-  final String srcPath;
+  final String? srcPath;
 
   /// Source storage name.
-  final String srcStorageName;
+  final String? srcStorageName;
 
   /// Destination storage name.
-  final String destStorageName;
+  final String? destStorageName;
 
   /// File version ID to copy.
-  final String versionId;
+  final String? versionId;
 
-  CopyFileRequest(final this.destPath, final this.srcPath, {final this.srcStorageName, final this.destStorageName, final this.versionId});
+  CopyFileRequest(this.destPath, this.srcPath, {this.srcStorageName, this.destStorageName, this.versionId});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -62,29 +62,29 @@ class CopyFileRequest implements RequestBase {
     if (srcPath == null) {
       throw ApiException(400, 'Parameter srcPath is required.');
     }
-    _path = _path.replaceAll('{srcPath}', _apiClient.serializeToString(srcPath));
+    _path = _path.replaceAll('{srcPath}', _apiClient.serializeToString(srcPath) ?? "");
     if (destPath != null) {
-      _queryParams['destPath'] = _apiClient.serializeToString(destPath);
+      _queryParams['destPath'] = _apiClient.serializeToString(destPath) ?? "";
     }
     else {
       throw ApiException(400, 'Parameter destPath is required.');
     }
 
     if (srcStorageName != null) {
-      _queryParams['srcStorageName'] = _apiClient.serializeToString(srcStorageName);
+      _queryParams['srcStorageName'] = _apiClient.serializeToString(srcStorageName) ?? "";
     }
 
     if (destStorageName != null) {
-      _queryParams['destStorageName'] = _apiClient.serializeToString(destStorageName);
+      _queryParams['destStorageName'] = _apiClient.serializeToString(destStorageName) ?? "";
     }
 
     if (versionId != null) {
-      _queryParams['versionId'] = _apiClient.serializeToString(versionId);
+      _queryParams['versionId'] = _apiClient.serializeToString(versionId) ?? "";
     }
 
     for (final _fileContentPart in _fileContentParts) {
         if (_fileContentPart.source == 'Request') {
-            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
@@ -93,7 +93,7 @@ class CopyFileRequest implements RequestBase {
   }
 
   @override
-  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final Map<String, String> _headers, final ByteData? _body) {
     return null;
   }
 }

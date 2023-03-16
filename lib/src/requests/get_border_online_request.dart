@@ -37,24 +37,24 @@ import '../api_request_part.dart';
 /// Request model for GetBorderOnline operation.
 class GetBorderOnlineRequest implements RequestBase {
   /// The document.
-  final ByteData document;
+  final ByteData? document;
 
   /// Border type.
-  final String borderType;
+  final String? borderType;
 
   /// The path to the node in the document tree.
-  final String nodePath;
+  final String? nodePath;
 
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-  final String loadEncoding;
+  final String? loadEncoding;
 
   /// Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
-  final String password;
+  final String? password;
 
   /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
-  final String encryptedPassword;
+  final String? encryptedPassword;
 
-  GetBorderOnlineRequest(final this.document, final this.borderType, {final this.nodePath, final this.loadEncoding, final this.password, final this.encryptedPassword});
+  GetBorderOnlineRequest(this.document, this.borderType, {this.nodePath, this.loadEncoding, this.password, this.encryptedPassword});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -66,22 +66,25 @@ class GetBorderOnlineRequest implements RequestBase {
     if (borderType == null) {
       throw ApiException(400, 'Parameter borderType is required.');
     }
-    _path = _path.replaceAll('{borderType}', _apiClient.serializeToString(borderType));
-    _path = _path.replaceAll('{nodePath}', _apiClient.serializeToString(nodePath) ?? '');
+    _path = _path.replaceAll('{borderType}', _apiClient.serializeToString(borderType) ?? "");
+    _path = _path.replaceAll('{nodePath}', _apiClient.serializeToString(nodePath) ?? "");
     if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding) ?? "";
     }
 
     if (password != null) {
-      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password!);
     }
 
     if (encryptedPassword != null) {
-      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword);
+      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword) ?? "";
     }
 
     if (document != null) {
-      _bodyParts.add(_apiClient.serializeBody(document, 'Document'));
+      var _formBody = _apiClient.serializeBody(document, 'Document');
+      if (_formBody != null) {
+        _bodyParts.add(_formBody);
+      }
     }
     else {
       throw ApiException(400, 'Parameter document is required.');
@@ -89,7 +92,7 @@ class GetBorderOnlineRequest implements RequestBase {
 
     for (final _fileContentPart in _fileContentParts) {
         if (_fileContentPart.source == 'Request') {
-            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
@@ -98,7 +101,11 @@ class GetBorderOnlineRequest implements RequestBase {
   }
 
   @override
-  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final Map<String, String> _headers, final ByteData? _body) {
+    if (_body == null) {
+        return ApiException(400, "Nullable response body is not allowed for this operation type.");
+    }
+
     var _result = BorderResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);

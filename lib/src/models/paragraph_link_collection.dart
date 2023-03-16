@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The collection of paragraph's links.
 class ParagraphLinkCollection extends LinkElement {
   /// Gets or sets the collection of paragraph's links.
-  List<ParagraphLink> _paragraphLinkList;
+  List<ParagraphLink?>? _paragraphLinkList;
 
-  List<ParagraphLink> get paragraphLinkList => _paragraphLinkList;
-  set paragraphLinkList(List<ParagraphLink> val) => _paragraphLinkList = val;
+  List<ParagraphLink?>? get paragraphLinkList => _paragraphLinkList;
+  set paragraphLinkList(List<ParagraphLink?>? val) => _paragraphLinkList = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize ParagraphLinkCollection data model.');
     }
@@ -47,7 +47,7 @@ class ParagraphLinkCollection extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -58,7 +58,7 @@ class ParagraphLinkCollection extends LinkElement {
       for(final _element in json['ParagraphLinkList']) {
         var _elementValue = ParagraphLink();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        paragraphLinkList.add(_elementValue);
+        paragraphLinkList!.add(_elementValue);
       }
     } else {
       paragraphLinkList = null;
@@ -70,7 +70,7 @@ class ParagraphLinkCollection extends LinkElement {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (paragraphLinkList != null) {
-      _result['ParagraphLinkList'] = paragraphLinkList.map((_element) => _element.serialize()).toList();
+      _result['ParagraphLinkList'] = paragraphLinkList!.map((_element) => _element?.serialize()).toList();
     }
     return _result;
   }

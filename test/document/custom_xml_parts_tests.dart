@@ -34,10 +34,10 @@ import '../test_context.dart';
 class CustomXmlPartsTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
+  late String remoteDataFolder;
+  late String localFile;
 
-  CustomXmlPartsTests(final this.context) {
+  CustomXmlPartsTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/CustomXmlParts';
     localFile = 'DocumentElements/CustomXmlParts/MultipleCustomXmlParts.docx';
   }
@@ -56,8 +56,8 @@ class CustomXmlPartsTests
 
     final result = await context.getApi().getCustomXmlPart(request);
     expect(result.customXmlPart, isNotNull);
-    expect(result.customXmlPart.id, 'aspose');
-    expect(result.customXmlPart.data, '<Metadata><Author>author1</Author><Initial>initial</Initial><DateTime>2015-01-22T00:00:00</DateTime><Text>text</Text></Metadata>');
+    expect(result.customXmlPart?.id, 'aspose');
+    expect(result.customXmlPart?.data, '<Metadata><Author>author1</Author><Initial>initial</Initial><DateTime>2015-01-22T00:00:00</DateTime><Text>text</Text></Metadata>');
   }
 
   /// Test for getting custom xml part by specified index online.
@@ -72,8 +72,8 @@ class CustomXmlPartsTests
 
     final result = await context.getApi().getCustomXmlPartOnline(request);
     expect(result.customXmlPart, isNotNull);
-    expect(result.customXmlPart.id, 'aspose');
-    expect(result.customXmlPart.data, '<Metadata><Author>author1</Author><Initial>initial</Initial><DateTime>2015-01-22T00:00:00</DateTime><Text>text</Text></Metadata>');
+    expect(result.customXmlPart?.id, 'aspose');
+    expect(result.customXmlPart?.data, '<Metadata><Author>author1</Author><Initial>initial</Initial><DateTime>2015-01-22T00:00:00</DateTime><Text>text</Text></Metadata>');
   }
 
   /// Test for getting all custom xml parts from document.
@@ -89,10 +89,10 @@ class CustomXmlPartsTests
 
     final result = await context.getApi().getCustomXmlParts(request);
     expect(result.customXmlParts, isNotNull);
-    expect(result.customXmlParts.customXmlPartsList, isNotNull);
-    expect(result.customXmlParts.customXmlPartsList.length, 2);
-    expect(result.customXmlParts.customXmlPartsList[0].id, 'aspose');
-    expect(result.customXmlParts.customXmlPartsList[0].data, '<Metadata><Author>author1</Author><Initial>initial</Initial><DateTime>2015-01-22T00:00:00</DateTime><Text>text</Text></Metadata>');
+    expect(result.customXmlParts?.customXmlPartsList, isNotNull);
+    expect(result.customXmlParts?.customXmlPartsList?.length, 2);
+    expect(result.customXmlParts?.customXmlPartsList?[0]?.id, 'aspose');
+    expect(result.customXmlParts?.customXmlPartsList?[0]?.data, '<Metadata><Author>author1</Author><Initial>initial</Initial><DateTime>2015-01-22T00:00:00</DateTime><Text>text</Text></Metadata>');
   }
 
   /// Test for getting all custom xml parts from document online.
@@ -106,10 +106,10 @@ class CustomXmlPartsTests
 
     final result = await context.getApi().getCustomXmlPartsOnline(request);
     expect(result.customXmlParts, isNotNull);
-    expect(result.customXmlParts.customXmlPartsList, isNotNull);
-    expect(result.customXmlParts.customXmlPartsList.length, 2);
-    expect(result.customXmlParts.customXmlPartsList[0].id, 'aspose');
-    expect(result.customXmlParts.customXmlPartsList[0].data, '<Metadata><Author>author1</Author><Initial>initial</Initial><DateTime>2015-01-22T00:00:00</DateTime><Text>text</Text></Metadata>');
+    expect(result.customXmlParts?.customXmlPartsList, isNotNull);
+    expect(result.customXmlParts?.customXmlPartsList?.length, 2);
+    expect(result.customXmlParts?.customXmlPartsList?[0]?.id, 'aspose');
+    expect(result.customXmlParts?.customXmlPartsList?[0]?.data, '<Metadata><Author>author1</Author><Initial>initial</Initial><DateTime>2015-01-22T00:00:00</DateTime><Text>text</Text></Metadata>');
   }
 
   /// Test for adding custom xml part.
@@ -129,8 +129,8 @@ class CustomXmlPartsTests
 
     final result = await context.getApi().insertCustomXmlPart(request);
     expect(result.customXmlPart, isNotNull);
-    expect(result.customXmlPart.id, 'hello');
-    expect(result.customXmlPart.data, '<data>Hello world</data>');
+    expect(result.customXmlPart?.id, 'hello');
+    expect(result.customXmlPart?.data, '<data>Hello world</data>');
   }
 
   /// Test for adding custom xml part online.
@@ -148,9 +148,9 @@ class CustomXmlPartsTests
     );
 
     final result = await context.getApi().insertCustomXmlPartOnline(request);
-    expect(result.model.customXmlPart, isNotNull);
-    expect(result.model.customXmlPart.id, 'hello');
-    expect(result.model.customXmlPart.data, '<data>Hello world</data>');
+    expect(result.model?.customXmlPart, isNotNull);
+    expect(result.model?.customXmlPart?.id, 'hello');
+    expect(result.model?.customXmlPart?.data, '<data>Hello world</data>');
   }
 
   /// Test for updating custom xml part.
@@ -170,8 +170,8 @@ class CustomXmlPartsTests
 
     final result = await context.getApi().updateCustomXmlPart(request);
     expect(result.customXmlPart, isNotNull);
-    expect(result.customXmlPart.id, 'aspose');
-    expect(result.customXmlPart.data, '<data>Hello world</data>');
+    expect(result.customXmlPart?.id, 'aspose');
+    expect(result.customXmlPart?.data, '<data>Hello world</data>');
   }
 
   /// Test for updating custom xml part online.
@@ -189,9 +189,9 @@ class CustomXmlPartsTests
     );
 
     final result = await context.getApi().updateCustomXmlPartOnline(request);
-    expect(result.model.customXmlPart, isNotNull);
-    expect(result.model.customXmlPart.id, 'aspose');
-    expect(result.model.customXmlPart.data, '<data>Hello world</data>');
+    expect(result.model?.customXmlPart, isNotNull);
+    expect(result.model?.customXmlPart?.id, 'aspose');
+    expect(result.model?.customXmlPart?.data, '<data>Hello world</data>');
   }
 
   /// A test for DeleteCustomXmlPart.

@@ -34,10 +34,10 @@ import '../test_context.dart';
 class WatermarkTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
+  late String remoteDataFolder;
+  late String localFile;
 
-  WatermarkTests(final this.context) {
+  WatermarkTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/Watermark';
     localFile = 'Common/test_multi_pages.docx';
   }
@@ -61,7 +61,7 @@ class WatermarkTests
 
     final result = await context.getApi().insertWatermarkImage(request);
     expect(result.document, isNotNull);
-    expect(result.document.fileName, 'TestInsertWatermarkImage.docx');
+    expect(result.document?.fileName, 'TestInsertWatermarkImage.docx');
   }
 
   /// Test for adding watermark image online.
@@ -97,7 +97,7 @@ class WatermarkTests
 
     final result = await context.getApi().insertWatermarkText(request);
     expect(result.document, isNotNull);
-    expect(result.document.fileName, 'TestInsertWatermarkText.docx');
+    expect(result.document?.fileName, 'TestInsertWatermarkText.docx');
   }
 
   /// Test for adding watermark text online.
@@ -131,7 +131,7 @@ class WatermarkTests
 
     final result = await context.getApi().deleteWatermark(request);
     expect(result.document, isNotNull);
-    expect(result.document.fileName, 'TestDeleteWatermark.docx');
+    expect(result.document?.fileName, 'TestDeleteWatermark.docx');
   }
 
   /// Test for deleting watermark online.

@@ -34,7 +34,7 @@ class InfoTests
 {
   final TestContext context;
 
-  InfoTests(final this.context);
+  InfoTests(this.context);
 
   /// Test for getting api info.
   Future<void> testGetInfo() async

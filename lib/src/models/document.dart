@@ -32,56 +32,56 @@ import '../../aspose_words_cloud.dart';
 /// Represents Words document DTO.
 class Document implements ModelBase {
   /// Gets or sets the document properties.
-  DocumentProperties _documentProperties;
+  DocumentProperties? _documentProperties;
 
-  DocumentProperties get documentProperties => _documentProperties;
-  set documentProperties(DocumentProperties val) => _documentProperties = val;
+  DocumentProperties? get documentProperties => _documentProperties;
+  set documentProperties(DocumentProperties? val) => _documentProperties = val;
 
 
   /// Gets or sets the name of the file.
-  String _fileName;
+  String? _fileName;
 
-  String get fileName => _fileName;
-  set fileName(String val) => _fileName = val;
+  String? get fileName => _fileName;
+  set fileName(String? val) => _fileName = val;
 
 
   /// Gets or sets a value indicating whether the document is encrypted and requires a password to open.
-  bool _isEncrypted;
+  bool? _isEncrypted;
 
-  bool get isEncrypted => _isEncrypted;
-  set isEncrypted(bool val) => _isEncrypted = val;
+  bool? get isEncrypted => _isEncrypted;
+  set isEncrypted(bool? val) => _isEncrypted = val;
 
 
   /// Gets or sets a value indicating whether the document contains a digital signature. This property merely informs that a digital signature is present on a document, but it does not specify whether the signature is valid or not.
-  bool _isSigned;
+  bool? _isSigned;
 
-  bool get isSigned => _isSigned;
-  set isSigned(bool val) => _isSigned = val;
+  bool? get isSigned => _isSigned;
+  set isSigned(bool? val) => _isSigned = val;
 
 
   /// Gets or sets the list of links that originate from this document.
-  List<Link> _links;
+  List<Link?>? _links;
 
-  List<Link> get links => _links;
-  set links(List<Link> val) => _links = val;
+  List<Link?>? get links => _links;
+  set links(List<Link?>? val) => _links = val;
 
 
   /// Gets or sets the original format of the document.
-  Document_SourceFormatEnum _sourceFormat;
+  Document_SourceFormatEnum? _sourceFormat;
 
-  Document_SourceFormatEnum get sourceFormat => _sourceFormat;
-  set sourceFormat(Document_SourceFormatEnum val) => _sourceFormat = val;
+  Document_SourceFormatEnum? get sourceFormat => _sourceFormat;
+  set sourceFormat(Document_SourceFormatEnum? val) => _sourceFormat = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize Document data model.');
     }
 
     if (json.containsKey('DocumentProperties')) {
       documentProperties = DocumentProperties();
-      documentProperties.deserialize(json['DocumentProperties'] as Map<String, dynamic>);
+      documentProperties!.deserialize(json['DocumentProperties'] as Map<String, dynamic>);
     } else {
       documentProperties = null;
     }
@@ -110,7 +110,7 @@ class Document implements ModelBase {
       for(final _element in json['Links']) {
         var _elementValue = Link();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        links.add(_elementValue);
+        links!.add(_elementValue);
       }
     } else {
       links = null;
@@ -150,27 +150,27 @@ class Document implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (documentProperties != null) {
-      _result['DocumentProperties'] = documentProperties.serialize();
+      _result['DocumentProperties'] = documentProperties!.serialize();
     }
 
     if (fileName != null) {
-      _result['FileName'] = fileName;
+      _result['FileName'] = fileName!;
     }
 
     if (isEncrypted != null) {
-      _result['IsEncrypted'] = isEncrypted;
+      _result['IsEncrypted'] = isEncrypted!;
     }
 
     if (isSigned != null) {
-      _result['IsSigned'] = isSigned;
+      _result['IsSigned'] = isSigned!;
     }
 
     if (links != null) {
-      _result['Links'] = links.map((_element) => _element.serialize()).toList();
+      _result['Links'] = links!.map((_element) => _element?.serialize()).toList();
     }
 
     if (sourceFormat != null) {
-      switch (sourceFormat) {
+      switch (sourceFormat!) {
         case Document_SourceFormatEnum.unknown: _result['SourceFormat'] = 'Unknown'; break;
         case Document_SourceFormatEnum.doc: _result['SourceFormat'] = 'Doc'; break;
         case Document_SourceFormatEnum.dot: _result['SourceFormat'] = 'Dot'; break;

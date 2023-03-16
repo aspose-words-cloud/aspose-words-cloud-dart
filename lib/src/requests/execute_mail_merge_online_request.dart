@@ -36,24 +36,24 @@ import '../api_request_part.dart';
 /// Request model for ExecuteMailMergeOnline operation.
 class ExecuteMailMergeOnlineRequest implements RequestBase {
   /// File with template.
-  final ByteData template;
+  final ByteData? template;
 
   /// File with mailmerge data.
-  final ByteData data;
+  final ByteData? data;
 
   /// Field options.
-  final FieldOptions options;
+  final FieldOptions? options;
 
   /// The flag indicating whether to execute Mail Merge operation with regions.
-  final bool withRegions;
+  final bool? withRegions;
 
   /// The cleanup options.
-  final String cleanup;
+  final String? cleanup;
 
   /// The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "template" will be used instead.
-  final String documentFileName;
+  final String? documentFileName;
 
-  ExecuteMailMergeOnlineRequest(final this.template, final this.data, {final this.options, final this.withRegions, final this.cleanup, final this.documentFileName});
+  ExecuteMailMergeOnlineRequest(this.template, this.data, {this.options, this.withRegions, this.cleanup, this.documentFileName});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -63,38 +63,47 @@ class ExecuteMailMergeOnlineRequest implements RequestBase {
     var _bodyParts = <ApiRequestPart>[];
     var _fileContentParts = <FileReference>[];
     if (withRegions != null) {
-      _queryParams['withRegions'] = _apiClient.serializeToString(withRegions);
+      _queryParams['withRegions'] = _apiClient.serializeToString(withRegions) ?? "";
     }
 
     if (cleanup != null) {
-      _queryParams['cleanup'] = _apiClient.serializeToString(cleanup);
+      _queryParams['cleanup'] = _apiClient.serializeToString(cleanup) ?? "";
     }
 
     if (documentFileName != null) {
-      _queryParams['documentFileName'] = _apiClient.serializeToString(documentFileName);
+      _queryParams['documentFileName'] = _apiClient.serializeToString(documentFileName) ?? "";
     }
 
     if (template != null) {
-      _bodyParts.add(_apiClient.serializeBody(template, 'Template'));
+      var _formBody = _apiClient.serializeBody(template, 'Template');
+      if (_formBody != null) {
+        _bodyParts.add(_formBody);
+      }
     }
     else {
       throw ApiException(400, 'Parameter template is required.');
     }
 
     if (data != null) {
-      _bodyParts.add(_apiClient.serializeBody(data, 'Data'));
+      var _formBody = _apiClient.serializeBody(data, 'Data');
+      if (_formBody != null) {
+        _bodyParts.add(_formBody);
+      }
     }
     else {
       throw ApiException(400, 'Parameter data is required.');
     }
 
     if (options != null) {
-      _bodyParts.add(_apiClient.serializeBody(options, 'Options'));
+      var _formBody = _apiClient.serializeBody(options, 'Options');
+      if (_formBody != null) {
+        _bodyParts.add(_formBody);
+      }
     }
 
     for (final _fileContentPart in _fileContentParts) {
         if (_fileContentPart.source == 'Request') {
-            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
@@ -103,7 +112,11 @@ class ExecuteMailMergeOnlineRequest implements RequestBase {
   }
 
   @override
-  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final Map<String, String> _headers, final ByteData? _body) {
+    if (_body == null) {
+        return ApiException(400, "Nullable response body is not allowed for this operation type.");
+    }
+
     return _body;
   }
 }

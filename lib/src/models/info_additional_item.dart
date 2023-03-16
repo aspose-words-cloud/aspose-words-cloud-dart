@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// Info additional item.
 class InfoAdditionalItem implements ModelBase {
   /// Gets or sets Key.
-  String _key;
+  String? _key;
 
-  String get key => _key;
-  set key(String val) => _key = val;
+  String? get key => _key;
+  set key(String? val) => _key = val;
 
 
   /// Gets or sets Value.
-  String _value;
+  String? _value;
 
-  String get value => _value;
-  set value(String val) => _value = val;
+  String? get value => _value;
+  set value(String? val) => _value = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize InfoAdditionalItem data model.');
     }
@@ -68,11 +68,11 @@ class InfoAdditionalItem implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (key != null) {
-      _result['Key'] = key;
+      _result['Key'] = key!;
     }
 
     if (value != null) {
-      _result['Value'] = value;
+      _result['Value'] = value!;
     }
     return _result;
   }

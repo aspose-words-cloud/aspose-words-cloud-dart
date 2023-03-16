@@ -32,49 +32,49 @@ import '../../aspose_words_cloud.dart';
 /// Represents a border of an object.
 class Border extends LinkElement {
   /// Gets or sets the border type.
-  Border_BorderTypeEnum _borderType;
+  Border_BorderTypeEnum? _borderType;
 
-  Border_BorderTypeEnum get borderType => _borderType;
-  set borderType(Border_BorderTypeEnum val) => _borderType = val;
+  Border_BorderTypeEnum? get borderType => _borderType;
+  set borderType(Border_BorderTypeEnum? val) => _borderType = val;
 
 
   /// Gets or sets the border color.
-  XmlColor _color;
+  XmlColor? _color;
 
-  XmlColor get color => _color;
-  set color(XmlColor val) => _color = val;
+  XmlColor? get color => _color;
+  set color(XmlColor? val) => _color = val;
 
 
   /// Gets or sets the distance of the border from text or from the page edge in points.
-  double _distanceFromText;
+  double? _distanceFromText;
 
-  double get distanceFromText => _distanceFromText;
-  set distanceFromText(double val) => _distanceFromText = val;
+  double? get distanceFromText => _distanceFromText;
+  set distanceFromText(double? val) => _distanceFromText = val;
 
 
   /// Gets or sets the border style.
-  Border_LineStyleEnum _lineStyle;
+  Border_LineStyleEnum? _lineStyle;
 
-  Border_LineStyleEnum get lineStyle => _lineStyle;
-  set lineStyle(Border_LineStyleEnum val) => _lineStyle = val;
+  Border_LineStyleEnum? get lineStyle => _lineStyle;
+  set lineStyle(Border_LineStyleEnum? val) => _lineStyle = val;
 
 
   /// Gets or sets the border width in points.
-  double _lineWidth;
+  double? _lineWidth;
 
-  double get lineWidth => _lineWidth;
-  set lineWidth(double val) => _lineWidth = val;
+  double? get lineWidth => _lineWidth;
+  set lineWidth(double? val) => _lineWidth = val;
 
 
   /// Gets or sets a value indicating whether the border has a shadow.
-  bool _shadow;
+  bool? _shadow;
 
-  bool get shadow => _shadow;
-  set shadow(bool val) => _shadow = val;
+  bool? get shadow => _shadow;
+  set shadow(bool? val) => _shadow = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize Border data model.');
     }
@@ -82,7 +82,7 @@ class Border extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -106,7 +106,7 @@ class Border extends LinkElement {
 
     if (json.containsKey('Color')) {
       color = XmlColor();
-      color.deserialize(json['Color'] as Map<String, dynamic>);
+      color!.deserialize(json['Color'] as Map<String, dynamic>);
     } else {
       color = null;
     }
@@ -170,7 +170,7 @@ class Border extends LinkElement {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (borderType != null) {
-      switch (borderType) {
+      switch (borderType!) {
         case Border_BorderTypeEnum.bottom: _result['BorderType'] = 'Bottom'; break;
         case Border_BorderTypeEnum.left: _result['BorderType'] = 'Left'; break;
         case Border_BorderTypeEnum.right: _result['BorderType'] = 'Right'; break;
@@ -185,15 +185,15 @@ class Border extends LinkElement {
     }
 
     if (color != null) {
-      _result['Color'] = color.serialize();
+      _result['Color'] = color!.serialize();
     }
 
     if (distanceFromText != null) {
-      _result['DistanceFromText'] = distanceFromText;
+      _result['DistanceFromText'] = distanceFromText!;
     }
 
     if (lineStyle != null) {
-      switch (lineStyle) {
+      switch (lineStyle!) {
         case Border_LineStyleEnum.none: _result['LineStyle'] = 'None'; break;
         case Border_LineStyleEnum.single: _result['LineStyle'] = 'Single'; break;
         case Border_LineStyleEnum.thick: _result['LineStyle'] = 'Thick'; break;
@@ -226,11 +226,11 @@ class Border extends LinkElement {
     }
 
     if (lineWidth != null) {
-      _result['LineWidth'] = lineWidth;
+      _result['LineWidth'] = lineWidth!;
     }
 
     if (shadow != null) {
-      _result['Shadow'] = shadow;
+      _result['Shadow'] = shadow!;
     }
     return _result;
   }

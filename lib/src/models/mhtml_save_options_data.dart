@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// Container class for mhtml save options.
 class MhtmlSaveOptionsData extends HtmlSaveOptionsData {
   /// Gets or sets a value indicating whether to use CID (Content-ID) URLs to reference resources (images, fonts, CSS) included in MHTML documents. The default value is false.
-  bool _exportCidUrlsForMhtmlResources;
+  bool? _exportCidUrlsForMhtmlResources;
 
-  bool get exportCidUrlsForMhtmlResources => _exportCidUrlsForMhtmlResources;
-  set exportCidUrlsForMhtmlResources(bool val) => _exportCidUrlsForMhtmlResources = val;
+  bool? get exportCidUrlsForMhtmlResources => _exportCidUrlsForMhtmlResources;
+  set exportCidUrlsForMhtmlResources(bool? val) => _exportCidUrlsForMhtmlResources = val;
 
 
   /// Gets the format of save.
-  String _saveFormat = 'mht';
+  String? _saveFormat = 'mht';
 
   @override
-  String get saveFormat => _saveFormat;
+  String? get saveFormat => _saveFormat;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize MhtmlSaveOptionsData data model.');
     }
@@ -60,7 +60,7 @@ class MhtmlSaveOptionsData extends HtmlSaveOptionsData {
 
     if (json.containsKey('CustomTimeZoneInfoData')) {
       customTimeZoneInfoData = TimeZoneInfoData();
-      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+      customTimeZoneInfoData!.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
     } else {
       customTimeZoneInfoData = null;
     }
@@ -430,11 +430,11 @@ class MhtmlSaveOptionsData extends HtmlSaveOptionsData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (exportCidUrlsForMhtmlResources != null) {
-      _result['ExportCidUrlsForMhtmlResources'] = exportCidUrlsForMhtmlResources;
+      _result['ExportCidUrlsForMhtmlResources'] = exportCidUrlsForMhtmlResources!;
     }
 
     if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat;
+      _result['SaveFormat'] = saveFormat!;
     }
     return _result;
   }

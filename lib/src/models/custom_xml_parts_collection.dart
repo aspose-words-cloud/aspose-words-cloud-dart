@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The collection of CustomXmlPart.
 class CustomXmlPartsCollection extends LinkElement {
   /// Gets or sets the collection of CustomXmlPart.
-  List<CustomXmlPart> _customXmlPartsList;
+  List<CustomXmlPart?>? _customXmlPartsList;
 
-  List<CustomXmlPart> get customXmlPartsList => _customXmlPartsList;
-  set customXmlPartsList(List<CustomXmlPart> val) => _customXmlPartsList = val;
+  List<CustomXmlPart?>? get customXmlPartsList => _customXmlPartsList;
+  set customXmlPartsList(List<CustomXmlPart?>? val) => _customXmlPartsList = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize CustomXmlPartsCollection data model.');
     }
@@ -47,7 +47,7 @@ class CustomXmlPartsCollection extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -58,7 +58,7 @@ class CustomXmlPartsCollection extends LinkElement {
       for(final _element in json['CustomXmlPartsList']) {
         var _elementValue = CustomXmlPart();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        customXmlPartsList.add(_elementValue);
+        customXmlPartsList!.add(_elementValue);
       }
     } else {
       customXmlPartsList = null;
@@ -70,7 +70,7 @@ class CustomXmlPartsCollection extends LinkElement {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (customXmlPartsList != null) {
-      _result['CustomXmlPartsList'] = customXmlPartsList.map((_element) => _element.serialize()).toList();
+      _result['CustomXmlPartsList'] = customXmlPartsList!.map((_element) => _element?.serialize()).toList();
     }
     return _result;
   }

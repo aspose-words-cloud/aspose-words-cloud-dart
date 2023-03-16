@@ -33,10 +33,10 @@ import '../test_context.dart';
 class MacrosTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
+  late String remoteDataFolder;
+  late String localFile;
 
-  MacrosTests(final this.context) {
+  MacrosTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Macros';
     localFile = 'Common/test_multi_pages.docx';
   }

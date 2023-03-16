@@ -37,9 +37,9 @@ import '../api_request_part.dart';
 /// Request model for GetAvailableFonts operation.
 class GetAvailableFontsRequest implements RequestBase {
   /// The folder in cloud storage with custom fonts.
-  final String fontsLocation;
+  final String? fontsLocation;
 
-  GetAvailableFontsRequest({final this.fontsLocation});
+  GetAvailableFontsRequest({this.fontsLocation});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -49,12 +49,12 @@ class GetAvailableFontsRequest implements RequestBase {
     var _bodyParts = <ApiRequestPart>[];
     var _fileContentParts = <FileReference>[];
     if (fontsLocation != null) {
-      _queryParams['fontsLocation'] = _apiClient.serializeToString(fontsLocation);
+      _queryParams['fontsLocation'] = _apiClient.serializeToString(fontsLocation) ?? "";
     }
 
     for (final _fileContentPart in _fileContentParts) {
         if (_fileContentPart.source == 'Request') {
-            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
@@ -63,7 +63,11 @@ class GetAvailableFontsRequest implements RequestBase {
   }
 
   @override
-  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final Map<String, String> _headers, final ByteData? _body) {
+    if (_body == null) {
+        return ApiException(400, "Nullable response body is not allowed for this operation type.");
+    }
+
     var _result = AvailableFontsResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);

@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a collection of custom xml parts.
 class CustomXmlPartsResponse extends WordsResponse {
   /// Gets or sets the collection of comments.
-  CustomXmlPartsCollection _customXmlParts;
+  CustomXmlPartsCollection? _customXmlParts;
 
-  CustomXmlPartsCollection get customXmlParts => _customXmlParts;
-  set customXmlParts(CustomXmlPartsCollection val) => _customXmlParts = val;
+  CustomXmlPartsCollection? get customXmlParts => _customXmlParts;
+  set customXmlParts(CustomXmlPartsCollection? val) => _customXmlParts = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize CustomXmlPartsResponse data model.');
     }
@@ -53,7 +53,7 @@ class CustomXmlPartsResponse extends WordsResponse {
 
     if (json.containsKey('CustomXmlParts')) {
       customXmlParts = CustomXmlPartsCollection();
-      customXmlParts.deserialize(json['CustomXmlParts'] as Map<String, dynamic>);
+      customXmlParts!.deserialize(json['CustomXmlParts'] as Map<String, dynamic>);
     } else {
       customXmlParts = null;
     }
@@ -64,7 +64,7 @@ class CustomXmlPartsResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (customXmlParts != null) {
-      _result['CustomXmlParts'] = customXmlParts.serialize();
+      _result['CustomXmlParts'] = customXmlParts!.serialize();
     }
     return _result;
   }

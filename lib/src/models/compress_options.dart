@@ -32,23 +32,23 @@ import '../../aspose_words_cloud.dart';
 /// Options of document compress.
 class CompressOptions implements ModelBase {
   /// Gets or sets the quality level of images from 0 to 100. Default value is 75.
-  int _imagesQuality;
+  int? _imagesQuality;
 
-  int get imagesQuality => _imagesQuality;
-  set imagesQuality(int val) => _imagesQuality = val;
+  int? get imagesQuality => _imagesQuality;
+  set imagesQuality(int? val) => _imagesQuality = val;
 
 
   /// Gets or sets the resize factor of images.
   /// This value determines how many times the size of the images in the document will be reduced.
   /// The parameter value must be greater than 1 for resizing. Default value is 1 and has no effect on images size.
-  int _imagesReduceSizeFactor;
+  int? _imagesReduceSizeFactor;
 
-  int get imagesReduceSizeFactor => _imagesReduceSizeFactor;
-  set imagesReduceSizeFactor(int val) => _imagesReduceSizeFactor = val;
+  int? get imagesReduceSizeFactor => _imagesReduceSizeFactor;
+  set imagesReduceSizeFactor(int? val) => _imagesReduceSizeFactor = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize CompressOptions data model.');
     }
@@ -70,11 +70,11 @@ class CompressOptions implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (imagesQuality != null) {
-      _result['ImagesQuality'] = imagesQuality;
+      _result['ImagesQuality'] = imagesQuality!;
     }
 
     if (imagesReduceSizeFactor != null) {
-      _result['ImagesReduceSizeFactor'] = imagesReduceSizeFactor;
+      _result['ImagesReduceSizeFactor'] = imagesReduceSizeFactor!;
     }
     return _result;
   }

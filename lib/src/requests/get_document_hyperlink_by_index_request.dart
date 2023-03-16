@@ -37,27 +37,27 @@ import '../api_request_part.dart';
 /// Request model for GetDocumentHyperlinkByIndex operation.
 class GetDocumentHyperlinkByIndexRequest implements RequestBase {
   /// The filename of the input document.
-  final String name;
+  final String? name;
 
   /// The index of the hyperlink.
-  final int hyperlinkIndex;
+  final int? hyperlinkIndex;
 
   /// Original document folder.
-  final String folder;
+  final String? folder;
 
   /// Original document storage.
-  final String storage;
+  final String? storage;
 
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-  final String loadEncoding;
+  final String? loadEncoding;
 
   /// Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
-  final String password;
+  final String? password;
 
   /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
-  final String encryptedPassword;
+  final String? encryptedPassword;
 
-  GetDocumentHyperlinkByIndexRequest(final this.name, final this.hyperlinkIndex, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.encryptedPassword});
+  GetDocumentHyperlinkByIndexRequest(this.name, this.hyperlinkIndex, {this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -69,35 +69,35 @@ class GetDocumentHyperlinkByIndexRequest implements RequestBase {
     if (name == null) {
       throw ApiException(400, 'Parameter name is required.');
     }
-    _path = _path.replaceAll('{name}', _apiClient.serializeToString(name));
+    _path = _path.replaceAll('{name}', _apiClient.serializeToString(name) ?? "");
 
     if (hyperlinkIndex == null) {
       throw ApiException(400, 'Parameter hyperlinkIndex is required.');
     }
-    _path = _path.replaceAll('{hyperlinkIndex}', _apiClient.serializeToString(hyperlinkIndex));
+    _path = _path.replaceAll('{hyperlinkIndex}', _apiClient.serializeToString(hyperlinkIndex) ?? "");
     if (folder != null) {
-      _queryParams['folder'] = _apiClient.serializeToString(folder);
+      _queryParams['folder'] = _apiClient.serializeToString(folder) ?? "";
     }
 
     if (storage != null) {
-      _queryParams['storage'] = _apiClient.serializeToString(storage);
+      _queryParams['storage'] = _apiClient.serializeToString(storage) ?? "";
     }
 
     if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding) ?? "";
     }
 
     if (password != null) {
-      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password!);
     }
 
     if (encryptedPassword != null) {
-      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword);
+      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword) ?? "";
     }
 
     for (final _fileContentPart in _fileContentParts) {
         if (_fileContentPart.source == 'Request') {
-            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
@@ -106,7 +106,11 @@ class GetDocumentHyperlinkByIndexRequest implements RequestBase {
   }
 
   @override
-  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final Map<String, String> _headers, final ByteData? _body) {
+    if (_body == null) {
+        return ApiException(400, "Nullable response body is not allowed for this operation type.");
+    }
+
     var _result = HyperlinkResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);

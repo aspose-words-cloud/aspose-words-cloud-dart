@@ -37,15 +37,15 @@ import '../api_request_part.dart';
 /// Request model for CreateDocument operation.
 class CreateDocumentRequest implements RequestBase {
   /// The filename of the document.
-  final String fileName;
+  final String? fileName;
 
   /// The path to the document folder.
-  final String folder;
+  final String? folder;
 
   /// Original document storage.
-  final String storage;
+  final String? storage;
 
-  CreateDocumentRequest({final this.fileName, final this.folder, final this.storage});
+  CreateDocumentRequest({this.fileName, this.folder, this.storage});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -55,20 +55,20 @@ class CreateDocumentRequest implements RequestBase {
     var _bodyParts = <ApiRequestPart>[];
     var _fileContentParts = <FileReference>[];
     if (fileName != null) {
-      _queryParams['fileName'] = _apiClient.serializeToString(fileName);
+      _queryParams['fileName'] = _apiClient.serializeToString(fileName) ?? "";
     }
 
     if (folder != null) {
-      _queryParams['folder'] = _apiClient.serializeToString(folder);
+      _queryParams['folder'] = _apiClient.serializeToString(folder) ?? "";
     }
 
     if (storage != null) {
-      _queryParams['storage'] = _apiClient.serializeToString(storage);
+      _queryParams['storage'] = _apiClient.serializeToString(storage) ?? "";
     }
 
     for (final _fileContentPart in _fileContentParts) {
         if (_fileContentPart.source == 'Request') {
-            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
@@ -77,7 +77,11 @@ class CreateDocumentRequest implements RequestBase {
   }
 
   @override
-  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final Map<String, String> _headers, final ByteData? _body) {
+    if (_body == null) {
+        return ApiException(400, "Nullable response body is not allowed for this operation type.");
+    }
+
     var _result = DocumentResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);

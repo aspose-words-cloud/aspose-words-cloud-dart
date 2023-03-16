@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// Represents a document which will be appended to the original resource document.
 class DocumentEntry extends BaseEntry {
   /// Gets or sets document password encrypted on API public key. The default value is null (the document has no password).
-  String _encryptedPassword;
+  String? _encryptedPassword;
 
-  String get encryptedPassword => _encryptedPassword;
-  set encryptedPassword(String val) => _encryptedPassword = val;
+  String? get encryptedPassword => _encryptedPassword;
+  set encryptedPassword(String? val) => _encryptedPassword = val;
 
 
   /// Gets or sets the option that controls formatting will be used: appended or destination document. Can be KeepSourceFormatting or UseDestinationStyles.
-  String _importFormatMode;
+  String? _importFormatMode;
 
-  String get importFormatMode => _importFormatMode;
-  set importFormatMode(String val) => _importFormatMode = val;
+  String? get importFormatMode => _importFormatMode;
+  set importFormatMode(String? val) => _importFormatMode = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize DocumentEntry data model.');
     }
@@ -76,11 +76,11 @@ class DocumentEntry extends BaseEntry {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (encryptedPassword != null) {
-      _result['EncryptedPassword'] = encryptedPassword;
+      _result['EncryptedPassword'] = encryptedPassword!;
     }
 
     if (importFormatMode != null) {
-      _result['ImportFormatMode'] = importFormatMode;
+      _result['ImportFormatMode'] = importFormatMode!;
     }
     return _result;
   }

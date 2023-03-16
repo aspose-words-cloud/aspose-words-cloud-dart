@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a font.
 class FontResponse extends WordsResponse {
   /// Gets or sets the font.
-  Font _font;
+  Font? _font;
 
-  Font get font => _font;
-  set font(Font val) => _font = val;
+  Font? get font => _font;
+  set font(Font? val) => _font = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize FontResponse data model.');
     }
@@ -53,7 +53,7 @@ class FontResponse extends WordsResponse {
 
     if (json.containsKey('Font')) {
       font = Font();
-      font.deserialize(json['Font'] as Map<String, dynamic>);
+      font!.deserialize(json['Font'] as Map<String, dynamic>);
     } else {
       font = null;
     }
@@ -64,7 +64,7 @@ class FontResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (font != null) {
-      _result['Font'] = font.serialize();
+      _result['Font'] = font!.serialize();
     }
     return _result;
   }

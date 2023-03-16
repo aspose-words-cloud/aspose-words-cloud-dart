@@ -34,10 +34,10 @@ import '../test_context.dart';
 class FolderTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
+  late String remoteDataFolder;
+  late String localFile;
 
-  FolderTests(final this.context) {
+  FolderTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/Storage';
     localFile = 'Common/test_multi_pages.docx';
   }

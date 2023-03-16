@@ -33,7 +33,7 @@ import '../../aspose_words_cloud.dart';
 class SectionLink extends NodeLink {
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize SectionLink data model.');
     }
@@ -41,7 +41,7 @@ class SectionLink extends NodeLink {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }

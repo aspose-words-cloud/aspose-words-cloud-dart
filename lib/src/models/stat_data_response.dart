@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with document's statistical data.
 class StatDataResponse extends WordsResponse {
   /// Gets or sets the link to the document.
-  FileLink _documentLink;
+  FileLink? _documentLink;
 
-  FileLink get documentLink => _documentLink;
-  set documentLink(FileLink val) => _documentLink = val;
+  FileLink? get documentLink => _documentLink;
+  set documentLink(FileLink? val) => _documentLink = val;
 
 
   /// Gets or sets the statistical data of the document.
-  DocumentStatData _statData;
+  DocumentStatData? _statData;
 
-  DocumentStatData get statData => _statData;
-  set statData(DocumentStatData val) => _statData = val;
+  DocumentStatData? get statData => _statData;
+  set statData(DocumentStatData? val) => _statData = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize StatDataResponse data model.');
     }
@@ -60,14 +60,14 @@ class StatDataResponse extends WordsResponse {
 
     if (json.containsKey('DocumentLink')) {
       documentLink = FileLink();
-      documentLink.deserialize(json['DocumentLink'] as Map<String, dynamic>);
+      documentLink!.deserialize(json['DocumentLink'] as Map<String, dynamic>);
     } else {
       documentLink = null;
     }
 
     if (json.containsKey('StatData')) {
       statData = DocumentStatData();
-      statData.deserialize(json['StatData'] as Map<String, dynamic>);
+      statData!.deserialize(json['StatData'] as Map<String, dynamic>);
     } else {
       statData = null;
     }
@@ -78,11 +78,11 @@ class StatDataResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (documentLink != null) {
-      _result['DocumentLink'] = documentLink.serialize();
+      _result['DocumentLink'] = documentLink!.serialize();
     }
 
     if (statData != null) {
-      _result['StatData'] = statData.serialize();
+      _result['StatData'] = statData!.serialize();
     }
     return _result;
   }

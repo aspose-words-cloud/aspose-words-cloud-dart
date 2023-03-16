@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a collection of footnotes.
 class FootnotesResponse extends WordsResponse {
   /// Gets or sets the collection of footnotes.
-  FootnoteCollection _footnotes;
+  FootnoteCollection? _footnotes;
 
-  FootnoteCollection get footnotes => _footnotes;
-  set footnotes(FootnoteCollection val) => _footnotes = val;
+  FootnoteCollection? get footnotes => _footnotes;
+  set footnotes(FootnoteCollection? val) => _footnotes = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize FootnotesResponse data model.');
     }
@@ -53,7 +53,7 @@ class FootnotesResponse extends WordsResponse {
 
     if (json.containsKey('Footnotes')) {
       footnotes = FootnoteCollection();
-      footnotes.deserialize(json['Footnotes'] as Map<String, dynamic>);
+      footnotes!.deserialize(json['Footnotes'] as Map<String, dynamic>);
     } else {
       footnotes = null;
     }
@@ -64,7 +64,7 @@ class FootnotesResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (footnotes != null) {
-      _result['Footnotes'] = footnotes.serialize();
+      _result['Footnotes'] = footnotes!.serialize();
     }
     return _result;
   }

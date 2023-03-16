@@ -34,10 +34,10 @@ import '../test_context.dart';
 class AppendDocumentTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
+  late String remoteDataFolder;
+  late String localFile;
 
-  AppendDocumentTests(final this.context) {
+  AppendDocumentTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/AppendDocument';
     localFile = 'Common/test_multi_pages.docx';
   }
@@ -68,7 +68,7 @@ class AppendDocumentTests
 
     final result = await context.getApi().appendDocument(request);
     expect(result.document, isNotNull);
-    expect(result.document.fileName, 'TestAppendDocument.docx');
+    expect(result.document?.fileName, 'TestAppendDocument.docx');
   }
 
   /// Test for appending document online.

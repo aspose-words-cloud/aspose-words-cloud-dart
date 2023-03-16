@@ -32,28 +32,28 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a paragraph list format element.
 class ListFormat extends LinkElement {
   /// Gets or sets a value indicating whether the paragraph has bulleted or numbered formatting applied to it.
-  bool _isListItem;
+  bool? _isListItem;
 
-  bool get isListItem => _isListItem;
-  set isListItem(bool val) => _isListItem = val;
+  bool? get isListItem => _isListItem;
+  set isListItem(bool? val) => _isListItem = val;
 
 
   /// Gets or sets the list id of this paragraph.
-  int _listId;
+  int? _listId;
 
-  int get listId => _listId;
-  set listId(int val) => _listId = val;
+  int? get listId => _listId;
+  set listId(int? val) => _listId = val;
 
 
   /// Gets or sets the list level number (0 to 8) for the paragraph.
-  int _listLevelNumber;
+  int? _listLevelNumber;
 
-  int get listLevelNumber => _listLevelNumber;
-  set listLevelNumber(int val) => _listLevelNumber = val;
+  int? get listLevelNumber => _listLevelNumber;
+  set listLevelNumber(int? val) => _listLevelNumber = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize ListFormat data model.');
     }
@@ -61,7 +61,7 @@ class ListFormat extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -90,15 +90,15 @@ class ListFormat extends LinkElement {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (isListItem != null) {
-      _result['IsListItem'] = isListItem;
+      _result['IsListItem'] = isListItem!;
     }
 
     if (listId != null) {
-      _result['ListId'] = listId;
+      _result['ListId'] = listId!;
     }
 
     if (listLevelNumber != null) {
-      _result['ListLevelNumber'] = listLevelNumber;
+      _result['ListLevelNumber'] = listLevelNumber!;
     }
     return _result;
   }

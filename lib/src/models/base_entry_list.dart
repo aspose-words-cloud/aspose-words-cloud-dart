@@ -33,7 +33,7 @@ import '../../aspose_words_cloud.dart';
 abstract class BaseEntryList implements ModelBase {
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize BaseEntryList data model.');
     }

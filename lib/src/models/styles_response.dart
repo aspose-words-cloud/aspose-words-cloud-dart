@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with an array of styles.
 class StylesResponse extends WordsResponse {
   /// Gets or sets the array of styles.
-  List<Style> _styles;
+  List<Style?>? _styles;
 
-  List<Style> get styles => _styles;
-  set styles(List<Style> val) => _styles = val;
+  List<Style?>? get styles => _styles;
+  set styles(List<Style?>? val) => _styles = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize StylesResponse data model.');
     }
@@ -57,7 +57,7 @@ class StylesResponse extends WordsResponse {
       for(final _element in json['Styles']) {
         var _elementValue = Style();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        styles.add(_elementValue);
+        styles!.add(_elementValue);
       }
     } else {
       styles = null;
@@ -69,7 +69,7 @@ class StylesResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (styles != null) {
-      _result['Styles'] = styles.map((_element) => _element.serialize()).toList();
+      _result['Styles'] = styles!.map((_element) => _element?.serialize()).toList();
     }
     return _result;
   }

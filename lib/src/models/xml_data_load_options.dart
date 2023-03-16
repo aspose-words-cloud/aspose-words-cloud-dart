@@ -35,14 +35,14 @@ class XmlDataLoadOptions implements ModelBase {
   /// Gets or sets a flag indicating whether a generated data source will always contain an object for an XML root
   /// element. If an XML root element has no attributes and all its child elements have same names, such an object
   /// is not created by default.
-  bool _alwaysGenerateRootObject;
+  bool? _alwaysGenerateRootObject;
 
-  bool get alwaysGenerateRootObject => _alwaysGenerateRootObject;
-  set alwaysGenerateRootObject(bool val) => _alwaysGenerateRootObject = val;
+  bool? get alwaysGenerateRootObject => _alwaysGenerateRootObject;
+  set alwaysGenerateRootObject(bool? val) => _alwaysGenerateRootObject = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize XmlDataLoadOptions data model.');
     }
@@ -58,7 +58,7 @@ class XmlDataLoadOptions implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (alwaysGenerateRootObject != null) {
-      _result['AlwaysGenerateRootObject'] = alwaysGenerateRootObject;
+      _result['AlwaysGenerateRootObject'] = alwaysGenerateRootObject!;
     }
     return _result;
   }

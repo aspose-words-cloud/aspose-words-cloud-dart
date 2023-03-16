@@ -32,9 +32,9 @@ import 'dart:typed_data';
 class ApiRequestPart {
   final ByteData data;
   final String mimeType;
-  final String name;
-  final String filename;
-  final Map<String, String> headers;
+  final String? name;
+  final String? filename;
+  final Map<String, String>? headers;
 
-  ApiRequestPart(final this.data, final this.mimeType, { final this.name, final this.filename, final this.headers });
+  ApiRequestPart(this.data, this.mimeType, { this.name, this.filename, this.headers });
 }

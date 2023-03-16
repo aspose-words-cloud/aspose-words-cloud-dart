@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// Child nodes of Story or InlineStory.
 class StoryChildNodes implements ModelBase {
   /// Gets or sets the list of child nodes.
-  List<NodeLink> _childNodes;
+  List<NodeLink?>? _childNodes;
 
-  List<NodeLink> get childNodes => _childNodes;
-  set childNodes(List<NodeLink> val) => _childNodes = val;
+  List<NodeLink?>? get childNodes => _childNodes;
+  set childNodes(List<NodeLink?>? val) => _childNodes = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize StoryChildNodes data model.');
     }
@@ -50,7 +50,7 @@ class StoryChildNodes implements ModelBase {
       for(final _element in json['ChildNodes']) {
         var _elementValue = NodeLink();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        childNodes.add(_elementValue);
+        childNodes!.add(_elementValue);
       }
     } else {
       childNodes = null;
@@ -61,7 +61,7 @@ class StoryChildNodes implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (childNodes != null) {
-      _result['ChildNodes'] = childNodes.map((_element) => _element.serialize()).toList();
+      _result['ChildNodes'] = childNodes!.map((_element) => _element?.serialize()).toList();
     }
     return _result;
   }

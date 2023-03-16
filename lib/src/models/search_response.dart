@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a regular expression pattern and a collection of search results.
 class SearchResponse extends WordsResponse {
   /// Gets or sets the regular expression pattern used to find matches.
-  String _searchingPattern;
+  String? _searchingPattern;
 
-  String get searchingPattern => _searchingPattern;
-  set searchingPattern(String val) => _searchingPattern = val;
+  String? get searchingPattern => _searchingPattern;
+  set searchingPattern(String? val) => _searchingPattern = val;
 
 
   /// Gets or sets the collection of search results.
-  SearchResultsCollection _searchResults;
+  SearchResultsCollection? _searchResults;
 
-  SearchResultsCollection get searchResults => _searchResults;
-  set searchResults(SearchResultsCollection val) => _searchResults = val;
+  SearchResultsCollection? get searchResults => _searchResults;
+  set searchResults(SearchResultsCollection? val) => _searchResults = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize SearchResponse data model.');
     }
@@ -66,7 +66,7 @@ class SearchResponse extends WordsResponse {
 
     if (json.containsKey('SearchResults')) {
       searchResults = SearchResultsCollection();
-      searchResults.deserialize(json['SearchResults'] as Map<String, dynamic>);
+      searchResults!.deserialize(json['SearchResults'] as Map<String, dynamic>);
     } else {
       searchResults = null;
     }
@@ -77,11 +77,11 @@ class SearchResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (searchingPattern != null) {
-      _result['SearchingPattern'] = searchingPattern;
+      _result['SearchingPattern'] = searchingPattern!;
     }
 
     if (searchResults != null) {
-      _result['SearchResults'] = searchResults.serialize();
+      _result['SearchResults'] = searchResults!.serialize();
     }
     return _result;
   }

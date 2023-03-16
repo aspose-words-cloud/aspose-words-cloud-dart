@@ -35,7 +35,7 @@ class FontTests
 {
   final TestContext context;
 
-  FontTests(final this.context);
+  FontTests(this.context);
 
   /// Test for reseting cache.
   Future<void> testResetCache() async

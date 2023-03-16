@@ -33,7 +33,7 @@ import '../../aspose_words_cloud.dart';
 class RunUpdate extends RunBase {
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize RunUpdate data model.');
     }

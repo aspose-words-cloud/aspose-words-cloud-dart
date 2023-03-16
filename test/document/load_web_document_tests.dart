@@ -35,7 +35,7 @@ class LoadWebDocumentTests
 {
   final TestContext context;
 
-  LoadWebDocumentTests(final this.context);
+  LoadWebDocumentTests(this.context);
 
   /// Test for loading web document.
   Future<void> testLoadWebDocument() async
@@ -57,7 +57,7 @@ class LoadWebDocumentTests
 
     final result = await context.getApi().loadWebDocument(request);
     expect(result.saveResult, isNotNull);
-    expect(result.saveResult.destDocument, isNotNull);
-    expect(result.saveResult.destDocument.href, 'google.doc');
+    expect(result.saveResult?.destDocument, isNotNull);
+    expect(result.saveResult?.destDocument?.href, 'google.doc');
   }
 }

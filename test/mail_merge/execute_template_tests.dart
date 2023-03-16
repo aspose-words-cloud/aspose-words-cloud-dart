@@ -34,10 +34,10 @@ import '../test_context.dart';
 class ExecuteTemplateTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String mailMergeFolder;
+  late String remoteDataFolder;
+  late String mailMergeFolder;
 
-  ExecuteTemplateTests(final this.context) {
+  ExecuteTemplateTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/MailMerge';
     mailMergeFolder = 'DocumentActions/MailMerge';
   }
@@ -59,7 +59,7 @@ class ExecuteTemplateTests
 
     final result = await context.getApi().executeMailMerge(request);
     expect(result.document, isNotNull);
-    expect(result.document.fileName, 'TestExecuteTemplate.docx');
+    expect(result.document?.fileName, 'TestExecuteTemplate.docx');
   }
 
   /// Test for execute template online.

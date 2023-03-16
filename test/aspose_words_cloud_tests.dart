@@ -35,6 +35,8 @@ import 'package:test/test.dart';
 import './batch_tests.dart';
 import './bookmark/bookmark_tests.dart';
 import './compatibility/compatibility_tests.dart';
+import './document_properties/document_properties_tests.dart';
+import './document_protection/document_protection_tests.dart';
 import './document/append_document_tests.dart';
 import './document/classification_tests.dart';
 import './document/comment_tests.dart';
@@ -49,8 +51,6 @@ import './document/load_web_document_tests.dart';
 import './document/password_encryption_tests.dart';
 import './document/revisions_tests.dart';
 import './document/split_document_to_format_tests.dart';
-import './document_properties/document_properties_tests.dart';
-import './document_protection/document_protection_tests.dart';
 import './drawing/drawing_objects_tests.dart';
 import './encoding_tests.dart';
 import './examples_tests.dart';
@@ -85,7 +85,7 @@ import './test_context.dart';
 import './text/text_tests.dart';
 import './watermark/watermark_tests.dart';
 
-TestContext testContext;
+late TestContext testContext;
 
 void main() {
   setUpAll(() async {
@@ -642,7 +642,7 @@ void main() {
   });
 
   group('Examples', () {
-    ExamplesTests exampleTests;
+    late ExamplesTests exampleTests;
     setUpAll(() async {
       exampleTests = ExamplesTests(testContext.configuration);
       await exampleTests.init();

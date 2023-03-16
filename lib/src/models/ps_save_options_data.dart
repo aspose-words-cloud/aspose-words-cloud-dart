@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// Container class for ps save options.
 class PsSaveOptionsData extends FixedPageSaveOptionsData {
   /// Gets the format of save.
-  String _saveFormat = 'ps';
+  String? _saveFormat = 'ps';
 
   @override
-  String get saveFormat => _saveFormat;
+  String? get saveFormat => _saveFormat;
 
 
   /// Gets or sets a value indicating whether the document should be saved using a booklet printing layout.
-  bool _useBookFoldPrintingSettings;
+  bool? _useBookFoldPrintingSettings;
 
-  bool get useBookFoldPrintingSettings => _useBookFoldPrintingSettings;
-  set useBookFoldPrintingSettings(bool val) => _useBookFoldPrintingSettings = val;
+  bool? get useBookFoldPrintingSettings => _useBookFoldPrintingSettings;
+  set useBookFoldPrintingSettings(bool? val) => _useBookFoldPrintingSettings = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize PsSaveOptionsData data model.');
     }
@@ -60,7 +60,7 @@ class PsSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (json.containsKey('CustomTimeZoneInfoData')) {
       customTimeZoneInfoData = TimeZoneInfoData();
-      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+      customTimeZoneInfoData!.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
     } else {
       customTimeZoneInfoData = null;
     }
@@ -166,7 +166,7 @@ class PsSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (json.containsKey('MetafileRenderingOptions')) {
       metafileRenderingOptions = MetafileRenderingOptionsData();
-      metafileRenderingOptions.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
+      metafileRenderingOptions!.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
     } else {
       metafileRenderingOptions = null;
     }
@@ -214,11 +214,11 @@ class PsSaveOptionsData extends FixedPageSaveOptionsData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat;
+      _result['SaveFormat'] = saveFormat!;
     }
 
     if (useBookFoldPrintingSettings != null) {
-      _result['UseBookFoldPrintingSettings'] = useBookFoldPrintingSettings;
+      _result['UseBookFoldPrintingSettings'] = useBookFoldPrintingSettings!;
     }
     return _result;
   }

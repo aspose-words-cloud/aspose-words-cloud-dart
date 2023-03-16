@@ -37,21 +37,21 @@ import '../api_request_part.dart';
 /// Request model for GetDocumentFieldNamesOnline operation.
 class GetDocumentFieldNamesOnlineRequest implements RequestBase {
   /// The template document.
-  final ByteData template;
+  final ByteData? template;
 
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-  final String loadEncoding;
+  final String? loadEncoding;
 
   /// Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
-  final String password;
+  final String? password;
 
   /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
-  final String encryptedPassword;
+  final String? encryptedPassword;
 
   /// The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
-  final bool useNonMergeFields;
+  final bool? useNonMergeFields;
 
-  GetDocumentFieldNamesOnlineRequest(final this.template, {final this.loadEncoding, final this.password, final this.encryptedPassword, final this.useNonMergeFields});
+  GetDocumentFieldNamesOnlineRequest(this.template, {this.loadEncoding, this.password, this.encryptedPassword, this.useNonMergeFields});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -61,23 +61,26 @@ class GetDocumentFieldNamesOnlineRequest implements RequestBase {
     var _bodyParts = <ApiRequestPart>[];
     var _fileContentParts = <FileReference>[];
     if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding) ?? "";
     }
 
     if (password != null) {
-      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password!);
     }
 
     if (encryptedPassword != null) {
-      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword);
+      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword) ?? "";
     }
 
     if (useNonMergeFields != null) {
-      _queryParams['useNonMergeFields'] = _apiClient.serializeToString(useNonMergeFields);
+      _queryParams['useNonMergeFields'] = _apiClient.serializeToString(useNonMergeFields) ?? "";
     }
 
     if (template != null) {
-      _bodyParts.add(_apiClient.serializeBody(template, 'Template'));
+      var _formBody = _apiClient.serializeBody(template, 'Template');
+      if (_formBody != null) {
+        _bodyParts.add(_formBody);
+      }
     }
     else {
       throw ApiException(400, 'Parameter template is required.');
@@ -85,7 +88,7 @@ class GetDocumentFieldNamesOnlineRequest implements RequestBase {
 
     for (final _fileContentPart in _fileContentParts) {
         if (_fileContentPart.source == 'Request') {
-            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
@@ -94,7 +97,11 @@ class GetDocumentFieldNamesOnlineRequest implements RequestBase {
   }
 
   @override
-  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final Map<String, String> _headers, final ByteData? _body) {
+    if (_body == null) {
+        return ApiException(400, "Nullable response body is not allowed for this operation type.");
+    }
+
     var _result = FieldNamesResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);

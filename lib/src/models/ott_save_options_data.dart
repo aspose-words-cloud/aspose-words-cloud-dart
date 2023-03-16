@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// Container class for ott save options.
 class OttSaveOptionsData extends OdtSaveOptionsData {
   /// Gets the format of save.
-  String _saveFormat = 'ott';
+  String? _saveFormat = 'ott';
 
   @override
-  String get saveFormat => _saveFormat;
+  String? get saveFormat => _saveFormat;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize OttSaveOptionsData data model.');
     }
@@ -53,7 +53,7 @@ class OttSaveOptionsData extends OdtSaveOptionsData {
 
     if (json.containsKey('CustomTimeZoneInfoData')) {
       customTimeZoneInfoData = TimeZoneInfoData();
-      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+      customTimeZoneInfoData!.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
     } else {
       customTimeZoneInfoData = null;
     }
@@ -175,7 +175,7 @@ class OttSaveOptionsData extends OdtSaveOptionsData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat;
+      _result['SaveFormat'] = saveFormat!;
     }
     return _result;
   }

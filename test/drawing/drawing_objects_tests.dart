@@ -33,11 +33,11 @@ import '../test_context.dart';
 class DrawingObjectsTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
-  String localDrawingFile;
+  late String remoteDataFolder;
+  late String localFile;
+  late String localDrawingFile;
 
-  DrawingObjectsTests(final this.context) {
+  DrawingObjectsTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/DrawingObjectss';
     localFile = 'Common/test_multi_pages.docx';
     localDrawingFile = 'DocumentElements/DrawingObjects/sample_EmbeddedOLE.docx';

@@ -37,12 +37,12 @@ import '../api_request_part.dart';
 /// Request model for Classify operation.
 class ClassifyRequest implements RequestBase {
   /// The text to classify.
-  final String text;
+  final String? text;
 
   /// The number of the best classes to return.
-  final String bestClassesCount;
+  final String? bestClassesCount;
 
-  ClassifyRequest(final this.text, {final this.bestClassesCount});
+  ClassifyRequest(this.text, {this.bestClassesCount});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -52,11 +52,14 @@ class ClassifyRequest implements RequestBase {
     var _bodyParts = <ApiRequestPart>[];
     var _fileContentParts = <FileReference>[];
     if (bestClassesCount != null) {
-      _queryParams['bestClassesCount'] = _apiClient.serializeToString(bestClassesCount);
+      _queryParams['bestClassesCount'] = _apiClient.serializeToString(bestClassesCount) ?? "";
     }
 
     if (text != null) {
-      _bodyParts.add(_apiClient.serializeBody(text, 'Text'));
+      var _formBody = _apiClient.serializeBody(text, 'Text');
+      if (_formBody != null) {
+        _bodyParts.add(_formBody);
+      }
     }
     else {
       throw ApiException(400, 'Parameter text is required.');
@@ -64,7 +67,7 @@ class ClassifyRequest implements RequestBase {
 
     for (final _fileContentPart in _fileContentParts) {
         if (_fileContentPart.source == 'Request') {
-            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
@@ -73,7 +76,11 @@ class ClassifyRequest implements RequestBase {
   }
 
   @override
-  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final Map<String, String> _headers, final ByteData? _body) {
+    if (_body == null) {
+        return ApiException(400, "Nullable response body is not allowed for this operation type.");
+    }
+
     var _result = ClassificationResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);

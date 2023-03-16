@@ -37,27 +37,27 @@ import '../api_request_part.dart';
 /// Request model for GetHeaderFooterOfSectionOnline operation.
 class GetHeaderFooterOfSectionOnlineRequest implements RequestBase {
   /// The document.
-  final ByteData document;
+  final ByteData? document;
 
   /// The index of the HeaderFooter object.
-  final int headerFooterIndex;
+  final int? headerFooterIndex;
 
   /// The index of the section.
-  final int sectionIndex;
+  final int? sectionIndex;
 
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-  final String loadEncoding;
+  final String? loadEncoding;
 
   /// Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
-  final String password;
+  final String? password;
 
   /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
-  final String encryptedPassword;
+  final String? encryptedPassword;
 
   /// The list of HeaderFooter types.
-  final String filterByType;
+  final String? filterByType;
 
-  GetHeaderFooterOfSectionOnlineRequest(final this.document, final this.headerFooterIndex, final this.sectionIndex, {final this.loadEncoding, final this.password, final this.encryptedPassword, final this.filterByType});
+  GetHeaderFooterOfSectionOnlineRequest(this.document, this.headerFooterIndex, this.sectionIndex, {this.loadEncoding, this.password, this.encryptedPassword, this.filterByType});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -69,30 +69,33 @@ class GetHeaderFooterOfSectionOnlineRequest implements RequestBase {
     if (headerFooterIndex == null) {
       throw ApiException(400, 'Parameter headerFooterIndex is required.');
     }
-    _path = _path.replaceAll('{headerFooterIndex}', _apiClient.serializeToString(headerFooterIndex));
+    _path = _path.replaceAll('{headerFooterIndex}', _apiClient.serializeToString(headerFooterIndex) ?? "");
 
     if (sectionIndex == null) {
       throw ApiException(400, 'Parameter sectionIndex is required.');
     }
-    _path = _path.replaceAll('{sectionIndex}', _apiClient.serializeToString(sectionIndex));
+    _path = _path.replaceAll('{sectionIndex}', _apiClient.serializeToString(sectionIndex) ?? "");
     if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding) ?? "";
     }
 
     if (password != null) {
-      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password!);
     }
 
     if (encryptedPassword != null) {
-      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword);
+      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword) ?? "";
     }
 
     if (filterByType != null) {
-      _queryParams['filterByType'] = _apiClient.serializeToString(filterByType);
+      _queryParams['filterByType'] = _apiClient.serializeToString(filterByType) ?? "";
     }
 
     if (document != null) {
-      _bodyParts.add(_apiClient.serializeBody(document, 'Document'));
+      var _formBody = _apiClient.serializeBody(document, 'Document');
+      if (_formBody != null) {
+        _bodyParts.add(_formBody);
+      }
     }
     else {
       throw ApiException(400, 'Parameter document is required.');
@@ -100,7 +103,7 @@ class GetHeaderFooterOfSectionOnlineRequest implements RequestBase {
 
     for (final _fileContentPart in _fileContentParts) {
         if (_fileContentPart.source == 'Request') {
-            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
@@ -109,7 +112,11 @@ class GetHeaderFooterOfSectionOnlineRequest implements RequestBase {
   }
 
   @override
-  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final Map<String, String> _headers, final ByteData? _body) {
+    if (_body == null) {
+        return ApiException(400, "Nullable response body is not allowed for this operation type.");
+    }
+
     var _result = HeaderFooterResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);

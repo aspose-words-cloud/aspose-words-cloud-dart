@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a list format for a paragraph.
 class ParagraphListFormatResponse extends WordsResponse {
   /// Gets or sets the list format for a paragraph.
-  ListFormat _listFormat;
+  ListFormat? _listFormat;
 
-  ListFormat get listFormat => _listFormat;
-  set listFormat(ListFormat val) => _listFormat = val;
+  ListFormat? get listFormat => _listFormat;
+  set listFormat(ListFormat? val) => _listFormat = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize ParagraphListFormatResponse data model.');
     }
@@ -53,7 +53,7 @@ class ParagraphListFormatResponse extends WordsResponse {
 
     if (json.containsKey('ListFormat')) {
       listFormat = ListFormat();
-      listFormat.deserialize(json['ListFormat'] as Map<String, dynamic>);
+      listFormat!.deserialize(json['ListFormat'] as Map<String, dynamic>);
     } else {
       listFormat = null;
     }
@@ -64,7 +64,7 @@ class ParagraphListFormatResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (listFormat != null) {
-      _result['ListFormat'] = listFormat.serialize();
+      _result['ListFormat'] = listFormat!.serialize();
     }
     return _result;
   }

@@ -32,28 +32,28 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with data on multi-class text classification.
 class ClassificationResponse extends WordsResponse {
   /// Gets or sets the best class name.
-  String _bestClassName;
+  String? _bestClassName;
 
-  String get bestClassName => _bestClassName;
-  set bestClassName(String val) => _bestClassName = val;
+  String? get bestClassName => _bestClassName;
+  set bestClassName(String? val) => _bestClassName = val;
 
 
   /// Gets or sets the best class probability.
-  double _bestClassProbability;
+  double? _bestClassProbability;
 
-  double get bestClassProbability => _bestClassProbability;
-  set bestClassProbability(double val) => _bestClassProbability = val;
+  double? get bestClassProbability => _bestClassProbability;
+  set bestClassProbability(double? val) => _bestClassProbability = val;
 
 
   /// Gets or sets the array of best classes results.
-  List<ClassificationResult> _bestResults;
+  List<ClassificationResult?>? _bestResults;
 
-  List<ClassificationResult> get bestResults => _bestResults;
-  set bestResults(List<ClassificationResult> val) => _bestResults = val;
+  List<ClassificationResult?>? get bestResults => _bestResults;
+  set bestResults(List<ClassificationResult?>? val) => _bestResults = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize ClassificationResponse data model.');
     }
@@ -83,7 +83,7 @@ class ClassificationResponse extends WordsResponse {
       for(final _element in json['BestResults']) {
         var _elementValue = ClassificationResult();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        bestResults.add(_elementValue);
+        bestResults!.add(_elementValue);
       }
     } else {
       bestResults = null;
@@ -95,15 +95,15 @@ class ClassificationResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (bestClassName != null) {
-      _result['BestClassName'] = bestClassName;
+      _result['BestClassName'] = bestClassName!;
     }
 
     if (bestClassProbability != null) {
-      _result['BestClassProbability'] = bestClassProbability;
+      _result['BestClassProbability'] = bestClassProbability!;
     }
 
     if (bestResults != null) {
-      _result['BestResults'] = bestResults.map((_element) => _element.serialize()).toList();
+      _result['BestResults'] = bestResults!.map((_element) => _element?.serialize()).toList();
     }
     return _result;
   }

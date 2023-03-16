@@ -32,49 +32,49 @@ import '../../aspose_words_cloud.dart';
 /// Container class for outline options.
 class OutlineOptionsData implements ModelBase {
   /// Gets or sets the individual bookmarks outline level.
-  List<BookmarksOutlineLevelData> _bookmarksOutlineLevels;
+  List<BookmarksOutlineLevelData?>? _bookmarksOutlineLevels;
 
-  List<BookmarksOutlineLevelData> get bookmarksOutlineLevels => _bookmarksOutlineLevels;
-  set bookmarksOutlineLevels(List<BookmarksOutlineLevelData> val) => _bookmarksOutlineLevels = val;
+  List<BookmarksOutlineLevelData?>? get bookmarksOutlineLevels => _bookmarksOutlineLevels;
+  set bookmarksOutlineLevels(List<BookmarksOutlineLevelData?>? val) => _bookmarksOutlineLevels = val;
 
 
   /// Gets or sets a value indicating whether to create missing outline levels when the document is exported. The default value is false.
-  bool _createMissingOutlineLevels;
+  bool? _createMissingOutlineLevels;
 
-  bool get createMissingOutlineLevels => _createMissingOutlineLevels;
-  set createMissingOutlineLevels(bool val) => _createMissingOutlineLevels = val;
+  bool? get createMissingOutlineLevels => _createMissingOutlineLevels;
+  set createMissingOutlineLevels(bool? val) => _createMissingOutlineLevels = val;
 
 
   /// Gets or sets a value indicating whether to create outlines for headings (paragraphs formatted with the Heading styles) inside tables.
-  bool _createOutlinesForHeadingsInTables;
+  bool? _createOutlinesForHeadingsInTables;
 
-  bool get createOutlinesForHeadingsInTables => _createOutlinesForHeadingsInTables;
-  set createOutlinesForHeadingsInTables(bool val) => _createOutlinesForHeadingsInTables = val;
+  bool? get createOutlinesForHeadingsInTables => _createOutlinesForHeadingsInTables;
+  set createOutlinesForHeadingsInTables(bool? val) => _createOutlinesForHeadingsInTables = val;
 
 
   /// Gets or sets the default level in the document outline at which to display Word bookmarks.
-  int _defaultBookmarksOutlineLevel;
+  int? _defaultBookmarksOutlineLevel;
 
-  int get defaultBookmarksOutlineLevel => _defaultBookmarksOutlineLevel;
-  set defaultBookmarksOutlineLevel(int val) => _defaultBookmarksOutlineLevel = val;
+  int? get defaultBookmarksOutlineLevel => _defaultBookmarksOutlineLevel;
+  set defaultBookmarksOutlineLevel(int? val) => _defaultBookmarksOutlineLevel = val;
 
 
   /// Gets or sets the number of levels in the document outline to show expanded when the file is viewed.
-  int _expandedOutlineLevels;
+  int? _expandedOutlineLevels;
 
-  int get expandedOutlineLevels => _expandedOutlineLevels;
-  set expandedOutlineLevels(int val) => _expandedOutlineLevels = val;
+  int? get expandedOutlineLevels => _expandedOutlineLevels;
+  set expandedOutlineLevels(int? val) => _expandedOutlineLevels = val;
 
 
   /// Gets or sets the number of levels of headings (paragraphs formatted with the Heading styles) to include in the document outline.
-  int _headingsOutlineLevels;
+  int? _headingsOutlineLevels;
 
-  int get headingsOutlineLevels => _headingsOutlineLevels;
-  set headingsOutlineLevels(int val) => _headingsOutlineLevels = val;
+  int? get headingsOutlineLevels => _headingsOutlineLevels;
+  set headingsOutlineLevels(int? val) => _headingsOutlineLevels = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize OutlineOptionsData data model.');
     }
@@ -85,7 +85,7 @@ class OutlineOptionsData implements ModelBase {
       for(final _element in json['BookmarksOutlineLevels']) {
         var _elementValue = BookmarksOutlineLevelData();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        bookmarksOutlineLevels.add(_elementValue);
+        bookmarksOutlineLevels!.add(_elementValue);
       }
     } else {
       bookmarksOutlineLevels = null;
@@ -126,27 +126,27 @@ class OutlineOptionsData implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (bookmarksOutlineLevels != null) {
-      _result['BookmarksOutlineLevels'] = bookmarksOutlineLevels.map((_element) => _element.serialize()).toList();
+      _result['BookmarksOutlineLevels'] = bookmarksOutlineLevels!.map((_element) => _element?.serialize()).toList();
     }
 
     if (createMissingOutlineLevels != null) {
-      _result['CreateMissingOutlineLevels'] = createMissingOutlineLevels;
+      _result['CreateMissingOutlineLevels'] = createMissingOutlineLevels!;
     }
 
     if (createOutlinesForHeadingsInTables != null) {
-      _result['CreateOutlinesForHeadingsInTables'] = createOutlinesForHeadingsInTables;
+      _result['CreateOutlinesForHeadingsInTables'] = createOutlinesForHeadingsInTables!;
     }
 
     if (defaultBookmarksOutlineLevel != null) {
-      _result['DefaultBookmarksOutlineLevel'] = defaultBookmarksOutlineLevel;
+      _result['DefaultBookmarksOutlineLevel'] = defaultBookmarksOutlineLevel!;
     }
 
     if (expandedOutlineLevels != null) {
-      _result['ExpandedOutlineLevels'] = expandedOutlineLevels;
+      _result['ExpandedOutlineLevels'] = expandedOutlineLevels!;
     }
 
     if (headingsOutlineLevels != null) {
-      _result['HeadingsOutlineLevels'] = headingsOutlineLevels;
+      _result['HeadingsOutlineLevels'] = headingsOutlineLevels!;
     }
     return _result;
   }

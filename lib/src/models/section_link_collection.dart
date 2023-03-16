@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The collection of section's links.
 class SectionLinkCollection extends LinkElement {
   /// Gets or sets the collection of section's links.
-  List<SectionLink> _sectionLinkList;
+  List<SectionLink?>? _sectionLinkList;
 
-  List<SectionLink> get sectionLinkList => _sectionLinkList;
-  set sectionLinkList(List<SectionLink> val) => _sectionLinkList = val;
+  List<SectionLink?>? get sectionLinkList => _sectionLinkList;
+  set sectionLinkList(List<SectionLink?>? val) => _sectionLinkList = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize SectionLinkCollection data model.');
     }
@@ -47,7 +47,7 @@ class SectionLinkCollection extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -58,7 +58,7 @@ class SectionLinkCollection extends LinkElement {
       for(final _element in json['SectionLinkList']) {
         var _elementValue = SectionLink();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        sectionLinkList.add(_elementValue);
+        sectionLinkList!.add(_elementValue);
       }
     } else {
       sectionLinkList = null;
@@ -70,7 +70,7 @@ class SectionLinkCollection extends LinkElement {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (sectionLinkList != null) {
-      _result['SectionLinkList'] = sectionLinkList.map((_element) => _element.serialize()).toList();
+      _result['SectionLinkList'] = sectionLinkList!.map((_element) => _element?.serialize()).toList();
     }
     return _result;
   }

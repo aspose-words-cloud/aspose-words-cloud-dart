@@ -34,10 +34,10 @@ import '../test_context.dart';
 class FileTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
+  late String remoteDataFolder;
+  late String localFile;
 
-  FileTests(final this.context) {
+  FileTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/Storage';
     localFile = 'Common/test_multi_pages.docx';
   }
@@ -55,8 +55,8 @@ class FileTests
 
     final result = await context.getApi().uploadFile(request);
     expect(result.uploaded, isNotNull);
-    expect(result.uploaded.length, 1);
-    expect(result.uploaded[0], 'TestUploadFile.docx');
+    expect(result.uploaded?.length, 1);
+    expect(result.uploaded?[0], 'TestUploadFile.docx');
   }
 
   /// Test for copy file.

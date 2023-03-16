@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a collection of StructuredDocumentTags links.
 class StructuredDocumentTagCollection extends LinkElement {
   /// Gets or sets the collection of StructuredDocumentTags links.
-  List<StructuredDocumentTag> _list;
+  List<StructuredDocumentTag?>? _list;
 
-  List<StructuredDocumentTag> get list => _list;
-  set list(List<StructuredDocumentTag> val) => _list = val;
+  List<StructuredDocumentTag?>? get list => _list;
+  set list(List<StructuredDocumentTag?>? val) => _list = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize StructuredDocumentTagCollection data model.');
     }
@@ -47,7 +47,7 @@ class StructuredDocumentTagCollection extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -58,7 +58,7 @@ class StructuredDocumentTagCollection extends LinkElement {
       for(final _element in json['List']) {
         var _elementValue = StructuredDocumentTag();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        list.add(_elementValue);
+        list!.add(_elementValue);
       }
     } else {
       list = null;
@@ -70,7 +70,7 @@ class StructuredDocumentTagCollection extends LinkElement {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (list != null) {
-      _result['List'] = list.map((_element) => _element.serialize()).toList();
+      _result['List'] = list!.map((_element) => _element?.serialize()).toList();
     }
     return _result;
   }

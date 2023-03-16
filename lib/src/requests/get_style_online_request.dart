@@ -37,21 +37,21 @@ import '../api_request_part.dart';
 /// Request model for GetStyleOnline operation.
 class GetStyleOnlineRequest implements RequestBase {
   /// The document.
-  final ByteData document;
+  final ByteData? document;
 
   /// The name of the style.
-  final String styleName;
+  final String? styleName;
 
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-  final String loadEncoding;
+  final String? loadEncoding;
 
   /// Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
-  final String password;
+  final String? password;
 
   /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
-  final String encryptedPassword;
+  final String? encryptedPassword;
 
-  GetStyleOnlineRequest(final this.document, final this.styleName, {final this.loadEncoding, final this.password, final this.encryptedPassword});
+  GetStyleOnlineRequest(this.document, this.styleName, {this.loadEncoding, this.password, this.encryptedPassword});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -63,21 +63,24 @@ class GetStyleOnlineRequest implements RequestBase {
     if (styleName == null) {
       throw ApiException(400, 'Parameter styleName is required.');
     }
-    _path = _path.replaceAll('{styleName}', _apiClient.serializeToString(styleName));
+    _path = _path.replaceAll('{styleName}', _apiClient.serializeToString(styleName) ?? "");
     if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding) ?? "";
     }
 
     if (password != null) {
-      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password!);
     }
 
     if (encryptedPassword != null) {
-      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword);
+      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword) ?? "";
     }
 
     if (document != null) {
-      _bodyParts.add(_apiClient.serializeBody(document, 'Document'));
+      var _formBody = _apiClient.serializeBody(document, 'Document');
+      if (_formBody != null) {
+        _bodyParts.add(_formBody);
+      }
     }
     else {
       throw ApiException(400, 'Parameter document is required.');
@@ -85,7 +88,7 @@ class GetStyleOnlineRequest implements RequestBase {
 
     for (final _fileContentPart in _fileContentParts) {
         if (_fileContentPart.source == 'Request') {
-            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
@@ -94,7 +97,11 @@ class GetStyleOnlineRequest implements RequestBase {
   }
 
   @override
-  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final Map<String, String> _headers, final ByteData? _body) {
+    if (_body == null) {
+        return ApiException(400, "Nullable response body is not allowed for this operation type.");
+    }
+
     var _result = StyleResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);

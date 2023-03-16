@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with paragraph format tab stop.
 class TabStop extends TabStopBase {
   /// Gets or sets a value indicating whether this tab stop clears any existing tab stops in this position.
-  bool _isClear;
+  bool? _isClear;
 
-  bool get isClear => _isClear;
-  set isClear(bool val) => _isClear = val;
+  bool? get isClear => _isClear;
+  set isClear(bool? val) => _isClear = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize TabStop data model.');
     }
@@ -92,7 +92,7 @@ class TabStop extends TabStopBase {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (isClear != null) {
-      _result['IsClear'] = isClear;
+      _result['IsClear'] = isClear!;
     }
     return _result;
   }

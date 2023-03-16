@@ -36,36 +36,36 @@ import '../api_request_part.dart';
 /// Request model for SplitDocumentOnline operation.
 class SplitDocumentOnlineRequest implements RequestBase {
   /// The document.
-  final ByteData document;
+  final ByteData? document;
 
   /// The format to split.
-  final String format;
+  final String? format;
 
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-  final String loadEncoding;
+  final String? loadEncoding;
 
   /// Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
-  final String password;
+  final String? password;
 
   /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
-  final String encryptedPassword;
+  final String? encryptedPassword;
 
   /// Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-  final String destFileName;
+  final String? destFileName;
 
   /// The start page.
-  final int from;
+  final int? from;
 
   /// The end page.
-  final int to;
+  final int? to;
 
   /// The flag indicating whether to ZIP the output.
-  final bool zipOutput;
+  final bool? zipOutput;
 
   /// Folder in filestorage with custom fonts.
-  final String fontsLocation;
+  final String? fontsLocation;
 
-  SplitDocumentOnlineRequest(final this.document, final this.format, {final this.loadEncoding, final this.password, final this.encryptedPassword, final this.destFileName, final this.from, final this.to, final this.zipOutput, final this.fontsLocation});
+  SplitDocumentOnlineRequest(this.document, this.format, {this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.from, this.to, this.zipOutput, this.fontsLocation});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -75,46 +75,49 @@ class SplitDocumentOnlineRequest implements RequestBase {
     var _bodyParts = <ApiRequestPart>[];
     var _fileContentParts = <FileReference>[];
     if (format != null) {
-      _queryParams['format'] = _apiClient.serializeToString(format);
+      _queryParams['format'] = _apiClient.serializeToString(format) ?? "";
     }
     else {
       throw ApiException(400, 'Parameter format is required.');
     }
 
     if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding) ?? "";
     }
 
     if (password != null) {
-      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password!);
     }
 
     if (encryptedPassword != null) {
-      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword);
+      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword) ?? "";
     }
 
     if (destFileName != null) {
-      _queryParams['destFileName'] = _apiClient.serializeToString(destFileName);
+      _queryParams['destFileName'] = _apiClient.serializeToString(destFileName) ?? "";
     }
 
     if (from != null) {
-      _queryParams['from'] = _apiClient.serializeToString(from);
+      _queryParams['from'] = _apiClient.serializeToString(from) ?? "";
     }
 
     if (to != null) {
-      _queryParams['to'] = _apiClient.serializeToString(to);
+      _queryParams['to'] = _apiClient.serializeToString(to) ?? "";
     }
 
     if (zipOutput != null) {
-      _queryParams['zipOutput'] = _apiClient.serializeToString(zipOutput);
+      _queryParams['zipOutput'] = _apiClient.serializeToString(zipOutput) ?? "";
     }
 
     if (fontsLocation != null) {
-      _queryParams['fontsLocation'] = _apiClient.serializeToString(fontsLocation);
+      _queryParams['fontsLocation'] = _apiClient.serializeToString(fontsLocation) ?? "";
     }
 
     if (document != null) {
-      _bodyParts.add(_apiClient.serializeBody(document, 'Document'));
+      var _formBody = _apiClient.serializeBody(document, 'Document');
+      if (_formBody != null) {
+        _bodyParts.add(_formBody);
+      }
     }
     else {
       throw ApiException(400, 'Parameter document is required.');
@@ -122,7 +125,7 @@ class SplitDocumentOnlineRequest implements RequestBase {
 
     for (final _fileContentPart in _fileContentParts) {
         if (_fileContentPart.source == 'Request') {
-            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
@@ -131,7 +134,11 @@ class SplitDocumentOnlineRequest implements RequestBase {
   }
 
   @override
-  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final Map<String, String> _headers, final ByteData? _body) {
+    if (_body == null) {
+        return ApiException(400, "Nullable response body is not allowed for this operation type.");
+    }
+
     var _result = SplitDocumentOnlineResponse();
     _result.deserialize(_apiClient, _apiClient.deserializeMultipartMap(_body));
     return _result;

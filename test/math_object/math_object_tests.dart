@@ -34,10 +34,10 @@ import '../test_context.dart';
 class MathObjectTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
+  late String remoteDataFolder;
+  late String localFile;
 
-  MathObjectTests(final this.context) {
+  MathObjectTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/MathObjects';
     localFile = 'DocumentElements/MathObjects/MathObjects.docx';
   }
@@ -56,9 +56,9 @@ class MathObjectTests
 
     final result = await context.getApi().getOfficeMathObjects(request);
     expect(result.officeMathObjects, isNotNull);
-    expect(result.officeMathObjects.list, isNotNull);
-    expect(result.officeMathObjects.list.length, 16);
-    expect(result.officeMathObjects.list[0].nodeId, '0.0.0.0');
+    expect(result.officeMathObjects?.list, isNotNull);
+    expect(result.officeMathObjects?.list?.length, 16);
+    expect(result.officeMathObjects?.list?[0]?.nodeId, '0.0.0.0');
   }
 
   /// Test for getting mathObjects online.
@@ -87,9 +87,9 @@ class MathObjectTests
 
     final result = await context.getApi().getOfficeMathObjects(request);
     expect(result.officeMathObjects, isNotNull);
-    expect(result.officeMathObjects.list, isNotNull);
-    expect(result.officeMathObjects.list.length, 16);
-    expect(result.officeMathObjects.list[0].nodeId, '0.0.0.0');
+    expect(result.officeMathObjects?.list, isNotNull);
+    expect(result.officeMathObjects?.list?.length, 16);
+    expect(result.officeMathObjects?.list?[0]?.nodeId, '0.0.0.0');
   }
 
   /// Test for getting mathObject.
@@ -107,7 +107,7 @@ class MathObjectTests
 
     final result = await context.getApi().getOfficeMathObject(request);
     expect(result.officeMathObject, isNotNull);
-    expect(result.officeMathObject.nodeId, '0.0.0.0');
+    expect(result.officeMathObject?.nodeId, '0.0.0.0');
   }
 
   /// Test for getting mathObject online.
@@ -138,7 +138,7 @@ class MathObjectTests
 
     final result = await context.getApi().getOfficeMathObject(request);
     expect(result.officeMathObject, isNotNull);
-    expect(result.officeMathObject.nodeId, '0.0.0.0');
+    expect(result.officeMathObject?.nodeId, '0.0.0.0');
   }
 
   /// Test for rendering mathObject.
