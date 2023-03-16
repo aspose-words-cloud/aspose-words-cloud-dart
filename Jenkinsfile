@@ -42,8 +42,8 @@ node('words-linux') {
                         sh "rm -rf lib"
                         sh "cp ./pubspec_package_testing.yaml ./pubspec.yaml"
                         sh "dart pub add aspose_words_cloud"
-                        sh "pub get"
-                        sh "pub global activate junitreport"
+                        sh "dart pub get"
+                        sh "dart pub global activate junitreport"
                     }
                     
                     stage('lint'){
@@ -52,9 +52,9 @@ node('words-linux') {
                 
                     stage('tests'){
                         try {
-                            sh "pub run test test/aspose_words_cloud_tests.dart --concurrency=1 --no-color --reporter expanded --file-reporter json:testReport.json"
+                            sh "dart run test test/aspose_words_cloud_tests.dart --concurrency=1 --no-color --reporter expanded --file-reporter json:testReport.json"
                         } finally {
-                            sh "pub global run junitreport:tojunit --input testReport.json --output testReport.xml"
+                            sh "dart pub global run junitreport:tojunit --input testReport.json --output testReport.xml"
                             junit 'testReport.xml'
                         }
                     }
@@ -63,8 +63,8 @@ node('words-linux') {
             else if (needToBuild) {
                 docker.image('dart:2.19.4').inside {
                     stage('prepare'){
-                        sh "pub get"
-                        sh "pub global activate junitreport"
+                        sh "dart pub get"
+                        sh "dart pub global activate junitreport"
                     }
                     
                     stage('lint'){
@@ -73,9 +73,9 @@ node('words-linux') {
                 
                     stage('tests'){
                         try {
-                            sh "pub run test test/aspose_words_cloud_tests.dart --concurrency=1 --no-color --reporter expanded --file-reporter json:testReport.json"
+                            sh "dart run test test/aspose_words_cloud_tests.dart --concurrency=1 --no-color --reporter expanded --file-reporter json:testReport.json"
                         } finally {
-                            sh "pub global run junitreport:tojunit --input testReport.json --output testReport.xml"
+                            sh "dart pub global run junitreport:tojunit --input testReport.json --output testReport.xml"
                             junit 'testReport.xml'
                         }
                     }
