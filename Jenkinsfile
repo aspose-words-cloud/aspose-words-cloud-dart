@@ -37,7 +37,7 @@ node('words-linux') {
             }
             
             if (packageTesting) {
-                docker.image('google/dart:2.14').inside {
+                docker.image('dart:2.19.4').inside {
                     stage('prepare'){
                         sh "rm -rf lib"
                         sh "cp ./pubspec_package_testing.yaml ./pubspec.yaml"
@@ -47,7 +47,7 @@ node('words-linux') {
                     }
                     
                     stage('lint'){
-                        sh "dartanalyzer --fatal-infos --fatal-warnings --options analysis_options.yaml ."
+                        sh "dart analyze --fatal-infos --fatal-warnings ."
                     }
                 
                     stage('tests'){
@@ -61,14 +61,14 @@ node('words-linux') {
                 } 
             }
             else if (needToBuild) {
-                docker.image('google/dart:2.14').inside {
+                docker.image('dart:2.19.4').inside {
                     stage('prepare'){
                         sh "pub get"
                         sh "pub global activate junitreport"
                     }
                     
                     stage('lint'){
-                        sh "dartanalyzer --fatal-infos --fatal-warnings --options analysis_options.yaml ."
+                        sh "dart analyze --fatal-infos --fatal-warnings ."
                     }
                 
                     stage('tests'){

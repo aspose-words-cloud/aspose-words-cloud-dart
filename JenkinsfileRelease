@@ -15,14 +15,14 @@ def runtests()
                         }
             }
             
-            docker.image('google/dart:2.14').inside {
+            docker.image('dart:2.19.4').inside {
                 stage('prepare'){
                     sh "pub get"
                     sh "pub global activate junitreport"
                 }
                 
                 stage('lint'){
-                    sh "dartanalyzer --fatal-infos --fatal-warnings --options analysis_options.yaml ."
+                    sh "dart analyze --fatal-infos --fatal-warnings ."
                 }
             
                 stage('tests'){
