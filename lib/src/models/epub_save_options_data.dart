@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// Container class for epub save options.
 class EpubSaveOptionsData extends HtmlSaveOptionsData {
   /// Gets or sets the maximum level of headings populated to the navigation map when exporting.
-  int _epubNavigationMapLevel;
+  int? _epubNavigationMapLevel;
 
-  int get epubNavigationMapLevel => _epubNavigationMapLevel;
-  set epubNavigationMapLevel(int val) => _epubNavigationMapLevel = val;
+  int? get epubNavigationMapLevel => _epubNavigationMapLevel;
+  set epubNavigationMapLevel(int? val) => _epubNavigationMapLevel = val;
 
 
   /// Gets the format of save.
-  String _saveFormat = 'epub';
+  String? _saveFormat = 'epub';
 
   @override
-  String get saveFormat => _saveFormat;
+  String? get saveFormat => _saveFormat;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize EpubSaveOptionsData data model.');
     }
@@ -60,7 +60,7 @@ class EpubSaveOptionsData extends HtmlSaveOptionsData {
 
     if (json.containsKey('CustomTimeZoneInfoData')) {
       customTimeZoneInfoData = TimeZoneInfoData();
-      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+      customTimeZoneInfoData!.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
     } else {
       customTimeZoneInfoData = null;
     }
@@ -430,11 +430,11 @@ class EpubSaveOptionsData extends HtmlSaveOptionsData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (epubNavigationMapLevel != null) {
-      _result['EpubNavigationMapLevel'] = epubNavigationMapLevel;
+      _result['EpubNavigationMapLevel'] = epubNavigationMapLevel!;
     }
 
     if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat;
+      _result['SaveFormat'] = saveFormat!;
     }
     return _result;
   }

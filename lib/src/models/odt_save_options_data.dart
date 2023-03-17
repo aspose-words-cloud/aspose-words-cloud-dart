@@ -32,43 +32,43 @@ import '../../aspose_words_cloud.dart';
 /// Container class for odt/ott save options.
 class OdtSaveOptionsData extends SaveOptionsData {
   /// Gets or sets a value indicating whether export should correspond to ODT specification 1.1 strictly.
-  bool _isStrictSchema11;
+  bool? _isStrictSchema11;
 
-  bool get isStrictSchema11 => _isStrictSchema11;
-  set isStrictSchema11(bool val) => _isStrictSchema11 = val;
+  bool? get isStrictSchema11 => _isStrictSchema11;
+  set isStrictSchema11(bool? val) => _isStrictSchema11 = val;
 
 
   /// Gets or sets the units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters.
   /// Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.
-  OdtSaveOptionsData_MeasureUnitEnum _measureUnit;
+  OdtSaveOptionsData_MeasureUnitEnum? _measureUnit;
 
-  OdtSaveOptionsData_MeasureUnitEnum get measureUnit => _measureUnit;
-  set measureUnit(OdtSaveOptionsData_MeasureUnitEnum val) => _measureUnit = val;
+  OdtSaveOptionsData_MeasureUnitEnum? get measureUnit => _measureUnit;
+  set measureUnit(OdtSaveOptionsData_MeasureUnitEnum? val) => _measureUnit = val;
 
 
   /// Gets or sets the password to encrypt document.
-  String _password;
+  String? _password;
 
-  String get password => _password;
-  set password(String val) => _password = val;
+  String? get password => _password;
+  set password(String? val) => _password = val;
 
 
   /// Gets or sets a value indicating whether to use pretty formats output.
-  bool _prettyFormat;
+  bool? _prettyFormat;
 
-  bool get prettyFormat => _prettyFormat;
-  set prettyFormat(bool val) => _prettyFormat = val;
+  bool? get prettyFormat => _prettyFormat;
+  set prettyFormat(bool? val) => _prettyFormat = val;
 
 
   /// Gets the format of save.
-  String _saveFormat = 'odt';
+  String? _saveFormat = 'odt';
 
   @override
-  String get saveFormat => _saveFormat;
+  String? get saveFormat => _saveFormat;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize OdtSaveOptionsData data model.');
     }
@@ -82,7 +82,7 @@ class OdtSaveOptionsData extends SaveOptionsData {
 
     if (json.containsKey('CustomTimeZoneInfoData')) {
       customTimeZoneInfoData = TimeZoneInfoData();
-      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+      customTimeZoneInfoData!.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
     } else {
       customTimeZoneInfoData = null;
     }
@@ -204,11 +204,11 @@ class OdtSaveOptionsData extends SaveOptionsData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (isStrictSchema11 != null) {
-      _result['IsStrictSchema11'] = isStrictSchema11;
+      _result['IsStrictSchema11'] = isStrictSchema11!;
     }
 
     if (measureUnit != null) {
-      switch (measureUnit) {
+      switch (measureUnit!) {
         case OdtSaveOptionsData_MeasureUnitEnum.centimeters: _result['MeasureUnit'] = 'Centimeters'; break;
         case OdtSaveOptionsData_MeasureUnitEnum.inches: _result['MeasureUnit'] = 'Inches'; break;
         default: break;
@@ -216,15 +216,15 @@ class OdtSaveOptionsData extends SaveOptionsData {
     }
 
     if (password != null) {
-      _result['Password'] = password;
+      _result['Password'] = password!;
     }
 
     if (prettyFormat != null) {
-      _result['PrettyFormat'] = prettyFormat;
+      _result['PrettyFormat'] = prettyFormat!;
     }
 
     if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat;
+      _result['SaveFormat'] = saveFormat!;
     }
     return _result;
   }

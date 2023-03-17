@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a collection of Run elements.
 class RunsResponse extends WordsResponse {
   /// Gets or sets the collection of Run elements.
-  Runs _runs;
+  Runs? _runs;
 
-  Runs get runs => _runs;
-  set runs(Runs val) => _runs = val;
+  Runs? get runs => _runs;
+  set runs(Runs? val) => _runs = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize RunsResponse data model.');
     }
@@ -53,7 +53,7 @@ class RunsResponse extends WordsResponse {
 
     if (json.containsKey('Runs')) {
       runs = Runs();
-      runs.deserialize(json['Runs'] as Map<String, dynamic>);
+      runs!.deserialize(json['Runs'] as Map<String, dynamic>);
     } else {
       runs = null;
     }
@@ -64,7 +64,7 @@ class RunsResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (runs != null) {
-      _result['Runs'] = runs.serialize();
+      _result['Runs'] = runs!.serialize();
     }
     return _result;
   }

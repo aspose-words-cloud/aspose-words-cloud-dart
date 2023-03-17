@@ -32,42 +32,42 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a paragraph format shading element.
 class Shading implements ModelBase {
   /// Gets or sets the color that's applied to the background of the Shading object.
-  XmlColor _backgroundPatternColor;
+  XmlColor? _backgroundPatternColor;
 
-  XmlColor get backgroundPatternColor => _backgroundPatternColor;
-  set backgroundPatternColor(XmlColor val) => _backgroundPatternColor = val;
+  XmlColor? get backgroundPatternColor => _backgroundPatternColor;
+  set backgroundPatternColor(XmlColor? val) => _backgroundPatternColor = val;
 
 
   /// Gets or sets the color that's applied to the foreground of the Shading object.
-  XmlColor _foregroundPatternColor;
+  XmlColor? _foregroundPatternColor;
 
-  XmlColor get foregroundPatternColor => _foregroundPatternColor;
-  set foregroundPatternColor(XmlColor val) => _foregroundPatternColor = val;
+  XmlColor? get foregroundPatternColor => _foregroundPatternColor;
+  set foregroundPatternColor(XmlColor? val) => _foregroundPatternColor = val;
 
 
   /// Gets or sets the shading texture.
-  Shading_TextureEnum _texture;
+  Shading_TextureEnum? _texture;
 
-  Shading_TextureEnum get texture => _texture;
-  set texture(Shading_TextureEnum val) => _texture = val;
+  Shading_TextureEnum? get texture => _texture;
+  set texture(Shading_TextureEnum? val) => _texture = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize Shading data model.');
     }
 
     if (json.containsKey('BackgroundPatternColor')) {
       backgroundPatternColor = XmlColor();
-      backgroundPatternColor.deserialize(json['BackgroundPatternColor'] as Map<String, dynamic>);
+      backgroundPatternColor!.deserialize(json['BackgroundPatternColor'] as Map<String, dynamic>);
     } else {
       backgroundPatternColor = null;
     }
 
     if (json.containsKey('ForegroundPatternColor')) {
       foregroundPatternColor = XmlColor();
-      foregroundPatternColor.deserialize(json['ForegroundPatternColor'] as Map<String, dynamic>);
+      foregroundPatternColor!.deserialize(json['ForegroundPatternColor'] as Map<String, dynamic>);
     } else {
       foregroundPatternColor = null;
     }
@@ -139,15 +139,15 @@ class Shading implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (backgroundPatternColor != null) {
-      _result['BackgroundPatternColor'] = backgroundPatternColor.serialize();
+      _result['BackgroundPatternColor'] = backgroundPatternColor!.serialize();
     }
 
     if (foregroundPatternColor != null) {
-      _result['ForegroundPatternColor'] = foregroundPatternColor.serialize();
+      _result['ForegroundPatternColor'] = foregroundPatternColor!.serialize();
     }
 
     if (texture != null) {
-      switch (texture) {
+      switch (texture!) {
         case Shading_TextureEnum.textureNone: _result['Texture'] = 'TextureNone'; break;
         case Shading_TextureEnum.textureSolid: _result['Texture'] = 'TextureSolid'; break;
         case Shading_TextureEnum.texture5Percent: _result['Texture'] = 'Texture5Percent'; break;

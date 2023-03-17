@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// Collection of Hyperlink.
 class Hyperlinks extends LinkElement {
   /// Gets or sets the array of Hyperlink.
-  List<Hyperlink> _hyperlinkList;
+  List<Hyperlink?>? _hyperlinkList;
 
-  List<Hyperlink> get hyperlinkList => _hyperlinkList;
-  set hyperlinkList(List<Hyperlink> val) => _hyperlinkList = val;
+  List<Hyperlink?>? get hyperlinkList => _hyperlinkList;
+  set hyperlinkList(List<Hyperlink?>? val) => _hyperlinkList = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize Hyperlinks data model.');
     }
@@ -47,7 +47,7 @@ class Hyperlinks extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -58,7 +58,7 @@ class Hyperlinks extends LinkElement {
       for(final _element in json['HyperlinkList']) {
         var _elementValue = Hyperlink();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        hyperlinkList.add(_elementValue);
+        hyperlinkList!.add(_elementValue);
       }
     } else {
       hyperlinkList = null;
@@ -70,7 +70,7 @@ class Hyperlinks extends LinkElement {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (hyperlinkList != null) {
-      _result['HyperlinkList'] = hyperlinkList.map((_element) => _element.serialize()).toList();
+      _result['HyperlinkList'] = hyperlinkList!.map((_element) => _element?.serialize()).toList();
     }
     return _result;
   }

@@ -32,56 +32,56 @@ import '../../aspose_words_cloud.dart';
 /// Report engine settings.
 class ReportEngineSettings implements ModelBase {
   /// Gets or sets the options for parsing CSV data.
-  CsvDataLoadOptions _csvDataLoadOptions;
+  CsvDataLoadOptions? _csvDataLoadOptions;
 
-  CsvDataLoadOptions get csvDataLoadOptions => _csvDataLoadOptions;
-  set csvDataLoadOptions(CsvDataLoadOptions val) => _csvDataLoadOptions = val;
+  CsvDataLoadOptions? get csvDataLoadOptions => _csvDataLoadOptions;
+  set csvDataLoadOptions(CsvDataLoadOptions? val) => _csvDataLoadOptions = val;
 
 
   /// Gets or sets the name to reference the data source object in the template.
-  String _dataSourceName;
+  String? _dataSourceName;
 
-  String get dataSourceName => _dataSourceName;
-  set dataSourceName(String val) => _dataSourceName = val;
+  String? get dataSourceName => _dataSourceName;
+  set dataSourceName(String? val) => _dataSourceName = val;
 
 
   /// Gets or sets type of datasource.
-  ReportEngineSettings_DataSourceTypeEnum _dataSourceType;
+  ReportEngineSettings_DataSourceTypeEnum? _dataSourceType;
 
-  ReportEngineSettings_DataSourceTypeEnum get dataSourceType => _dataSourceType;
-  set dataSourceType(ReportEngineSettings_DataSourceTypeEnum val) => _dataSourceType = val;
+  ReportEngineSettings_DataSourceTypeEnum? get dataSourceType => _dataSourceType;
+  set dataSourceType(ReportEngineSettings_DataSourceTypeEnum? val) => _dataSourceType = val;
 
 
   /// Gets or sets the options for parsing JSON data.
-  JsonDataLoadOptions _jsonDataLoadOptions;
+  JsonDataLoadOptions? _jsonDataLoadOptions;
 
-  JsonDataLoadOptions get jsonDataLoadOptions => _jsonDataLoadOptions;
-  set jsonDataLoadOptions(JsonDataLoadOptions val) => _jsonDataLoadOptions = val;
+  JsonDataLoadOptions? get jsonDataLoadOptions => _jsonDataLoadOptions;
+  set jsonDataLoadOptions(JsonDataLoadOptions? val) => _jsonDataLoadOptions = val;
 
 
   /// Gets or sets type of options to build report.
-  List<ReportBuildOptionsEnum> _reportBuildOptions;
+  List<ReportBuildOptionsEnum?>? _reportBuildOptions;
 
-  List<ReportBuildOptionsEnum> get reportBuildOptions => _reportBuildOptions;
-  set reportBuildOptions(List<ReportBuildOptionsEnum> val) => _reportBuildOptions = val;
+  List<ReportBuildOptionsEnum?>? get reportBuildOptions => _reportBuildOptions;
+  set reportBuildOptions(List<ReportBuildOptionsEnum?>? val) => _reportBuildOptions = val;
 
 
   /// Gets or sets the options for parsing XML data.
-  XmlDataLoadOptions _xmlDataLoadOptions;
+  XmlDataLoadOptions? _xmlDataLoadOptions;
 
-  XmlDataLoadOptions get xmlDataLoadOptions => _xmlDataLoadOptions;
-  set xmlDataLoadOptions(XmlDataLoadOptions val) => _xmlDataLoadOptions = val;
+  XmlDataLoadOptions? get xmlDataLoadOptions => _xmlDataLoadOptions;
+  set xmlDataLoadOptions(XmlDataLoadOptions? val) => _xmlDataLoadOptions = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize ReportEngineSettings data model.');
     }
 
     if (json.containsKey('CsvDataLoadOptions')) {
       csvDataLoadOptions = CsvDataLoadOptions();
-      csvDataLoadOptions.deserialize(json['CsvDataLoadOptions'] as Map<String, dynamic>);
+      csvDataLoadOptions!.deserialize(json['CsvDataLoadOptions'] as Map<String, dynamic>);
     } else {
       csvDataLoadOptions = null;
     }
@@ -105,7 +105,7 @@ class ReportEngineSettings implements ModelBase {
 
     if (json.containsKey('JsonDataLoadOptions')) {
       jsonDataLoadOptions = JsonDataLoadOptions();
-      jsonDataLoadOptions.deserialize(json['JsonDataLoadOptions'] as Map<String, dynamic>);
+      jsonDataLoadOptions!.deserialize(json['JsonDataLoadOptions'] as Map<String, dynamic>);
     } else {
       jsonDataLoadOptions = null;
     }
@@ -115,12 +115,12 @@ class ReportEngineSettings implements ModelBase {
       reportBuildOptions = <ReportBuildOptionsEnum>[];
       for(final _element in json['ReportBuildOptions']) {
         switch (_element as String) {
-          case 'None': reportBuildOptions.add(ReportBuildOptionsEnum.none); break;
-          case 'AllowMissingMembers': reportBuildOptions.add(ReportBuildOptionsEnum.allowMissingMembers); break;
-          case 'RemoveEmptyParagraphs': reportBuildOptions.add(ReportBuildOptionsEnum.removeEmptyParagraphs); break;
-          case 'InlineErrorMessages': reportBuildOptions.add(ReportBuildOptionsEnum.inlineErrorMessages); break;
-          case 'UseLegacyHeaderFooterVisiting': reportBuildOptions.add(ReportBuildOptionsEnum.useLegacyHeaderFooterVisiting); break;
-          case 'RespectJpegExifOrientation': reportBuildOptions.add(ReportBuildOptionsEnum.respectJpegExifOrientation); break;
+          case 'None': reportBuildOptions!.add(ReportBuildOptionsEnum.none); break;
+          case 'AllowMissingMembers': reportBuildOptions!.add(ReportBuildOptionsEnum.allowMissingMembers); break;
+          case 'RemoveEmptyParagraphs': reportBuildOptions!.add(ReportBuildOptionsEnum.removeEmptyParagraphs); break;
+          case 'InlineErrorMessages': reportBuildOptions!.add(ReportBuildOptionsEnum.inlineErrorMessages); break;
+          case 'UseLegacyHeaderFooterVisiting': reportBuildOptions!.add(ReportBuildOptionsEnum.useLegacyHeaderFooterVisiting); break;
+          case 'RespectJpegExifOrientation': reportBuildOptions!.add(ReportBuildOptionsEnum.respectJpegExifOrientation); break;
           default: break;
         }
       }
@@ -130,7 +130,7 @@ class ReportEngineSettings implements ModelBase {
 
     if (json.containsKey('XmlDataLoadOptions')) {
       xmlDataLoadOptions = XmlDataLoadOptions();
-      xmlDataLoadOptions.deserialize(json['XmlDataLoadOptions'] as Map<String, dynamic>);
+      xmlDataLoadOptions!.deserialize(json['XmlDataLoadOptions'] as Map<String, dynamic>);
     } else {
       xmlDataLoadOptions = null;
     }
@@ -140,15 +140,15 @@ class ReportEngineSettings implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (csvDataLoadOptions != null) {
-      _result['CsvDataLoadOptions'] = csvDataLoadOptions.serialize();
+      _result['CsvDataLoadOptions'] = csvDataLoadOptions!.serialize();
     }
 
     if (dataSourceName != null) {
-      _result['DataSourceName'] = dataSourceName;
+      _result['DataSourceName'] = dataSourceName!;
     }
 
     if (dataSourceType != null) {
-      switch (dataSourceType) {
+      switch (dataSourceType!) {
         case ReportEngineSettings_DataSourceTypeEnum.xml: _result['DataSourceType'] = 'Xml'; break;
         case ReportEngineSettings_DataSourceTypeEnum.json: _result['DataSourceType'] = 'Json'; break;
         case ReportEngineSettings_DataSourceTypeEnum.csv: _result['DataSourceType'] = 'Csv'; break;
@@ -157,11 +157,11 @@ class ReportEngineSettings implements ModelBase {
     }
 
     if (jsonDataLoadOptions != null) {
-      _result['JsonDataLoadOptions'] = jsonDataLoadOptions.serialize();
+      _result['JsonDataLoadOptions'] = jsonDataLoadOptions!.serialize();
     }
 
     if (reportBuildOptions != null) {
-      _result['ReportBuildOptions'] = reportBuildOptions.map((_element) {
+      _result['ReportBuildOptions'] = reportBuildOptions!.map((_element) {
         switch (_element) {
             case ReportBuildOptionsEnum.none: return 'None';
             case ReportBuildOptionsEnum.allowMissingMembers: return 'AllowMissingMembers';
@@ -175,7 +175,7 @@ class ReportEngineSettings implements ModelBase {
     }
 
     if (xmlDataLoadOptions != null) {
-      _result['XmlDataLoadOptions'] = xmlDataLoadOptions.serialize();
+      _result['XmlDataLoadOptions'] = xmlDataLoadOptions!.serialize();
     }
     return _result;
   }

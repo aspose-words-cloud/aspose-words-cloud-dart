@@ -30,8 +30,8 @@ library aspose_words_cloud;
 import 'dart:typed_data';
 
 class BodyPartData {
-  final String contentType;
-  final String filename;
+  final String? contentType;
+  final String? filename;
   final ByteData content;
-  BodyPartData(final this.contentType, final this.filename, final this.content);
+  BodyPartData(this.contentType, this.filename, this.content);
 }

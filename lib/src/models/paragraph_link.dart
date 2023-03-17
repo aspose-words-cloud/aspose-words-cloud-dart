@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// Paragraph link element.
 class ParagraphLink extends NodeLink {
   /// Gets or sets the paragraph's text.
-  String _text;
+  String? _text;
 
-  String get text => _text;
-  set text(String val) => _text = val;
+  String? get text => _text;
+  set text(String? val) => _text = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize ParagraphLink data model.');
     }
@@ -47,7 +47,7 @@ class ParagraphLink extends NodeLink {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -70,7 +70,7 @@ class ParagraphLink extends NodeLink {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (text != null) {
-      _result['Text'] = text;
+      _result['Text'] = text!;
     }
     return _result;
   }

@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// Container class for the document optimization options.
 class OptimizationOptions implements ModelBase {
   /// Gets or sets the specific MSWord version.
-  OptimizationOptions_MsWordVersionEnum _msWordVersion;
+  OptimizationOptions_MsWordVersionEnum? _msWordVersion;
 
-  OptimizationOptions_MsWordVersionEnum get msWordVersion => _msWordVersion;
-  set msWordVersion(OptimizationOptions_MsWordVersionEnum val) => _msWordVersion = val;
+  OptimizationOptions_MsWordVersionEnum? get msWordVersion => _msWordVersion;
+  set msWordVersion(OptimizationOptions_MsWordVersionEnum? val) => _msWordVersion = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize OptimizationOptions data model.');
     }
@@ -65,7 +65,7 @@ class OptimizationOptions implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (msWordVersion != null) {
-      switch (msWordVersion) {
+      switch (msWordVersion!) {
         case OptimizationOptions_MsWordVersionEnum.word2000: _result['MsWordVersion'] = 'Word2000'; break;
         case OptimizationOptions_MsWordVersionEnum.word2002: _result['MsWordVersion'] = 'Word2002'; break;
         case OptimizationOptions_MsWordVersionEnum.word2003: _result['MsWordVersion'] = 'Word2003'; break;

@@ -34,10 +34,10 @@ import '../test_context.dart';
 class RunTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
+  late String remoteDataFolder;
+  late String localFile;
 
-  RunTests(final this.context) {
+  RunTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Runs';
     localFile = 'DocumentElements/Runs/Run.doc';
   }
@@ -60,7 +60,7 @@ class RunTests
 
     final result = await context.getApi().updateRun(request);
     expect(result.run, isNotNull);
-    expect(result.run.text, 'run with text');
+    expect(result.run?.text, 'run with text');
   }
 
   /// Test for updating run online.
@@ -98,8 +98,8 @@ class RunTests
 
     final result = await context.getApi().insertRun(request);
     expect(result.run, isNotNull);
-    expect(result.run.text, 'run with text');
-    expect(result.run.nodeId, '0.0.1.3');
+    expect(result.run?.text, 'run with text');
+    expect(result.run?.nodeId, '0.0.1.3');
   }
 
   /// Test for adding run online.

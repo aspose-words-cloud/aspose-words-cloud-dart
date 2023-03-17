@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// Container class for wml save options.
 class WordMLSaveOptionsData extends SaveOptionsData {
   /// Gets or sets a value indicating whether to use pretty formats output.
-  bool _prettyFormat;
+  bool? _prettyFormat;
 
-  bool get prettyFormat => _prettyFormat;
-  set prettyFormat(bool val) => _prettyFormat = val;
+  bool? get prettyFormat => _prettyFormat;
+  set prettyFormat(bool? val) => _prettyFormat = val;
 
 
   /// Gets the format of save.
-  String _saveFormat = 'wml';
+  String? _saveFormat = 'wml';
 
   @override
-  String get saveFormat => _saveFormat;
+  String? get saveFormat => _saveFormat;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize WordMLSaveOptionsData data model.');
     }
@@ -60,7 +60,7 @@ class WordMLSaveOptionsData extends SaveOptionsData {
 
     if (json.containsKey('CustomTimeZoneInfoData')) {
       customTimeZoneInfoData = TimeZoneInfoData();
-      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+      customTimeZoneInfoData!.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
     } else {
       customTimeZoneInfoData = null;
     }
@@ -160,11 +160,11 @@ class WordMLSaveOptionsData extends SaveOptionsData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (prettyFormat != null) {
-      _result['PrettyFormat'] = prettyFormat;
+      _result['PrettyFormat'] = prettyFormat!;
     }
 
     if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat;
+      _result['SaveFormat'] = saveFormat!;
     }
     return _result;
   }

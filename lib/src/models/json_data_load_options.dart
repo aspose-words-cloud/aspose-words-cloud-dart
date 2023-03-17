@@ -34,31 +34,31 @@ class JsonDataLoadOptions implements ModelBase {
   /// Gets or sets a value indicating whether a generated data source will always contain
   /// an object for a JSON root element. If a JSON root element contains a single complex
   /// property, such an object is not created by default.
-  bool _alwaysGenerateRootObject;
+  bool? _alwaysGenerateRootObject;
 
-  bool get alwaysGenerateRootObject => _alwaysGenerateRootObject;
-  set alwaysGenerateRootObject(bool val) => _alwaysGenerateRootObject = val;
+  bool? get alwaysGenerateRootObject => _alwaysGenerateRootObject;
+  set alwaysGenerateRootObject(bool? val) => _alwaysGenerateRootObject = val;
 
 
   /// Gets or sets exact formats for parsing JSON date-time values while loading JSON.
   /// The default is null.
-  List<String> _exactDateTimeParseFormats;
+  List<String?>? _exactDateTimeParseFormats;
 
-  List<String> get exactDateTimeParseFormats => _exactDateTimeParseFormats;
-  set exactDateTimeParseFormats(List<String> val) => _exactDateTimeParseFormats = val;
+  List<String?>? get exactDateTimeParseFormats => _exactDateTimeParseFormats;
+  set exactDateTimeParseFormats(List<String?>? val) => _exactDateTimeParseFormats = val;
 
 
   /// Gets or sets a mode for parsing JSON simple values (null, boolean, number, integer,
   /// and string) while loading JSON. Such a mode does not affect parsing of date-time
   /// values. The default is Aspose.Words.Reporting.JsonSimpleValueParseMode.Loose.
-  JsonDataLoadOptions_SimpleValueParseModeEnum _simpleValueParseMode;
+  JsonDataLoadOptions_SimpleValueParseModeEnum? _simpleValueParseMode;
 
-  JsonDataLoadOptions_SimpleValueParseModeEnum get simpleValueParseMode => _simpleValueParseMode;
-  set simpleValueParseMode(JsonDataLoadOptions_SimpleValueParseModeEnum val) => _simpleValueParseMode = val;
+  JsonDataLoadOptions_SimpleValueParseModeEnum? get simpleValueParseMode => _simpleValueParseMode;
+  set simpleValueParseMode(JsonDataLoadOptions_SimpleValueParseModeEnum? val) => _simpleValueParseMode = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize JsonDataLoadOptions data model.');
     }
@@ -73,7 +73,7 @@ class JsonDataLoadOptions implements ModelBase {
       // Array processing
       exactDateTimeParseFormats = <String>[];
       for(final _element in json['ExactDateTimeParseFormats']) {
-        exactDateTimeParseFormats.add(_element as String);
+        exactDateTimeParseFormats!.add(_element as String);
       }
     } else {
       exactDateTimeParseFormats = null;
@@ -94,15 +94,15 @@ class JsonDataLoadOptions implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (alwaysGenerateRootObject != null) {
-      _result['AlwaysGenerateRootObject'] = alwaysGenerateRootObject;
+      _result['AlwaysGenerateRootObject'] = alwaysGenerateRootObject!;
     }
 
     if (exactDateTimeParseFormats != null) {
-      _result['ExactDateTimeParseFormats'] = exactDateTimeParseFormats;
+      _result['ExactDateTimeParseFormats'] = exactDateTimeParseFormats!;
     }
 
     if (simpleValueParseMode != null) {
-      switch (simpleValueParseMode) {
+      switch (simpleValueParseMode!) {
         case JsonDataLoadOptions_SimpleValueParseModeEnum.loose: _result['SimpleValueParseMode'] = 'Loose'; break;
         case JsonDataLoadOptions_SimpleValueParseModeEnum.strict: _result['SimpleValueParseMode'] = 'Strict'; break;
         default: break;

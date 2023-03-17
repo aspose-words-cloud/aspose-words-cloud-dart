@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a comment.
 class CommentResponse extends WordsResponse {
   /// Gets or sets the comment.
-  Comment _comment;
+  Comment? _comment;
 
-  Comment get comment => _comment;
-  set comment(Comment val) => _comment = val;
+  Comment? get comment => _comment;
+  set comment(Comment? val) => _comment = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize CommentResponse data model.');
     }
@@ -53,7 +53,7 @@ class CommentResponse extends WordsResponse {
 
     if (json.containsKey('Comment')) {
       comment = Comment();
-      comment.deserialize(json['Comment'] as Map<String, dynamic>);
+      comment!.deserialize(json['Comment'] as Map<String, dynamic>);
     } else {
       comment = null;
     }
@@ -64,7 +64,7 @@ class CommentResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (comment != null) {
-      _result['Comment'] = comment.serialize();
+      _result['Comment'] = comment!.serialize();
     }
     return _result;
   }

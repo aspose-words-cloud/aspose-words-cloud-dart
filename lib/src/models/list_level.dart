@@ -32,91 +32,91 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a document list level.
 class ListLevel extends LinkElement {
   /// Gets or sets the justification of the actual number of the list item.
-  ListLevel_AlignmentEnum _alignment;
+  ListLevel_AlignmentEnum? _alignment;
 
-  ListLevel_AlignmentEnum get alignment => _alignment;
-  set alignment(ListLevel_AlignmentEnum val) => _alignment = val;
+  ListLevel_AlignmentEnum? get alignment => _alignment;
+  set alignment(ListLevel_AlignmentEnum? val) => _alignment = val;
 
 
   /// Gets or sets character formatting used for the list label.
-  Font _font;
+  Font? _font;
 
-  Font get font => _font;
-  set font(Font val) => _font = val;
+  Font? get font => _font;
+  set font(Font? val) => _font = val;
 
 
   /// Gets or sets a value indicating whether the level turns all inherited numbers to Arabic, false if it preserves their number style.
-  bool _isLegal;
+  bool? _isLegal;
 
-  bool get isLegal => _isLegal;
-  set isLegal(bool val) => _isLegal = val;
+  bool? get isLegal => _isLegal;
+  set isLegal(bool? val) => _isLegal = val;
 
 
   /// Gets or sets the paragraph style that is linked to this list level.
-  Style _linkedStyle;
+  Style? _linkedStyle;
 
-  Style get linkedStyle => _linkedStyle;
-  set linkedStyle(Style val) => _linkedStyle = val;
+  Style? get linkedStyle => _linkedStyle;
+  set linkedStyle(Style? val) => _linkedStyle = val;
 
 
   /// Gets or sets the number format for the list level.
-  String _numberFormat;
+  String? _numberFormat;
 
-  String get numberFormat => _numberFormat;
-  set numberFormat(String val) => _numberFormat = val;
+  String? get numberFormat => _numberFormat;
+  set numberFormat(String? val) => _numberFormat = val;
 
 
   /// Gets or sets the position (in points) of the number or bullet for the list level.
-  double _numberPosition;
+  double? _numberPosition;
 
-  double get numberPosition => _numberPosition;
-  set numberPosition(double val) => _numberPosition = val;
+  double? get numberPosition => _numberPosition;
+  set numberPosition(double? val) => _numberPosition = val;
 
 
   /// Gets or sets the number style for this list level.
-  ListLevel_NumberStyleEnum _numberStyle;
+  ListLevel_NumberStyleEnum? _numberStyle;
 
-  ListLevel_NumberStyleEnum get numberStyle => _numberStyle;
-  set numberStyle(ListLevel_NumberStyleEnum val) => _numberStyle = val;
+  ListLevel_NumberStyleEnum? get numberStyle => _numberStyle;
+  set numberStyle(ListLevel_NumberStyleEnum? val) => _numberStyle = val;
 
 
   /// Gets or sets the list level, that must appear before the specified list level restarts numbering.
-  int _restartAfterLevel;
+  int? _restartAfterLevel;
 
-  int get restartAfterLevel => _restartAfterLevel;
-  set restartAfterLevel(int val) => _restartAfterLevel = val;
+  int? get restartAfterLevel => _restartAfterLevel;
+  set restartAfterLevel(int? val) => _restartAfterLevel = val;
 
 
   /// Gets or sets the starting number for this list level.
-  int _startAt;
+  int? _startAt;
 
-  int get startAt => _startAt;
-  set startAt(int val) => _startAt = val;
+  int? get startAt => _startAt;
+  set startAt(int? val) => _startAt = val;
 
 
   /// Gets or sets the tab position (in points) for the list level.
-  double _tabPosition;
+  double? _tabPosition;
 
-  double get tabPosition => _tabPosition;
-  set tabPosition(double val) => _tabPosition = val;
+  double? get tabPosition => _tabPosition;
+  set tabPosition(double? val) => _tabPosition = val;
 
 
   /// Gets or sets the position (in points) for the second line of wrapping text for the list level.
-  double _textPosition;
+  double? _textPosition;
 
-  double get textPosition => _textPosition;
-  set textPosition(double val) => _textPosition = val;
+  double? get textPosition => _textPosition;
+  set textPosition(double? val) => _textPosition = val;
 
 
   /// Gets or sets the character inserted after the number for the list level.
-  ListLevel_TrailingCharacterEnum _trailingCharacter;
+  ListLevel_TrailingCharacterEnum? _trailingCharacter;
 
-  ListLevel_TrailingCharacterEnum get trailingCharacter => _trailingCharacter;
-  set trailingCharacter(ListLevel_TrailingCharacterEnum val) => _trailingCharacter = val;
+  ListLevel_TrailingCharacterEnum? get trailingCharacter => _trailingCharacter;
+  set trailingCharacter(ListLevel_TrailingCharacterEnum? val) => _trailingCharacter = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize ListLevel data model.');
     }
@@ -124,7 +124,7 @@ class ListLevel extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -142,7 +142,7 @@ class ListLevel extends LinkElement {
 
     if (json.containsKey('Font')) {
       font = Font();
-      font.deserialize(json['Font'] as Map<String, dynamic>);
+      font!.deserialize(json['Font'] as Map<String, dynamic>);
     } else {
       font = null;
     }
@@ -155,7 +155,7 @@ class ListLevel extends LinkElement {
 
     if (json.containsKey('LinkedStyle')) {
       linkedStyle = Style();
-      linkedStyle.deserialize(json['LinkedStyle'] as Map<String, dynamic>);
+      linkedStyle!.deserialize(json['LinkedStyle'] as Map<String, dynamic>);
     } else {
       linkedStyle = null;
     }
@@ -283,7 +283,7 @@ class ListLevel extends LinkElement {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (alignment != null) {
-      switch (alignment) {
+      switch (alignment!) {
         case ListLevel_AlignmentEnum.left: _result['Alignment'] = 'Left'; break;
         case ListLevel_AlignmentEnum.center: _result['Alignment'] = 'Center'; break;
         case ListLevel_AlignmentEnum.right: _result['Alignment'] = 'Right'; break;
@@ -292,27 +292,27 @@ class ListLevel extends LinkElement {
     }
 
     if (font != null) {
-      _result['Font'] = font.serialize();
+      _result['Font'] = font!.serialize();
     }
 
     if (isLegal != null) {
-      _result['IsLegal'] = isLegal;
+      _result['IsLegal'] = isLegal!;
     }
 
     if (linkedStyle != null) {
-      _result['LinkedStyle'] = linkedStyle.serialize();
+      _result['LinkedStyle'] = linkedStyle!.serialize();
     }
 
     if (numberFormat != null) {
-      _result['NumberFormat'] = numberFormat;
+      _result['NumberFormat'] = numberFormat!;
     }
 
     if (numberPosition != null) {
-      _result['NumberPosition'] = numberPosition;
+      _result['NumberPosition'] = numberPosition!;
     }
 
     if (numberStyle != null) {
-      switch (numberStyle) {
+      switch (numberStyle!) {
         case ListLevel_NumberStyleEnum.arabic: _result['NumberStyle'] = 'Arabic'; break;
         case ListLevel_NumberStyleEnum.uppercaseRoman: _result['NumberStyle'] = 'UppercaseRoman'; break;
         case ListLevel_NumberStyleEnum.lowercaseRoman: _result['NumberStyle'] = 'LowercaseRoman'; break;
@@ -380,23 +380,23 @@ class ListLevel extends LinkElement {
     }
 
     if (restartAfterLevel != null) {
-      _result['RestartAfterLevel'] = restartAfterLevel;
+      _result['RestartAfterLevel'] = restartAfterLevel!;
     }
 
     if (startAt != null) {
-      _result['StartAt'] = startAt;
+      _result['StartAt'] = startAt!;
     }
 
     if (tabPosition != null) {
-      _result['TabPosition'] = tabPosition;
+      _result['TabPosition'] = tabPosition!;
     }
 
     if (textPosition != null) {
-      _result['TextPosition'] = textPosition;
+      _result['TextPosition'] = textPosition!;
     }
 
     if (trailingCharacter != null) {
-      switch (trailingCharacter) {
+      switch (trailingCharacter!) {
         case ListLevel_TrailingCharacterEnum.tab: _result['TrailingCharacter'] = 'Tab'; break;
         case ListLevel_TrailingCharacterEnum.space: _result['TrailingCharacter'] = 'Space'; break;
         case ListLevel_TrailingCharacterEnum.nothing: _result['TrailingCharacter'] = 'Nothing'; break;

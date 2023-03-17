@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a field.
 class FieldResponse extends WordsResponse {
   /// Gets or sets the field.
-  Field _field;
+  Field? _field;
 
-  Field get field => _field;
-  set field(Field val) => _field = val;
+  Field? get field => _field;
+  set field(Field? val) => _field = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize FieldResponse data model.');
     }
@@ -53,7 +53,7 @@ class FieldResponse extends WordsResponse {
 
     if (json.containsKey('Field')) {
       field = Field();
-      field.deserialize(json['Field'] as Map<String, dynamic>);
+      field!.deserialize(json['Field'] as Map<String, dynamic>);
     } else {
       field = null;
     }
@@ -64,7 +64,7 @@ class FieldResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (field != null) {
-      _result['Field'] = field.serialize();
+      _result['Field'] = field!.serialize();
     }
     return _result;
   }

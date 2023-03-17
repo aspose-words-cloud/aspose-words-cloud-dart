@@ -32,28 +32,28 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a section element.
 class HeaderFooter extends HeaderFooterLink {
   /// Gets or sets the child nodes.
-  List<NodeLink> _childNodes;
+  List<NodeLink?>? _childNodes;
 
-  List<NodeLink> get childNodes => _childNodes;
-  set childNodes(List<NodeLink> val) => _childNodes = val;
+  List<NodeLink?>? get childNodes => _childNodes;
+  set childNodes(List<NodeLink?>? val) => _childNodes = val;
 
 
   /// Gets or sets the link to DrawingObjects resource.
-  LinkElement _drawingObjects;
+  LinkElement? _drawingObjects;
 
-  LinkElement get drawingObjects => _drawingObjects;
-  set drawingObjects(LinkElement val) => _drawingObjects = val;
+  LinkElement? get drawingObjects => _drawingObjects;
+  set drawingObjects(LinkElement? val) => _drawingObjects = val;
 
 
   /// Gets or sets the link to Paragraphs resource.
-  LinkElement _paragraphs;
+  LinkElement? _paragraphs;
 
-  LinkElement get paragraphs => _paragraphs;
-  set paragraphs(LinkElement val) => _paragraphs = val;
+  LinkElement? get paragraphs => _paragraphs;
+  set paragraphs(LinkElement? val) => _paragraphs = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize HeaderFooter data model.');
     }
@@ -61,7 +61,7 @@ class HeaderFooter extends HeaderFooterLink {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -86,7 +86,7 @@ class HeaderFooter extends HeaderFooterLink {
       for(final _element in json['ChildNodes']) {
         var _elementValue = NodeLink();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        childNodes.add(_elementValue);
+        childNodes!.add(_elementValue);
       }
     } else {
       childNodes = null;
@@ -94,14 +94,14 @@ class HeaderFooter extends HeaderFooterLink {
 
     if (json.containsKey('DrawingObjects')) {
       drawingObjects = LinkElement();
-      drawingObjects.deserialize(json['DrawingObjects'] as Map<String, dynamic>);
+      drawingObjects!.deserialize(json['DrawingObjects'] as Map<String, dynamic>);
     } else {
       drawingObjects = null;
     }
 
     if (json.containsKey('Paragraphs')) {
       paragraphs = LinkElement();
-      paragraphs.deserialize(json['Paragraphs'] as Map<String, dynamic>);
+      paragraphs!.deserialize(json['Paragraphs'] as Map<String, dynamic>);
     } else {
       paragraphs = null;
     }
@@ -112,15 +112,15 @@ class HeaderFooter extends HeaderFooterLink {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (childNodes != null) {
-      _result['ChildNodes'] = childNodes.map((_element) => _element.serialize()).toList();
+      _result['ChildNodes'] = childNodes!.map((_element) => _element?.serialize()).toList();
     }
 
     if (drawingObjects != null) {
-      _result['DrawingObjects'] = drawingObjects.serialize();
+      _result['DrawingObjects'] = drawingObjects!.serialize();
     }
 
     if (paragraphs != null) {
-      _result['Paragraphs'] = paragraphs.serialize();
+      _result['Paragraphs'] = paragraphs!.serialize();
     }
     return _result;
   }

@@ -32,35 +32,35 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with font info.
 class FontInfo implements ModelBase {
   /// Gets or sets the path to the font file if any.
-  String _filePath;
+  String? _filePath;
 
-  String get filePath => _filePath;
-  set filePath(String val) => _filePath = val;
+  String? get filePath => _filePath;
+  set filePath(String? val) => _filePath = val;
 
 
   /// Gets or sets the family name of the font.
-  String _fontFamilyName;
+  String? _fontFamilyName;
 
-  String get fontFamilyName => _fontFamilyName;
-  set fontFamilyName(String val) => _fontFamilyName = val;
+  String? get fontFamilyName => _fontFamilyName;
+  set fontFamilyName(String? val) => _fontFamilyName = val;
 
 
   /// Gets or sets the full name of the font.
-  String _fullFontName;
+  String? _fullFontName;
 
-  String get fullFontName => _fullFontName;
-  set fullFontName(String val) => _fullFontName = val;
+  String? get fullFontName => _fullFontName;
+  set fullFontName(String? val) => _fullFontName = val;
 
 
   /// Gets or sets the version string of the font.
-  String _version;
+  String? _version;
 
-  String get version => _version;
-  set version(String val) => _version = val;
+  String? get version => _version;
+  set version(String? val) => _version = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize FontInfo data model.');
     }
@@ -94,19 +94,19 @@ class FontInfo implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (filePath != null) {
-      _result['FilePath'] = filePath;
+      _result['FilePath'] = filePath!;
     }
 
     if (fontFamilyName != null) {
-      _result['FontFamilyName'] = fontFamilyName;
+      _result['FontFamilyName'] = fontFamilyName!;
     }
 
     if (fullFontName != null) {
-      _result['FullFontName'] = fullFontName;
+      _result['FullFontName'] = fullFontName!;
     }
 
     if (version != null) {
-      _result['Version'] = version;
+      _result['Version'] = version!;
     }
     return _result;
   }

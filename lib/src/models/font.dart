@@ -32,288 +32,288 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a font element.
 class Font extends LinkElement {
   /// Gets or sets a value indicating whether the font is formatted as all capital letters.
-  bool _allCaps;
+  bool? _allCaps;
 
-  bool get allCaps => _allCaps;
-  set allCaps(bool val) => _allCaps = val;
+  bool? get allCaps => _allCaps;
+  set allCaps(bool? val) => _allCaps = val;
 
 
   /// Gets or sets a value indicating whether the contents of this run shall have right-to-left characteristics.
-  bool _bidi;
+  bool? _bidi;
 
-  bool get bidi => _bidi;
-  set bidi(bool val) => _bidi = val;
+  bool? get bidi => _bidi;
+  set bidi(bool? val) => _bidi = val;
 
 
   /// Gets or sets a value indicating whether the font is formatted as bold.
-  bool _bold;
+  bool? _bold;
 
-  bool get bold => _bold;
-  set bold(bool val) => _bold = val;
+  bool? get bold => _bold;
+  set bold(bool? val) => _bold = val;
 
 
   /// Gets or sets a value indicating whether the right-to-left text is formatted as bold.
-  bool _boldBi;
+  bool? _boldBi;
 
-  bool get boldBi => _boldBi;
-  set boldBi(bool val) => _boldBi = val;
+  bool? get boldBi => _boldBi;
+  set boldBi(bool? val) => _boldBi = val;
 
 
   /// Gets or sets the border object, that specifies border for the font.
-  Border _border;
+  Border? _border;
 
-  Border get border => _border;
-  set border(Border val) => _border = val;
+  Border? get border => _border;
+  set border(Border? val) => _border = val;
 
 
   /// Gets or sets the color of the font.
-  XmlColor _color;
+  XmlColor? _color;
 
-  XmlColor get color => _color;
-  set color(XmlColor val) => _color = val;
+  XmlColor? get color => _color;
+  set color(XmlColor? val) => _color = val;
 
 
   /// Gets or sets a value indicating whether the contents of this run shall be treated as complex script text regardless of their Unicode character values when determining the formatting for this run.
-  bool _complexScript;
+  bool? _complexScript;
 
-  bool get complexScript => _complexScript;
-  set complexScript(bool val) => _complexScript = val;
+  bool? get complexScript => _complexScript;
+  set complexScript(bool? val) => _complexScript = val;
 
 
   /// Gets or sets a value indicating whether the font is formatted as double strikethrough text.
-  bool _doubleStrikeThrough;
+  bool? _doubleStrikeThrough;
 
-  bool get doubleStrikeThrough => _doubleStrikeThrough;
-  set doubleStrikeThrough(bool val) => _doubleStrikeThrough = val;
+  bool? get doubleStrikeThrough => _doubleStrikeThrough;
+  set doubleStrikeThrough(bool? val) => _doubleStrikeThrough = val;
 
 
   /// Gets or sets a value indicating whether the font is formatted as embossed.
-  bool _emboss;
+  bool? _emboss;
 
-  bool get emboss => _emboss;
-  set emboss(bool val) => _emboss = val;
+  bool? get emboss => _emboss;
+  set emboss(bool? val) => _emboss = val;
 
 
   /// Gets or sets a value indicating whether the font is formatted as engraved.
-  bool _engrave;
+  bool? _engrave;
 
-  bool get engrave => _engrave;
-  set engrave(bool val) => _engrave = val;
+  bool? get engrave => _engrave;
+  set engrave(bool? val) => _engrave = val;
 
 
   /// Gets or sets a value indicating whether the font is formatted as hidden text.
-  bool _hidden;
+  bool? _hidden;
 
-  bool get hidden => _hidden;
-  set hidden(bool val) => _hidden = val;
+  bool? get hidden => _hidden;
+  set hidden(bool? val) => _hidden = val;
 
 
   /// Gets or sets the highlight (marker) color.
-  XmlColor _highlightColor;
+  XmlColor? _highlightColor;
 
-  XmlColor get highlightColor => _highlightColor;
-  set highlightColor(XmlColor val) => _highlightColor = val;
+  XmlColor? get highlightColor => _highlightColor;
+  set highlightColor(XmlColor? val) => _highlightColor = val;
 
 
   /// Gets or sets a value indicating whether the font is formatted as italic.
-  bool _italic;
+  bool? _italic;
 
-  bool get italic => _italic;
-  set italic(bool val) => _italic = val;
+  bool? get italic => _italic;
+  set italic(bool? val) => _italic = val;
 
 
   /// Gets or sets a value indicating whether the right-to-left text is formatted as italic.
-  bool _italicBi;
+  bool? _italicBi;
 
-  bool get italicBi => _italicBi;
-  set italicBi(bool val) => _italicBi = val;
+  bool? get italicBi => _italicBi;
+  set italicBi(bool? val) => _italicBi = val;
 
 
   /// Gets or sets the font size at which kerning starts.
-  double _kerning;
+  double? _kerning;
 
-  double get kerning => _kerning;
-  set kerning(double val) => _kerning = val;
+  double? get kerning => _kerning;
+  set kerning(double? val) => _kerning = val;
 
 
   /// Gets or sets the locale identifier (language) of the formatted characters.
-  int _localeId;
+  int? _localeId;
 
-  int get localeId => _localeId;
-  set localeId(int val) => _localeId = val;
+  int? get localeId => _localeId;
+  set localeId(int? val) => _localeId = val;
 
 
   /// Gets or sets the locale identifier (language) of the formatted right-to-left characters.
-  int _localeIdBi;
+  int? _localeIdBi;
 
-  int get localeIdBi => _localeIdBi;
-  set localeIdBi(int val) => _localeIdBi = val;
+  int? get localeIdBi => _localeIdBi;
+  set localeIdBi(int? val) => _localeIdBi = val;
 
 
   /// Gets or sets the locale identifier (language) of the formatted Asian characters.
-  int _localeIdFarEast;
+  int? _localeIdFarEast;
 
-  int get localeIdFarEast => _localeIdFarEast;
-  set localeIdFarEast(int val) => _localeIdFarEast = val;
+  int? get localeIdFarEast => _localeIdFarEast;
+  set localeIdFarEast(int? val) => _localeIdFarEast = val;
 
 
   /// Gets or sets the name of the font.
-  String _name;
+  String? _name;
 
-  String get name => _name;
-  set name(String val) => _name = val;
+  String? get name => _name;
+  set name(String? val) => _name = val;
 
 
   /// Gets or sets the font used for Latin text (characters with character codes from 0 (zero) through 127).
-  String _nameAscii;
+  String? _nameAscii;
 
-  String get nameAscii => _nameAscii;
-  set nameAscii(String val) => _nameAscii = val;
+  String? get nameAscii => _nameAscii;
+  set nameAscii(String? val) => _nameAscii = val;
 
 
   /// Gets or sets the name of the font in a right-to-left language document.
-  String _nameBi;
+  String? _nameBi;
 
-  String get nameBi => _nameBi;
-  set nameBi(String val) => _nameBi = val;
+  String? get nameBi => _nameBi;
+  set nameBi(String? val) => _nameBi = val;
 
 
   /// Gets or sets the East Asian font name.
-  String _nameFarEast;
+  String? _nameFarEast;
 
-  String get nameFarEast => _nameFarEast;
-  set nameFarEast(String val) => _nameFarEast = val;
+  String? get nameFarEast => _nameFarEast;
+  set nameFarEast(String? val) => _nameFarEast = val;
 
 
   /// Gets or sets the font used for characters with character codes from 128 through 255.
-  String _nameOther;
+  String? _nameOther;
 
-  String get nameOther => _nameOther;
-  set nameOther(String val) => _nameOther = val;
+  String? get nameOther => _nameOther;
+  set nameOther(String? val) => _nameOther = val;
 
 
   /// Gets or sets a value indicating whether the formatted characters are not to be spell checked.
-  bool _noProofing;
+  bool? _noProofing;
 
-  bool get noProofing => _noProofing;
-  set noProofing(bool val) => _noProofing = val;
+  bool? get noProofing => _noProofing;
+  set noProofing(bool? val) => _noProofing = val;
 
 
   /// Gets or sets a value indicating whether the font is formatted as outline.
-  bool _outline;
+  bool? _outline;
 
-  bool get outline => _outline;
-  set outline(bool val) => _outline = val;
+  bool? get outline => _outline;
+  set outline(bool? val) => _outline = val;
 
 
   /// Gets or sets the position of text (in points) relative to the base line.
   /// A positive number raises the text, and a negative number lowers it.
-  double _position;
+  double? _position;
 
-  double get position => _position;
-  set position(double val) => _position = val;
+  double? get position => _position;
+  set position(double? val) => _position = val;
 
 
   /// Gets or sets character width scaling in percent.
-  int _scaling;
+  int? _scaling;
 
-  int get scaling => _scaling;
-  set scaling(int val) => _scaling = val;
+  int? get scaling => _scaling;
+  set scaling(int? val) => _scaling = val;
 
 
   /// Gets or sets a value indicating whether the font is formatted as shadowed.
-  bool _shadow;
+  bool? _shadow;
 
-  bool get shadow => _shadow;
-  set shadow(bool val) => _shadow = val;
+  bool? get shadow => _shadow;
+  set shadow(bool? val) => _shadow = val;
 
 
   /// Gets or sets the font size in points.
-  double _size;
+  double? _size;
 
-  double get size => _size;
-  set size(double val) => _size = val;
+  double? get size => _size;
+  set size(double? val) => _size = val;
 
 
   /// Gets or sets the font size in points used in a right-to-left document.
-  double _sizeBi;
+  double? _sizeBi;
 
-  double get sizeBi => _sizeBi;
-  set sizeBi(double val) => _sizeBi = val;
+  double? get sizeBi => _sizeBi;
+  set sizeBi(double? val) => _sizeBi = val;
 
 
   /// Gets or sets a value indicating whether the font is formatted as small capital letters.
-  bool _smallCaps;
+  bool? _smallCaps;
 
-  bool get smallCaps => _smallCaps;
-  set smallCaps(bool val) => _smallCaps = val;
+  bool? get smallCaps => _smallCaps;
+  set smallCaps(bool? val) => _smallCaps = val;
 
 
   /// Gets or sets the spacing (in points) between characters.
-  double _spacing;
+  double? _spacing;
 
-  double get spacing => _spacing;
-  set spacing(double val) => _spacing = val;
+  double? get spacing => _spacing;
+  set spacing(double? val) => _spacing = val;
 
 
   /// Gets or sets a value indicating whether the font is formatted as strikethrough text.
-  bool _strikeThrough;
+  bool? _strikeThrough;
 
-  bool get strikeThrough => _strikeThrough;
-  set strikeThrough(bool val) => _strikeThrough = val;
+  bool? get strikeThrough => _strikeThrough;
+  set strikeThrough(bool? val) => _strikeThrough = val;
 
 
   /// Gets or sets the locale independent style identifier of the character style applied to this formatting.
-  Font_StyleIdentifierEnum _styleIdentifier;
+  Font_StyleIdentifierEnum? _styleIdentifier;
 
-  Font_StyleIdentifierEnum get styleIdentifier => _styleIdentifier;
-  set styleIdentifier(Font_StyleIdentifierEnum val) => _styleIdentifier = val;
+  Font_StyleIdentifierEnum? get styleIdentifier => _styleIdentifier;
+  set styleIdentifier(Font_StyleIdentifierEnum? val) => _styleIdentifier = val;
 
 
   /// Gets or sets the name of the character style applied to this formatting.
-  String _styleName;
+  String? _styleName;
 
-  String get styleName => _styleName;
-  set styleName(String val) => _styleName = val;
+  String? get styleName => _styleName;
+  set styleName(String? val) => _styleName = val;
 
 
   /// Gets or sets a value indicating whether the font is formatted as subscript.
-  bool _subscript;
+  bool? _subscript;
 
-  bool get subscript => _subscript;
-  set subscript(bool val) => _subscript = val;
+  bool? get subscript => _subscript;
+  set subscript(bool? val) => _subscript = val;
 
 
   /// Gets or sets a value indicating whether the font is formatted as superscript.
-  bool _superscript;
+  bool? _superscript;
 
-  bool get superscript => _superscript;
-  set superscript(bool val) => _superscript = val;
+  bool? get superscript => _superscript;
+  set superscript(bool? val) => _superscript = val;
 
 
   /// Gets or sets the font animation effect.
-  Font_TextEffectEnum _textEffect;
+  Font_TextEffectEnum? _textEffect;
 
-  Font_TextEffectEnum get textEffect => _textEffect;
-  set textEffect(Font_TextEffectEnum val) => _textEffect = val;
+  Font_TextEffectEnum? get textEffect => _textEffect;
+  set textEffect(Font_TextEffectEnum? val) => _textEffect = val;
 
 
   /// Gets or sets the type of underline applied to the font.
-  Font_UnderlineEnum _underline;
+  Font_UnderlineEnum? _underline;
 
-  Font_UnderlineEnum get underline => _underline;
-  set underline(Font_UnderlineEnum val) => _underline = val;
+  Font_UnderlineEnum? get underline => _underline;
+  set underline(Font_UnderlineEnum? val) => _underline = val;
 
 
   /// Gets or sets the color of the underline applied to the font.
-  XmlColor _underlineColor;
+  XmlColor? _underlineColor;
 
-  XmlColor get underlineColor => _underlineColor;
-  set underlineColor(XmlColor val) => _underlineColor = val;
+  XmlColor? get underlineColor => _underlineColor;
+  set underlineColor(XmlColor? val) => _underlineColor = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize Font data model.');
     }
@@ -321,7 +321,7 @@ class Font extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -352,14 +352,14 @@ class Font extends LinkElement {
 
     if (json.containsKey('Border')) {
       border = Border();
-      border.deserialize(json['Border'] as Map<String, dynamic>);
+      border!.deserialize(json['Border'] as Map<String, dynamic>);
     } else {
       border = null;
     }
 
     if (json.containsKey('Color')) {
       color = XmlColor();
-      color.deserialize(json['Color'] as Map<String, dynamic>);
+      color!.deserialize(json['Color'] as Map<String, dynamic>);
     } else {
       color = null;
     }
@@ -396,7 +396,7 @@ class Font extends LinkElement {
 
     if (json.containsKey('HighlightColor')) {
       highlightColor = XmlColor();
-      highlightColor.deserialize(json['HighlightColor'] as Map<String, dynamic>);
+      highlightColor!.deserialize(json['HighlightColor'] as Map<String, dynamic>);
     } else {
       highlightColor = null;
     }
@@ -974,7 +974,7 @@ class Font extends LinkElement {
 
     if (json.containsKey('UnderlineColor')) {
       underlineColor = XmlColor();
-      underlineColor.deserialize(json['UnderlineColor'] as Map<String, dynamic>);
+      underlineColor!.deserialize(json['UnderlineColor'] as Map<String, dynamic>);
     } else {
       underlineColor = null;
     }
@@ -985,139 +985,139 @@ class Font extends LinkElement {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (allCaps != null) {
-      _result['AllCaps'] = allCaps;
+      _result['AllCaps'] = allCaps!;
     }
 
     if (bidi != null) {
-      _result['Bidi'] = bidi;
+      _result['Bidi'] = bidi!;
     }
 
     if (bold != null) {
-      _result['Bold'] = bold;
+      _result['Bold'] = bold!;
     }
 
     if (boldBi != null) {
-      _result['BoldBi'] = boldBi;
+      _result['BoldBi'] = boldBi!;
     }
 
     if (border != null) {
-      _result['Border'] = border.serialize();
+      _result['Border'] = border!.serialize();
     }
 
     if (color != null) {
-      _result['Color'] = color.serialize();
+      _result['Color'] = color!.serialize();
     }
 
     if (complexScript != null) {
-      _result['ComplexScript'] = complexScript;
+      _result['ComplexScript'] = complexScript!;
     }
 
     if (doubleStrikeThrough != null) {
-      _result['DoubleStrikeThrough'] = doubleStrikeThrough;
+      _result['DoubleStrikeThrough'] = doubleStrikeThrough!;
     }
 
     if (emboss != null) {
-      _result['Emboss'] = emboss;
+      _result['Emboss'] = emboss!;
     }
 
     if (engrave != null) {
-      _result['Engrave'] = engrave;
+      _result['Engrave'] = engrave!;
     }
 
     if (hidden != null) {
-      _result['Hidden'] = hidden;
+      _result['Hidden'] = hidden!;
     }
 
     if (highlightColor != null) {
-      _result['HighlightColor'] = highlightColor.serialize();
+      _result['HighlightColor'] = highlightColor!.serialize();
     }
 
     if (italic != null) {
-      _result['Italic'] = italic;
+      _result['Italic'] = italic!;
     }
 
     if (italicBi != null) {
-      _result['ItalicBi'] = italicBi;
+      _result['ItalicBi'] = italicBi!;
     }
 
     if (kerning != null) {
-      _result['Kerning'] = kerning;
+      _result['Kerning'] = kerning!;
     }
 
     if (localeId != null) {
-      _result['LocaleId'] = localeId;
+      _result['LocaleId'] = localeId!;
     }
 
     if (localeIdBi != null) {
-      _result['LocaleIdBi'] = localeIdBi;
+      _result['LocaleIdBi'] = localeIdBi!;
     }
 
     if (localeIdFarEast != null) {
-      _result['LocaleIdFarEast'] = localeIdFarEast;
+      _result['LocaleIdFarEast'] = localeIdFarEast!;
     }
 
     if (name != null) {
-      _result['Name'] = name;
+      _result['Name'] = name!;
     }
 
     if (nameAscii != null) {
-      _result['NameAscii'] = nameAscii;
+      _result['NameAscii'] = nameAscii!;
     }
 
     if (nameBi != null) {
-      _result['NameBi'] = nameBi;
+      _result['NameBi'] = nameBi!;
     }
 
     if (nameFarEast != null) {
-      _result['NameFarEast'] = nameFarEast;
+      _result['NameFarEast'] = nameFarEast!;
     }
 
     if (nameOther != null) {
-      _result['NameOther'] = nameOther;
+      _result['NameOther'] = nameOther!;
     }
 
     if (noProofing != null) {
-      _result['NoProofing'] = noProofing;
+      _result['NoProofing'] = noProofing!;
     }
 
     if (outline != null) {
-      _result['Outline'] = outline;
+      _result['Outline'] = outline!;
     }
 
     if (position != null) {
-      _result['Position'] = position;
+      _result['Position'] = position!;
     }
 
     if (scaling != null) {
-      _result['Scaling'] = scaling;
+      _result['Scaling'] = scaling!;
     }
 
     if (shadow != null) {
-      _result['Shadow'] = shadow;
+      _result['Shadow'] = shadow!;
     }
 
     if (size != null) {
-      _result['Size'] = size;
+      _result['Size'] = size!;
     }
 
     if (sizeBi != null) {
-      _result['SizeBi'] = sizeBi;
+      _result['SizeBi'] = sizeBi!;
     }
 
     if (smallCaps != null) {
-      _result['SmallCaps'] = smallCaps;
+      _result['SmallCaps'] = smallCaps!;
     }
 
     if (spacing != null) {
-      _result['Spacing'] = spacing;
+      _result['Spacing'] = spacing!;
     }
 
     if (strikeThrough != null) {
-      _result['StrikeThrough'] = strikeThrough;
+      _result['StrikeThrough'] = strikeThrough!;
     }
 
     if (styleIdentifier != null) {
-      switch (styleIdentifier) {
+      switch (styleIdentifier!) {
         case Font_StyleIdentifierEnum.normal: _result['StyleIdentifier'] = 'Normal'; break;
         case Font_StyleIdentifierEnum.heading1: _result['StyleIdentifier'] = 'Heading1'; break;
         case Font_StyleIdentifierEnum.heading2: _result['StyleIdentifier'] = 'Heading2'; break;
@@ -1501,19 +1501,19 @@ class Font extends LinkElement {
     }
 
     if (styleName != null) {
-      _result['StyleName'] = styleName;
+      _result['StyleName'] = styleName!;
     }
 
     if (subscript != null) {
-      _result['Subscript'] = subscript;
+      _result['Subscript'] = subscript!;
     }
 
     if (superscript != null) {
-      _result['Superscript'] = superscript;
+      _result['Superscript'] = superscript!;
     }
 
     if (textEffect != null) {
-      switch (textEffect) {
+      switch (textEffect!) {
         case Font_TextEffectEnum.none: _result['TextEffect'] = 'None'; break;
         case Font_TextEffectEnum.lasVegasLights: _result['TextEffect'] = 'LasVegasLights'; break;
         case Font_TextEffectEnum.blinkingBackground: _result['TextEffect'] = 'BlinkingBackground'; break;
@@ -1526,7 +1526,7 @@ class Font extends LinkElement {
     }
 
     if (underline != null) {
-      switch (underline) {
+      switch (underline!) {
         case Font_UnderlineEnum.none: _result['Underline'] = 'None'; break;
         case Font_UnderlineEnum.single: _result['Underline'] = 'Single'; break;
         case Font_UnderlineEnum.words: _result['Underline'] = 'Words'; break;
@@ -1550,7 +1550,7 @@ class Font extends LinkElement {
     }
 
     if (underlineColor != null) {
-      _result['UnderlineColor'] = underlineColor.serialize();
+      _result['UnderlineColor'] = underlineColor!.serialize();
     }
     return _result;
   }

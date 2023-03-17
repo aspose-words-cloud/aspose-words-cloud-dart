@@ -1,3 +1,8 @@
+## [23.3.0] - Aspose Words Cloud for Dart 23.3 Release Notes
+
+- Fix compatibility between CreateDocument API and Dropbox storage.
+
+
 ## [23.2.0] - Aspose Words Cloud for Dart 23.2 Release Notes
 
 - Added operations to manipulate with Structure Document Tags (SDT) in documents.

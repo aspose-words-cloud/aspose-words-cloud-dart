@@ -34,10 +34,10 @@ import '../test_context.dart';
 class CompressDocumentTests
 {
   final TestContext context;
-  String remoteFolder;
-  String localFolder;
+  late String remoteFolder;
+  late String localFolder;
 
-  CompressDocumentTests(final this.context) {
+  CompressDocumentTests(this.context) {
     remoteFolder = context.remoteBaseTestDataFolder + '/DocumentActions/CompressDocument';
     localFolder = 'DocumentActions/CompressDocument';
   }

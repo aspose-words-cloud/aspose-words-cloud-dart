@@ -32,42 +32,42 @@ import '../../aspose_words_cloud.dart';
 /// Class for document replace text request building.
 class ReplaceTextParameters implements ModelBase {
   /// Gets or sets a value indicating whether flag, true means the search is case-sensitive; false means the search is not case-sensitive.
-  bool _isMatchCase;
+  bool? _isMatchCase;
 
-  bool get isMatchCase => _isMatchCase;
-  set isMatchCase(bool val) => _isMatchCase = val;
+  bool? get isMatchCase => _isMatchCase;
+  set isMatchCase(bool? val) => _isMatchCase = val;
 
 
   /// Gets or sets a value indicating whether flag, means that only whole word matched are replaced.
-  bool _isMatchWholeWord;
+  bool? _isMatchWholeWord;
 
-  bool get isMatchWholeWord => _isMatchWholeWord;
-  set isMatchWholeWord(bool val) => _isMatchWholeWord = val;
+  bool? get isMatchWholeWord => _isMatchWholeWord;
+  set isMatchWholeWord(bool? val) => _isMatchWholeWord = val;
 
 
   /// Gets or sets a value indicating whether flag, means that OldValue contains regex expression.
-  bool _isOldValueRegex;
+  bool? _isOldValueRegex;
 
-  bool get isOldValueRegex => _isOldValueRegex;
-  set isOldValueRegex(bool val) => _isOldValueRegex = val;
+  bool? get isOldValueRegex => _isOldValueRegex;
+  set isOldValueRegex(bool? val) => _isOldValueRegex = val;
 
 
   /// Gets or sets the new text value to replace by.
-  String _newValue;
+  String? _newValue;
 
-  String get newValue => _newValue;
-  set newValue(String val) => _newValue = val;
+  String? get newValue => _newValue;
+  set newValue(String? val) => _newValue = val;
 
 
   /// Gets or sets the old text value (or regex pattern IsOldValueRegex) to replace.
-  String _oldValue;
+  String? _oldValue;
 
-  String get oldValue => _oldValue;
-  set oldValue(String val) => _oldValue = val;
+  String? get oldValue => _oldValue;
+  set oldValue(String? val) => _oldValue = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize ReplaceTextParameters data model.');
     }
@@ -107,23 +107,23 @@ class ReplaceTextParameters implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (isMatchCase != null) {
-      _result['IsMatchCase'] = isMatchCase;
+      _result['IsMatchCase'] = isMatchCase!;
     }
 
     if (isMatchWholeWord != null) {
-      _result['IsMatchWholeWord'] = isMatchWholeWord;
+      _result['IsMatchWholeWord'] = isMatchWholeWord!;
     }
 
     if (isOldValueRegex != null) {
-      _result['IsOldValueRegex'] = isOldValueRegex;
+      _result['IsOldValueRegex'] = isOldValueRegex!;
     }
 
     if (newValue != null) {
-      _result['NewValue'] = newValue;
+      _result['NewValue'] = newValue!;
     }
 
     if (oldValue != null) {
-      _result['OldValue'] = oldValue;
+      _result['OldValue'] = oldValue!;
     }
     return _result;
   }

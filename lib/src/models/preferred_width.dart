@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a preferred width value.
 class PreferredWidth implements ModelBase {
   /// Gets or sets the unit of measure used for this preferred width value.
-  PreferredWidth_TypeEnum _type;
+  PreferredWidth_TypeEnum? _type;
 
-  PreferredWidth_TypeEnum get type => _type;
-  set type(PreferredWidth_TypeEnum val) => _type = val;
+  PreferredWidth_TypeEnum? get type => _type;
+  set type(PreferredWidth_TypeEnum? val) => _type = val;
 
 
   /// Gets or sets the preferred width value. The unit of measure is specified in the Type property.
-  double _value;
+  double? _value;
 
-  double get value => _value;
-  set value(double val) => _value = val;
+  double? get value => _value;
+  set value(double? val) => _value = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize PreferredWidth data model.');
     }
@@ -73,7 +73,7 @@ class PreferredWidth implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (type != null) {
-      switch (type) {
+      switch (type!) {
         case PreferredWidth_TypeEnum.auto: _result['Type'] = 'Auto'; break;
         case PreferredWidth_TypeEnum.percent: _result['Type'] = 'Percent'; break;
         case PreferredWidth_TypeEnum.points: _result['Type'] = 'Points'; break;
@@ -82,7 +82,7 @@ class PreferredWidth implements ModelBase {
     }
 
     if (value != null) {
-      _result['Value'] = value;
+      _result['Value'] = value!;
     }
     return _result;
   }

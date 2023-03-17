@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a collection of HeaderFooter elements.
 class HeaderFootersResponse extends WordsResponse {
   /// Gets or sets the collection of HeaderFooter elements.
-  HeaderFooterLinkCollection _headerFooters;
+  HeaderFooterLinkCollection? _headerFooters;
 
-  HeaderFooterLinkCollection get headerFooters => _headerFooters;
-  set headerFooters(HeaderFooterLinkCollection val) => _headerFooters = val;
+  HeaderFooterLinkCollection? get headerFooters => _headerFooters;
+  set headerFooters(HeaderFooterLinkCollection? val) => _headerFooters = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize HeaderFootersResponse data model.');
     }
@@ -53,7 +53,7 @@ class HeaderFootersResponse extends WordsResponse {
 
     if (json.containsKey('HeaderFooters')) {
       headerFooters = HeaderFooterLinkCollection();
-      headerFooters.deserialize(json['HeaderFooters'] as Map<String, dynamic>);
+      headerFooters!.deserialize(json['HeaderFooters'] as Map<String, dynamic>);
     } else {
       headerFooters = null;
     }
@@ -64,7 +64,7 @@ class HeaderFootersResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (headerFooters != null) {
-      _result['HeaderFooters'] = headerFooters.serialize();
+      _result['HeaderFooters'] = headerFooters!.serialize();
     }
     return _result;
   }

@@ -5,7 +5,7 @@ class ExamplesTests
 {
     final Configuration config;
 
-    ExamplesTests(final this.config);
+    ExamplesTests(this.config);
 
     Future<void> init() async
     {
@@ -44,7 +44,7 @@ class ExamplesTests
         final request = AcceptAllRevisionsOnlineRequest(requestDocument);
         final acceptAllRevisionsOnlineResult = await wordsApi.acceptAllRevisionsOnline(request);
         await File('test_result.docx').writeAsBytes(
-            acceptAllRevisionsOnlineResult.document.values.first.buffer.asUint8List(acceptAllRevisionsOnlineResult.document.values.first.offsetInBytes, acceptAllRevisionsOnlineResult.document.values.first.lengthInBytes)
+            acceptAllRevisionsOnlineResult.document!.values.first.buffer.asUint8List(acceptAllRevisionsOnlineResult.document!.values.first.offsetInBytes, acceptAllRevisionsOnlineResult.document!.values.first.lengthInBytes)
         );
     }
 }

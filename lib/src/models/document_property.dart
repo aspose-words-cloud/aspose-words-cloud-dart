@@ -33,28 +33,28 @@ import '../../aspose_words_cloud.dart';
 class DocumentProperty extends LinkElement {
   /// Gets or sets a value indicating whether the property is built-in or not.
   /// If true the property is built-in, if false the property is custom.
-  bool _builtIn;
+  bool? _builtIn;
 
-  bool get builtIn => _builtIn;
-  set builtIn(bool val) => _builtIn = val;
+  bool? get builtIn => _builtIn;
+  set builtIn(bool? val) => _builtIn = val;
 
 
   /// Gets or sets the name of the document property.
-  String _name;
+  String? _name;
 
-  String get name => _name;
-  set name(String val) => _name = val;
+  String? get name => _name;
+  set name(String? val) => _name = val;
 
 
   /// Gets or sets the value of the document property.
-  String _value;
+  String? _value;
 
-  String get value => _value;
-  set value(String val) => _value = val;
+  String? get value => _value;
+  set value(String? val) => _value = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize DocumentProperty data model.');
     }
@@ -62,7 +62,7 @@ class DocumentProperty extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -91,15 +91,15 @@ class DocumentProperty extends LinkElement {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (builtIn != null) {
-      _result['BuiltIn'] = builtIn;
+      _result['BuiltIn'] = builtIn!;
     }
 
     if (name != null) {
-      _result['Name'] = name;
+      _result['Name'] = name!;
     }
 
     if (value != null) {
-      _result['Value'] = value;
+      _result['Value'] = value!;
     }
     return _result;
   }

@@ -33,115 +33,115 @@ import '../../aspose_words_cloud.dart';
 class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   /// Gets or sets the prefix which is added to all class names in style.css file.
   /// Default value is "aw".
-  String _cssClassNamesPrefix;
+  String? _cssClassNamesPrefix;
 
-  String get cssClassNamesPrefix => _cssClassNamesPrefix;
-  set cssClassNamesPrefix(String val) => _cssClassNamesPrefix = val;
+  String? get cssClassNamesPrefix => _cssClassNamesPrefix;
+  set cssClassNamesPrefix(String? val) => _cssClassNamesPrefix = val;
 
 
   /// Gets or sets the character encoding.
-  String _encoding;
+  String? _encoding;
 
-  String get encoding => _encoding;
-  set encoding(String val) => _encoding = val;
+  String? get encoding => _encoding;
+  set encoding(String? val) => _encoding = val;
 
 
   /// Gets or sets a value indicating whether the CSS (Cascading Style Sheet) should be embedded into the Html document.
-  bool _exportEmbeddedCss;
+  bool? _exportEmbeddedCss;
 
-  bool get exportEmbeddedCss => _exportEmbeddedCss;
-  set exportEmbeddedCss(bool val) => _exportEmbeddedCss = val;
+  bool? get exportEmbeddedCss => _exportEmbeddedCss;
+  set exportEmbeddedCss(bool? val) => _exportEmbeddedCss = val;
 
 
   /// Gets or sets a value indicating whether fonts should be embedded into the Html document in Base64 format.
-  bool _exportEmbeddedFonts;
+  bool? _exportEmbeddedFonts;
 
-  bool get exportEmbeddedFonts => _exportEmbeddedFonts;
-  set exportEmbeddedFonts(bool val) => _exportEmbeddedFonts = val;
+  bool? get exportEmbeddedFonts => _exportEmbeddedFonts;
+  set exportEmbeddedFonts(bool? val) => _exportEmbeddedFonts = val;
 
 
   /// Gets or sets a value indicating whether images should be embedded into the Html document in Base64 format.
-  bool _exportEmbeddedImages;
+  bool? _exportEmbeddedImages;
 
-  bool get exportEmbeddedImages => _exportEmbeddedImages;
-  set exportEmbeddedImages(bool val) => _exportEmbeddedImages = val;
+  bool? get exportEmbeddedImages => _exportEmbeddedImages;
+  set exportEmbeddedImages(bool? val) => _exportEmbeddedImages = val;
 
 
   /// Gets or sets a value indicating whether form fields are exported as interactive items (as 'input' tag) rather than converted to text or graphics.
-  bool _exportFormFields;
+  bool? _exportFormFields;
 
-  bool get exportFormFields => _exportFormFields;
-  set exportFormFields(bool val) => _exportFormFields = val;
+  bool? get exportFormFields => _exportFormFields;
+  set exportFormFields(bool? val) => _exportFormFields = val;
 
 
   /// Gets or sets the export format of fonts.
-  HtmlFixedSaveOptionsData_FontFormatEnum _fontFormat;
+  HtmlFixedSaveOptionsData_FontFormatEnum? _fontFormat;
 
-  HtmlFixedSaveOptionsData_FontFormatEnum get fontFormat => _fontFormat;
-  set fontFormat(HtmlFixedSaveOptionsData_FontFormatEnum val) => _fontFormat = val;
+  HtmlFixedSaveOptionsData_FontFormatEnum? get fontFormat => _fontFormat;
+  set fontFormat(HtmlFixedSaveOptionsData_FontFormatEnum? val) => _fontFormat = val;
 
 
   /// Gets or sets the horizontal alignment of pages in the HTML document.
   /// The default value is HtmlFixedHorizontalPageAlignment.Center.
-  HtmlFixedSaveOptionsData_PageHorizontalAlignmentEnum _pageHorizontalAlignment;
+  HtmlFixedSaveOptionsData_PageHorizontalAlignmentEnum? _pageHorizontalAlignment;
 
-  HtmlFixedSaveOptionsData_PageHorizontalAlignmentEnum get pageHorizontalAlignment => _pageHorizontalAlignment;
-  set pageHorizontalAlignment(HtmlFixedSaveOptionsData_PageHorizontalAlignmentEnum val) => _pageHorizontalAlignment = val;
+  HtmlFixedSaveOptionsData_PageHorizontalAlignmentEnum? get pageHorizontalAlignment => _pageHorizontalAlignment;
+  set pageHorizontalAlignment(HtmlFixedSaveOptionsData_PageHorizontalAlignmentEnum? val) => _pageHorizontalAlignment = val;
 
 
   /// Gets or sets the margin around pages in HTML document.
   /// The margins value is measured in points and should be equal to or greater than 0.
   /// Default value is 10 points.
-  double _pageMargins;
+  double? _pageMargins;
 
-  double get pageMargins => _pageMargins;
-  set pageMargins(double val) => _pageMargins = val;
+  double? get pageMargins => _pageMargins;
+  set pageMargins(double? val) => _pageMargins = val;
 
 
   /// Gets or sets the physical folder where resources are saved when exporting the document.
-  String _resourcesFolder;
+  String? _resourcesFolder;
 
-  String get resourcesFolder => _resourcesFolder;
-  set resourcesFolder(String val) => _resourcesFolder = val;
+  String? get resourcesFolder => _resourcesFolder;
+  set resourcesFolder(String? val) => _resourcesFolder = val;
 
 
   /// Gets or sets the name of the folder used to construct resource URIs.
-  String _resourcesFolderAlias;
+  String? _resourcesFolderAlias;
 
-  String get resourcesFolderAlias => _resourcesFolderAlias;
-  set resourcesFolderAlias(String val) => _resourcesFolderAlias = val;
+  String? get resourcesFolderAlias => _resourcesFolderAlias;
+  set resourcesFolderAlias(String? val) => _resourcesFolderAlias = val;
 
 
   /// Gets or sets a value indicating whether "@font-face" CSS rules should be placed into a separate file "fontFaces.css" when a document is being saved with external stylesheet (that is, when Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedCss is false). The default value is false, all CSS rules are written into single file "styles.css".
-  bool _saveFontFaceCssSeparately;
+  bool? _saveFontFaceCssSeparately;
 
-  bool get saveFontFaceCssSeparately => _saveFontFaceCssSeparately;
-  set saveFontFaceCssSeparately(bool val) => _saveFontFaceCssSeparately = val;
+  bool? get saveFontFaceCssSeparately => _saveFontFaceCssSeparately;
+  set saveFontFaceCssSeparately(bool? val) => _saveFontFaceCssSeparately = val;
 
 
   /// Gets the format of save.
-  String _saveFormat = 'htmlfixed';
+  String? _saveFormat = 'htmlfixed';
 
   @override
-  String get saveFormat => _saveFormat;
+  String? get saveFormat => _saveFormat;
 
 
   /// Gets or sets a value indicating whether to show border around pages.
-  bool _showPageBorder;
+  bool? _showPageBorder;
 
-  bool get showPageBorder => _showPageBorder;
-  set showPageBorder(bool val) => _showPageBorder = val;
+  bool? get showPageBorder => _showPageBorder;
+  set showPageBorder(bool? val) => _showPageBorder = val;
 
 
   /// Gets or sets a value indicating whether fonts from target machine must be used to display the document. If this flag is set to true, Aspose.Words.Saving.HtmlFixedSaveOptions.FontFormat and Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedFonts properties do not have effect, also Aspose.Words.Saving.HtmlFixedSaveOptions.ResourceSavingCallback is not fired for fonts. The default value is false.
-  bool _useTargetMachineFonts;
+  bool? _useTargetMachineFonts;
 
-  bool get useTargetMachineFonts => _useTargetMachineFonts;
-  set useTargetMachineFonts(bool val) => _useTargetMachineFonts = val;
+  bool? get useTargetMachineFonts => _useTargetMachineFonts;
+  set useTargetMachineFonts(bool? val) => _useTargetMachineFonts = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize HtmlFixedSaveOptionsData data model.');
     }
@@ -155,7 +155,7 @@ class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (json.containsKey('CustomTimeZoneInfoData')) {
       customTimeZoneInfoData = TimeZoneInfoData();
-      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+      customTimeZoneInfoData!.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
     } else {
       customTimeZoneInfoData = null;
     }
@@ -261,7 +261,7 @@ class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (json.containsKey('MetafileRenderingOptions')) {
       metafileRenderingOptions = MetafileRenderingOptionsData();
-      metafileRenderingOptions.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
+      metafileRenderingOptions!.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
     } else {
       metafileRenderingOptions = null;
     }
@@ -396,31 +396,31 @@ class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (cssClassNamesPrefix != null) {
-      _result['CssClassNamesPrefix'] = cssClassNamesPrefix;
+      _result['CssClassNamesPrefix'] = cssClassNamesPrefix!;
     }
 
     if (encoding != null) {
-      _result['Encoding'] = encoding;
+      _result['Encoding'] = encoding!;
     }
 
     if (exportEmbeddedCss != null) {
-      _result['ExportEmbeddedCss'] = exportEmbeddedCss;
+      _result['ExportEmbeddedCss'] = exportEmbeddedCss!;
     }
 
     if (exportEmbeddedFonts != null) {
-      _result['ExportEmbeddedFonts'] = exportEmbeddedFonts;
+      _result['ExportEmbeddedFonts'] = exportEmbeddedFonts!;
     }
 
     if (exportEmbeddedImages != null) {
-      _result['ExportEmbeddedImages'] = exportEmbeddedImages;
+      _result['ExportEmbeddedImages'] = exportEmbeddedImages!;
     }
 
     if (exportFormFields != null) {
-      _result['ExportFormFields'] = exportFormFields;
+      _result['ExportFormFields'] = exportFormFields!;
     }
 
     if (fontFormat != null) {
-      switch (fontFormat) {
+      switch (fontFormat!) {
         case HtmlFixedSaveOptionsData_FontFormatEnum.woff: _result['FontFormat'] = 'Woff'; break;
         case HtmlFixedSaveOptionsData_FontFormatEnum.ttf: _result['FontFormat'] = 'Ttf'; break;
         default: break;
@@ -428,7 +428,7 @@ class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (pageHorizontalAlignment != null) {
-      switch (pageHorizontalAlignment) {
+      switch (pageHorizontalAlignment!) {
         case HtmlFixedSaveOptionsData_PageHorizontalAlignmentEnum.left: _result['PageHorizontalAlignment'] = 'Left'; break;
         case HtmlFixedSaveOptionsData_PageHorizontalAlignmentEnum.center: _result['PageHorizontalAlignment'] = 'Center'; break;
         case HtmlFixedSaveOptionsData_PageHorizontalAlignmentEnum.right: _result['PageHorizontalAlignment'] = 'Right'; break;
@@ -437,31 +437,31 @@ class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (pageMargins != null) {
-      _result['PageMargins'] = pageMargins;
+      _result['PageMargins'] = pageMargins!;
     }
 
     if (resourcesFolder != null) {
-      _result['ResourcesFolder'] = resourcesFolder;
+      _result['ResourcesFolder'] = resourcesFolder!;
     }
 
     if (resourcesFolderAlias != null) {
-      _result['ResourcesFolderAlias'] = resourcesFolderAlias;
+      _result['ResourcesFolderAlias'] = resourcesFolderAlias!;
     }
 
     if (saveFontFaceCssSeparately != null) {
-      _result['SaveFontFaceCssSeparately'] = saveFontFaceCssSeparately;
+      _result['SaveFontFaceCssSeparately'] = saveFontFaceCssSeparately!;
     }
 
     if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat;
+      _result['SaveFormat'] = saveFormat!;
     }
 
     if (showPageBorder != null) {
-      _result['ShowPageBorder'] = showPageBorder;
+      _result['ShowPageBorder'] = showPageBorder!;
     }
 
     if (useTargetMachineFonts != null) {
-      _result['UseTargetMachineFonts'] = useTargetMachineFonts;
+      _result['UseTargetMachineFonts'] = useTargetMachineFonts!;
     }
     return _result;
   }

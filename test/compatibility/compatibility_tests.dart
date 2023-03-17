@@ -33,10 +33,10 @@ import '../test_context.dart';
 class CompatibilityTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
+  late String remoteDataFolder;
+  late String localFile;
 
-  CompatibilityTests(final this.context) {
+  CompatibilityTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/Compatibility';
     localFile = 'Common/test_multi_pages.docx';
   }

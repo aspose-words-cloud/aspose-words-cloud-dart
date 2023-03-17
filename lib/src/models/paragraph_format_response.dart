@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with the formatting properties of a paragraph.
 class ParagraphFormatResponse extends WordsResponse {
   /// Gets or sets the formatting properties of a paragraph.
-  ParagraphFormat _paragraphFormat;
+  ParagraphFormat? _paragraphFormat;
 
-  ParagraphFormat get paragraphFormat => _paragraphFormat;
-  set paragraphFormat(ParagraphFormat val) => _paragraphFormat = val;
+  ParagraphFormat? get paragraphFormat => _paragraphFormat;
+  set paragraphFormat(ParagraphFormat? val) => _paragraphFormat = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize ParagraphFormatResponse data model.');
     }
@@ -53,7 +53,7 @@ class ParagraphFormatResponse extends WordsResponse {
 
     if (json.containsKey('ParagraphFormat')) {
       paragraphFormat = ParagraphFormat();
-      paragraphFormat.deserialize(json['ParagraphFormat'] as Map<String, dynamic>);
+      paragraphFormat!.deserialize(json['ParagraphFormat'] as Map<String, dynamic>);
     } else {
       paragraphFormat = null;
     }
@@ -64,7 +64,7 @@ class ParagraphFormatResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (paragraphFormat != null) {
-      _result['ParagraphFormat'] = paragraphFormat.serialize();
+      _result['ParagraphFormat'] = paragraphFormat!.serialize();
     }
     return _result;
   }

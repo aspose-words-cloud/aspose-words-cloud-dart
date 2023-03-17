@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// Container for the data about protection of the document.
 class ProtectionData implements ModelBase {
   /// Gets or sets type of the protection.
-  String _protectionType;
+  String? _protectionType;
 
-  String get protectionType => _protectionType;
-  set protectionType(String val) => _protectionType = val;
+  String? get protectionType => _protectionType;
+  set protectionType(String? val) => _protectionType = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize ProtectionData data model.');
     }
@@ -55,7 +55,7 @@ class ProtectionData implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (protectionType != null) {
-      _result['ProtectionType'] = protectionType;
+      _result['ProtectionType'] = protectionType!;
     }
     return _result;
   }

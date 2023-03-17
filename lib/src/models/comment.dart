@@ -32,56 +32,56 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a comment.
 class Comment extends CommentLink {
   /// Gets or sets the author name for a comment.
-  String _author;
+  String? _author;
 
-  String get author => _author;
-  set author(String val) => _author = val;
+  String? get author => _author;
+  set author(String? val) => _author = val;
 
 
   /// Gets or sets the content of the comment.
-  StoryChildNodes _content;
+  StoryChildNodes? _content;
 
-  StoryChildNodes get content => _content;
-  set content(StoryChildNodes val) => _content = val;
+  StoryChildNodes? get content => _content;
+  set content(StoryChildNodes? val) => _content = val;
 
 
   /// Gets or sets the date and time that the comment was made.
-  DateTime _dateTime;
+  DateTime? _dateTime;
 
-  DateTime get dateTime => _dateTime;
-  set dateTime(DateTime val) => _dateTime = val;
+  DateTime? get dateTime => _dateTime;
+  set dateTime(DateTime? val) => _dateTime = val;
 
 
   /// Gets or sets the initials of the user associated with a specific comment.
-  String _initial;
+  String? _initial;
 
-  String get initial => _initial;
-  set initial(String val) => _initial = val;
+  String? get initial => _initial;
+  set initial(String? val) => _initial = val;
 
 
   /// Gets or sets the link to comment range end node.
-  DocumentPosition _rangeEnd;
+  DocumentPosition? _rangeEnd;
 
-  DocumentPosition get rangeEnd => _rangeEnd;
-  set rangeEnd(DocumentPosition val) => _rangeEnd = val;
+  DocumentPosition? get rangeEnd => _rangeEnd;
+  set rangeEnd(DocumentPosition? val) => _rangeEnd = val;
 
 
   /// Gets or sets the link to comment range start node.
-  DocumentPosition _rangeStart;
+  DocumentPosition? _rangeStart;
 
-  DocumentPosition get rangeStart => _rangeStart;
-  set rangeStart(DocumentPosition val) => _rangeStart = val;
+  DocumentPosition? get rangeStart => _rangeStart;
+  set rangeStart(DocumentPosition? val) => _rangeStart = val;
 
 
   /// Gets or sets text of the comment.
-  String _text;
+  String? _text;
 
-  String get text => _text;
-  set text(String val) => _text = val;
+  String? get text => _text;
+  set text(String? val) => _text = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize Comment data model.');
     }
@@ -89,7 +89,7 @@ class Comment extends CommentLink {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -102,7 +102,7 @@ class Comment extends CommentLink {
 
     if (json.containsKey('Content')) {
       content = StoryChildNodes();
-      content.deserialize(json['Content'] as Map<String, dynamic>);
+      content!.deserialize(json['Content'] as Map<String, dynamic>);
     } else {
       content = null;
     }
@@ -121,14 +121,14 @@ class Comment extends CommentLink {
 
     if (json.containsKey('RangeEnd')) {
       rangeEnd = DocumentPosition();
-      rangeEnd.deserialize(json['RangeEnd'] as Map<String, dynamic>);
+      rangeEnd!.deserialize(json['RangeEnd'] as Map<String, dynamic>);
     } else {
       rangeEnd = null;
     }
 
     if (json.containsKey('RangeStart')) {
       rangeStart = DocumentPosition();
-      rangeStart.deserialize(json['RangeStart'] as Map<String, dynamic>);
+      rangeStart!.deserialize(json['RangeStart'] as Map<String, dynamic>);
     } else {
       rangeStart = null;
     }
@@ -145,31 +145,31 @@ class Comment extends CommentLink {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (author != null) {
-      _result['Author'] = author;
+      _result['Author'] = author!;
     }
 
     if (content != null) {
-      _result['Content'] = content.serialize();
+      _result['Content'] = content!.serialize();
     }
 
     if (dateTime != null) {
-      _result['DateTime'] = dateTime.toIso8601String();
+      _result['DateTime'] = dateTime!.toIso8601String();
     }
 
     if (initial != null) {
-      _result['Initial'] = initial;
+      _result['Initial'] = initial!;
     }
 
     if (rangeEnd != null) {
-      _result['RangeEnd'] = rangeEnd.serialize();
+      _result['RangeEnd'] = rangeEnd!.serialize();
     }
 
     if (rangeStart != null) {
-      _result['RangeStart'] = rangeStart.serialize();
+      _result['RangeStart'] = rangeStart!.serialize();
     }
 
     if (text != null) {
-      _result['Text'] = text;
+      _result['Text'] = text!;
     }
     return _result;
   }

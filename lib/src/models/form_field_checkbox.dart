@@ -32,28 +32,28 @@ import '../../aspose_words_cloud.dart';
 /// FormField checkbox element.
 class FormFieldCheckbox extends FormField {
   /// Gets or sets the size of the checkbox in points. Has effect only when IsCheckBoxExactSize is true.
-  double _checkBoxSize;
+  double? _checkBoxSize;
 
-  double get checkBoxSize => _checkBoxSize;
-  set checkBoxSize(double val) => _checkBoxSize = val;
+  double? get checkBoxSize => _checkBoxSize;
+  set checkBoxSize(double? val) => _checkBoxSize = val;
 
 
   /// Gets or sets the checked status of the check box form field.
-  bool _checked;
+  bool? _checked;
 
-  bool get checked => _checked;
-  set checked(bool val) => _checked = val;
+  bool? get checked => _checked;
+  set checked(bool? val) => _checked = val;
 
 
   /// Gets or sets a value indicating whether the size of the textbox is automatic or specified explicitly.
-  bool _isCheckBoxExactSize;
+  bool? _isCheckBoxExactSize;
 
-  bool get isCheckBoxExactSize => _isCheckBoxExactSize;
-  set isCheckBoxExactSize(bool val) => _isCheckBoxExactSize = val;
+  bool? get isCheckBoxExactSize => _isCheckBoxExactSize;
+  set isCheckBoxExactSize(bool? val) => _isCheckBoxExactSize = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize FormFieldCheckbox data model.');
     }
@@ -61,7 +61,7 @@ class FormFieldCheckbox extends FormField {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -150,15 +150,15 @@ class FormFieldCheckbox extends FormField {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (checkBoxSize != null) {
-      _result['CheckBoxSize'] = checkBoxSize;
+      _result['CheckBoxSize'] = checkBoxSize!;
     }
 
     if (checked != null) {
-      _result['Checked'] = checked;
+      _result['Checked'] = checked!;
     }
 
     if (isCheckBoxExactSize != null) {
-      _result['IsCheckBoxExactSize'] = isCheckBoxExactSize;
+      _result['IsCheckBoxExactSize'] = isCheckBoxExactSize!;
     }
     return _result;
   }

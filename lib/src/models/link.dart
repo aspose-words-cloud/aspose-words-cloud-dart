@@ -33,35 +33,35 @@ import '../../aspose_words_cloud.dart';
 /// This is supposed to be an atom:link, therefore it should have all attributes specified here http://tools.ietf.org/html/rfc4287#section-4.2.7.
 class Link implements ModelBase {
   /// Gets or sets the "href" attribute with the link's IRI. atom:link elements MUST have an href attribute, whose value MUST be a IRI reference.
-  String _href;
+  String? _href;
 
-  String get href => _href;
-  set href(String val) => _href = val;
+  String? get href => _href;
+  set href(String? val) => _href = val;
 
 
   /// Gets or sets the option that controls whether atom:link elements MAY have a "rel" attribute that indicates the link relation type.  If the "rel" attribute is not present, the link element MUST be interpreted as if the link relation type is "alternate".
-  String _rel;
+  String? _rel;
 
-  String get rel => _rel;
-  set rel(String val) => _rel = val;
+  String? get rel => _rel;
+  set rel(String? val) => _rel = val;
 
 
   /// Gets or sets the "title" attribute, that conveys human-readable information about the link. The content of the "title" attribute is Language-Sensitive.
-  String _title;
+  String? _title;
 
-  String get title => _title;
-  set title(String val) => _title = val;
+  String? get title => _title;
+  set title(String? val) => _title = val;
 
 
   /// Gets or sets the "type" attribute. The "type" attribute's value is an advisory media type: it is a hint about the type of the representation that is expected to be returned when the value of the href attribute is dereferenced. Note that the type attribute does not override the actual media type returned with the representation.
-  String _type;
+  String? _type;
 
-  String get type => _type;
-  set type(String val) => _type = val;
+  String? get type => _type;
+  set type(String? val) => _type = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize Link data model.');
     }
@@ -95,19 +95,19 @@ class Link implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (href != null) {
-      _result['Href'] = href;
+      _result['Href'] = href!;
     }
 
     if (rel != null) {
-      _result['Rel'] = rel;
+      _result['Rel'] = rel!;
     }
 
     if (title != null) {
-      _result['Title'] = title;
+      _result['Title'] = title!;
     }
 
     if (type != null) {
-      _result['Type'] = type;
+      _result['Type'] = type!;
     }
     return _result;
   }

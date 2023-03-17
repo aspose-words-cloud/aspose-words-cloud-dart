@@ -33,43 +33,43 @@ import '../../aspose_words_cloud.dart';
 class DocSaveOptionsData extends SaveOptionsData {
   /// Gets or sets a value indicating when False, that small metafiles are not compressed for performance reason.
   /// The default value is true, all metafiles are compressed regardless of its size.
-  bool _alwaysCompressMetafiles;
+  bool? _alwaysCompressMetafiles;
 
-  bool get alwaysCompressMetafiles => _alwaysCompressMetafiles;
-  set alwaysCompressMetafiles(bool val) => _alwaysCompressMetafiles = val;
+  bool? get alwaysCompressMetafiles => _alwaysCompressMetafiles;
+  set alwaysCompressMetafiles(bool? val) => _alwaysCompressMetafiles = val;
 
 
   /// Gets or sets the password.
-  String _password;
+  String? _password;
 
-  String get password => _password;
-  set password(String val) => _password = val;
+  String? get password => _password;
+  set password(String? val) => _password = val;
 
 
   /// Gets the format of save.
-  String _saveFormat = 'doc';
+  String? _saveFormat = 'doc';
 
   @override
-  String get saveFormat => _saveFormat;
+  String? get saveFormat => _saveFormat;
 
 
   /// Gets or sets a value indicating when False, that PictureBullet data is not saved to the output document.
   /// The default value is true.
-  bool _savePictureBullet;
+  bool? _savePictureBullet;
 
-  bool get savePictureBullet => _savePictureBullet;
-  set savePictureBullet(bool val) => _savePictureBullet = val;
+  bool? get savePictureBullet => _savePictureBullet;
+  set savePictureBullet(bool? val) => _savePictureBullet = val;
 
 
   /// Gets or sets a value indicating whether to save RoutingSlip data to output document.
-  bool _saveRoutingSlip;
+  bool? _saveRoutingSlip;
 
-  bool get saveRoutingSlip => _saveRoutingSlip;
-  set saveRoutingSlip(bool val) => _saveRoutingSlip = val;
+  bool? get saveRoutingSlip => _saveRoutingSlip;
+  set saveRoutingSlip(bool? val) => _saveRoutingSlip = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize DocSaveOptionsData data model.');
     }
@@ -83,7 +83,7 @@ class DocSaveOptionsData extends SaveOptionsData {
 
     if (json.containsKey('CustomTimeZoneInfoData')) {
       customTimeZoneInfoData = TimeZoneInfoData();
-      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+      customTimeZoneInfoData!.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
     } else {
       customTimeZoneInfoData = null;
     }
@@ -201,23 +201,23 @@ class DocSaveOptionsData extends SaveOptionsData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (alwaysCompressMetafiles != null) {
-      _result['AlwaysCompressMetafiles'] = alwaysCompressMetafiles;
+      _result['AlwaysCompressMetafiles'] = alwaysCompressMetafiles!;
     }
 
     if (password != null) {
-      _result['Password'] = password;
+      _result['Password'] = password!;
     }
 
     if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat;
+      _result['SaveFormat'] = saveFormat!;
     }
 
     if (savePictureBullet != null) {
-      _result['SavePictureBullet'] = savePictureBullet;
+      _result['SavePictureBullet'] = savePictureBullet!;
     }
 
     if (saveRoutingSlip != null) {
-      _result['SaveRoutingSlip'] = saveRoutingSlip;
+      _result['SaveRoutingSlip'] = saveRoutingSlip!;
     }
     return _result;
   }

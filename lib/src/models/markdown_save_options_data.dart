@@ -32,22 +32,22 @@ import '../../aspose_words_cloud.dart';
 /// Container class for markdown save options.
 class MarkdownSaveOptionsData extends TxtSaveOptionsBaseData {
   /// Gets the format of save.
-  String _saveFormat = 'md';
+  String? _saveFormat = 'md';
 
   @override
-  String get saveFormat => _saveFormat;
+  String? get saveFormat => _saveFormat;
 
 
   /// Gets or sets the value, that specifies how to align contents in tables when exporting into the Markdown format.
   /// The default value is Auto.
-  MarkdownSaveOptionsData_TableContentAlignmentEnum _tableContentAlignment;
+  MarkdownSaveOptionsData_TableContentAlignmentEnum? _tableContentAlignment;
 
-  MarkdownSaveOptionsData_TableContentAlignmentEnum get tableContentAlignment => _tableContentAlignment;
-  set tableContentAlignment(MarkdownSaveOptionsData_TableContentAlignmentEnum val) => _tableContentAlignment = val;
+  MarkdownSaveOptionsData_TableContentAlignmentEnum? get tableContentAlignment => _tableContentAlignment;
+  set tableContentAlignment(MarkdownSaveOptionsData_TableContentAlignmentEnum? val) => _tableContentAlignment = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize MarkdownSaveOptionsData data model.');
     }
@@ -61,7 +61,7 @@ class MarkdownSaveOptionsData extends TxtSaveOptionsBaseData {
 
     if (json.containsKey('CustomTimeZoneInfoData')) {
       customTimeZoneInfoData = TimeZoneInfoData();
-      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+      customTimeZoneInfoData!.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
     } else {
       customTimeZoneInfoData = null;
     }
@@ -196,11 +196,11 @@ class MarkdownSaveOptionsData extends TxtSaveOptionsBaseData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat;
+      _result['SaveFormat'] = saveFormat!;
     }
 
     if (tableContentAlignment != null) {
-      switch (tableContentAlignment) {
+      switch (tableContentAlignment!) {
         case MarkdownSaveOptionsData_TableContentAlignmentEnum.auto: _result['TableContentAlignment'] = 'Auto'; break;
         case MarkdownSaveOptionsData_TableContentAlignmentEnum.left: _result['TableContentAlignment'] = 'Left'; break;
         case MarkdownSaveOptionsData_TableContentAlignmentEnum.center: _result['TableContentAlignment'] = 'Center'; break;

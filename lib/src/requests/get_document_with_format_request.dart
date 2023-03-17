@@ -36,33 +36,33 @@ import '../api_request_part.dart';
 /// Request model for GetDocumentWithFormat operation.
 class GetDocumentWithFormatRequest implements RequestBase {
   /// The filename of the input document.
-  final String name;
+  final String? name;
 
   /// The destination format.
-  final String format;
+  final String? format;
 
   /// Original document folder.
-  final String folder;
+  final String? folder;
 
   /// Original document storage.
-  final String storage;
+  final String? storage;
 
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-  final String loadEncoding;
+  final String? loadEncoding;
 
   /// Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
-  final String password;
+  final String? password;
 
   /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
-  final String encryptedPassword;
+  final String? encryptedPassword;
 
   /// The path to the output document.
-  final String outPath;
+  final String? outPath;
 
   /// Folder in filestorage with custom fonts.
-  final String fontsLocation;
+  final String? fontsLocation;
 
-  GetDocumentWithFormatRequest(final this.name, final this.format, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.encryptedPassword, final this.outPath, final this.fontsLocation});
+  GetDocumentWithFormatRequest(this.name, this.format, {this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.outPath, this.fontsLocation});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -74,45 +74,45 @@ class GetDocumentWithFormatRequest implements RequestBase {
     if (name == null) {
       throw ApiException(400, 'Parameter name is required.');
     }
-    _path = _path.replaceAll('{name}', _apiClient.serializeToString(name));
+    _path = _path.replaceAll('{name}', _apiClient.serializeToString(name) ?? "");
     if (format != null) {
-      _queryParams['format'] = _apiClient.serializeToString(format);
+      _queryParams['format'] = _apiClient.serializeToString(format) ?? "";
     }
     else {
       throw ApiException(400, 'Parameter format is required.');
     }
 
     if (folder != null) {
-      _queryParams['folder'] = _apiClient.serializeToString(folder);
+      _queryParams['folder'] = _apiClient.serializeToString(folder) ?? "";
     }
 
     if (storage != null) {
-      _queryParams['storage'] = _apiClient.serializeToString(storage);
+      _queryParams['storage'] = _apiClient.serializeToString(storage) ?? "";
     }
 
     if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding) ?? "";
     }
 
     if (password != null) {
-      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password!);
     }
 
     if (encryptedPassword != null) {
-      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword);
+      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword) ?? "";
     }
 
     if (outPath != null) {
-      _queryParams['outPath'] = _apiClient.serializeToString(outPath);
+      _queryParams['outPath'] = _apiClient.serializeToString(outPath) ?? "";
     }
 
     if (fontsLocation != null) {
-      _queryParams['fontsLocation'] = _apiClient.serializeToString(fontsLocation);
+      _queryParams['fontsLocation'] = _apiClient.serializeToString(fontsLocation) ?? "";
     }
 
     for (final _fileContentPart in _fileContentParts) {
         if (_fileContentPart.source == 'Request') {
-            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
@@ -121,7 +121,11 @@ class GetDocumentWithFormatRequest implements RequestBase {
   }
 
   @override
-  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final Map<String, String> _headers, final ByteData? _body) {
+    if (_body == null) {
+        return ApiException(400, "Nullable response body is not allowed for this operation type.");
+    }
+
     return _body;
   }
 }

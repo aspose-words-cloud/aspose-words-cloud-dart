@@ -33,10 +33,10 @@ import '../test_context.dart';
 class DocumentWithFormatTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
+  late String remoteDataFolder;
+  late String localFile;
 
-  DocumentWithFormatTests(final this.context) {
+  DocumentWithFormatTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/DocumentWithFormat';
     localFile = 'Common/test_multi_pages.docx';
   }

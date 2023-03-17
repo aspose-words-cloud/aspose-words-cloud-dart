@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a form field.
 class FormFieldResponse extends WordsResponse {
   /// Gets or sets the form field.
-  FormField _formField;
+  FormField? _formField;
 
-  FormField get formField => _formField;
-  set formField(FormField val) => _formField = val;
+  FormField? get formField => _formField;
+  set formField(FormField? val) => _formField = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize FormFieldResponse data model.');
     }
@@ -53,7 +53,7 @@ class FormFieldResponse extends WordsResponse {
 
     if (json.containsKey('FormField')) {
       formField = FormField();
-      formField.deserialize(json['FormField'] as Map<String, dynamic>);
+      formField!.deserialize(json['FormField'] as Map<String, dynamic>);
     } else {
       formField = null;
     }
@@ -64,7 +64,7 @@ class FormFieldResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (formField != null) {
-      _result['FormField'] = formField.serialize();
+      _result['FormField'] = formField!.serialize();
     }
     return _result;
   }

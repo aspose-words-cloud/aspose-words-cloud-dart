@@ -32,77 +32,77 @@ import '../../aspose_words_cloud.dart';
 /// Represents a document list levels.
 class ListLevelUpdate implements ModelBase {
   /// Gets or sets the justification of the actual number of the list item.
-  ListLevelUpdate_AlignmentEnum _alignment;
+  ListLevelUpdate_AlignmentEnum? _alignment;
 
-  ListLevelUpdate_AlignmentEnum get alignment => _alignment;
-  set alignment(ListLevelUpdate_AlignmentEnum val) => _alignment = val;
+  ListLevelUpdate_AlignmentEnum? get alignment => _alignment;
+  set alignment(ListLevelUpdate_AlignmentEnum? val) => _alignment = val;
 
 
   /// Gets or sets a value indicating whether the level turns all inherited numbers to Arabic, false if it preserves their number style.
-  bool _isLegal;
+  bool? _isLegal;
 
-  bool get isLegal => _isLegal;
-  set isLegal(bool val) => _isLegal = val;
+  bool? get isLegal => _isLegal;
+  set isLegal(bool? val) => _isLegal = val;
 
 
   /// Gets or sets the number format for the list level.
-  String _numberFormat;
+  String? _numberFormat;
 
-  String get numberFormat => _numberFormat;
-  set numberFormat(String val) => _numberFormat = val;
+  String? get numberFormat => _numberFormat;
+  set numberFormat(String? val) => _numberFormat = val;
 
 
   /// Gets or sets the position (in points) of the number or bullet for the list level.
-  double _numberPosition;
+  double? _numberPosition;
 
-  double get numberPosition => _numberPosition;
-  set numberPosition(double val) => _numberPosition = val;
+  double? get numberPosition => _numberPosition;
+  set numberPosition(double? val) => _numberPosition = val;
 
 
   /// Gets or sets the number style for this list level.
-  ListLevelUpdate_NumberStyleEnum _numberStyle;
+  ListLevelUpdate_NumberStyleEnum? _numberStyle;
 
-  ListLevelUpdate_NumberStyleEnum get numberStyle => _numberStyle;
-  set numberStyle(ListLevelUpdate_NumberStyleEnum val) => _numberStyle = val;
+  ListLevelUpdate_NumberStyleEnum? get numberStyle => _numberStyle;
+  set numberStyle(ListLevelUpdate_NumberStyleEnum? val) => _numberStyle = val;
 
 
   /// Gets or sets the list level that must appear before the specified list level restarts numbering.
-  int _restartAfterLevel;
+  int? _restartAfterLevel;
 
-  int get restartAfterLevel => _restartAfterLevel;
-  set restartAfterLevel(int val) => _restartAfterLevel = val;
+  int? get restartAfterLevel => _restartAfterLevel;
+  set restartAfterLevel(int? val) => _restartAfterLevel = val;
 
 
   /// Gets or sets the starting number for this list level.
-  int _startAt;
+  int? _startAt;
 
-  int get startAt => _startAt;
-  set startAt(int val) => _startAt = val;
+  int? get startAt => _startAt;
+  set startAt(int? val) => _startAt = val;
 
 
   /// Gets or sets the tab position (in points) for the list level.
-  double _tabPosition;
+  double? _tabPosition;
 
-  double get tabPosition => _tabPosition;
-  set tabPosition(double val) => _tabPosition = val;
+  double? get tabPosition => _tabPosition;
+  set tabPosition(double? val) => _tabPosition = val;
 
 
   /// Gets or sets the position (in points) for the second line of wrapping text for the list level.
-  double _textPosition;
+  double? _textPosition;
 
-  double get textPosition => _textPosition;
-  set textPosition(double val) => _textPosition = val;
+  double? get textPosition => _textPosition;
+  set textPosition(double? val) => _textPosition = val;
 
 
   /// Gets or sets the character to be inserted after the number for the list level.
-  ListLevelUpdate_TrailingCharacterEnum _trailingCharacter;
+  ListLevelUpdate_TrailingCharacterEnum? _trailingCharacter;
 
-  ListLevelUpdate_TrailingCharacterEnum get trailingCharacter => _trailingCharacter;
-  set trailingCharacter(ListLevelUpdate_TrailingCharacterEnum val) => _trailingCharacter = val;
+  ListLevelUpdate_TrailingCharacterEnum? get trailingCharacter => _trailingCharacter;
+  set trailingCharacter(ListLevelUpdate_TrailingCharacterEnum? val) => _trailingCharacter = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize ListLevelUpdate data model.');
     }
@@ -246,7 +246,7 @@ class ListLevelUpdate implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (alignment != null) {
-      switch (alignment) {
+      switch (alignment!) {
         case ListLevelUpdate_AlignmentEnum.left: _result['Alignment'] = 'Left'; break;
         case ListLevelUpdate_AlignmentEnum.center: _result['Alignment'] = 'Center'; break;
         case ListLevelUpdate_AlignmentEnum.right: _result['Alignment'] = 'Right'; break;
@@ -255,19 +255,19 @@ class ListLevelUpdate implements ModelBase {
     }
 
     if (isLegal != null) {
-      _result['IsLegal'] = isLegal;
+      _result['IsLegal'] = isLegal!;
     }
 
     if (numberFormat != null) {
-      _result['NumberFormat'] = numberFormat;
+      _result['NumberFormat'] = numberFormat!;
     }
 
     if (numberPosition != null) {
-      _result['NumberPosition'] = numberPosition;
+      _result['NumberPosition'] = numberPosition!;
     }
 
     if (numberStyle != null) {
-      switch (numberStyle) {
+      switch (numberStyle!) {
         case ListLevelUpdate_NumberStyleEnum.arabic: _result['NumberStyle'] = 'Arabic'; break;
         case ListLevelUpdate_NumberStyleEnum.uppercaseRoman: _result['NumberStyle'] = 'UppercaseRoman'; break;
         case ListLevelUpdate_NumberStyleEnum.lowercaseRoman: _result['NumberStyle'] = 'LowercaseRoman'; break;
@@ -335,23 +335,23 @@ class ListLevelUpdate implements ModelBase {
     }
 
     if (restartAfterLevel != null) {
-      _result['RestartAfterLevel'] = restartAfterLevel;
+      _result['RestartAfterLevel'] = restartAfterLevel!;
     }
 
     if (startAt != null) {
-      _result['StartAt'] = startAt;
+      _result['StartAt'] = startAt!;
     }
 
     if (tabPosition != null) {
-      _result['TabPosition'] = tabPosition;
+      _result['TabPosition'] = tabPosition!;
     }
 
     if (textPosition != null) {
-      _result['TextPosition'] = textPosition;
+      _result['TextPosition'] = textPosition!;
     }
 
     if (trailingCharacter != null) {
-      switch (trailingCharacter) {
+      switch (trailingCharacter!) {
         case ListLevelUpdate_TrailingCharacterEnum.tab: _result['TrailingCharacter'] = 'Tab'; break;
         case ListLevelUpdate_TrailingCharacterEnum.space: _result['TrailingCharacter'] = 'Space'; break;
         case ListLevelUpdate_TrailingCharacterEnum.nothing: _result['TrailingCharacter'] = 'Nothing'; break;

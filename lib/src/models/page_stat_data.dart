@@ -32,42 +32,42 @@ import '../../aspose_words_cloud.dart';
 /// Container for the page's statistical data.
 class PageStatData implements ModelBase {
   /// Gets or sets the detailed statistics on the footnotes.
-  FootnotesStatData _footnotesStatData;
+  FootnotesStatData? _footnotesStatData;
 
-  FootnotesStatData get footnotesStatData => _footnotesStatData;
-  set footnotesStatData(FootnotesStatData val) => _footnotesStatData = val;
+  FootnotesStatData? get footnotesStatData => _footnotesStatData;
+  set footnotesStatData(FootnotesStatData? val) => _footnotesStatData = val;
 
 
   /// Gets or sets the page number.
-  int _pageNumber;
+  int? _pageNumber;
 
-  int get pageNumber => _pageNumber;
-  set pageNumber(int val) => _pageNumber = val;
+  int? get pageNumber => _pageNumber;
+  set pageNumber(int? val) => _pageNumber = val;
 
 
   /// Gets or sets the total count of paragraphs in the page.
-  int _paragraphCount;
+  int? _paragraphCount;
 
-  int get paragraphCount => _paragraphCount;
-  set paragraphCount(int val) => _paragraphCount = val;
+  int? get paragraphCount => _paragraphCount;
+  set paragraphCount(int? val) => _paragraphCount = val;
 
 
   /// Gets or sets the total count of words in the page.
-  int _wordCount;
+  int? _wordCount;
 
-  int get wordCount => _wordCount;
-  set wordCount(int val) => _wordCount = val;
+  int? get wordCount => _wordCount;
+  set wordCount(int? val) => _wordCount = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize PageStatData data model.');
     }
 
     if (json.containsKey('FootnotesStatData')) {
       footnotesStatData = FootnotesStatData();
-      footnotesStatData.deserialize(json['FootnotesStatData'] as Map<String, dynamic>);
+      footnotesStatData!.deserialize(json['FootnotesStatData'] as Map<String, dynamic>);
     } else {
       footnotesStatData = null;
     }
@@ -95,19 +95,19 @@ class PageStatData implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (footnotesStatData != null) {
-      _result['FootnotesStatData'] = footnotesStatData.serialize();
+      _result['FootnotesStatData'] = footnotesStatData!.serialize();
     }
 
     if (pageNumber != null) {
-      _result['PageNumber'] = pageNumber;
+      _result['PageNumber'] = pageNumber!;
     }
 
     if (paragraphCount != null) {
-      _result['ParagraphCount'] = paragraphCount;
+      _result['ParagraphCount'] = paragraphCount!;
     }
 
     if (wordCount != null) {
-      _result['WordCount'] = wordCount;
+      _result['WordCount'] = wordCount!;
     }
     return _result;
   }

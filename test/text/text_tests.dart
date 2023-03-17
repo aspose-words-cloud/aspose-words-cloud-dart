@@ -34,9 +34,9 @@ import '../test_context.dart';
 class TextTests
 {
   final TestContext context;
-  String remoteDataFolder;
+  late String remoteDataFolder;
 
-  TextTests(final this.context) {
+  TextTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Text';
   }
 
@@ -94,10 +94,10 @@ class TextTests
 
     final result = await context.getApi().search(request);
     expect(result.searchResults, isNotNull);
-    expect(result.searchResults.resultsList, isNotNull);
-    expect(result.searchResults.resultsList.length, 23);
-    expect(result.searchResults.resultsList[0].rangeStart, isNotNull);
-    expect(result.searchResults.resultsList[0].rangeStart.offset, 65);
+    expect(result.searchResults?.resultsList, isNotNull);
+    expect(result.searchResults?.resultsList?.length, 23);
+    expect(result.searchResults?.resultsList?[0]?.rangeStart, isNotNull);
+    expect(result.searchResults?.resultsList?[0]?.rangeStart?.offset, 65);
   }
 
   /// Test for searching online.

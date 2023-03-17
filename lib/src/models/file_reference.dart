@@ -32,18 +32,18 @@ import 'package:uuid/uuid.dart';
 import '../../aspose_words_cloud.dart';
 
 class FileReference implements ModelBase {
-  String _source;
-  String _reference;
-  ByteData _content;
+  String? _source;
+  String? _reference;
+  ByteData? _content;
 
   /// Gets the file source.
-  String get source => _source;
+  String? get source => _source;
 
   /// Gets the file reference.
-  String get reference => _reference;
+  String? get reference => _reference;
 
   /// Gets the file content
-  ByteData get content => _content;
+  ByteData? get content => _content;
 
   FileReference.fromRemoteFile(String remoteFilePath)
     : _source = 'Storage', _content = null, _reference = remoteFilePath;
@@ -52,7 +52,7 @@ class FileReference implements ModelBase {
     : _source = 'Request', _content = localFileContent, _reference = Uuid().v4();
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     throw ApiException(400, 'Failed to deserialize FileReference data model.');
   }
 

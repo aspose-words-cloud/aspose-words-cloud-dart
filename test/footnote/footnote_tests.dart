@@ -34,10 +34,10 @@ import '../test_context.dart';
 class FootnoteTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String footnoteFolder;
+  late String remoteDataFolder;
+  late String footnoteFolder;
 
-  FootnoteTests(final this.context) {
+  FootnoteTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Footnotes';
     footnoteFolder = 'DocumentElements/Footnotes';
   }
@@ -60,8 +60,8 @@ class FootnoteTests
 
     final result = await context.getApi().insertFootnote(request);
     expect(result.footnote, isNotNull);
-    expect(result.footnote.nodeId, '0.1.7.1');
-    expect(result.footnote.text, ' test endnote' + '\r\n');
+    expect(result.footnote?.nodeId, '0.1.7.1');
+    expect(result.footnote?.text, ' test endnote' + '\r\n');
   }
 
   /// Test for adding footnote online.
@@ -99,8 +99,8 @@ class FootnoteTests
 
     final result = await context.getApi().insertFootnote(request);
     expect(result.footnote, isNotNull);
-    expect(result.footnote.nodeId, '0.1.7.1');
-    expect(result.footnote.text, ' test endnote' + '\r\n');
+    expect(result.footnote?.nodeId, '0.1.7.1');
+    expect(result.footnote?.text, ' test endnote' + '\r\n');
   }
 
   /// Test for deleting footnote.
@@ -162,9 +162,9 @@ class FootnoteTests
 
     final result = await context.getApi().getFootnotes(request);
     expect(result.footnotes, isNotNull);
-    expect(result.footnotes.list, isNotNull);
-    expect(result.footnotes.list.length, 6);
-    expect(result.footnotes.list[0].text, ' Footnote 1.' + '\r\n');
+    expect(result.footnotes?.list, isNotNull);
+    expect(result.footnotes?.list?.length, 6);
+    expect(result.footnotes?.list?[0]?.text, ' Footnote 1.' + '\r\n');
   }
 
   /// Test for getting footnotes online.
@@ -193,9 +193,9 @@ class FootnoteTests
 
     final result = await context.getApi().getFootnotes(request);
     expect(result.footnotes, isNotNull);
-    expect(result.footnotes.list, isNotNull);
-    expect(result.footnotes.list.length, 6);
-    expect(result.footnotes.list[0].text, ' Footnote 1.' + '\r\n');
+    expect(result.footnotes?.list, isNotNull);
+    expect(result.footnotes?.list?.length, 6);
+    expect(result.footnotes?.list?[0]?.text, ' Footnote 1.' + '\r\n');
   }
 
   /// Test for getting footnote.
@@ -213,7 +213,7 @@ class FootnoteTests
 
     final result = await context.getApi().getFootnote(request);
     expect(result.footnote, isNotNull);
-    expect(result.footnote.text, ' Footnote 1.' + '\r\n');
+    expect(result.footnote?.text, ' Footnote 1.' + '\r\n');
   }
 
   /// Test for getting footnote online.
@@ -244,7 +244,7 @@ class FootnoteTests
 
     final result = await context.getApi().getFootnote(request);
     expect(result.footnote, isNotNull);
-    expect(result.footnote.text, ' Footnote 1.' + '\r\n');
+    expect(result.footnote?.text, ' Footnote 1.' + '\r\n');
   }
 
   /// Test for updating footnote.
@@ -265,7 +265,7 @@ class FootnoteTests
 
     final result = await context.getApi().updateFootnote(request);
     expect(result.footnote, isNotNull);
-    expect(result.footnote.text, ' new text is here' + '\r\n');
+    expect(result.footnote?.text, ' new text is here' + '\r\n');
   }
 
   /// Test for updating footnote online.
@@ -303,6 +303,6 @@ class FootnoteTests
 
     final result = await context.getApi().updateFootnote(request);
     expect(result.footnote, isNotNull);
-    expect(result.footnote.text, ' new text is here' + '\r\n');
+    expect(result.footnote?.text, ' new text is here' + '\r\n');
   }
 }

@@ -36,12 +36,12 @@ import '../api_request_part.dart';
 /// Request model for CreateFolder operation.
 class CreateFolderRequest implements RequestBase {
   /// Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively.
-  final String path;
+  final String? path;
 
   /// Storage name.
-  final String storageName;
+  final String? storageName;
 
-  CreateFolderRequest(final this.path, {final this.storageName});
+  CreateFolderRequest(this.path, {this.storageName});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -53,14 +53,14 @@ class CreateFolderRequest implements RequestBase {
     if (path == null) {
       throw ApiException(400, 'Parameter path is required.');
     }
-    _path = _path.replaceAll('{path}', _apiClient.serializeToString(path));
+    _path = _path.replaceAll('{path}', _apiClient.serializeToString(path) ?? "");
     if (storageName != null) {
-      _queryParams['storageName'] = _apiClient.serializeToString(storageName);
+      _queryParams['storageName'] = _apiClient.serializeToString(storageName) ?? "";
     }
 
     for (final _fileContentPart in _fileContentParts) {
         if (_fileContentPart.source == 'Request') {
-            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
@@ -69,7 +69,7 @@ class CreateFolderRequest implements RequestBase {
   }
 
   @override
-  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final Map<String, String> _headers, final ByteData? _body) {
     return null;
   }
 }

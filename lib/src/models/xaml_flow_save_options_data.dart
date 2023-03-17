@@ -32,28 +32,28 @@ import '../../aspose_words_cloud.dart';
 /// Container class for xaml flow save options.
 class XamlFlowSaveOptionsData extends SaveOptionsData {
   /// Gets or sets the physical folder where images are saved when exporting.
-  String _imagesFolder;
+  String? _imagesFolder;
 
-  String get imagesFolder => _imagesFolder;
-  set imagesFolder(String val) => _imagesFolder = val;
+  String? get imagesFolder => _imagesFolder;
+  set imagesFolder(String? val) => _imagesFolder = val;
 
 
   /// Gets or sets the name of the folder used to construct image URIs.
-  String _imagesFolderAlias;
+  String? _imagesFolderAlias;
 
-  String get imagesFolderAlias => _imagesFolderAlias;
-  set imagesFolderAlias(String val) => _imagesFolderAlias = val;
+  String? get imagesFolderAlias => _imagesFolderAlias;
+  set imagesFolderAlias(String? val) => _imagesFolderAlias = val;
 
 
   /// Gets the format of save.
-  String _saveFormat = 'xamlflow';
+  String? _saveFormat = 'xamlflow';
 
   @override
-  String get saveFormat => _saveFormat;
+  String? get saveFormat => _saveFormat;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize XamlFlowSaveOptionsData data model.');
     }
@@ -67,7 +67,7 @@ class XamlFlowSaveOptionsData extends SaveOptionsData {
 
     if (json.containsKey('CustomTimeZoneInfoData')) {
       customTimeZoneInfoData = TimeZoneInfoData();
-      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+      customTimeZoneInfoData!.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
     } else {
       customTimeZoneInfoData = null;
     }
@@ -173,15 +173,15 @@ class XamlFlowSaveOptionsData extends SaveOptionsData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (imagesFolder != null) {
-      _result['ImagesFolder'] = imagesFolder;
+      _result['ImagesFolder'] = imagesFolder!;
     }
 
     if (imagesFolderAlias != null) {
-      _result['ImagesFolderAlias'] = imagesFolderAlias;
+      _result['ImagesFolderAlias'] = imagesFolderAlias!;
     }
 
     if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat;
+      _result['SaveFormat'] = saveFormat!;
     }
     return _result;
   }

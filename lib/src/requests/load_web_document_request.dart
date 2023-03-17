@@ -37,12 +37,12 @@ import '../api_request_part.dart';
 /// Request model for LoadWebDocument operation.
 class LoadWebDocumentRequest implements RequestBase {
   /// The properties of data downloading.
-  final LoadWebDocumentData data;
+  final LoadWebDocumentData? data;
 
   /// Original document storage.
-  final String storage;
+  final String? storage;
 
-  LoadWebDocumentRequest(final this.data, {final this.storage});
+  LoadWebDocumentRequest(this.data, {this.storage});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -52,11 +52,14 @@ class LoadWebDocumentRequest implements RequestBase {
     var _bodyParts = <ApiRequestPart>[];
     var _fileContentParts = <FileReference>[];
     if (storage != null) {
-      _queryParams['storage'] = _apiClient.serializeToString(storage);
+      _queryParams['storage'] = _apiClient.serializeToString(storage) ?? "";
     }
 
     if (data != null) {
-      _bodyParts.add(_apiClient.serializeBody(data, 'Body'));
+      var _body = _apiClient.serializeBody(data, 'Body');
+      if (_body != null) {
+        _bodyParts.add(_body);
+      }
     }
     else {
       throw ApiException(400, 'Parameter data is required.');
@@ -64,7 +67,7 @@ class LoadWebDocumentRequest implements RequestBase {
 
     for (final _fileContentPart in _fileContentParts) {
         if (_fileContentPart.source == 'Request') {
-            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
@@ -73,7 +76,11 @@ class LoadWebDocumentRequest implements RequestBase {
   }
 
   @override
-  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final Map<String, String> _headers, final ByteData? _body) {
+    if (_body == null) {
+        return ApiException(400, "Nullable response body is not allowed for this operation type.");
+    }
+
     var _result = SaveResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);

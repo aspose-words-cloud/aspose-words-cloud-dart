@@ -32,28 +32,28 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a position in the document tree.
 class DocumentPosition implements ModelBase {
   /// Gets or sets the link to a node.
-  NodeLink _node;
+  NodeLink? _node;
 
-  NodeLink get node => _node;
-  set node(NodeLink val) => _node = val;
+  NodeLink? get node => _node;
+  set node(NodeLink? val) => _node = val;
 
 
   /// Gets or sets the offset in the node.
-  int _offset;
+  int? _offset;
 
-  int get offset => _offset;
-  set offset(int val) => _offset = val;
+  int? get offset => _offset;
+  set offset(int? val) => _offset = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize DocumentPosition data model.');
     }
 
     if (json.containsKey('Node')) {
       node = NodeLink();
-      node.deserialize(json['Node'] as Map<String, dynamic>);
+      node!.deserialize(json['Node'] as Map<String, dynamic>);
     } else {
       node = null;
     }
@@ -69,11 +69,11 @@ class DocumentPosition implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (node != null) {
-      _result['Node'] = node.serialize();
+      _result['Node'] = node!.serialize();
     }
 
     if (offset != null) {
-      _result['Offset'] = offset;
+      _result['Offset'] = offset!;
     }
     return _result;
   }

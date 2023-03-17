@@ -36,18 +36,18 @@ import '../api_request_part.dart';
 /// Request model for BuildReportOnline operation.
 class BuildReportOnlineRequest implements RequestBase {
   /// File with template.
-  final ByteData template;
+  final ByteData? template;
 
   /// A string providing a data to populate the specified template. The string must be of one of the following types: xml, json, csv.
-  final String data;
+  final String? data;
 
   /// An object providing a settings of report engine.
-  final ReportEngineSettings reportEngineSettings;
+  final ReportEngineSettings? reportEngineSettings;
 
   /// The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "template" will be used instead.
-  final String documentFileName;
+  final String? documentFileName;
 
-  BuildReportOnlineRequest(final this.template, final this.data, final this.reportEngineSettings, {final this.documentFileName});
+  BuildReportOnlineRequest(this.template, this.data, this.reportEngineSettings, {this.documentFileName});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -57,25 +57,34 @@ class BuildReportOnlineRequest implements RequestBase {
     var _bodyParts = <ApiRequestPart>[];
     var _fileContentParts = <FileReference>[];
     if (documentFileName != null) {
-      _queryParams['documentFileName'] = _apiClient.serializeToString(documentFileName);
+      _queryParams['documentFileName'] = _apiClient.serializeToString(documentFileName) ?? "";
     }
 
     if (template != null) {
-      _bodyParts.add(_apiClient.serializeBody(template, 'Template'));
+      var _formBody = _apiClient.serializeBody(template, 'Template');
+      if (_formBody != null) {
+        _bodyParts.add(_formBody);
+      }
     }
     else {
       throw ApiException(400, 'Parameter template is required.');
     }
 
     if (data != null) {
-      _bodyParts.add(_apiClient.serializeBody(data, 'Data'));
+      var _formBody = _apiClient.serializeBody(data, 'Data');
+      if (_formBody != null) {
+        _bodyParts.add(_formBody);
+      }
     }
     else {
       throw ApiException(400, 'Parameter data is required.');
     }
 
     if (reportEngineSettings != null) {
-      _bodyParts.add(_apiClient.serializeBody(reportEngineSettings, 'ReportEngineSettings'));
+      var _formBody = _apiClient.serializeBody(reportEngineSettings, 'ReportEngineSettings');
+      if (_formBody != null) {
+        _bodyParts.add(_formBody);
+      }
     }
     else {
       throw ApiException(400, 'Parameter reportEngineSettings is required.');
@@ -83,7 +92,7 @@ class BuildReportOnlineRequest implements RequestBase {
 
     for (final _fileContentPart in _fileContentParts) {
         if (_fileContentPart.source == 'Request') {
-            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
@@ -92,7 +101,11 @@ class BuildReportOnlineRequest implements RequestBase {
   }
 
   @override
-  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final Map<String, String> _headers, final ByteData? _body) {
+    if (_body == null) {
+        return ApiException(400, "Nullable response body is not allowed for this operation type.");
+    }
+
     return _body;
   }
 }

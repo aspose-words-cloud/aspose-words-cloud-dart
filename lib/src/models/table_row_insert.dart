@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a table row element.
 class TableRowInsert implements ModelBase {
   /// Gets or sets the count of columns. The default value is 1.
-  int _columnsCount;
+  int? _columnsCount;
 
-  int get columnsCount => _columnsCount;
-  set columnsCount(int val) => _columnsCount = val;
+  int? get columnsCount => _columnsCount;
+  set columnsCount(int? val) => _columnsCount = val;
 
 
   /// Gets or sets table row will be inserted after row with specified 0-based index.
-  int _insertAfter;
+  int? _insertAfter;
 
-  int get insertAfter => _insertAfter;
-  set insertAfter(int val) => _insertAfter = val;
+  int? get insertAfter => _insertAfter;
+  set insertAfter(int? val) => _insertAfter = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize TableRowInsert data model.');
     }
@@ -68,11 +68,11 @@ class TableRowInsert implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (columnsCount != null) {
-      _result['ColumnsCount'] = columnsCount;
+      _result['ColumnsCount'] = columnsCount!;
     }
 
     if (insertAfter != null) {
-      _result['InsertAfter'] = insertAfter;
+      _result['InsertAfter'] = insertAfter!;
     }
     return _result;
   }

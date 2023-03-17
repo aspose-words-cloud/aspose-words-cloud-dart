@@ -36,11 +36,11 @@ import 'test_context.dart';
 class BatchTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
-  String reportingFolder;
+  late String remoteDataFolder;
+  late String localFile;
+  late String reportingFolder;
 
-  BatchTests(final this.context) {
+  BatchTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Paragraphs';
     localFile = 'Common/test_multi_pages.docx';
     reportingFolder = 'DocumentActions/Reporting';

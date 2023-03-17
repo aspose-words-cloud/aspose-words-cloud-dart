@@ -32,42 +32,42 @@ import '../../aspose_words_cloud.dart';
 /// Container class for compare documents.
 class CompareData implements ModelBase {
   /// Gets or sets the initials of the author to use for revisions.
-  String _author;
+  String? _author;
 
-  String get author => _author;
-  set author(String val) => _author = val;
+  String? get author => _author;
+  set author(String? val) => _author = val;
 
 
   /// Gets or sets the compare options.
-  CompareOptions _compareOptions;
+  CompareOptions? _compareOptions;
 
-  CompareOptions get compareOptions => _compareOptions;
-  set compareOptions(CompareOptions val) => _compareOptions = val;
+  CompareOptions? get compareOptions => _compareOptions;
+  set compareOptions(CompareOptions? val) => _compareOptions = val;
 
 
   /// Gets or sets the path to document to compare at the server.
-  String _comparingWithDocument;
+  String? _comparingWithDocument;
 
-  String get comparingWithDocument => _comparingWithDocument;
-  set comparingWithDocument(String val) => _comparingWithDocument = val;
+  String? get comparingWithDocument => _comparingWithDocument;
+  set comparingWithDocument(String? val) => _comparingWithDocument = val;
 
 
   /// Gets or sets the date and time to use for revisions.
-  DateTime _dateTime;
+  DateTime? _dateTime;
 
-  DateTime get dateTime => _dateTime;
-  set dateTime(DateTime val) => _dateTime = val;
+  DateTime? get dateTime => _dateTime;
+  set dateTime(DateTime? val) => _dateTime = val;
 
 
   /// Gets or sets the result document format.
-  String _resultDocumentFormat;
+  String? _resultDocumentFormat;
 
-  String get resultDocumentFormat => _resultDocumentFormat;
-  set resultDocumentFormat(String val) => _resultDocumentFormat = val;
+  String? get resultDocumentFormat => _resultDocumentFormat;
+  set resultDocumentFormat(String? val) => _resultDocumentFormat = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize CompareData data model.');
     }
@@ -80,7 +80,7 @@ class CompareData implements ModelBase {
 
     if (json.containsKey('CompareOptions')) {
       compareOptions = CompareOptions();
-      compareOptions.deserialize(json['CompareOptions'] as Map<String, dynamic>);
+      compareOptions!.deserialize(json['CompareOptions'] as Map<String, dynamic>);
     } else {
       compareOptions = null;
     }
@@ -108,23 +108,23 @@ class CompareData implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (author != null) {
-      _result['Author'] = author;
+      _result['Author'] = author!;
     }
 
     if (compareOptions != null) {
-      _result['CompareOptions'] = compareOptions.serialize();
+      _result['CompareOptions'] = compareOptions!.serialize();
     }
 
     if (comparingWithDocument != null) {
-      _result['ComparingWithDocument'] = comparingWithDocument;
+      _result['ComparingWithDocument'] = comparingWithDocument!;
     }
 
     if (dateTime != null) {
-      _result['DateTime'] = dateTime.toIso8601String();
+      _result['DateTime'] = dateTime!.toIso8601String();
     }
 
     if (resultDocumentFormat != null) {
-      _result['ResultDocumentFormat'] = resultDocumentFormat;
+      _result['ResultDocumentFormat'] = resultDocumentFormat!;
     }
     return _result;
   }

@@ -33,11 +33,11 @@ import '../test_context.dart';
 class BookmarkTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
-  String bookmarkName;
+  late String remoteDataFolder;
+  late String localFile;
+  late String bookmarkName;
 
-  BookmarkTests(final this.context) {
+  BookmarkTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Bookmarks';
     localFile = 'Common/test_multi_pages.docx';
     bookmarkName = 'aspose';

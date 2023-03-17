@@ -32,56 +32,56 @@ import '../../aspose_words_cloud.dart';
 /// Container class for svg save options.
 class SvgSaveOptionsData extends FixedPageSaveOptionsData {
   /// Gets or sets a value indicating whether images should be embedded into SVG document as base64.
-  bool _exportEmbeddedImages;
+  bool? _exportEmbeddedImages;
 
-  bool get exportEmbeddedImages => _exportEmbeddedImages;
-  set exportEmbeddedImages(bool val) => _exportEmbeddedImages = val;
+  bool? get exportEmbeddedImages => _exportEmbeddedImages;
+  set exportEmbeddedImages(bool? val) => _exportEmbeddedImages = val;
 
 
   /// Gets or sets a value indicating whether the output SVG should fill the available viewport area (browser window or container). When set to true width and height of output SVG are set to 100%.
-  bool _fitToViewPort;
+  bool? _fitToViewPort;
 
-  bool get fitToViewPort => _fitToViewPort;
-  set fitToViewPort(bool val) => _fitToViewPort = val;
+  bool? get fitToViewPort => _fitToViewPort;
+  set fitToViewPort(bool? val) => _fitToViewPort = val;
 
 
   /// Gets or sets the physical folder where resources (images) are saved when exporting.
-  String _resourcesFolder;
+  String? _resourcesFolder;
 
-  String get resourcesFolder => _resourcesFolder;
-  set resourcesFolder(String val) => _resourcesFolder = val;
+  String? get resourcesFolder => _resourcesFolder;
+  set resourcesFolder(String? val) => _resourcesFolder = val;
 
 
   /// Gets or sets the name of the folder used to construct image URIs.
-  String _resourcesFolderAlias;
+  String? _resourcesFolderAlias;
 
-  String get resourcesFolderAlias => _resourcesFolderAlias;
-  set resourcesFolderAlias(String val) => _resourcesFolderAlias = val;
+  String? get resourcesFolderAlias => _resourcesFolderAlias;
+  set resourcesFolderAlias(String? val) => _resourcesFolderAlias = val;
 
 
   /// Gets the format of save.
-  String _saveFormat = 'svg';
+  String? _saveFormat = 'svg';
 
   @override
-  String get saveFormat => _saveFormat;
+  String? get saveFormat => _saveFormat;
 
 
   /// Gets or sets a value indicating whether to show or hide page stepper.
-  bool _showPageBorder;
+  bool? _showPageBorder;
 
-  bool get showPageBorder => _showPageBorder;
-  set showPageBorder(bool val) => _showPageBorder = val;
+  bool? get showPageBorder => _showPageBorder;
+  set showPageBorder(bool? val) => _showPageBorder = val;
 
 
   /// Gets or sets the option that controls how text should be rendered.
-  SvgSaveOptionsData_TextOutputModeEnum _textOutputMode;
+  SvgSaveOptionsData_TextOutputModeEnum? _textOutputMode;
 
-  SvgSaveOptionsData_TextOutputModeEnum get textOutputMode => _textOutputMode;
-  set textOutputMode(SvgSaveOptionsData_TextOutputModeEnum val) => _textOutputMode = val;
+  SvgSaveOptionsData_TextOutputModeEnum? get textOutputMode => _textOutputMode;
+  set textOutputMode(SvgSaveOptionsData_TextOutputModeEnum? val) => _textOutputMode = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize SvgSaveOptionsData data model.');
     }
@@ -95,7 +95,7 @@ class SvgSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (json.containsKey('CustomTimeZoneInfoData')) {
       customTimeZoneInfoData = TimeZoneInfoData();
-      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+      customTimeZoneInfoData!.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
     } else {
       customTimeZoneInfoData = null;
     }
@@ -201,7 +201,7 @@ class SvgSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (json.containsKey('MetafileRenderingOptions')) {
       metafileRenderingOptions = MetafileRenderingOptionsData();
-      metafileRenderingOptions.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
+      metafileRenderingOptions!.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
     } else {
       metafileRenderingOptions = null;
     }
@@ -284,31 +284,31 @@ class SvgSaveOptionsData extends FixedPageSaveOptionsData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (exportEmbeddedImages != null) {
-      _result['ExportEmbeddedImages'] = exportEmbeddedImages;
+      _result['ExportEmbeddedImages'] = exportEmbeddedImages!;
     }
 
     if (fitToViewPort != null) {
-      _result['FitToViewPort'] = fitToViewPort;
+      _result['FitToViewPort'] = fitToViewPort!;
     }
 
     if (resourcesFolder != null) {
-      _result['ResourcesFolder'] = resourcesFolder;
+      _result['ResourcesFolder'] = resourcesFolder!;
     }
 
     if (resourcesFolderAlias != null) {
-      _result['ResourcesFolderAlias'] = resourcesFolderAlias;
+      _result['ResourcesFolderAlias'] = resourcesFolderAlias!;
     }
 
     if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat;
+      _result['SaveFormat'] = saveFormat!;
     }
 
     if (showPageBorder != null) {
-      _result['ShowPageBorder'] = showPageBorder;
+      _result['ShowPageBorder'] = showPageBorder!;
     }
 
     if (textOutputMode != null) {
-      switch (textOutputMode) {
+      switch (textOutputMode!) {
         case SvgSaveOptionsData_TextOutputModeEnum.useSvgFonts: _result['TextOutputMode'] = 'UseSvgFonts'; break;
         case SvgSaveOptionsData_TextOutputModeEnum.useTargetMachineFonts: _result['TextOutputMode'] = 'UseTargetMachineFonts'; break;
         case SvgSaveOptionsData_TextOutputModeEnum.usePlacedGlyphs: _result['TextOutputMode'] = 'UsePlacedGlyphs'; break;

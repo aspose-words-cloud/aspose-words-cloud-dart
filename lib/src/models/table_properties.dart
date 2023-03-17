@@ -32,106 +32,106 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with table properties.
 class TableProperties extends LinkElement {
   /// Gets or sets the option that controls how an inline table is aligned in the document.
-  TableProperties_AlignmentEnum _alignment;
+  TableProperties_AlignmentEnum? _alignment;
 
-  TableProperties_AlignmentEnum get alignment => _alignment;
-  set alignment(TableProperties_AlignmentEnum val) => _alignment = val;
+  TableProperties_AlignmentEnum? get alignment => _alignment;
+  set alignment(TableProperties_AlignmentEnum? val) => _alignment = val;
 
 
   /// Gets or sets a value indicating whether to automatically resize cells in a table to fit their contents.
-  bool _allowAutoFit;
+  bool? _allowAutoFit;
 
-  bool get allowAutoFit => _allowAutoFit;
-  set allowAutoFit(bool val) => _allowAutoFit = val;
+  bool? get allowAutoFit => _allowAutoFit;
+  set allowAutoFit(bool? val) => _allowAutoFit = val;
 
 
   /// Gets or sets a value indicating whether this is a right-to-left table.
-  bool _bidi;
+  bool? _bidi;
 
-  bool get bidi => _bidi;
-  set bidi(bool val) => _bidi = val;
+  bool? get bidi => _bidi;
+  set bidi(bool? val) => _bidi = val;
 
 
   /// Gets or sets the amount of space (in points) to add below the contents of cells.
-  double _bottomPadding;
+  double? _bottomPadding;
 
-  double get bottomPadding => _bottomPadding;
-  set bottomPadding(double val) => _bottomPadding = val;
+  double? get bottomPadding => _bottomPadding;
+  set bottomPadding(double? val) => _bottomPadding = val;
 
 
   /// Gets or sets the amount of space (in points) between the cells.
-  double _cellSpacing;
+  double? _cellSpacing;
 
-  double get cellSpacing => _cellSpacing;
-  set cellSpacing(double val) => _cellSpacing = val;
+  double? get cellSpacing => _cellSpacing;
+  set cellSpacing(double? val) => _cellSpacing = val;
 
 
   /// Gets or sets the value, that represents the left indent of the table.
-  double _leftIndent;
+  double? _leftIndent;
 
-  double get leftIndent => _leftIndent;
-  set leftIndent(double val) => _leftIndent = val;
+  double? get leftIndent => _leftIndent;
+  set leftIndent(double? val) => _leftIndent = val;
 
 
   /// Gets or sets the amount of space (in points) to add to the left of the contents of cells.
-  double _leftPadding;
+  double? _leftPadding;
 
-  double get leftPadding => _leftPadding;
-  set leftPadding(double val) => _leftPadding = val;
+  double? get leftPadding => _leftPadding;
+  set leftPadding(double? val) => _leftPadding = val;
 
 
   /// Gets or sets the table preferred width.
   /// Preferred width can be specified as a percentage, number of points or a special "auto" value.
-  PreferredWidth _preferredWidth;
+  PreferredWidth? _preferredWidth;
 
-  PreferredWidth get preferredWidth => _preferredWidth;
-  set preferredWidth(PreferredWidth val) => _preferredWidth = val;
+  PreferredWidth? get preferredWidth => _preferredWidth;
+  set preferredWidth(PreferredWidth? val) => _preferredWidth = val;
 
 
   /// Gets or sets the amount of space (in points) to add to the right of the contents of cells.
-  double _rightPadding;
+  double? _rightPadding;
 
-  double get rightPadding => _rightPadding;
-  set rightPadding(double val) => _rightPadding = val;
+  double? get rightPadding => _rightPadding;
+  set rightPadding(double? val) => _rightPadding = val;
 
 
   /// Gets or sets the locale independent style identifier of the table style applied to this table.
-  TableProperties_StyleIdentifierEnum _styleIdentifier;
+  TableProperties_StyleIdentifierEnum? _styleIdentifier;
 
-  TableProperties_StyleIdentifierEnum get styleIdentifier => _styleIdentifier;
-  set styleIdentifier(TableProperties_StyleIdentifierEnum val) => _styleIdentifier = val;
+  TableProperties_StyleIdentifierEnum? get styleIdentifier => _styleIdentifier;
+  set styleIdentifier(TableProperties_StyleIdentifierEnum? val) => _styleIdentifier = val;
 
 
   /// Gets or sets the name of the table style applied to this table.
-  String _styleName;
+  String? _styleName;
 
-  String get styleName => _styleName;
-  set styleName(String val) => _styleName = val;
+  String? get styleName => _styleName;
+  set styleName(String? val) => _styleName = val;
 
 
   /// Gets or sets the bit flags, that specify how a table style is applied to this table.
-  TableProperties_StyleOptionsEnum _styleOptions;
+  TableProperties_StyleOptionsEnum? _styleOptions;
 
-  TableProperties_StyleOptionsEnum get styleOptions => _styleOptions;
-  set styleOptions(TableProperties_StyleOptionsEnum val) => _styleOptions = val;
+  TableProperties_StyleOptionsEnum? get styleOptions => _styleOptions;
+  set styleOptions(TableProperties_StyleOptionsEnum? val) => _styleOptions = val;
 
 
   /// Gets or sets the option that controls text wrapping for the table.
-  TableProperties_TextWrappingEnum _textWrapping;
+  TableProperties_TextWrappingEnum? _textWrapping;
 
-  TableProperties_TextWrappingEnum get textWrapping => _textWrapping;
-  set textWrapping(TableProperties_TextWrappingEnum val) => _textWrapping = val;
+  TableProperties_TextWrappingEnum? get textWrapping => _textWrapping;
+  set textWrapping(TableProperties_TextWrappingEnum? val) => _textWrapping = val;
 
 
   /// Gets or sets the amount of space (in points) to add above the contents of cells.
-  double _topPadding;
+  double? _topPadding;
 
-  double get topPadding => _topPadding;
-  set topPadding(double val) => _topPadding = val;
+  double? get topPadding => _topPadding;
+  set topPadding(double? val) => _topPadding = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize TableProperties data model.');
     }
@@ -139,7 +139,7 @@ class TableProperties extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -193,7 +193,7 @@ class TableProperties extends LinkElement {
 
     if (json.containsKey('PreferredWidth')) {
       preferredWidth = PreferredWidth();
-      preferredWidth.deserialize(json['PreferredWidth'] as Map<String, dynamic>);
+      preferredWidth!.deserialize(json['PreferredWidth'] as Map<String, dynamic>);
     } else {
       preferredWidth = null;
     }
@@ -636,7 +636,7 @@ class TableProperties extends LinkElement {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (alignment != null) {
-      switch (alignment) {
+      switch (alignment!) {
         case TableProperties_AlignmentEnum.left: _result['Alignment'] = 'Left'; break;
         case TableProperties_AlignmentEnum.center: _result['Alignment'] = 'Center'; break;
         case TableProperties_AlignmentEnum.right: _result['Alignment'] = 'Right'; break;
@@ -645,39 +645,39 @@ class TableProperties extends LinkElement {
     }
 
     if (allowAutoFit != null) {
-      _result['AllowAutoFit'] = allowAutoFit;
+      _result['AllowAutoFit'] = allowAutoFit!;
     }
 
     if (bidi != null) {
-      _result['Bidi'] = bidi;
+      _result['Bidi'] = bidi!;
     }
 
     if (bottomPadding != null) {
-      _result['BottomPadding'] = bottomPadding;
+      _result['BottomPadding'] = bottomPadding!;
     }
 
     if (cellSpacing != null) {
-      _result['CellSpacing'] = cellSpacing;
+      _result['CellSpacing'] = cellSpacing!;
     }
 
     if (leftIndent != null) {
-      _result['LeftIndent'] = leftIndent;
+      _result['LeftIndent'] = leftIndent!;
     }
 
     if (leftPadding != null) {
-      _result['LeftPadding'] = leftPadding;
+      _result['LeftPadding'] = leftPadding!;
     }
 
     if (preferredWidth != null) {
-      _result['PreferredWidth'] = preferredWidth.serialize();
+      _result['PreferredWidth'] = preferredWidth!.serialize();
     }
 
     if (rightPadding != null) {
-      _result['RightPadding'] = rightPadding;
+      _result['RightPadding'] = rightPadding!;
     }
 
     if (styleIdentifier != null) {
-      switch (styleIdentifier) {
+      switch (styleIdentifier!) {
         case TableProperties_StyleIdentifierEnum.normal: _result['StyleIdentifier'] = 'Normal'; break;
         case TableProperties_StyleIdentifierEnum.heading1: _result['StyleIdentifier'] = 'Heading1'; break;
         case TableProperties_StyleIdentifierEnum.heading2: _result['StyleIdentifier'] = 'Heading2'; break;
@@ -1061,11 +1061,11 @@ class TableProperties extends LinkElement {
     }
 
     if (styleName != null) {
-      _result['StyleName'] = styleName;
+      _result['StyleName'] = styleName!;
     }
 
     if (styleOptions != null) {
-      switch (styleOptions) {
+      switch (styleOptions!) {
         case TableProperties_StyleOptionsEnum.none: _result['StyleOptions'] = 'None'; break;
         case TableProperties_StyleOptionsEnum.firstRow: _result['StyleOptions'] = 'FirstRow'; break;
         case TableProperties_StyleOptionsEnum.lastRow: _result['StyleOptions'] = 'LastRow'; break;
@@ -1080,7 +1080,7 @@ class TableProperties extends LinkElement {
     }
 
     if (textWrapping != null) {
-      switch (textWrapping) {
+      switch (textWrapping!) {
         case TableProperties_TextWrappingEnum.defaultValue: _result['TextWrapping'] = 'Default'; break;
         case TableProperties_TextWrappingEnum.none: _result['TextWrapping'] = 'None'; break;
         case TableProperties_TextWrappingEnum.around: _result['TextWrapping'] = 'Around'; break;
@@ -1089,7 +1089,7 @@ class TableProperties extends LinkElement {
     }
 
     if (topPadding != null) {
-      _result['TopPadding'] = topPadding;
+      _result['TopPadding'] = topPadding!;
     }
     return _result;
   }

@@ -37,42 +37,42 @@ import '../api_request_part.dart';
 /// Request model for UpdateRunFont operation.
 class UpdateRunFontRequest implements RequestBase {
   /// The filename of the input document.
-  final String name;
+  final String? name;
 
   /// The path to the paragraph in the document tree.
-  final String paragraphPath;
+  final String? paragraphPath;
 
   /// Object index.
-  final int index;
+  final int? index;
 
   /// Font dto object.
-  final Font fontDto;
+  final Font? fontDto;
 
   /// Original document folder.
-  final String folder;
+  final String? folder;
 
   /// Original document storage.
-  final String storage;
+  final String? storage;
 
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-  final String loadEncoding;
+  final String? loadEncoding;
 
   /// Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
-  final String password;
+  final String? password;
 
   /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
-  final String encryptedPassword;
+  final String? encryptedPassword;
 
   /// Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-  final String destFileName;
+  final String? destFileName;
 
   /// Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-  final String revisionAuthor;
+  final String? revisionAuthor;
 
   /// The date and time to use for revisions.
-  final String revisionDateTime;
+  final String? revisionDateTime;
 
-  UpdateRunFontRequest(final this.name, final this.paragraphPath, final this.index, final this.fontDto, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.encryptedPassword, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
+  UpdateRunFontRequest(this.name, this.paragraphPath, this.index, this.fontDto, {this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -84,51 +84,54 @@ class UpdateRunFontRequest implements RequestBase {
     if (name == null) {
       throw ApiException(400, 'Parameter name is required.');
     }
-    _path = _path.replaceAll('{name}', _apiClient.serializeToString(name));
+    _path = _path.replaceAll('{name}', _apiClient.serializeToString(name) ?? "");
 
     if (paragraphPath == null) {
       throw ApiException(400, 'Parameter paragraphPath is required.');
     }
-    _path = _path.replaceAll('{paragraphPath}', _apiClient.serializeToString(paragraphPath));
+    _path = _path.replaceAll('{paragraphPath}', _apiClient.serializeToString(paragraphPath) ?? "");
 
     if (index == null) {
       throw ApiException(400, 'Parameter index is required.');
     }
-    _path = _path.replaceAll('{index}', _apiClient.serializeToString(index));
+    _path = _path.replaceAll('{index}', _apiClient.serializeToString(index) ?? "");
     if (folder != null) {
-      _queryParams['folder'] = _apiClient.serializeToString(folder);
+      _queryParams['folder'] = _apiClient.serializeToString(folder) ?? "";
     }
 
     if (storage != null) {
-      _queryParams['storage'] = _apiClient.serializeToString(storage);
+      _queryParams['storage'] = _apiClient.serializeToString(storage) ?? "";
     }
 
     if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding) ?? "";
     }
 
     if (password != null) {
-      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password!);
     }
 
     if (encryptedPassword != null) {
-      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword);
+      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword) ?? "";
     }
 
     if (destFileName != null) {
-      _queryParams['destFileName'] = _apiClient.serializeToString(destFileName);
+      _queryParams['destFileName'] = _apiClient.serializeToString(destFileName) ?? "";
     }
 
     if (revisionAuthor != null) {
-      _queryParams['revisionAuthor'] = _apiClient.serializeToString(revisionAuthor);
+      _queryParams['revisionAuthor'] = _apiClient.serializeToString(revisionAuthor) ?? "";
     }
 
     if (revisionDateTime != null) {
-      _queryParams['revisionDateTime'] = _apiClient.serializeToString(revisionDateTime);
+      _queryParams['revisionDateTime'] = _apiClient.serializeToString(revisionDateTime) ?? "";
     }
 
     if (fontDto != null) {
-      _bodyParts.add(_apiClient.serializeBody(fontDto, 'Body'));
+      var _body = _apiClient.serializeBody(fontDto, 'Body');
+      if (_body != null) {
+        _bodyParts.add(_body);
+      }
     }
     else {
       throw ApiException(400, 'Parameter fontDto is required.');
@@ -136,7 +139,7 @@ class UpdateRunFontRequest implements RequestBase {
 
     for (final _fileContentPart in _fileContentParts) {
         if (_fileContentPart.source == 'Request') {
-            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
@@ -145,7 +148,11 @@ class UpdateRunFontRequest implements RequestBase {
   }
 
   @override
-  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final Map<String, String> _headers, final ByteData? _body) {
+    if (_body == null) {
+        return ApiException(400, "Nullable response body is not allowed for this operation type.");
+    }
+
     var _result = FontResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);

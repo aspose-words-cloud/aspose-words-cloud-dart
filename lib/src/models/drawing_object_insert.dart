@@ -32,63 +32,63 @@ import '../../aspose_words_cloud.dart';
 /// Drawing object element for insert.
 class DrawingObjectInsert implements ModelBase {
   /// Gets or sets the height of the DrawingObject in points.
-  double _height;
+  double? _height;
 
-  double get height => _height;
-  set height(double val) => _height = val;
+  double? get height => _height;
+  set height(double? val) => _height = val;
 
 
   /// Gets or sets the distance in points from the origin to the left side of the image.
-  double _left;
+  double? _left;
 
-  double get left => _left;
-  set left(double val) => _left = val;
+  double? get left => _left;
+  set left(double? val) => _left = val;
 
 
   /// Gets or sets the position, before which the DrawingObject will be inserted.
-  DocumentPosition _position;
+  DocumentPosition? _position;
 
-  DocumentPosition get position => _position;
-  set position(DocumentPosition val) => _position = val;
+  DocumentPosition? get position => _position;
+  set position(DocumentPosition? val) => _position = val;
 
 
   /// Gets or sets the relative horizontal position, from which the distance to the image is measured.
-  DrawingObjectInsert_RelativeHorizontalPositionEnum _relativeHorizontalPosition;
+  DrawingObjectInsert_RelativeHorizontalPositionEnum? _relativeHorizontalPosition;
 
-  DrawingObjectInsert_RelativeHorizontalPositionEnum get relativeHorizontalPosition => _relativeHorizontalPosition;
-  set relativeHorizontalPosition(DrawingObjectInsert_RelativeHorizontalPositionEnum val) => _relativeHorizontalPosition = val;
+  DrawingObjectInsert_RelativeHorizontalPositionEnum? get relativeHorizontalPosition => _relativeHorizontalPosition;
+  set relativeHorizontalPosition(DrawingObjectInsert_RelativeHorizontalPositionEnum? val) => _relativeHorizontalPosition = val;
 
 
   /// Gets or sets the relative vertical position, from which the distance to the image is measured.
-  DrawingObjectInsert_RelativeVerticalPositionEnum _relativeVerticalPosition;
+  DrawingObjectInsert_RelativeVerticalPositionEnum? _relativeVerticalPosition;
 
-  DrawingObjectInsert_RelativeVerticalPositionEnum get relativeVerticalPosition => _relativeVerticalPosition;
-  set relativeVerticalPosition(DrawingObjectInsert_RelativeVerticalPositionEnum val) => _relativeVerticalPosition = val;
+  DrawingObjectInsert_RelativeVerticalPositionEnum? get relativeVerticalPosition => _relativeVerticalPosition;
+  set relativeVerticalPosition(DrawingObjectInsert_RelativeVerticalPositionEnum? val) => _relativeVerticalPosition = val;
 
 
   /// Gets or sets the distance in points from the origin to the top side of the image.
-  double _top;
+  double? _top;
 
-  double get top => _top;
-  set top(double val) => _top = val;
+  double? get top => _top;
+  set top(double? val) => _top = val;
 
 
   /// Gets or sets the width of the DrawingObjects in points.
-  double _width;
+  double? _width;
 
-  double get width => _width;
-  set width(double val) => _width = val;
+  double? get width => _width;
+  set width(double? val) => _width = val;
 
 
   /// Gets or sets the option indicating how to wrap text around the image.
-  DrawingObjectInsert_WrapTypeEnum _wrapType;
+  DrawingObjectInsert_WrapTypeEnum? _wrapType;
 
-  DrawingObjectInsert_WrapTypeEnum get wrapType => _wrapType;
-  set wrapType(DrawingObjectInsert_WrapTypeEnum val) => _wrapType = val;
+  DrawingObjectInsert_WrapTypeEnum? get wrapType => _wrapType;
+  set wrapType(DrawingObjectInsert_WrapTypeEnum? val) => _wrapType = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize DrawingObjectInsert data model.');
     }
@@ -107,7 +107,7 @@ class DrawingObjectInsert implements ModelBase {
 
     if (json.containsKey('Position')) {
       position = DocumentPosition();
-      position.deserialize(json['Position'] as Map<String, dynamic>);
+      position!.deserialize(json['Position'] as Map<String, dynamic>);
     } else {
       position = null;
     }
@@ -178,19 +178,19 @@ class DrawingObjectInsert implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (height != null) {
-      _result['Height'] = height;
+      _result['Height'] = height!;
     }
 
     if (left != null) {
-      _result['Left'] = left;
+      _result['Left'] = left!;
     }
 
     if (position != null) {
-      _result['Position'] = position.serialize();
+      _result['Position'] = position!.serialize();
     }
 
     if (relativeHorizontalPosition != null) {
-      switch (relativeHorizontalPosition) {
+      switch (relativeHorizontalPosition!) {
         case DrawingObjectInsert_RelativeHorizontalPositionEnum.margin: _result['RelativeHorizontalPosition'] = 'Margin'; break;
         case DrawingObjectInsert_RelativeHorizontalPositionEnum.page: _result['RelativeHorizontalPosition'] = 'Page'; break;
         case DrawingObjectInsert_RelativeHorizontalPositionEnum.column: _result['RelativeHorizontalPosition'] = 'Column'; break;
@@ -205,7 +205,7 @@ class DrawingObjectInsert implements ModelBase {
     }
 
     if (relativeVerticalPosition != null) {
-      switch (relativeVerticalPosition) {
+      switch (relativeVerticalPosition!) {
         case DrawingObjectInsert_RelativeVerticalPositionEnum.margin: _result['RelativeVerticalPosition'] = 'Margin'; break;
         case DrawingObjectInsert_RelativeVerticalPositionEnum.tableDefault: _result['RelativeVerticalPosition'] = 'TableDefault'; break;
         case DrawingObjectInsert_RelativeVerticalPositionEnum.page: _result['RelativeVerticalPosition'] = 'Page'; break;
@@ -221,15 +221,15 @@ class DrawingObjectInsert implements ModelBase {
     }
 
     if (top != null) {
-      _result['Top'] = top;
+      _result['Top'] = top!;
     }
 
     if (width != null) {
-      _result['Width'] = width;
+      _result['Width'] = width!;
     }
 
     if (wrapType != null) {
-      switch (wrapType) {
+      switch (wrapType!) {
         case DrawingObjectInsert_WrapTypeEnum.inline: _result['WrapType'] = 'Inline'; break;
         case DrawingObjectInsert_WrapTypeEnum.topBottom: _result['WrapType'] = 'TopBottom'; break;
         case DrawingObjectInsert_WrapTypeEnum.square: _result['WrapType'] = 'Square'; break;

@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The collection of search results.
 class SearchResultsCollection extends LinkElement {
   /// Gets or sets the collection of comments.
-  List<SearchResult> _resultsList;
+  List<SearchResult?>? _resultsList;
 
-  List<SearchResult> get resultsList => _resultsList;
-  set resultsList(List<SearchResult> val) => _resultsList = val;
+  List<SearchResult?>? get resultsList => _resultsList;
+  set resultsList(List<SearchResult?>? val) => _resultsList = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize SearchResultsCollection data model.');
     }
@@ -47,7 +47,7 @@ class SearchResultsCollection extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -58,7 +58,7 @@ class SearchResultsCollection extends LinkElement {
       for(final _element in json['ResultsList']) {
         var _elementValue = SearchResult();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        resultsList.add(_elementValue);
+        resultsList!.add(_elementValue);
       }
     } else {
       resultsList = null;
@@ -70,7 +70,7 @@ class SearchResultsCollection extends LinkElement {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (resultsList != null) {
-      _result['ResultsList'] = resultsList.map((_element) => _element.serialize()).toList();
+      _result['ResultsList'] = resultsList!.map((_element) => _element?.serialize()).toList();
     }
     return _result;
   }

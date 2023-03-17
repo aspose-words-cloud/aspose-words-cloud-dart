@@ -32,28 +32,28 @@ import '../../aspose_words_cloud.dart';
 /// Request on changing of protection.
 class ProtectionRequest implements ModelBase {
   /// Gets or sets the new password.
-  String _newPassword;
+  String? _newPassword;
 
-  String get newPassword => _newPassword;
-  set newPassword(String val) => _newPassword = val;
+  String? get newPassword => _newPassword;
+  set newPassword(String? val) => _newPassword = val;
 
 
   /// Gets or sets the current password.
-  String _password;
+  String? _password;
 
-  String get password => _password;
-  set password(String val) => _password = val;
+  String? get password => _password;
+  set password(String? val) => _password = val;
 
 
   /// Gets or sets the new type of protection.
-  String _protectionType;
+  String? _protectionType;
 
-  String get protectionType => _protectionType;
-  set protectionType(String val) => _protectionType = val;
+  String? get protectionType => _protectionType;
+  set protectionType(String? val) => _protectionType = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize ProtectionRequest data model.');
     }
@@ -81,15 +81,15 @@ class ProtectionRequest implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (newPassword != null) {
-      _result['NewPassword'] = newPassword;
+      _result['NewPassword'] = newPassword!;
     }
 
     if (password != null) {
-      _result['Password'] = password;
+      _result['Password'] = password!;
     }
 
     if (protectionType != null) {
-      _result['ProtectionType'] = protectionType;
+      _result['ProtectionType'] = protectionType!;
     }
     return _result;
   }

@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a collection of bookmarks.
 class BookmarksResponse extends WordsResponse {
   /// Gets or sets the collection of bookmarks.
-  Bookmarks _bookmarks;
+  Bookmarks? _bookmarks;
 
-  Bookmarks get bookmarks => _bookmarks;
-  set bookmarks(Bookmarks val) => _bookmarks = val;
+  Bookmarks? get bookmarks => _bookmarks;
+  set bookmarks(Bookmarks? val) => _bookmarks = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize BookmarksResponse data model.');
     }
@@ -53,7 +53,7 @@ class BookmarksResponse extends WordsResponse {
 
     if (json.containsKey('Bookmarks')) {
       bookmarks = Bookmarks();
-      bookmarks.deserialize(json['Bookmarks'] as Map<String, dynamic>);
+      bookmarks!.deserialize(json['Bookmarks'] as Map<String, dynamic>);
     } else {
       bookmarks = null;
     }
@@ -64,7 +64,7 @@ class BookmarksResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (bookmarks != null) {
-      _result['Bookmarks'] = bookmarks.serialize();
+      _result['Bookmarks'] = bookmarks!.serialize();
     }
     return _result;
   }

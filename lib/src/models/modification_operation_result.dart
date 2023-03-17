@@ -32,35 +32,35 @@ import '../../aspose_words_cloud.dart';
 /// result of the operation which modifies the original document and saves the result.
 class ModificationOperationResult implements ModelBase {
   /// Gets or sets the link to the dest document (result of the modification operation).
-  FileLink _dest;
+  FileLink? _dest;
 
-  FileLink get dest => _dest;
-  set dest(FileLink val) => _dest = val;
+  FileLink? get dest => _dest;
+  set dest(FileLink? val) => _dest = val;
 
 
   /// Gets or sets the link to the source document (source for the modification operation).
-  FileLink _source;
+  FileLink? _source;
 
-  FileLink get source => _source;
-  set source(FileLink val) => _source = val;
+  FileLink? get source => _source;
+  set source(FileLink? val) => _source = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize ModificationOperationResult data model.');
     }
 
     if (json.containsKey('Dest')) {
       dest = FileLink();
-      dest.deserialize(json['Dest'] as Map<String, dynamic>);
+      dest!.deserialize(json['Dest'] as Map<String, dynamic>);
     } else {
       dest = null;
     }
 
     if (json.containsKey('Source')) {
       source = FileLink();
-      source.deserialize(json['Source'] as Map<String, dynamic>);
+      source!.deserialize(json['Source'] as Map<String, dynamic>);
     } else {
       source = null;
     }
@@ -70,11 +70,11 @@ class ModificationOperationResult implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (dest != null) {
-      _result['Dest'] = dest.serialize();
+      _result['Dest'] = dest!.serialize();
     }
 
     if (source != null) {
-      _result['Source'] = source.serialize();
+      _result['Source'] = source!.serialize();
     }
     return _result;
   }

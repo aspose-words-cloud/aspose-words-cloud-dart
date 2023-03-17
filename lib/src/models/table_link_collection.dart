@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The collection of table's links.
 class TableLinkCollection extends LinkElement {
   /// Gets or sets the collection of table's links.
-  List<TableLink> _tableLinkList;
+  List<TableLink?>? _tableLinkList;
 
-  List<TableLink> get tableLinkList => _tableLinkList;
-  set tableLinkList(List<TableLink> val) => _tableLinkList = val;
+  List<TableLink?>? get tableLinkList => _tableLinkList;
+  set tableLinkList(List<TableLink?>? val) => _tableLinkList = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize TableLinkCollection data model.');
     }
@@ -47,7 +47,7 @@ class TableLinkCollection extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -58,7 +58,7 @@ class TableLinkCollection extends LinkElement {
       for(final _element in json['TableLinkList']) {
         var _elementValue = TableLink();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        tableLinkList.add(_elementValue);
+        tableLinkList!.add(_elementValue);
       }
     } else {
       tableLinkList = null;
@@ -70,7 +70,7 @@ class TableLinkCollection extends LinkElement {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (tableLinkList != null) {
-      _result['TableLinkList'] = tableLinkList.map((_element) => _element.serialize()).toList();
+      _result['TableLinkList'] = tableLinkList!.map((_element) => _element?.serialize()).toList();
     }
     return _result;
   }

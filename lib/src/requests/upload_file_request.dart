@@ -37,17 +37,17 @@ import '../api_request_part.dart';
 /// Request model for UploadFile operation.
 class UploadFileRequest implements RequestBase {
   /// File to upload.
-  final ByteData fileContent;
+  final ByteData? fileContent;
 
   /// Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext
   /// If the content is multipart and path does not contains the file name it tries to get them from filename parameter
   /// from Content-Disposition header.
-  final String path;
+  final String? path;
 
   /// Storage name.
-  final String storageName;
+  final String? storageName;
 
-  UploadFileRequest(final this.fileContent, final this.path, {final this.storageName});
+  UploadFileRequest(this.fileContent, this.path, {this.storageName});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -59,13 +59,16 @@ class UploadFileRequest implements RequestBase {
     if (path == null) {
       throw ApiException(400, 'Parameter path is required.');
     }
-    _path = _path.replaceAll('{path}', _apiClient.serializeToString(path));
+    _path = _path.replaceAll('{path}', _apiClient.serializeToString(path) ?? "");
     if (storageName != null) {
-      _queryParams['storageName'] = _apiClient.serializeToString(storageName);
+      _queryParams['storageName'] = _apiClient.serializeToString(storageName) ?? "";
     }
 
     if (fileContent != null) {
-      _bodyParts.add(_apiClient.serializeBody(fileContent, 'FileContent'));
+      var _formBody = _apiClient.serializeBody(fileContent, 'FileContent');
+      if (_formBody != null) {
+        _bodyParts.add(_formBody);
+      }
     }
     else {
       throw ApiException(400, 'Parameter fileContent is required.');
@@ -73,7 +76,7 @@ class UploadFileRequest implements RequestBase {
 
     for (final _fileContentPart in _fileContentParts) {
         if (_fileContentPart.source == 'Request') {
-            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
@@ -82,7 +85,11 @@ class UploadFileRequest implements RequestBase {
   }
 
   @override
-  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final Map<String, String> _headers, final ByteData? _body) {
+    if (_body == null) {
+        return ApiException(400, "Nullable response body is not allowed for this operation type.");
+    }
+
     var _result = FilesUploadResult();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);

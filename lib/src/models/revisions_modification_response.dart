@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a result of the modification operations for the revisions collection (now these are acceptAll and rejectAll).
 class RevisionsModificationResponse extends WordsResponse {
   /// Gets or sets the result of the modification operations for the revisions collection.
-  ModificationOperationResult _result;
+  ModificationOperationResult? _result;
 
-  ModificationOperationResult get result => _result;
-  set result(ModificationOperationResult val) => _result = val;
+  ModificationOperationResult? get result => _result;
+  set result(ModificationOperationResult? val) => _result = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize RevisionsModificationResponse data model.');
     }
@@ -53,7 +53,7 @@ class RevisionsModificationResponse extends WordsResponse {
 
     if (json.containsKey('Result')) {
       result = ModificationOperationResult();
-      result.deserialize(json['Result'] as Map<String, dynamic>);
+      result!.deserialize(json['Result'] as Map<String, dynamic>);
     } else {
       result = null;
     }
@@ -64,7 +64,7 @@ class RevisionsModificationResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (result != null) {
-      _result['Result'] = result.serialize();
+      _result['Result'] = result!.serialize();
     }
     return _result;
   }

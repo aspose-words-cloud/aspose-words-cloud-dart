@@ -32,42 +32,42 @@ import '../../aspose_words_cloud.dart';
 /// Class is used for insert page number request building.
 class PageNumber implements ModelBase {
   /// Gets or sets text alignment, possible values are left, right, center or justify.
-  String _alignment;
+  String? _alignment;
 
-  String get alignment => _alignment;
-  set alignment(String val) => _alignment = val;
+  String? get alignment => _alignment;
+  set alignment(String? val) => _alignment = val;
 
 
   /// Gets or sets the page number format, e.g. "{PAGE} of {NUMPAGES}".
-  String _format;
+  String? _format;
 
-  String get format => _format;
-  set format(String val) => _format = val;
+  String? get format => _format;
+  set format(String? val) => _format = val;
 
 
   /// Gets or sets a value indicating whether if true the page number is added at the top of the page, else at the bottom.
-  bool _isTop;
+  bool? _isTop;
 
-  bool get isTop => _isTop;
-  set isTop(bool val) => _isTop = val;
+  bool? get isTop => _isTop;
+  set isTop(bool? val) => _isTop = val;
 
 
   /// Gets or sets the starting page number of the document.
-  int _pageStartingNumber;
+  int? _pageStartingNumber;
 
-  int get pageStartingNumber => _pageStartingNumber;
-  set pageStartingNumber(int val) => _pageStartingNumber = val;
+  int? get pageStartingNumber => _pageStartingNumber;
+  set pageStartingNumber(int? val) => _pageStartingNumber = val;
 
 
   /// Gets or sets a value indicating whether if true the page number is added on first page too.
-  bool _setPageNumberOnFirstPage;
+  bool? _setPageNumberOnFirstPage;
 
-  bool get setPageNumberOnFirstPage => _setPageNumberOnFirstPage;
-  set setPageNumberOnFirstPage(bool val) => _setPageNumberOnFirstPage = val;
+  bool? get setPageNumberOnFirstPage => _setPageNumberOnFirstPage;
+  set setPageNumberOnFirstPage(bool? val) => _setPageNumberOnFirstPage = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize PageNumber data model.');
     }
@@ -107,23 +107,23 @@ class PageNumber implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (alignment != null) {
-      _result['Alignment'] = alignment;
+      _result['Alignment'] = alignment!;
     }
 
     if (format != null) {
-      _result['Format'] = format;
+      _result['Format'] = format!;
     }
 
     if (isTop != null) {
-      _result['IsTop'] = isTop;
+      _result['IsTop'] = isTop!;
     }
 
     if (pageStartingNumber != null) {
-      _result['PageStartingNumber'] = pageStartingNumber;
+      _result['PageStartingNumber'] = pageStartingNumber!;
     }
 
     if (setPageNumberOnFirstPage != null) {
-      _result['SetPageNumberOnFirstPage'] = setPageNumberOnFirstPage;
+      _result['SetPageNumberOnFirstPage'] = setPageNumberOnFirstPage!;
     }
     return _result;
   }

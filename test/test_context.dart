@@ -33,7 +33,7 @@ import 'package:test/test.dart';
 import 'package:uuid/uuid.dart';
 
 class TestContext {
-  WordsApi _wordsApi;
+  late WordsApi _wordsApi;
 
   /// Configuration
   final Configuration configuration;
@@ -47,7 +47,7 @@ class TestContext {
   /// Base local test data folder
   final String localTestDataFolder = Directory.current.path + '/test_data';
 
-  TestContext(final this.configuration) {
+  TestContext(this.configuration) {
     _wordsApi = WordsApi(configuration);
   }
 
@@ -59,8 +59,8 @@ class TestContext {
     final content = await loadBinaryFile(localPath);
     final request = UploadFileRequest(content, remotePath);
     final result = await getApi().uploadFile(request);
-    expect(result.errors.length, 0);
-    expect(result.uploaded.length, 1);
+    expect(result.errors?.length, 0);
+    expect(result.uploaded?.length, 1);
   }
 
   String createRandomGuid() {

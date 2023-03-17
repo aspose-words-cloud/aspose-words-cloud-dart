@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a OfficeMath object.
 class OfficeMathObjectResponse extends WordsResponse {
   /// Gets or sets the OfficeMath object.
-  OfficeMathObject _officeMathObject;
+  OfficeMathObject? _officeMathObject;
 
-  OfficeMathObject get officeMathObject => _officeMathObject;
-  set officeMathObject(OfficeMathObject val) => _officeMathObject = val;
+  OfficeMathObject? get officeMathObject => _officeMathObject;
+  set officeMathObject(OfficeMathObject? val) => _officeMathObject = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize OfficeMathObjectResponse data model.');
     }
@@ -53,7 +53,7 @@ class OfficeMathObjectResponse extends WordsResponse {
 
     if (json.containsKey('OfficeMathObject')) {
       officeMathObject = OfficeMathObject();
-      officeMathObject.deserialize(json['OfficeMathObject'] as Map<String, dynamic>);
+      officeMathObject!.deserialize(json['OfficeMathObject'] as Map<String, dynamic>);
     } else {
       officeMathObject = null;
     }
@@ -64,7 +64,7 @@ class OfficeMathObjectResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (officeMathObject != null) {
-      _result['OfficeMathObject'] = officeMathObject.serialize();
+      _result['OfficeMathObject'] = officeMathObject!.serialize();
     }
     return _result;
   }

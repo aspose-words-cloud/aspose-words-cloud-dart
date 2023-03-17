@@ -32,37 +32,37 @@ import '../../aspose_words_cloud.dart';
 /// Base class for save options of text formats.
 abstract class TxtSaveOptionsBaseData extends SaveOptionsData {
   /// Gets or sets the character encoding to use when exporting in plain text format.
-  String _encoding;
+  String? _encoding;
 
-  String get encoding => _encoding;
-  set encoding(String val) => _encoding = val;
+  String? get encoding => _encoding;
+  set encoding(String? val) => _encoding = val;
 
 
   /// Gets or sets the option that controls whether to output headers and footers when exporting in plain text format.
   /// default value is TxtExportHeadersFootersMode.PrimaryOnly.
-  TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum _exportHeadersFootersMode;
+  TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum? _exportHeadersFootersMode;
 
-  TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum get exportHeadersFootersMode => _exportHeadersFootersMode;
-  set exportHeadersFootersMode(TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum val) => _exportHeadersFootersMode = val;
+  TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum? get exportHeadersFootersMode => _exportHeadersFootersMode;
+  set exportHeadersFootersMode(TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum? val) => _exportHeadersFootersMode = val;
 
 
   /// Gets or sets a value indicating whether the page breaks should be preserved during export.
   /// The default value is false.
-  bool _forcePageBreaks;
+  bool? _forcePageBreaks;
 
-  bool get forcePageBreaks => _forcePageBreaks;
-  set forcePageBreaks(bool val) => _forcePageBreaks = val;
+  bool? get forcePageBreaks => _forcePageBreaks;
+  set forcePageBreaks(bool? val) => _forcePageBreaks = val;
 
 
   /// Gets or sets the string to use as a paragraph break when exporting in plain text format.
-  String _paragraphBreak;
+  String? _paragraphBreak;
 
-  String get paragraphBreak => _paragraphBreak;
-  set paragraphBreak(String val) => _paragraphBreak = val;
+  String? get paragraphBreak => _paragraphBreak;
+  set paragraphBreak(String? val) => _paragraphBreak = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize TxtSaveOptionsBaseData data model.');
     }
@@ -76,7 +76,7 @@ abstract class TxtSaveOptionsBaseData extends SaveOptionsData {
 
     if (json.containsKey('CustomTimeZoneInfoData')) {
       customTimeZoneInfoData = TimeZoneInfoData();
-      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+      customTimeZoneInfoData!.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
     } else {
       customTimeZoneInfoData = null;
     }
@@ -199,11 +199,11 @@ abstract class TxtSaveOptionsBaseData extends SaveOptionsData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (encoding != null) {
-      _result['Encoding'] = encoding;
+      _result['Encoding'] = encoding!;
     }
 
     if (exportHeadersFootersMode != null) {
-      switch (exportHeadersFootersMode) {
+      switch (exportHeadersFootersMode!) {
         case TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum.none: _result['ExportHeadersFootersMode'] = 'None'; break;
         case TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum.primaryOnly: _result['ExportHeadersFootersMode'] = 'PrimaryOnly'; break;
         case TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum.allAtEnd: _result['ExportHeadersFootersMode'] = 'AllAtEnd'; break;
@@ -212,11 +212,11 @@ abstract class TxtSaveOptionsBaseData extends SaveOptionsData {
     }
 
     if (forcePageBreaks != null) {
-      _result['ForcePageBreaks'] = forcePageBreaks;
+      _result['ForcePageBreaks'] = forcePageBreaks!;
     }
 
     if (paragraphBreak != null) {
-      _result['ParagraphBreak'] = paragraphBreak;
+      _result['ParagraphBreak'] = paragraphBreak!;
     }
     return _result;
   }

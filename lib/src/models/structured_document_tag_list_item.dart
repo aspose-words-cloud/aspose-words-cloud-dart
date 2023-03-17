@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a SdtListItem for StructuredDocumentTag.
 class StructuredDocumentTagListItem implements ModelBase {
   /// Gets or sets the text to display in the run content in place of the Aspose.Words.Markup.SdtListItem.Value attribute contents for this list item.
-  String _displayText;
+  String? _displayText;
 
-  String get displayText => _displayText;
-  set displayText(String val) => _displayText = val;
+  String? get displayText => _displayText;
+  set displayText(String? val) => _displayText = val;
 
 
   /// Gets or sets the value of this list item.
-  String _value;
+  String? _value;
 
-  String get value => _value;
-  set value(String val) => _value = val;
+  String? get value => _value;
+  set value(String? val) => _value = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize StructuredDocumentTagListItem data model.');
     }
@@ -68,11 +68,11 @@ class StructuredDocumentTagListItem implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (displayText != null) {
-      _result['DisplayText'] = displayText;
+      _result['DisplayText'] = displayText!;
     }
 
     if (value != null) {
-      _result['Value'] = value;
+      _result['Value'] = value!;
     }
     return _result;
   }

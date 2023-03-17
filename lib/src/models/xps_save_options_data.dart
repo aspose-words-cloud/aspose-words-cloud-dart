@@ -32,42 +32,42 @@ import '../../aspose_words_cloud.dart';
 /// Container class for xps save options.
 class XpsSaveOptionsData extends FixedPageSaveOptionsData {
   /// Gets or sets the level in the XPS document outline at which to display Word bookmarks.
-  int _bookmarksOutlineLevel;
+  int? _bookmarksOutlineLevel;
 
-  int get bookmarksOutlineLevel => _bookmarksOutlineLevel;
-  set bookmarksOutlineLevel(int val) => _bookmarksOutlineLevel = val;
+  int? get bookmarksOutlineLevel => _bookmarksOutlineLevel;
+  set bookmarksOutlineLevel(int? val) => _bookmarksOutlineLevel = val;
 
 
   /// Gets or sets the number of heading levels (paragraphs formatted with the Heading styles) to include in the XPS document outline.
-  int _headingsOutlineLevels;
+  int? _headingsOutlineLevels;
 
-  int get headingsOutlineLevels => _headingsOutlineLevels;
-  set headingsOutlineLevels(int val) => _headingsOutlineLevels = val;
+  int? get headingsOutlineLevels => _headingsOutlineLevels;
+  set headingsOutlineLevels(int? val) => _headingsOutlineLevels = val;
 
 
   /// Gets or sets the outline options.
-  OutlineOptionsData _outlineOptions;
+  OutlineOptionsData? _outlineOptions;
 
-  OutlineOptionsData get outlineOptions => _outlineOptions;
-  set outlineOptions(OutlineOptionsData val) => _outlineOptions = val;
+  OutlineOptionsData? get outlineOptions => _outlineOptions;
+  set outlineOptions(OutlineOptionsData? val) => _outlineOptions = val;
 
 
   /// Gets the format of save.
-  String _saveFormat = 'xps';
+  String? _saveFormat = 'xps';
 
   @override
-  String get saveFormat => _saveFormat;
+  String? get saveFormat => _saveFormat;
 
 
   /// Gets or sets a value indicating whether the document should be saved using a booklet printing layout.
-  bool _useBookFoldPrintingSettings;
+  bool? _useBookFoldPrintingSettings;
 
-  bool get useBookFoldPrintingSettings => _useBookFoldPrintingSettings;
-  set useBookFoldPrintingSettings(bool val) => _useBookFoldPrintingSettings = val;
+  bool? get useBookFoldPrintingSettings => _useBookFoldPrintingSettings;
+  set useBookFoldPrintingSettings(bool? val) => _useBookFoldPrintingSettings = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize XpsSaveOptionsData data model.');
     }
@@ -81,7 +81,7 @@ class XpsSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (json.containsKey('CustomTimeZoneInfoData')) {
       customTimeZoneInfoData = TimeZoneInfoData();
-      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+      customTimeZoneInfoData!.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
     } else {
       customTimeZoneInfoData = null;
     }
@@ -187,7 +187,7 @@ class XpsSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (json.containsKey('MetafileRenderingOptions')) {
       metafileRenderingOptions = MetafileRenderingOptionsData();
-      metafileRenderingOptions.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
+      metafileRenderingOptions!.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
     } else {
       metafileRenderingOptions = null;
     }
@@ -237,7 +237,7 @@ class XpsSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (json.containsKey('OutlineOptions')) {
       outlineOptions = OutlineOptionsData();
-      outlineOptions.deserialize(json['OutlineOptions'] as Map<String, dynamic>);
+      outlineOptions!.deserialize(json['OutlineOptions'] as Map<String, dynamic>);
     } else {
       outlineOptions = null;
     }
@@ -254,23 +254,23 @@ class XpsSaveOptionsData extends FixedPageSaveOptionsData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (bookmarksOutlineLevel != null) {
-      _result['BookmarksOutlineLevel'] = bookmarksOutlineLevel;
+      _result['BookmarksOutlineLevel'] = bookmarksOutlineLevel!;
     }
 
     if (headingsOutlineLevels != null) {
-      _result['HeadingsOutlineLevels'] = headingsOutlineLevels;
+      _result['HeadingsOutlineLevels'] = headingsOutlineLevels!;
     }
 
     if (outlineOptions != null) {
-      _result['OutlineOptions'] = outlineOptions.serialize();
+      _result['OutlineOptions'] = outlineOptions!.serialize();
     }
 
     if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat;
+      _result['SaveFormat'] = saveFormat!;
     }
 
     if (useBookFoldPrintingSettings != null) {
-      _result['UseBookFoldPrintingSettings'] = useBookFoldPrintingSettings;
+      _result['UseBookFoldPrintingSettings'] = useBookFoldPrintingSettings!;
     }
     return _result;
   }

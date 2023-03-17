@@ -33,7 +33,7 @@ import '../../aspose_words_cloud.dart';
 class WordsApiLink extends Link {
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize WordsApiLink data model.');
     }

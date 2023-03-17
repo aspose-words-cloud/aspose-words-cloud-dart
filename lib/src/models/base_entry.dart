@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// Represents a base class for document which will be appended to the original resource document.
 abstract class BaseEntry implements ModelBase {
   /// Gets or sets the file reference.
-  FileReference _fileReference;
+  FileReference? _fileReference;
 
-  FileReference get fileReference => _fileReference;
-  set fileReference(FileReference val) => _fileReference = val;
+  FileReference? get fileReference => _fileReference;
+  set fileReference(FileReference? val) => _fileReference = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize BaseEntry data model.');
     }
@@ -55,7 +55,7 @@ abstract class BaseEntry implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (fileReference != null) {
-      _result['FileReference'] = fileReference.serialize();
+      _result['FileReference'] = fileReference!.serialize();
     }
     return _result;
   }
@@ -64,7 +64,7 @@ abstract class BaseEntry implements ModelBase {
   void getFilesContent(List<FileReference> resultFilesContent) {
     if (fileReference != null)
     {
-        fileReference.getFilesContent(resultFilesContent);
+        fileReference!.getFilesContent(resultFilesContent);
     }
 
   }

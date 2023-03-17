@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The collection of borders.
 class BordersCollection extends LinkElement {
   /// Gets or sets the collection of comments.
-  List<Border> _list;
+  List<Border?>? _list;
 
-  List<Border> get list => _list;
-  set list(List<Border> val) => _list = val;
+  List<Border?>? get list => _list;
+  set list(List<Border?>? val) => _list = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize BordersCollection data model.');
     }
@@ -47,7 +47,7 @@ class BordersCollection extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -58,7 +58,7 @@ class BordersCollection extends LinkElement {
       for(final _element in json['List']) {
         var _elementValue = Border();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        list.add(_elementValue);
+        list!.add(_elementValue);
       }
     } else {
       list = null;
@@ -70,7 +70,7 @@ class BordersCollection extends LinkElement {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (list != null) {
-      _result['List'] = list.map((_element) => _element.serialize()).toList();
+      _result['List'] = list!.map((_element) => _element?.serialize()).toList();
     }
     return _result;
   }

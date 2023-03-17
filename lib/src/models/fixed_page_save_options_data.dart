@@ -33,58 +33,58 @@ import '../../aspose_words_cloud.dart';
 abstract class FixedPageSaveOptionsData extends SaveOptionsData {
   /// Gets or sets the value determining how colors are rendered.
   /// { Normal | Grayscale}.
-  FixedPageSaveOptionsData_ColorModeEnum _colorMode;
+  FixedPageSaveOptionsData_ColorModeEnum? _colorMode;
 
-  FixedPageSaveOptionsData_ColorModeEnum get colorMode => _colorMode;
-  set colorMode(FixedPageSaveOptionsData_ColorModeEnum val) => _colorMode = val;
+  FixedPageSaveOptionsData_ColorModeEnum? get colorMode => _colorMode;
+  set colorMode(FixedPageSaveOptionsData_ColorModeEnum? val) => _colorMode = val;
 
 
   /// Gets or sets the quality of the JPEG images inside PDF document.
-  int _jpegQuality;
+  int? _jpegQuality;
 
-  int get jpegQuality => _jpegQuality;
-  set jpegQuality(int val) => _jpegQuality = val;
+  int? get jpegQuality => _jpegQuality;
+  set jpegQuality(int? val) => _jpegQuality = val;
 
 
   /// Gets or sets the metafile rendering options.
-  MetafileRenderingOptionsData _metafileRenderingOptions;
+  MetafileRenderingOptionsData? _metafileRenderingOptions;
 
-  MetafileRenderingOptionsData get metafileRenderingOptions => _metafileRenderingOptions;
-  set metafileRenderingOptions(MetafileRenderingOptionsData val) => _metafileRenderingOptions = val;
+  MetafileRenderingOptionsData? get metafileRenderingOptions => _metafileRenderingOptions;
+  set metafileRenderingOptions(MetafileRenderingOptionsData? val) => _metafileRenderingOptions = val;
 
 
   /// Gets or sets the symbol set, that is used to represent numbers while rendering to fixed page formats.
-  FixedPageSaveOptionsData_NumeralFormatEnum _numeralFormat;
+  FixedPageSaveOptionsData_NumeralFormatEnum? _numeralFormat;
 
-  FixedPageSaveOptionsData_NumeralFormatEnum get numeralFormat => _numeralFormat;
-  set numeralFormat(FixedPageSaveOptionsData_NumeralFormatEnum val) => _numeralFormat = val;
+  FixedPageSaveOptionsData_NumeralFormatEnum? get numeralFormat => _numeralFormat;
+  set numeralFormat(FixedPageSaveOptionsData_NumeralFormatEnum? val) => _numeralFormat = val;
 
 
   /// Gets or sets a value indicating whether it is required to optimize output of XPS.
   /// If this flag is set redundant nested canvases and empty canvases are removed, also neighbor glyphs with the same formatting are concatenated.
   /// Note: The accuracy of the content display may be affected if this property is set to true.. The default value is false.
-  bool _optimizeOutput;
+  bool? _optimizeOutput;
 
-  bool get optimizeOutput => _optimizeOutput;
-  set optimizeOutput(bool val) => _optimizeOutput = val;
+  bool? get optimizeOutput => _optimizeOutput;
+  set optimizeOutput(bool? val) => _optimizeOutput = val;
 
 
   /// Gets or sets the number of pages to render.
-  int _pageCount;
+  int? _pageCount;
 
-  int get pageCount => _pageCount;
-  set pageCount(int val) => _pageCount = val;
+  int? get pageCount => _pageCount;
+  set pageCount(int? val) => _pageCount = val;
 
 
   /// Gets or sets the 0-based index of the first page to render.
-  int _pageIndex;
+  int? _pageIndex;
 
-  int get pageIndex => _pageIndex;
-  set pageIndex(int val) => _pageIndex = val;
+  int? get pageIndex => _pageIndex;
+  set pageIndex(int? val) => _pageIndex = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize FixedPageSaveOptionsData data model.');
     }
@@ -98,7 +98,7 @@ abstract class FixedPageSaveOptionsData extends SaveOptionsData {
 
     if (json.containsKey('CustomTimeZoneInfoData')) {
       customTimeZoneInfoData = TimeZoneInfoData();
-      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+      customTimeZoneInfoData!.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
     } else {
       customTimeZoneInfoData = null;
     }
@@ -204,7 +204,7 @@ abstract class FixedPageSaveOptionsData extends SaveOptionsData {
 
     if (json.containsKey('MetafileRenderingOptions')) {
       metafileRenderingOptions = MetafileRenderingOptionsData();
-      metafileRenderingOptions.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
+      metafileRenderingOptions!.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
     } else {
       metafileRenderingOptions = null;
     }
@@ -246,7 +246,7 @@ abstract class FixedPageSaveOptionsData extends SaveOptionsData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (colorMode != null) {
-      switch (colorMode) {
+      switch (colorMode!) {
         case FixedPageSaveOptionsData_ColorModeEnum.normal: _result['ColorMode'] = 'Normal'; break;
         case FixedPageSaveOptionsData_ColorModeEnum.grayscale: _result['ColorMode'] = 'Grayscale'; break;
         default: break;
@@ -254,15 +254,15 @@ abstract class FixedPageSaveOptionsData extends SaveOptionsData {
     }
 
     if (jpegQuality != null) {
-      _result['JpegQuality'] = jpegQuality;
+      _result['JpegQuality'] = jpegQuality!;
     }
 
     if (metafileRenderingOptions != null) {
-      _result['MetafileRenderingOptions'] = metafileRenderingOptions.serialize();
+      _result['MetafileRenderingOptions'] = metafileRenderingOptions!.serialize();
     }
 
     if (numeralFormat != null) {
-      switch (numeralFormat) {
+      switch (numeralFormat!) {
         case FixedPageSaveOptionsData_NumeralFormatEnum.european: _result['NumeralFormat'] = 'European'; break;
         case FixedPageSaveOptionsData_NumeralFormatEnum.arabicIndic: _result['NumeralFormat'] = 'ArabicIndic'; break;
         case FixedPageSaveOptionsData_NumeralFormatEnum.easternArabicIndic: _result['NumeralFormat'] = 'EasternArabicIndic'; break;
@@ -273,15 +273,15 @@ abstract class FixedPageSaveOptionsData extends SaveOptionsData {
     }
 
     if (optimizeOutput != null) {
-      _result['OptimizeOutput'] = optimizeOutput;
+      _result['OptimizeOutput'] = optimizeOutput!;
     }
 
     if (pageCount != null) {
-      _result['PageCount'] = pageCount;
+      _result['PageCount'] = pageCount!;
     }
 
     if (pageIndex != null) {
-      _result['PageIndex'] = pageIndex;
+      _result['PageIndex'] = pageIndex!;
     }
     return _result;
   }

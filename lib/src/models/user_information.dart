@@ -32,28 +32,28 @@ import '../../aspose_words_cloud.dart';
 /// DTO for user information.
 class UserInformation implements ModelBase {
   /// Gets or sets user address.
-  String _address;
+  String? _address;
 
-  String get address => _address;
-  set address(String val) => _address = val;
+  String? get address => _address;
+  set address(String? val) => _address = val;
 
 
   /// Gets or sets user initials.
-  String _initials;
+  String? _initials;
 
-  String get initials => _initials;
-  set initials(String val) => _initials = val;
+  String? get initials => _initials;
+  set initials(String? val) => _initials = val;
 
 
   /// Gets or sets user name.
-  String _name;
+  String? _name;
 
-  String get name => _name;
-  set name(String val) => _name = val;
+  String? get name => _name;
+  set name(String? val) => _name = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize UserInformation data model.');
     }
@@ -81,15 +81,15 @@ class UserInformation implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (address != null) {
-      _result['Address'] = address;
+      _result['Address'] = address!;
     }
 
     if (initials != null) {
-      _result['Initials'] = initials;
+      _result['Initials'] = initials!;
     }
 
     if (name != null) {
-      _result['Name'] = name;
+      _result['Name'] = name!;
     }
     return _result;
   }

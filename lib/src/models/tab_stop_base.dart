@@ -32,28 +32,28 @@ import '../../aspose_words_cloud.dart';
 /// Base class for paragraph format tab stop DTO.
 class TabStopBase implements ModelBase {
   /// Gets or sets the alignment of text at this tab stop.
-  TabStopBase_AlignmentEnum _alignment;
+  TabStopBase_AlignmentEnum? _alignment;
 
-  TabStopBase_AlignmentEnum get alignment => _alignment;
-  set alignment(TabStopBase_AlignmentEnum val) => _alignment = val;
+  TabStopBase_AlignmentEnum? get alignment => _alignment;
+  set alignment(TabStopBase_AlignmentEnum? val) => _alignment = val;
 
 
   /// Gets or sets the type of the leader line displayed under the tab character.
-  TabStopBase_LeaderEnum _leader;
+  TabStopBase_LeaderEnum? _leader;
 
-  TabStopBase_LeaderEnum get leader => _leader;
-  set leader(TabStopBase_LeaderEnum val) => _leader = val;
+  TabStopBase_LeaderEnum? get leader => _leader;
+  set leader(TabStopBase_LeaderEnum? val) => _leader = val;
 
 
   /// Gets or sets the position of the tab stop in points.
-  double _position;
+  double? _position;
 
-  double get position => _position;
-  set position(double val) => _position = val;
+  double? get position => _position;
+  set position(double? val) => _position = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize TabStopBase data model.');
     }
@@ -98,7 +98,7 @@ class TabStopBase implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (alignment != null) {
-      switch (alignment) {
+      switch (alignment!) {
         case TabStopBase_AlignmentEnum.left: _result['Alignment'] = 'Left'; break;
         case TabStopBase_AlignmentEnum.center: _result['Alignment'] = 'Center'; break;
         case TabStopBase_AlignmentEnum.right: _result['Alignment'] = 'Right'; break;
@@ -111,7 +111,7 @@ class TabStopBase implements ModelBase {
     }
 
     if (leader != null) {
-      switch (leader) {
+      switch (leader!) {
         case TabStopBase_LeaderEnum.none: _result['Leader'] = 'None'; break;
         case TabStopBase_LeaderEnum.dots: _result['Leader'] = 'Dots'; break;
         case TabStopBase_LeaderEnum.dashes: _result['Leader'] = 'Dashes'; break;
@@ -123,7 +123,7 @@ class TabStopBase implements ModelBase {
     }
 
     if (position != null) {
-      _result['Position'] = position;
+      _result['Position'] = position!;
     }
     return _result;
   }

@@ -32,107 +32,107 @@ import '../../aspose_words_cloud.dart';
 /// base container class for save options data.
 abstract class SaveOptionsData implements ModelBase {
   /// Gets or sets a boolean value indicating whether to allow embedding fonts with PostScript outlines when embedding TrueType fonts in a document upon it is saved. The default value is false..
-  bool _allowEmbeddingPostScriptFonts;
+  bool? _allowEmbeddingPostScriptFonts;
 
-  bool get allowEmbeddingPostScriptFonts => _allowEmbeddingPostScriptFonts;
-  set allowEmbeddingPostScriptFonts(bool val) => _allowEmbeddingPostScriptFonts = val;
+  bool? get allowEmbeddingPostScriptFonts => _allowEmbeddingPostScriptFonts;
+  set allowEmbeddingPostScriptFonts(bool? val) => _allowEmbeddingPostScriptFonts = val;
 
 
   /// Gets or sets CustomTimeZoneInfo.
-  TimeZoneInfoData _customTimeZoneInfoData;
+  TimeZoneInfoData? _customTimeZoneInfoData;
 
-  TimeZoneInfoData get customTimeZoneInfoData => _customTimeZoneInfoData;
-  set customTimeZoneInfoData(TimeZoneInfoData val) => _customTimeZoneInfoData = val;
+  TimeZoneInfoData? get customTimeZoneInfoData => _customTimeZoneInfoData;
+  set customTimeZoneInfoData(TimeZoneInfoData? val) => _customTimeZoneInfoData = val;
 
 
   /// Gets or sets the value determining how 3D effects are rendered.
-  SaveOptionsData_Dml3DEffectsRenderingModeEnum _dml3DEffectsRenderingMode;
+  SaveOptionsData_Dml3DEffectsRenderingModeEnum? _dml3DEffectsRenderingMode;
 
-  SaveOptionsData_Dml3DEffectsRenderingModeEnum get dml3DEffectsRenderingMode => _dml3DEffectsRenderingMode;
-  set dml3DEffectsRenderingMode(SaveOptionsData_Dml3DEffectsRenderingModeEnum val) => _dml3DEffectsRenderingMode = val;
+  SaveOptionsData_Dml3DEffectsRenderingModeEnum? get dml3DEffectsRenderingMode => _dml3DEffectsRenderingMode;
+  set dml3DEffectsRenderingMode(SaveOptionsData_Dml3DEffectsRenderingModeEnum? val) => _dml3DEffectsRenderingMode = val;
 
 
   /// Gets or sets the value determining how DrawingML effects are rendered.
   /// { Simplified | None | Fine }.
-  SaveOptionsData_DmlEffectsRenderingModeEnum _dmlEffectsRenderingMode;
+  SaveOptionsData_DmlEffectsRenderingModeEnum? _dmlEffectsRenderingMode;
 
-  SaveOptionsData_DmlEffectsRenderingModeEnum get dmlEffectsRenderingMode => _dmlEffectsRenderingMode;
-  set dmlEffectsRenderingMode(SaveOptionsData_DmlEffectsRenderingModeEnum val) => _dmlEffectsRenderingMode = val;
+  SaveOptionsData_DmlEffectsRenderingModeEnum? get dmlEffectsRenderingMode => _dmlEffectsRenderingMode;
+  set dmlEffectsRenderingMode(SaveOptionsData_DmlEffectsRenderingModeEnum? val) => _dmlEffectsRenderingMode = val;
 
 
   /// Gets or sets the option that controls how DrawingML shapes are rendered.
-  SaveOptionsData_DmlRenderingModeEnum _dmlRenderingMode;
+  SaveOptionsData_DmlRenderingModeEnum? _dmlRenderingMode;
 
-  SaveOptionsData_DmlRenderingModeEnum get dmlRenderingMode => _dmlRenderingMode;
-  set dmlRenderingMode(SaveOptionsData_DmlRenderingModeEnum val) => _dmlRenderingMode = val;
+  SaveOptionsData_DmlRenderingModeEnum? get dmlRenderingMode => _dmlRenderingMode;
+  set dmlRenderingMode(SaveOptionsData_DmlRenderingModeEnum? val) => _dmlRenderingMode = val;
 
 
   /// Gets or sets the name of destination file.
-  String _fileName;
+  String? _fileName;
 
-  String get fileName => _fileName;
-  set fileName(String val) => _fileName = val;
+  String? get fileName => _fileName;
+  set fileName(String? val) => _fileName = val;
 
 
   /// Gets or sets the value determining how ink (InkML) objects are rendered.
-  SaveOptionsData_ImlRenderingModeEnum _imlRenderingMode;
+  SaveOptionsData_ImlRenderingModeEnum? _imlRenderingMode;
 
-  SaveOptionsData_ImlRenderingModeEnum get imlRenderingMode => _imlRenderingMode;
-  set imlRenderingMode(SaveOptionsData_ImlRenderingModeEnum val) => _imlRenderingMode = val;
+  SaveOptionsData_ImlRenderingModeEnum? get imlRenderingMode => _imlRenderingMode;
+  set imlRenderingMode(SaveOptionsData_ImlRenderingModeEnum? val) => _imlRenderingMode = val;
 
 
   /// Gets the format of save.
-  String _saveFormat;
+  String? _saveFormat;
 
-  String get saveFormat => _saveFormat;
+  String? get saveFormat => _saveFormat;
 
 
   /// Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.CreatedTime property is updated before saving.
   /// Default value is false.
-  bool _updateCreatedTimeProperty;
+  bool? _updateCreatedTimeProperty;
 
-  bool get updateCreatedTimeProperty => _updateCreatedTimeProperty;
-  set updateCreatedTimeProperty(bool val) => _updateCreatedTimeProperty = val;
+  bool? get updateCreatedTimeProperty => _updateCreatedTimeProperty;
+  set updateCreatedTimeProperty(bool? val) => _updateCreatedTimeProperty = val;
 
 
   /// Gets or sets a value indicating whether fields should be updated before saving the document to a fixed page format. The default value is true.
-  bool _updateFields;
+  bool? _updateFields;
 
-  bool get updateFields => _updateFields;
-  set updateFields(bool val) => _updateFields = val;
+  bool? get updateFields => _updateFields;
+  set updateFields(bool? val) => _updateFields = val;
 
 
   /// Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastPrinted property is updated before saving.
-  bool _updateLastPrintedProperty;
+  bool? _updateLastPrintedProperty;
 
-  bool get updateLastPrintedProperty => _updateLastPrintedProperty;
-  set updateLastPrintedProperty(bool val) => _updateLastPrintedProperty = val;
+  bool? get updateLastPrintedProperty => _updateLastPrintedProperty;
+  set updateLastPrintedProperty(bool? val) => _updateLastPrintedProperty = val;
 
 
   /// Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
-  bool _updateLastSavedTimeProperty;
+  bool? _updateLastSavedTimeProperty;
 
-  bool get updateLastSavedTimeProperty => _updateLastSavedTimeProperty;
-  set updateLastSavedTimeProperty(bool val) => _updateLastSavedTimeProperty = val;
+  bool? get updateLastSavedTimeProperty => _updateLastSavedTimeProperty;
+  set updateLastSavedTimeProperty(bool? val) => _updateLastSavedTimeProperty = val;
 
 
   /// Gets or sets a value indicating whether content of StructuredDocumentTag is updated before saving.
-  bool _updateSdtContent;
+  bool? _updateSdtContent;
 
-  bool get updateSdtContent => _updateSdtContent;
-  set updateSdtContent(bool val) => _updateSdtContent = val;
+  bool? get updateSdtContent => _updateSdtContent;
+  set updateSdtContent(bool? val) => _updateSdtContent = val;
 
 
   /// Gets or sets a value indicating whether to zip output or not.
   /// The default value is false.
-  bool _zipOutput;
+  bool? _zipOutput;
 
-  bool get zipOutput => _zipOutput;
-  set zipOutput(bool val) => _zipOutput = val;
+  bool? get zipOutput => _zipOutput;
+  set zipOutput(bool? val) => _zipOutput = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize SaveOptionsData data model.');
     }
@@ -145,7 +145,7 @@ abstract class SaveOptionsData implements ModelBase {
 
     if (json.containsKey('CustomTimeZoneInfoData')) {
       customTimeZoneInfoData = TimeZoneInfoData();
-      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+      customTimeZoneInfoData!.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
     } else {
       customTimeZoneInfoData = null;
     }
@@ -238,15 +238,15 @@ abstract class SaveOptionsData implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (allowEmbeddingPostScriptFonts != null) {
-      _result['AllowEmbeddingPostScriptFonts'] = allowEmbeddingPostScriptFonts;
+      _result['AllowEmbeddingPostScriptFonts'] = allowEmbeddingPostScriptFonts!;
     }
 
     if (customTimeZoneInfoData != null) {
-      _result['CustomTimeZoneInfoData'] = customTimeZoneInfoData.serialize();
+      _result['CustomTimeZoneInfoData'] = customTimeZoneInfoData!.serialize();
     }
 
     if (dml3DEffectsRenderingMode != null) {
-      switch (dml3DEffectsRenderingMode) {
+      switch (dml3DEffectsRenderingMode!) {
         case SaveOptionsData_Dml3DEffectsRenderingModeEnum.basic: _result['Dml3DEffectsRenderingMode'] = 'Basic'; break;
         case SaveOptionsData_Dml3DEffectsRenderingModeEnum.advanced: _result['Dml3DEffectsRenderingMode'] = 'Advanced'; break;
         default: break;
@@ -254,7 +254,7 @@ abstract class SaveOptionsData implements ModelBase {
     }
 
     if (dmlEffectsRenderingMode != null) {
-      switch (dmlEffectsRenderingMode) {
+      switch (dmlEffectsRenderingMode!) {
         case SaveOptionsData_DmlEffectsRenderingModeEnum.simplified: _result['DmlEffectsRenderingMode'] = 'Simplified'; break;
         case SaveOptionsData_DmlEffectsRenderingModeEnum.none: _result['DmlEffectsRenderingMode'] = 'None'; break;
         case SaveOptionsData_DmlEffectsRenderingModeEnum.fine: _result['DmlEffectsRenderingMode'] = 'Fine'; break;
@@ -263,7 +263,7 @@ abstract class SaveOptionsData implements ModelBase {
     }
 
     if (dmlRenderingMode != null) {
-      switch (dmlRenderingMode) {
+      switch (dmlRenderingMode!) {
         case SaveOptionsData_DmlRenderingModeEnum.fallback: _result['DmlRenderingMode'] = 'Fallback'; break;
         case SaveOptionsData_DmlRenderingModeEnum.drawingML: _result['DmlRenderingMode'] = 'DrawingML'; break;
         default: break;
@@ -271,11 +271,11 @@ abstract class SaveOptionsData implements ModelBase {
     }
 
     if (fileName != null) {
-      _result['FileName'] = fileName;
+      _result['FileName'] = fileName!;
     }
 
     if (imlRenderingMode != null) {
-      switch (imlRenderingMode) {
+      switch (imlRenderingMode!) {
         case SaveOptionsData_ImlRenderingModeEnum.fallback: _result['ImlRenderingMode'] = 'Fallback'; break;
         case SaveOptionsData_ImlRenderingModeEnum.inkML: _result['ImlRenderingMode'] = 'InkML'; break;
         default: break;
@@ -283,31 +283,31 @@ abstract class SaveOptionsData implements ModelBase {
     }
 
     if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat;
+      _result['SaveFormat'] = saveFormat!;
     }
 
     if (updateCreatedTimeProperty != null) {
-      _result['UpdateCreatedTimeProperty'] = updateCreatedTimeProperty;
+      _result['UpdateCreatedTimeProperty'] = updateCreatedTimeProperty!;
     }
 
     if (updateFields != null) {
-      _result['UpdateFields'] = updateFields;
+      _result['UpdateFields'] = updateFields!;
     }
 
     if (updateLastPrintedProperty != null) {
-      _result['UpdateLastPrintedProperty'] = updateLastPrintedProperty;
+      _result['UpdateLastPrintedProperty'] = updateLastPrintedProperty!;
     }
 
     if (updateLastSavedTimeProperty != null) {
-      _result['UpdateLastSavedTimeProperty'] = updateLastSavedTimeProperty;
+      _result['UpdateLastSavedTimeProperty'] = updateLastSavedTimeProperty!;
     }
 
     if (updateSdtContent != null) {
-      _result['UpdateSdtContent'] = updateSdtContent;
+      _result['UpdateSdtContent'] = updateSdtContent!;
     }
 
     if (zipOutput != null) {
-      _result['ZipOutput'] = zipOutput;
+      _result['ZipOutput'] = zipOutput!;
     }
     return _result;
   }

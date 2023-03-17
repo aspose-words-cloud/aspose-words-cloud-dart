@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// Container class for dot save options.
 class DotSaveOptionsData extends DocSaveOptionsData {
   /// Gets the format of save.
-  String _saveFormat = 'dot';
+  String? _saveFormat = 'dot';
 
   @override
-  String get saveFormat => _saveFormat;
+  String? get saveFormat => _saveFormat;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize DotSaveOptionsData data model.');
     }
@@ -53,7 +53,7 @@ class DotSaveOptionsData extends DocSaveOptionsData {
 
     if (json.containsKey('CustomTimeZoneInfoData')) {
       customTimeZoneInfoData = TimeZoneInfoData();
-      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+      customTimeZoneInfoData!.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
     } else {
       customTimeZoneInfoData = null;
     }
@@ -171,7 +171,7 @@ class DotSaveOptionsData extends DocSaveOptionsData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat;
+      _result['SaveFormat'] = saveFormat!;
     }
     return _result;
   }

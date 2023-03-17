@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// Container class for xamlflow_pack save options.
 class XamlFlowPackSaveOptionsData extends XamlFlowSaveOptionsData {
   /// Gets the format of save.
-  String _saveFormat = 'xamlflow_pack';
+  String? _saveFormat = 'xamlflow_pack';
 
   @override
-  String get saveFormat => _saveFormat;
+  String? get saveFormat => _saveFormat;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize XamlFlowPackSaveOptionsData data model.');
     }
@@ -53,7 +53,7 @@ class XamlFlowPackSaveOptionsData extends XamlFlowSaveOptionsData {
 
     if (json.containsKey('CustomTimeZoneInfoData')) {
       customTimeZoneInfoData = TimeZoneInfoData();
-      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+      customTimeZoneInfoData!.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
     } else {
       customTimeZoneInfoData = null;
     }
@@ -159,7 +159,7 @@ class XamlFlowPackSaveOptionsData extends XamlFlowSaveOptionsData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat;
+      _result['SaveFormat'] = saveFormat!;
     }
     return _result;
   }

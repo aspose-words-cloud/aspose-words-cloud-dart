@@ -34,10 +34,10 @@ import '../test_context.dart';
 class HyperlinkTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
+  late String remoteDataFolder;
+  late String localFile;
 
-  HyperlinkTests(final this.context) {
+  HyperlinkTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Hyperlink';
     localFile = 'Common/test_doc.docx';
   }
@@ -56,7 +56,7 @@ class HyperlinkTests
 
     final result = await context.getApi().getDocumentHyperlinkByIndex(request);
     expect(result.hyperlink, isNotNull);
-    expect(result.hyperlink.displayText, 'Aspose');
+    expect(result.hyperlink?.displayText, 'Aspose');
   }
 
   /// Test for getting hyperlink by specified index online.
@@ -85,9 +85,9 @@ class HyperlinkTests
 
     final result = await context.getApi().getDocumentHyperlinks(request);
     expect(result.hyperlinks, isNotNull);
-    expect(result.hyperlinks.hyperlinkList, isNotNull);
-    expect(result.hyperlinks.hyperlinkList.length, 2);
-    expect(result.hyperlinks.hyperlinkList[0].displayText, 'Aspose');
+    expect(result.hyperlinks?.hyperlinkList, isNotNull);
+    expect(result.hyperlinks?.hyperlinkList?.length, 2);
+    expect(result.hyperlinks?.hyperlinkList?[0]?.displayText, 'Aspose');
   }
 
   /// Test for getting hyperlinks online.

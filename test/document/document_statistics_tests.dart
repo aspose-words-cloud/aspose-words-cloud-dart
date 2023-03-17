@@ -34,10 +34,10 @@ import '../test_context.dart';
 class DocumentStatisticsTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
+  late String remoteDataFolder;
+  late String localFile;
 
-  DocumentStatisticsTests(final this.context) {
+  DocumentStatisticsTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/Statistics';
     localFile = 'Common/test_multi_pages.docx';
   }
@@ -55,7 +55,7 @@ class DocumentStatisticsTests
 
     final result = await context.getApi().getDocumentStatistics(request);
     expect(result.statData, isNotNull);
-    expect(result.statData.wordCount, 10);
+    expect(result.statData?.wordCount, 10);
   }
 
   /// Test for document classification online.

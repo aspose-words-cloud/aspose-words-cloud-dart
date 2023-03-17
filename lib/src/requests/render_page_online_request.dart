@@ -36,27 +36,27 @@ import '../api_request_part.dart';
 /// Request model for RenderPageOnline operation.
 class RenderPageOnlineRequest implements RequestBase {
   /// The document.
-  final ByteData document;
+  final ByteData? document;
 
   /// The index of the page.
-  final int pageIndex;
+  final int? pageIndex;
 
   /// The destination format.
-  final String format;
+  final String? format;
 
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-  final String loadEncoding;
+  final String? loadEncoding;
 
   /// Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
-  final String password;
+  final String? password;
 
   /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
-  final String encryptedPassword;
+  final String? encryptedPassword;
 
   /// Folder in filestorage with custom fonts.
-  final String fontsLocation;
+  final String? fontsLocation;
 
-  RenderPageOnlineRequest(final this.document, final this.pageIndex, final this.format, {final this.loadEncoding, final this.password, final this.encryptedPassword, final this.fontsLocation});
+  RenderPageOnlineRequest(this.document, this.pageIndex, this.format, {this.loadEncoding, this.password, this.encryptedPassword, this.fontsLocation});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -68,32 +68,35 @@ class RenderPageOnlineRequest implements RequestBase {
     if (pageIndex == null) {
       throw ApiException(400, 'Parameter pageIndex is required.');
     }
-    _path = _path.replaceAll('{pageIndex}', _apiClient.serializeToString(pageIndex));
+    _path = _path.replaceAll('{pageIndex}', _apiClient.serializeToString(pageIndex) ?? "");
     if (format != null) {
-      _queryParams['format'] = _apiClient.serializeToString(format);
+      _queryParams['format'] = _apiClient.serializeToString(format) ?? "";
     }
     else {
       throw ApiException(400, 'Parameter format is required.');
     }
 
     if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding) ?? "";
     }
 
     if (password != null) {
-      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password!);
     }
 
     if (encryptedPassword != null) {
-      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword);
+      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword) ?? "";
     }
 
     if (fontsLocation != null) {
-      _queryParams['fontsLocation'] = _apiClient.serializeToString(fontsLocation);
+      _queryParams['fontsLocation'] = _apiClient.serializeToString(fontsLocation) ?? "";
     }
 
     if (document != null) {
-      _bodyParts.add(_apiClient.serializeBody(document, 'Document'));
+      var _formBody = _apiClient.serializeBody(document, 'Document');
+      if (_formBody != null) {
+        _bodyParts.add(_formBody);
+      }
     }
     else {
       throw ApiException(400, 'Parameter document is required.');
@@ -101,7 +104,7 @@ class RenderPageOnlineRequest implements RequestBase {
 
     for (final _fileContentPart in _fileContentParts) {
         if (_fileContentPart.source == 'Request') {
-            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
@@ -110,7 +113,11 @@ class RenderPageOnlineRequest implements RequestBase {
   }
 
   @override
-  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final Map<String, String> _headers, final ByteData? _body) {
+    if (_body == null) {
+        return ApiException(400, "Nullable response body is not allowed for this operation type.");
+    }
+
     return _body;
   }
 }

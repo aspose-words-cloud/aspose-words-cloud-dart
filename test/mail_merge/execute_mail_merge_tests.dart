@@ -34,10 +34,10 @@ import '../test_context.dart';
 class ExecuteMailMergeTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String mailMergeFolder;
+  late String remoteDataFolder;
+  late String mailMergeFolder;
 
-  ExecuteMailMergeTests(final this.context) {
+  ExecuteMailMergeTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/MailMerge';
     mailMergeFolder = 'DocumentActions/MailMerge';
   }
@@ -77,6 +77,6 @@ class ExecuteMailMergeTests
 
     final result = await context.getApi().executeMailMerge(request);
     expect(result.document, isNotNull);
-    expect(result.document.fileName, 'TestExecuteMailMerge.docx');
+    expect(result.document?.fileName, 'TestExecuteMailMerge.docx');
   }
 }

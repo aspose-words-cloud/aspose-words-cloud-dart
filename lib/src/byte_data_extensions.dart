@@ -44,7 +44,7 @@ extension ByteDataExtensions on ByteData {
     return true;
   }
 
-  int indexOf(final ByteData part, {int startIndex = 0}) {
+  int? indexOf(final ByteData part, {int startIndex = 0}) {
     if (part.lengthInBytes > lengthInBytes - startIndex) {
       return null;
     }

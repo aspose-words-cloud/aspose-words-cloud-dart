@@ -36,15 +36,15 @@ import '../api_request_part.dart';
 /// Request model for DeleteFile operation.
 class DeleteFileRequest implements RequestBase {
   /// Path of the file including the file name and extension e.g. /folder1/file.ext.
-  final String path;
+  final String? path;
 
   /// Storage name.
-  final String storageName;
+  final String? storageName;
 
   /// File version ID to delete.
-  final String versionId;
+  final String? versionId;
 
-  DeleteFileRequest(final this.path, {final this.storageName, final this.versionId});
+  DeleteFileRequest(this.path, {this.storageName, this.versionId});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -56,18 +56,18 @@ class DeleteFileRequest implements RequestBase {
     if (path == null) {
       throw ApiException(400, 'Parameter path is required.');
     }
-    _path = _path.replaceAll('{path}', _apiClient.serializeToString(path));
+    _path = _path.replaceAll('{path}', _apiClient.serializeToString(path) ?? "");
     if (storageName != null) {
-      _queryParams['storageName'] = _apiClient.serializeToString(storageName);
+      _queryParams['storageName'] = _apiClient.serializeToString(storageName) ?? "";
     }
 
     if (versionId != null) {
-      _queryParams['versionId'] = _apiClient.serializeToString(versionId);
+      _queryParams['versionId'] = _apiClient.serializeToString(versionId) ?? "";
     }
 
     for (final _fileContentPart in _fileContentParts) {
         if (_fileContentPart.source == 'Request') {
-            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
@@ -76,7 +76,7 @@ class DeleteFileRequest implements RequestBase {
   }
 
   @override
-  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final Map<String, String> _headers, final ByteData? _body) {
     return null;
   }
 }

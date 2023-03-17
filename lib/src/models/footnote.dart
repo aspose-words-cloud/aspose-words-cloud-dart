@@ -32,43 +32,43 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a footnote.
 class Footnote extends FootnoteLink {
   /// Gets or sets the content of the footnote.
-  StoryChildNodes _content;
+  StoryChildNodes? _content;
 
-  StoryChildNodes get content => _content;
-  set content(StoryChildNodes val) => _content = val;
+  StoryChildNodes? get content => _content;
+  set content(StoryChildNodes? val) => _content = val;
 
 
   /// Gets or sets the value, that specifies whether this is a footnote or endnote.
-  Footnote_FootnoteTypeEnum _footnoteType;
+  Footnote_FootnoteTypeEnum? _footnoteType;
 
-  Footnote_FootnoteTypeEnum get footnoteType => _footnoteType;
-  set footnoteType(Footnote_FootnoteTypeEnum val) => _footnoteType = val;
+  Footnote_FootnoteTypeEnum? get footnoteType => _footnoteType;
+  set footnoteType(Footnote_FootnoteTypeEnum? val) => _footnoteType = val;
 
 
   /// Gets or sets the link to comment range start node.
-  DocumentPosition _position;
+  DocumentPosition? _position;
 
-  DocumentPosition get position => _position;
-  set position(DocumentPosition val) => _position = val;
+  DocumentPosition? get position => _position;
+  set position(DocumentPosition? val) => _position = val;
 
 
   /// Gets or sets the custom reference mark to be used for this footnote.
   /// Default value is Empty, meaning auto-numbered footnotes are used.
-  String _referenceMark;
+  String? _referenceMark;
 
-  String get referenceMark => _referenceMark;
-  set referenceMark(String val) => _referenceMark = val;
+  String? get referenceMark => _referenceMark;
+  set referenceMark(String? val) => _referenceMark = val;
 
 
   /// Gets or sets text of the footnote.
-  String _text;
+  String? _text;
 
-  String get text => _text;
-  set text(String val) => _text = val;
+  String? get text => _text;
+  set text(String? val) => _text = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize Footnote data model.');
     }
@@ -76,7 +76,7 @@ class Footnote extends FootnoteLink {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -89,7 +89,7 @@ class Footnote extends FootnoteLink {
 
     if (json.containsKey('Content')) {
       content = StoryChildNodes();
-      content.deserialize(json['Content'] as Map<String, dynamic>);
+      content!.deserialize(json['Content'] as Map<String, dynamic>);
     } else {
       content = null;
     }
@@ -106,7 +106,7 @@ class Footnote extends FootnoteLink {
 
     if (json.containsKey('Position')) {
       position = DocumentPosition();
-      position.deserialize(json['Position'] as Map<String, dynamic>);
+      position!.deserialize(json['Position'] as Map<String, dynamic>);
     } else {
       position = null;
     }
@@ -129,11 +129,11 @@ class Footnote extends FootnoteLink {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (content != null) {
-      _result['Content'] = content.serialize();
+      _result['Content'] = content!.serialize();
     }
 
     if (footnoteType != null) {
-      switch (footnoteType) {
+      switch (footnoteType!) {
         case Footnote_FootnoteTypeEnum.footnote: _result['FootnoteType'] = 'Footnote'; break;
         case Footnote_FootnoteTypeEnum.endnote: _result['FootnoteType'] = 'Endnote'; break;
         default: break;
@@ -141,15 +141,15 @@ class Footnote extends FootnoteLink {
     }
 
     if (position != null) {
-      _result['Position'] = position.serialize();
+      _result['Position'] = position!.serialize();
     }
 
     if (referenceMark != null) {
-      _result['ReferenceMark'] = referenceMark;
+      _result['ReferenceMark'] = referenceMark!;
     }
 
     if (text != null) {
-      _result['Text'] = text;
+      _result['Text'] = text!;
     }
     return _result;
   }

@@ -32,56 +32,56 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a single document list.
 class ListInfo extends LinkElement {
   /// Gets or sets a value indicating whether this list is a definition of a list style.
-  bool _isListStyleDefinition;
+  bool? _isListStyleDefinition;
 
-  bool get isListStyleDefinition => _isListStyleDefinition;
-  set isListStyleDefinition(bool val) => _isListStyleDefinition = val;
+  bool? get isListStyleDefinition => _isListStyleDefinition;
+  set isListStyleDefinition(bool? val) => _isListStyleDefinition = val;
 
 
   /// Gets or sets a value indicating whether this list is a reference to a list style.
-  bool _isListStyleReference;
+  bool? _isListStyleReference;
 
-  bool get isListStyleReference => _isListStyleReference;
-  set isListStyleReference(bool val) => _isListStyleReference = val;
+  bool? get isListStyleReference => _isListStyleReference;
+  set isListStyleReference(bool? val) => _isListStyleReference = val;
 
 
   /// Gets or sets a value indicating whether the list contains 9 levels; false when 1 level.
-  bool _isMultiLevel;
+  bool? _isMultiLevel;
 
-  bool get isMultiLevel => _isMultiLevel;
-  set isMultiLevel(bool val) => _isMultiLevel = val;
+  bool? get isMultiLevel => _isMultiLevel;
+  set isMultiLevel(bool? val) => _isMultiLevel = val;
 
 
   /// Gets or sets a value indicating whether list should be restarted at each section. The default value is false.
-  bool _isRestartAtEachSection;
+  bool? _isRestartAtEachSection;
 
-  bool get isRestartAtEachSection => _isRestartAtEachSection;
-  set isRestartAtEachSection(bool val) => _isRestartAtEachSection = val;
+  bool? get isRestartAtEachSection => _isRestartAtEachSection;
+  set isRestartAtEachSection(bool? val) => _isRestartAtEachSection = val;
 
 
   /// Gets or sets the unique identifier of the list.
-  int _listId;
+  int? _listId;
 
-  int get listId => _listId;
-  set listId(int val) => _listId = val;
+  int? get listId => _listId;
+  set listId(int? val) => _listId = val;
 
 
   /// Gets or sets the collection of list levels for this list.
-  ListLevels _listLevels;
+  ListLevels? _listLevels;
 
-  ListLevels get listLevels => _listLevels;
-  set listLevels(ListLevels val) => _listLevels = val;
+  ListLevels? get listLevels => _listLevels;
+  set listLevels(ListLevels? val) => _listLevels = val;
 
 
   /// Gets or sets the list style that this list references or defines.
-  Style _style;
+  Style? _style;
 
-  Style get style => _style;
-  set style(Style val) => _style = val;
+  Style? get style => _style;
+  set style(Style? val) => _style = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize ListInfo data model.');
     }
@@ -89,7 +89,7 @@ class ListInfo extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -126,14 +126,14 @@ class ListInfo extends LinkElement {
 
     if (json.containsKey('ListLevels')) {
       listLevels = ListLevels();
-      listLevels.deserialize(json['ListLevels'] as Map<String, dynamic>);
+      listLevels!.deserialize(json['ListLevels'] as Map<String, dynamic>);
     } else {
       listLevels = null;
     }
 
     if (json.containsKey('Style')) {
       style = Style();
-      style.deserialize(json['Style'] as Map<String, dynamic>);
+      style!.deserialize(json['Style'] as Map<String, dynamic>);
     } else {
       style = null;
     }
@@ -144,31 +144,31 @@ class ListInfo extends LinkElement {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (isListStyleDefinition != null) {
-      _result['IsListStyleDefinition'] = isListStyleDefinition;
+      _result['IsListStyleDefinition'] = isListStyleDefinition!;
     }
 
     if (isListStyleReference != null) {
-      _result['IsListStyleReference'] = isListStyleReference;
+      _result['IsListStyleReference'] = isListStyleReference!;
     }
 
     if (isMultiLevel != null) {
-      _result['IsMultiLevel'] = isMultiLevel;
+      _result['IsMultiLevel'] = isMultiLevel!;
     }
 
     if (isRestartAtEachSection != null) {
-      _result['IsRestartAtEachSection'] = isRestartAtEachSection;
+      _result['IsRestartAtEachSection'] = isRestartAtEachSection!;
     }
 
     if (listId != null) {
-      _result['ListId'] = listId;
+      _result['ListId'] = listId!;
     }
 
     if (listLevels != null) {
-      _result['ListLevels'] = listLevels.serialize();
+      _result['ListLevels'] = listLevels!.serialize();
     }
 
     if (style != null) {
-      _result['Style'] = style.serialize();
+      _result['Style'] = style!.serialize();
     }
     return _result;
   }

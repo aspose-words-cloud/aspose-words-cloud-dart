@@ -32,28 +32,28 @@ import '../../aspose_words_cloud.dart';
 /// Container class for details of encryption.
 class PdfEncryptionDetailsData implements ModelBase {
   /// Gets or sets the owner password for the encrypted PDF document.
-  String _ownerPassword;
+  String? _ownerPassword;
 
-  String get ownerPassword => _ownerPassword;
-  set ownerPassword(String val) => _ownerPassword = val;
+  String? get ownerPassword => _ownerPassword;
+  set ownerPassword(String? val) => _ownerPassword = val;
 
 
   /// Gets or sets the operations that are allowed to a user on the encrypted PDF document.
-  List<PdfPermissionsEnum> _permissions;
+  List<PdfPermissionsEnum?>? _permissions;
 
-  List<PdfPermissionsEnum> get permissions => _permissions;
-  set permissions(List<PdfPermissionsEnum> val) => _permissions = val;
+  List<PdfPermissionsEnum?>? get permissions => _permissions;
+  set permissions(List<PdfPermissionsEnum?>? val) => _permissions = val;
 
 
   /// Gets or sets the user password required for opening the encrypted PDF document.
-  String _userPassword;
+  String? _userPassword;
 
-  String get userPassword => _userPassword;
-  set userPassword(String val) => _userPassword = val;
+  String? get userPassword => _userPassword;
+  set userPassword(String? val) => _userPassword = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize PdfEncryptionDetailsData data model.');
     }
@@ -69,16 +69,16 @@ class PdfEncryptionDetailsData implements ModelBase {
       permissions = <PdfPermissionsEnum>[];
       for(final _element in json['Permissions']) {
         switch (_element as String) {
-          case 'DisallowAll': permissions.add(PdfPermissionsEnum.disallowAll); break;
-          case 'Printing': permissions.add(PdfPermissionsEnum.printing); break;
-          case 'ModifyContents': permissions.add(PdfPermissionsEnum.modifyContents); break;
-          case 'ContentCopy': permissions.add(PdfPermissionsEnum.contentCopy); break;
-          case 'ModifyAnnotations': permissions.add(PdfPermissionsEnum.modifyAnnotations); break;
-          case 'FillIn': permissions.add(PdfPermissionsEnum.fillIn); break;
-          case 'ContentCopyForAccessibility': permissions.add(PdfPermissionsEnum.contentCopyForAccessibility); break;
-          case 'DocumentAssembly': permissions.add(PdfPermissionsEnum.documentAssembly); break;
-          case 'HighResolutionPrinting': permissions.add(PdfPermissionsEnum.highResolutionPrinting); break;
-          case 'AllowAll': permissions.add(PdfPermissionsEnum.allowAll); break;
+          case 'DisallowAll': permissions!.add(PdfPermissionsEnum.disallowAll); break;
+          case 'Printing': permissions!.add(PdfPermissionsEnum.printing); break;
+          case 'ModifyContents': permissions!.add(PdfPermissionsEnum.modifyContents); break;
+          case 'ContentCopy': permissions!.add(PdfPermissionsEnum.contentCopy); break;
+          case 'ModifyAnnotations': permissions!.add(PdfPermissionsEnum.modifyAnnotations); break;
+          case 'FillIn': permissions!.add(PdfPermissionsEnum.fillIn); break;
+          case 'ContentCopyForAccessibility': permissions!.add(PdfPermissionsEnum.contentCopyForAccessibility); break;
+          case 'DocumentAssembly': permissions!.add(PdfPermissionsEnum.documentAssembly); break;
+          case 'HighResolutionPrinting': permissions!.add(PdfPermissionsEnum.highResolutionPrinting); break;
+          case 'AllowAll': permissions!.add(PdfPermissionsEnum.allowAll); break;
           default: break;
         }
       }
@@ -97,11 +97,11 @@ class PdfEncryptionDetailsData implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (ownerPassword != null) {
-      _result['OwnerPassword'] = ownerPassword;
+      _result['OwnerPassword'] = ownerPassword!;
     }
 
     if (permissions != null) {
-      _result['Permissions'] = permissions.map((_element) {
+      _result['Permissions'] = permissions!.map((_element) {
         switch (_element) {
             case PdfPermissionsEnum.disallowAll: return 'DisallowAll';
             case PdfPermissionsEnum.printing: return 'Printing';
@@ -119,7 +119,7 @@ class PdfEncryptionDetailsData implements ModelBase {
     }
 
     if (userPassword != null) {
-      _result['UserPassword'] = userPassword;
+      _result['UserPassword'] = userPassword!;
     }
     return _result;
   }

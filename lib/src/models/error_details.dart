@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// The error details.
 class ErrorDetails implements ModelBase {
   /// Error datetime.
-  DateTime _errorDateTime;
+  DateTime? _errorDateTime;
 
-  DateTime get errorDateTime => _errorDateTime;
-  set errorDateTime(DateTime val) => _errorDateTime = val;
+  DateTime? get errorDateTime => _errorDateTime;
+  set errorDateTime(DateTime? val) => _errorDateTime = val;
 
 
   /// The request id.
-  String _requestId;
+  String? _requestId;
 
-  String get requestId => _requestId;
-  set requestId(String val) => _requestId = val;
+  String? get requestId => _requestId;
+  set requestId(String? val) => _requestId = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize ErrorDetails data model.');
     }
@@ -68,11 +68,11 @@ class ErrorDetails implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (errorDateTime != null) {
-      _result['ErrorDateTime'] = errorDateTime.toIso8601String();
+      _result['ErrorDateTime'] = errorDateTime!.toIso8601String();
     }
 
     if (requestId != null) {
-      _result['RequestId'] = requestId;
+      _result['RequestId'] = requestId!;
     }
     return _result;
   }

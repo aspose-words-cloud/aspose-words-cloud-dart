@@ -34,10 +34,10 @@ import '../test_context.dart';
 class StylesTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
+  late String remoteDataFolder;
+  late String localFile;
 
-  StylesTests(final this.context) {
+  StylesTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Styles';
     localFile = 'DocumentElements/Styles/GetStyles.docx';
   }
@@ -55,8 +55,8 @@ class StylesTests
 
     final result = await context.getApi().getStyles(request);
     expect(result.styles, isNotNull);
-    expect(result.styles.length, 22);
-    expect(result.styles[0].name, 'Default Paragraph Font');
+    expect(result.styles?.length, 22);
+    expect(result.styles?[0]?.name, 'Default Paragraph Font');
   }
 
   /// Test for getting styles from document online.
@@ -85,7 +85,7 @@ class StylesTests
 
     final result = await context.getApi().getStyle(request);
     expect(result.style, isNotNull);
-    expect(result.style.name, 'Heading 1');
+    expect(result.style?.name, 'Heading 1');
   }
 
   /// Test for getting style from document online.
@@ -118,7 +118,7 @@ class StylesTests
 
     final result = await context.getApi().updateStyle(request);
     expect(result.style, isNotNull);
-    expect(result.style.name, 'My Style');
+    expect(result.style?.name, 'My Style');
   }
 
   /// Test for updating style from document online.
@@ -155,7 +155,7 @@ class StylesTests
 
     final result = await context.getApi().insertStyle(request);
     expect(result.style, isNotNull);
-    expect(result.style.name, 'My Style');
+    expect(result.style?.name, 'My Style');
   }
 
   /// Test for inserting style from document online.
@@ -191,7 +191,7 @@ class StylesTests
 
     final result = await context.getApi().copyStyle(request);
     expect(result.style, isNotNull);
-    expect(result.style.name, 'Heading 1_0');
+    expect(result.style?.name, 'Heading 1_0');
   }
 
   /// Test for coping style from document online.
@@ -224,7 +224,7 @@ class StylesTests
 
     final result = await context.getApi().getStyleFromDocumentElement(request);
     expect(result.style, isNotNull);
-    expect(result.style.name, 'TOC 1');
+    expect(result.style?.name, 'TOC 1');
   }
 
   /// Test for getting style from document element online.

@@ -34,10 +34,10 @@ import '../test_context.dart';
 class BuildReportTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String reportingFolder;
+  late String remoteDataFolder;
+  late String reportingFolder;
 
-  BuildReportTests(final this.context) {
+  BuildReportTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/Reporting';
     reportingFolder = 'DocumentActions/Reporting';
   }
@@ -86,6 +86,6 @@ class BuildReportTests
 
     final result = await context.getApi().buildReport(request);
     expect(result.document, isNotNull);
-    expect(result.document.fileName, 'TestBuildReport.docx');
+    expect(result.document?.fileName, 'TestBuildReport.docx');
   }
 }

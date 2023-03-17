@@ -32,77 +32,77 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a DrawingObject.
 class DrawingObject extends DrawingObjectLink {
   /// Gets or sets the height of the DrawingObject in points.
-  double _height;
+  double? _height;
 
-  double get height => _height;
-  set height(double val) => _height = val;
+  double? get height => _height;
+  set height(double? val) => _height = val;
 
 
   /// Gets or sets the link to image data. Can be null if shape does not have an image.
-  WordsApiLink _imageDataLink;
+  WordsApiLink? _imageDataLink;
 
-  WordsApiLink get imageDataLink => _imageDataLink;
-  set imageDataLink(WordsApiLink val) => _imageDataLink = val;
+  WordsApiLink? get imageDataLink => _imageDataLink;
+  set imageDataLink(WordsApiLink? val) => _imageDataLink = val;
 
 
   /// Gets or sets the distance in points from the origin to the left side of the image.
-  double _left;
+  double? _left;
 
-  double get left => _left;
-  set left(double val) => _left = val;
+  double? get left => _left;
+  set left(double? val) => _left = val;
 
 
   /// Gets or sets the link to OLE object. Can be null if shape does not have OLE data.
-  WordsApiLink _oleDataLink;
+  WordsApiLink? _oleDataLink;
 
-  WordsApiLink get oleDataLink => _oleDataLink;
-  set oleDataLink(WordsApiLink val) => _oleDataLink = val;
+  WordsApiLink? get oleDataLink => _oleDataLink;
+  set oleDataLink(WordsApiLink? val) => _oleDataLink = val;
 
 
   /// Gets or sets the relative horizontal position, from which the distance to the image is measured.
-  DrawingObject_RelativeHorizontalPositionEnum _relativeHorizontalPosition;
+  DrawingObject_RelativeHorizontalPositionEnum? _relativeHorizontalPosition;
 
-  DrawingObject_RelativeHorizontalPositionEnum get relativeHorizontalPosition => _relativeHorizontalPosition;
-  set relativeHorizontalPosition(DrawingObject_RelativeHorizontalPositionEnum val) => _relativeHorizontalPosition = val;
+  DrawingObject_RelativeHorizontalPositionEnum? get relativeHorizontalPosition => _relativeHorizontalPosition;
+  set relativeHorizontalPosition(DrawingObject_RelativeHorizontalPositionEnum? val) => _relativeHorizontalPosition = val;
 
 
   /// Gets or sets the relative vertical position, from which the distance to the image is measured.
-  DrawingObject_RelativeVerticalPositionEnum _relativeVerticalPosition;
+  DrawingObject_RelativeVerticalPositionEnum? _relativeVerticalPosition;
 
-  DrawingObject_RelativeVerticalPositionEnum get relativeVerticalPosition => _relativeVerticalPosition;
-  set relativeVerticalPosition(DrawingObject_RelativeVerticalPositionEnum val) => _relativeVerticalPosition = val;
+  DrawingObject_RelativeVerticalPositionEnum? get relativeVerticalPosition => _relativeVerticalPosition;
+  set relativeVerticalPosition(DrawingObject_RelativeVerticalPositionEnum? val) => _relativeVerticalPosition = val;
 
 
   /// Gets or sets the list of links that originate from this DrawingObjectDto.
-  List<WordsApiLink> _renderLinks;
+  List<WordsApiLink?>? _renderLinks;
 
-  List<WordsApiLink> get renderLinks => _renderLinks;
-  set renderLinks(List<WordsApiLink> val) => _renderLinks = val;
+  List<WordsApiLink?>? get renderLinks => _renderLinks;
+  set renderLinks(List<WordsApiLink?>? val) => _renderLinks = val;
 
 
   /// Gets or sets the distance in points from the origin to the top side of the image.
-  double _top;
+  double? _top;
 
-  double get top => _top;
-  set top(double val) => _top = val;
+  double? get top => _top;
+  set top(double? val) => _top = val;
 
 
   /// Gets or sets the width of the DrawingObjects in points.
-  double _width;
+  double? _width;
 
-  double get width => _width;
-  set width(double val) => _width = val;
+  double? get width => _width;
+  set width(double? val) => _width = val;
 
 
   /// Gets or sets the option that controls how to wrap text around the image.
-  DrawingObject_WrapTypeEnum _wrapType;
+  DrawingObject_WrapTypeEnum? _wrapType;
 
-  DrawingObject_WrapTypeEnum get wrapType => _wrapType;
-  set wrapType(DrawingObject_WrapTypeEnum val) => _wrapType = val;
+  DrawingObject_WrapTypeEnum? get wrapType => _wrapType;
+  set wrapType(DrawingObject_WrapTypeEnum? val) => _wrapType = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize DrawingObject data model.');
     }
@@ -110,7 +110,7 @@ class DrawingObject extends DrawingObjectLink {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -129,7 +129,7 @@ class DrawingObject extends DrawingObjectLink {
 
     if (json.containsKey('ImageDataLink')) {
       imageDataLink = WordsApiLink();
-      imageDataLink.deserialize(json['ImageDataLink'] as Map<String, dynamic>);
+      imageDataLink!.deserialize(json['ImageDataLink'] as Map<String, dynamic>);
     } else {
       imageDataLink = null;
     }
@@ -142,7 +142,7 @@ class DrawingObject extends DrawingObjectLink {
 
     if (json.containsKey('OleDataLink')) {
       oleDataLink = WordsApiLink();
-      oleDataLink.deserialize(json['OleDataLink'] as Map<String, dynamic>);
+      oleDataLink!.deserialize(json['OleDataLink'] as Map<String, dynamic>);
     } else {
       oleDataLink = null;
     }
@@ -188,7 +188,7 @@ class DrawingObject extends DrawingObjectLink {
       for(final _element in json['RenderLinks']) {
         var _elementValue = WordsApiLink();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        renderLinks.add(_elementValue);
+        renderLinks!.add(_elementValue);
       }
     } else {
       renderLinks = null;
@@ -226,23 +226,23 @@ class DrawingObject extends DrawingObjectLink {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (height != null) {
-      _result['Height'] = height;
+      _result['Height'] = height!;
     }
 
     if (imageDataLink != null) {
-      _result['ImageDataLink'] = imageDataLink.serialize();
+      _result['ImageDataLink'] = imageDataLink!.serialize();
     }
 
     if (left != null) {
-      _result['Left'] = left;
+      _result['Left'] = left!;
     }
 
     if (oleDataLink != null) {
-      _result['OleDataLink'] = oleDataLink.serialize();
+      _result['OleDataLink'] = oleDataLink!.serialize();
     }
 
     if (relativeHorizontalPosition != null) {
-      switch (relativeHorizontalPosition) {
+      switch (relativeHorizontalPosition!) {
         case DrawingObject_RelativeHorizontalPositionEnum.margin: _result['RelativeHorizontalPosition'] = 'Margin'; break;
         case DrawingObject_RelativeHorizontalPositionEnum.page: _result['RelativeHorizontalPosition'] = 'Page'; break;
         case DrawingObject_RelativeHorizontalPositionEnum.column: _result['RelativeHorizontalPosition'] = 'Column'; break;
@@ -257,7 +257,7 @@ class DrawingObject extends DrawingObjectLink {
     }
 
     if (relativeVerticalPosition != null) {
-      switch (relativeVerticalPosition) {
+      switch (relativeVerticalPosition!) {
         case DrawingObject_RelativeVerticalPositionEnum.margin: _result['RelativeVerticalPosition'] = 'Margin'; break;
         case DrawingObject_RelativeVerticalPositionEnum.tableDefault: _result['RelativeVerticalPosition'] = 'TableDefault'; break;
         case DrawingObject_RelativeVerticalPositionEnum.page: _result['RelativeVerticalPosition'] = 'Page'; break;
@@ -273,19 +273,19 @@ class DrawingObject extends DrawingObjectLink {
     }
 
     if (renderLinks != null) {
-      _result['RenderLinks'] = renderLinks.map((_element) => _element.serialize()).toList();
+      _result['RenderLinks'] = renderLinks!.map((_element) => _element?.serialize()).toList();
     }
 
     if (top != null) {
-      _result['Top'] = top;
+      _result['Top'] = top!;
     }
 
     if (width != null) {
-      _result['Width'] = width;
+      _result['Width'] = width!;
     }
 
     if (wrapType != null) {
-      switch (wrapType) {
+      switch (wrapType!) {
         case DrawingObject_WrapTypeEnum.inline: _result['WrapType'] = 'Inline'; break;
         case DrawingObject_WrapTypeEnum.topBottom: _result['WrapType'] = 'TopBottom'; break;
         case DrawingObject_WrapTypeEnum.square: _result['WrapType'] = 'Square'; break;

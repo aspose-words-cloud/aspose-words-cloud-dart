@@ -33,7 +33,7 @@ import '../../aspose_words_cloud.dart';
 class CommentUpdate extends CommentBase {
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize CommentUpdate data model.');
     }
@@ -59,14 +59,14 @@ class CommentUpdate extends CommentBase {
 
     if (json.containsKey('RangeEnd')) {
       rangeEnd = DocumentPosition();
-      rangeEnd.deserialize(json['RangeEnd'] as Map<String, dynamic>);
+      rangeEnd!.deserialize(json['RangeEnd'] as Map<String, dynamic>);
     } else {
       rangeEnd = null;
     }
 
     if (json.containsKey('RangeStart')) {
       rangeStart = DocumentPosition();
-      rangeStart.deserialize(json['RangeStart'] as Map<String, dynamic>);
+      rangeStart!.deserialize(json['RangeStart'] as Map<String, dynamic>);
     } else {
       rangeStart = null;
     }

@@ -32,36 +32,36 @@ import '../../aspose_words_cloud.dart';
 /// Container class for tiff save options.
 class TiffSaveOptionsData extends ImageSaveOptionsData {
   /// Gets the format of save.
-  String _saveFormat = 'tiff';
+  String? _saveFormat = 'tiff';
 
   @override
-  String get saveFormat => _saveFormat;
+  String? get saveFormat => _saveFormat;
 
 
   /// Gets or sets the threshold that determines the value of the binarization error in the Floyd-Steinberg method. when ImageBinarizationMethod is ImageBinarizationMethod.FloydSteinbergDithering.
   /// Default value is 128.
-  int _thresholdForFloydSteinbergDithering;
+  int? _thresholdForFloydSteinbergDithering;
 
-  int get thresholdForFloydSteinbergDithering => _thresholdForFloydSteinbergDithering;
-  set thresholdForFloydSteinbergDithering(int val) => _thresholdForFloydSteinbergDithering = val;
+  int? get thresholdForFloydSteinbergDithering => _thresholdForFloydSteinbergDithering;
+  set thresholdForFloydSteinbergDithering(int? val) => _thresholdForFloydSteinbergDithering = val;
 
 
   /// Gets or sets the method used while converting images to 1 bpp format.
-  TiffSaveOptionsData_TiffBinarizationMethodEnum _tiffBinarizationMethod;
+  TiffSaveOptionsData_TiffBinarizationMethodEnum? _tiffBinarizationMethod;
 
-  TiffSaveOptionsData_TiffBinarizationMethodEnum get tiffBinarizationMethod => _tiffBinarizationMethod;
-  set tiffBinarizationMethod(TiffSaveOptionsData_TiffBinarizationMethodEnum val) => _tiffBinarizationMethod = val;
+  TiffSaveOptionsData_TiffBinarizationMethodEnum? get tiffBinarizationMethod => _tiffBinarizationMethod;
+  set tiffBinarizationMethod(TiffSaveOptionsData_TiffBinarizationMethodEnum? val) => _tiffBinarizationMethod = val;
 
 
   /// Gets or sets the type of compression.
-  TiffSaveOptionsData_TiffCompressionEnum _tiffCompression;
+  TiffSaveOptionsData_TiffCompressionEnum? _tiffCompression;
 
-  TiffSaveOptionsData_TiffCompressionEnum get tiffCompression => _tiffCompression;
-  set tiffCompression(TiffSaveOptionsData_TiffCompressionEnum val) => _tiffCompression = val;
+  TiffSaveOptionsData_TiffCompressionEnum? get tiffCompression => _tiffCompression;
+  set tiffCompression(TiffSaveOptionsData_TiffCompressionEnum? val) => _tiffCompression = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize TiffSaveOptionsData data model.');
     }
@@ -75,7 +75,7 @@ class TiffSaveOptionsData extends ImageSaveOptionsData {
 
     if (json.containsKey('CustomTimeZoneInfoData')) {
       customTimeZoneInfoData = TimeZoneInfoData();
-      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+      customTimeZoneInfoData!.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
     } else {
       customTimeZoneInfoData = null;
     }
@@ -181,7 +181,7 @@ class TiffSaveOptionsData extends ImageSaveOptionsData {
 
     if (json.containsKey('MetafileRenderingOptions')) {
       metafileRenderingOptions = MetafileRenderingOptionsData();
-      metafileRenderingOptions.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
+      metafileRenderingOptions!.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
     } else {
       metafileRenderingOptions = null;
     }
@@ -342,15 +342,15 @@ class TiffSaveOptionsData extends ImageSaveOptionsData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat;
+      _result['SaveFormat'] = saveFormat!;
     }
 
     if (thresholdForFloydSteinbergDithering != null) {
-      _result['ThresholdForFloydSteinbergDithering'] = thresholdForFloydSteinbergDithering;
+      _result['ThresholdForFloydSteinbergDithering'] = thresholdForFloydSteinbergDithering!;
     }
 
     if (tiffBinarizationMethod != null) {
-      switch (tiffBinarizationMethod) {
+      switch (tiffBinarizationMethod!) {
         case TiffSaveOptionsData_TiffBinarizationMethodEnum.threshold: _result['TiffBinarizationMethod'] = 'Threshold'; break;
         case TiffSaveOptionsData_TiffBinarizationMethodEnum.floydSteinbergDithering: _result['TiffBinarizationMethod'] = 'FloydSteinbergDithering'; break;
         default: break;
@@ -358,7 +358,7 @@ class TiffSaveOptionsData extends ImageSaveOptionsData {
     }
 
     if (tiffCompression != null) {
-      switch (tiffCompression) {
+      switch (tiffCompression!) {
         case TiffSaveOptionsData_TiffCompressionEnum.none: _result['TiffCompression'] = 'None'; break;
         case TiffSaveOptionsData_TiffCompressionEnum.rle: _result['TiffCompression'] = 'Rle'; break;
         case TiffSaveOptionsData_TiffCompressionEnum.lzw: _result['TiffCompression'] = 'Lzw'; break;

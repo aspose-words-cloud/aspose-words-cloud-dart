@@ -34,11 +34,11 @@ import '../test_context.dart';
 class FieldTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String textFolder;
-  String fieldFolder;
+  late String remoteDataFolder;
+  late String textFolder;
+  late String fieldFolder;
 
-  FieldTests(final this.context) {
+  FieldTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Fields';
     textFolder = 'DocumentElements/Text';
     fieldFolder = 'DocumentElements/Fields';
@@ -59,9 +59,9 @@ class FieldTests
 
     final result = await context.getApi().getFields(request);
     expect(result.fields, isNotNull);
-    expect(result.fields.list, isNotNull);
-    expect(result.fields.list.length, 1);
-    expect(result.fields.list[0].result, '1');
+    expect(result.fields?.list, isNotNull);
+    expect(result.fields?.list?.length, 1);
+    expect(result.fields?.list?[0]?.result, '1');
   }
 
   /// Test for getting fields online.
@@ -91,9 +91,9 @@ class FieldTests
 
     final result = await context.getApi().getFields(request);
     expect(result.fields, isNotNull);
-    expect(result.fields.list, isNotNull);
-    expect(result.fields.list.length, 1);
-    expect(result.fields.list[0].result, '1');
+    expect(result.fields?.list, isNotNull);
+    expect(result.fields?.list?.length, 1);
+    expect(result.fields?.list?[0]?.result, '1');
   }
 
   /// Test for getting field by index.
@@ -112,7 +112,7 @@ class FieldTests
 
     final result = await context.getApi().getField(request);
     expect(result.field, isNotNull);
-    expect(result.field.result, '1');
+    expect(result.field?.result, '1');
   }
 
   /// Test for getting field by index online.
@@ -144,7 +144,7 @@ class FieldTests
 
     final result = await context.getApi().getField(request);
     expect(result.field, isNotNull);
-    expect(result.field.result, '1');
+    expect(result.field?.result, '1');
   }
 
   /// Test for putting field.
@@ -165,8 +165,8 @@ class FieldTests
 
     final result = await context.getApi().insertField(request);
     expect(result.field, isNotNull);
-    expect(result.field.fieldCode, '{ NUMPAGES }');
-    expect(result.field.nodeId, '0.0.0.1');
+    expect(result.field?.fieldCode, '{ NUMPAGES }');
+    expect(result.field?.nodeId, '0.0.0.1');
   }
 
   /// Test for putting field online.
@@ -203,8 +203,8 @@ class FieldTests
 
     final result = await context.getApi().insertField(request);
     expect(result.field, isNotNull);
-    expect(result.field.fieldCode, '{ NUMPAGES }');
-    expect(result.field.nodeId, '5.0.22.0');
+    expect(result.field?.fieldCode, '{ NUMPAGES }');
+    expect(result.field?.nodeId, '5.0.22.0');
   }
 
   /// Test for posting field.
@@ -226,8 +226,8 @@ class FieldTests
 
     final result = await context.getApi().updateField(request);
     expect(result.field, isNotNull);
-    expect(result.field.fieldCode, '{ NUMPAGES }');
-    expect(result.field.nodeId, '0.0.0.0');
+    expect(result.field?.fieldCode, '{ NUMPAGES }');
+    expect(result.field?.nodeId, '0.0.0.0');
   }
 
   /// Test for posting field online.
@@ -267,7 +267,7 @@ class FieldTests
 
     final result = await context.getApi().insertPageNumbers(request);
     expect(result.document, isNotNull);
-    expect(result.document.fileName, 'TestInsertPageNumbers.docx');
+    expect(result.document?.fileName, 'TestInsertPageNumbers.docx');
   }
 
   /// Test for inserting page numbers field online.
@@ -457,7 +457,7 @@ class FieldTests
 
     final result = await context.getApi().updateFields(request);
     expect(result.document, isNotNull);
-    expect(result.document.fileName, 'TestUpdateDocumentFields.docx');
+    expect(result.document?.fileName, 'TestUpdateDocumentFields.docx');
   }
 
   /// Test for posting updated fields online.
