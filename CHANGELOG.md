@@ -1,6 +1,7 @@
 ## [23.3.0] - Aspose Words Cloud for Dart 23.3 Release Notes
 
 - Fix compatibility between CreateDocument API and Dropbox storage.
+- Fix compatibility for property PageCount for FixedPageSaveOptionsData.
 
 
 ## [23.2.0] - Aspose Words Cloud for Dart 23.2 Release Notes
