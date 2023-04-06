@@ -34,10 +34,10 @@ import '../test_context.dart';
 class TableTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
+  late String remoteDataFolder;
+  late String localFile;
 
-  TableTests(final this.context) {
+  TableTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Tables';
     localFile = 'DocumentElements/Tables/TablesGet.docx';
   }
@@ -56,9 +56,9 @@ class TableTests
 
     final result = await context.getApi().getTables(request);
     expect(result.tables, isNotNull);
-    expect(result.tables.tableLinkList, isNotNull);
-    expect(result.tables.tableLinkList.length, 5);
-    expect(result.tables.tableLinkList[0].nodeId, '0.0.1');
+    expect(result.tables?.tableLinkList, isNotNull);
+    expect(result.tables?.tableLinkList?.length, 5);
+    expect(result.tables?.tableLinkList?[0]?.nodeId, '0.0.1');
   }
 
   /// Test for getting tables online.
@@ -87,9 +87,9 @@ class TableTests
 
     final result = await context.getApi().getTables(request);
     expect(result.tables, isNotNull);
-    expect(result.tables.tableLinkList, isNotNull);
-    expect(result.tables.tableLinkList.length, 5);
-    expect(result.tables.tableLinkList[0].nodeId, '0.0.1');
+    expect(result.tables?.tableLinkList, isNotNull);
+    expect(result.tables?.tableLinkList?.length, 5);
+    expect(result.tables?.tableLinkList?[0]?.nodeId, '0.0.1');
   }
 
   /// Test for getting table.
@@ -107,10 +107,10 @@ class TableTests
 
     final result = await context.getApi().getTable(request);
     expect(result.table, isNotNull);
-    expect(result.table.tableRowList, isNotNull);
-    expect(result.table.tableRowList.length, 1);
-    expect(result.table.tableRowList[0].tableCellList, isNotNull);
-    expect(result.table.tableRowList[0].tableCellList.length, 2);
+    expect(result.table?.tableRowList, isNotNull);
+    expect(result.table?.tableRowList?.length, 1);
+    expect(result.table?.tableRowList?[0]?.tableCellList, isNotNull);
+    expect(result.table?.tableRowList?[0]?.tableCellList?.length, 2);
   }
 
   /// Test for getting table online.
@@ -141,10 +141,10 @@ class TableTests
 
     final result = await context.getApi().getTable(request);
     expect(result.table, isNotNull);
-    expect(result.table.tableRowList, isNotNull);
-    expect(result.table.tableRowList.length, 1);
-    expect(result.table.tableRowList[0].tableCellList, isNotNull);
-    expect(result.table.tableRowList[0].tableCellList.length, 2);
+    expect(result.table?.tableRowList, isNotNull);
+    expect(result.table?.tableRowList?.length, 1);
+    expect(result.table?.tableRowList?[0]?.tableCellList, isNotNull);
+    expect(result.table?.tableRowList?[0]?.tableCellList?.length, 2);
   }
 
   /// Test for deleting table.
@@ -210,10 +210,10 @@ class TableTests
 
     final result = await context.getApi().insertTable(request);
     expect(result.table, isNotNull);
-    expect(result.table.tableRowList, isNotNull);
-    expect(result.table.tableRowList.length, 4);
-    expect(result.table.tableRowList[0].tableCellList, isNotNull);
-    expect(result.table.tableRowList[0].tableCellList.length, 5);
+    expect(result.table?.tableRowList, isNotNull);
+    expect(result.table?.tableRowList?.length, 4);
+    expect(result.table?.tableRowList?[0]?.tableCellList, isNotNull);
+    expect(result.table?.tableRowList?[0]?.tableCellList?.length, 5);
   }
 
   /// Test for adding table online.
@@ -251,10 +251,10 @@ class TableTests
 
     final result = await context.getApi().insertTable(request);
     expect(result.table, isNotNull);
-    expect(result.table.tableRowList, isNotNull);
-    expect(result.table.tableRowList.length, 4);
-    expect(result.table.tableRowList[0].tableCellList, isNotNull);
-    expect(result.table.tableRowList[0].tableCellList.length, 5);
+    expect(result.table?.tableRowList, isNotNull);
+    expect(result.table?.tableRowList?.length, 4);
+    expect(result.table?.tableRowList?[0]?.tableCellList, isNotNull);
+    expect(result.table?.tableRowList?[0]?.tableCellList?.length, 5);
   }
 
   /// Test for getting document properties.
@@ -272,7 +272,7 @@ class TableTests
 
     final result = await context.getApi().getTableProperties(request);
     expect(result.properties, isNotNull);
-    expect(result.properties.styleName, 'Table Grid');
+    expect(result.properties?.styleName, 'Table Grid');
   }
 
   /// Test for getting document properties online.
@@ -303,7 +303,7 @@ class TableTests
 
     final result = await context.getApi().getTableProperties(request);
     expect(result.properties, isNotNull);
-    expect(result.properties.styleName, 'Table Grid');
+    expect(result.properties?.styleName, 'Table Grid');
   }
 
   /// Test for updating table properties.
@@ -329,10 +329,10 @@ class TableTests
 
     final result = await context.getApi().updateTableProperties(request);
     expect(result.properties, isNotNull);
-    expect(result.properties.allowAutoFit, isFalse);
-    expect(result.properties.bidi, isTrue);
-    expect(result.properties.bottomPadding, 1.0);
-    expect(result.properties.cellSpacing, 2.0);
+    expect(result.properties?.allowAutoFit, isFalse);
+    expect(result.properties?.bidi, isTrue);
+    expect(result.properties?.bottomPadding, 1.0);
+    expect(result.properties?.cellSpacing, 2.0);
   }
 
   /// Test for updating table properties online.
@@ -380,10 +380,10 @@ class TableTests
 
     final result = await context.getApi().updateTableProperties(request);
     expect(result.properties, isNotNull);
-    expect(result.properties.allowAutoFit, isFalse);
-    expect(result.properties.bidi, isTrue);
-    expect(result.properties.bottomPadding, 1.0);
-    expect(result.properties.cellSpacing, 2.0);
+    expect(result.properties?.allowAutoFit, isFalse);
+    expect(result.properties?.bidi, isTrue);
+    expect(result.properties?.bottomPadding, 1.0);
+    expect(result.properties?.cellSpacing, 2.0);
   }
 
   /// Test for getting table row.
@@ -401,8 +401,8 @@ class TableTests
 
     final result = await context.getApi().getTableRow(request);
     expect(result.row, isNotNull);
-    expect(result.row.tableCellList, isNotNull);
-    expect(result.row.tableCellList.length, 2);
+    expect(result.row?.tableCellList, isNotNull);
+    expect(result.row?.tableCellList?.length, 2);
   }
 
   /// Test for getting table row online.
@@ -466,8 +466,8 @@ class TableTests
 
     final result = await context.getApi().insertTableRow(request);
     expect(result.row, isNotNull);
-    expect(result.row.tableCellList, isNotNull);
-    expect(result.row.tableCellList.length, 5);
+    expect(result.row?.tableCellList, isNotNull);
+    expect(result.row?.tableCellList?.length, 5);
   }
 
   /// Test for adding row online.
@@ -502,7 +502,7 @@ class TableTests
 
     final result = await context.getApi().getTableRowFormat(request);
     expect(result.rowFormat, isNotNull);
-    expect(result.rowFormat.allowBreakAcrossPages, isTrue);
+    expect(result.rowFormat?.allowBreakAcrossPages, isTrue);
   }
 
   /// Test for getting row format online.
@@ -540,9 +540,9 @@ class TableTests
 
     final result = await context.getApi().updateTableRowFormat(request);
     expect(result.rowFormat, isNotNull);
-    expect(result.rowFormat.allowBreakAcrossPages, isTrue);
-    expect(result.rowFormat.headingFormat, isTrue);
-    expect(result.rowFormat.height, 10.0);
+    expect(result.rowFormat?.allowBreakAcrossPages, isTrue);
+    expect(result.rowFormat?.headingFormat, isTrue);
+    expect(result.rowFormat?.height, 10.0);
   }
 
   /// Test updating row format online.
@@ -581,7 +581,7 @@ class TableTests
 
     final result = await context.getApi().getTableCell(request);
     expect(result.cell, isNotNull);
-    expect(result.cell.nodeId, '0.0.5.0.0');
+    expect(result.cell?.nodeId, '0.0.5.0.0');
   }
 
   /// Test for getting table cell online.
@@ -645,7 +645,7 @@ class TableTests
 
     final result = await context.getApi().insertTableCell(request);
     expect(result.cell, isNotNull);
-    expect(result.cell.nodeId, '0.0.5.0.3');
+    expect(result.cell?.nodeId, '0.0.5.0.3');
   }
 
   /// Test for adding cell online.
@@ -680,7 +680,7 @@ class TableTests
 
     final result = await context.getApi().getTableCellFormat(request);
     expect(result.cellFormat, isNotNull);
-    expect(result.cellFormat.wrapText, isTrue);
+    expect(result.cellFormat?.wrapText, isTrue);
   }
 
   /// Test for getting cell format online.
@@ -718,9 +718,9 @@ class TableTests
 
     final result = await context.getApi().updateTableCellFormat(request);
     expect(result.cellFormat, isNotNull);
-    expect(result.cellFormat.bottomPadding, 5.0);
-    expect(result.cellFormat.fitText, isTrue);
-    expect(result.cellFormat.wrapText, isTrue);
+    expect(result.cellFormat?.bottomPadding, 5.0);
+    expect(result.cellFormat?.fitText, isTrue);
+    expect(result.cellFormat?.wrapText, isTrue);
   }
 
   /// Test for updating cell format online.

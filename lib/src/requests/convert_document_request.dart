@@ -36,33 +36,33 @@ import '../api_request_part.dart';
 /// Request model for ConvertDocument operation.
 class ConvertDocumentRequest implements RequestBase {
   /// Converting document.
-  final ByteData document;
+  final ByteData? document;
 
   /// The format to convert.
-  final String format;
+  final String? format;
 
   /// The path to the output document on a local storage.
-  final String outPath;
+  final String? outPath;
 
   /// The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "sourceFilename" will be used instead.
-  final String fileNameFieldValue;
+  final String? fileNameFieldValue;
 
   /// Original document storage.
-  final String storage;
+  final String? storage;
 
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-  final String loadEncoding;
+  final String? loadEncoding;
 
   /// Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
-  final String password;
+  final String? password;
 
   /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
-  final String encryptedPassword;
+  final String? encryptedPassword;
 
   /// Folder in filestorage with custom fonts.
-  final String fontsLocation;
+  final String? fontsLocation;
 
-  ConvertDocumentRequest(final this.document, final this.format, {final this.outPath, final this.fileNameFieldValue, final this.storage, final this.loadEncoding, final this.password, final this.encryptedPassword, final this.fontsLocation});
+  ConvertDocumentRequest(this.document, this.format, {this.outPath, this.fileNameFieldValue, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.fontsLocation});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -72,42 +72,45 @@ class ConvertDocumentRequest implements RequestBase {
     var _bodyParts = <ApiRequestPart>[];
     var _fileContentParts = <FileReference>[];
     if (format != null) {
-      _queryParams['format'] = _apiClient.serializeToString(format);
+      _queryParams['format'] = _apiClient.serializeToString(format) ?? "";
     }
     else {
       throw ApiException(400, 'Parameter format is required.');
     }
 
     if (outPath != null) {
-      _queryParams['outPath'] = _apiClient.serializeToString(outPath);
+      _queryParams['outPath'] = _apiClient.serializeToString(outPath) ?? "";
     }
 
     if (fileNameFieldValue != null) {
-      _queryParams['fileNameFieldValue'] = _apiClient.serializeToString(fileNameFieldValue);
+      _queryParams['fileNameFieldValue'] = _apiClient.serializeToString(fileNameFieldValue) ?? "";
     }
 
     if (storage != null) {
-      _queryParams['storage'] = _apiClient.serializeToString(storage);
+      _queryParams['storage'] = _apiClient.serializeToString(storage) ?? "";
     }
 
     if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding) ?? "";
     }
 
     if (password != null) {
-      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password!);
     }
 
     if (encryptedPassword != null) {
-      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword);
+      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword) ?? "";
     }
 
     if (fontsLocation != null) {
-      _queryParams['fontsLocation'] = _apiClient.serializeToString(fontsLocation);
+      _queryParams['fontsLocation'] = _apiClient.serializeToString(fontsLocation) ?? "";
     }
 
     if (document != null) {
-      _bodyParts.add(_apiClient.serializeBody(document, 'Document'));
+      var _formBody = _apiClient.serializeBody(document, 'Document');
+      if (_formBody != null) {
+        _bodyParts.add(_formBody);
+      }
     }
     else {
       throw ApiException(400, 'Parameter document is required.');
@@ -115,7 +118,7 @@ class ConvertDocumentRequest implements RequestBase {
 
     for (final _fileContentPart in _fileContentParts) {
         if (_fileContentPart.source == 'Request') {
-            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
@@ -124,7 +127,11 @@ class ConvertDocumentRequest implements RequestBase {
   }
 
   @override
-  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final Map<String, String> _headers, final ByteData? _body) {
+    if (_body == null) {
+        return ApiException(400, "Nullable response body is not allowed for this operation type.");
+    }
+
     return _body;
   }
 }

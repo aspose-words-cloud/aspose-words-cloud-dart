@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a field.
 class Field extends FieldLink {
   /// Gets or sets the LCID of the field.
-  String _localeId;
+  String? _localeId;
 
-  String get localeId => _localeId;
-  set localeId(String val) => _localeId = val;
+  String? get localeId => _localeId;
+  set localeId(String? val) => _localeId = val;
 
 
   /// Gets or sets the field result.
-  String _result;
+  String? _result;
 
-  String get result => _result;
-  set result(String val) => _result = val;
+  String? get result => _result;
+  set result(String? val) => _result = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize Field data model.');
     }
@@ -54,7 +54,7 @@ class Field extends FieldLink {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -89,11 +89,11 @@ class Field extends FieldLink {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (localeId != null) {
-      _result['LocaleId'] = localeId;
+      _result['LocaleId'] = localeId!;
     }
 
     if (result != null) {
-      _result['Result'] = result;
+      _result['Result'] = result!;
     }
     return _result;
   }

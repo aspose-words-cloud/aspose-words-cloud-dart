@@ -37,33 +37,33 @@ import '../api_request_part.dart';
 /// Request model for GetDocumentStatistics operation.
 class GetDocumentStatisticsRequest implements RequestBase {
   /// The filename of the input document.
-  final String name;
+  final String? name;
 
   /// Original document folder.
-  final String folder;
+  final String? folder;
 
   /// Original document storage.
-  final String storage;
+  final String? storage;
 
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-  final String loadEncoding;
+  final String? loadEncoding;
 
   /// Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
-  final String password;
+  final String? password;
 
   /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
-  final String encryptedPassword;
+  final String? encryptedPassword;
 
   /// The flag indicating whether to include comments from the WordCount. The default value is "false".
-  final bool includeComments;
+  final bool? includeComments;
 
   /// The flag indicating whether to include footnotes from the WordCount. The default value is "false".
-  final bool includeFootnotes;
+  final bool? includeFootnotes;
 
   /// The flag indicating whether to include shape's text from the WordCount. The default value is "false".
-  final bool includeTextInShapes;
+  final bool? includeTextInShapes;
 
-  GetDocumentStatisticsRequest(final this.name, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.encryptedPassword, final this.includeComments, final this.includeFootnotes, final this.includeTextInShapes});
+  GetDocumentStatisticsRequest(this.name, {this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.includeComments, this.includeFootnotes, this.includeTextInShapes});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -75,42 +75,42 @@ class GetDocumentStatisticsRequest implements RequestBase {
     if (name == null) {
       throw ApiException(400, 'Parameter name is required.');
     }
-    _path = _path.replaceAll('{name}', _apiClient.serializeToString(name));
+    _path = _path.replaceAll('{name}', _apiClient.serializeToString(name) ?? "");
     if (folder != null) {
-      _queryParams['folder'] = _apiClient.serializeToString(folder);
+      _queryParams['folder'] = _apiClient.serializeToString(folder) ?? "";
     }
 
     if (storage != null) {
-      _queryParams['storage'] = _apiClient.serializeToString(storage);
+      _queryParams['storage'] = _apiClient.serializeToString(storage) ?? "";
     }
 
     if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding) ?? "";
     }
 
     if (password != null) {
-      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password!);
     }
 
     if (encryptedPassword != null) {
-      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword);
+      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword) ?? "";
     }
 
     if (includeComments != null) {
-      _queryParams['includeComments'] = _apiClient.serializeToString(includeComments);
+      _queryParams['includeComments'] = _apiClient.serializeToString(includeComments) ?? "";
     }
 
     if (includeFootnotes != null) {
-      _queryParams['includeFootnotes'] = _apiClient.serializeToString(includeFootnotes);
+      _queryParams['includeFootnotes'] = _apiClient.serializeToString(includeFootnotes) ?? "";
     }
 
     if (includeTextInShapes != null) {
-      _queryParams['includeTextInShapes'] = _apiClient.serializeToString(includeTextInShapes);
+      _queryParams['includeTextInShapes'] = _apiClient.serializeToString(includeTextInShapes) ?? "";
     }
 
     for (final _fileContentPart in _fileContentParts) {
         if (_fileContentPart.source == 'Request') {
-            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
@@ -119,7 +119,11 @@ class GetDocumentStatisticsRequest implements RequestBase {
   }
 
   @override
-  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final Map<String, String> _headers, final ByteData? _body) {
+    if (_body == null) {
+        return ApiException(400, "Nullable response body is not allowed for this operation type.");
+    }
+
     var _result = StatDataResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);

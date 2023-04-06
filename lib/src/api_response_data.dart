@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="office_math_object_response.dart">
+ * <copyright company="Aspose" file="api_response_data.dart">
  *   Copyright (c) 2023 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,51 +27,10 @@
 
 library aspose_words_cloud;
 
-import '../../aspose_words_cloud.dart';
+import 'dart:typed_data';
 
-/// The REST response with a OfficeMath object.
-class OfficeMathObjectResponse extends WordsResponse {
-  /// Gets or sets the OfficeMath object.
-  OfficeMathObject? _officeMathObject;
-
-  OfficeMathObject? get officeMathObject => _officeMathObject;
-  set officeMathObject(OfficeMathObject? val) => _officeMathObject = val;
-
-
-  @override
-  void deserialize(Map<String, dynamic>? json) {
-    if (json == null) {
-      throw ApiException(400, 'Failed to deserialize OfficeMathObjectResponse data model.');
-    }
-
-    super.deserialize(json);
-    if (json.containsKey('RequestId')) {
-      requestId = json['RequestId'] as String;
-    } else {
-      requestId = null;
-    }
-
-    if (json.containsKey('OfficeMathObject')) {
-      officeMathObject = OfficeMathObject();
-      officeMathObject!.deserialize(json['OfficeMathObject'] as Map<String, dynamic>);
-    } else {
-      officeMathObject = null;
-    }
-  }
-
-  @override
-  Map<String, dynamic> serialize() {
-    var _result = <String, dynamic>{};
-    _result.addAll(super.serialize());
-    if (officeMathObject != null) {
-      _result['OfficeMathObject'] = officeMathObject!.serialize();
-    }
-    return _result;
-  }
-
-  @override
-  void getFilesContent(List<FileReference> resultFilesContent) {
-  }
+class ApiResponseData {
+  final Map<String, String> headers;
+  final ByteData content;
+  ApiResponseData(this.headers, this.content);
 }
-
-

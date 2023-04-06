@@ -34,10 +34,10 @@ import '../test_context.dart';
 class DocumentProtectionTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
+  late String remoteDataFolder;
+  late String localFile;
 
-  DocumentProtectionTests(final this.context) {
+  DocumentProtectionTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/DocumentProtection';
     localFile = 'Common/test_multi_pages.docx';
   }
@@ -60,7 +60,7 @@ class DocumentProtectionTests
 
     final result = await context.getApi().protectDocument(request);
     expect(result.protectionData, isNotNull);
-    expect(result.protectionData.protectionType, 'ReadOnly');
+    expect(result.protectionData?.protectionType, 'ReadOnly');
   }
 
   /// Test for setting document protection.
@@ -123,7 +123,7 @@ class DocumentProtectionTests
 
     final result = await context.getApi().unprotectDocument(request);
     expect(result.protectionData, isNotNull);
-    expect(result.protectionData.protectionType, 'NoProtection');
+    expect(result.protectionData?.protectionType, 'NoProtection');
   }
 
   /// Test for deleting unprotect document.

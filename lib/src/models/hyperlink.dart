@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// Hyperlink element.
 class Hyperlink extends LinkElement {
   /// Gets or sets the hypelink's display text.
-  String _displayText;
+  String? _displayText;
 
-  String get displayText => _displayText;
-  set displayText(String val) => _displayText = val;
+  String? get displayText => _displayText;
+  set displayText(String? val) => _displayText = val;
 
 
   /// Gets or sets the value.
-  String _value;
+  String? _value;
 
-  String get value => _value;
-  set value(String val) => _value = val;
+  String? get value => _value;
+  set value(String? val) => _value = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize Hyperlink data model.');
     }
@@ -54,7 +54,7 @@ class Hyperlink extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -77,11 +77,11 @@ class Hyperlink extends LinkElement {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (displayText != null) {
-      _result['DisplayText'] = displayText;
+      _result['DisplayText'] = displayText!;
     }
 
     if (value != null) {
-      _result['Value'] = value;
+      _result['Value'] = value!;
     }
     return _result;
   }

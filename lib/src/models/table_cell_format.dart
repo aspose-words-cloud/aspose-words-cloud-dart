@@ -32,91 +32,91 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with all formatting for a table row.
 class TableCellFormat extends LinkElement {
   /// Gets or sets the amount of space (in points) to add below the contents of the cell.
-  double _bottomPadding;
+  double? _bottomPadding;
 
-  double get bottomPadding => _bottomPadding;
-  set bottomPadding(double val) => _bottomPadding = val;
+  double? get bottomPadding => _bottomPadding;
+  set bottomPadding(double? val) => _bottomPadding = val;
 
 
   /// Gets or sets a value indicating whether to fit text in the cell, compress each paragraph to the width of the cell.
-  bool _fitText;
+  bool? _fitText;
 
-  bool get fitText => _fitText;
-  set fitText(bool val) => _fitText = val;
+  bool? get fitText => _fitText;
+  set fitText(bool? val) => _fitText = val;
 
 
   /// Gets or sets the option that controls how the cell is merged horizontally with other cells in the row.
-  TableCellFormat_HorizontalMergeEnum _horizontalMerge;
+  TableCellFormat_HorizontalMergeEnum? _horizontalMerge;
 
-  TableCellFormat_HorizontalMergeEnum get horizontalMerge => _horizontalMerge;
-  set horizontalMerge(TableCellFormat_HorizontalMergeEnum val) => _horizontalMerge = val;
+  TableCellFormat_HorizontalMergeEnum? get horizontalMerge => _horizontalMerge;
+  set horizontalMerge(TableCellFormat_HorizontalMergeEnum? val) => _horizontalMerge = val;
 
 
   /// Gets or sets the amount of space (in points) to add to the left of the contents of the cell.
-  double _leftPadding;
+  double? _leftPadding;
 
-  double get leftPadding => _leftPadding;
-  set leftPadding(double val) => _leftPadding = val;
+  double? get leftPadding => _leftPadding;
+  set leftPadding(double? val) => _leftPadding = val;
 
 
   /// Gets or sets the orientation of text in a table cell.
-  TableCellFormat_OrientationEnum _orientation;
+  TableCellFormat_OrientationEnum? _orientation;
 
-  TableCellFormat_OrientationEnum get orientation => _orientation;
-  set orientation(TableCellFormat_OrientationEnum val) => _orientation = val;
+  TableCellFormat_OrientationEnum? get orientation => _orientation;
+  set orientation(TableCellFormat_OrientationEnum? val) => _orientation = val;
 
 
   /// Gets or sets the preferred width of the cell.
-  PreferredWidth _preferredWidth;
+  PreferredWidth? _preferredWidth;
 
-  PreferredWidth get preferredWidth => _preferredWidth;
-  set preferredWidth(PreferredWidth val) => _preferredWidth = val;
+  PreferredWidth? get preferredWidth => _preferredWidth;
+  set preferredWidth(PreferredWidth? val) => _preferredWidth = val;
 
 
   /// Gets or sets the amount of space (in points) to add to the right of the contents of the cell.
-  double _rightPadding;
+  double? _rightPadding;
 
-  double get rightPadding => _rightPadding;
-  set rightPadding(double val) => _rightPadding = val;
+  double? get rightPadding => _rightPadding;
+  set rightPadding(double? val) => _rightPadding = val;
 
 
   /// Gets or sets the amount of space (in points) to add above the contents of the cell.
-  double _topPadding;
+  double? _topPadding;
 
-  double get topPadding => _topPadding;
-  set topPadding(double val) => _topPadding = val;
+  double? get topPadding => _topPadding;
+  set topPadding(double? val) => _topPadding = val;
 
 
   /// Gets or sets the vertical alignment of text in the cell.
-  TableCellFormat_VerticalAlignmentEnum _verticalAlignment;
+  TableCellFormat_VerticalAlignmentEnum? _verticalAlignment;
 
-  TableCellFormat_VerticalAlignmentEnum get verticalAlignment => _verticalAlignment;
-  set verticalAlignment(TableCellFormat_VerticalAlignmentEnum val) => _verticalAlignment = val;
+  TableCellFormat_VerticalAlignmentEnum? get verticalAlignment => _verticalAlignment;
+  set verticalAlignment(TableCellFormat_VerticalAlignmentEnum? val) => _verticalAlignment = val;
 
 
   /// Gets or sets the option that controls how the cell is merged with other cells vertically.
-  TableCellFormat_VerticalMergeEnum _verticalMerge;
+  TableCellFormat_VerticalMergeEnum? _verticalMerge;
 
-  TableCellFormat_VerticalMergeEnum get verticalMerge => _verticalMerge;
-  set verticalMerge(TableCellFormat_VerticalMergeEnum val) => _verticalMerge = val;
+  TableCellFormat_VerticalMergeEnum? get verticalMerge => _verticalMerge;
+  set verticalMerge(TableCellFormat_VerticalMergeEnum? val) => _verticalMerge = val;
 
 
   /// Gets or sets the width of the cell in points.
-  double _width;
+  double? _width;
 
-  double get width => _width;
-  set width(double val) => _width = val;
+  double? get width => _width;
+  set width(double? val) => _width = val;
 
 
   /// Gets or sets a value indicating whether to wrap text in the cell.
-  bool _wrapText;
+  bool? _wrapText;
 
-  bool get wrapText => _wrapText;
-  set wrapText(bool val) => _wrapText = val;
+  bool? get wrapText => _wrapText;
+  set wrapText(bool? val) => _wrapText = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize TableCellFormat data model.');
     }
@@ -124,7 +124,7 @@ class TableCellFormat extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -174,7 +174,7 @@ class TableCellFormat extends LinkElement {
 
     if (json.containsKey('PreferredWidth')) {
       preferredWidth = PreferredWidth();
-      preferredWidth.deserialize(json['PreferredWidth'] as Map<String, dynamic>);
+      preferredWidth!.deserialize(json['PreferredWidth'] as Map<String, dynamic>);
     } else {
       preferredWidth = null;
     }
@@ -231,15 +231,15 @@ class TableCellFormat extends LinkElement {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (bottomPadding != null) {
-      _result['BottomPadding'] = bottomPadding;
+      _result['BottomPadding'] = bottomPadding!;
     }
 
     if (fitText != null) {
-      _result['FitText'] = fitText;
+      _result['FitText'] = fitText!;
     }
 
     if (horizontalMerge != null) {
-      switch (horizontalMerge) {
+      switch (horizontalMerge!) {
         case TableCellFormat_HorizontalMergeEnum.none: _result['HorizontalMerge'] = 'None'; break;
         case TableCellFormat_HorizontalMergeEnum.first: _result['HorizontalMerge'] = 'First'; break;
         case TableCellFormat_HorizontalMergeEnum.previous: _result['HorizontalMerge'] = 'Previous'; break;
@@ -248,11 +248,11 @@ class TableCellFormat extends LinkElement {
     }
 
     if (leftPadding != null) {
-      _result['LeftPadding'] = leftPadding;
+      _result['LeftPadding'] = leftPadding!;
     }
 
     if (orientation != null) {
-      switch (orientation) {
+      switch (orientation!) {
         case TableCellFormat_OrientationEnum.horizontal: _result['Orientation'] = 'Horizontal'; break;
         case TableCellFormat_OrientationEnum.downward: _result['Orientation'] = 'Downward'; break;
         case TableCellFormat_OrientationEnum.upward: _result['Orientation'] = 'Upward'; break;
@@ -264,19 +264,19 @@ class TableCellFormat extends LinkElement {
     }
 
     if (preferredWidth != null) {
-      _result['PreferredWidth'] = preferredWidth.serialize();
+      _result['PreferredWidth'] = preferredWidth!.serialize();
     }
 
     if (rightPadding != null) {
-      _result['RightPadding'] = rightPadding;
+      _result['RightPadding'] = rightPadding!;
     }
 
     if (topPadding != null) {
-      _result['TopPadding'] = topPadding;
+      _result['TopPadding'] = topPadding!;
     }
 
     if (verticalAlignment != null) {
-      switch (verticalAlignment) {
+      switch (verticalAlignment!) {
         case TableCellFormat_VerticalAlignmentEnum.top: _result['VerticalAlignment'] = 'Top'; break;
         case TableCellFormat_VerticalAlignmentEnum.center: _result['VerticalAlignment'] = 'Center'; break;
         case TableCellFormat_VerticalAlignmentEnum.bottom: _result['VerticalAlignment'] = 'Bottom'; break;
@@ -285,7 +285,7 @@ class TableCellFormat extends LinkElement {
     }
 
     if (verticalMerge != null) {
-      switch (verticalMerge) {
+      switch (verticalMerge!) {
         case TableCellFormat_VerticalMergeEnum.none: _result['VerticalMerge'] = 'None'; break;
         case TableCellFormat_VerticalMergeEnum.first: _result['VerticalMerge'] = 'First'; break;
         case TableCellFormat_VerticalMergeEnum.previous: _result['VerticalMerge'] = 'Previous'; break;
@@ -294,11 +294,11 @@ class TableCellFormat extends LinkElement {
     }
 
     if (width != null) {
-      _result['Width'] = width;
+      _result['Width'] = width!;
     }
 
     if (wrapText != null) {
-      _result['WrapText'] = wrapText;
+      _result['WrapText'] = wrapText!;
     }
     return _result;
   }

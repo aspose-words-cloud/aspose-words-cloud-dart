@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// Paragraph list format element for update.
 class ListFormatUpdate implements ModelBase {
   /// Gets or sets the list id of this paragraph.
-  int _listId;
+  int? _listId;
 
-  int get listId => _listId;
-  set listId(int val) => _listId = val;
+  int? get listId => _listId;
+  set listId(int? val) => _listId = val;
 
 
   /// Gets or sets the list level number (0 to 8) for the paragraph.
-  int _listLevelNumber;
+  int? _listLevelNumber;
 
-  int get listLevelNumber => _listLevelNumber;
-  set listLevelNumber(int val) => _listLevelNumber = val;
+  int? get listLevelNumber => _listLevelNumber;
+  set listLevelNumber(int? val) => _listLevelNumber = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize ListFormatUpdate data model.');
     }
@@ -68,11 +68,11 @@ class ListFormatUpdate implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (listId != null) {
-      _result['ListId'] = listId;
+      _result['ListId'] = listId!;
     }
 
     if (listLevelNumber != null) {
-      _result['ListLevelNumber'] = listLevelNumber;
+      _result['ListLevelNumber'] = listLevelNumber!;
     }
     return _result;
   }

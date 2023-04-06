@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a range element.
 class ReplaceRange implements ModelBase {
   /// Gets or sets the range's text.
-  String _text;
+  String? _text;
 
-  String get text => _text;
-  set text(String val) => _text = val;
+  String? get text => _text;
+  set text(String? val) => _text = val;
 
 
   /// Gets or sets the range's text type.
-  ReplaceRange_TextTypeEnum _textType;
+  ReplaceRange_TextTypeEnum? _textType;
 
-  ReplaceRange_TextTypeEnum get textType => _textType;
-  set textType(ReplaceRange_TextTypeEnum val) => _textType = val;
+  ReplaceRange_TextTypeEnum? get textType => _textType;
+  set textType(ReplaceRange_TextTypeEnum? val) => _textType = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize ReplaceRange data model.');
     }
@@ -72,11 +72,11 @@ class ReplaceRange implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (text != null) {
-      _result['Text'] = text;
+      _result['Text'] = text!;
     }
 
     if (textType != null) {
-      switch (textType) {
+      switch (textType!) {
         case ReplaceRange_TextTypeEnum.text: _result['TextType'] = 'Text'; break;
         case ReplaceRange_TextTypeEnum.html: _result['TextType'] = 'Html'; break;
         default: break;

@@ -32,42 +32,42 @@ import '../../aspose_words_cloud.dart';
 /// File or folder information.
 class StorageFile implements ModelBase {
   /// True if it is a folder.
-  bool _isFolder;
+  bool? _isFolder;
 
-  bool get isFolder => _isFolder;
-  set isFolder(bool val) => _isFolder = val;
+  bool? get isFolder => _isFolder;
+  set isFolder(bool? val) => _isFolder = val;
 
 
   /// File or folder last modified DateTime.
-  DateTime _modifiedDate;
+  DateTime? _modifiedDate;
 
-  DateTime get modifiedDate => _modifiedDate;
-  set modifiedDate(DateTime val) => _modifiedDate = val;
+  DateTime? get modifiedDate => _modifiedDate;
+  set modifiedDate(DateTime? val) => _modifiedDate = val;
 
 
   /// File or folder name.
-  String _name;
+  String? _name;
 
-  String get name => _name;
-  set name(String val) => _name = val;
+  String? get name => _name;
+  set name(String? val) => _name = val;
 
 
   /// File or folder path.
-  String _path;
+  String? _path;
 
-  String get path => _path;
-  set path(String val) => _path = val;
+  String? get path => _path;
+  set path(String? val) => _path = val;
 
 
   /// File or folder size.
-  int _size;
+  int? _size;
 
-  int get size => _size;
-  set size(int val) => _size = val;
+  int? get size => _size;
+  set size(int? val) => _size = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize StorageFile data model.');
     }
@@ -107,23 +107,23 @@ class StorageFile implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (isFolder != null) {
-      _result['IsFolder'] = isFolder;
+      _result['IsFolder'] = isFolder!;
     }
 
     if (modifiedDate != null) {
-      _result['ModifiedDate'] = modifiedDate.toIso8601String();
+      _result['ModifiedDate'] = modifiedDate!.toIso8601String();
     }
 
     if (name != null) {
-      _result['Name'] = name;
+      _result['Name'] = name!;
     }
 
     if (path != null) {
-      _result['Path'] = path;
+      _result['Path'] = path!;
     }
 
     if (size != null) {
-      _result['Size'] = size;
+      _result['Size'] = size!;
     }
     return _result;
   }

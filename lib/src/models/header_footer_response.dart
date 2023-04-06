@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a HeaderFooter.
 class HeaderFooterResponse extends WordsResponse {
   /// Gets or sets the HeaderFooter.
-  HeaderFooter _headerFooter;
+  HeaderFooter? _headerFooter;
 
-  HeaderFooter get headerFooter => _headerFooter;
-  set headerFooter(HeaderFooter val) => _headerFooter = val;
+  HeaderFooter? get headerFooter => _headerFooter;
+  set headerFooter(HeaderFooter? val) => _headerFooter = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize HeaderFooterResponse data model.');
     }
@@ -53,7 +53,7 @@ class HeaderFooterResponse extends WordsResponse {
 
     if (json.containsKey('HeaderFooter')) {
       headerFooter = HeaderFooter();
-      headerFooter.deserialize(json['HeaderFooter'] as Map<String, dynamic>);
+      headerFooter!.deserialize(json['HeaderFooter'] as Map<String, dynamic>);
     } else {
       headerFooter = null;
     }
@@ -64,7 +64,7 @@ class HeaderFooterResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (headerFooter != null) {
-      _result['HeaderFooter'] = headerFooter.serialize();
+      _result['HeaderFooter'] = headerFooter!.serialize();
     }
     return _result;
   }

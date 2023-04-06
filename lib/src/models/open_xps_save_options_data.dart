@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// Container class for xps save options.
 class OpenXpsSaveOptionsData extends XpsSaveOptionsData {
   /// Gets the format of save.
-  String _saveFormat = 'openxps';
+  String? _saveFormat = 'openxps';
 
   @override
-  String get saveFormat => _saveFormat;
+  String? get saveFormat => _saveFormat;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize OpenXpsSaveOptionsData data model.');
     }
@@ -53,7 +53,7 @@ class OpenXpsSaveOptionsData extends XpsSaveOptionsData {
 
     if (json.containsKey('CustomTimeZoneInfoData')) {
       customTimeZoneInfoData = TimeZoneInfoData();
-      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+      customTimeZoneInfoData!.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
     } else {
       customTimeZoneInfoData = null;
     }
@@ -159,7 +159,7 @@ class OpenXpsSaveOptionsData extends XpsSaveOptionsData {
 
     if (json.containsKey('MetafileRenderingOptions')) {
       metafileRenderingOptions = MetafileRenderingOptionsData();
-      metafileRenderingOptions.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
+      metafileRenderingOptions!.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
     } else {
       metafileRenderingOptions = null;
     }
@@ -209,7 +209,7 @@ class OpenXpsSaveOptionsData extends XpsSaveOptionsData {
 
     if (json.containsKey('OutlineOptions')) {
       outlineOptions = OutlineOptionsData();
-      outlineOptions.deserialize(json['OutlineOptions'] as Map<String, dynamic>);
+      outlineOptions!.deserialize(json['OutlineOptions'] as Map<String, dynamic>);
     } else {
       outlineOptions = null;
     }
@@ -226,7 +226,7 @@ class OpenXpsSaveOptionsData extends XpsSaveOptionsData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat;
+      _result['SaveFormat'] = saveFormat!;
     }
     return _result;
   }

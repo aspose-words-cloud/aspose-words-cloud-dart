@@ -34,10 +34,10 @@ import '../test_context.dart';
 class TableBorderTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
+  late String remoteDataFolder;
+  late String localFile;
 
-  TableBorderTests(final this.context) {
+  TableBorderTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Tables';
     localFile = 'DocumentElements/Tables/TablesGet.docx';
   }
@@ -56,10 +56,10 @@ class TableBorderTests
 
     final result = await context.getApi().getBorders(request);
     expect(result.borders, isNotNull);
-    expect(result.borders.list, isNotNull);
-    expect(result.borders.list.length, 6);
-    expect(result.borders.list[0].color, isNotNull);
-    expect(result.borders.list[0].color.web, '#000000');
+    expect(result.borders?.list, isNotNull);
+    expect(result.borders?.list?.length, 6);
+    expect(result.borders?.list?[0]?.color, isNotNull);
+    expect(result.borders?.list?[0]?.color?.web, '#000000');
   }
 
   /// Test for getting borders online.
@@ -90,8 +90,8 @@ class TableBorderTests
 
     final result = await context.getApi().getBorder(request);
     expect(result.border, isNotNull);
-    expect(result.border.color, isNotNull);
-    expect(result.border.color.web, '#000000');
+    expect(result.border?.color, isNotNull);
+    expect(result.border?.color?.web, '#000000');
   }
 
   /// Test for getting border online.
@@ -192,11 +192,11 @@ class TableBorderTests
 
     final result = await context.getApi().updateBorder(request);
     expect(result.border, isNotNull);
-    expect(result.border.color, isNotNull);
-    expect(result.border.color.web, '#AABBCC');
-    expect(result.border.distanceFromText, 6.0);
-    expect(result.border.lineWidth, 2.0);
-    expect(result.border.shadow, isTrue);
+    expect(result.border?.color, isNotNull);
+    expect(result.border?.color?.web, '#AABBCC');
+    expect(result.border?.distanceFromText, 6.0);
+    expect(result.border?.lineWidth, 2.0);
+    expect(result.border?.shadow, isTrue);
   }
 
   /// Test for updating border online.

@@ -32,49 +32,49 @@ import '../../aspose_words_cloud.dart';
 /// Comment.
 abstract class CommentBase implements ModelBase {
   /// Gets or sets the author name for a comment.
-  String _author;
+  String? _author;
 
-  String get author => _author;
-  set author(String val) => _author = val;
+  String? get author => _author;
+  set author(String? val) => _author = val;
 
 
   /// Gets or sets the date and time that the comment was made.
-  DateTime _dateTime;
+  DateTime? _dateTime;
 
-  DateTime get dateTime => _dateTime;
-  set dateTime(DateTime val) => _dateTime = val;
+  DateTime? get dateTime => _dateTime;
+  set dateTime(DateTime? val) => _dateTime = val;
 
 
   /// Gets or sets the initials of the user associated with a specific comment.
-  String _initial;
+  String? _initial;
 
-  String get initial => _initial;
-  set initial(String val) => _initial = val;
+  String? get initial => _initial;
+  set initial(String? val) => _initial = val;
 
 
   /// Gets or sets the link to comment range end node.
-  DocumentPosition _rangeEnd;
+  DocumentPosition? _rangeEnd;
 
-  DocumentPosition get rangeEnd => _rangeEnd;
-  set rangeEnd(DocumentPosition val) => _rangeEnd = val;
+  DocumentPosition? get rangeEnd => _rangeEnd;
+  set rangeEnd(DocumentPosition? val) => _rangeEnd = val;
 
 
   /// Gets or sets the link to comment range start node.
-  DocumentPosition _rangeStart;
+  DocumentPosition? _rangeStart;
 
-  DocumentPosition get rangeStart => _rangeStart;
-  set rangeStart(DocumentPosition val) => _rangeStart = val;
+  DocumentPosition? get rangeStart => _rangeStart;
+  set rangeStart(DocumentPosition? val) => _rangeStart = val;
 
 
   /// Gets or sets text of the comment.
-  String _text;
+  String? _text;
 
-  String get text => _text;
-  set text(String val) => _text = val;
+  String? get text => _text;
+  set text(String? val) => _text = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize CommentBase data model.');
     }
@@ -99,14 +99,14 @@ abstract class CommentBase implements ModelBase {
 
     if (json.containsKey('RangeEnd')) {
       rangeEnd = DocumentPosition();
-      rangeEnd.deserialize(json['RangeEnd'] as Map<String, dynamic>);
+      rangeEnd!.deserialize(json['RangeEnd'] as Map<String, dynamic>);
     } else {
       rangeEnd = null;
     }
 
     if (json.containsKey('RangeStart')) {
       rangeStart = DocumentPosition();
-      rangeStart.deserialize(json['RangeStart'] as Map<String, dynamic>);
+      rangeStart!.deserialize(json['RangeStart'] as Map<String, dynamic>);
     } else {
       rangeStart = null;
     }
@@ -122,27 +122,27 @@ abstract class CommentBase implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (author != null) {
-      _result['Author'] = author;
+      _result['Author'] = author!;
     }
 
     if (dateTime != null) {
-      _result['DateTime'] = dateTime.toIso8601String();
+      _result['DateTime'] = dateTime!.toIso8601String();
     }
 
     if (initial != null) {
-      _result['Initial'] = initial;
+      _result['Initial'] = initial!;
     }
 
     if (rangeEnd != null) {
-      _result['RangeEnd'] = rangeEnd.serialize();
+      _result['RangeEnd'] = rangeEnd!.serialize();
     }
 
     if (rangeStart != null) {
-      _result['RangeStart'] = rangeStart.serialize();
+      _result['RangeStart'] = rangeStart!.serialize();
     }
 
     if (text != null) {
-      _result['Text'] = text;
+      _result['Text'] = text!;
     }
     return _result;
   }

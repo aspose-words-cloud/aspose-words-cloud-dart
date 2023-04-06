@@ -37,11 +37,11 @@ import '../api_client.dart';
 import '../api_request_data.dart';
 
 class BatchRequest {
-  String requestId;
-  String dependsOn;
+  late String requestId;
+  late String dependsOn;
   final RequestBase request;
 
-  BatchRequest(final this.request) {
+  BatchRequest(this.request) {
     requestId = Uuid().v4();
     dependsOn = '';
   }

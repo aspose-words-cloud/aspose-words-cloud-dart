@@ -32,35 +32,35 @@ import '../../aspose_words_cloud.dart';
 /// Result of search operation.
 class SearchResult implements ModelBase {
   /// Gets or sets the link to result range end node.
-  DocumentPosition _rangeEnd;
+  DocumentPosition? _rangeEnd;
 
-  DocumentPosition get rangeEnd => _rangeEnd;
-  set rangeEnd(DocumentPosition val) => _rangeEnd = val;
+  DocumentPosition? get rangeEnd => _rangeEnd;
+  set rangeEnd(DocumentPosition? val) => _rangeEnd = val;
 
 
   /// Gets or sets the link to result range start node.
-  DocumentPosition _rangeStart;
+  DocumentPosition? _rangeStart;
 
-  DocumentPosition get rangeStart => _rangeStart;
-  set rangeStart(DocumentPosition val) => _rangeStart = val;
+  DocumentPosition? get rangeStart => _rangeStart;
+  set rangeStart(DocumentPosition? val) => _rangeStart = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize SearchResult data model.');
     }
 
     if (json.containsKey('RangeEnd')) {
       rangeEnd = DocumentPosition();
-      rangeEnd.deserialize(json['RangeEnd'] as Map<String, dynamic>);
+      rangeEnd!.deserialize(json['RangeEnd'] as Map<String, dynamic>);
     } else {
       rangeEnd = null;
     }
 
     if (json.containsKey('RangeStart')) {
       rangeStart = DocumentPosition();
-      rangeStart.deserialize(json['RangeStart'] as Map<String, dynamic>);
+      rangeStart!.deserialize(json['RangeStart'] as Map<String, dynamic>);
     } else {
       rangeStart = null;
     }
@@ -70,11 +70,11 @@ class SearchResult implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (rangeEnd != null) {
-      _result['RangeEnd'] = rangeEnd.serialize();
+      _result['RangeEnd'] = rangeEnd!.serialize();
     }
 
     if (rangeStart != null) {
-      _result['RangeStart'] = rangeStart.serialize();
+      _result['RangeStart'] = rangeStart!.serialize();
     }
     return _result;
   }

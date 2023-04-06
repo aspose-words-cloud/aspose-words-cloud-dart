@@ -34,10 +34,10 @@ import '../test_context.dart';
 class ConvertDocumentTests
 {
   final TestContext context;
-  String remoteFolder;
-  String localFolder;
+  late String remoteFolder;
+  late String localFolder;
 
-  ConvertDocumentTests(final this.context) {
+  ConvertDocumentTests(this.context) {
     remoteFolder = context.remoteBaseTestDataFolder + '/DocumentActions/ConvertDocument';
     localFolder = 'DocumentActions/ConvertDocument';
   }
@@ -59,7 +59,7 @@ class ConvertDocumentTests
 
     final result = await context.getApi().saveAs(request);
     expect(result.saveResult, isNotNull);
-    expect(result.saveResult.destDocument, isNotNull);
+    expect(result.saveResult?.destDocument, isNotNull);
   }
 
   /// Test for converting document online to one of the available formats.
@@ -115,7 +115,7 @@ class ConvertDocumentTests
 
     final result = await context.getApi().saveAs(request);
     expect(result.saveResult, isNotNull);
-    expect(result.saveResult.destDocument, isNotNull);
+    expect(result.saveResult?.destDocument, isNotNull);
   }
 
   /// Test for converting document to one of the available formats.
@@ -135,7 +135,7 @@ class ConvertDocumentTests
 
     final result = await context.getApi().saveAsTiff(request);
     expect(result.saveResult, isNotNull);
-    expect(result.saveResult.destDocument, isNotNull);
+    expect(result.saveResult?.destDocument, isNotNull);
   }
 
   /// Test for converting document to one of the available formats.

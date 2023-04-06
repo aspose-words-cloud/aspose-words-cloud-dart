@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a number of occurrences of the captured text in the document.
 class ReplaceTextResponse extends WordsResponse {
   /// Gets or sets the link to the document.
-  FileLink _documentLink;
+  FileLink? _documentLink;
 
-  FileLink get documentLink => _documentLink;
-  set documentLink(FileLink val) => _documentLink = val;
+  FileLink? get documentLink => _documentLink;
+  set documentLink(FileLink? val) => _documentLink = val;
 
 
   /// Gets or sets the number of occurrences of the captured text in the document.
-  int _matches;
+  int? _matches;
 
-  int get matches => _matches;
-  set matches(int val) => _matches = val;
+  int? get matches => _matches;
+  set matches(int? val) => _matches = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize ReplaceTextResponse data model.');
     }
@@ -60,7 +60,7 @@ class ReplaceTextResponse extends WordsResponse {
 
     if (json.containsKey('DocumentLink')) {
       documentLink = FileLink();
-      documentLink.deserialize(json['DocumentLink'] as Map<String, dynamic>);
+      documentLink!.deserialize(json['DocumentLink'] as Map<String, dynamic>);
     } else {
       documentLink = null;
     }
@@ -77,11 +77,11 @@ class ReplaceTextResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (documentLink != null) {
-      _result['DocumentLink'] = documentLink.serialize();
+      _result['DocumentLink'] = documentLink!.serialize();
     }
 
     if (matches != null) {
-      _result['Matches'] = matches;
+      _result['Matches'] = matches!;
     }
     return _result;
   }

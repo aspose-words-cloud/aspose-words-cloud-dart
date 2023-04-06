@@ -32,42 +32,42 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a section element.
 class Section extends LinkElement {
   /// Gets or sets the list of child nodes.
-  List<NodeLink> _childNodes;
+  List<NodeLink?>? _childNodes;
 
-  List<NodeLink> get childNodes => _childNodes;
-  set childNodes(List<NodeLink> val) => _childNodes = val;
+  List<NodeLink?>? get childNodes => _childNodes;
+  set childNodes(List<NodeLink?>? val) => _childNodes = val;
 
 
   /// Gets or sets the link to HeaderFooters resource.
-  LinkElement _headerFooters;
+  LinkElement? _headerFooters;
 
-  LinkElement get headerFooters => _headerFooters;
-  set headerFooters(LinkElement val) => _headerFooters = val;
+  LinkElement? get headerFooters => _headerFooters;
+  set headerFooters(LinkElement? val) => _headerFooters = val;
 
 
   /// Gets or sets the link to PageSetup resource.
-  LinkElement _pageSetup;
+  LinkElement? _pageSetup;
 
-  LinkElement get pageSetup => _pageSetup;
-  set pageSetup(LinkElement val) => _pageSetup = val;
+  LinkElement? get pageSetup => _pageSetup;
+  set pageSetup(LinkElement? val) => _pageSetup = val;
 
 
   /// Gets or sets the link to Paragraphs resource.
-  LinkElement _paragraphs;
+  LinkElement? _paragraphs;
 
-  LinkElement get paragraphs => _paragraphs;
-  set paragraphs(LinkElement val) => _paragraphs = val;
+  LinkElement? get paragraphs => _paragraphs;
+  set paragraphs(LinkElement? val) => _paragraphs = val;
 
 
   /// Gets or sets the link to Tables resource.
-  LinkElement _tables;
+  LinkElement? _tables;
 
-  LinkElement get tables => _tables;
-  set tables(LinkElement val) => _tables = val;
+  LinkElement? get tables => _tables;
+  set tables(LinkElement? val) => _tables = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize Section data model.');
     }
@@ -75,7 +75,7 @@ class Section extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -86,7 +86,7 @@ class Section extends LinkElement {
       for(final _element in json['ChildNodes']) {
         var _elementValue = NodeLink();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        childNodes.add(_elementValue);
+        childNodes!.add(_elementValue);
       }
     } else {
       childNodes = null;
@@ -94,28 +94,28 @@ class Section extends LinkElement {
 
     if (json.containsKey('HeaderFooters')) {
       headerFooters = LinkElement();
-      headerFooters.deserialize(json['HeaderFooters'] as Map<String, dynamic>);
+      headerFooters!.deserialize(json['HeaderFooters'] as Map<String, dynamic>);
     } else {
       headerFooters = null;
     }
 
     if (json.containsKey('PageSetup')) {
       pageSetup = LinkElement();
-      pageSetup.deserialize(json['PageSetup'] as Map<String, dynamic>);
+      pageSetup!.deserialize(json['PageSetup'] as Map<String, dynamic>);
     } else {
       pageSetup = null;
     }
 
     if (json.containsKey('Paragraphs')) {
       paragraphs = LinkElement();
-      paragraphs.deserialize(json['Paragraphs'] as Map<String, dynamic>);
+      paragraphs!.deserialize(json['Paragraphs'] as Map<String, dynamic>);
     } else {
       paragraphs = null;
     }
 
     if (json.containsKey('Tables')) {
       tables = LinkElement();
-      tables.deserialize(json['Tables'] as Map<String, dynamic>);
+      tables!.deserialize(json['Tables'] as Map<String, dynamic>);
     } else {
       tables = null;
     }
@@ -126,23 +126,23 @@ class Section extends LinkElement {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (childNodes != null) {
-      _result['ChildNodes'] = childNodes.map((_element) => _element.serialize()).toList();
+      _result['ChildNodes'] = childNodes!.map((_element) => _element?.serialize()).toList();
     }
 
     if (headerFooters != null) {
-      _result['HeaderFooters'] = headerFooters.serialize();
+      _result['HeaderFooters'] = headerFooters!.serialize();
     }
 
     if (pageSetup != null) {
-      _result['PageSetup'] = pageSetup.serialize();
+      _result['PageSetup'] = pageSetup!.serialize();
     }
 
     if (paragraphs != null) {
-      _result['Paragraphs'] = paragraphs.serialize();
+      _result['Paragraphs'] = paragraphs!.serialize();
     }
 
     if (tables != null) {
-      _result['Tables'] = tables.serialize();
+      _result['Tables'] = tables!.serialize();
     }
     return _result;
   }

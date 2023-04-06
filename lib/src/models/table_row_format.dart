@@ -32,35 +32,35 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with formatting for a table row.
 class TableRowFormat extends LinkElement {
   /// Gets or sets a value indicating whether the text in a table row is allowed to split across a page break.
-  bool _allowBreakAcrossPages;
+  bool? _allowBreakAcrossPages;
 
-  bool get allowBreakAcrossPages => _allowBreakAcrossPages;
-  set allowBreakAcrossPages(bool val) => _allowBreakAcrossPages = val;
+  bool? get allowBreakAcrossPages => _allowBreakAcrossPages;
+  set allowBreakAcrossPages(bool? val) => _allowBreakAcrossPages = val;
 
 
   /// Gets or sets a value indicating whether the row is repeated as a table heading on every page when the table spans more than one page.
-  bool _headingFormat;
+  bool? _headingFormat;
 
-  bool get headingFormat => _headingFormat;
-  set headingFormat(bool val) => _headingFormat = val;
+  bool? get headingFormat => _headingFormat;
+  set headingFormat(bool? val) => _headingFormat = val;
 
 
   /// Gets or sets the height of the table row in points.
-  double _height;
+  double? _height;
 
-  double get height => _height;
-  set height(double val) => _height = val;
+  double? get height => _height;
+  set height(double? val) => _height = val;
 
 
   /// Gets or sets the rule for determining the height of the table row.
-  TableRowFormat_HeightRuleEnum _heightRule;
+  TableRowFormat_HeightRuleEnum? _heightRule;
 
-  TableRowFormat_HeightRuleEnum get heightRule => _heightRule;
-  set heightRule(TableRowFormat_HeightRuleEnum val) => _heightRule = val;
+  TableRowFormat_HeightRuleEnum? get heightRule => _heightRule;
+  set heightRule(TableRowFormat_HeightRuleEnum? val) => _heightRule = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize TableRowFormat data model.');
     }
@@ -68,7 +68,7 @@ class TableRowFormat extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -108,19 +108,19 @@ class TableRowFormat extends LinkElement {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (allowBreakAcrossPages != null) {
-      _result['AllowBreakAcrossPages'] = allowBreakAcrossPages;
+      _result['AllowBreakAcrossPages'] = allowBreakAcrossPages!;
     }
 
     if (headingFormat != null) {
-      _result['HeadingFormat'] = headingFormat;
+      _result['HeadingFormat'] = headingFormat!;
     }
 
     if (height != null) {
-      _result['Height'] = height;
+      _result['Height'] = height!;
     }
 
     if (heightRule != null) {
-      switch (heightRule) {
+      switch (heightRule!) {
         case TableRowFormat_HeightRuleEnum.atLeast: _result['HeightRule'] = 'AtLeast'; break;
         case TableRowFormat_HeightRuleEnum.exactly: _result['HeightRule'] = 'Exactly'; break;
         case TableRowFormat_HeightRuleEnum.auto: _result['HeightRule'] = 'Auto'; break;

@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The REST response of compressed document.
 class CompressResponse extends WordsResponse {
   /// Gets or sets the destination document info.
-  Document _document;
+  Document? _document;
 
-  Document get document => _document;
-  set document(Document val) => _document = val;
+  Document? get document => _document;
+  set document(Document? val) => _document = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize CompressResponse data model.');
     }
@@ -53,7 +53,7 @@ class CompressResponse extends WordsResponse {
 
     if (json.containsKey('Document')) {
       document = Document();
-      document.deserialize(json['Document'] as Map<String, dynamic>);
+      document!.deserialize(json['Document'] as Map<String, dynamic>);
     } else {
       document = null;
     }
@@ -64,7 +64,7 @@ class CompressResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (document != null) {
-      _result['Document'] = document.serialize();
+      _result['Document'] = document!.serialize();
     }
     return _result;
   }

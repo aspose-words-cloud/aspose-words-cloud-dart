@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a section.
 class SectionResponse extends WordsResponse {
   /// Gets or sets the section.
-  Section _section;
+  Section? _section;
 
-  Section get section => _section;
-  set section(Section val) => _section = val;
+  Section? get section => _section;
+  set section(Section? val) => _section = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize SectionResponse data model.');
     }
@@ -53,7 +53,7 @@ class SectionResponse extends WordsResponse {
 
     if (json.containsKey('Section')) {
       section = Section();
-      section.deserialize(json['Section'] as Map<String, dynamic>);
+      section!.deserialize(json['Section'] as Map<String, dynamic>);
     } else {
       section = null;
     }
@@ -64,7 +64,7 @@ class SectionResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (section != null) {
-      _result['Section'] = section.serialize();
+      _result['Section'] = section!.serialize();
     }
     return _result;
   }

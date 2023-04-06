@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a collection of OfficeMath objects.
 class OfficeMathObjectsResponse extends WordsResponse {
   /// Gets or sets the collection of OfficeMath objects.
-  OfficeMathObjectsCollection _officeMathObjects;
+  OfficeMathObjectsCollection? _officeMathObjects;
 
-  OfficeMathObjectsCollection get officeMathObjects => _officeMathObjects;
-  set officeMathObjects(OfficeMathObjectsCollection val) => _officeMathObjects = val;
+  OfficeMathObjectsCollection? get officeMathObjects => _officeMathObjects;
+  set officeMathObjects(OfficeMathObjectsCollection? val) => _officeMathObjects = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize OfficeMathObjectsResponse data model.');
     }
@@ -53,7 +53,7 @@ class OfficeMathObjectsResponse extends WordsResponse {
 
     if (json.containsKey('OfficeMathObjects')) {
       officeMathObjects = OfficeMathObjectsCollection();
-      officeMathObjects.deserialize(json['OfficeMathObjects'] as Map<String, dynamic>);
+      officeMathObjects!.deserialize(json['OfficeMathObjects'] as Map<String, dynamic>);
     } else {
       officeMathObjects = null;
     }
@@ -64,7 +64,7 @@ class OfficeMathObjectsResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (officeMathObjects != null) {
-      _result['OfficeMathObjects'] = officeMathObjects.serialize();
+      _result['OfficeMathObjects'] = officeMathObjects!.serialize();
     }
     return _result;
   }

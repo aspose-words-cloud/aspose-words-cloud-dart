@@ -33,43 +33,43 @@ import '../../aspose_words_cloud.dart';
 class TextSaveOptionsData extends TxtSaveOptionsBaseData {
   /// Gets or sets a value indicating whether to add bi-directional marks before each BiDi run when exporting in plain text format.
   /// The default value is true.
-  bool _addBidiMarks;
+  bool? _addBidiMarks;
 
-  bool get addBidiMarks => _addBidiMarks;
-  set addBidiMarks(bool val) => _addBidiMarks = val;
+  bool? get addBidiMarks => _addBidiMarks;
+  set addBidiMarks(bool? val) => _addBidiMarks = val;
 
 
   /// Gets or sets an integer value that specifies the maximum number of characters per one line.
   /// The default value is 0, that means no limit.
-  int _maxCharactersPerLine;
+  int? _maxCharactersPerLine;
 
-  int get maxCharactersPerLine => _maxCharactersPerLine;
-  set maxCharactersPerLine(int val) => _maxCharactersPerLine = val;
+  int? get maxCharactersPerLine => _maxCharactersPerLine;
+  set maxCharactersPerLine(int? val) => _maxCharactersPerLine = val;
 
 
   /// Gets or sets a value indicating whether the program should attempt to preserve layout of tables when saving in the plain text format.
-  bool _preserveTableLayout;
+  bool? _preserveTableLayout;
 
-  bool get preserveTableLayout => _preserveTableLayout;
-  set preserveTableLayout(bool val) => _preserveTableLayout = val;
+  bool? get preserveTableLayout => _preserveTableLayout;
+  set preserveTableLayout(bool? val) => _preserveTableLayout = val;
 
 
   /// Gets the format of save.
-  String _saveFormat = 'txt';
+  String? _saveFormat = 'txt';
 
   @override
-  String get saveFormat => _saveFormat;
+  String? get saveFormat => _saveFormat;
 
 
   /// Gets or sets a value indicating whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.
-  bool _simplifyListLabels;
+  bool? _simplifyListLabels;
 
-  bool get simplifyListLabels => _simplifyListLabels;
-  set simplifyListLabels(bool val) => _simplifyListLabels = val;
+  bool? get simplifyListLabels => _simplifyListLabels;
+  set simplifyListLabels(bool? val) => _simplifyListLabels = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize TextSaveOptionsData data model.');
     }
@@ -83,7 +83,7 @@ class TextSaveOptionsData extends TxtSaveOptionsBaseData {
 
     if (json.containsKey('CustomTimeZoneInfoData')) {
       customTimeZoneInfoData = TimeZoneInfoData();
-      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+      customTimeZoneInfoData!.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
     } else {
       customTimeZoneInfoData = null;
     }
@@ -230,23 +230,23 @@ class TextSaveOptionsData extends TxtSaveOptionsBaseData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (addBidiMarks != null) {
-      _result['AddBidiMarks'] = addBidiMarks;
+      _result['AddBidiMarks'] = addBidiMarks!;
     }
 
     if (maxCharactersPerLine != null) {
-      _result['MaxCharactersPerLine'] = maxCharactersPerLine;
+      _result['MaxCharactersPerLine'] = maxCharactersPerLine!;
     }
 
     if (preserveTableLayout != null) {
-      _result['PreserveTableLayout'] = preserveTableLayout;
+      _result['PreserveTableLayout'] = preserveTableLayout!;
     }
 
     if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat;
+      _result['SaveFormat'] = saveFormat!;
     }
 
     if (simplifyListLabels != null) {
-      _result['SimplifyListLabels'] = simplifyListLabels;
+      _result['SimplifyListLabels'] = simplifyListLabels!;
     }
     return _result;
   }

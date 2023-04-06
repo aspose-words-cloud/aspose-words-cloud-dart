@@ -34,10 +34,10 @@ import '../test_context.dart';
 class DocumentPropertiesTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
+  late String remoteDataFolder;
+  late String localFile;
 
-  DocumentPropertiesTests(final this.context) {
+  DocumentPropertiesTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/DocumentProperties';
     localFile = 'Common/test_multi_pages.docx';
   }
@@ -55,11 +55,11 @@ class DocumentPropertiesTests
 
     final result = await context.getApi().getDocumentProperties(request);
     expect(result.documentProperties, isNotNull);
-    expect(result.documentProperties.list, isNotNull);
-    expect(result.documentProperties.list.length, 24);
-    expect(result.documentProperties.list[0], isNotNull);
-    expect(result.documentProperties.list[0].name, 'Author');
-    expect(result.documentProperties.list[0].value, '');
+    expect(result.documentProperties?.list, isNotNull);
+    expect(result.documentProperties?.list?.length, 24);
+    expect(result.documentProperties?.list?[0], isNotNull);
+    expect(result.documentProperties?.list?[0]?.name, 'Author');
+    expect(result.documentProperties?.list?[0]?.value, '');
   }
 
   /// Test for getting document properties online.
@@ -88,8 +88,8 @@ class DocumentPropertiesTests
 
     final result = await context.getApi().getDocumentProperty(request);
     expect(result.documentProperty, isNotNull);
-    expect(result.documentProperty.name, 'Author');
-    expect(result.documentProperty.value, '');
+    expect(result.documentProperty?.name, 'Author');
+    expect(result.documentProperty?.value, '');
   }
 
   /// A test for GetDocumentProperty online.
@@ -152,8 +152,8 @@ class DocumentPropertiesTests
 
     final result = await context.getApi().createOrUpdateDocumentProperty(request);
     expect(result.documentProperty, isNotNull);
-    expect(result.documentProperty.name, 'AsposeAuthor');
-    expect(result.documentProperty.value, 'Imran Anwar');
+    expect(result.documentProperty?.name, 'AsposeAuthor');
+    expect(result.documentProperty?.value, 'Imran Anwar');
   }
 
   /// Test for updating document property online.

@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a CustomXmlPart.
 class CustomXmlPart extends CustomXmlPartLink {
   /// Gets or sets the custom xml part data.
-  String _data;
+  String? _data;
 
-  String get data => _data;
-  set data(String val) => _data = val;
+  String? get data => _data;
+  set data(String? val) => _data = val;
 
 
   /// Gets or sets the custom xml part id.
-  String _id;
+  String? _id;
 
-  String get id => _id;
-  set id(String val) => _id = val;
+  String? get id => _id;
+  set id(String? val) => _id = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize CustomXmlPart data model.');
     }
@@ -54,7 +54,7 @@ class CustomXmlPart extends CustomXmlPartLink {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -77,11 +77,11 @@ class CustomXmlPart extends CustomXmlPartLink {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (data != null) {
-      _result['Data'] = data;
+      _result['Data'] = data!;
     }
 
     if (id != null) {
-      _result['Id'] = id;
+      _result['Id'] = id!;
     }
     return _result;
   }

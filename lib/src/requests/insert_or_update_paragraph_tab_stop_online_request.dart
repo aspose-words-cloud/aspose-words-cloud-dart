@@ -36,30 +36,30 @@ import '../api_request_part.dart';
 /// Request model for InsertOrUpdateParagraphTabStopOnline operation.
 class InsertOrUpdateParagraphTabStopOnlineRequest implements RequestBase {
   /// The document.
-  final ByteData document;
+  final ByteData? document;
 
   /// TabStopInsert dto.
-  final TabStopInsert tabStopInsertDto;
+  final TabStopInsert? tabStopInsertDto;
 
   /// Object index.
-  final int index;
+  final int? index;
 
   /// The path to the node in the document tree.
-  final String nodePath;
+  final String? nodePath;
 
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-  final String loadEncoding;
+  final String? loadEncoding;
 
   /// Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
-  final String password;
+  final String? password;
 
   /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
-  final String encryptedPassword;
+  final String? encryptedPassword;
 
   /// Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-  final String destFileName;
+  final String? destFileName;
 
-  InsertOrUpdateParagraphTabStopOnlineRequest(final this.document, final this.tabStopInsertDto, final this.index, {final this.nodePath, final this.loadEncoding, final this.password, final this.encryptedPassword, final this.destFileName});
+  InsertOrUpdateParagraphTabStopOnlineRequest(this.document, this.tabStopInsertDto, this.index, {this.nodePath, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -71,33 +71,39 @@ class InsertOrUpdateParagraphTabStopOnlineRequest implements RequestBase {
     if (index == null) {
       throw ApiException(400, 'Parameter index is required.');
     }
-    _path = _path.replaceAll('{index}', _apiClient.serializeToString(index));
-    _path = _path.replaceAll('{nodePath}', _apiClient.serializeToString(nodePath) ?? '');
+    _path = _path.replaceAll('{index}', _apiClient.serializeToString(index) ?? "");
+    _path = _path.replaceAll('{nodePath}', _apiClient.serializeToString(nodePath) ?? "");
     if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding) ?? "";
     }
 
     if (password != null) {
-      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password!);
     }
 
     if (encryptedPassword != null) {
-      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword);
+      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword) ?? "";
     }
 
     if (destFileName != null) {
-      _queryParams['destFileName'] = _apiClient.serializeToString(destFileName);
+      _queryParams['destFileName'] = _apiClient.serializeToString(destFileName) ?? "";
     }
 
     if (document != null) {
-      _bodyParts.add(_apiClient.serializeBody(document, 'Document'));
+      var _formBody = _apiClient.serializeBody(document, 'Document');
+      if (_formBody != null) {
+        _bodyParts.add(_formBody);
+      }
     }
     else {
       throw ApiException(400, 'Parameter document is required.');
     }
 
     if (tabStopInsertDto != null) {
-      _bodyParts.add(_apiClient.serializeBody(tabStopInsertDto, 'TabStopInsertDto'));
+      var _formBody = _apiClient.serializeBody(tabStopInsertDto, 'TabStopInsertDto');
+      if (_formBody != null) {
+        _bodyParts.add(_formBody);
+      }
     }
     else {
       throw ApiException(400, 'Parameter tabStopInsertDto is required.');
@@ -105,7 +111,7 @@ class InsertOrUpdateParagraphTabStopOnlineRequest implements RequestBase {
 
     for (final _fileContentPart in _fileContentParts) {
         if (_fileContentPart.source == 'Request') {
-            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
@@ -114,7 +120,11 @@ class InsertOrUpdateParagraphTabStopOnlineRequest implements RequestBase {
   }
 
   @override
-  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final Map<String, String> _headers, final ByteData? _body) {
+    if (_body == null) {
+        return ApiException(400, "Nullable response body is not allowed for this operation type.");
+    }
+
     var _result = InsertOrUpdateParagraphTabStopOnlineResponse();
     _result.deserialize(_apiClient, _apiClient.deserializeMultipartMap(_body));
     return _result;

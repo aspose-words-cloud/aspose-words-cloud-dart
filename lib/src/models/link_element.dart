@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// Reference to a document.
 class LinkElement implements ModelBase {
   /// Gets or sets the link to the document.
-  WordsApiLink _link;
+  WordsApiLink? _link;
 
-  WordsApiLink get link => _link;
-  set link(WordsApiLink val) => _link = val;
+  WordsApiLink? get link => _link;
+  set link(WordsApiLink? val) => _link = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize LinkElement data model.');
     }
 
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -56,7 +56,7 @@ class LinkElement implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (link != null) {
-      _result['Link'] = link.serialize();
+      _result['Link'] = link!.serialize();
     }
     return _result;
   }

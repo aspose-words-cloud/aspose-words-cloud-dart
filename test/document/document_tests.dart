@@ -34,10 +34,10 @@ import '../test_context.dart';
 class DocumentTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
+  late String remoteDataFolder;
+  late String localFile;
 
-  DocumentTests(final this.context) {
+  DocumentTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/Document';
     localFile = 'Common/test_multi_pages.docx';
   }
@@ -55,7 +55,7 @@ class DocumentTests
 
     final result = await context.getApi().getDocument(request);
     expect(result.document, isNotNull);
-    expect(result.document.fileName, 'TestGetDocument.docx');
+    expect(result.document?.fileName, 'TestGetDocument.docx');
   }
 
   /// Test for creating word document.
@@ -70,6 +70,6 @@ class DocumentTests
 
     final result = await context.getApi().createDocument(request);
     expect(result.document, isNotNull);
-    expect(result.document.fileName, 'TestCreateDocument.doc');
+    expect(result.document?.fileName, 'TestCreateDocument.doc');
   }
 }

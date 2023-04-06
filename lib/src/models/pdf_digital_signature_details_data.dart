@@ -32,42 +32,42 @@ import '../../aspose_words_cloud.dart';
 /// Container class for details of digital signature.
 class PdfDigitalSignatureDetailsData implements ModelBase {
   /// Gets or sets the certificate's filename using for signing.
-  String _certificateFilename;
+  String? _certificateFilename;
 
-  String get certificateFilename => _certificateFilename;
-  set certificateFilename(String val) => _certificateFilename = val;
+  String? get certificateFilename => _certificateFilename;
+  set certificateFilename(String? val) => _certificateFilename = val;
 
 
   /// Gets or sets the hash algorithm.
-  PdfDigitalSignatureDetailsData_HashAlgorithmEnum _hashAlgorithm;
+  PdfDigitalSignatureDetailsData_HashAlgorithmEnum? _hashAlgorithm;
 
-  PdfDigitalSignatureDetailsData_HashAlgorithmEnum get hashAlgorithm => _hashAlgorithm;
-  set hashAlgorithm(PdfDigitalSignatureDetailsData_HashAlgorithmEnum val) => _hashAlgorithm = val;
+  PdfDigitalSignatureDetailsData_HashAlgorithmEnum? get hashAlgorithm => _hashAlgorithm;
+  set hashAlgorithm(PdfDigitalSignatureDetailsData_HashAlgorithmEnum? val) => _hashAlgorithm = val;
 
 
   /// Gets or sets the location of the signing.
-  String _location;
+  String? _location;
 
-  String get location => _location;
-  set location(String val) => _location = val;
+  String? get location => _location;
+  set location(String? val) => _location = val;
 
 
   /// Gets or sets the reason for the signing.
-  String _reason;
+  String? _reason;
 
-  String get reason => _reason;
-  set reason(String val) => _reason = val;
+  String? get reason => _reason;
+  set reason(String? val) => _reason = val;
 
 
   /// Gets or sets the date of the signing.
-  DateTime _signatureDate;
+  DateTime? _signatureDate;
 
-  DateTime get signatureDate => _signatureDate;
-  set signatureDate(DateTime val) => _signatureDate = val;
+  DateTime? get signatureDate => _signatureDate;
+  set signatureDate(DateTime? val) => _signatureDate = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize PdfDigitalSignatureDetailsData data model.');
     }
@@ -113,11 +113,11 @@ class PdfDigitalSignatureDetailsData implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (certificateFilename != null) {
-      _result['CertificateFilename'] = certificateFilename;
+      _result['CertificateFilename'] = certificateFilename!;
     }
 
     if (hashAlgorithm != null) {
-      switch (hashAlgorithm) {
+      switch (hashAlgorithm!) {
         case PdfDigitalSignatureDetailsData_HashAlgorithmEnum.sha256: _result['HashAlgorithm'] = 'Sha256'; break;
         case PdfDigitalSignatureDetailsData_HashAlgorithmEnum.sha384: _result['HashAlgorithm'] = 'Sha384'; break;
         case PdfDigitalSignatureDetailsData_HashAlgorithmEnum.sha512: _result['HashAlgorithm'] = 'Sha512'; break;
@@ -127,15 +127,15 @@ class PdfDigitalSignatureDetailsData implements ModelBase {
     }
 
     if (location != null) {
-      _result['Location'] = location;
+      _result['Location'] = location!;
     }
 
     if (reason != null) {
-      _result['Reason'] = reason;
+      _result['Reason'] = reason!;
     }
 
     if (signatureDate != null) {
-      _result['SignatureDate'] = signatureDate.toIso8601String();
+      _result['SignatureDate'] = signatureDate!.toIso8601String();
     }
     return _result;
   }

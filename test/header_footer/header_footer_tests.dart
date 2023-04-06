@@ -34,10 +34,10 @@ import '../test_context.dart';
 class HeaderFooterTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
+  late String remoteDataFolder;
+  late String localFile;
 
-  HeaderFooterTests(final this.context) {
+  HeaderFooterTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/HeaderFooters';
     localFile = 'DocumentElements/HeaderFooters/HeadersFooters.doc';
   }
@@ -56,8 +56,8 @@ class HeaderFooterTests
 
     final result = await context.getApi().getHeaderFooters(request);
     expect(result.headerFooters, isNotNull);
-    expect(result.headerFooters.list, isNotNull);
-    expect(result.headerFooters.list.length, 6);
+    expect(result.headerFooters?.list, isNotNull);
+    expect(result.headerFooters?.list?.length, 6);
   }
 
   /// Test for getting headers and footers online.
@@ -87,9 +87,9 @@ class HeaderFooterTests
 
     final result = await context.getApi().getHeaderFooter(request);
     expect(result.headerFooter, isNotNull);
-    expect(result.headerFooter.childNodes, isNotNull);
-    expect(result.headerFooter.childNodes.length, 1);
-    expect(result.headerFooter.childNodes[0].nodeId, '0.0.0');
+    expect(result.headerFooter?.childNodes, isNotNull);
+    expect(result.headerFooter?.childNodes?.length, 1);
+    expect(result.headerFooter?.childNodes?[0]?.nodeId, '0.0.0');
   }
 
   /// Test for getting headerfooter online.
@@ -120,9 +120,9 @@ class HeaderFooterTests
 
     final result = await context.getApi().getHeaderFooterOfSection(request);
     expect(result.headerFooter, isNotNull);
-    expect(result.headerFooter.childNodes, isNotNull);
-    expect(result.headerFooter.childNodes.length, 1);
-    expect(result.headerFooter.childNodes[0].nodeId, '0.0.0');
+    expect(result.headerFooter?.childNodes, isNotNull);
+    expect(result.headerFooter?.childNodes?.length, 1);
+    expect(result.headerFooter?.childNodes?[0]?.nodeId, '0.0.0');
   }
 
   /// Test for getting headerfooter of section online.
@@ -225,9 +225,9 @@ class HeaderFooterTests
     );
 
     final result = await context.getApi().insertHeaderFooterOnline(request);
-    expect(result.model.headerFooter, isNotNull);
-    expect(result.model.headerFooter.childNodes, isNotNull);
-    expect(result.model.headerFooter.childNodes.length, 1);
-    expect(result.model.headerFooter.childNodes[0].nodeId, '0.2.0');
+    expect(result.model?.headerFooter, isNotNull);
+    expect(result.model?.headerFooter?.childNodes, isNotNull);
+    expect(result.model?.headerFooter?.childNodes?.length, 1);
+    expect(result.model?.headerFooter?.childNodes?[0]?.nodeId, '0.2.0');
   }
 }

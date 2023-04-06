@@ -37,7 +37,7 @@ class ReadmeTests
 {
   final TestContext context;
 
-  ReadmeTests(final this.context);
+  ReadmeTests(this.context);
 
   /// Checking example from readme.
   Future<void> testReadme1() async

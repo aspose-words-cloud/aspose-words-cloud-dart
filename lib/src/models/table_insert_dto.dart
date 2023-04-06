@@ -32,28 +32,28 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a table element.
 class TableInsertDto implements ModelBase {
   /// Gets or sets the number of columns. The default value is 2.
-  int _columnsCount;
+  int? _columnsCount;
 
-  int get columnsCount => _columnsCount;
-  set columnsCount(int val) => _columnsCount = val;
+  int? get columnsCount => _columnsCount;
+  set columnsCount(int? val) => _columnsCount = val;
 
 
   /// Gets or sets the position to insert the table. The table will be inserted before the specified position.
-  DocumentPosition _position;
+  DocumentPosition? _position;
 
-  DocumentPosition get position => _position;
-  set position(DocumentPosition val) => _position = val;
+  DocumentPosition? get position => _position;
+  set position(DocumentPosition? val) => _position = val;
 
 
   /// Gets or sets the number of rows. The default value is 2.
-  int _rowsCount;
+  int? _rowsCount;
 
-  int get rowsCount => _rowsCount;
-  set rowsCount(int val) => _rowsCount = val;
+  int? get rowsCount => _rowsCount;
+  set rowsCount(int? val) => _rowsCount = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize TableInsertDto data model.');
     }
@@ -66,7 +66,7 @@ class TableInsertDto implements ModelBase {
 
     if (json.containsKey('Position')) {
       position = DocumentPosition();
-      position.deserialize(json['Position'] as Map<String, dynamic>);
+      position!.deserialize(json['Position'] as Map<String, dynamic>);
     } else {
       position = null;
     }
@@ -82,15 +82,15 @@ class TableInsertDto implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (columnsCount != null) {
-      _result['ColumnsCount'] = columnsCount;
+      _result['ColumnsCount'] = columnsCount!;
     }
 
     if (position != null) {
-      _result['Position'] = position.serialize();
+      _result['Position'] = position!.serialize();
     }
 
     if (rowsCount != null) {
-      _result['RowsCount'] = rowsCount;
+      _result['RowsCount'] = rowsCount!;
     }
     return _result;
   }

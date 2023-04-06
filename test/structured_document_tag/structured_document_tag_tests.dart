@@ -33,10 +33,10 @@ import '../test_context.dart';
 class StructuredDocumentTagTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
+  late String remoteDataFolder;
+  late String localFile;
 
-  StructuredDocumentTagTests(final this.context) {
+  StructuredDocumentTagTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/StructuredDocumentTag';
     localFile = 'DocumentElements/StructuredDocumentTag/StructuredDocumentTag.docx';
   }

@@ -34,10 +34,10 @@ import '../test_context.dart';
 class SplitDocumentToFormatTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
+  late String remoteDataFolder;
+  late String localFile;
 
-  SplitDocumentToFormatTests(final this.context) {
+  SplitDocumentToFormatTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/SplitDocument';
     localFile = 'Common/test_multi_pages.docx';
   }
@@ -59,8 +59,8 @@ class SplitDocumentToFormatTests
 
     final result = await context.getApi().splitDocument(request);
     expect(result.splitResult, isNotNull);
-    expect(result.splitResult.pages, isNotNull);
-    expect(result.splitResult.pages.length, 2);
+    expect(result.splitResult?.pages, isNotNull);
+    expect(result.splitResult?.pages?.length, 2);
   }
 
   /// Test for document splitting online.

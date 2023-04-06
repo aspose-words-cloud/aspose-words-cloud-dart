@@ -32,35 +32,35 @@ import '../../aspose_words_cloud.dart';
 /// FormField text input element.
 class FormFieldTextInput extends FormField {
   /// Gets or sets the maximum length for the text field. Zero when the length is not limited.
-  int _maxLength;
+  int? _maxLength;
 
-  int get maxLength => _maxLength;
-  set maxLength(int val) => _maxLength = val;
+  int? get maxLength => _maxLength;
+  set maxLength(int? val) => _maxLength = val;
 
 
   /// Gets or sets the default string or a calculation expression of the text form field.
-  String _textInputDefault;
+  String? _textInputDefault;
 
-  String get textInputDefault => _textInputDefault;
-  set textInputDefault(String val) => _textInputDefault = val;
+  String? get textInputDefault => _textInputDefault;
+  set textInputDefault(String? val) => _textInputDefault = val;
 
 
   /// Gets or sets text formatting for the text form field.
-  String _textInputFormat;
+  String? _textInputFormat;
 
-  String get textInputFormat => _textInputFormat;
-  set textInputFormat(String val) => _textInputFormat = val;
+  String? get textInputFormat => _textInputFormat;
+  set textInputFormat(String? val) => _textInputFormat = val;
 
 
   /// Gets or sets the type of the text form field.
-  FormFieldTextInput_TextInputTypeEnum _textInputType;
+  FormFieldTextInput_TextInputTypeEnum? _textInputType;
 
-  FormFieldTextInput_TextInputTypeEnum get textInputType => _textInputType;
-  set textInputType(FormFieldTextInput_TextInputTypeEnum val) => _textInputType = val;
+  FormFieldTextInput_TextInputTypeEnum? get textInputType => _textInputType;
+  set textInputType(FormFieldTextInput_TextInputTypeEnum? val) => _textInputType = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize FormFieldTextInput data model.');
     }
@@ -68,7 +68,7 @@ class FormFieldTextInput extends FormField {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -171,19 +171,19 @@ class FormFieldTextInput extends FormField {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (maxLength != null) {
-      _result['MaxLength'] = maxLength;
+      _result['MaxLength'] = maxLength!;
     }
 
     if (textInputDefault != null) {
-      _result['TextInputDefault'] = textInputDefault;
+      _result['TextInputDefault'] = textInputDefault!;
     }
 
     if (textInputFormat != null) {
-      _result['TextInputFormat'] = textInputFormat;
+      _result['TextInputFormat'] = textInputFormat!;
     }
 
     if (textInputType != null) {
-      switch (textInputType) {
+      switch (textInputType!) {
         case FormFieldTextInput_TextInputTypeEnum.regular: _result['TextInputType'] = 'Regular'; break;
         case FormFieldTextInput_TextInputTypeEnum.number: _result['TextInputType'] = 'Number'; break;
         case FormFieldTextInput_TextInputTypeEnum.date: _result['TextInputType'] = 'Date'; break;

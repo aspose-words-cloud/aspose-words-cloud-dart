@@ -34,10 +34,10 @@ import '../test_context.dart';
 class RangeTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
+  late String remoteDataFolder;
+  late String localFile;
 
-  RangeTests(final this.context) {
+  RangeTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Range';
     localFile = 'DocumentElements/Range/RangeGet.doc';
   }
@@ -121,7 +121,7 @@ class RangeTests
 
     final result = await context.getApi().saveAsRange(request);
     expect(result.document, isNotNull);
-    expect(result.document.fileName, 'NewDoc.docx');
+    expect(result.document?.fileName, 'NewDoc.docx');
   }
 
   /// Test for saving a range as a new document online.
@@ -160,7 +160,7 @@ class RangeTests
 
     final result = await context.getApi().replaceWithText(request);
     expect(result.document, isNotNull);
-    expect(result.document.fileName, 'TestReplaceWithText.docx');
+    expect(result.document?.fileName, 'TestReplaceWithText.docx');
   }
 
   /// Test for replacing text in range online.

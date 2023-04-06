@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// Insert document to document list.
 class ListInsert implements ModelBase {
   /// Gets or sets the option that controls how list should be restarted at each section.
-  ListInsert_TemplateEnum _template;
+  ListInsert_TemplateEnum? _template;
 
-  ListInsert_TemplateEnum get template => _template;
-  set template(ListInsert_TemplateEnum val) => _template = val;
+  ListInsert_TemplateEnum? get template => _template;
+  set template(ListInsert_TemplateEnum? val) => _template = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize ListInsert data model.');
     }
@@ -79,7 +79,7 @@ class ListInsert implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (template != null) {
-      switch (template) {
+      switch (template!) {
         case ListInsert_TemplateEnum.bulletDefault: _result['Template'] = 'BulletDefault'; break;
         case ListInsert_TemplateEnum.bulletDisk: _result['Template'] = 'BulletDisk'; break;
         case ListInsert_TemplateEnum.bulletCircle: _result['Template'] = 'BulletCircle'; break;

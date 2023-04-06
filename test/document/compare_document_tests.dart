@@ -34,10 +34,10 @@ import '../test_context.dart';
 class CompareDocumentTests
 {
   final TestContext context;
-  String remoteFolder;
-  String localFolder;
+  late String remoteFolder;
+  late String localFolder;
 
-  CompareDocumentTests(final this.context) {
+  CompareDocumentTests(this.context) {
     remoteFolder = context.remoteBaseTestDataFolder + '/DocumentActions/CompareDocument';
     localFolder = 'DocumentActions/CompareDocument';
   }
@@ -66,7 +66,7 @@ class CompareDocumentTests
 
     final result = await context.getApi().compareDocument(request);
     expect(result.document, isNotNull);
-    expect(result.document.fileName, 'TestCompareDocumentOut.doc');
+    expect(result.document?.fileName, 'TestCompareDocumentOut.doc');
   }
 
   /// Test for document comparison online.

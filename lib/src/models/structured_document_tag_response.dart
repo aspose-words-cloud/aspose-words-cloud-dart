@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a StructuredDocumentTag.
 class StructuredDocumentTagResponse extends WordsResponse {
   /// Gets or sets the StructuredDocumentTag.
-  StructuredDocumentTag _structuredDocumentTag;
+  StructuredDocumentTag? _structuredDocumentTag;
 
-  StructuredDocumentTag get structuredDocumentTag => _structuredDocumentTag;
-  set structuredDocumentTag(StructuredDocumentTag val) => _structuredDocumentTag = val;
+  StructuredDocumentTag? get structuredDocumentTag => _structuredDocumentTag;
+  set structuredDocumentTag(StructuredDocumentTag? val) => _structuredDocumentTag = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize StructuredDocumentTagResponse data model.');
     }
@@ -53,7 +53,7 @@ class StructuredDocumentTagResponse extends WordsResponse {
 
     if (json.containsKey('StructuredDocumentTag')) {
       structuredDocumentTag = StructuredDocumentTag();
-      structuredDocumentTag.deserialize(json['StructuredDocumentTag'] as Map<String, dynamic>);
+      structuredDocumentTag!.deserialize(json['StructuredDocumentTag'] as Map<String, dynamic>);
     } else {
       structuredDocumentTag = null;
     }
@@ -64,7 +64,7 @@ class StructuredDocumentTagResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (structuredDocumentTag != null) {
-      _result['StructuredDocumentTag'] = structuredDocumentTag.serialize();
+      _result['StructuredDocumentTag'] = structuredDocumentTag!.serialize();
     }
     return _result;
   }

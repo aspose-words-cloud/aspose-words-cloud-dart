@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with data on document's protection.
 class ProtectionDataResponse extends WordsResponse {
   /// Gets or sets the link to the document.
-  FileLink _documentLink;
+  FileLink? _documentLink;
 
-  FileLink get documentLink => _documentLink;
-  set documentLink(FileLink val) => _documentLink = val;
+  FileLink? get documentLink => _documentLink;
+  set documentLink(FileLink? val) => _documentLink = val;
 
 
   /// Gets or sets the protection properties of the document.
-  ProtectionData _protectionData;
+  ProtectionData? _protectionData;
 
-  ProtectionData get protectionData => _protectionData;
-  set protectionData(ProtectionData val) => _protectionData = val;
+  ProtectionData? get protectionData => _protectionData;
+  set protectionData(ProtectionData? val) => _protectionData = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize ProtectionDataResponse data model.');
     }
@@ -60,14 +60,14 @@ class ProtectionDataResponse extends WordsResponse {
 
     if (json.containsKey('DocumentLink')) {
       documentLink = FileLink();
-      documentLink.deserialize(json['DocumentLink'] as Map<String, dynamic>);
+      documentLink!.deserialize(json['DocumentLink'] as Map<String, dynamic>);
     } else {
       documentLink = null;
     }
 
     if (json.containsKey('ProtectionData')) {
       protectionData = ProtectionData();
-      protectionData.deserialize(json['ProtectionData'] as Map<String, dynamic>);
+      protectionData!.deserialize(json['ProtectionData'] as Map<String, dynamic>);
     } else {
       protectionData = null;
     }
@@ -78,11 +78,11 @@ class ProtectionDataResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (documentLink != null) {
-      _result['DocumentLink'] = documentLink.serialize();
+      _result['DocumentLink'] = documentLink!.serialize();
     }
 
     if (protectionData != null) {
-      _result['ProtectionData'] = protectionData.serialize();
+      _result['ProtectionData'] = protectionData!.serialize();
     }
     return _result;
   }

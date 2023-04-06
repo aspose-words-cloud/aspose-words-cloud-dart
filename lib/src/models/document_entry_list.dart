@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// Represents a list of documents which will be appended to the original resource document.
 class DocumentEntryList extends BaseEntryList {
   /// Gets or sets a value indicating whether to apply headers and footers from base document to appending documents. The default value is true.
-  bool _applyBaseDocumentHeadersAndFootersToAppendingDocuments;
+  bool? _applyBaseDocumentHeadersAndFootersToAppendingDocuments;
 
-  bool get applyBaseDocumentHeadersAndFootersToAppendingDocuments => _applyBaseDocumentHeadersAndFootersToAppendingDocuments;
-  set applyBaseDocumentHeadersAndFootersToAppendingDocuments(bool val) => _applyBaseDocumentHeadersAndFootersToAppendingDocuments = val;
+  bool? get applyBaseDocumentHeadersAndFootersToAppendingDocuments => _applyBaseDocumentHeadersAndFootersToAppendingDocuments;
+  set applyBaseDocumentHeadersAndFootersToAppendingDocuments(bool? val) => _applyBaseDocumentHeadersAndFootersToAppendingDocuments = val;
 
 
   /// Gets or sets the list of documents.
-  List<DocumentEntry> _documentEntries;
+  List<DocumentEntry?>? _documentEntries;
 
-  List<DocumentEntry> get documentEntries => _documentEntries;
-  set documentEntries(List<DocumentEntry> val) => _documentEntries = val;
+  List<DocumentEntry?>? get documentEntries => _documentEntries;
+  set documentEntries(List<DocumentEntry?>? val) => _documentEntries = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize DocumentEntryList data model.');
     }
@@ -64,7 +64,7 @@ class DocumentEntryList extends BaseEntryList {
       for(final _element in json['DocumentEntries']) {
         var _elementValue = DocumentEntry();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        documentEntries.add(_elementValue);
+        documentEntries!.add(_elementValue);
       }
     } else {
       documentEntries = null;
@@ -76,11 +76,11 @@ class DocumentEntryList extends BaseEntryList {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (applyBaseDocumentHeadersAndFootersToAppendingDocuments != null) {
-      _result['ApplyBaseDocumentHeadersAndFootersToAppendingDocuments'] = applyBaseDocumentHeadersAndFootersToAppendingDocuments;
+      _result['ApplyBaseDocumentHeadersAndFootersToAppendingDocuments'] = applyBaseDocumentHeadersAndFootersToAppendingDocuments!;
     }
 
     if (documentEntries != null) {
-      _result['DocumentEntries'] = documentEntries.map((_element) => _element.serialize()).toList();
+      _result['DocumentEntries'] = documentEntries!.map((_element) => _element?.serialize()).toList();
     }
     return _result;
   }
@@ -90,9 +90,9 @@ class DocumentEntryList extends BaseEntryList {
     super.getFilesContent(resultFilesContent);
     if (documentEntries != null)
     {
-        for (final element in documentEntries)
+        for (final element in documentEntries!)
         {
-            element.getFilesContent(resultFilesContent);
+            element!.getFilesContent(resultFilesContent);
         }
     }
 

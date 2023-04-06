@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The collection of comments.
 class CommentsCollection extends LinkElement {
   /// Gets or sets the collection of comments.
-  List<Comment> _commentList;
+  List<Comment?>? _commentList;
 
-  List<Comment> get commentList => _commentList;
-  set commentList(List<Comment> val) => _commentList = val;
+  List<Comment?>? get commentList => _commentList;
+  set commentList(List<Comment?>? val) => _commentList = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize CommentsCollection data model.');
     }
@@ -47,7 +47,7 @@ class CommentsCollection extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -58,7 +58,7 @@ class CommentsCollection extends LinkElement {
       for(final _element in json['CommentList']) {
         var _elementValue = Comment();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        commentList.add(_elementValue);
+        commentList!.add(_elementValue);
       }
     } else {
       commentList = null;
@@ -70,7 +70,7 @@ class CommentsCollection extends LinkElement {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (commentList != null) {
-      _result['CommentList'] = commentList.map((_element) => _element.serialize()).toList();
+      _result['CommentList'] = commentList!.map((_element) => _element?.serialize()).toList();
     }
     return _result;
   }

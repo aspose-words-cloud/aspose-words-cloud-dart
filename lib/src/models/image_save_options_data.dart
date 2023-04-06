@@ -34,95 +34,95 @@ abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
   /// Gets or sets the horizontal resolution in dots per inch for the generated images.
   /// This property has effect only when saving to raster image formats.
   /// The default value is 96.
-  double _horizontalResolution;
+  double? _horizontalResolution;
 
-  double get horizontalResolution => _horizontalResolution;
-  set horizontalResolution(double val) => _horizontalResolution = val;
+  double? get horizontalResolution => _horizontalResolution;
+  set horizontalResolution(double? val) => _horizontalResolution = val;
 
 
   /// Gets or sets the brightness level of the image.
-  double _imageBrightness;
+  double? _imageBrightness;
 
-  double get imageBrightness => _imageBrightness;
-  set imageBrightness(double val) => _imageBrightness = val;
+  double? get imageBrightness => _imageBrightness;
+  set imageBrightness(double? val) => _imageBrightness = val;
 
 
   /// Gets or sets the color mode of the image.
-  ImageSaveOptionsData_ImageColorModeEnum _imageColorMode;
+  ImageSaveOptionsData_ImageColorModeEnum? _imageColorMode;
 
-  ImageSaveOptionsData_ImageColorModeEnum get imageColorMode => _imageColorMode;
-  set imageColorMode(ImageSaveOptionsData_ImageColorModeEnum val) => _imageColorMode = val;
+  ImageSaveOptionsData_ImageColorModeEnum? get imageColorMode => _imageColorMode;
+  set imageColorMode(ImageSaveOptionsData_ImageColorModeEnum? val) => _imageColorMode = val;
 
 
   /// Gets or sets the contrast level of the image.
-  double _imageContrast;
+  double? _imageContrast;
 
-  double get imageContrast => _imageContrast;
-  set imageContrast(double val) => _imageContrast = val;
+  double? get imageContrast => _imageContrast;
+  set imageContrast(double? val) => _imageContrast = val;
 
 
   /// Gets or sets the background (paper) color of the image.
-  String _paperColor;
+  String? _paperColor;
 
-  String get paperColor => _paperColor;
-  set paperColor(String val) => _paperColor = val;
+  String? get paperColor => _paperColor;
+  set paperColor(String? val) => _paperColor = val;
 
 
   /// Gets or sets the pixel format of the image.
-  ImageSaveOptionsData_PixelFormatEnum _pixelFormat;
+  ImageSaveOptionsData_PixelFormatEnum? _pixelFormat;
 
-  ImageSaveOptionsData_PixelFormatEnum get pixelFormat => _pixelFormat;
-  set pixelFormat(ImageSaveOptionsData_PixelFormatEnum val) => _pixelFormat = val;
+  ImageSaveOptionsData_PixelFormatEnum? get pixelFormat => _pixelFormat;
+  set pixelFormat(ImageSaveOptionsData_PixelFormatEnum? val) => _pixelFormat = val;
 
 
   /// Gets or sets both horizontal and vertical resolution in dots per inch for the generated images.
   /// This property has effect only when saving to raster image formats.
   /// The default value is 96.
-  double _resolution;
+  double? _resolution;
 
-  double get resolution => _resolution;
-  set resolution(double val) => _resolution = val;
+  double? get resolution => _resolution;
+  set resolution(double? val) => _resolution = val;
 
 
   /// Gets or sets the zoom factor of the image.
-  double _scale;
+  double? _scale;
 
-  double get scale => _scale;
-  set scale(double val) => _scale = val;
+  double? get scale => _scale;
+  set scale(double? val) => _scale = val;
 
 
   /// Gets or sets a value indicating whether to use anti-aliasing for rendering.
-  bool _useAntiAliasing;
+  bool? _useAntiAliasing;
 
-  bool get useAntiAliasing => _useAntiAliasing;
-  set useAntiAliasing(bool val) => _useAntiAliasing = val;
+  bool? get useAntiAliasing => _useAntiAliasing;
+  set useAntiAliasing(bool? val) => _useAntiAliasing = val;
 
 
   /// Gets or sets a value indicating whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.
-  bool _useGdiEmfRenderer;
+  bool? _useGdiEmfRenderer;
 
-  bool get useGdiEmfRenderer => _useGdiEmfRenderer;
-  set useGdiEmfRenderer(bool val) => _useGdiEmfRenderer = val;
+  bool? get useGdiEmfRenderer => _useGdiEmfRenderer;
+  set useGdiEmfRenderer(bool? val) => _useGdiEmfRenderer = val;
 
 
   /// Gets or sets a value indicating whether to use high quality (i.e. slow) rendering algorithms.
-  bool _useHighQualityRendering;
+  bool? _useHighQualityRendering;
 
-  bool get useHighQualityRendering => _useHighQualityRendering;
-  set useHighQualityRendering(bool val) => _useHighQualityRendering = val;
+  bool? get useHighQualityRendering => _useHighQualityRendering;
+  set useHighQualityRendering(bool? val) => _useHighQualityRendering = val;
 
 
   /// Gets or sets the vertical resolution in dots per inch for the generated images.
   /// This property has effect only when saving to raster image formats.
   /// The default value is 96.
-  double _verticalResolution;
+  double? _verticalResolution;
 
-  double get verticalResolution => _verticalResolution;
-  set verticalResolution(double val) => _verticalResolution = val;
+  double? get verticalResolution => _verticalResolution;
+  set verticalResolution(double? val) => _verticalResolution = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize ImageSaveOptionsData data model.');
     }
@@ -136,7 +136,7 @@ abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (json.containsKey('CustomTimeZoneInfoData')) {
       customTimeZoneInfoData = TimeZoneInfoData();
-      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+      customTimeZoneInfoData!.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
     } else {
       customTimeZoneInfoData = null;
     }
@@ -242,7 +242,7 @@ abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (json.containsKey('MetafileRenderingOptions')) {
       metafileRenderingOptions = MetafileRenderingOptionsData();
-      metafileRenderingOptions.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
+      metafileRenderingOptions!.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
     } else {
       metafileRenderingOptions = null;
     }
@@ -374,15 +374,15 @@ abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (horizontalResolution != null) {
-      _result['HorizontalResolution'] = horizontalResolution;
+      _result['HorizontalResolution'] = horizontalResolution!;
     }
 
     if (imageBrightness != null) {
-      _result['ImageBrightness'] = imageBrightness;
+      _result['ImageBrightness'] = imageBrightness!;
     }
 
     if (imageColorMode != null) {
-      switch (imageColorMode) {
+      switch (imageColorMode!) {
         case ImageSaveOptionsData_ImageColorModeEnum.none: _result['ImageColorMode'] = 'None'; break;
         case ImageSaveOptionsData_ImageColorModeEnum.grayscale: _result['ImageColorMode'] = 'Grayscale'; break;
         case ImageSaveOptionsData_ImageColorModeEnum.blackAndWhite: _result['ImageColorMode'] = 'BlackAndWhite'; break;
@@ -391,15 +391,15 @@ abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (imageContrast != null) {
-      _result['ImageContrast'] = imageContrast;
+      _result['ImageContrast'] = imageContrast!;
     }
 
     if (paperColor != null) {
-      _result['PaperColor'] = paperColor;
+      _result['PaperColor'] = paperColor!;
     }
 
     if (pixelFormat != null) {
-      switch (pixelFormat) {
+      switch (pixelFormat!) {
         case ImageSaveOptionsData_PixelFormatEnum.format16BppRgb555: _result['PixelFormat'] = 'Format16BppRgb555'; break;
         case ImageSaveOptionsData_PixelFormatEnum.format16BppRgb565: _result['PixelFormat'] = 'Format16BppRgb565'; break;
         case ImageSaveOptionsData_PixelFormatEnum.format16BppArgb1555: _result['PixelFormat'] = 'Format16BppArgb1555'; break;
@@ -416,27 +416,27 @@ abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (resolution != null) {
-      _result['Resolution'] = resolution;
+      _result['Resolution'] = resolution!;
     }
 
     if (scale != null) {
-      _result['Scale'] = scale;
+      _result['Scale'] = scale!;
     }
 
     if (useAntiAliasing != null) {
-      _result['UseAntiAliasing'] = useAntiAliasing;
+      _result['UseAntiAliasing'] = useAntiAliasing!;
     }
 
     if (useGdiEmfRenderer != null) {
-      _result['UseGdiEmfRenderer'] = useGdiEmfRenderer;
+      _result['UseGdiEmfRenderer'] = useGdiEmfRenderer!;
     }
 
     if (useHighQualityRendering != null) {
-      _result['UseHighQualityRendering'] = useHighQualityRendering;
+      _result['UseHighQualityRendering'] = useHighQualityRendering!;
     }
 
     if (verticalResolution != null) {
-      _result['VerticalResolution'] = verticalResolution;
+      _result['VerticalResolution'] = verticalResolution!;
     }
     return _result;
   }

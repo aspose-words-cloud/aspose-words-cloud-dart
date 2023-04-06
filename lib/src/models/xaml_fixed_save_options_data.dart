@@ -33,28 +33,28 @@ import '../../aspose_words_cloud.dart';
 class XamlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   /// Gets or sets the physical folder where resources (images and fonts) are saved when exporting a document to fixed page Xaml format.
   /// The default value is null.
-  String _resourcesFolder;
+  String? _resourcesFolder;
 
-  String get resourcesFolder => _resourcesFolder;
-  set resourcesFolder(String val) => _resourcesFolder = val;
+  String? get resourcesFolder => _resourcesFolder;
+  set resourcesFolder(String? val) => _resourcesFolder = val;
 
 
   /// Gets or sets the name of the folder used to construct image URIs written into an fixed page Xaml document. The default value is null.
-  String _resourcesFolderAlias;
+  String? _resourcesFolderAlias;
 
-  String get resourcesFolderAlias => _resourcesFolderAlias;
-  set resourcesFolderAlias(String val) => _resourcesFolderAlias = val;
+  String? get resourcesFolderAlias => _resourcesFolderAlias;
+  set resourcesFolderAlias(String? val) => _resourcesFolderAlias = val;
 
 
   /// Gets the format of save.
-  String _saveFormat = 'xamlfixed';
+  String? _saveFormat = 'xamlfixed';
 
   @override
-  String get saveFormat => _saveFormat;
+  String? get saveFormat => _saveFormat;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize XamlFixedSaveOptionsData data model.');
     }
@@ -68,7 +68,7 @@ class XamlFixedSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (json.containsKey('CustomTimeZoneInfoData')) {
       customTimeZoneInfoData = TimeZoneInfoData();
-      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+      customTimeZoneInfoData!.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
     } else {
       customTimeZoneInfoData = null;
     }
@@ -174,7 +174,7 @@ class XamlFixedSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (json.containsKey('MetafileRenderingOptions')) {
       metafileRenderingOptions = MetafileRenderingOptionsData();
-      metafileRenderingOptions.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
+      metafileRenderingOptions!.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
     } else {
       metafileRenderingOptions = null;
     }
@@ -228,15 +228,15 @@ class XamlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (resourcesFolder != null) {
-      _result['ResourcesFolder'] = resourcesFolder;
+      _result['ResourcesFolder'] = resourcesFolder!;
     }
 
     if (resourcesFolderAlias != null) {
-      _result['ResourcesFolderAlias'] = resourcesFolderAlias;
+      _result['ResourcesFolderAlias'] = resourcesFolderAlias!;
     }
 
     if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat;
+      _result['SaveFormat'] = saveFormat!;
     }
     return _result;
   }

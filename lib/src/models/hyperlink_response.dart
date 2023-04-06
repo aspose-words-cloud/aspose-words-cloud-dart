@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a hyperlink.
 class HyperlinkResponse extends WordsResponse {
   /// Gets or sets the hyperlink.
-  Hyperlink _hyperlink;
+  Hyperlink? _hyperlink;
 
-  Hyperlink get hyperlink => _hyperlink;
-  set hyperlink(Hyperlink val) => _hyperlink = val;
+  Hyperlink? get hyperlink => _hyperlink;
+  set hyperlink(Hyperlink? val) => _hyperlink = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize HyperlinkResponse data model.');
     }
@@ -53,7 +53,7 @@ class HyperlinkResponse extends WordsResponse {
 
     if (json.containsKey('Hyperlink')) {
       hyperlink = Hyperlink();
-      hyperlink.deserialize(json['Hyperlink'] as Map<String, dynamic>);
+      hyperlink!.deserialize(json['Hyperlink'] as Map<String, dynamic>);
     } else {
       hyperlink = null;
     }
@@ -64,7 +64,7 @@ class HyperlinkResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (hyperlink != null) {
-      _result['Hyperlink'] = hyperlink.serialize();
+      _result['Hyperlink'] = hyperlink!.serialize();
     }
     return _result;
   }

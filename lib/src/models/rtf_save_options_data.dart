@@ -32,42 +32,42 @@ import '../../aspose_words_cloud.dart';
 /// Container class for rtf save options.
 class RtfSaveOptionsData extends SaveOptionsData {
   /// Gets or sets a value indicating whether to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.
-  bool _exportCompactSize;
+  bool? _exportCompactSize;
 
-  bool get exportCompactSize => _exportCompactSize;
-  set exportCompactSize(bool val) => _exportCompactSize = val;
+  bool? get exportCompactSize => _exportCompactSize;
+  set exportCompactSize(bool? val) => _exportCompactSize = val;
 
 
   /// Gets or sets a value indicating whether the keywords for "old readers" are written to RTF or not.
-  bool _exportImagesForOldReaders;
+  bool? _exportImagesForOldReaders;
 
-  bool get exportImagesForOldReaders => _exportImagesForOldReaders;
-  set exportImagesForOldReaders(bool val) => _exportImagesForOldReaders = val;
+  bool? get exportImagesForOldReaders => _exportImagesForOldReaders;
+  set exportImagesForOldReaders(bool? val) => _exportImagesForOldReaders = val;
 
 
   /// Gets or sets a value indicating whether to use pretty formats output.
-  bool _prettyFormat;
+  bool? _prettyFormat;
 
-  bool get prettyFormat => _prettyFormat;
-  set prettyFormat(bool val) => _prettyFormat = val;
+  bool? get prettyFormat => _prettyFormat;
+  set prettyFormat(bool? val) => _prettyFormat = val;
 
 
   /// Gets the format of save.
-  String _saveFormat = 'rtf';
+  String? _saveFormat = 'rtf';
 
   @override
-  String get saveFormat => _saveFormat;
+  String? get saveFormat => _saveFormat;
 
 
   /// Gets or sets a value indicating whether when true all images will be saved as WMF. This option might help to avoid WordPad warning messages.
-  bool _saveImagesAsWmf;
+  bool? _saveImagesAsWmf;
 
-  bool get saveImagesAsWmf => _saveImagesAsWmf;
-  set saveImagesAsWmf(bool val) => _saveImagesAsWmf = val;
+  bool? get saveImagesAsWmf => _saveImagesAsWmf;
+  set saveImagesAsWmf(bool? val) => _saveImagesAsWmf = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize RtfSaveOptionsData data model.');
     }
@@ -81,7 +81,7 @@ class RtfSaveOptionsData extends SaveOptionsData {
 
     if (json.containsKey('CustomTimeZoneInfoData')) {
       customTimeZoneInfoData = TimeZoneInfoData();
-      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+      customTimeZoneInfoData!.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
     } else {
       customTimeZoneInfoData = null;
     }
@@ -199,23 +199,23 @@ class RtfSaveOptionsData extends SaveOptionsData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (exportCompactSize != null) {
-      _result['ExportCompactSize'] = exportCompactSize;
+      _result['ExportCompactSize'] = exportCompactSize!;
     }
 
     if (exportImagesForOldReaders != null) {
-      _result['ExportImagesForOldReaders'] = exportImagesForOldReaders;
+      _result['ExportImagesForOldReaders'] = exportImagesForOldReaders!;
     }
 
     if (prettyFormat != null) {
-      _result['PrettyFormat'] = prettyFormat;
+      _result['PrettyFormat'] = prettyFormat!;
     }
 
     if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat;
+      _result['SaveFormat'] = saveFormat!;
     }
 
     if (saveImagesAsWmf != null) {
-      _result['SaveImagesAsWmf'] = saveImagesAsWmf;
+      _result['SaveImagesAsWmf'] = saveImagesAsWmf!;
     }
     return _result;
   }

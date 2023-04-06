@@ -85,7 +85,7 @@ import './test_context.dart';
 import './text/text_tests.dart';
 import './watermark/watermark_tests.dart';
 
-TestContext testContext;
+late TestContext testContext;
 
 void main() {
   setUpAll(() async {
@@ -642,7 +642,7 @@ void main() {
   });
 
   group('Examples', () {
-    ExamplesTests exampleTests;
+    late ExamplesTests exampleTests;
     setUpAll(() async {
       exampleTests = ExamplesTests(testContext.configuration);
       await exampleTests.init();

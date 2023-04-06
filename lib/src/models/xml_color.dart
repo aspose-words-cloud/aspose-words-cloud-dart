@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// Utility class for Color serialization.
 class XmlColor implements ModelBase {
   /// Gets or sets the Alpha component of color structure.
-  int _alpha;
+  int? _alpha;
 
-  int get alpha => _alpha;
-  set alpha(int val) => _alpha = val;
+  int? get alpha => _alpha;
+  set alpha(int? val) => _alpha = val;
 
 
   /// Gets or sets the HTML string color representation.
-  String _web;
+  String? _web;
 
-  String get web => _web;
-  set web(String val) => _web = val;
+  String? get web => _web;
+  set web(String? val) => _web = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize XmlColor data model.');
     }
@@ -68,11 +68,11 @@ class XmlColor implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (alpha != null) {
-      _result['Alpha'] = alpha;
+      _result['Alpha'] = alpha!;
     }
 
     if (web != null) {
-      _result['Web'] = web;
+      _result['Web'] = web!;
     }
     return _result;
   }

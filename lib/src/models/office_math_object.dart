@@ -32,35 +32,35 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with an OfficeMath object.
 class OfficeMathObject extends OfficeMathLink {
   /// Gets or sets the content of a footnote.
-  StoryChildNodes _content;
+  StoryChildNodes? _content;
 
-  StoryChildNodes get content => _content;
-  set content(StoryChildNodes val) => _content = val;
+  StoryChildNodes? get content => _content;
+  set content(StoryChildNodes? val) => _content = val;
 
 
   /// Gets or sets the display format type of the OfficeMath object. This display format defines whether an equation is displayed inline with the text or displayed on its own line.
-  OfficeMathObject_DisplayTypeEnum _displayType;
+  OfficeMathObject_DisplayTypeEnum? _displayType;
 
-  OfficeMathObject_DisplayTypeEnum get displayType => _displayType;
-  set displayType(OfficeMathObject_DisplayTypeEnum val) => _displayType = val;
+  OfficeMathObject_DisplayTypeEnum? get displayType => _displayType;
+  set displayType(OfficeMathObject_DisplayTypeEnum? val) => _displayType = val;
 
 
   /// Gets or sets the justification of the OfficeMath object.
-  OfficeMathObject_JustificationEnum _justification;
+  OfficeMathObject_JustificationEnum? _justification;
 
-  OfficeMathObject_JustificationEnum get justification => _justification;
-  set justification(OfficeMathObject_JustificationEnum val) => _justification = val;
+  OfficeMathObject_JustificationEnum? get justification => _justification;
+  set justification(OfficeMathObject_JustificationEnum? val) => _justification = val;
 
 
   /// Gets or sets the type of the OfficeMath object.
-  OfficeMathObject_MathObjectTypeEnum _mathObjectType;
+  OfficeMathObject_MathObjectTypeEnum? _mathObjectType;
 
-  OfficeMathObject_MathObjectTypeEnum get mathObjectType => _mathObjectType;
-  set mathObjectType(OfficeMathObject_MathObjectTypeEnum val) => _mathObjectType = val;
+  OfficeMathObject_MathObjectTypeEnum? get mathObjectType => _mathObjectType;
+  set mathObjectType(OfficeMathObject_MathObjectTypeEnum? val) => _mathObjectType = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize OfficeMathObject data model.');
     }
@@ -68,7 +68,7 @@ class OfficeMathObject extends OfficeMathLink {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -81,7 +81,7 @@ class OfficeMathObject extends OfficeMathLink {
 
     if (json.containsKey('Content')) {
       content = StoryChildNodes();
-      content.deserialize(json['Content'] as Map<String, dynamic>);
+      content!.deserialize(json['Content'] as Map<String, dynamic>);
     } else {
       content = null;
     }
@@ -154,11 +154,11 @@ class OfficeMathObject extends OfficeMathLink {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (content != null) {
-      _result['Content'] = content.serialize();
+      _result['Content'] = content!.serialize();
     }
 
     if (displayType != null) {
-      switch (displayType) {
+      switch (displayType!) {
         case OfficeMathObject_DisplayTypeEnum.display: _result['DisplayType'] = 'Display'; break;
         case OfficeMathObject_DisplayTypeEnum.inline: _result['DisplayType'] = 'Inline'; break;
         default: break;
@@ -166,7 +166,7 @@ class OfficeMathObject extends OfficeMathLink {
     }
 
     if (justification != null) {
-      switch (justification) {
+      switch (justification!) {
         case OfficeMathObject_JustificationEnum.centerGroup: _result['Justification'] = 'CenterGroup'; break;
         case OfficeMathObject_JustificationEnum.defaultValue: _result['Justification'] = 'Default'; break;
         case OfficeMathObject_JustificationEnum.center: _result['Justification'] = 'Center'; break;
@@ -178,7 +178,7 @@ class OfficeMathObject extends OfficeMathLink {
     }
 
     if (mathObjectType != null) {
-      switch (mathObjectType) {
+      switch (mathObjectType!) {
         case OfficeMathObject_MathObjectTypeEnum.oMath: _result['MathObjectType'] = 'OMath'; break;
         case OfficeMathObject_MathObjectTypeEnum.oMathPara: _result['MathObjectType'] = 'OMathPara'; break;
         case OfficeMathObject_MathObjectTypeEnum.accent: _result['MathObjectType'] = 'Accent'; break;

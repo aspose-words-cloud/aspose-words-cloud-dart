@@ -34,10 +34,10 @@ import '../test_context.dart';
 class ListsTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
+  late String remoteDataFolder;
+  late String localFile;
 
-  ListsTests(final this.context) {
+  ListsTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Lists';
     localFile = 'DocumentElements/Lists/ListsGet.doc';
   }
@@ -55,9 +55,9 @@ class ListsTests
 
     final result = await context.getApi().getLists(request);
     expect(result.lists, isNotNull);
-    expect(result.lists.listInfo, isNotNull);
-    expect(result.lists.listInfo.length, 2);
-    expect(result.lists.listInfo[0].listId, 1);
+    expect(result.lists?.listInfo, isNotNull);
+    expect(result.lists?.listInfo?.length, 2);
+    expect(result.lists?.listInfo?[0]?.listId, 1);
   }
 
   /// Test for getting lists from document online.
@@ -86,7 +86,7 @@ class ListsTests
 
     final result = await context.getApi().getList(request);
     expect(result.list, isNotNull);
-    expect(result.list.listId, 1);
+    expect(result.list?.listId, 1);
   }
 
   /// Test for getting list from document online.
@@ -135,9 +135,9 @@ class ListsTests
     );
 
     final result = await context.getApi().updateListOnline(request);
-    expect(result.model.list, isNotNull);
-    expect(result.model.list.listId, 1);
-    expect(result.model.list.isRestartAtEachSection, isTrue);
+    expect(result.model?.list, isNotNull);
+    expect(result.model?.list?.listId, 1);
+    expect(result.model?.list?.isRestartAtEachSection, isTrue);
   }
 
   /// Test for updating list level from document.
@@ -175,10 +175,10 @@ class ListsTests
     );
 
     final result = await context.getApi().updateListLevelOnline(request);
-    expect(result.model.list, isNotNull);
-    expect(result.model.list.listLevels, isNotNull);
-    expect(result.model.list.listLevels.listLevel, isNotNull);
-    expect(result.model.list.listLevels.listLevel.length, 9);
+    expect(result.model?.list, isNotNull);
+    expect(result.model?.list?.listLevels, isNotNull);
+    expect(result.model?.list?.listLevels?.listLevel, isNotNull);
+    expect(result.model?.list?.listLevels?.listLevel?.length, 9);
 
   }
 
@@ -198,7 +198,7 @@ class ListsTests
 
     final result = await context.getApi().insertList(request);
     expect(result.list, isNotNull);
-    expect(result.list.listId, 3);
+    expect(result.list?.listId, 3);
   }
 
   /// Test for inserting list from document online.

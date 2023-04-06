@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a collection of mail merge fields.
 class FieldNamesResponse extends WordsResponse {
   /// Gets or sets the collection of mail merge fields.
-  FieldNames _fieldNames;
+  FieldNames? _fieldNames;
 
-  FieldNames get fieldNames => _fieldNames;
-  set fieldNames(FieldNames val) => _fieldNames = val;
+  FieldNames? get fieldNames => _fieldNames;
+  set fieldNames(FieldNames? val) => _fieldNames = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize FieldNamesResponse data model.');
     }
@@ -53,7 +53,7 @@ class FieldNamesResponse extends WordsResponse {
 
     if (json.containsKey('FieldNames')) {
       fieldNames = FieldNames();
-      fieldNames.deserialize(json['FieldNames'] as Map<String, dynamic>);
+      fieldNames!.deserialize(json['FieldNames'] as Map<String, dynamic>);
     } else {
       fieldNames = null;
     }
@@ -64,7 +64,7 @@ class FieldNamesResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (fieldNames != null) {
-      _result['FieldNames'] = fieldNames.serialize();
+      _result['FieldNames'] = fieldNames!.serialize();
     }
     return _result;
   }

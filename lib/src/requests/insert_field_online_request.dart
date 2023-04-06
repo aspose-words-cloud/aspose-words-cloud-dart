@@ -36,36 +36,36 @@ import '../api_request_part.dart';
 /// Request model for InsertFieldOnline operation.
 class InsertFieldOnlineRequest implements RequestBase {
   /// The document.
-  final ByteData document;
+  final ByteData? document;
 
   /// Field data.
-  final FieldInsert field;
+  final FieldInsert? field;
 
   /// The path to the node in the document tree.
-  final String nodePath;
+  final String? nodePath;
 
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-  final String loadEncoding;
+  final String? loadEncoding;
 
   /// Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
-  final String password;
+  final String? password;
 
   /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
-  final String encryptedPassword;
+  final String? encryptedPassword;
 
   /// Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-  final String destFileName;
+  final String? destFileName;
 
   /// Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-  final String revisionAuthor;
+  final String? revisionAuthor;
 
   /// The date and time to use for revisions.
-  final String revisionDateTime;
+  final String? revisionDateTime;
 
   /// The index of the node. A new field will be inserted before the node with the specified node Id.
-  final String insertBeforeNode;
+  final String? insertBeforeNode;
 
-  InsertFieldOnlineRequest(final this.document, final this.field, {final this.nodePath, final this.loadEncoding, final this.password, final this.encryptedPassword, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime, final this.insertBeforeNode});
+  InsertFieldOnlineRequest(this.document, this.field, {this.nodePath, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime, this.insertBeforeNode});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -74,44 +74,50 @@ class InsertFieldOnlineRequest implements RequestBase {
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
     var _fileContentParts = <FileReference>[];
-    _path = _path.replaceAll('{nodePath}', _apiClient.serializeToString(nodePath) ?? '');
+    _path = _path.replaceAll('{nodePath}', _apiClient.serializeToString(nodePath) ?? "");
     if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding) ?? "";
     }
 
     if (password != null) {
-      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password!);
     }
 
     if (encryptedPassword != null) {
-      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword);
+      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword) ?? "";
     }
 
     if (destFileName != null) {
-      _queryParams['destFileName'] = _apiClient.serializeToString(destFileName);
+      _queryParams['destFileName'] = _apiClient.serializeToString(destFileName) ?? "";
     }
 
     if (revisionAuthor != null) {
-      _queryParams['revisionAuthor'] = _apiClient.serializeToString(revisionAuthor);
+      _queryParams['revisionAuthor'] = _apiClient.serializeToString(revisionAuthor) ?? "";
     }
 
     if (revisionDateTime != null) {
-      _queryParams['revisionDateTime'] = _apiClient.serializeToString(revisionDateTime);
+      _queryParams['revisionDateTime'] = _apiClient.serializeToString(revisionDateTime) ?? "";
     }
 
     if (insertBeforeNode != null) {
-      _queryParams['insertBeforeNode'] = _apiClient.serializeToString(insertBeforeNode);
+      _queryParams['insertBeforeNode'] = _apiClient.serializeToString(insertBeforeNode) ?? "";
     }
 
     if (document != null) {
-      _bodyParts.add(_apiClient.serializeBody(document, 'Document'));
+      var _formBody = _apiClient.serializeBody(document, 'Document');
+      if (_formBody != null) {
+        _bodyParts.add(_formBody);
+      }
     }
     else {
       throw ApiException(400, 'Parameter document is required.');
     }
 
     if (field != null) {
-      _bodyParts.add(_apiClient.serializeBody(field, 'Field'));
+      var _formBody = _apiClient.serializeBody(field, 'Field');
+      if (_formBody != null) {
+        _bodyParts.add(_formBody);
+      }
     }
     else {
       throw ApiException(400, 'Parameter field is required.');
@@ -119,7 +125,7 @@ class InsertFieldOnlineRequest implements RequestBase {
 
     for (final _fileContentPart in _fileContentParts) {
         if (_fileContentPart.source == 'Request') {
-            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
@@ -128,7 +134,11 @@ class InsertFieldOnlineRequest implements RequestBase {
   }
 
   @override
-  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final Map<String, String> _headers, final ByteData? _body) {
+    if (_body == null) {
+        return ApiException(400, "Nullable response body is not allowed for this operation type.");
+    }
+
     var _result = InsertFieldOnlineResponse();
     _result.deserialize(_apiClient, _apiClient.deserializeMultipartMap(_body));
     return _result;

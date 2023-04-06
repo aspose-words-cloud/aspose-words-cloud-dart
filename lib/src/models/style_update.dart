@@ -32,35 +32,35 @@ import '../../aspose_words_cloud.dart';
 /// Represents a single document style properties to update.
 class StyleUpdate implements ModelBase {
   /// Gets or sets the name of the style this style is based on.
-  String _baseStyleName;
+  String? _baseStyleName;
 
-  String get baseStyleName => _baseStyleName;
-  set baseStyleName(String val) => _baseStyleName = val;
+  String? get baseStyleName => _baseStyleName;
+  set baseStyleName(String? val) => _baseStyleName = val;
 
 
   /// Gets or sets a value indicating whether this style is shown in the Quick Style gallery inside MS Word UI.
-  bool _isQuickStyle;
+  bool? _isQuickStyle;
 
-  bool get isQuickStyle => _isQuickStyle;
-  set isQuickStyle(bool val) => _isQuickStyle = val;
+  bool? get isQuickStyle => _isQuickStyle;
+  set isQuickStyle(bool? val) => _isQuickStyle = val;
 
 
   /// Gets or sets the name of the style.
-  String _name;
+  String? _name;
 
-  String get name => _name;
-  set name(String val) => _name = val;
+  String? get name => _name;
+  set name(String? val) => _name = val;
 
 
   /// Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
-  String _nextParagraphStyleName;
+  String? _nextParagraphStyleName;
 
-  String get nextParagraphStyleName => _nextParagraphStyleName;
-  set nextParagraphStyleName(String val) => _nextParagraphStyleName = val;
+  String? get nextParagraphStyleName => _nextParagraphStyleName;
+  set nextParagraphStyleName(String? val) => _nextParagraphStyleName = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize StyleUpdate data model.');
     }
@@ -94,19 +94,19 @@ class StyleUpdate implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (baseStyleName != null) {
-      _result['BaseStyleName'] = baseStyleName;
+      _result['BaseStyleName'] = baseStyleName!;
     }
 
     if (isQuickStyle != null) {
-      _result['IsQuickStyle'] = isQuickStyle;
+      _result['IsQuickStyle'] = isQuickStyle!;
     }
 
     if (name != null) {
-      _result['Name'] = name;
+      _result['Name'] = name!;
     }
 
     if (nextParagraphStyleName != null) {
-      _result['NextParagraphStyleName'] = nextParagraphStyleName;
+      _result['NextParagraphStyleName'] = nextParagraphStyleName!;
     }
     return _result;
   }

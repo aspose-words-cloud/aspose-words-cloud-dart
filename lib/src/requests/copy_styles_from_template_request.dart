@@ -37,36 +37,36 @@ import '../api_request_part.dart';
 /// Request model for CopyStylesFromTemplate operation.
 class CopyStylesFromTemplateRequest implements RequestBase {
   /// The filename of the target document.
-  final String name;
+  final String? name;
 
   /// The filename of the origin document.
-  final String templateName;
+  final String? templateName;
 
   /// Original document folder.
-  final String folder;
+  final String? folder;
 
   /// Original document storage.
-  final String storage;
+  final String? storage;
 
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-  final String loadEncoding;
+  final String? loadEncoding;
 
   /// Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
-  final String password;
+  final String? password;
 
   /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
-  final String encryptedPassword;
+  final String? encryptedPassword;
 
   /// Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-  final String destFileName;
+  final String? destFileName;
 
   /// Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-  final String revisionAuthor;
+  final String? revisionAuthor;
 
   /// The date and time to use for revisions.
-  final String revisionDateTime;
+  final String? revisionDateTime;
 
-  CopyStylesFromTemplateRequest(final this.name, final this.templateName, {final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.encryptedPassword, final this.destFileName, final this.revisionAuthor, final this.revisionDateTime});
+  CopyStylesFromTemplateRequest(this.name, this.templateName, {this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -78,49 +78,49 @@ class CopyStylesFromTemplateRequest implements RequestBase {
     if (name == null) {
       throw ApiException(400, 'Parameter name is required.');
     }
-    _path = _path.replaceAll('{name}', _apiClient.serializeToString(name));
+    _path = _path.replaceAll('{name}', _apiClient.serializeToString(name) ?? "");
     if (templateName != null) {
-      _queryParams['templateName'] = _apiClient.serializeToString(templateName);
+      _queryParams['templateName'] = _apiClient.serializeToString(templateName) ?? "";
     }
     else {
       throw ApiException(400, 'Parameter templateName is required.');
     }
 
     if (folder != null) {
-      _queryParams['folder'] = _apiClient.serializeToString(folder);
+      _queryParams['folder'] = _apiClient.serializeToString(folder) ?? "";
     }
 
     if (storage != null) {
-      _queryParams['storage'] = _apiClient.serializeToString(storage);
+      _queryParams['storage'] = _apiClient.serializeToString(storage) ?? "";
     }
 
     if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding) ?? "";
     }
 
     if (password != null) {
-      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password!);
     }
 
     if (encryptedPassword != null) {
-      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword);
+      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword) ?? "";
     }
 
     if (destFileName != null) {
-      _queryParams['destFileName'] = _apiClient.serializeToString(destFileName);
+      _queryParams['destFileName'] = _apiClient.serializeToString(destFileName) ?? "";
     }
 
     if (revisionAuthor != null) {
-      _queryParams['revisionAuthor'] = _apiClient.serializeToString(revisionAuthor);
+      _queryParams['revisionAuthor'] = _apiClient.serializeToString(revisionAuthor) ?? "";
     }
 
     if (revisionDateTime != null) {
-      _queryParams['revisionDateTime'] = _apiClient.serializeToString(revisionDateTime);
+      _queryParams['revisionDateTime'] = _apiClient.serializeToString(revisionDateTime) ?? "";
     }
 
     for (final _fileContentPart in _fileContentParts) {
         if (_fileContentPart.source == 'Request') {
-            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
@@ -129,7 +129,11 @@ class CopyStylesFromTemplateRequest implements RequestBase {
   }
 
   @override
-  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final Map<String, String> _headers, final ByteData? _body) {
+    if (_body == null) {
+        return ApiException(400, "Nullable response body is not allowed for this operation type.");
+    }
+
     var _result = WordsResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);

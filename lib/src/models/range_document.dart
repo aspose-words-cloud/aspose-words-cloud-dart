@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a Range element.
 class RangeDocument implements ModelBase {
   /// Gets or sets the name for a new document.
-  String _documentName;
+  String? _documentName;
 
-  String get documentName => _documentName;
-  set documentName(String val) => _documentName = val;
+  String? get documentName => _documentName;
+  set documentName(String? val) => _documentName = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize RangeDocument data model.');
     }
@@ -55,7 +55,7 @@ class RangeDocument implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (documentName != null) {
-      _result['DocumentName'] = documentName;
+      _result['DocumentName'] = documentName!;
     }
     return _result;
   }

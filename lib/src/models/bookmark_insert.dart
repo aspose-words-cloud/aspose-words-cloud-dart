@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// Represents a bookmark to insert.
 class BookmarkInsert extends BookmarkData {
   /// Gets or sets the link to end bookmark node.
-  DocumentPosition _endRange;
+  DocumentPosition? _endRange;
 
-  DocumentPosition get endRange => _endRange;
-  set endRange(DocumentPosition val) => _endRange = val;
+  DocumentPosition? get endRange => _endRange;
+  set endRange(DocumentPosition? val) => _endRange = val;
 
 
   /// Gets or sets the link to start bookmark node.
-  DocumentPosition _startRange;
+  DocumentPosition? _startRange;
 
-  DocumentPosition get startRange => _startRange;
-  set startRange(DocumentPosition val) => _startRange = val;
+  DocumentPosition? get startRange => _startRange;
+  set startRange(DocumentPosition? val) => _startRange = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize BookmarkInsert data model.');
     }
@@ -66,14 +66,14 @@ class BookmarkInsert extends BookmarkData {
 
     if (json.containsKey('EndRange')) {
       endRange = DocumentPosition();
-      endRange.deserialize(json['EndRange'] as Map<String, dynamic>);
+      endRange!.deserialize(json['EndRange'] as Map<String, dynamic>);
     } else {
       endRange = null;
     }
 
     if (json.containsKey('StartRange')) {
       startRange = DocumentPosition();
-      startRange.deserialize(json['StartRange'] as Map<String, dynamic>);
+      startRange!.deserialize(json['StartRange'] as Map<String, dynamic>);
     } else {
       startRange = null;
     }
@@ -84,11 +84,11 @@ class BookmarkInsert extends BookmarkData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (endRange != null) {
-      _result['EndRange'] = endRange.serialize();
+      _result['EndRange'] = endRange!.serialize();
     }
 
     if (startRange != null) {
-      _result['StartRange'] = startRange.serialize();
+      _result['StartRange'] = startRange!.serialize();
     }
     return _result;
   }

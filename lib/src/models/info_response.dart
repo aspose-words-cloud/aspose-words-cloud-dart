@@ -32,28 +32,28 @@ import '../../aspose_words_cloud.dart';
 /// Response with API info.
 class InfoResponse extends WordsResponse {
   /// Gets or sets additional info.
-  List<InfoAdditionalItem> _additionalInfo;
+  List<InfoAdditionalItem?>? _additionalInfo;
 
-  List<InfoAdditionalItem> get additionalInfo => _additionalInfo;
-  set additionalInfo(List<InfoAdditionalItem> val) => _additionalInfo = val;
+  List<InfoAdditionalItem?>? get additionalInfo => _additionalInfo;
+  set additionalInfo(List<InfoAdditionalItem?>? val) => _additionalInfo = val;
 
 
   /// Gets or sets application name.
-  String _name;
+  String? _name;
 
-  String get name => _name;
-  set name(String val) => _name = val;
+  String? get name => _name;
+  set name(String? val) => _name = val;
 
 
   /// Gets or sets version.
-  String _version;
+  String? _version;
 
-  String get version => _version;
-  set version(String val) => _version = val;
+  String? get version => _version;
+  set version(String? val) => _version = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize InfoResponse data model.');
     }
@@ -71,7 +71,7 @@ class InfoResponse extends WordsResponse {
       for(final _element in json['AdditionalInfo']) {
         var _elementValue = InfoAdditionalItem();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        additionalInfo.add(_elementValue);
+        additionalInfo!.add(_elementValue);
       }
     } else {
       additionalInfo = null;
@@ -95,15 +95,15 @@ class InfoResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (additionalInfo != null) {
-      _result['AdditionalInfo'] = additionalInfo.map((_element) => _element.serialize()).toList();
+      _result['AdditionalInfo'] = additionalInfo!.map((_element) => _element?.serialize()).toList();
     }
 
     if (name != null) {
-      _result['Name'] = name;
+      _result['Name'] = name!;
     }
 
     if (version != null) {
-      _result['Version'] = version;
+      _result['Version'] = version!;
     }
     return _result;
   }

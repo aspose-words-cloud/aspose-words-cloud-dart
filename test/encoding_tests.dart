@@ -34,9 +34,9 @@ import 'test_context.dart';
 class EncodingTests
 {
   final TestContext context;
-  String dataFolder;
+  late String dataFolder;
 
-  EncodingTests(final this.context) {
+  EncodingTests(this.context) {
     dataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Section';
   }
 

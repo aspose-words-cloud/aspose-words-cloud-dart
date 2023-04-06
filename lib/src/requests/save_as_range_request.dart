@@ -37,33 +37,33 @@ import '../api_request_part.dart';
 /// Request model for SaveAsRange operation.
 class SaveAsRangeRequest implements RequestBase {
   /// The filename of the input document.
-  final String name;
+  final String? name;
 
-  /// The range start identifier.
-  final String rangeStartIdentifier;
+  /// The range start identifier. Identifier examples: id0.0.0, page0.
+  final String? rangeStartIdentifier;
 
   /// Parameters of a new document.
-  final RangeDocument documentParameters;
+  final RangeDocument? documentParameters;
 
-  /// The range end identifier.
-  final String rangeEndIdentifier;
+  /// The range end identifier. Identifier examples: id1.0.0, id0.0.0:end, page1, page1:end, document:end.
+  final String? rangeEndIdentifier;
 
   /// Original document folder.
-  final String folder;
+  final String? folder;
 
   /// Original document storage.
-  final String storage;
+  final String? storage;
 
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-  final String loadEncoding;
+  final String? loadEncoding;
 
   /// Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
-  final String password;
+  final String? password;
 
   /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
-  final String encryptedPassword;
+  final String? encryptedPassword;
 
-  SaveAsRangeRequest(final this.name, final this.rangeStartIdentifier, final this.documentParameters, {final this.rangeEndIdentifier, final this.folder, final this.storage, final this.loadEncoding, final this.password, final this.encryptedPassword});
+  SaveAsRangeRequest(this.name, this.rangeStartIdentifier, this.documentParameters, {this.rangeEndIdentifier, this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -75,35 +75,38 @@ class SaveAsRangeRequest implements RequestBase {
     if (name == null) {
       throw ApiException(400, 'Parameter name is required.');
     }
-    _path = _path.replaceAll('{name}', _apiClient.serializeToString(name));
+    _path = _path.replaceAll('{name}', _apiClient.serializeToString(name) ?? "");
 
     if (rangeStartIdentifier == null) {
       throw ApiException(400, 'Parameter rangeStartIdentifier is required.');
     }
-    _path = _path.replaceAll('{rangeStartIdentifier}', _apiClient.serializeToString(rangeStartIdentifier));
-    _path = _path.replaceAll('{rangeEndIdentifier}', _apiClient.serializeToString(rangeEndIdentifier) ?? '');
+    _path = _path.replaceAll('{rangeStartIdentifier}', _apiClient.serializeToString(rangeStartIdentifier) ?? "");
+    _path = _path.replaceAll('{rangeEndIdentifier}', _apiClient.serializeToString(rangeEndIdentifier) ?? "");
     if (folder != null) {
-      _queryParams['folder'] = _apiClient.serializeToString(folder);
+      _queryParams['folder'] = _apiClient.serializeToString(folder) ?? "";
     }
 
     if (storage != null) {
-      _queryParams['storage'] = _apiClient.serializeToString(storage);
+      _queryParams['storage'] = _apiClient.serializeToString(storage) ?? "";
     }
 
     if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding) ?? "";
     }
 
     if (password != null) {
-      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password!);
     }
 
     if (encryptedPassword != null) {
-      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword);
+      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword) ?? "";
     }
 
     if (documentParameters != null) {
-      _bodyParts.add(_apiClient.serializeBody(documentParameters, 'Body'));
+      var _body = _apiClient.serializeBody(documentParameters, 'Body');
+      if (_body != null) {
+        _bodyParts.add(_body);
+      }
     }
     else {
       throw ApiException(400, 'Parameter documentParameters is required.');
@@ -111,7 +114,7 @@ class SaveAsRangeRequest implements RequestBase {
 
     for (final _fileContentPart in _fileContentParts) {
         if (_fileContentPart.source == 'Request') {
-            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
@@ -120,7 +123,11 @@ class SaveAsRangeRequest implements RequestBase {
   }
 
   @override
-  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final Map<String, String> _headers, final ByteData? _body) {
+    if (_body == null) {
+        return ApiException(400, "Nullable response body is not allowed for this operation type.");
+    }
+
     var _result = DocumentResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);

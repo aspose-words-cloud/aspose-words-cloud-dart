@@ -34,10 +34,10 @@ import '../test_context.dart';
 class ClassificationTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
+  late String remoteDataFolder;
+  late String localFile;
 
-  ClassificationTests(final this.context) {
+  ClassificationTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/Common';
     localFile = 'Common/test_multi_pages.docx';
   }
@@ -54,7 +54,7 @@ class ClassificationTests
     final result = await context.getApi().classify(request);
     expect(result.bestClassName, 'Science');
     expect(result.bestResults, isNotNull);
-    expect(result.bestResults.length, 3);
+    expect(result.bestResults?.length, 3);
   }
 
   /// Test for document classification.
@@ -72,7 +72,7 @@ class ClassificationTests
     final result = await context.getApi().classifyDocument(request);
     expect(result.bestClassName, 'Hobbies_&_Interests');
     expect(result.bestResults, isNotNull);
-    expect(result.bestResults.length, 3);
+    expect(result.bestResults?.length, 3);
   }
 
   /// Test for document classification online.

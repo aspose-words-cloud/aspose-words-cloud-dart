@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a table element.
 class Table extends NodeLink {
   /// Gets or sets table properties.
-  TableProperties _tableProperties;
+  TableProperties? _tableProperties;
 
-  TableProperties get tableProperties => _tableProperties;
-  set tableProperties(TableProperties val) => _tableProperties = val;
+  TableProperties? get tableProperties => _tableProperties;
+  set tableProperties(TableProperties? val) => _tableProperties = val;
 
 
   /// Gets or sets the collection of table's rows.
-  List<TableRow> _tableRowList;
+  List<TableRow?>? _tableRowList;
 
-  List<TableRow> get tableRowList => _tableRowList;
-  set tableRowList(List<TableRow> val) => _tableRowList = val;
+  List<TableRow?>? get tableRowList => _tableRowList;
+  set tableRowList(List<TableRow?>? val) => _tableRowList = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize Table data model.');
     }
@@ -54,7 +54,7 @@ class Table extends NodeLink {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -67,7 +67,7 @@ class Table extends NodeLink {
 
     if (json.containsKey('TableProperties')) {
       tableProperties = TableProperties();
-      tableProperties.deserialize(json['TableProperties'] as Map<String, dynamic>);
+      tableProperties!.deserialize(json['TableProperties'] as Map<String, dynamic>);
     } else {
       tableProperties = null;
     }
@@ -78,7 +78,7 @@ class Table extends NodeLink {
       for(final _element in json['TableRowList']) {
         var _elementValue = TableRow();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        tableRowList.add(_elementValue);
+        tableRowList!.add(_elementValue);
       }
     } else {
       tableRowList = null;
@@ -90,11 +90,11 @@ class Table extends NodeLink {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (tableProperties != null) {
-      _result['TableProperties'] = tableProperties.serialize();
+      _result['TableProperties'] = tableProperties!.serialize();
     }
 
     if (tableRowList != null) {
-      _result['TableRowList'] = tableRowList.map((_element) => _element.serialize()).toList();
+      _result['TableRowList'] = tableRowList!.map((_element) => _element?.serialize()).toList();
     }
     return _result;
   }

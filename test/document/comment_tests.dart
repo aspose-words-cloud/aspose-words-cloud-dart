@@ -34,10 +34,10 @@ import '../test_context.dart';
 class CommentTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
+  late String remoteDataFolder;
+  late String localFile;
 
-  CommentTests(final this.context) {
+  CommentTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/Comments';
     localFile = 'Common/test_multi_pages.docx';
   }
@@ -56,7 +56,7 @@ class CommentTests
 
     final result = await context.getApi().getComment(request);
     expect(result.comment, isNotNull);
-    expect(result.comment.text, 'Comment 1' + '\r\n\r\n');
+    expect(result.comment?.text, 'Comment 1' + '\r\n\r\n');
   }
 
   /// Test for getting comment by specified comment's index online.
@@ -85,9 +85,9 @@ class CommentTests
 
     final result = await context.getApi().getComments(request);
     expect(result.comments, isNotNull);
-    expect(result.comments.commentList, isNotNull);
-    expect(result.comments.commentList.length, 1);
-    expect(result.comments.commentList[0].text, 'Comment 1' + '\r\n\r\n');
+    expect(result.comments?.commentList, isNotNull);
+    expect(result.comments?.commentList?.length, 1);
+    expect(result.comments?.commentList?[0]?.text, 'Comment 1' + '\r\n\r\n');
   }
 
   /// Test for getting all comments from document online.
@@ -136,10 +136,10 @@ class CommentTests
 
     final result = await context.getApi().insertComment(request);
     expect(result.comment, isNotNull);
-    expect(result.comment.text, 'A new Comment' + '\r\n');
-    expect(result.comment.rangeStart, isNotNull);
-    expect(result.comment.rangeStart.node, isNotNull);
-    expect(result.comment.rangeStart.node.nodeId, '0.3.0.4');
+    expect(result.comment?.text, 'A new Comment' + '\r\n');
+    expect(result.comment?.rangeStart, isNotNull);
+    expect(result.comment?.rangeStart?.node, isNotNull);
+    expect(result.comment?.rangeStart?.node?.nodeId, '0.3.0.4');
   }
 
   /// Test for adding comment online.
@@ -211,10 +211,10 @@ class CommentTests
 
     final result = await context.getApi().updateComment(request);
     expect(result.comment, isNotNull);
-    expect(result.comment.text, 'A new Comment' + '\r\n');
-    expect(result.comment.rangeStart, isNotNull);
-    expect(result.comment.rangeStart.node, isNotNull);
-    expect(result.comment.rangeStart.node.nodeId, '0.3.0.1');
+    expect(result.comment?.text, 'A new Comment' + '\r\n');
+    expect(result.comment?.rangeStart, isNotNull);
+    expect(result.comment?.rangeStart?.node, isNotNull);
+    expect(result.comment?.rangeStart?.node?.nodeId, '0.3.0.1');
   }
 
   /// Test for updating comment online.

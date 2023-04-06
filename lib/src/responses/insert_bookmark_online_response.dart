@@ -37,19 +37,24 @@ import '../body_part_data.dart';
 /// Inserts a new bookmark to the document.
 class InsertBookmarkOnlineResponse implements ResponseBase {
   /// The response model.
-  BookmarkResponse model;
+  BookmarkResponse? model;
 
   /// The document after modification.
-  Map<String, ByteData> document;
+  Map<String, ByteData>? document;
 
   @override
   void deserialize(ApiClient apiClient, Map<String, BodyPartData> _parts) {
     model = BookmarkResponse();
     final _modelBody = _parts['model'];
-    final _modelJsonData = utf8.decode(_modelBody.content.buffer.asUint8List(_modelBody.content.offsetInBytes, _modelBody.content.lengthInBytes));
-    model.deserialize(jsonDecode(_modelJsonData) as Map<String, dynamic>);
+    if (_modelBody != null) {
+        final _modelJsonData = utf8.decode(_modelBody.content.buffer.asUint8List(_modelBody.content.offsetInBytes, _modelBody.content.lengthInBytes));
+        model!.deserialize(jsonDecode(_modelJsonData) as Map<String, dynamic>);
+    }
 
-    document = apiClient.deserializeFilesCollection(_parts['document']);
+    final _documentFile = _parts['document'];
+    if (_documentFile != null) {
+        document = apiClient.deserializeFilesCollection(_documentFile);
+    }
   }
 }
 

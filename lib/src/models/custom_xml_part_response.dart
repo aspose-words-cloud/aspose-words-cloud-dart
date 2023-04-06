@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a custom xml part.
 class CustomXmlPartResponse extends WordsResponse {
   /// Gets or sets the custom xml part.
-  CustomXmlPart _customXmlPart;
+  CustomXmlPart? _customXmlPart;
 
-  CustomXmlPart get customXmlPart => _customXmlPart;
-  set customXmlPart(CustomXmlPart val) => _customXmlPart = val;
+  CustomXmlPart? get customXmlPart => _customXmlPart;
+  set customXmlPart(CustomXmlPart? val) => _customXmlPart = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize CustomXmlPartResponse data model.');
     }
@@ -53,7 +53,7 @@ class CustomXmlPartResponse extends WordsResponse {
 
     if (json.containsKey('CustomXmlPart')) {
       customXmlPart = CustomXmlPart();
-      customXmlPart.deserialize(json['CustomXmlPart'] as Map<String, dynamic>);
+      customXmlPart!.deserialize(json['CustomXmlPart'] as Map<String, dynamic>);
     } else {
       customXmlPart = null;
     }
@@ -64,7 +64,7 @@ class CustomXmlPartResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (customXmlPart != null) {
-      _result['CustomXmlPart'] = customXmlPart.serialize();
+      _result['CustomXmlPart'] = customXmlPart!.serialize();
     }
     return _result;
   }

@@ -32,207 +32,207 @@ import '../../aspose_words_cloud.dart';
 /// Container class for pdf save options.
 class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   /// Gets or sets a value determining whether or not to cache graphics placed in document's background.
-  bool _cacheBackgroundGraphics;
+  bool? _cacheBackgroundGraphics;
 
-  bool get cacheBackgroundGraphics => _cacheBackgroundGraphics;
-  set cacheBackgroundGraphics(bool val) => _cacheBackgroundGraphics = val;
+  bool? get cacheBackgroundGraphics => _cacheBackgroundGraphics;
+  set cacheBackgroundGraphics(bool? val) => _cacheBackgroundGraphics = val;
 
 
   /// Gets or sets the PDF standards compliance level for output documents.
-  PdfSaveOptionsData_ComplianceEnum _compliance;
+  PdfSaveOptionsData_ComplianceEnum? _compliance;
 
-  PdfSaveOptionsData_ComplianceEnum get compliance => _compliance;
-  set compliance(PdfSaveOptionsData_ComplianceEnum val) => _compliance = val;
+  PdfSaveOptionsData_ComplianceEnum? get compliance => _compliance;
+  set compliance(PdfSaveOptionsData_ComplianceEnum? val) => _compliance = val;
 
 
   /// Gets or sets a value indicating whether to convert footnote/endnote references in main text story into active hyperlinks.
   /// When clicked the hyperlink will lead to the corresponding footnote/endnote.
   /// The default value is false.
-  bool _createNoteHyperlinks;
+  bool? _createNoteHyperlinks;
 
-  bool get createNoteHyperlinks => _createNoteHyperlinks;
-  set createNoteHyperlinks(bool val) => _createNoteHyperlinks = val;
+  bool? get createNoteHyperlinks => _createNoteHyperlinks;
+  set createNoteHyperlinks(bool? val) => _createNoteHyperlinks = val;
 
 
   /// Gets or sets the option that controls the way CustomDocumentProperties are exported to PDF file.
   /// The default value is None.
-  PdfSaveOptionsData_CustomPropertiesExportEnum _customPropertiesExport;
+  PdfSaveOptionsData_CustomPropertiesExportEnum? _customPropertiesExport;
 
-  PdfSaveOptionsData_CustomPropertiesExportEnum get customPropertiesExport => _customPropertiesExport;
-  set customPropertiesExport(PdfSaveOptionsData_CustomPropertiesExportEnum val) => _customPropertiesExport = val;
+  PdfSaveOptionsData_CustomPropertiesExportEnum? get customPropertiesExport => _customPropertiesExport;
+  set customPropertiesExport(PdfSaveOptionsData_CustomPropertiesExportEnum? val) => _customPropertiesExport = val;
 
 
   /// Gets or sets the details for signing the output PDF document.
-  PdfDigitalSignatureDetailsData _digitalSignatureDetails;
+  PdfDigitalSignatureDetailsData? _digitalSignatureDetails;
 
-  PdfDigitalSignatureDetailsData get digitalSignatureDetails => _digitalSignatureDetails;
-  set digitalSignatureDetails(PdfDigitalSignatureDetailsData val) => _digitalSignatureDetails = val;
+  PdfDigitalSignatureDetailsData? get digitalSignatureDetails => _digitalSignatureDetails;
+  set digitalSignatureDetails(PdfDigitalSignatureDetailsData? val) => _digitalSignatureDetails = val;
 
 
   /// Gets or sets a value indicating whether the window’s title bar should display the document title taken from the Title entry of the document information dictionary.
-  bool _displayDocTitle;
+  bool? _displayDocTitle;
 
-  bool get displayDocTitle => _displayDocTitle;
-  set displayDocTitle(bool val) => _displayDocTitle = val;
+  bool? get displayDocTitle => _displayDocTitle;
+  set displayDocTitle(bool? val) => _displayDocTitle = val;
 
 
   /// Gets or sets the downsample options.
-  DownsampleOptionsData _downsampleOptions;
+  DownsampleOptionsData? _downsampleOptions;
 
-  DownsampleOptionsData get downsampleOptions => _downsampleOptions;
-  set downsampleOptions(DownsampleOptionsData val) => _downsampleOptions = val;
+  DownsampleOptionsData? get downsampleOptions => _downsampleOptions;
+  set downsampleOptions(DownsampleOptionsData? val) => _downsampleOptions = val;
 
 
   /// Gets or sets a value determining whether or not to embed attachments to the PDF document.
-  bool _embedAttachments;
+  bool? _embedAttachments;
 
-  bool get embedAttachments => _embedAttachments;
-  set embedAttachments(bool val) => _embedAttachments = val;
+  bool? get embedAttachments => _embedAttachments;
+  set embedAttachments(bool? val) => _embedAttachments = val;
 
 
   /// Gets or sets a value indicating whether fonts are embedded into the resulting PDF documents.
-  bool _embedFullFonts;
+  bool? _embedFullFonts;
 
-  bool get embedFullFonts => _embedFullFonts;
-  set embedFullFonts(bool val) => _embedFullFonts = val;
+  bool? get embedFullFonts => _embedFullFonts;
+  set embedFullFonts(bool? val) => _embedFullFonts = val;
 
 
   /// Gets or sets the details for encrypting the output PDF document.
-  PdfEncryptionDetailsData _encryptionDetails;
+  PdfEncryptionDetailsData? _encryptionDetails;
 
-  PdfEncryptionDetailsData get encryptionDetails => _encryptionDetails;
-  set encryptionDetails(PdfEncryptionDetailsData val) => _encryptionDetails = val;
+  PdfEncryptionDetailsData? get encryptionDetails => _encryptionDetails;
+  set encryptionDetails(PdfEncryptionDetailsData? val) => _encryptionDetails = val;
 
 
   /// Gets or sets a value indicating whether to export document structure.
-  bool _exportDocumentStructure;
+  bool? _exportDocumentStructure;
 
-  bool get exportDocumentStructure => _exportDocumentStructure;
-  set exportDocumentStructure(bool val) => _exportDocumentStructure = val;
+  bool? get exportDocumentStructure => _exportDocumentStructure;
+  set exportDocumentStructure(bool? val) => _exportDocumentStructure = val;
 
 
   /// Gets or sets a value determining whether or not to create a "Span" tag in the document structure to export the text language.
-  bool _exportLanguageToSpanTag;
+  bool? _exportLanguageToSpanTag;
 
-  bool get exportLanguageToSpanTag => _exportLanguageToSpanTag;
-  set exportLanguageToSpanTag(bool val) => _exportLanguageToSpanTag = val;
+  bool? get exportLanguageToSpanTag => _exportLanguageToSpanTag;
+  set exportLanguageToSpanTag(bool? val) => _exportLanguageToSpanTag = val;
 
 
   /// Gets or sets the font embedding mode.
-  PdfSaveOptionsData_FontEmbeddingModeEnum _fontEmbeddingMode;
+  PdfSaveOptionsData_FontEmbeddingModeEnum? _fontEmbeddingMode;
 
-  PdfSaveOptionsData_FontEmbeddingModeEnum get fontEmbeddingMode => _fontEmbeddingMode;
-  set fontEmbeddingMode(PdfSaveOptionsData_FontEmbeddingModeEnum val) => _fontEmbeddingMode = val;
+  PdfSaveOptionsData_FontEmbeddingModeEnum? get fontEmbeddingMode => _fontEmbeddingMode;
+  set fontEmbeddingMode(PdfSaveOptionsData_FontEmbeddingModeEnum? val) => _fontEmbeddingMode = val;
 
 
   /// Gets or sets the option that controls how bookmarks in headers/footers are exported.
   /// The default value is Aspose.Words.Saving.HeaderFooterBookmarksExportMode.All.
-  PdfSaveOptionsData_HeaderFooterBookmarksExportModeEnum _headerFooterBookmarksExportMode;
+  PdfSaveOptionsData_HeaderFooterBookmarksExportModeEnum? _headerFooterBookmarksExportMode;
 
-  PdfSaveOptionsData_HeaderFooterBookmarksExportModeEnum get headerFooterBookmarksExportMode => _headerFooterBookmarksExportMode;
-  set headerFooterBookmarksExportMode(PdfSaveOptionsData_HeaderFooterBookmarksExportModeEnum val) => _headerFooterBookmarksExportMode = val;
+  PdfSaveOptionsData_HeaderFooterBookmarksExportModeEnum? get headerFooterBookmarksExportMode => _headerFooterBookmarksExportMode;
+  set headerFooterBookmarksExportMode(PdfSaveOptionsData_HeaderFooterBookmarksExportModeEnum? val) => _headerFooterBookmarksExportMode = val;
 
 
   /// Gets or sets the option that controls how the color space will be selected for the images in PDF document.
-  PdfSaveOptionsData_ImageColorSpaceExportModeEnum _imageColorSpaceExportMode;
+  PdfSaveOptionsData_ImageColorSpaceExportModeEnum? _imageColorSpaceExportMode;
 
-  PdfSaveOptionsData_ImageColorSpaceExportModeEnum get imageColorSpaceExportMode => _imageColorSpaceExportMode;
-  set imageColorSpaceExportMode(PdfSaveOptionsData_ImageColorSpaceExportModeEnum val) => _imageColorSpaceExportMode = val;
+  PdfSaveOptionsData_ImageColorSpaceExportModeEnum? get imageColorSpaceExportMode => _imageColorSpaceExportMode;
+  set imageColorSpaceExportMode(PdfSaveOptionsData_ImageColorSpaceExportModeEnum? val) => _imageColorSpaceExportMode = val;
 
 
   /// Gets or sets the compression type to be used for all images in the document.
-  String _imageCompression;
+  String? _imageCompression;
 
-  String get imageCompression => _imageCompression;
-  set imageCompression(String val) => _imageCompression = val;
+  String? get imageCompression => _imageCompression;
+  set imageCompression(String? val) => _imageCompression = val;
 
 
   /// Gets or sets a value indicating whether image interpolation shall be performed by a conforming reader. When false is specified, the flag is not written to the output document and the default behavior of reader is used instead.
-  bool _interpolateImages;
+  bool? _interpolateImages;
 
-  bool get interpolateImages => _interpolateImages;
-  set interpolateImages(bool val) => _interpolateImages = val;
+  bool? get interpolateImages => _interpolateImages;
+  set interpolateImages(bool? val) => _interpolateImages = val;
 
 
   /// Gets or sets a value indicating whether hyperlinks in the output Pdf document are forced to be opened in a new window (or tab) of a browser.
-  bool _openHyperlinksInNewWindow;
+  bool? _openHyperlinksInNewWindow;
 
-  bool get openHyperlinksInNewWindow => _openHyperlinksInNewWindow;
-  set openHyperlinksInNewWindow(bool val) => _openHyperlinksInNewWindow = val;
+  bool? get openHyperlinksInNewWindow => _openHyperlinksInNewWindow;
+  set openHyperlinksInNewWindow(bool? val) => _openHyperlinksInNewWindow = val;
 
 
   /// Gets or sets the outline options.
-  OutlineOptionsData _outlineOptions;
+  OutlineOptionsData? _outlineOptions;
 
-  OutlineOptionsData get outlineOptions => _outlineOptions;
-  set outlineOptions(OutlineOptionsData val) => _outlineOptions = val;
+  OutlineOptionsData? get outlineOptions => _outlineOptions;
+  set outlineOptions(OutlineOptionsData? val) => _outlineOptions = val;
 
 
   /// Gets or sets the option that controls how the PDF document should be displayed when opened in the PDF reader.
-  PdfSaveOptionsData_PageModeEnum _pageMode;
+  PdfSaveOptionsData_PageModeEnum? _pageMode;
 
-  PdfSaveOptionsData_PageModeEnum get pageMode => _pageMode;
-  set pageMode(PdfSaveOptionsData_PageModeEnum val) => _pageMode = val;
+  PdfSaveOptionsData_PageModeEnum? get pageMode => _pageMode;
+  set pageMode(PdfSaveOptionsData_PageModeEnum? val) => _pageMode = val;
 
 
   /// Gets or sets a value indicating whether to preblend transparent images with black background color.
-  bool _preblendImages;
+  bool? _preblendImages;
 
-  bool get preblendImages => _preblendImages;
-  set preblendImages(bool val) => _preblendImages = val;
+  bool? get preblendImages => _preblendImages;
+  set preblendImages(bool? val) => _preblendImages = val;
 
 
   /// Gets or sets a value indicating whether to preserve Microsoft Word form fields as form fields in PDF or convert them to text.
-  bool _preserveFormFields;
+  bool? _preserveFormFields;
 
-  bool get preserveFormFields => _preserveFormFields;
-  set preserveFormFields(bool val) => _preserveFormFields = val;
+  bool? get preserveFormFields => _preserveFormFields;
+  set preserveFormFields(bool? val) => _preserveFormFields = val;
 
 
   /// Gets the format of save.
-  String _saveFormat = 'pdf';
+  String? _saveFormat = 'pdf';
 
   @override
-  String get saveFormat => _saveFormat;
+  String? get saveFormat => _saveFormat;
 
 
   /// Gets or sets the compression type to be used for all textual content in the document.
-  PdfSaveOptionsData_TextCompressionEnum _textCompression;
+  PdfSaveOptionsData_TextCompressionEnum? _textCompression;
 
-  PdfSaveOptionsData_TextCompressionEnum get textCompression => _textCompression;
-  set textCompression(PdfSaveOptionsData_TextCompressionEnum val) => _textCompression = val;
+  PdfSaveOptionsData_TextCompressionEnum? get textCompression => _textCompression;
+  set textCompression(PdfSaveOptionsData_TextCompressionEnum? val) => _textCompression = val;
 
 
   /// Gets or sets a value indicating whether the document should be saved using a booklet printing layout.
-  bool _useBookFoldPrintingSettings;
+  bool? _useBookFoldPrintingSettings;
 
-  bool get useBookFoldPrintingSettings => _useBookFoldPrintingSettings;
-  set useBookFoldPrintingSettings(bool val) => _useBookFoldPrintingSettings = val;
+  bool? get useBookFoldPrintingSettings => _useBookFoldPrintingSettings;
+  set useBookFoldPrintingSettings(bool? val) => _useBookFoldPrintingSettings = val;
 
 
   /// Gets or sets a value indicating whether to substitute TrueType fonts Arial, Times New Roman, Courier New and Symbol with core PDF Type 1 fonts.
-  bool _useCoreFonts;
+  bool? _useCoreFonts;
 
-  bool get useCoreFonts => _useCoreFonts;
-  set useCoreFonts(bool val) => _useCoreFonts = val;
+  bool? get useCoreFonts => _useCoreFonts;
+  set useCoreFonts(bool? val) => _useCoreFonts = val;
 
 
   /// Gets or sets the option that controls what type of zoom should be applied when a document is opened with a PDF viewer.
-  PdfSaveOptionsData_ZoomBehaviorEnum _zoomBehavior;
+  PdfSaveOptionsData_ZoomBehaviorEnum? _zoomBehavior;
 
-  PdfSaveOptionsData_ZoomBehaviorEnum get zoomBehavior => _zoomBehavior;
-  set zoomBehavior(PdfSaveOptionsData_ZoomBehaviorEnum val) => _zoomBehavior = val;
+  PdfSaveOptionsData_ZoomBehaviorEnum? get zoomBehavior => _zoomBehavior;
+  set zoomBehavior(PdfSaveOptionsData_ZoomBehaviorEnum? val) => _zoomBehavior = val;
 
 
   /// Gets or sets the zoom factor (in percentages) for a document.
-  int _zoomFactor;
+  int? _zoomFactor;
 
-  int get zoomFactor => _zoomFactor;
-  set zoomFactor(int val) => _zoomFactor = val;
+  int? get zoomFactor => _zoomFactor;
+  set zoomFactor(int? val) => _zoomFactor = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize PdfSaveOptionsData data model.');
     }
@@ -246,7 +246,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (json.containsKey('CustomTimeZoneInfoData')) {
       customTimeZoneInfoData = TimeZoneInfoData();
-      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+      customTimeZoneInfoData!.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
     } else {
       customTimeZoneInfoData = null;
     }
@@ -352,7 +352,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (json.containsKey('MetafileRenderingOptions')) {
       metafileRenderingOptions = MetafileRenderingOptionsData();
-      metafileRenderingOptions.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
+      metafileRenderingOptions!.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
     } else {
       metafileRenderingOptions = null;
     }
@@ -429,7 +429,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (json.containsKey('DigitalSignatureDetails')) {
       digitalSignatureDetails = PdfDigitalSignatureDetailsData();
-      digitalSignatureDetails.deserialize(json['DigitalSignatureDetails'] as Map<String, dynamic>);
+      digitalSignatureDetails!.deserialize(json['DigitalSignatureDetails'] as Map<String, dynamic>);
     } else {
       digitalSignatureDetails = null;
     }
@@ -442,7 +442,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (json.containsKey('DownsampleOptions')) {
       downsampleOptions = DownsampleOptionsData();
-      downsampleOptions.deserialize(json['DownsampleOptions'] as Map<String, dynamic>);
+      downsampleOptions!.deserialize(json['DownsampleOptions'] as Map<String, dynamic>);
     } else {
       downsampleOptions = null;
     }
@@ -461,7 +461,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (json.containsKey('EncryptionDetails')) {
       encryptionDetails = PdfEncryptionDetailsData();
-      encryptionDetails.deserialize(json['EncryptionDetails'] as Map<String, dynamic>);
+      encryptionDetails!.deserialize(json['EncryptionDetails'] as Map<String, dynamic>);
     } else {
       encryptionDetails = null;
     }
@@ -530,7 +530,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (json.containsKey('OutlineOptions')) {
       outlineOptions = OutlineOptionsData();
-      outlineOptions.deserialize(json['OutlineOptions'] as Map<String, dynamic>);
+      outlineOptions!.deserialize(json['OutlineOptions'] as Map<String, dynamic>);
     } else {
       outlineOptions = null;
     }
@@ -609,11 +609,11 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (cacheBackgroundGraphics != null) {
-      _result['CacheBackgroundGraphics'] = cacheBackgroundGraphics;
+      _result['CacheBackgroundGraphics'] = cacheBackgroundGraphics!;
     }
 
     if (compliance != null) {
-      switch (compliance) {
+      switch (compliance!) {
         case PdfSaveOptionsData_ComplianceEnum.pdf17: _result['Compliance'] = 'Pdf17'; break;
         case PdfSaveOptionsData_ComplianceEnum.pdf20: _result['Compliance'] = 'Pdf20'; break;
         case PdfSaveOptionsData_ComplianceEnum.pdfA1a: _result['Compliance'] = 'PdfA1a'; break;
@@ -627,11 +627,11 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (createNoteHyperlinks != null) {
-      _result['CreateNoteHyperlinks'] = createNoteHyperlinks;
+      _result['CreateNoteHyperlinks'] = createNoteHyperlinks!;
     }
 
     if (customPropertiesExport != null) {
-      switch (customPropertiesExport) {
+      switch (customPropertiesExport!) {
         case PdfSaveOptionsData_CustomPropertiesExportEnum.none: _result['CustomPropertiesExport'] = 'None'; break;
         case PdfSaveOptionsData_CustomPropertiesExportEnum.standard: _result['CustomPropertiesExport'] = 'Standard'; break;
         case PdfSaveOptionsData_CustomPropertiesExportEnum.metadata: _result['CustomPropertiesExport'] = 'Metadata'; break;
@@ -640,39 +640,39 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (digitalSignatureDetails != null) {
-      _result['DigitalSignatureDetails'] = digitalSignatureDetails.serialize();
+      _result['DigitalSignatureDetails'] = digitalSignatureDetails!.serialize();
     }
 
     if (displayDocTitle != null) {
-      _result['DisplayDocTitle'] = displayDocTitle;
+      _result['DisplayDocTitle'] = displayDocTitle!;
     }
 
     if (downsampleOptions != null) {
-      _result['DownsampleOptions'] = downsampleOptions.serialize();
+      _result['DownsampleOptions'] = downsampleOptions!.serialize();
     }
 
     if (embedAttachments != null) {
-      _result['EmbedAttachments'] = embedAttachments;
+      _result['EmbedAttachments'] = embedAttachments!;
     }
 
     if (embedFullFonts != null) {
-      _result['EmbedFullFonts'] = embedFullFonts;
+      _result['EmbedFullFonts'] = embedFullFonts!;
     }
 
     if (encryptionDetails != null) {
-      _result['EncryptionDetails'] = encryptionDetails.serialize();
+      _result['EncryptionDetails'] = encryptionDetails!.serialize();
     }
 
     if (exportDocumentStructure != null) {
-      _result['ExportDocumentStructure'] = exportDocumentStructure;
+      _result['ExportDocumentStructure'] = exportDocumentStructure!;
     }
 
     if (exportLanguageToSpanTag != null) {
-      _result['ExportLanguageToSpanTag'] = exportLanguageToSpanTag;
+      _result['ExportLanguageToSpanTag'] = exportLanguageToSpanTag!;
     }
 
     if (fontEmbeddingMode != null) {
-      switch (fontEmbeddingMode) {
+      switch (fontEmbeddingMode!) {
         case PdfSaveOptionsData_FontEmbeddingModeEnum.embedAll: _result['FontEmbeddingMode'] = 'EmbedAll'; break;
         case PdfSaveOptionsData_FontEmbeddingModeEnum.embedNonstandard: _result['FontEmbeddingMode'] = 'EmbedNonstandard'; break;
         case PdfSaveOptionsData_FontEmbeddingModeEnum.embedNone: _result['FontEmbeddingMode'] = 'EmbedNone'; break;
@@ -681,7 +681,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (headerFooterBookmarksExportMode != null) {
-      switch (headerFooterBookmarksExportMode) {
+      switch (headerFooterBookmarksExportMode!) {
         case PdfSaveOptionsData_HeaderFooterBookmarksExportModeEnum.none: _result['HeaderFooterBookmarksExportMode'] = 'None'; break;
         case PdfSaveOptionsData_HeaderFooterBookmarksExportModeEnum.first: _result['HeaderFooterBookmarksExportMode'] = 'First'; break;
         case PdfSaveOptionsData_HeaderFooterBookmarksExportModeEnum.all: _result['HeaderFooterBookmarksExportMode'] = 'All'; break;
@@ -690,7 +690,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (imageColorSpaceExportMode != null) {
-      switch (imageColorSpaceExportMode) {
+      switch (imageColorSpaceExportMode!) {
         case PdfSaveOptionsData_ImageColorSpaceExportModeEnum.auto: _result['ImageColorSpaceExportMode'] = 'Auto'; break;
         case PdfSaveOptionsData_ImageColorSpaceExportModeEnum.simpleCmyk: _result['ImageColorSpaceExportMode'] = 'SimpleCmyk'; break;
         default: break;
@@ -698,23 +698,23 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (imageCompression != null) {
-      _result['ImageCompression'] = imageCompression;
+      _result['ImageCompression'] = imageCompression!;
     }
 
     if (interpolateImages != null) {
-      _result['InterpolateImages'] = interpolateImages;
+      _result['InterpolateImages'] = interpolateImages!;
     }
 
     if (openHyperlinksInNewWindow != null) {
-      _result['OpenHyperlinksInNewWindow'] = openHyperlinksInNewWindow;
+      _result['OpenHyperlinksInNewWindow'] = openHyperlinksInNewWindow!;
     }
 
     if (outlineOptions != null) {
-      _result['OutlineOptions'] = outlineOptions.serialize();
+      _result['OutlineOptions'] = outlineOptions!.serialize();
     }
 
     if (pageMode != null) {
-      switch (pageMode) {
+      switch (pageMode!) {
         case PdfSaveOptionsData_PageModeEnum.useNone: _result['PageMode'] = 'UseNone'; break;
         case PdfSaveOptionsData_PageModeEnum.useOutlines: _result['PageMode'] = 'UseOutlines'; break;
         case PdfSaveOptionsData_PageModeEnum.useThumbs: _result['PageMode'] = 'UseThumbs'; break;
@@ -726,19 +726,19 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (preblendImages != null) {
-      _result['PreblendImages'] = preblendImages;
+      _result['PreblendImages'] = preblendImages!;
     }
 
     if (preserveFormFields != null) {
-      _result['PreserveFormFields'] = preserveFormFields;
+      _result['PreserveFormFields'] = preserveFormFields!;
     }
 
     if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat;
+      _result['SaveFormat'] = saveFormat!;
     }
 
     if (textCompression != null) {
-      switch (textCompression) {
+      switch (textCompression!) {
         case PdfSaveOptionsData_TextCompressionEnum.none: _result['TextCompression'] = 'None'; break;
         case PdfSaveOptionsData_TextCompressionEnum.flate: _result['TextCompression'] = 'Flate'; break;
         default: break;
@@ -746,15 +746,15 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (useBookFoldPrintingSettings != null) {
-      _result['UseBookFoldPrintingSettings'] = useBookFoldPrintingSettings;
+      _result['UseBookFoldPrintingSettings'] = useBookFoldPrintingSettings!;
     }
 
     if (useCoreFonts != null) {
-      _result['UseCoreFonts'] = useCoreFonts;
+      _result['UseCoreFonts'] = useCoreFonts!;
     }
 
     if (zoomBehavior != null) {
-      switch (zoomBehavior) {
+      switch (zoomBehavior!) {
         case PdfSaveOptionsData_ZoomBehaviorEnum.none: _result['ZoomBehavior'] = 'None'; break;
         case PdfSaveOptionsData_ZoomBehaviorEnum.zoomFactor: _result['ZoomBehavior'] = 'ZoomFactor'; break;
         case PdfSaveOptionsData_ZoomBehaviorEnum.fitPage: _result['ZoomBehavior'] = 'FitPage'; break;
@@ -766,7 +766,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (zoomFactor != null) {
-      _result['ZoomFactor'] = zoomFactor;
+      _result['ZoomFactor'] = zoomFactor!;
     }
     return _result;
   }

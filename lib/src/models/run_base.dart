@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// Run element.
 abstract class RunBase implements ModelBase {
   /// Gets or sets the run's text.
-  String _text;
+  String? _text;
 
-  String get text => _text;
-  set text(String val) => _text = val;
+  String? get text => _text;
+  set text(String? val) => _text = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize RunBase data model.');
     }
@@ -55,7 +55,7 @@ abstract class RunBase implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (text != null) {
-      _result['Text'] = text;
+      _result['Text'] = text!;
     }
     return _result;
   }

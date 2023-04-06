@@ -1,3 +1,4 @@
+```dart
 import 'dart:io';
 import 'package:aspose_words_cloud/aspose_words_cloud.dart';
 
@@ -17,3 +18,4 @@ await wordsApi.uploadFile(uploadFileRequest);
 final myVar3 = fileName;
 final request = AcceptAllRevisionsRequest(myVar3);
 await wordsApi.acceptAllRevisions(request);
+```

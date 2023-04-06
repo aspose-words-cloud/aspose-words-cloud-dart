@@ -32,35 +32,35 @@ import '../../aspose_words_cloud.dart';
 /// Container class for docx/docm/dotx/dotm/flatopc save options.
 abstract class OoxmlSaveOptionsData extends SaveOptionsData {
   /// Gets or sets the oOXML version for the output document.
-  OoxmlSaveOptionsData_ComplianceEnum _compliance;
+  OoxmlSaveOptionsData_ComplianceEnum? _compliance;
 
-  OoxmlSaveOptionsData_ComplianceEnum get compliance => _compliance;
-  set compliance(OoxmlSaveOptionsData_ComplianceEnum val) => _compliance = val;
+  OoxmlSaveOptionsData_ComplianceEnum? get compliance => _compliance;
+  set compliance(OoxmlSaveOptionsData_ComplianceEnum? val) => _compliance = val;
 
 
   /// Gets or sets the compression level.
-  OoxmlSaveOptionsData_CompressionLevelEnum _compressionLevel;
+  OoxmlSaveOptionsData_CompressionLevelEnum? _compressionLevel;
 
-  OoxmlSaveOptionsData_CompressionLevelEnum get compressionLevel => _compressionLevel;
-  set compressionLevel(OoxmlSaveOptionsData_CompressionLevelEnum val) => _compressionLevel = val;
+  OoxmlSaveOptionsData_CompressionLevelEnum? get compressionLevel => _compressionLevel;
+  set compressionLevel(OoxmlSaveOptionsData_CompressionLevelEnum? val) => _compressionLevel = val;
 
 
   /// Gets or sets the password to encrypt document using ECMA376 Standard encryption algorithm.
-  String _password;
+  String? _password;
 
-  String get password => _password;
-  set password(String val) => _password = val;
+  String? get password => _password;
+  set password(String? val) => _password = val;
 
 
   /// Gets or sets a value indicating whether to use pretty formats output.
-  bool _prettyFormat;
+  bool? _prettyFormat;
 
-  bool get prettyFormat => _prettyFormat;
-  set prettyFormat(bool val) => _prettyFormat = val;
+  bool? get prettyFormat => _prettyFormat;
+  set prettyFormat(bool? val) => _prettyFormat = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize OoxmlSaveOptionsData data model.');
     }
@@ -74,7 +74,7 @@ abstract class OoxmlSaveOptionsData extends SaveOptionsData {
 
     if (json.containsKey('CustomTimeZoneInfoData')) {
       customTimeZoneInfoData = TimeZoneInfoData();
-      customTimeZoneInfoData.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+      customTimeZoneInfoData!.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
     } else {
       customTimeZoneInfoData = null;
     }
@@ -203,7 +203,7 @@ abstract class OoxmlSaveOptionsData extends SaveOptionsData {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (compliance != null) {
-      switch (compliance) {
+      switch (compliance!) {
         case OoxmlSaveOptionsData_ComplianceEnum.ecma376_2006: _result['Compliance'] = 'Ecma376_2006'; break;
         case OoxmlSaveOptionsData_ComplianceEnum.iso29500_2008_Transitional: _result['Compliance'] = 'Iso29500_2008_Transitional'; break;
         case OoxmlSaveOptionsData_ComplianceEnum.iso29500_2008_Strict: _result['Compliance'] = 'Iso29500_2008_Strict'; break;
@@ -212,7 +212,7 @@ abstract class OoxmlSaveOptionsData extends SaveOptionsData {
     }
 
     if (compressionLevel != null) {
-      switch (compressionLevel) {
+      switch (compressionLevel!) {
         case OoxmlSaveOptionsData_CompressionLevelEnum.normal: _result['CompressionLevel'] = 'Normal'; break;
         case OoxmlSaveOptionsData_CompressionLevelEnum.maximum: _result['CompressionLevel'] = 'Maximum'; break;
         case OoxmlSaveOptionsData_CompressionLevelEnum.fast: _result['CompressionLevel'] = 'Fast'; break;
@@ -222,11 +222,11 @@ abstract class OoxmlSaveOptionsData extends SaveOptionsData {
     }
 
     if (password != null) {
-      _result['Password'] = password;
+      _result['Password'] = password!;
     }
 
     if (prettyFormat != null) {
-      _result['PrettyFormat'] = prettyFormat;
+      _result['PrettyFormat'] = prettyFormat!;
     }
     return _result;
   }

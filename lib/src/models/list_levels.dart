@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a single document list.
 class ListLevels extends LinkElement {
   /// Gets or sets the collection of list levels for this list.
-  List<ListLevel> _listLevel;
+  List<ListLevel?>? _listLevel;
 
-  List<ListLevel> get listLevel => _listLevel;
-  set listLevel(List<ListLevel> val) => _listLevel = val;
+  List<ListLevel?>? get listLevel => _listLevel;
+  set listLevel(List<ListLevel?>? val) => _listLevel = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize ListLevels data model.');
     }
@@ -47,7 +47,7 @@ class ListLevels extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -58,7 +58,7 @@ class ListLevels extends LinkElement {
       for(final _element in json['ListLevel']) {
         var _elementValue = ListLevel();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        listLevel.add(_elementValue);
+        listLevel!.add(_elementValue);
       }
     } else {
       listLevel = null;
@@ -70,7 +70,7 @@ class ListLevels extends LinkElement {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (listLevel != null) {
-      _result['ListLevel'] = listLevel.map((_element) => _element.serialize()).toList();
+      _result['ListLevel'] = listLevel!.map((_element) => _element?.serialize()).toList();
     }
     return _result;
   }

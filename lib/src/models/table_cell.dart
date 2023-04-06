@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a table cell element.
 class TableCell extends NodeLink {
   /// Gets or sets the list of child nodes.
-  List<NodeLink> _childNodes;
+  List<NodeLink?>? _childNodes;
 
-  List<NodeLink> get childNodes => _childNodes;
-  set childNodes(List<NodeLink> val) => _childNodes = val;
+  List<NodeLink?>? get childNodes => _childNodes;
+  set childNodes(List<NodeLink?>? val) => _childNodes = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize TableCell data model.');
     }
@@ -47,7 +47,7 @@ class TableCell extends NodeLink {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -64,7 +64,7 @@ class TableCell extends NodeLink {
       for(final _element in json['ChildNodes']) {
         var _elementValue = NodeLink();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        childNodes.add(_elementValue);
+        childNodes!.add(_elementValue);
       }
     } else {
       childNodes = null;
@@ -76,7 +76,7 @@ class TableCell extends NodeLink {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (childNodes != null) {
-      _result['ChildNodes'] = childNodes.map((_element) => _element.serialize()).toList();
+      _result['ChildNodes'] = childNodes!.map((_element) => _element?.serialize()).toList();
     }
     return _result;
   }

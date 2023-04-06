@@ -30,6 +30,7 @@ library aspose_words_cloud;
 import 'dart:convert';
 import 'dart:typed_data';
 
+import 'package:collection/collection.dart';
 import 'package:convert/convert.dart';
 import 'package:http/http.dart' as http;
 import 'package:pointycastle/export.dart';
@@ -37,13 +38,13 @@ import 'package:uuid/uuid.dart';
 
 import './api_request_data.dart';
 import './api_request_part.dart';
+import './api_response_data.dart';
 import './body_part_data.dart';
 import './byte_data_extensions.dart';
-import './requests/batch_request.dart';
 import '../aspose_words_cloud.dart';
 
 class ApiClient {
-  String _authToken;
+  String? _authToken;
   bool _encryptorInitialized = false;
 
   final _publicKeyRequester;
@@ -54,7 +55,7 @@ class ApiClient {
 
   final Configuration configuration;
 
-  ApiClient(final this.configuration, final this._publicKeyRequester);
+  ApiClient(this.configuration, this._publicKeyRequester);
 
   Future _initializeEncrypter() async {
     if (_encryptorInitialized == true) {
@@ -66,7 +67,7 @@ class ApiClient {
         var exponentString = configuration.rsaExponent;
         var modulusString = configuration.rsaModulus;
 
-        if (exponentString == null || exponentString.isEmpty || modulusString == null || modulusString.isEmpty)
+        if (exponentString.isEmpty || modulusString.isEmpty)
         {
             final rsaPublicKey = await _publicKeyRequester(GetPublicKeyRequest());
             if (rsaPublicKey == null || rsaPublicKey.modulus == null || rsaPublicKey.exponent == null) {
@@ -118,7 +119,7 @@ class ApiClient {
       await _updateAuthToken();
     }
 
-    return _authToken;
+    return _authToken ?? "";
   }
 
   Future<void> _updateAuthToken() async {
@@ -130,7 +131,7 @@ class ApiClient {
       throw ApiException(response.statusCode, 'Invalid server credentials. Please check your ClientSecret and ClientId.');
     }
     else {
-      _handleResponse(response.statusCode, response.reasonPhrase, ByteData.view(response.bodyBytes.buffer));
+      _handleResponse(response.statusCode, response.reasonPhrase ?? "", ByteData.view(response.bodyBytes.buffer));
     }
 
     final json = jsonDecode(response.body);
@@ -170,7 +171,7 @@ class ApiClient {
     return url;
   }
 
-  String serializeToString(final dynamic value) {
+  String? serializeToString(final dynamic value) {
     if (value == null) {
       return null;
     }
@@ -194,7 +195,7 @@ class ApiClient {
     }
   }
 
-  ApiRequestPart serializeBody(final dynamic value, final String name) {
+  ApiRequestPart? serializeBody(final dynamic value, final String name) {
     if (value == null) {
       return null;
     }
@@ -223,8 +224,8 @@ class ApiClient {
     }
   }
 
-  ByteData serializeBodyParts(final List<ApiRequestPart> bodyParts, Map<String, String> headers) {
-    ByteData body;
+  ByteData? serializeBodyParts(final List<ApiRequestPart> bodyParts, Map<String, String> headers) {
+    ByteData? body;
     if (bodyParts.length == 1) {
       body = bodyParts.first.data;
       headers['Content-Type'] = bodyParts.first.mimeType;
@@ -242,15 +243,13 @@ class ApiClient {
     var relativeUrl = requestData.url.substring( (configuration.getApiRootUrl() + '/words/').length );
     data.add(utf8.encoder.convert('${requestData.method} $relativeUrl \r\n'));
 
-    if (requestData.headers != null) {
-      requestData.headers.forEach((key, value) {
-        data.add(utf8.encoder.convert('$key: $value\r\n'));
-      });
-    }
+    requestData.headers.forEach((key, value) {
+      data.add(utf8.encoder.convert('$key: $value\r\n'));
+    });
 
     data.add(utf8.encoder.convert('\r\n'));
     if (requestData.body != null) {
-      data.add(requestData.body.buffer.asUint8List(requestData.body.offsetInBytes, requestData.body.lengthInBytes));
+      data.add(requestData.body!.buffer.asUint8List(requestData.body!.offsetInBytes, requestData.body!.lengthInBytes));
     }
 
     return ApiRequestPart(toByteData(data), 'application/http; msgtype=request');
@@ -269,12 +268,12 @@ class ApiClient {
       formBody.add(utf8.encoder.convert('Content-Type: ${formParam.mimeType}\r\n'));
       formBody.add(utf8.encoder.convert('Content-Disposition: form-data'));
 
-      if (formParam.name != null && formParam.name.isNotEmpty) {
-        formBody.add(utf8.encoder.convert('; name="${formParam.name}"'));
+      if (formParam.name?.isNotEmpty == true) {
+        formBody.add(utf8.encoder.convert('; name="${formParam.name!}"'));
       }
 
-      if (formParam.filename != null && formParam.filename.isNotEmpty) {
-        formBody.add(utf8.encoder.convert('; filename="${formParam.filename}"'));
+      if (formParam.filename?.isNotEmpty == true) {
+        formBody.add(utf8.encoder.convert('; filename="${formParam.filename!}"'));
       }
 
       formBody.add(utf8.encoder.convert('\r\n\r\n'));
@@ -355,18 +354,22 @@ class ApiClient {
       var headersData = ByteData.sublistView(part, 0, headersEndIndex);
       var headersStr = utf8.decoder.convert(headersData.buffer.asUint8List(headersData.offsetInBytes, headersData.lengthInBytes));
       var headersRaw = headersStr.split('\r\n');
-      var contentDisposition = headersRaw.firstWhere((x) => x.trim().startsWith(contentDispositionStr)).replaceFirst(contentDispositionStr, '').trim();
-      var contentType = headersRaw.firstWhere((x) => x.trim().startsWith(contentTypeStr))?.replaceFirst(contentTypeStr, '')?.trim();
-      var nameHeaderPart = contentDisposition.split(';').map((x) => x.trim()).firstWhere((x) => x.toLowerCase().startsWith('name'));
-      var filenameHeaderPart = contentDisposition.split(';').map((x) => x.trim()).firstWhere((x) => x.toLowerCase().startsWith('name'));
-      var nameValueParts = nameHeaderPart.split('=');
+      var contentDisposition = headersRaw.firstWhereOrNull((x) => x.trim().startsWith(contentDispositionStr))?.replaceFirst(contentDispositionStr, '').trim();
+      if (contentDisposition == null) {
+        throw ApiException(400, 'Failed to parse multipart response.');
+      }
+
+      var contentType = headersRaw.firstWhereOrNull((x) => x.trim().startsWith(contentTypeStr))?.replaceFirst(contentTypeStr, '').trim();
+      var nameHeaderPart = contentDisposition.split(';').map((x) => x.trim()).firstWhereOrNull((x) => x.toLowerCase().startsWith('name'));
+      var filenameHeaderPart = contentDisposition.split(';').map((x) => x.trim()).firstWhereOrNull((x) => x.toLowerCase().startsWith('name'));
+      var nameValueParts = nameHeaderPart?.split('=');
       var filenameValueParts = filenameHeaderPart?.split('=');
-      if (nameValueParts.length != 2) {
+      if (nameValueParts == null || nameValueParts.length != 2) {
         throw ApiException(400, 'Failed to parse multipart response.');
       }
 
       var nameValue = nameValueParts.elementAt(1).trim().replaceAll('"', '').toLowerCase();
-      var filenameValue = filenameValueParts?.elementAt(1)?.trim()?.replaceAll('"', '');
+      var filenameValue = filenameValueParts?.elementAt(1).trim().replaceAll('"', '');
       var content = ByteData.sublistView(part, headersEndIndex + _newline2x.lengthInBytes, part.lengthInBytes - _newline.lengthInBytes);
       result[nameValue] = BodyPartData(contentType, filenameValue, content);
     }
@@ -375,11 +378,11 @@ class ApiClient {
 
   Map<String, ByteData> deserializeFilesCollection(final BodyPartData bodyPartData) {
     var result = <String, ByteData>{};
-    if (bodyPartData.contentType != null && bodyPartData.contentType.startsWith('multipart/mixed'))
+    if (bodyPartData.contentType?.startsWith('multipart/mixed') == true)
     {
       var subParts = deserializeMultipartMap(bodyPartData.content);
       subParts.forEach((key, value) {
-        result[value.filename] = value.content;
+        result[value.filename ?? key] = value.content;
       });
     }
     else
@@ -408,21 +411,21 @@ class ApiClient {
       throw ApiException(400, 'Failed to parse batch response part.');
     }
 
-    ByteData body;
+    ByteData? body;
     var headersEndIndex = partData.indexOf(_newline2x);
     if (headersEndIndex != null) {
       body = ByteData.sublistView(partData, headersEndIndex + _newline2x.lengthInBytes);
     }
 
     if (statusCode != 200) {
-      String message;
+      String? message;
       if (body != null) {
         message = utf8.decoder.convert(body.buffer.asUint8List(body.offsetInBytes, body.lengthInBytes));
       }
       return ApiException(statusCode, message ?? statusStr);
     }
 
-    return request.deserializeResponse(this, body);
+    return request.deserializeResponse(this, {}, body);
   }
 
   ByteData toByteData(final List<Uint8List> bufferStream) {
@@ -441,11 +444,7 @@ class ApiClient {
   Future<dynamic> call(final RequestBase request) async {
     var requestData = await request.createRequestData(this);
     var response = await _callWithChecks(requestData);
-    if (response == null) {
-      return null;
-    }
-
-    return request.deserializeResponse(this, response);
+    return request.deserializeResponse(this, response.headers, response.content);
   }
 
   Future< List<dynamic> > callBatch(final List<BatchRequest> requests, final bool displayIntermediateResults) async {
@@ -461,10 +460,10 @@ class ApiClient {
 
     var batchRequestData = ApiRequestData('PUT', batchUrl, batchHeaders, batchBody);
     var response = await _callWithChecks(batchRequestData);
-    var responseParts = deserializeMultipartBatch(response);
+    var responseParts = deserializeMultipartBatch(response.content);
     var result = <dynamic>[];
     responseParts.forEach((key, value) {
-      var request = requests.firstWhere((element) => element.getRequestId() == key);
+      var request = requests.firstWhereOrNull((element) => element.getRequestId() == key);
       if (request == null) {
         throw ApiException(400, 'Failed to deserialize batch multipart response.');
       }
@@ -475,7 +474,7 @@ class ApiClient {
     return result;
   }
 
-  Future<ByteData> _callWithChecks(final ApiRequestData requestData) async {
+  Future<ApiResponseData> _callWithChecks(final ApiRequestData requestData) async {
     try {
       return await _callInternal(requestData);
     }
@@ -489,30 +488,28 @@ class ApiClient {
     }
   }
 
-  Future<ByteData> _callInternal(final ApiRequestData requestData) async {
+  Future<ApiResponseData> _callInternal(final ApiRequestData requestData) async {
     if (configuration.debugMode == true) {
       var debugMessage = 'CALL BEGIN: ${requestData.method} ${requestData.url}\r\n';
-      if (requestData.headers != null && requestData.headers.isNotEmpty) {
+      if (requestData.headers.isNotEmpty == true) {
         debugMessage += 'REQUEST HEADERS:\r\n';
         requestData.headers.forEach((key, value) => debugMessage += '\t$key: $value\r\n');
       }
       if (requestData.body != null) {
         debugMessage += 'REQUEST BODY:\r\n';
-        debugMessage += _stringifyBody(requestData.body) + '\r\n';
+        debugMessage += _stringifyBody(requestData.body!) + '\r\n';
       }
       print(debugMessage);
     }
 
     var httpRequest = http.Request(requestData.method, Uri.parse(requestData.url));
     httpRequest.headers['x-aspose-client'] = 'dart sdk';
-    httpRequest.headers['x-aspose-client-version'] = '23.2';
+    httpRequest.headers['x-aspose-client-version'] = '23.3';
     httpRequest.headers['Authorization'] = await _getAuthToken();
-    if (requestData.headers != null) {
-      httpRequest.headers.addAll(requestData.headers);
-    }
+    httpRequest.headers.addAll(requestData.headers);
 
     if (requestData.body != null) {
-      httpRequest.bodyBytes = requestData.body.buffer.asUint8List(requestData.body.offsetInBytes, requestData.body.lengthInBytes);
+      httpRequest.bodyBytes = requestData.body!.buffer.asUint8List(requestData.body!.offsetInBytes, requestData.body!.lengthInBytes);
     }
 
     var response = await httpRequest.send().timeout(configuration.timeout);
@@ -521,7 +518,7 @@ class ApiClient {
 
     if (configuration.debugMode == true) {
       var debugMessage = 'RESPONSE STATUS: ${response.statusCode} ${response.reasonPhrase}\r\n';
-      if (response.headers != null && response.headers.isNotEmpty) {
+      if (response.headers.isNotEmpty == true) {
         debugMessage += 'RESPONSE HEADERS:\r\n';
         response.headers.forEach((key, value) => debugMessage += '\t$key: $value\r\n');
       }
@@ -533,7 +530,7 @@ class ApiClient {
       print(debugMessage);
     }
 
-    _handleResponse(response.statusCode, response.reasonPhrase, responseData);
-    return responseData;
+    _handleResponse(response.statusCode, response.reasonPhrase ?? "", responseData);
+    return ApiResponseData(response.headers, responseData);
   }
 }

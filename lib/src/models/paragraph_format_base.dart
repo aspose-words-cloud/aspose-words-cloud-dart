@@ -32,190 +32,190 @@ import '../../aspose_words_cloud.dart';
 /// Paragraph format element base class.
 class ParagraphFormatBase extends LinkElement {
   /// Gets or sets a value indicating whether inter-character spacing is automatically adjusted between regions of Latin text and regions of East Asian text in the current paragraph.
-  bool _addSpaceBetweenFarEastAndAlpha;
+  bool? _addSpaceBetweenFarEastAndAlpha;
 
-  bool get addSpaceBetweenFarEastAndAlpha => _addSpaceBetweenFarEastAndAlpha;
-  set addSpaceBetweenFarEastAndAlpha(bool val) => _addSpaceBetweenFarEastAndAlpha = val;
+  bool? get addSpaceBetweenFarEastAndAlpha => _addSpaceBetweenFarEastAndAlpha;
+  set addSpaceBetweenFarEastAndAlpha(bool? val) => _addSpaceBetweenFarEastAndAlpha = val;
 
 
   /// Gets or sets a value indicating whether inter-character spacing is automatically adjusted between regions of numbers and regions of East Asian text in the current paragraph.
-  bool _addSpaceBetweenFarEastAndDigit;
+  bool? _addSpaceBetweenFarEastAndDigit;
 
-  bool get addSpaceBetweenFarEastAndDigit => _addSpaceBetweenFarEastAndDigit;
-  set addSpaceBetweenFarEastAndDigit(bool val) => _addSpaceBetweenFarEastAndDigit = val;
+  bool? get addSpaceBetweenFarEastAndDigit => _addSpaceBetweenFarEastAndDigit;
+  set addSpaceBetweenFarEastAndDigit(bool? val) => _addSpaceBetweenFarEastAndDigit = val;
 
 
   /// Gets or sets text alignment for the paragraph.
-  ParagraphFormatBase_AlignmentEnum _alignment;
+  ParagraphFormatBase_AlignmentEnum? _alignment;
 
-  ParagraphFormatBase_AlignmentEnum get alignment => _alignment;
-  set alignment(ParagraphFormatBase_AlignmentEnum val) => _alignment = val;
+  ParagraphFormatBase_AlignmentEnum? get alignment => _alignment;
+  set alignment(ParagraphFormatBase_AlignmentEnum? val) => _alignment = val;
 
 
   /// Gets or sets a value indicating whether this is a right-to-left paragraph.
-  bool _bidi;
+  bool? _bidi;
 
-  bool get bidi => _bidi;
-  set bidi(bool val) => _bidi = val;
+  bool? get bidi => _bidi;
+  set bidi(bool? val) => _bidi = val;
 
 
   /// Gets or sets the position for a drop cap text.
-  ParagraphFormatBase_DropCapPositionEnum _dropCapPosition;
+  ParagraphFormatBase_DropCapPositionEnum? _dropCapPosition;
 
-  ParagraphFormatBase_DropCapPositionEnum get dropCapPosition => _dropCapPosition;
-  set dropCapPosition(ParagraphFormatBase_DropCapPositionEnum val) => _dropCapPosition = val;
+  ParagraphFormatBase_DropCapPositionEnum? get dropCapPosition => _dropCapPosition;
+  set dropCapPosition(ParagraphFormatBase_DropCapPositionEnum? val) => _dropCapPosition = val;
 
 
   /// Gets or sets the value (in points) for a first line or hanging indent.
   /// Use a positive value to set a first-line indent, and use a negative value to set a hanging indent.
-  double _firstLineIndent;
+  double? _firstLineIndent;
 
-  double get firstLineIndent => _firstLineIndent;
-  set firstLineIndent(double val) => _firstLineIndent = val;
+  double? get firstLineIndent => _firstLineIndent;
+  set firstLineIndent(double? val) => _firstLineIndent = val;
 
 
   /// Gets or sets a value indicating whether all lines in the paragraph are to remain on the same page.
-  bool _keepTogether;
+  bool? _keepTogether;
 
-  bool get keepTogether => _keepTogether;
-  set keepTogether(bool val) => _keepTogether = val;
+  bool? get keepTogether => _keepTogether;
+  set keepTogether(bool? val) => _keepTogether = val;
 
 
   /// Gets or sets a value indicating whether the paragraph is to remains on the same page as the paragraph that follows it.
-  bool _keepWithNext;
+  bool? _keepWithNext;
 
-  bool get keepWithNext => _keepWithNext;
-  set keepWithNext(bool val) => _keepWithNext = val;
+  bool? get keepWithNext => _keepWithNext;
+  set keepWithNext(bool? val) => _keepWithNext = val;
 
 
   /// Gets or sets the value (in points), that represents the left indent for paragraph.
-  double _leftIndent;
+  double? _leftIndent;
 
-  double get leftIndent => _leftIndent;
-  set leftIndent(double val) => _leftIndent = val;
+  double? get leftIndent => _leftIndent;
+  set leftIndent(double? val) => _leftIndent = val;
 
 
   /// Gets or sets the line spacing (in points) for the paragraph.
-  double _lineSpacing;
+  double? _lineSpacing;
 
-  double get lineSpacing => _lineSpacing;
-  set lineSpacing(double val) => _lineSpacing = val;
+  double? get lineSpacing => _lineSpacing;
+  set lineSpacing(double? val) => _lineSpacing = val;
 
 
   /// Gets or sets the line spacing for the paragraph.
-  ParagraphFormatBase_LineSpacingRuleEnum _lineSpacingRule;
+  ParagraphFormatBase_LineSpacingRuleEnum? _lineSpacingRule;
 
-  ParagraphFormatBase_LineSpacingRuleEnum get lineSpacingRule => _lineSpacingRule;
-  set lineSpacingRule(ParagraphFormatBase_LineSpacingRuleEnum val) => _lineSpacingRule = val;
+  ParagraphFormatBase_LineSpacingRuleEnum? get lineSpacingRule => _lineSpacingRule;
+  set lineSpacingRule(ParagraphFormatBase_LineSpacingRuleEnum? val) => _lineSpacingRule = val;
 
 
   /// Gets or sets the number of lines of the paragraph text used to calculate the drop cap height.
-  int _linesToDrop;
+  int? _linesToDrop;
 
-  int get linesToDrop => _linesToDrop;
-  set linesToDrop(int val) => _linesToDrop = val;
+  int? get linesToDrop => _linesToDrop;
+  set linesToDrop(int? val) => _linesToDrop = val;
 
 
   /// Gets or sets a value indicating whether SpaceBefore and SpaceAfter will be ignored between the paragraphs of the same style.
-  bool _noSpaceBetweenParagraphsOfSameStyle;
+  bool? _noSpaceBetweenParagraphsOfSameStyle;
 
-  bool get noSpaceBetweenParagraphsOfSameStyle => _noSpaceBetweenParagraphsOfSameStyle;
-  set noSpaceBetweenParagraphsOfSameStyle(bool val) => _noSpaceBetweenParagraphsOfSameStyle = val;
+  bool? get noSpaceBetweenParagraphsOfSameStyle => _noSpaceBetweenParagraphsOfSameStyle;
+  set noSpaceBetweenParagraphsOfSameStyle(bool? val) => _noSpaceBetweenParagraphsOfSameStyle = val;
 
 
   /// Gets or sets the outline level of the paragraph in the document.
-  ParagraphFormatBase_OutlineLevelEnum _outlineLevel;
+  ParagraphFormatBase_OutlineLevelEnum? _outlineLevel;
 
-  ParagraphFormatBase_OutlineLevelEnum get outlineLevel => _outlineLevel;
-  set outlineLevel(ParagraphFormatBase_OutlineLevelEnum val) => _outlineLevel = val;
+  ParagraphFormatBase_OutlineLevelEnum? get outlineLevel => _outlineLevel;
+  set outlineLevel(ParagraphFormatBase_OutlineLevelEnum? val) => _outlineLevel = val;
 
 
   /// Gets or sets a value indicating whether a page break is forced before the paragraph.
-  bool _pageBreakBefore;
+  bool? _pageBreakBefore;
 
-  bool get pageBreakBefore => _pageBreakBefore;
-  set pageBreakBefore(bool val) => _pageBreakBefore = val;
+  bool? get pageBreakBefore => _pageBreakBefore;
+  set pageBreakBefore(bool? val) => _pageBreakBefore = val;
 
 
   /// Gets or sets the value (in points) that represents the right indent for paragraph.
-  double _rightIndent;
+  double? _rightIndent;
 
-  double get rightIndent => _rightIndent;
-  set rightIndent(double val) => _rightIndent = val;
+  double? get rightIndent => _rightIndent;
+  set rightIndent(double? val) => _rightIndent = val;
 
 
   /// Gets or sets the Shading object, that refers to the shading formatting for the paragraph.
-  Shading _shading;
+  Shading? _shading;
 
-  Shading get shading => _shading;
-  set shading(Shading val) => _shading = val;
+  Shading? get shading => _shading;
+  set shading(Shading? val) => _shading = val;
 
 
   /// Gets or sets the amount of spacing (in points) after the paragraph.
-  double _spaceAfter;
+  double? _spaceAfter;
 
-  double get spaceAfter => _spaceAfter;
-  set spaceAfter(double val) => _spaceAfter = val;
+  double? get spaceAfter => _spaceAfter;
+  set spaceAfter(double? val) => _spaceAfter = val;
 
 
   /// Gets or sets a value indicating whether the amount of spacing after the paragraph is set automatically.
-  bool _spaceAfterAuto;
+  bool? _spaceAfterAuto;
 
-  bool get spaceAfterAuto => _spaceAfterAuto;
-  set spaceAfterAuto(bool val) => _spaceAfterAuto = val;
+  bool? get spaceAfterAuto => _spaceAfterAuto;
+  set spaceAfterAuto(bool? val) => _spaceAfterAuto = val;
 
 
   /// Gets or sets the amount of spacing (in points) before the paragraph.
-  double _spaceBefore;
+  double? _spaceBefore;
 
-  double get spaceBefore => _spaceBefore;
-  set spaceBefore(double val) => _spaceBefore = val;
+  double? get spaceBefore => _spaceBefore;
+  set spaceBefore(double? val) => _spaceBefore = val;
 
 
   /// Gets or sets a value indicating whether the amount of spacing before the paragraph is set automatically.
-  bool _spaceBeforeAuto;
+  bool? _spaceBeforeAuto;
 
-  bool get spaceBeforeAuto => _spaceBeforeAuto;
-  set spaceBeforeAuto(bool val) => _spaceBeforeAuto = val;
+  bool? get spaceBeforeAuto => _spaceBeforeAuto;
+  set spaceBeforeAuto(bool? val) => _spaceBeforeAuto = val;
 
 
   /// Gets or sets the locale independent style identifier of the paragraph style applied to this formatting.
-  ParagraphFormatBase_StyleIdentifierEnum _styleIdentifier;
+  ParagraphFormatBase_StyleIdentifierEnum? _styleIdentifier;
 
-  ParagraphFormatBase_StyleIdentifierEnum get styleIdentifier => _styleIdentifier;
-  set styleIdentifier(ParagraphFormatBase_StyleIdentifierEnum val) => _styleIdentifier = val;
+  ParagraphFormatBase_StyleIdentifierEnum? get styleIdentifier => _styleIdentifier;
+  set styleIdentifier(ParagraphFormatBase_StyleIdentifierEnum? val) => _styleIdentifier = val;
 
 
   /// Gets or sets the name of the paragraph style applied to this formatting.
-  String _styleName;
+  String? _styleName;
 
-  String get styleName => _styleName;
-  set styleName(String val) => _styleName = val;
+  String? get styleName => _styleName;
+  set styleName(String? val) => _styleName = val;
 
 
   /// Gets or sets a value indicating whether the current paragraph should be exempted from any hyphenation which is applied in the document settings.
-  bool _suppressAutoHyphens;
+  bool? _suppressAutoHyphens;
 
-  bool get suppressAutoHyphens => _suppressAutoHyphens;
-  set suppressAutoHyphens(bool val) => _suppressAutoHyphens = val;
+  bool? get suppressAutoHyphens => _suppressAutoHyphens;
+  set suppressAutoHyphens(bool? val) => _suppressAutoHyphens = val;
 
 
   /// Gets or sets a value indicating whether the current paragraph's lines should be exempted from line numbering which is applied in the parent section.
-  bool _suppressLineNumbers;
+  bool? _suppressLineNumbers;
 
-  bool get suppressLineNumbers => _suppressLineNumbers;
-  set suppressLineNumbers(bool val) => _suppressLineNumbers = val;
+  bool? get suppressLineNumbers => _suppressLineNumbers;
+  set suppressLineNumbers(bool? val) => _suppressLineNumbers = val;
 
 
   /// Gets or sets a value indicating whether the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.
-  bool _widowControl;
+  bool? _widowControl;
 
-  bool get widowControl => _widowControl;
-  set widowControl(bool val) => _widowControl = val;
+  bool? get widowControl => _widowControl;
+  set widowControl(bool? val) => _widowControl = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize ParagraphFormatBase data model.');
     }
@@ -223,7 +223,7 @@ class ParagraphFormatBase extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -360,7 +360,7 @@ class ParagraphFormatBase extends LinkElement {
 
     if (json.containsKey('Shading')) {
       shading = Shading();
-      shading.deserialize(json['Shading'] as Map<String, dynamic>);
+      shading!.deserialize(json['Shading'] as Map<String, dynamic>);
     } else {
       shading = null;
     }
@@ -805,15 +805,15 @@ class ParagraphFormatBase extends LinkElement {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (addSpaceBetweenFarEastAndAlpha != null) {
-      _result['AddSpaceBetweenFarEastAndAlpha'] = addSpaceBetweenFarEastAndAlpha;
+      _result['AddSpaceBetweenFarEastAndAlpha'] = addSpaceBetweenFarEastAndAlpha!;
     }
 
     if (addSpaceBetweenFarEastAndDigit != null) {
-      _result['AddSpaceBetweenFarEastAndDigit'] = addSpaceBetweenFarEastAndDigit;
+      _result['AddSpaceBetweenFarEastAndDigit'] = addSpaceBetweenFarEastAndDigit!;
     }
 
     if (alignment != null) {
-      switch (alignment) {
+      switch (alignment!) {
         case ParagraphFormatBase_AlignmentEnum.left: _result['Alignment'] = 'Left'; break;
         case ParagraphFormatBase_AlignmentEnum.center: _result['Alignment'] = 'Center'; break;
         case ParagraphFormatBase_AlignmentEnum.right: _result['Alignment'] = 'Right'; break;
@@ -829,11 +829,11 @@ class ParagraphFormatBase extends LinkElement {
     }
 
     if (bidi != null) {
-      _result['Bidi'] = bidi;
+      _result['Bidi'] = bidi!;
     }
 
     if (dropCapPosition != null) {
-      switch (dropCapPosition) {
+      switch (dropCapPosition!) {
         case ParagraphFormatBase_DropCapPositionEnum.none: _result['DropCapPosition'] = 'None'; break;
         case ParagraphFormatBase_DropCapPositionEnum.normal: _result['DropCapPosition'] = 'Normal'; break;
         case ParagraphFormatBase_DropCapPositionEnum.margin: _result['DropCapPosition'] = 'Margin'; break;
@@ -842,27 +842,27 @@ class ParagraphFormatBase extends LinkElement {
     }
 
     if (firstLineIndent != null) {
-      _result['FirstLineIndent'] = firstLineIndent;
+      _result['FirstLineIndent'] = firstLineIndent!;
     }
 
     if (keepTogether != null) {
-      _result['KeepTogether'] = keepTogether;
+      _result['KeepTogether'] = keepTogether!;
     }
 
     if (keepWithNext != null) {
-      _result['KeepWithNext'] = keepWithNext;
+      _result['KeepWithNext'] = keepWithNext!;
     }
 
     if (leftIndent != null) {
-      _result['LeftIndent'] = leftIndent;
+      _result['LeftIndent'] = leftIndent!;
     }
 
     if (lineSpacing != null) {
-      _result['LineSpacing'] = lineSpacing;
+      _result['LineSpacing'] = lineSpacing!;
     }
 
     if (lineSpacingRule != null) {
-      switch (lineSpacingRule) {
+      switch (lineSpacingRule!) {
         case ParagraphFormatBase_LineSpacingRuleEnum.atLeast: _result['LineSpacingRule'] = 'AtLeast'; break;
         case ParagraphFormatBase_LineSpacingRuleEnum.exactly: _result['LineSpacingRule'] = 'Exactly'; break;
         case ParagraphFormatBase_LineSpacingRuleEnum.multiple: _result['LineSpacingRule'] = 'Multiple'; break;
@@ -871,15 +871,15 @@ class ParagraphFormatBase extends LinkElement {
     }
 
     if (linesToDrop != null) {
-      _result['LinesToDrop'] = linesToDrop;
+      _result['LinesToDrop'] = linesToDrop!;
     }
 
     if (noSpaceBetweenParagraphsOfSameStyle != null) {
-      _result['NoSpaceBetweenParagraphsOfSameStyle'] = noSpaceBetweenParagraphsOfSameStyle;
+      _result['NoSpaceBetweenParagraphsOfSameStyle'] = noSpaceBetweenParagraphsOfSameStyle!;
     }
 
     if (outlineLevel != null) {
-      switch (outlineLevel) {
+      switch (outlineLevel!) {
         case ParagraphFormatBase_OutlineLevelEnum.level1: _result['OutlineLevel'] = 'Level1'; break;
         case ParagraphFormatBase_OutlineLevelEnum.level2: _result['OutlineLevel'] = 'Level2'; break;
         case ParagraphFormatBase_OutlineLevelEnum.level3: _result['OutlineLevel'] = 'Level3'; break;
@@ -895,35 +895,35 @@ class ParagraphFormatBase extends LinkElement {
     }
 
     if (pageBreakBefore != null) {
-      _result['PageBreakBefore'] = pageBreakBefore;
+      _result['PageBreakBefore'] = pageBreakBefore!;
     }
 
     if (rightIndent != null) {
-      _result['RightIndent'] = rightIndent;
+      _result['RightIndent'] = rightIndent!;
     }
 
     if (shading != null) {
-      _result['Shading'] = shading.serialize();
+      _result['Shading'] = shading!.serialize();
     }
 
     if (spaceAfter != null) {
-      _result['SpaceAfter'] = spaceAfter;
+      _result['SpaceAfter'] = spaceAfter!;
     }
 
     if (spaceAfterAuto != null) {
-      _result['SpaceAfterAuto'] = spaceAfterAuto;
+      _result['SpaceAfterAuto'] = spaceAfterAuto!;
     }
 
     if (spaceBefore != null) {
-      _result['SpaceBefore'] = spaceBefore;
+      _result['SpaceBefore'] = spaceBefore!;
     }
 
     if (spaceBeforeAuto != null) {
-      _result['SpaceBeforeAuto'] = spaceBeforeAuto;
+      _result['SpaceBeforeAuto'] = spaceBeforeAuto!;
     }
 
     if (styleIdentifier != null) {
-      switch (styleIdentifier) {
+      switch (styleIdentifier!) {
         case ParagraphFormatBase_StyleIdentifierEnum.normal: _result['StyleIdentifier'] = 'Normal'; break;
         case ParagraphFormatBase_StyleIdentifierEnum.heading1: _result['StyleIdentifier'] = 'Heading1'; break;
         case ParagraphFormatBase_StyleIdentifierEnum.heading2: _result['StyleIdentifier'] = 'Heading2'; break;
@@ -1307,19 +1307,19 @@ class ParagraphFormatBase extends LinkElement {
     }
 
     if (styleName != null) {
-      _result['StyleName'] = styleName;
+      _result['StyleName'] = styleName!;
     }
 
     if (suppressAutoHyphens != null) {
-      _result['SuppressAutoHyphens'] = suppressAutoHyphens;
+      _result['SuppressAutoHyphens'] = suppressAutoHyphens!;
     }
 
     if (suppressLineNumbers != null) {
-      _result['SuppressLineNumbers'] = suppressLineNumbers;
+      _result['SuppressLineNumbers'] = suppressLineNumbers!;
     }
 
     if (widowControl != null) {
-      _result['WidowControl'] = widowControl;
+      _result['WidowControl'] = widowControl!;
     }
     return _result;
   }

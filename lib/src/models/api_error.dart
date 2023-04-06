@@ -32,42 +32,42 @@ import '../../aspose_words_cloud.dart';
 /// Api error.
 class ApiError implements ModelBase {
   /// Gets or sets the API error code.
-  String _code;
+  String? _code;
 
-  String get code => _code;
-  set code(String val) => _code = val;
+  String? get code => _code;
+  set code(String? val) => _code = val;
 
 
   /// Gets or sets the server DateTime.
-  DateTime _dateTime;
+  DateTime? _dateTime;
 
-  DateTime get dateTime => _dateTime;
-  set dateTime(DateTime val) => _dateTime = val;
+  DateTime? get dateTime => _dateTime;
+  set dateTime(DateTime? val) => _dateTime = val;
 
 
   /// Gets or sets the error description.
-  String _description;
+  String? _description;
 
-  String get description => _description;
-  set description(String val) => _description = val;
+  String? get description => _description;
+  set description(String? val) => _description = val;
 
 
   /// Gets or sets the inner error.
-  ApiError _innerError;
+  ApiError? _innerError;
 
-  ApiError get innerError => _innerError;
-  set innerError(ApiError val) => _innerError = val;
+  ApiError? get innerError => _innerError;
+  set innerError(ApiError? val) => _innerError = val;
 
 
   /// Gets or sets the error message.
-  String _message;
+  String? _message;
 
-  String get message => _message;
-  set message(String val) => _message = val;
+  String? get message => _message;
+  set message(String? val) => _message = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize ApiError data model.');
     }
@@ -92,7 +92,7 @@ class ApiError implements ModelBase {
 
     if (json.containsKey('InnerError')) {
       innerError = ApiError();
-      innerError.deserialize(json['InnerError'] as Map<String, dynamic>);
+      innerError!.deserialize(json['InnerError'] as Map<String, dynamic>);
     } else {
       innerError = null;
     }
@@ -108,23 +108,23 @@ class ApiError implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (code != null) {
-      _result['Code'] = code;
+      _result['Code'] = code!;
     }
 
     if (dateTime != null) {
-      _result['DateTime'] = dateTime.toIso8601String();
+      _result['DateTime'] = dateTime!.toIso8601String();
     }
 
     if (description != null) {
-      _result['Description'] = description;
+      _result['Description'] = description!;
     }
 
     if (innerError != null) {
-      _result['InnerError'] = innerError.serialize();
+      _result['InnerError'] = innerError!.serialize();
     }
 
     if (message != null) {
-      _result['Message'] = message;
+      _result['Message'] = message!;
     }
     return _result;
   }

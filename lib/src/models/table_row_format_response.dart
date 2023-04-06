@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with the formatting properties of a table row.
 class TableRowFormatResponse extends WordsResponse {
   /// Gets or sets the formatting properties of a table row.
-  TableRowFormat _rowFormat;
+  TableRowFormat? _rowFormat;
 
-  TableRowFormat get rowFormat => _rowFormat;
-  set rowFormat(TableRowFormat val) => _rowFormat = val;
+  TableRowFormat? get rowFormat => _rowFormat;
+  set rowFormat(TableRowFormat? val) => _rowFormat = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize TableRowFormatResponse data model.');
     }
@@ -53,7 +53,7 @@ class TableRowFormatResponse extends WordsResponse {
 
     if (json.containsKey('RowFormat')) {
       rowFormat = TableRowFormat();
-      rowFormat.deserialize(json['RowFormat'] as Map<String, dynamic>);
+      rowFormat!.deserialize(json['RowFormat'] as Map<String, dynamic>);
     } else {
       rowFormat = null;
     }
@@ -64,7 +64,7 @@ class TableRowFormatResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (rowFormat != null) {
-      _result['RowFormat'] = rowFormat.serialize();
+      _result['RowFormat'] = rowFormat!.serialize();
     }
     return _result;
   }

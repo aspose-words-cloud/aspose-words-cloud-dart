@@ -32,21 +32,21 @@ import '../../aspose_words_cloud.dart';
 /// Paragraph format element.
 class ParagraphFormat extends ParagraphFormatBase {
   /// Gets or sets a value indicating whether the paragraph style is one of the built-in Heading styles.
-  bool _isHeading;
+  bool? _isHeading;
 
-  bool get isHeading => _isHeading;
-  set isHeading(bool val) => _isHeading = val;
+  bool? get isHeading => _isHeading;
+  set isHeading(bool? val) => _isHeading = val;
 
 
   /// Gets or sets a value indicating whether the paragraph is an item in a bulleted or numbered list.
-  bool _isListItem;
+  bool? _isListItem;
 
-  bool get isListItem => _isListItem;
-  set isListItem(bool val) => _isListItem = val;
+  bool? get isListItem => _isListItem;
+  set isListItem(bool? val) => _isListItem = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize ParagraphFormat data model.');
     }
@@ -54,7 +54,7 @@ class ParagraphFormat extends ParagraphFormatBase {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -191,7 +191,7 @@ class ParagraphFormat extends ParagraphFormatBase {
 
     if (json.containsKey('Shading')) {
       shading = Shading();
-      shading.deserialize(json['Shading'] as Map<String, dynamic>);
+      shading!.deserialize(json['Shading'] as Map<String, dynamic>);
     } else {
       shading = null;
     }
@@ -648,11 +648,11 @@ class ParagraphFormat extends ParagraphFormatBase {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (isHeading != null) {
-      _result['IsHeading'] = isHeading;
+      _result['IsHeading'] = isHeading!;
     }
 
     if (isListItem != null) {
-      _result['IsListItem'] = isListItem;
+      _result['IsListItem'] = isListItem!;
     }
     return _result;
   }

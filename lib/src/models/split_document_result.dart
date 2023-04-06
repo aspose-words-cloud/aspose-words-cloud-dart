@@ -32,28 +32,28 @@ import '../../aspose_words_cloud.dart';
 /// Result of splitting document.
 class SplitDocumentResult implements ModelBase {
   /// Gets or sets the list of pages.
-  List<FileLink> _pages;
+  List<FileLink?>? _pages;
 
-  List<FileLink> get pages => _pages;
-  set pages(List<FileLink> val) => _pages = val;
+  List<FileLink?>? get pages => _pages;
+  set pages(List<FileLink?>? val) => _pages = val;
 
 
   /// Gets or sets the link to the source document.
-  FileLink _sourceDocument;
+  FileLink? _sourceDocument;
 
-  FileLink get sourceDocument => _sourceDocument;
-  set sourceDocument(FileLink val) => _sourceDocument = val;
+  FileLink? get sourceDocument => _sourceDocument;
+  set sourceDocument(FileLink? val) => _sourceDocument = val;
 
 
   /// Gets or sets the link to the file archive with pages.
-  FileLink _zippedPages;
+  FileLink? _zippedPages;
 
-  FileLink get zippedPages => _zippedPages;
-  set zippedPages(FileLink val) => _zippedPages = val;
+  FileLink? get zippedPages => _zippedPages;
+  set zippedPages(FileLink? val) => _zippedPages = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize SplitDocumentResult data model.');
     }
@@ -64,7 +64,7 @@ class SplitDocumentResult implements ModelBase {
       for(final _element in json['Pages']) {
         var _elementValue = FileLink();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        pages.add(_elementValue);
+        pages!.add(_elementValue);
       }
     } else {
       pages = null;
@@ -72,14 +72,14 @@ class SplitDocumentResult implements ModelBase {
 
     if (json.containsKey('SourceDocument')) {
       sourceDocument = FileLink();
-      sourceDocument.deserialize(json['SourceDocument'] as Map<String, dynamic>);
+      sourceDocument!.deserialize(json['SourceDocument'] as Map<String, dynamic>);
     } else {
       sourceDocument = null;
     }
 
     if (json.containsKey('ZippedPages')) {
       zippedPages = FileLink();
-      zippedPages.deserialize(json['ZippedPages'] as Map<String, dynamic>);
+      zippedPages!.deserialize(json['ZippedPages'] as Map<String, dynamic>);
     } else {
       zippedPages = null;
     }
@@ -89,15 +89,15 @@ class SplitDocumentResult implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (pages != null) {
-      _result['Pages'] = pages.map((_element) => _element.serialize()).toList();
+      _result['Pages'] = pages!.map((_element) => _element?.serialize()).toList();
     }
 
     if (sourceDocument != null) {
-      _result['SourceDocument'] = sourceDocument.serialize();
+      _result['SourceDocument'] = sourceDocument!.serialize();
     }
 
     if (zippedPages != null) {
-      _result['ZippedPages'] = zippedPages.serialize();
+      _result['ZippedPages'] = zippedPages!.serialize();
     }
     return _result;
   }

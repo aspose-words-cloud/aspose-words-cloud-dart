@@ -32,49 +32,49 @@ import '../../aspose_words_cloud.dart';
 /// Container for the document's statistical data.
 class DocumentStatData implements ModelBase {
   /// Gets or sets the detailed statistics on footnotes.
-  FootnotesStatData _footnotesStatData;
+  FootnotesStatData? _footnotesStatData;
 
-  FootnotesStatData get footnotesStatData => _footnotesStatData;
-  set footnotesStatData(FootnotesStatData val) => _footnotesStatData = val;
+  FootnotesStatData? get footnotesStatData => _footnotesStatData;
+  set footnotesStatData(FootnotesStatData? val) => _footnotesStatData = val;
 
 
   /// Gets or sets the total count of pages in the document.
-  int _pageCount;
+  int? _pageCount;
 
-  int get pageCount => _pageCount;
-  set pageCount(int val) => _pageCount = val;
+  int? get pageCount => _pageCount;
+  set pageCount(int? val) => _pageCount = val;
 
 
   /// Gets or sets the detailed statistics on all pages.
-  List<PageStatData> _pageStatData;
+  List<PageStatData?>? _pageStatData;
 
-  List<PageStatData> get pageStatData => _pageStatData;
-  set pageStatData(List<PageStatData> val) => _pageStatData = val;
+  List<PageStatData?>? get pageStatData => _pageStatData;
+  set pageStatData(List<PageStatData?>? val) => _pageStatData = val;
 
 
   /// Gets or sets the total count of paragraphs in the document.
-  int _paragraphCount;
+  int? _paragraphCount;
 
-  int get paragraphCount => _paragraphCount;
-  set paragraphCount(int val) => _paragraphCount = val;
+  int? get paragraphCount => _paragraphCount;
+  set paragraphCount(int? val) => _paragraphCount = val;
 
 
   /// Gets or sets the total count of words in the document.
-  int _wordCount;
+  int? _wordCount;
 
-  int get wordCount => _wordCount;
-  set wordCount(int val) => _wordCount = val;
+  int? get wordCount => _wordCount;
+  set wordCount(int? val) => _wordCount = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize DocumentStatData data model.');
     }
 
     if (json.containsKey('FootnotesStatData')) {
       footnotesStatData = FootnotesStatData();
-      footnotesStatData.deserialize(json['FootnotesStatData'] as Map<String, dynamic>);
+      footnotesStatData!.deserialize(json['FootnotesStatData'] as Map<String, dynamic>);
     } else {
       footnotesStatData = null;
     }
@@ -91,7 +91,7 @@ class DocumentStatData implements ModelBase {
       for(final _element in json['PageStatData']) {
         var _elementValue = PageStatData();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        pageStatData.add(_elementValue);
+        pageStatData!.add(_elementValue);
       }
     } else {
       pageStatData = null;
@@ -114,23 +114,23 @@ class DocumentStatData implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (footnotesStatData != null) {
-      _result['FootnotesStatData'] = footnotesStatData.serialize();
+      _result['FootnotesStatData'] = footnotesStatData!.serialize();
     }
 
     if (pageCount != null) {
-      _result['PageCount'] = pageCount;
+      _result['PageCount'] = pageCount!;
     }
 
     if (pageStatData != null) {
-      _result['PageStatData'] = pageStatData.map((_element) => _element.serialize()).toList();
+      _result['PageStatData'] = pageStatData!.map((_element) => _element?.serialize()).toList();
     }
 
     if (paragraphCount != null) {
-      _result['ParagraphCount'] = paragraphCount;
+      _result['ParagraphCount'] = paragraphCount!;
     }
 
     if (wordCount != null) {
-      _result['WordCount'] = wordCount;
+      _result['WordCount'] = wordCount!;
     }
     return _result;
   }

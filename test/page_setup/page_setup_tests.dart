@@ -34,11 +34,11 @@ import '../test_context.dart';
 class PageSetupTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
-  String localTextFile;
+  late String remoteDataFolder;
+  late String localFile;
+  late String localTextFile;
 
-  PageSetupTests(final this.context) {
+  PageSetupTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/PageSetup';
     localFile = 'Common/test_multi_pages.docx';
     localTextFile = 'DocumentElements/Text/SampleWordDocument.docx';
@@ -58,7 +58,7 @@ class PageSetupTests
 
     final result = await context.getApi().getSectionPageSetup(request);
     expect(result.pageSetup, isNotNull);
-    expect(result.pageSetup.lineStartingNumber, 1);
+    expect(result.pageSetup?.lineStartingNumber, 1);
   }
 
   /// Test for getting page settings online.
@@ -94,7 +94,7 @@ class PageSetupTests
 
     final result = await context.getApi().updateSectionPageSetup(request);
     expect(result.pageSetup, isNotNull);
-    expect(result.pageSetup.rtlGutter, isTrue);
+    expect(result.pageSetup?.rtlGutter, isTrue);
 
 
   }

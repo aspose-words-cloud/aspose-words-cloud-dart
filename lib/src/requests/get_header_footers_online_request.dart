@@ -37,24 +37,24 @@ import '../api_request_part.dart';
 /// Request model for GetHeaderFootersOnline operation.
 class GetHeaderFootersOnlineRequest implements RequestBase {
   /// The document.
-  final ByteData document;
+  final ByteData? document;
 
   /// The path to the section in the document tree.
-  final String sectionPath;
+  final String? sectionPath;
 
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-  final String loadEncoding;
+  final String? loadEncoding;
 
   /// Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
-  final String password;
+  final String? password;
 
   /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
-  final String encryptedPassword;
+  final String? encryptedPassword;
 
   /// The list of HeaderFooter types.
-  final String filterByType;
+  final String? filterByType;
 
-  GetHeaderFootersOnlineRequest(final this.document, final this.sectionPath, {final this.loadEncoding, final this.password, final this.encryptedPassword, final this.filterByType});
+  GetHeaderFootersOnlineRequest(this.document, this.sectionPath, {this.loadEncoding, this.password, this.encryptedPassword, this.filterByType});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -66,25 +66,28 @@ class GetHeaderFootersOnlineRequest implements RequestBase {
     if (sectionPath == null) {
       throw ApiException(400, 'Parameter sectionPath is required.');
     }
-    _path = _path.replaceAll('{sectionPath}', _apiClient.serializeToString(sectionPath));
+    _path = _path.replaceAll('{sectionPath}', _apiClient.serializeToString(sectionPath) ?? "");
     if (loadEncoding != null) {
-      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding);
+      _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding) ?? "";
     }
 
     if (password != null) {
-      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password);
+      _queryParams['encryptedPassword'] = await _apiClient.encryptPassword(password!);
     }
 
     if (encryptedPassword != null) {
-      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword);
+      _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword) ?? "";
     }
 
     if (filterByType != null) {
-      _queryParams['filterByType'] = _apiClient.serializeToString(filterByType);
+      _queryParams['filterByType'] = _apiClient.serializeToString(filterByType) ?? "";
     }
 
     if (document != null) {
-      _bodyParts.add(_apiClient.serializeBody(document, 'Document'));
+      var _formBody = _apiClient.serializeBody(document, 'Document');
+      if (_formBody != null) {
+        _bodyParts.add(_formBody);
+      }
     }
     else {
       throw ApiException(400, 'Parameter document is required.');
@@ -92,7 +95,7 @@ class GetHeaderFootersOnlineRequest implements RequestBase {
 
     for (final _fileContentPart in _fileContentParts) {
         if (_fileContentPart.source == 'Request') {
-            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
@@ -101,7 +104,11 @@ class GetHeaderFootersOnlineRequest implements RequestBase {
   }
 
   @override
-  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final Map<String, String> _headers, final ByteData? _body) {
+    if (_body == null) {
+        return ApiException(400, "Nullable response body is not allowed for this operation type.");
+    }
+
     var _result = HeaderFootersResponse();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);

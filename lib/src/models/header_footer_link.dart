@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// HeaderFooter link element.
 class HeaderFooterLink extends LinkElement {
   /// Gets or sets the paragraph's text.
-  HeaderFooterLink_TypeEnum _type;
+  HeaderFooterLink_TypeEnum? _type;
 
-  HeaderFooterLink_TypeEnum get type => _type;
-  set type(HeaderFooterLink_TypeEnum val) => _type = val;
+  HeaderFooterLink_TypeEnum? get type => _type;
+  set type(HeaderFooterLink_TypeEnum? val) => _type = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize HeaderFooterLink data model.');
     }
@@ -47,7 +47,7 @@ class HeaderFooterLink extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -72,7 +72,7 @@ class HeaderFooterLink extends LinkElement {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (type != null) {
-      switch (type) {
+      switch (type!) {
         case HeaderFooterLink_TypeEnum.headerEven: _result['Type'] = 'HeaderEven'; break;
         case HeaderFooterLink_TypeEnum.headerPrimary: _result['Type'] = 'HeaderPrimary'; break;
         case HeaderFooterLink_TypeEnum.footerEven: _result['Type'] = 'FooterEven'; break;

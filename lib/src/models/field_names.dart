@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// Represents a collection of merge fields within a document.
 class FieldNames extends LinkElement {
   /// Gets or sets the collection of fields names.
-  List<String> _names;
+  List<String?>? _names;
 
-  List<String> get names => _names;
-  set names(List<String> val) => _names = val;
+  List<String?>? get names => _names;
+  set names(List<String?>? val) => _names = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize FieldNames data model.');
     }
@@ -47,7 +47,7 @@ class FieldNames extends LinkElement {
     super.deserialize(json);
     if (json.containsKey('Link')) {
       link = WordsApiLink();
-      link.deserialize(json['Link'] as Map<String, dynamic>);
+      link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -56,7 +56,7 @@ class FieldNames extends LinkElement {
       // Array processing
       names = <String>[];
       for(final _element in json['Names']) {
-        names.add(_element as String);
+        names!.add(_element as String);
       }
     } else {
       names = null;
@@ -68,7 +68,7 @@ class FieldNames extends LinkElement {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (names != null) {
-      _result['Names'] = names;
+      _result['Names'] = names!;
     }
     return _result;
   }

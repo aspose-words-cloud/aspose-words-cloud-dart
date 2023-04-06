@@ -32,35 +32,35 @@ import '../../aspose_words_cloud.dart';
 /// Error.
 class Error implements ModelBase {
   /// Code.
-  String _code;
+  String? _code;
 
-  String get code => _code;
-  set code(String val) => _code = val;
+  String? get code => _code;
+  set code(String? val) => _code = val;
 
 
   /// Description.
-  String _description;
+  String? _description;
 
-  String get description => _description;
-  set description(String val) => _description = val;
+  String? get description => _description;
+  set description(String? val) => _description = val;
 
 
   /// Inner Error.
-  ErrorDetails _innerError;
+  ErrorDetails? _innerError;
 
-  ErrorDetails get innerError => _innerError;
-  set innerError(ErrorDetails val) => _innerError = val;
+  ErrorDetails? get innerError => _innerError;
+  set innerError(ErrorDetails? val) => _innerError = val;
 
 
   /// Message.
-  String _message;
+  String? _message;
 
-  String get message => _message;
-  set message(String val) => _message = val;
+  String? get message => _message;
+  set message(String? val) => _message = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize Error data model.');
     }
@@ -79,7 +79,7 @@ class Error implements ModelBase {
 
     if (json.containsKey('InnerError')) {
       innerError = ErrorDetails();
-      innerError.deserialize(json['InnerError'] as Map<String, dynamic>);
+      innerError!.deserialize(json['InnerError'] as Map<String, dynamic>);
     } else {
       innerError = null;
     }
@@ -95,19 +95,19 @@ class Error implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (code != null) {
-      _result['Code'] = code;
+      _result['Code'] = code!;
     }
 
     if (description != null) {
-      _result['Description'] = description;
+      _result['Description'] = description!;
     }
 
     if (innerError != null) {
-      _result['InnerError'] = innerError.serialize();
+      _result['InnerError'] = innerError!.serialize();
     }
 
     if (message != null) {
-      _result['Message'] = message;
+      _result['Message'] = message!;
     }
     return _result;
   }

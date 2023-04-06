@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// The REST response with a collection of DrawingObjects.
 class DrawingObjectsResponse extends WordsResponse {
   /// Gets or sets the collection of DrawingObjects.
-  DrawingObjectCollection _drawingObjects;
+  DrawingObjectCollection? _drawingObjects;
 
-  DrawingObjectCollection get drawingObjects => _drawingObjects;
-  set drawingObjects(DrawingObjectCollection val) => _drawingObjects = val;
+  DrawingObjectCollection? get drawingObjects => _drawingObjects;
+  set drawingObjects(DrawingObjectCollection? val) => _drawingObjects = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize DrawingObjectsResponse data model.');
     }
@@ -53,7 +53,7 @@ class DrawingObjectsResponse extends WordsResponse {
 
     if (json.containsKey('DrawingObjects')) {
       drawingObjects = DrawingObjectCollection();
-      drawingObjects.deserialize(json['DrawingObjects'] as Map<String, dynamic>);
+      drawingObjects!.deserialize(json['DrawingObjects'] as Map<String, dynamic>);
     } else {
       drawingObjects = null;
     }
@@ -64,7 +64,7 @@ class DrawingObjectsResponse extends WordsResponse {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
     if (drawingObjects != null) {
-      _result['DrawingObjects'] = drawingObjects.serialize();
+      _result['DrawingObjects'] = drawingObjects!.serialize();
     }
     return _result;
   }

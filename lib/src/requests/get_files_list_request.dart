@@ -37,12 +37,12 @@ import '../api_request_part.dart';
 /// Request model for GetFilesList operation.
 class GetFilesListRequest implements RequestBase {
   /// Folder path e.g. '/folder'.
-  final String path;
+  final String? path;
 
   /// Storage name.
-  final String storageName;
+  final String? storageName;
 
-  GetFilesListRequest(final this.path, {final this.storageName});
+  GetFilesListRequest(this.path, {this.storageName});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -54,14 +54,14 @@ class GetFilesListRequest implements RequestBase {
     if (path == null) {
       throw ApiException(400, 'Parameter path is required.');
     }
-    _path = _path.replaceAll('{path}', _apiClient.serializeToString(path));
+    _path = _path.replaceAll('{path}', _apiClient.serializeToString(path) ?? "");
     if (storageName != null) {
-      _queryParams['storageName'] = _apiClient.serializeToString(storageName);
+      _queryParams['storageName'] = _apiClient.serializeToString(storageName) ?? "";
     }
 
     for (final _fileContentPart in _fileContentParts) {
         if (_fileContentPart.source == 'Request') {
-            _bodyParts.add(ApiRequestPart(_fileContentPart.content, 'application/octet-stream', name: _fileContentPart.reference));
+            _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
@@ -70,7 +70,11 @@ class GetFilesListRequest implements RequestBase {
   }
 
   @override
-  dynamic deserializeResponse(final ApiClient _apiClient, final ByteData _body) {
+  dynamic deserializeResponse(final ApiClient _apiClient, final Map<String, String> _headers, final ByteData? _body) {
+    if (_body == null) {
+        return ApiException(400, "Nullable response body is not allowed for this operation type.");
+    }
+
     var _result = FilesList();
     var _jsonData = utf8.decode(_body.buffer.asUint8List(_body.offsetInBytes, _body.lengthInBytes));
     var _json = jsonDecode(_jsonData);

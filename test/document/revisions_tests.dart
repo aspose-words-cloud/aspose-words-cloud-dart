@@ -34,10 +34,10 @@ import '../test_context.dart';
 class RevisionsTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
+  late String remoteDataFolder;
+  late String localFile;
 
-  RevisionsTests(final this.context) {
+  RevisionsTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/Revisions';
     localFile = 'Common/test_multi_pages.docx';
   }
@@ -56,7 +56,7 @@ class RevisionsTests
 
     final result = await context.getApi().acceptAllRevisions(request);
     expect(result.result, isNotNull);
-    expect(result.result.dest, isNotNull);
+    expect(result.result?.dest, isNotNull);
   }
 
   /// Test for accepting revisions in document online.
@@ -71,8 +71,8 @@ class RevisionsTests
     final result = await context.getApi().acceptAllRevisionsOnline(request);
     expect(result.document, isNotNull);
     expect(result.model, isNotNull);
-    expect(result.model.result, isNotNull);
-    expect(result.model.result.dest, isNotNull);
+    expect(result.model?.result, isNotNull);
+    expect(result.model?.result?.dest, isNotNull);
   }
 
   /// Test for rejecting revisions in document.
@@ -89,7 +89,7 @@ class RevisionsTests
 
     final result = await context.getApi().rejectAllRevisions(request);
     expect(result.result, isNotNull);
-    expect(result.result.dest, isNotNull);
+    expect(result.result?.dest, isNotNull);
   }
 
   /// Test for rejecting revisions in document online.
@@ -104,7 +104,7 @@ class RevisionsTests
     final result = await context.getApi().rejectAllRevisionsOnline(request);
     expect(result.document, isNotNull);
     expect(result.model, isNotNull);
-    expect(result.model.result, isNotNull);
-    expect(result.model.result.dest, isNotNull);
+    expect(result.model?.result, isNotNull);
+    expect(result.model?.result?.dest, isNotNull);
   }
 }

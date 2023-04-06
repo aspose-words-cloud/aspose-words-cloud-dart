@@ -34,12 +34,12 @@ import '../test_context.dart';
 class ParagraphTests
 {
   final TestContext context;
-  String remoteDataFolder;
-  String localFile;
-  String listFolder;
-  String tabStopFolder;
+  late String remoteDataFolder;
+  late String localFile;
+  late String listFolder;
+  late String tabStopFolder;
 
-  ParagraphTests(final this.context) {
+  ParagraphTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentElements/Paragraphs';
     localFile = 'Common/test_multi_pages.docx';
     listFolder = 'DocumentElements/ParagraphListFormat';
@@ -61,7 +61,7 @@ class ParagraphTests
 
     final result = await context.getApi().getParagraph(request);
     expect(result.paragraph, isNotNull);
-    expect(result.paragraph.nodeId, '0.0.0');
+    expect(result.paragraph?.nodeId, '0.0.0');
   }
 
   /// Test for getting paragraph online.
@@ -92,7 +92,7 @@ class ParagraphTests
 
     final result = await context.getApi().getParagraph(request);
     expect(result.paragraph, isNotNull);
-    expect(result.paragraph.nodeId, '0.0.0');
+    expect(result.paragraph?.nodeId, '0.0.0');
   }
 
   /// Test for getting all paragraphs.
@@ -109,9 +109,9 @@ class ParagraphTests
 
     final result = await context.getApi().getParagraphs(request);
     expect(result.paragraphs, isNotNull);
-    expect(result.paragraphs.paragraphLinkList, isNotNull);
-    expect(result.paragraphs.paragraphLinkList.length, 15);
-    expect(result.paragraphs.paragraphLinkList[0].text, 'Page 1 of 3');
+    expect(result.paragraphs?.paragraphLinkList, isNotNull);
+    expect(result.paragraphs?.paragraphLinkList?.length, 15);
+    expect(result.paragraphs?.paragraphLinkList?[0]?.text, 'Page 1 of 3');
   }
 
   /// Test for getting all paragraphs online.
@@ -140,9 +140,9 @@ class ParagraphTests
 
     final result = await context.getApi().getParagraphs(request);
     expect(result.paragraphs, isNotNull);
-    expect(result.paragraphs.paragraphLinkList, isNotNull);
-    expect(result.paragraphs.paragraphLinkList.length, 15);
-    expect(result.paragraphs.paragraphLinkList[0].text, 'Page 1 of 3');
+    expect(result.paragraphs?.paragraphLinkList, isNotNull);
+    expect(result.paragraphs?.paragraphLinkList?.length, 15);
+    expect(result.paragraphs?.paragraphLinkList?[0]?.text, 'Page 1 of 3');
   }
 
   /// Test for getting paragraph run.
@@ -160,7 +160,7 @@ class ParagraphTests
 
     final result = await context.getApi().getRun(request);
     expect(result.run, isNotNull);
-    expect(result.run.text, 'Page ');
+    expect(result.run?.text, 'Page ');
   }
 
   /// Test for getting paragraph run online.
@@ -192,7 +192,7 @@ class ParagraphTests
 
     final result = await context.getApi().getRunFont(request);
     expect(result.font, isNotNull);
-    expect(result.font.name, 'Times New Roman');
+    expect(result.font?.name, 'Times New Roman');
   }
 
   /// Test for getting paragraph run font online.
@@ -223,9 +223,9 @@ class ParagraphTests
 
     final result = await context.getApi().getRuns(request);
     expect(result.runs, isNotNull);
-    expect(result.runs.list, isNotNull);
-    expect(result.runs.list.length, 6);
-    expect(result.runs.list[0].text, 'Page ');
+    expect(result.runs?.list, isNotNull);
+    expect(result.runs?.list?.length, 6);
+    expect(result.runs?.list?[0]?.text, 'Page ');
   }
 
   /// Test for getting paragraph runs online.
@@ -260,7 +260,7 @@ class ParagraphTests
 
     final result = await context.getApi().updateRunFont(request);
     expect(result.font, isNotNull);
-    expect(result.font.bold, isTrue);
+    expect(result.font?.bold, isTrue);
   }
 
   /// Test for updating paragraph run font online.
@@ -298,7 +298,7 @@ class ParagraphTests
 
     final result = await context.getApi().insertParagraph(request);
     expect(result.paragraph, isNotNull);
-    expect(result.paragraph.nodeId, '0.3.8');
+    expect(result.paragraph?.nodeId, '0.3.8');
   }
 
   /// Test for adding paragraph online.
@@ -334,7 +334,7 @@ class ParagraphTests
 
     final result = await context.getApi().insertParagraph(request);
     expect(result.paragraph, isNotNull);
-    expect(result.paragraph.nodeId, '0.3.8');
+    expect(result.paragraph?.nodeId, '0.3.8');
   }
 
   /// Test for paragraph rendering.
@@ -400,7 +400,7 @@ class ParagraphTests
 
     final result = await context.getApi().getParagraphFormat(request);
     expect(result.paragraphFormat, isNotNull);
-    expect(result.paragraphFormat.styleName, 'Normal');
+    expect(result.paragraphFormat?.styleName, 'Normal');
   }
 
   /// Test for getting paragraph format settings online.
@@ -431,7 +431,7 @@ class ParagraphTests
 
     final result = await context.getApi().getParagraphFormat(request);
     expect(result.paragraphFormat, isNotNull);
-    expect(result.paragraphFormat.styleName, 'Normal');
+    expect(result.paragraphFormat?.styleName, 'Normal');
   }
 
   /// Test for updating  paragraph format settings.
@@ -533,7 +533,7 @@ class ParagraphTests
 
     final result = await context.getApi().getParagraphListFormat(request);
     expect(result.listFormat, isNotNull);
-    expect(result.listFormat.listId, 1);
+    expect(result.listFormat?.listId, 1);
   }
 
   /// Test for getting paragraph list format online.
@@ -564,7 +564,7 @@ class ParagraphTests
 
     final result = await context.getApi().getParagraphListFormat(request);
     expect(result.listFormat, isNotNull);
-    expect(result.listFormat.listId, 1);
+    expect(result.listFormat?.listId, 1);
   }
 
   /// Test for updating paragraph list format.
@@ -585,7 +585,7 @@ class ParagraphTests
 
     final result = await context.getApi().updateParagraphListFormat(request);
     expect(result.listFormat, isNotNull);
-    expect(result.listFormat.listId, 2);
+    expect(result.listFormat?.listId, 2);
   }
 
   /// Test for updating paragraph list format online.
@@ -623,7 +623,7 @@ class ParagraphTests
 
     final result = await context.getApi().updateParagraphListFormat(request);
     expect(result.listFormat, isNotNull);
-    expect(result.listFormat.listId, 2);
+    expect(result.listFormat?.listId, 2);
   }
 
   /// Test for deleting paragraph list format.
@@ -686,8 +686,8 @@ class ParagraphTests
 
     final result = await context.getApi().getParagraphTabStops(request);
     expect(result.tabStops, isNotNull);
-    expect(result.tabStops.length, 2);
-    expect(result.tabStops[0].position, 72.0);
+    expect(result.tabStops?.length, 2);
+    expect(result.tabStops?[0]?.position, 72.0);
   }
 
   /// Test for getting paragraph tab stops online.
@@ -718,8 +718,8 @@ class ParagraphTests
 
     final result = await context.getApi().getParagraphTabStops(request);
     expect(result.tabStops, isNotNull);
-    expect(result.tabStops.length, 2);
-    expect(result.tabStops[0].position, 72.0);
+    expect(result.tabStops?.length, 2);
+    expect(result.tabStops?[0]?.position, 72.0);
   }
 
   /// Test for inserting paragraph tab stop.
@@ -742,8 +742,8 @@ class ParagraphTests
 
     final result = await context.getApi().insertOrUpdateParagraphTabStop(request);
     expect(result.tabStops, isNotNull);
-    expect(result.tabStops.length, 3);
-    expect(result.tabStops[1].position, 100.0);
+    expect(result.tabStops?.length, 3);
+    expect(result.tabStops?[1]?.position, 100.0);
 
 
   }
@@ -787,8 +787,8 @@ class ParagraphTests
 
     final result = await context.getApi().insertOrUpdateParagraphTabStop(request);
     expect(result.tabStops, isNotNull);
-    expect(result.tabStops.length, 3);
-    expect(result.tabStops[1].position, 100.0);
+    expect(result.tabStops?.length, 3);
+    expect(result.tabStops?[1]?.position, 100.0);
 
 
   }
@@ -808,7 +808,7 @@ class ParagraphTests
 
     final result = await context.getApi().deleteAllParagraphTabStops(request);
     expect(result.tabStops, isNotNull);
-    expect(result.tabStops.length, 0);
+    expect(result.tabStops?.length, 0);
   }
 
   /// Test for deleting all paragraph tab stops online.
@@ -839,7 +839,7 @@ class ParagraphTests
 
     final result = await context.getApi().deleteAllParagraphTabStops(request);
     expect(result.tabStops, isNotNull);
-    expect(result.tabStops.length, 0);
+    expect(result.tabStops?.length, 0);
   }
 
   /// Test for deleting a tab stops.
@@ -858,7 +858,7 @@ class ParagraphTests
 
     final result = await context.getApi().deleteParagraphTabStop(request);
     expect(result.tabStops, isNotNull);
-    expect(result.tabStops.length, 1);
+    expect(result.tabStops?.length, 1);
   }
 
   /// Test for deleting a tab stops online.
@@ -891,6 +891,6 @@ class ParagraphTests
 
     final result = await context.getApi().deleteParagraphTabStop(request);
     expect(result.tabStops, isNotNull);
-    expect(result.tabStops.length, 1);
+    expect(result.tabStops?.length, 1);
   }
 }

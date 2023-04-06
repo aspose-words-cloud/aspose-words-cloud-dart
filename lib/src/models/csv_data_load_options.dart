@@ -33,35 +33,35 @@ import '../../aspose_words_cloud.dart';
 /// To learn more, visit the LINQ Reporting Engine documentation article.
 class CsvDataLoadOptions implements ModelBase {
   /// Gets or sets the character that is used to comment lines of CSV data.
-  String _commentChar;
+  String? _commentChar;
 
-  String get commentChar => _commentChar;
-  set commentChar(String val) => _commentChar = val;
+  String? get commentChar => _commentChar;
+  set commentChar(String? val) => _commentChar = val;
 
 
   /// Gets or sets the character to be used as a column delimiter.
-  String _delimiter;
+  String? _delimiter;
 
-  String get delimiter => _delimiter;
-  set delimiter(String val) => _delimiter = val;
+  String? get delimiter => _delimiter;
+  set delimiter(String? val) => _delimiter = val;
 
 
   /// Gets or sets a value indicating whether the first record of CSV data contains column names.
-  bool _hasHeaders;
+  bool? _hasHeaders;
 
-  bool get hasHeaders => _hasHeaders;
-  set hasHeaders(bool val) => _hasHeaders = val;
+  bool? get hasHeaders => _hasHeaders;
+  set hasHeaders(bool? val) => _hasHeaders = val;
 
 
   /// Gets or sets the character that is used to quote field values.
-  String _quoteChar;
+  String? _quoteChar;
 
-  String get quoteChar => _quoteChar;
-  set quoteChar(String val) => _quoteChar = val;
+  String? get quoteChar => _quoteChar;
+  set quoteChar(String? val) => _quoteChar = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize CsvDataLoadOptions data model.');
     }
@@ -95,19 +95,19 @@ class CsvDataLoadOptions implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (commentChar != null) {
-      _result['CommentChar'] = commentChar;
+      _result['CommentChar'] = commentChar!;
     }
 
     if (delimiter != null) {
-      _result['Delimiter'] = delimiter;
+      _result['Delimiter'] = delimiter!;
     }
 
     if (hasHeaders != null) {
-      _result['HasHeaders'] = hasHeaders;
+      _result['HasHeaders'] = hasHeaders!;
     }
 
     if (quoteChar != null) {
-      _result['QuoteChar'] = quoteChar;
+      _result['QuoteChar'] = quoteChar!;
     }
     return _result;
   }

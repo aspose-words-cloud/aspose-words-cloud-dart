@@ -32,14 +32,14 @@ import '../../aspose_words_cloud.dart';
 /// Files list.
 class FilesList implements ModelBase {
   /// Files and folders contained by folder StorageFile.
-  List<StorageFile> _value;
+  List<StorageFile?>? _value;
 
-  List<StorageFile> get value => _value;
-  set value(List<StorageFile> val) => _value = val;
+  List<StorageFile?>? get value => _value;
+  set value(List<StorageFile?>? val) => _value = val;
 
 
   @override
-  void deserialize(Map<String, dynamic> json) {
+  void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize FilesList data model.');
     }
@@ -50,7 +50,7 @@ class FilesList implements ModelBase {
       for(final _element in json['Value']) {
         var _elementValue = StorageFile();
         _elementValue.deserialize(_element as Map<String, dynamic>);
-        value.add(_elementValue);
+        value!.add(_elementValue);
       }
     } else {
       value = null;
@@ -61,7 +61,7 @@ class FilesList implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (value != null) {
-      _result['Value'] = value.map((_element) => _element.serialize()).toList();
+      _result['Value'] = value!.map((_element) => _element?.serialize()).toList();
     }
     return _result;
   }
