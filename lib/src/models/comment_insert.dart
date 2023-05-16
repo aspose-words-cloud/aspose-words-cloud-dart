@@ -58,14 +58,14 @@ class CommentInsert extends CommentBase {
     }
 
     if (json.containsKey('RangeEnd')) {
-      rangeEnd = DocumentPosition();
+      rangeEnd = NewDocumentPosition();
       rangeEnd!.deserialize(json['RangeEnd'] as Map<String, dynamic>);
     } else {
       rangeEnd = null;
     }
 
     if (json.containsKey('RangeStart')) {
-      rangeStart = DocumentPosition();
+      rangeStart = NewDocumentPosition();
       rangeStart!.deserialize(json['RangeStart'] as Map<String, dynamic>);
     } else {
       rangeStart = null;

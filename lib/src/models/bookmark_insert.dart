@@ -32,17 +32,17 @@ import '../../aspose_words_cloud.dart';
 /// Represents a bookmark to insert.
 class BookmarkInsert extends BookmarkData {
   /// Gets or sets the link to end bookmark node.
-  DocumentPosition? _endRange;
+  NewDocumentPosition? _endRange;
 
-  DocumentPosition? get endRange => _endRange;
-  set endRange(DocumentPosition? val) => _endRange = val;
+  NewDocumentPosition? get endRange => _endRange;
+  set endRange(NewDocumentPosition? val) => _endRange = val;
 
 
   /// Gets or sets the link to start bookmark node.
-  DocumentPosition? _startRange;
+  NewDocumentPosition? _startRange;
 
-  DocumentPosition? get startRange => _startRange;
-  set startRange(DocumentPosition? val) => _startRange = val;
+  NewDocumentPosition? get startRange => _startRange;
+  set startRange(NewDocumentPosition? val) => _startRange = val;
 
 
   @override
@@ -65,14 +65,14 @@ class BookmarkInsert extends BookmarkData {
     }
 
     if (json.containsKey('EndRange')) {
-      endRange = DocumentPosition();
+      endRange = NewDocumentPosition();
       endRange!.deserialize(json['EndRange'] as Map<String, dynamic>);
     } else {
       endRange = null;
     }
 
     if (json.containsKey('StartRange')) {
-      startRange = DocumentPosition();
+      startRange = NewDocumentPosition();
       startRange!.deserialize(json['StartRange'] as Map<String, dynamic>);
     } else {
       startRange = null;

@@ -39,10 +39,10 @@ class TableInsertDto implements ModelBase {
 
 
   /// Gets or sets the position to insert the table. The table will be inserted before the specified position.
-  DocumentPosition? _position;
+  NewDocumentPosition? _position;
 
-  DocumentPosition? get position => _position;
-  set position(DocumentPosition? val) => _position = val;
+  NewDocumentPosition? get position => _position;
+  set position(NewDocumentPosition? val) => _position = val;
 
 
   /// Gets or sets the number of rows. The default value is 2.
@@ -65,7 +65,7 @@ class TableInsertDto implements ModelBase {
     }
 
     if (json.containsKey('Position')) {
-      position = DocumentPosition();
+      position = NewDocumentPosition();
       position!.deserialize(json['Position'] as Map<String, dynamic>);
     } else {
       position = null;

@@ -107,18 +107,12 @@ class CommentTests
   {
     final remoteFileName = 'TestInsertComment.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestCommentRangeStartNode = NodeLink();
-    requestCommentRangeStartNode.nodeId = '0.3.0.3';
-
-    final requestCommentRangeStart = DocumentPosition();
-    requestCommentRangeStart.node = requestCommentRangeStartNode;
+    final requestCommentRangeStart = NewDocumentPosition();
+    requestCommentRangeStart.nodeId = '0.3.0.3';
     requestCommentRangeStart.offset = 0;
 
-    final requestCommentRangeEndNode = NodeLink();
-    requestCommentRangeEndNode.nodeId = '0.3.0.3';
-
-    final requestCommentRangeEnd = DocumentPosition();
-    requestCommentRangeEnd.node = requestCommentRangeEndNode;
+    final requestCommentRangeEnd = NewDocumentPosition();
+    requestCommentRangeEnd.nodeId = '0.3.0.3';
     requestCommentRangeEnd.offset = 0;
 
     final requestComment = CommentInsert();
@@ -147,18 +141,12 @@ class CommentTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-    final requestCommentRangeStartNode = NodeLink();
-    requestCommentRangeStartNode.nodeId = '0.3.0.3';
-
-    final requestCommentRangeStart = DocumentPosition();
-    requestCommentRangeStart.node = requestCommentRangeStartNode;
+    final requestCommentRangeStart = NewDocumentPosition();
+    requestCommentRangeStart.nodeId = '0.3.0.3';
     requestCommentRangeStart.offset = 0;
 
-    final requestCommentRangeEndNode = NodeLink();
-    requestCommentRangeEndNode.nodeId = '0.3.0.3';
-
-    final requestCommentRangeEnd = DocumentPosition();
-    requestCommentRangeEnd.node = requestCommentRangeEndNode;
+    final requestCommentRangeEnd = NewDocumentPosition();
+    requestCommentRangeEnd.nodeId = '0.3.0.3';
     requestCommentRangeEnd.offset = 0;
 
     final requestComment = CommentInsert();
@@ -181,18 +169,12 @@ class CommentTests
   {
     final remoteFileName = 'TestUpdateComment.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestCommentRangeStartNode = NodeLink();
-    requestCommentRangeStartNode.nodeId = '0.3.0';
-
-    final requestCommentRangeStart = DocumentPosition();
-    requestCommentRangeStart.node = requestCommentRangeStartNode;
+    final requestCommentRangeStart = NewDocumentPosition();
+    requestCommentRangeStart.nodeId = '0.3.0';
     requestCommentRangeStart.offset = 0;
 
-    final requestCommentRangeEndNode = NodeLink();
-    requestCommentRangeEndNode.nodeId = '0.3.0';
-
-    final requestCommentRangeEnd = DocumentPosition();
-    requestCommentRangeEnd.node = requestCommentRangeEndNode;
+    final requestCommentRangeEnd = NewDocumentPosition();
+    requestCommentRangeEnd.nodeId = '0.3.0';
     requestCommentRangeEnd.offset = 0;
 
     final requestComment = CommentUpdate();
@@ -222,18 +204,12 @@ class CommentTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-    final requestCommentRangeStartNode = NodeLink();
-    requestCommentRangeStartNode.nodeId = '0.3.0';
-
-    final requestCommentRangeStart = DocumentPosition();
-    requestCommentRangeStart.node = requestCommentRangeStartNode;
+    final requestCommentRangeStart = NewDocumentPosition();
+    requestCommentRangeStart.nodeId = '0.3.0';
     requestCommentRangeStart.offset = 0;
 
-    final requestCommentRangeEndNode = NodeLink();
-    requestCommentRangeEndNode.nodeId = '0.3.0';
-
-    final requestCommentRangeEnd = DocumentPosition();
-    requestCommentRangeEnd.node = requestCommentRangeEndNode;
+    final requestCommentRangeEnd = NewDocumentPosition();
+    requestCommentRangeEnd.nodeId = '0.3.0';
     requestCommentRangeEnd.offset = 0;
 
     final requestComment = CommentUpdate();
