@@ -197,17 +197,13 @@ class BookmarkTests
   {
     final remoteFileName = 'TestInsertBookmark.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestBookmarkStartRangeNode = NodeLink();
-    requestBookmarkStartRangeNode.nodeId = '0.0.0.0';
+    final requestBookmarkStartRange = NewDocumentPosition();
+    requestBookmarkStartRange.nodeId = '0.0.0.0';
+    requestBookmarkStartRange.offset = 0;
 
-    final requestBookmarkStartRange = DocumentPosition();
-    requestBookmarkStartRange.node = requestBookmarkStartRangeNode;
-
-    final requestBookmarkEndRangeNode = NodeLink();
-    requestBookmarkEndRangeNode.nodeId = '0.0.0.0';
-
-    final requestBookmarkEndRange = DocumentPosition();
-    requestBookmarkEndRange.node = requestBookmarkEndRangeNode;
+    final requestBookmarkEndRange = NewDocumentPosition();
+    requestBookmarkEndRange.nodeId = '0.0.0.0';
+    requestBookmarkEndRange.offset = 0;
 
     final requestBookmark = BookmarkInsert();
     requestBookmark.startRange = requestBookmarkStartRange;
@@ -229,17 +225,13 @@ class BookmarkTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-    final requestBookmarkStartRangeNode = NodeLink();
-    requestBookmarkStartRangeNode.nodeId = '0.0.0.0';
+    final requestBookmarkStartRange = NewDocumentPosition();
+    requestBookmarkStartRange.nodeId = '0.0.0.0';
+    requestBookmarkStartRange.offset = 0;
 
-    final requestBookmarkStartRange = DocumentPosition();
-    requestBookmarkStartRange.node = requestBookmarkStartRangeNode;
-
-    final requestBookmarkEndRangeNode = NodeLink();
-    requestBookmarkEndRangeNode.nodeId = '0.0.0.0';
-
-    final requestBookmarkEndRange = DocumentPosition();
-    requestBookmarkEndRange.node = requestBookmarkEndRangeNode;
+    final requestBookmarkEndRange = NewDocumentPosition();
+    requestBookmarkEndRange.nodeId = '0.0.0.0';
+    requestBookmarkEndRange.offset = 0;
 
     final requestBookmark = BookmarkInsert();
     requestBookmark.startRange = requestBookmarkStartRange;

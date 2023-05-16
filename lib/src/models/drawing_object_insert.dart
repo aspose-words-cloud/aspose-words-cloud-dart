@@ -46,10 +46,10 @@ class DrawingObjectInsert implements ModelBase {
 
 
   /// Gets or sets the position, before which the DrawingObject will be inserted.
-  DocumentPosition? _position;
+  NewDocumentPosition? _position;
 
-  DocumentPosition? get position => _position;
-  set position(DocumentPosition? val) => _position = val;
+  NewDocumentPosition? get position => _position;
+  set position(NewDocumentPosition? val) => _position = val;
 
 
   /// Gets or sets the relative horizontal position, from which the distance to the image is measured.
@@ -106,7 +106,7 @@ class DrawingObjectInsert implements ModelBase {
     }
 
     if (json.containsKey('Position')) {
-      position = DocumentPosition();
+      position = NewDocumentPosition();
       position!.deserialize(json['Position'] as Map<String, dynamic>);
     } else {
       position = null;

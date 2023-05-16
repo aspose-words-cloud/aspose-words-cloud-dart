@@ -1,3 +1,8 @@
+## [23.4.0] - Aspose Words Cloud for Dart 23.4 Release Notes
+
+- Added new type of RangeEndIdentifier for RangeApi: document:end
+
+
 ## [23.3.0] - Aspose Words Cloud for Dart 23.3 Release Notes
 
 - Fix compatibility between CreateDocument API and Dropbox storage.

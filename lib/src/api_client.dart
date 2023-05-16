@@ -30,7 +30,6 @@ library aspose_words_cloud;
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:collection/collection.dart';
 import 'package:convert/convert.dart';
 import 'package:http/http.dart' as http;
 import 'package:pointycastle/export.dart';
@@ -354,14 +353,14 @@ class ApiClient {
       var headersData = ByteData.sublistView(part, 0, headersEndIndex);
       var headersStr = utf8.decoder.convert(headersData.buffer.asUint8List(headersData.offsetInBytes, headersData.lengthInBytes));
       var headersRaw = headersStr.split('\r\n');
-      var contentDisposition = headersRaw.firstWhereOrNull((x) => x.trim().startsWith(contentDispositionStr))?.replaceFirst(contentDispositionStr, '').trim();
+      var contentDisposition = headersRaw.awCollectionSearch((x) => x.trim().startsWith(contentDispositionStr))?.replaceFirst(contentDispositionStr, '').trim();
       if (contentDisposition == null) {
         throw ApiException(400, 'Failed to parse multipart response.');
       }
 
-      var contentType = headersRaw.firstWhereOrNull((x) => x.trim().startsWith(contentTypeStr))?.replaceFirst(contentTypeStr, '').trim();
-      var nameHeaderPart = contentDisposition.split(';').map((x) => x.trim()).firstWhereOrNull((x) => x.toLowerCase().startsWith('name'));
-      var filenameHeaderPart = contentDisposition.split(';').map((x) => x.trim()).firstWhereOrNull((x) => x.toLowerCase().startsWith('name'));
+      var contentType = headersRaw.awCollectionSearch((x) => x.trim().startsWith(contentTypeStr))?.replaceFirst(contentTypeStr, '').trim();
+      var nameHeaderPart = contentDisposition.split(';').map((x) => x.trim()).awCollectionSearch((x) => x.toLowerCase().startsWith('name'));
+      var filenameHeaderPart = contentDisposition.split(';').map((x) => x.trim()).awCollectionSearch((x) => x.toLowerCase().startsWith('name'));
       var nameValueParts = nameHeaderPart?.split('=');
       var filenameValueParts = filenameHeaderPart?.split('=');
       if (nameValueParts == null || nameValueParts.length != 2) {
@@ -463,7 +462,7 @@ class ApiClient {
     var responseParts = deserializeMultipartBatch(response.content);
     var result = <dynamic>[];
     responseParts.forEach((key, value) {
-      var request = requests.firstWhereOrNull((element) => element.getRequestId() == key);
+      var request = requests.awCollectionSearch((element) => element.getRequestId() == key);
       if (request == null) {
         throw ApiException(400, 'Failed to deserialize batch multipart response.');
       }
@@ -504,7 +503,7 @@ class ApiClient {
 
     var httpRequest = http.Request(requestData.method, Uri.parse(requestData.url));
     httpRequest.headers['x-aspose-client'] = 'dart sdk';
-    httpRequest.headers['x-aspose-client-version'] = '23.3';
+    httpRequest.headers['x-aspose-client-version'] = '23.4';
     httpRequest.headers['Authorization'] = await _getAuthToken();
     httpRequest.headers.addAll(requestData.headers);
 
@@ -532,5 +531,14 @@ class ApiClient {
 
     _handleResponse(response.statusCode, response.reasonPhrase ?? "", responseData);
     return ApiResponseData(response.headers, responseData);
+  }
+}
+
+extension IterableExtension<T> on Iterable<T> {
+  T? awCollectionSearch(bool Function(T element) test) {
+    for (var element in this) {
+      if (test(element)) return element;
+    }
+    return null;
   }
 }

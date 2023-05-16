@@ -175,6 +175,7 @@ export 'src/models/metafile_rendering_options_data.dart';
 export 'src/models/mhtml_save_options_data.dart';
 export 'src/models/model_base.dart';
 export 'src/models/modification_operation_result.dart';
+export 'src/models/new_document_position.dart';
 export 'src/models/node_link.dart';
 export 'src/models/odt_save_options_data.dart';
 export 'src/models/office_math_link.dart';

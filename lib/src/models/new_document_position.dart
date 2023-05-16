@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="comment_update.dart">
+ * <copyright company="Aspose" file="new_document_position.dart">
  *   Copyright (c) 2023 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -29,59 +29,51 @@ library aspose_words_cloud;
 
 import '../../aspose_words_cloud.dart';
 
-/// Comment update.
-class CommentUpdate extends CommentBase {
+/// DTO container with a new position in the document tree.
+class NewDocumentPosition implements ModelBase {
+  /// Gets or sets the node id.
+  String? _nodeId;
+
+  String? get nodeId => _nodeId;
+  set nodeId(String? val) => _nodeId = val;
+
+
+  /// Gets or sets the offset in the node.
+  int? _offset;
+
+  int? get offset => _offset;
+  set offset(int? val) => _offset = val;
+
 
   @override
   void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
-      throw ApiException(400, 'Failed to deserialize CommentUpdate data model.');
+      throw ApiException(400, 'Failed to deserialize NewDocumentPosition data model.');
     }
 
-    super.deserialize(json);
-    if (json.containsKey('Author')) {
-      author = json['Author'] as String;
+    if (json.containsKey('NodeId')) {
+      nodeId = json['NodeId'] as String;
     } else {
-      author = null;
+      nodeId = null;
     }
 
-    if (json.containsKey('DateTime')) {
-      dateTime = DateTime.parse(json['DateTime'] as String);
+    if (json.containsKey('Offset')) {
+      offset = json['Offset'] as int;
     } else {
-      dateTime = null;
-    }
-
-    if (json.containsKey('Initial')) {
-      initial = json['Initial'] as String;
-    } else {
-      initial = null;
-    }
-
-    if (json.containsKey('RangeEnd')) {
-      rangeEnd = NewDocumentPosition();
-      rangeEnd!.deserialize(json['RangeEnd'] as Map<String, dynamic>);
-    } else {
-      rangeEnd = null;
-    }
-
-    if (json.containsKey('RangeStart')) {
-      rangeStart = NewDocumentPosition();
-      rangeStart!.deserialize(json['RangeStart'] as Map<String, dynamic>);
-    } else {
-      rangeStart = null;
-    }
-
-    if (json.containsKey('Text')) {
-      text = json['Text'] as String;
-    } else {
-      text = null;
+      offset = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
-    _result.addAll(super.serialize());
+    if (nodeId != null) {
+      _result['NodeId'] = nodeId!;
+    }
+
+    if (offset != null) {
+      _result['Offset'] = offset!;
+    }
     return _result;
   }
 

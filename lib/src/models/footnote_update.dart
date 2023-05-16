@@ -50,7 +50,7 @@ class FootnoteUpdate extends FootnoteBase {
     }
 
     if (json.containsKey('Position')) {
-      position = DocumentPosition();
+      position = NewDocumentPosition();
       position!.deserialize(json['Position'] as Map<String, dynamic>);
     } else {
       position = null;

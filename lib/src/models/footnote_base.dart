@@ -39,10 +39,10 @@ abstract class FootnoteBase implements ModelBase {
 
 
   /// Gets or sets the link to comment range start node.
-  DocumentPosition? _position;
+  NewDocumentPosition? _position;
 
-  DocumentPosition? get position => _position;
-  set position(DocumentPosition? val) => _position = val;
+  NewDocumentPosition? get position => _position;
+  set position(NewDocumentPosition? val) => _position = val;
 
 
   /// Gets or sets the custom reference mark to be used for this footnote.
@@ -77,7 +77,7 @@ abstract class FootnoteBase implements ModelBase {
     }
 
     if (json.containsKey('Position')) {
-      position = DocumentPosition();
+      position = NewDocumentPosition();
       position!.deserialize(json['Position'] as Map<String, dynamic>);
     } else {
       position = null;

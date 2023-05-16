@@ -53,17 +53,17 @@ abstract class CommentBase implements ModelBase {
 
 
   /// Gets or sets the link to comment range end node.
-  DocumentPosition? _rangeEnd;
+  NewDocumentPosition? _rangeEnd;
 
-  DocumentPosition? get rangeEnd => _rangeEnd;
-  set rangeEnd(DocumentPosition? val) => _rangeEnd = val;
+  NewDocumentPosition? get rangeEnd => _rangeEnd;
+  set rangeEnd(NewDocumentPosition? val) => _rangeEnd = val;
 
 
   /// Gets or sets the link to comment range start node.
-  DocumentPosition? _rangeStart;
+  NewDocumentPosition? _rangeStart;
 
-  DocumentPosition? get rangeStart => _rangeStart;
-  set rangeStart(DocumentPosition? val) => _rangeStart = val;
+  NewDocumentPosition? get rangeStart => _rangeStart;
+  set rangeStart(NewDocumentPosition? val) => _rangeStart = val;
 
 
   /// Gets or sets text of the comment.
@@ -98,14 +98,14 @@ abstract class CommentBase implements ModelBase {
     }
 
     if (json.containsKey('RangeEnd')) {
-      rangeEnd = DocumentPosition();
+      rangeEnd = NewDocumentPosition();
       rangeEnd!.deserialize(json['RangeEnd'] as Map<String, dynamic>);
     } else {
       rangeEnd = null;
     }
 
     if (json.containsKey('RangeStart')) {
-      rangeStart = DocumentPosition();
+      rangeStart = NewDocumentPosition();
       rangeStart!.deserialize(json['RangeStart'] as Map<String, dynamic>);
     } else {
       rangeStart = null;
