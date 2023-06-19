@@ -543,6 +543,8 @@ export 'src/requests/insert_paragraph_online_request.dart';
 export 'src/requests/insert_paragraph_request.dart';
 export 'src/requests/insert_run_online_request.dart';
 export 'src/requests/insert_run_request.dart';
+export 'src/requests/insert_section_online_request.dart';
+export 'src/requests/insert_section_request.dart';
 export 'src/requests/insert_structured_document_tag_online_request.dart';
 export 'src/requests/insert_structured_document_tag_request.dart';
 export 'src/requests/insert_style_online_request.dart';

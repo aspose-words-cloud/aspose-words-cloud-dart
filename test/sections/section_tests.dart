@@ -132,6 +132,34 @@ class SectionTests
     await context.getApi().deleteSectionOnline(request);
   }
 
+  /// Test for insertion a section.
+  Future<void> testInsertSection() async
+  {
+    final remoteFileName = 'TestInsertSection.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+
+    final request = InsertSectionRequest(
+      remoteFileName,
+      0,
+      folder: remoteDataFolder
+    );
+
+    await context.getApi().insertSection(request);
+  }
+
+  /// Test for insertion a section online.
+  Future<void> testInsertSectionOnline() async
+  {
+    final requestDocument = await context.loadBinaryFile(localFile);
+
+    final request = InsertSectionOnlineRequest(
+      requestDocument,
+      0
+    );
+
+    await context.getApi().insertSectionOnline(request);
+  }
+
   /// Test for linking headers and footers to previous section.
   Future<void> testLinkHeaderFootersToPrevious() async
   {

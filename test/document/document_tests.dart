@@ -64,7 +64,7 @@ class DocumentTests
     final remoteFileName = 'TestCreateDocument.doc';
 
     final request = CreateDocumentRequest(
-      fileName: remoteFileName,
+      remoteFileName,
       folder: remoteDataFolder
     );
 

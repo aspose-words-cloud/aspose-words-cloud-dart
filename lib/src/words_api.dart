@@ -1199,6 +1199,16 @@ class WordsApi {
     return await _apiClient.call(request) as InsertRunOnlineResponse;
   }
 
+  /// Inserts a section to the document.
+  Future< void > insertSection(InsertSectionRequest request) async {
+  await _apiClient.call(request);
+  }
+
+  /// Inserts a section to the document.
+  Future< Map<String, ByteData> > insertSectionOnline(InsertSectionOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
+  }
+
   /// Inserts a new StructuredDocumentTag (SDT) to the document node.
   Future< StructuredDocumentTagResponse > insertStructuredDocumentTag(InsertStructuredDocumentTagRequest request) async {
     return await _apiClient.call(request) as StructuredDocumentTagResponse;
