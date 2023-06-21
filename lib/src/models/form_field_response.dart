@@ -52,8 +52,7 @@ class FormFieldResponse extends WordsResponse {
     }
 
     if (json.containsKey('FormField')) {
-      formField = FormField();
-      formField!.deserialize(json['FormField'] as Map<String, dynamic>);
+      throw ApiException(400, 'Cannot deserialize abstract data model FormField.');
     } else {
       formField = null;
     }
