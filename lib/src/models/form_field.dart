@@ -30,7 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// FromField.
-abstract class FormField extends NodeLink {
+class FormField extends NodeLink {
   /// Gets or sets a value indicating whether references to the specified form field are automatically updated whenever the field is exited.
   bool? _calculateOnExit;
 
