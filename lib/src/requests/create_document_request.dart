@@ -45,7 +45,7 @@ class CreateDocumentRequest implements RequestBase {
   /// Original document storage.
   final String? storage;
 
-  CreateDocumentRequest({this.fileName, this.folder, this.storage});
+  CreateDocumentRequest(this.fileName, {this.folder, this.storage});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -56,6 +56,9 @@ class CreateDocumentRequest implements RequestBase {
     var _fileContentParts = <FileReference>[];
     if (fileName != null) {
       _queryParams['fileName'] = _apiClient.serializeToString(fileName) ?? "";
+    }
+    else {
+      throw ApiException(400, 'Parameter fileName is required.');
     }
 
     if (folder != null) {

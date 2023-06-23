@@ -1,3 +1,8 @@
+## [23.5.0] - Aspose Words Cloud for Dart 23.5 Release Notes
+
+- Added InsertSection method.
+
+
 ## [23.4.0] - Aspose Words Cloud for Dart 23.4 Release Notes
 
 - Added new type of RangeEndIdentifier for RangeApi: document:end
