@@ -122,7 +122,7 @@ class ApiClient {
   }
 
   Future<void> _updateAuthToken() async {
-    final url = configuration.baseUrl + '/connect/token';
+    final url = configuration.baseUrl + '/v4.0/words/connect/token';
     final data = 'grant_type=client_credentials&client_id=${configuration.clientId}&client_secret=${configuration.clientSecret}';
     final headers = {'Content-Type' : 'application/x-www-form-urlencoded'};
     final response = await http.post(Uri.parse(url), headers: headers, body: data).timeout(configuration.timeout);
