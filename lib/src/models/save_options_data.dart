@@ -81,12 +81,6 @@ abstract class SaveOptionsData implements ModelBase {
   set imlRenderingMode(SaveOptionsData_ImlRenderingModeEnum? val) => _imlRenderingMode = val;
 
 
-  /// Gets the format of save.
-  String? _saveFormat;
-
-  String? get saveFormat => _saveFormat;
-
-
   /// Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.CreatedTime property is updated before saving.
   /// Default value is false.
   bool? _updateCreatedTimeProperty;
@@ -129,6 +123,12 @@ abstract class SaveOptionsData implements ModelBase {
 
   bool? get zipOutput => _zipOutput;
   set zipOutput(bool? val) => _zipOutput = val;
+
+
+  /// Gets the format of save.
+  String? _saveFormat;
+
+  String? get saveFormat => _saveFormat;
 
 
   @override
@@ -282,10 +282,6 @@ abstract class SaveOptionsData implements ModelBase {
       }
     }
 
-    if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat!;
-    }
-
     if (updateCreatedTimeProperty != null) {
       _result['UpdateCreatedTimeProperty'] = updateCreatedTimeProperty!;
     }
@@ -308,6 +304,10 @@ abstract class SaveOptionsData implements ModelBase {
 
     if (zipOutput != null) {
       _result['ZipOutput'] = zipOutput!;
+    }
+
+    if (saveFormat != null) {
+      _result['SaveFormat'] = saveFormat!;
     }
     return _result;
   }

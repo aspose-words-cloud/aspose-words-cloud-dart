@@ -31,18 +31,18 @@ import '../../aspose_words_cloud.dart';
 
 /// Paragraph format element.
 class ParagraphFormat extends ParagraphFormatBase {
-  /// Gets or sets a value indicating whether the paragraph style is one of the built-in Heading styles.
-  bool? _isHeading;
-
-  bool? get isHeading => _isHeading;
-  set isHeading(bool? val) => _isHeading = val;
-
-
   /// Gets or sets a value indicating whether the paragraph is an item in a bulleted or numbered list.
   bool? _isListItem;
 
   bool? get isListItem => _isListItem;
   set isListItem(bool? val) => _isListItem = val;
+
+
+  /// Gets or sets a value indicating whether the paragraph style is one of the built-in Heading styles.
+  bool? _isHeading;
+
+  bool? get isHeading => _isHeading;
+  set isHeading(bool? val) => _isHeading = val;
 
 
   @override
@@ -187,13 +187,6 @@ class ParagraphFormat extends ParagraphFormatBase {
       rightIndent = json['RightIndent'] as double;
     } else {
       rightIndent = null;
-    }
-
-    if (json.containsKey('Shading')) {
-      shading = Shading();
-      shading!.deserialize(json['Shading'] as Map<String, dynamic>);
-    } else {
-      shading = null;
     }
 
     if (json.containsKey('SpaceAfter')) {
@@ -630,10 +623,11 @@ class ParagraphFormat extends ParagraphFormatBase {
       widowControl = null;
     }
 
-    if (json.containsKey('IsHeading')) {
-      isHeading = json['IsHeading'] as bool;
+    if (json.containsKey('Shading')) {
+      shading = Shading();
+      shading!.deserialize(json['Shading'] as Map<String, dynamic>);
     } else {
-      isHeading = null;
+      shading = null;
     }
 
     if (json.containsKey('IsListItem')) {
@@ -641,18 +635,24 @@ class ParagraphFormat extends ParagraphFormatBase {
     } else {
       isListItem = null;
     }
+
+    if (json.containsKey('IsHeading')) {
+      isHeading = json['IsHeading'] as bool;
+    } else {
+      isHeading = null;
+    }
   }
 
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (isHeading != null) {
-      _result['IsHeading'] = isHeading!;
-    }
-
     if (isListItem != null) {
       _result['IsListItem'] = isListItem!;
+    }
+
+    if (isHeading != null) {
+      _result['IsHeading'] = isHeading!;
     }
     return _result;
   }

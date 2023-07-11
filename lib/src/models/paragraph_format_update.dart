@@ -176,13 +176,6 @@ class ParagraphFormatUpdate extends ParagraphFormatBase {
       rightIndent = null;
     }
 
-    if (json.containsKey('Shading')) {
-      shading = Shading();
-      shading!.deserialize(json['Shading'] as Map<String, dynamic>);
-    } else {
-      shading = null;
-    }
-
     if (json.containsKey('SpaceAfter')) {
       spaceAfter = json['SpaceAfter'] as double;
     } else {
@@ -615,6 +608,13 @@ class ParagraphFormatUpdate extends ParagraphFormatBase {
       widowControl = json['WidowControl'] as bool;
     } else {
       widowControl = null;
+    }
+
+    if (json.containsKey('Shading')) {
+      shading = Shading();
+      shading!.deserialize(json['Shading'] as Map<String, dynamic>);
+    } else {
+      shading = null;
     }
   }
 

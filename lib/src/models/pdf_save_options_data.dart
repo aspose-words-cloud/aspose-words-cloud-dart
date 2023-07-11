@@ -189,13 +189,6 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   set preserveFormFields(bool? val) => _preserveFormFields = val;
 
 
-  /// Gets the format of save.
-  String? _saveFormat = 'pdf';
-
-  @override
-  String? get saveFormat => _saveFormat;
-
-
   /// Gets or sets the compression type to be used for all textual content in the document.
   PdfSaveOptionsData_TextCompressionEnum? _textCompression;
 
@@ -229,6 +222,13 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
   int? get zoomFactor => _zoomFactor;
   set zoomFactor(int? val) => _zoomFactor = val;
+
+
+  /// Gets the format of save.
+  String? _saveFormat = 'pdf';
+
+  @override
+  String? get saveFormat => _saveFormat;
 
 
   @override
@@ -733,10 +733,6 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
       _result['PreserveFormFields'] = preserveFormFields!;
     }
 
-    if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat!;
-    }
-
     if (textCompression != null) {
       switch (textCompression!) {
         case PdfSaveOptionsData_TextCompressionEnum.none: _result['TextCompression'] = 'None'; break;
@@ -767,6 +763,10 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (zoomFactor != null) {
       _result['ZoomFactor'] = zoomFactor!;
+    }
+
+    if (saveFormat != null) {
+      _result['SaveFormat'] = saveFormat!;
     }
     return _result;
   }

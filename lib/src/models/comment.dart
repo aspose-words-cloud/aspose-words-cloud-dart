@@ -31,32 +31,11 @@ import '../../aspose_words_cloud.dart';
 
 /// DTO container with a comment.
 class Comment extends CommentLink {
-  /// Gets or sets the author name for a comment.
-  String? _author;
+  /// Gets or sets the link to comment range start node.
+  DocumentPosition? _rangeStart;
 
-  String? get author => _author;
-  set author(String? val) => _author = val;
-
-
-  /// Gets or sets the content of the comment.
-  StoryChildNodes? _content;
-
-  StoryChildNodes? get content => _content;
-  set content(StoryChildNodes? val) => _content = val;
-
-
-  /// Gets or sets the date and time that the comment was made.
-  DateTime? _dateTime;
-
-  DateTime? get dateTime => _dateTime;
-  set dateTime(DateTime? val) => _dateTime = val;
-
-
-  /// Gets or sets the initials of the user associated with a specific comment.
-  String? _initial;
-
-  String? get initial => _initial;
-  set initial(String? val) => _initial = val;
+  DocumentPosition? get rangeStart => _rangeStart;
+  set rangeStart(DocumentPosition? val) => _rangeStart = val;
 
 
   /// Gets or sets the link to comment range end node.
@@ -66,11 +45,25 @@ class Comment extends CommentLink {
   set rangeEnd(DocumentPosition? val) => _rangeEnd = val;
 
 
-  /// Gets or sets the link to comment range start node.
-  DocumentPosition? _rangeStart;
+  /// Gets or sets the author name for a comment.
+  String? _author;
 
-  DocumentPosition? get rangeStart => _rangeStart;
-  set rangeStart(DocumentPosition? val) => _rangeStart = val;
+  String? get author => _author;
+  set author(String? val) => _author = val;
+
+
+  /// Gets or sets the initials of the user associated with a specific comment.
+  String? _initial;
+
+  String? get initial => _initial;
+  set initial(String? val) => _initial = val;
+
+
+  /// Gets or sets the date and time that the comment was made.
+  DateTime? _dateTime;
+
+  DateTime? get dateTime => _dateTime;
+  set dateTime(DateTime? val) => _dateTime = val;
 
 
   /// Gets or sets text of the comment.
@@ -78,6 +71,13 @@ class Comment extends CommentLink {
 
   String? get text => _text;
   set text(String? val) => _text = val;
+
+
+  /// Gets or sets the content of the comment.
+  StoryChildNodes? _content;
+
+  StoryChildNodes? get content => _content;
+  set content(StoryChildNodes? val) => _content = val;
 
 
   @override
@@ -94,29 +94,11 @@ class Comment extends CommentLink {
       link = null;
     }
 
-    if (json.containsKey('Author')) {
-      author = json['Author'] as String;
+    if (json.containsKey('RangeStart')) {
+      rangeStart = DocumentPosition();
+      rangeStart!.deserialize(json['RangeStart'] as Map<String, dynamic>);
     } else {
-      author = null;
-    }
-
-    if (json.containsKey('Content')) {
-      content = StoryChildNodes();
-      content!.deserialize(json['Content'] as Map<String, dynamic>);
-    } else {
-      content = null;
-    }
-
-    if (json.containsKey('DateTime')) {
-      dateTime = DateTime.parse(json['DateTime'] as String);
-    } else {
-      dateTime = null;
-    }
-
-    if (json.containsKey('Initial')) {
-      initial = json['Initial'] as String;
-    } else {
-      initial = null;
+      rangeStart = null;
     }
 
     if (json.containsKey('RangeEnd')) {
@@ -126,11 +108,22 @@ class Comment extends CommentLink {
       rangeEnd = null;
     }
 
-    if (json.containsKey('RangeStart')) {
-      rangeStart = DocumentPosition();
-      rangeStart!.deserialize(json['RangeStart'] as Map<String, dynamic>);
+    if (json.containsKey('Author')) {
+      author = json['Author'] as String;
     } else {
-      rangeStart = null;
+      author = null;
+    }
+
+    if (json.containsKey('Initial')) {
+      initial = json['Initial'] as String;
+    } else {
+      initial = null;
+    }
+
+    if (json.containsKey('DateTime')) {
+      dateTime = DateTime.parse(json['DateTime'] as String);
+    } else {
+      dateTime = null;
     }
 
     if (json.containsKey('Text')) {
@@ -138,38 +131,45 @@ class Comment extends CommentLink {
     } else {
       text = null;
     }
+
+    if (json.containsKey('Content')) {
+      content = StoryChildNodes();
+      content!.deserialize(json['Content'] as Map<String, dynamic>);
+    } else {
+      content = null;
+    }
   }
 
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (author != null) {
-      _result['Author'] = author!;
-    }
-
-    if (content != null) {
-      _result['Content'] = content!.serialize();
-    }
-
-    if (dateTime != null) {
-      _result['DateTime'] = dateTime!.toIso8601String();
-    }
-
-    if (initial != null) {
-      _result['Initial'] = initial!;
+    if (rangeStart != null) {
+      _result['RangeStart'] = rangeStart!.serialize();
     }
 
     if (rangeEnd != null) {
       _result['RangeEnd'] = rangeEnd!.serialize();
     }
 
-    if (rangeStart != null) {
-      _result['RangeStart'] = rangeStart!.serialize();
+    if (author != null) {
+      _result['Author'] = author!;
+    }
+
+    if (initial != null) {
+      _result['Initial'] = initial!;
+    }
+
+    if (dateTime != null) {
+      _result['DateTime'] = dateTime!.toIso8601String();
     }
 
     if (text != null) {
       _result['Text'] = text!;
+    }
+
+    if (content != null) {
+      _result['Content'] = content!.serialize();
     }
     return _result;
   }

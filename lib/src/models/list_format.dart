@@ -31,11 +31,11 @@ import '../../aspose_words_cloud.dart';
 
 /// DTO container with a paragraph list format element.
 class ListFormat extends LinkElement {
-  /// Gets or sets a value indicating whether the paragraph has bulleted or numbered formatting applied to it.
-  bool? _isListItem;
+  /// Gets or sets the list level number (0 to 8) for the paragraph.
+  int? _listLevelNumber;
 
-  bool? get isListItem => _isListItem;
-  set isListItem(bool? val) => _isListItem = val;
+  int? get listLevelNumber => _listLevelNumber;
+  set listLevelNumber(int? val) => _listLevelNumber = val;
 
 
   /// Gets or sets the list id of this paragraph.
@@ -45,11 +45,11 @@ class ListFormat extends LinkElement {
   set listId(int? val) => _listId = val;
 
 
-  /// Gets or sets the list level number (0 to 8) for the paragraph.
-  int? _listLevelNumber;
+  /// Gets or sets a value indicating whether the paragraph has bulleted or numbered formatting applied to it.
+  bool? _isListItem;
 
-  int? get listLevelNumber => _listLevelNumber;
-  set listLevelNumber(int? val) => _listLevelNumber = val;
+  bool? get isListItem => _isListItem;
+  set isListItem(bool? val) => _isListItem = val;
 
 
   @override
@@ -66,10 +66,10 @@ class ListFormat extends LinkElement {
       link = null;
     }
 
-    if (json.containsKey('IsListItem')) {
-      isListItem = json['IsListItem'] as bool;
+    if (json.containsKey('ListLevelNumber')) {
+      listLevelNumber = json['ListLevelNumber'] as int;
     } else {
-      isListItem = null;
+      listLevelNumber = null;
     }
 
     if (json.containsKey('ListId')) {
@@ -78,10 +78,10 @@ class ListFormat extends LinkElement {
       listId = null;
     }
 
-    if (json.containsKey('ListLevelNumber')) {
-      listLevelNumber = json['ListLevelNumber'] as int;
+    if (json.containsKey('IsListItem')) {
+      isListItem = json['IsListItem'] as bool;
     } else {
-      listLevelNumber = null;
+      isListItem = null;
     }
   }
 
@@ -89,16 +89,16 @@ class ListFormat extends LinkElement {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (isListItem != null) {
-      _result['IsListItem'] = isListItem!;
+    if (listLevelNumber != null) {
+      _result['ListLevelNumber'] = listLevelNumber!;
     }
 
     if (listId != null) {
       _result['ListId'] = listId!;
     }
 
-    if (listLevelNumber != null) {
-      _result['ListLevelNumber'] = listLevelNumber!;
+    if (isListItem != null) {
+      _result['IsListItem'] = isListItem!;
     }
     return _result;
   }

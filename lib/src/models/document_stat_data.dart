@@ -45,13 +45,6 @@ class DocumentStatData implements ModelBase {
   set pageCount(int? val) => _pageCount = val;
 
 
-  /// Gets or sets the detailed statistics on all pages.
-  List<PageStatData?>? _pageStatData;
-
-  List<PageStatData?>? get pageStatData => _pageStatData;
-  set pageStatData(List<PageStatData?>? val) => _pageStatData = val;
-
-
   /// Gets or sets the total count of paragraphs in the document.
   int? _paragraphCount;
 
@@ -64,6 +57,13 @@ class DocumentStatData implements ModelBase {
 
   int? get wordCount => _wordCount;
   set wordCount(int? val) => _wordCount = val;
+
+
+  /// Gets or sets the detailed statistics on all pages.
+  List<PageStatData?>? _pageStatData;
+
+  List<PageStatData?>? get pageStatData => _pageStatData;
+  set pageStatData(List<PageStatData?>? val) => _pageStatData = val;
 
 
   @override
@@ -85,18 +85,6 @@ class DocumentStatData implements ModelBase {
       pageCount = null;
     }
 
-    if (json.containsKey('PageStatData')) {
-      // Array processing
-      pageStatData = <PageStatData>[];
-      for(final _element in json['PageStatData']) {
-        var _elementValue = PageStatData();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        pageStatData!.add(_elementValue);
-      }
-    } else {
-      pageStatData = null;
-    }
-
     if (json.containsKey('ParagraphCount')) {
       paragraphCount = json['ParagraphCount'] as int;
     } else {
@@ -107,6 +95,18 @@ class DocumentStatData implements ModelBase {
       wordCount = json['WordCount'] as int;
     } else {
       wordCount = null;
+    }
+
+    if (json.containsKey('PageStatData')) {
+      // Array processing
+      pageStatData = <PageStatData>[];
+      for(final _element in json['PageStatData']) {
+        var _elementValue = PageStatData();
+        _elementValue.deserialize(_element as Map<String, dynamic>);
+        pageStatData!.add(_elementValue);
+      }
+    } else {
+      pageStatData = null;
     }
   }
 
@@ -121,16 +121,16 @@ class DocumentStatData implements ModelBase {
       _result['PageCount'] = pageCount!;
     }
 
-    if (pageStatData != null) {
-      _result['PageStatData'] = pageStatData!.map((_element) => _element?.serialize()).toList();
-    }
-
     if (paragraphCount != null) {
       _result['ParagraphCount'] = paragraphCount!;
     }
 
     if (wordCount != null) {
       _result['WordCount'] = wordCount!;
+    }
+
+    if (pageStatData != null) {
+      _result['PageStatData'] = pageStatData!.map((_element) => _element?.serialize()).toList();
     }
     return _result;
   }

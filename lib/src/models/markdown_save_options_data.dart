@@ -31,19 +31,19 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for markdown save options.
 class MarkdownSaveOptionsData extends TxtSaveOptionsBaseData {
-  /// Gets the format of save.
-  String? _saveFormat = 'md';
-
-  @override
-  String? get saveFormat => _saveFormat;
-
-
   /// Gets or sets the value, that specifies how to align contents in tables when exporting into the Markdown format.
   /// The default value is Auto.
   MarkdownSaveOptionsData_TableContentAlignmentEnum? _tableContentAlignment;
 
   MarkdownSaveOptionsData_TableContentAlignmentEnum? get tableContentAlignment => _tableContentAlignment;
   set tableContentAlignment(MarkdownSaveOptionsData_TableContentAlignmentEnum? val) => _tableContentAlignment = val;
+
+
+  /// Gets the format of save.
+  String? _saveFormat = 'md';
+
+  @override
+  String? get saveFormat => _saveFormat;
 
 
   @override
@@ -195,10 +195,6 @@ class MarkdownSaveOptionsData extends TxtSaveOptionsBaseData {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat!;
-    }
-
     if (tableContentAlignment != null) {
       switch (tableContentAlignment!) {
         case MarkdownSaveOptionsData_TableContentAlignmentEnum.auto: _result['TableContentAlignment'] = 'Auto'; break;
@@ -207,6 +203,10 @@ class MarkdownSaveOptionsData extends TxtSaveOptionsBaseData {
         case MarkdownSaveOptionsData_TableContentAlignmentEnum.right: _result['TableContentAlignment'] = 'Right'; break;
         default: break;
       }
+    }
+
+    if (saveFormat != null) {
+      _result['SaveFormat'] = saveFormat!;
     }
     return _result;
   }

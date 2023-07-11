@@ -51,7 +51,7 @@ class AppendDocumentTests
 
     final requestDocumentListDocumentEntries0 = DocumentEntry();
     requestDocumentListDocumentEntries0.fileReference = requestDocumentListDocumentEntries0FileReference;
-    requestDocumentListDocumentEntries0.importFormatMode = 'KeepSourceFormatting';
+    requestDocumentListDocumentEntries0.importFormatMode = DocumentEntry_ImportFormatModeEnum.keepSourceFormatting;
 
     final requestDocumentListDocumentEntries = [
       requestDocumentListDocumentEntries0];
@@ -81,7 +81,7 @@ class AppendDocumentTests
 
     final requestDocumentListDocumentEntries0 = DocumentEntry();
     requestDocumentListDocumentEntries0.fileReference = requestDocumentListDocumentEntries0FileReference;
-    requestDocumentListDocumentEntries0.importFormatMode = 'KeepSourceFormatting';
+    requestDocumentListDocumentEntries0.importFormatMode = DocumentEntry_ImportFormatModeEnum.keepSourceFormatting;
 
     final requestDocumentListDocumentEntries = [
       requestDocumentListDocumentEntries0];

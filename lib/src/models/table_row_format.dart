@@ -31,20 +31,6 @@ import '../../aspose_words_cloud.dart';
 
 /// DTO container with formatting for a table row.
 class TableRowFormat extends LinkElement {
-  /// Gets or sets a value indicating whether the text in a table row is allowed to split across a page break.
-  bool? _allowBreakAcrossPages;
-
-  bool? get allowBreakAcrossPages => _allowBreakAcrossPages;
-  set allowBreakAcrossPages(bool? val) => _allowBreakAcrossPages = val;
-
-
-  /// Gets or sets a value indicating whether the row is repeated as a table heading on every page when the table spans more than one page.
-  bool? _headingFormat;
-
-  bool? get headingFormat => _headingFormat;
-  set headingFormat(bool? val) => _headingFormat = val;
-
-
   /// Gets or sets the height of the table row in points.
   double? _height;
 
@@ -59,6 +45,20 @@ class TableRowFormat extends LinkElement {
   set heightRule(TableRowFormat_HeightRuleEnum? val) => _heightRule = val;
 
 
+  /// Gets or sets a value indicating whether the text in a table row is allowed to split across a page break.
+  bool? _allowBreakAcrossPages;
+
+  bool? get allowBreakAcrossPages => _allowBreakAcrossPages;
+  set allowBreakAcrossPages(bool? val) => _allowBreakAcrossPages = val;
+
+
+  /// Gets or sets a value indicating whether the row is repeated as a table heading on every page when the table spans more than one page.
+  bool? _headingFormat;
+
+  bool? get headingFormat => _headingFormat;
+  set headingFormat(bool? val) => _headingFormat = val;
+
+
   @override
   void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
@@ -71,18 +71,6 @@ class TableRowFormat extends LinkElement {
       link!.deserialize(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
-    }
-
-    if (json.containsKey('AllowBreakAcrossPages')) {
-      allowBreakAcrossPages = json['AllowBreakAcrossPages'] as bool;
-    } else {
-      allowBreakAcrossPages = null;
-    }
-
-    if (json.containsKey('HeadingFormat')) {
-      headingFormat = json['HeadingFormat'] as bool;
-    } else {
-      headingFormat = null;
     }
 
     if (json.containsKey('Height')) {
@@ -101,20 +89,24 @@ class TableRowFormat extends LinkElement {
     } else {
       heightRule = null;
     }
+
+    if (json.containsKey('AllowBreakAcrossPages')) {
+      allowBreakAcrossPages = json['AllowBreakAcrossPages'] as bool;
+    } else {
+      allowBreakAcrossPages = null;
+    }
+
+    if (json.containsKey('HeadingFormat')) {
+      headingFormat = json['HeadingFormat'] as bool;
+    } else {
+      headingFormat = null;
+    }
   }
 
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (allowBreakAcrossPages != null) {
-      _result['AllowBreakAcrossPages'] = allowBreakAcrossPages!;
-    }
-
-    if (headingFormat != null) {
-      _result['HeadingFormat'] = headingFormat!;
-    }
-
     if (height != null) {
       _result['Height'] = height!;
     }
@@ -126,6 +118,14 @@ class TableRowFormat extends LinkElement {
         case TableRowFormat_HeightRuleEnum.auto: _result['HeightRule'] = 'Auto'; break;
         default: break;
       }
+    }
+
+    if (allowBreakAcrossPages != null) {
+      _result['AllowBreakAcrossPages'] = allowBreakAcrossPages!;
+    }
+
+    if (headingFormat != null) {
+      _result['HeadingFormat'] = headingFormat!;
     }
     return _result;
   }

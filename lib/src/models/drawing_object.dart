@@ -31,25 +31,25 @@ import '../../aspose_words_cloud.dart';
 
 /// DTO container with a DrawingObject.
 class DrawingObject extends DrawingObjectLink {
+  /// Gets or sets the list of links that originate from this DrawingObjectDto.
+  List<WordsApiLink?>? _renderLinks;
+
+  List<WordsApiLink?>? get renderLinks => _renderLinks;
+  set renderLinks(List<WordsApiLink?>? val) => _renderLinks = val;
+
+
+  /// Gets or sets the width of the DrawingObjects in points.
+  double? _width;
+
+  double? get width => _width;
+  set width(double? val) => _width = val;
+
+
   /// Gets or sets the height of the DrawingObject in points.
   double? _height;
 
   double? get height => _height;
   set height(double? val) => _height = val;
-
-
-  /// Gets or sets the link to image data. Can be null if shape does not have an image.
-  WordsApiLink? _imageDataLink;
-
-  WordsApiLink? get imageDataLink => _imageDataLink;
-  set imageDataLink(WordsApiLink? val) => _imageDataLink = val;
-
-
-  /// Gets or sets the distance in points from the origin to the left side of the image.
-  double? _left;
-
-  double? get left => _left;
-  set left(double? val) => _left = val;
 
 
   /// Gets or sets the link to OLE object. Can be null if shape does not have OLE data.
@@ -59,11 +59,25 @@ class DrawingObject extends DrawingObjectLink {
   set oleDataLink(WordsApiLink? val) => _oleDataLink = val;
 
 
+  /// Gets or sets the link to image data. Can be null if shape does not have an image.
+  WordsApiLink? _imageDataLink;
+
+  WordsApiLink? get imageDataLink => _imageDataLink;
+  set imageDataLink(WordsApiLink? val) => _imageDataLink = val;
+
+
   /// Gets or sets the relative horizontal position, from which the distance to the image is measured.
   DrawingObject_RelativeHorizontalPositionEnum? _relativeHorizontalPosition;
 
   DrawingObject_RelativeHorizontalPositionEnum? get relativeHorizontalPosition => _relativeHorizontalPosition;
   set relativeHorizontalPosition(DrawingObject_RelativeHorizontalPositionEnum? val) => _relativeHorizontalPosition = val;
+
+
+  /// Gets or sets the distance in points from the origin to the left side of the image.
+  double? _left;
+
+  double? get left => _left;
+  set left(double? val) => _left = val;
 
 
   /// Gets or sets the relative vertical position, from which the distance to the image is measured.
@@ -73,25 +87,11 @@ class DrawingObject extends DrawingObjectLink {
   set relativeVerticalPosition(DrawingObject_RelativeVerticalPositionEnum? val) => _relativeVerticalPosition = val;
 
 
-  /// Gets or sets the list of links that originate from this DrawingObjectDto.
-  List<WordsApiLink?>? _renderLinks;
-
-  List<WordsApiLink?>? get renderLinks => _renderLinks;
-  set renderLinks(List<WordsApiLink?>? val) => _renderLinks = val;
-
-
   /// Gets or sets the distance in points from the origin to the top side of the image.
   double? _top;
 
   double? get top => _top;
   set top(double? val) => _top = val;
-
-
-  /// Gets or sets the width of the DrawingObjects in points.
-  double? _width;
-
-  double? get width => _width;
-  set width(double? val) => _width = val;
 
 
   /// Gets or sets the option that controls how to wrap text around the image.
@@ -121,23 +121,28 @@ class DrawingObject extends DrawingObjectLink {
       nodeId = null;
     }
 
+    if (json.containsKey('RenderLinks')) {
+      // Array processing
+      renderLinks = <WordsApiLink>[];
+      for(final _element in json['RenderLinks']) {
+        var _elementValue = WordsApiLink();
+        _elementValue.deserialize(_element as Map<String, dynamic>);
+        renderLinks!.add(_elementValue);
+      }
+    } else {
+      renderLinks = null;
+    }
+
+    if (json.containsKey('Width')) {
+      width = json['Width'] as double;
+    } else {
+      width = null;
+    }
+
     if (json.containsKey('Height')) {
       height = json['Height'] as double;
     } else {
       height = null;
-    }
-
-    if (json.containsKey('ImageDataLink')) {
-      imageDataLink = WordsApiLink();
-      imageDataLink!.deserialize(json['ImageDataLink'] as Map<String, dynamic>);
-    } else {
-      imageDataLink = null;
-    }
-
-    if (json.containsKey('Left')) {
-      left = json['Left'] as double;
-    } else {
-      left = null;
     }
 
     if (json.containsKey('OleDataLink')) {
@@ -145,6 +150,13 @@ class DrawingObject extends DrawingObjectLink {
       oleDataLink!.deserialize(json['OleDataLink'] as Map<String, dynamic>);
     } else {
       oleDataLink = null;
+    }
+
+    if (json.containsKey('ImageDataLink')) {
+      imageDataLink = WordsApiLink();
+      imageDataLink!.deserialize(json['ImageDataLink'] as Map<String, dynamic>);
+    } else {
+      imageDataLink = null;
     }
 
     if (json.containsKey('RelativeHorizontalPosition')) {
@@ -162,6 +174,12 @@ class DrawingObject extends DrawingObjectLink {
       }
     } else {
       relativeHorizontalPosition = null;
+    }
+
+    if (json.containsKey('Left')) {
+      left = json['Left'] as double;
+    } else {
+      left = null;
     }
 
     if (json.containsKey('RelativeVerticalPosition')) {
@@ -182,28 +200,10 @@ class DrawingObject extends DrawingObjectLink {
       relativeVerticalPosition = null;
     }
 
-    if (json.containsKey('RenderLinks')) {
-      // Array processing
-      renderLinks = <WordsApiLink>[];
-      for(final _element in json['RenderLinks']) {
-        var _elementValue = WordsApiLink();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        renderLinks!.add(_elementValue);
-      }
-    } else {
-      renderLinks = null;
-    }
-
     if (json.containsKey('Top')) {
       top = json['Top'] as double;
     } else {
       top = null;
-    }
-
-    if (json.containsKey('Width')) {
-      width = json['Width'] as double;
-    } else {
-      width = null;
     }
 
     if (json.containsKey('WrapType')) {
@@ -225,20 +225,24 @@ class DrawingObject extends DrawingObjectLink {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
+    if (renderLinks != null) {
+      _result['RenderLinks'] = renderLinks!.map((_element) => _element?.serialize()).toList();
+    }
+
+    if (width != null) {
+      _result['Width'] = width!;
+    }
+
     if (height != null) {
       _result['Height'] = height!;
     }
 
-    if (imageDataLink != null) {
-      _result['ImageDataLink'] = imageDataLink!.serialize();
-    }
-
-    if (left != null) {
-      _result['Left'] = left!;
-    }
-
     if (oleDataLink != null) {
       _result['OleDataLink'] = oleDataLink!.serialize();
+    }
+
+    if (imageDataLink != null) {
+      _result['ImageDataLink'] = imageDataLink!.serialize();
     }
 
     if (relativeHorizontalPosition != null) {
@@ -254,6 +258,10 @@ class DrawingObject extends DrawingObjectLink {
         case DrawingObject_RelativeHorizontalPositionEnum.outsideMargin: _result['RelativeHorizontalPosition'] = 'OutsideMargin'; break;
         default: break;
       }
+    }
+
+    if (left != null) {
+      _result['Left'] = left!;
     }
 
     if (relativeVerticalPosition != null) {
@@ -272,16 +280,8 @@ class DrawingObject extends DrawingObjectLink {
       }
     }
 
-    if (renderLinks != null) {
-      _result['RenderLinks'] = renderLinks!.map((_element) => _element?.serialize()).toList();
-    }
-
     if (top != null) {
       _result['Top'] = top!;
-    }
-
-    if (width != null) {
-      _result['Width'] = width!;
     }
 
     if (wrapType != null) {

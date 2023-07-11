@@ -31,11 +31,11 @@ import '../../aspose_words_cloud.dart';
 
 /// FromField.
 class FormField extends NodeLink {
-  /// Gets or sets a value indicating whether references to the specified form field are automatically updated whenever the field is exited.
-  bool? _calculateOnExit;
+  /// Gets or sets the form field name.
+  String? _name;
 
-  bool? get calculateOnExit => _calculateOnExit;
-  set calculateOnExit(bool? val) => _calculateOnExit = val;
+  String? get name => _name;
+  set name(String? val) => _name = val;
 
 
   /// Gets or sets a value indicating whether a form field is enabled.
@@ -43,6 +43,41 @@ class FormField extends NodeLink {
 
   bool? get enabled => _enabled;
   set enabled(bool? val) => _enabled = val;
+
+
+  /// Gets or sets text, displayed in the status bar when a form field has the focus.
+  String? _statusText;
+
+  String? get statusText => _statusText;
+  set statusText(String? val) => _statusText = val;
+
+
+  /// Gets or sets a value indicating whether the source of the text that's displayed in the status bar when a form field has the focus.
+  bool? _ownStatus;
+
+  bool? get ownStatus => _ownStatus;
+  set ownStatus(bool? val) => _ownStatus = val;
+
+
+  /// Gets or sets text, displayed in a message box when the form field has the focus and the user presses F1.
+  String? _helpText;
+
+  String? get helpText => _helpText;
+  set helpText(String? val) => _helpText = val;
+
+
+  /// Gets or sets a value indicating whether the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.
+  bool? _ownHelp;
+
+  bool? get ownHelp => _ownHelp;
+  set ownHelp(bool? val) => _ownHelp = val;
+
+
+  /// Gets or sets a value indicating whether references to the specified form field are automatically updated whenever the field is exited.
+  bool? _calculateOnExit;
+
+  bool? get calculateOnExit => _calculateOnExit;
+  set calculateOnExit(bool? val) => _calculateOnExit = val;
 
 
   /// Gets or sets the entry macro name for the form field.
@@ -57,41 +92,6 @@ class FormField extends NodeLink {
 
   String? get exitMacro => _exitMacro;
   set exitMacro(String? val) => _exitMacro = val;
-
-
-  /// Gets or sets text, displayed in a message box when the form field has the focus and the user presses F1.
-  String? _helpText;
-
-  String? get helpText => _helpText;
-  set helpText(String? val) => _helpText = val;
-
-
-  /// Gets or sets the form field name.
-  String? _name;
-
-  String? get name => _name;
-  set name(String? val) => _name = val;
-
-
-  /// Gets or sets a value indicating whether the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.
-  bool? _ownHelp;
-
-  bool? get ownHelp => _ownHelp;
-  set ownHelp(bool? val) => _ownHelp = val;
-
-
-  /// Gets or sets a value indicating whether the source of the text that's displayed in the status bar when a form field has the focus.
-  bool? _ownStatus;
-
-  bool? get ownStatus => _ownStatus;
-  set ownStatus(bool? val) => _ownStatus = val;
-
-
-  /// Gets or sets text, displayed in the status bar when a form field has the focus.
-  String? _statusText;
-
-  String? get statusText => _statusText;
-  set statusText(String? val) => _statusText = val;
 
 
   @override
@@ -114,16 +114,46 @@ class FormField extends NodeLink {
       nodeId = null;
     }
 
-    if (json.containsKey('CalculateOnExit')) {
-      calculateOnExit = json['CalculateOnExit'] as bool;
+    if (json.containsKey('Name')) {
+      name = json['Name'] as String;
     } else {
-      calculateOnExit = null;
+      name = null;
     }
 
     if (json.containsKey('Enabled')) {
       enabled = json['Enabled'] as bool;
     } else {
       enabled = null;
+    }
+
+    if (json.containsKey('StatusText')) {
+      statusText = json['StatusText'] as String;
+    } else {
+      statusText = null;
+    }
+
+    if (json.containsKey('OwnStatus')) {
+      ownStatus = json['OwnStatus'] as bool;
+    } else {
+      ownStatus = null;
+    }
+
+    if (json.containsKey('HelpText')) {
+      helpText = json['HelpText'] as String;
+    } else {
+      helpText = null;
+    }
+
+    if (json.containsKey('OwnHelp')) {
+      ownHelp = json['OwnHelp'] as bool;
+    } else {
+      ownHelp = null;
+    }
+
+    if (json.containsKey('CalculateOnExit')) {
+      calculateOnExit = json['CalculateOnExit'] as bool;
+    } else {
+      calculateOnExit = null;
     }
 
     if (json.containsKey('EntryMacro')) {
@@ -137,48 +167,38 @@ class FormField extends NodeLink {
     } else {
       exitMacro = null;
     }
-
-    if (json.containsKey('HelpText')) {
-      helpText = json['HelpText'] as String;
-    } else {
-      helpText = null;
-    }
-
-    if (json.containsKey('Name')) {
-      name = json['Name'] as String;
-    } else {
-      name = null;
-    }
-
-    if (json.containsKey('OwnHelp')) {
-      ownHelp = json['OwnHelp'] as bool;
-    } else {
-      ownHelp = null;
-    }
-
-    if (json.containsKey('OwnStatus')) {
-      ownStatus = json['OwnStatus'] as bool;
-    } else {
-      ownStatus = null;
-    }
-
-    if (json.containsKey('StatusText')) {
-      statusText = json['StatusText'] as String;
-    } else {
-      statusText = null;
-    }
   }
 
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (calculateOnExit != null) {
-      _result['CalculateOnExit'] = calculateOnExit!;
+    if (name != null) {
+      _result['Name'] = name!;
     }
 
     if (enabled != null) {
       _result['Enabled'] = enabled!;
+    }
+
+    if (statusText != null) {
+      _result['StatusText'] = statusText!;
+    }
+
+    if (ownStatus != null) {
+      _result['OwnStatus'] = ownStatus!;
+    }
+
+    if (helpText != null) {
+      _result['HelpText'] = helpText!;
+    }
+
+    if (ownHelp != null) {
+      _result['OwnHelp'] = ownHelp!;
+    }
+
+    if (calculateOnExit != null) {
+      _result['CalculateOnExit'] = calculateOnExit!;
     }
 
     if (entryMacro != null) {
@@ -187,26 +207,6 @@ class FormField extends NodeLink {
 
     if (exitMacro != null) {
       _result['ExitMacro'] = exitMacro!;
-    }
-
-    if (helpText != null) {
-      _result['HelpText'] = helpText!;
-    }
-
-    if (name != null) {
-      _result['Name'] = name!;
-    }
-
-    if (ownHelp != null) {
-      _result['OwnHelp'] = ownHelp!;
-    }
-
-    if (ownStatus != null) {
-      _result['OwnStatus'] = ownStatus!;
-    }
-
-    if (statusText != null) {
-      _result['StatusText'] = statusText!;
     }
     return _result;
   }

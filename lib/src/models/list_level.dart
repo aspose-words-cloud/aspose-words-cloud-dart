@@ -31,46 +31,11 @@ import '../../aspose_words_cloud.dart';
 
 /// DTO container with a document list level.
 class ListLevel extends LinkElement {
-  /// Gets or sets the justification of the actual number of the list item.
-  ListLevel_AlignmentEnum? _alignment;
+  /// Gets or sets the starting number for this list level.
+  int? _startAt;
 
-  ListLevel_AlignmentEnum? get alignment => _alignment;
-  set alignment(ListLevel_AlignmentEnum? val) => _alignment = val;
-
-
-  /// Gets or sets character formatting used for the list label.
-  Font? _font;
-
-  Font? get font => _font;
-  set font(Font? val) => _font = val;
-
-
-  /// Gets or sets a value indicating whether the level turns all inherited numbers to Arabic, false if it preserves their number style.
-  bool? _isLegal;
-
-  bool? get isLegal => _isLegal;
-  set isLegal(bool? val) => _isLegal = val;
-
-
-  /// Gets or sets the paragraph style that is linked to this list level.
-  Style? _linkedStyle;
-
-  Style? get linkedStyle => _linkedStyle;
-  set linkedStyle(Style? val) => _linkedStyle = val;
-
-
-  /// Gets or sets the number format for the list level.
-  String? _numberFormat;
-
-  String? get numberFormat => _numberFormat;
-  set numberFormat(String? val) => _numberFormat = val;
-
-
-  /// Gets or sets the position (in points) of the number or bullet for the list level.
-  double? _numberPosition;
-
-  double? get numberPosition => _numberPosition;
-  set numberPosition(double? val) => _numberPosition = val;
+  int? get startAt => _startAt;
+  set startAt(int? val) => _startAt = val;
 
 
   /// Gets or sets the number style for this list level.
@@ -80,6 +45,27 @@ class ListLevel extends LinkElement {
   set numberStyle(ListLevel_NumberStyleEnum? val) => _numberStyle = val;
 
 
+  /// Gets or sets the number format for the list level.
+  String? _numberFormat;
+
+  String? get numberFormat => _numberFormat;
+  set numberFormat(String? val) => _numberFormat = val;
+
+
+  /// Gets or sets the justification of the actual number of the list item.
+  ListLevel_AlignmentEnum? _alignment;
+
+  ListLevel_AlignmentEnum? get alignment => _alignment;
+  set alignment(ListLevel_AlignmentEnum? val) => _alignment = val;
+
+
+  /// Gets or sets a value indicating whether the level turns all inherited numbers to Arabic, false if it preserves their number style.
+  bool? _isLegal;
+
+  bool? get isLegal => _isLegal;
+  set isLegal(bool? val) => _isLegal = val;
+
+
   /// Gets or sets the list level, that must appear before the specified list level restarts numbering.
   int? _restartAfterLevel;
 
@@ -87,11 +73,18 @@ class ListLevel extends LinkElement {
   set restartAfterLevel(int? val) => _restartAfterLevel = val;
 
 
-  /// Gets or sets the starting number for this list level.
-  int? _startAt;
+  /// Gets or sets the character inserted after the number for the list level.
+  ListLevel_TrailingCharacterEnum? _trailingCharacter;
 
-  int? get startAt => _startAt;
-  set startAt(int? val) => _startAt = val;
+  ListLevel_TrailingCharacterEnum? get trailingCharacter => _trailingCharacter;
+  set trailingCharacter(ListLevel_TrailingCharacterEnum? val) => _trailingCharacter = val;
+
+
+  /// Gets or sets character formatting used for the list label.
+  Font? _font;
+
+  Font? get font => _font;
+  set font(Font? val) => _font = val;
 
 
   /// Gets or sets the tab position (in points) for the list level.
@@ -101,6 +94,13 @@ class ListLevel extends LinkElement {
   set tabPosition(double? val) => _tabPosition = val;
 
 
+  /// Gets or sets the position (in points) of the number or bullet for the list level.
+  double? _numberPosition;
+
+  double? get numberPosition => _numberPosition;
+  set numberPosition(double? val) => _numberPosition = val;
+
+
   /// Gets or sets the position (in points) for the second line of wrapping text for the list level.
   double? _textPosition;
 
@@ -108,11 +108,11 @@ class ListLevel extends LinkElement {
   set textPosition(double? val) => _textPosition = val;
 
 
-  /// Gets or sets the character inserted after the number for the list level.
-  ListLevel_TrailingCharacterEnum? _trailingCharacter;
+  /// Gets or sets the paragraph style that is linked to this list level.
+  Style? _linkedStyle;
 
-  ListLevel_TrailingCharacterEnum? get trailingCharacter => _trailingCharacter;
-  set trailingCharacter(ListLevel_TrailingCharacterEnum? val) => _trailingCharacter = val;
+  Style? get linkedStyle => _linkedStyle;
+  set linkedStyle(Style? val) => _linkedStyle = val;
 
 
   @override
@@ -129,47 +129,10 @@ class ListLevel extends LinkElement {
       link = null;
     }
 
-    if (json.containsKey('Alignment')) {
-      switch (json['Alignment'] as String) {
-        case 'Left': alignment = ListLevel_AlignmentEnum.left; break;
-        case 'Center': alignment = ListLevel_AlignmentEnum.center; break;
-        case 'Right': alignment = ListLevel_AlignmentEnum.right; break;
-        default: alignment = null; break;
-      }
+    if (json.containsKey('StartAt')) {
+      startAt = json['StartAt'] as int;
     } else {
-      alignment = null;
-    }
-
-    if (json.containsKey('Font')) {
-      font = Font();
-      font!.deserialize(json['Font'] as Map<String, dynamic>);
-    } else {
-      font = null;
-    }
-
-    if (json.containsKey('IsLegal')) {
-      isLegal = json['IsLegal'] as bool;
-    } else {
-      isLegal = null;
-    }
-
-    if (json.containsKey('LinkedStyle')) {
-      linkedStyle = Style();
-      linkedStyle!.deserialize(json['LinkedStyle'] as Map<String, dynamic>);
-    } else {
-      linkedStyle = null;
-    }
-
-    if (json.containsKey('NumberFormat')) {
-      numberFormat = json['NumberFormat'] as String;
-    } else {
-      numberFormat = null;
-    }
-
-    if (json.containsKey('NumberPosition')) {
-      numberPosition = json['NumberPosition'] as double;
-    } else {
-      numberPosition = null;
+      startAt = null;
     }
 
     if (json.containsKey('NumberStyle')) {
@@ -242,28 +205,33 @@ class ListLevel extends LinkElement {
       numberStyle = null;
     }
 
+    if (json.containsKey('NumberFormat')) {
+      numberFormat = json['NumberFormat'] as String;
+    } else {
+      numberFormat = null;
+    }
+
+    if (json.containsKey('Alignment')) {
+      switch (json['Alignment'] as String) {
+        case 'Left': alignment = ListLevel_AlignmentEnum.left; break;
+        case 'Center': alignment = ListLevel_AlignmentEnum.center; break;
+        case 'Right': alignment = ListLevel_AlignmentEnum.right; break;
+        default: alignment = null; break;
+      }
+    } else {
+      alignment = null;
+    }
+
+    if (json.containsKey('IsLegal')) {
+      isLegal = json['IsLegal'] as bool;
+    } else {
+      isLegal = null;
+    }
+
     if (json.containsKey('RestartAfterLevel')) {
       restartAfterLevel = json['RestartAfterLevel'] as int;
     } else {
       restartAfterLevel = null;
-    }
-
-    if (json.containsKey('StartAt')) {
-      startAt = json['StartAt'] as int;
-    } else {
-      startAt = null;
-    }
-
-    if (json.containsKey('TabPosition')) {
-      tabPosition = json['TabPosition'] as double;
-    } else {
-      tabPosition = null;
-    }
-
-    if (json.containsKey('TextPosition')) {
-      textPosition = json['TextPosition'] as double;
-    } else {
-      textPosition = null;
     }
 
     if (json.containsKey('TrailingCharacter')) {
@@ -276,39 +244,46 @@ class ListLevel extends LinkElement {
     } else {
       trailingCharacter = null;
     }
+
+    if (json.containsKey('Font')) {
+      font = Font();
+      font!.deserialize(json['Font'] as Map<String, dynamic>);
+    } else {
+      font = null;
+    }
+
+    if (json.containsKey('TabPosition')) {
+      tabPosition = json['TabPosition'] as double;
+    } else {
+      tabPosition = null;
+    }
+
+    if (json.containsKey('NumberPosition')) {
+      numberPosition = json['NumberPosition'] as double;
+    } else {
+      numberPosition = null;
+    }
+
+    if (json.containsKey('TextPosition')) {
+      textPosition = json['TextPosition'] as double;
+    } else {
+      textPosition = null;
+    }
+
+    if (json.containsKey('LinkedStyle')) {
+      linkedStyle = Style();
+      linkedStyle!.deserialize(json['LinkedStyle'] as Map<String, dynamic>);
+    } else {
+      linkedStyle = null;
+    }
   }
 
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (alignment != null) {
-      switch (alignment!) {
-        case ListLevel_AlignmentEnum.left: _result['Alignment'] = 'Left'; break;
-        case ListLevel_AlignmentEnum.center: _result['Alignment'] = 'Center'; break;
-        case ListLevel_AlignmentEnum.right: _result['Alignment'] = 'Right'; break;
-        default: break;
-      }
-    }
-
-    if (font != null) {
-      _result['Font'] = font!.serialize();
-    }
-
-    if (isLegal != null) {
-      _result['IsLegal'] = isLegal!;
-    }
-
-    if (linkedStyle != null) {
-      _result['LinkedStyle'] = linkedStyle!.serialize();
-    }
-
-    if (numberFormat != null) {
-      _result['NumberFormat'] = numberFormat!;
-    }
-
-    if (numberPosition != null) {
-      _result['NumberPosition'] = numberPosition!;
+    if (startAt != null) {
+      _result['StartAt'] = startAt!;
     }
 
     if (numberStyle != null) {
@@ -379,20 +354,25 @@ class ListLevel extends LinkElement {
       }
     }
 
+    if (numberFormat != null) {
+      _result['NumberFormat'] = numberFormat!;
+    }
+
+    if (alignment != null) {
+      switch (alignment!) {
+        case ListLevel_AlignmentEnum.left: _result['Alignment'] = 'Left'; break;
+        case ListLevel_AlignmentEnum.center: _result['Alignment'] = 'Center'; break;
+        case ListLevel_AlignmentEnum.right: _result['Alignment'] = 'Right'; break;
+        default: break;
+      }
+    }
+
+    if (isLegal != null) {
+      _result['IsLegal'] = isLegal!;
+    }
+
     if (restartAfterLevel != null) {
       _result['RestartAfterLevel'] = restartAfterLevel!;
-    }
-
-    if (startAt != null) {
-      _result['StartAt'] = startAt!;
-    }
-
-    if (tabPosition != null) {
-      _result['TabPosition'] = tabPosition!;
-    }
-
-    if (textPosition != null) {
-      _result['TextPosition'] = textPosition!;
     }
 
     if (trailingCharacter != null) {
@@ -403,20 +383,32 @@ class ListLevel extends LinkElement {
         default: break;
       }
     }
+
+    if (font != null) {
+      _result['Font'] = font!.serialize();
+    }
+
+    if (tabPosition != null) {
+      _result['TabPosition'] = tabPosition!;
+    }
+
+    if (numberPosition != null) {
+      _result['NumberPosition'] = numberPosition!;
+    }
+
+    if (textPosition != null) {
+      _result['TextPosition'] = textPosition!;
+    }
+
+    if (linkedStyle != null) {
+      _result['LinkedStyle'] = linkedStyle!.serialize();
+    }
     return _result;
   }
 
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
-}
-
-/// Gets or sets the justification of the actual number of the list item.
-enum ListLevel_AlignmentEnum
-{ 
-  left,
-  center,
-  right
 }
 
 /// Gets or sets the number style for this list level.
@@ -484,6 +476,14 @@ enum ListLevel_NumberStyleEnum
   uppercaseRussian,
   none,
   custom
+}
+
+/// Gets or sets the justification of the actual number of the list item.
+enum ListLevel_AlignmentEnum
+{ 
+  left,
+  center,
+  right
 }
 
 /// Gets or sets the character inserted after the number for the list level.

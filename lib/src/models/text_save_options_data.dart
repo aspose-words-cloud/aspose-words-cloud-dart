@@ -54,18 +54,18 @@ class TextSaveOptionsData extends TxtSaveOptionsBaseData {
   set preserveTableLayout(bool? val) => _preserveTableLayout = val;
 
 
-  /// Gets the format of save.
-  String? _saveFormat = 'txt';
-
-  @override
-  String? get saveFormat => _saveFormat;
-
-
   /// Gets or sets a value indicating whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.
   bool? _simplifyListLabels;
 
   bool? get simplifyListLabels => _simplifyListLabels;
   set simplifyListLabels(bool? val) => _simplifyListLabels = val;
+
+
+  /// Gets the format of save.
+  String? _saveFormat = 'txt';
+
+  @override
+  String? get saveFormat => _saveFormat;
 
 
   @override
@@ -241,12 +241,12 @@ class TextSaveOptionsData extends TxtSaveOptionsBaseData {
       _result['PreserveTableLayout'] = preserveTableLayout!;
     }
 
-    if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat!;
-    }
-
     if (simplifyListLabels != null) {
       _result['SimplifyListLabels'] = simplifyListLabels!;
+    }
+
+    if (saveFormat != null) {
+      _result['SaveFormat'] = saveFormat!;
     }
     return _result;
   }

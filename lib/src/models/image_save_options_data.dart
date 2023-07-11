@@ -98,13 +98,6 @@ abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
   set useAntiAliasing(bool? val) => _useAntiAliasing = val;
 
 
-  /// Gets or sets a value indicating whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.
-  bool? _useGdiEmfRenderer;
-
-  bool? get useGdiEmfRenderer => _useGdiEmfRenderer;
-  set useGdiEmfRenderer(bool? val) => _useGdiEmfRenderer = val;
-
-
   /// Gets or sets a value indicating whether to use high quality (i.e. slow) rendering algorithms.
   bool? _useHighQualityRendering;
 
@@ -119,6 +112,13 @@ abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
 
   double? get verticalResolution => _verticalResolution;
   set verticalResolution(double? val) => _verticalResolution = val;
+
+
+  /// Gets or sets a value indicating whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.
+  bool? _useGdiEmfRenderer;
+
+  bool? get useGdiEmfRenderer => _useGdiEmfRenderer;
+  set useGdiEmfRenderer(bool? val) => _useGdiEmfRenderer = val;
 
 
   @override
@@ -350,12 +350,6 @@ abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
       useAntiAliasing = null;
     }
 
-    if (json.containsKey('UseGdiEmfRenderer')) {
-      useGdiEmfRenderer = json['UseGdiEmfRenderer'] as bool;
-    } else {
-      useGdiEmfRenderer = null;
-    }
-
     if (json.containsKey('UseHighQualityRendering')) {
       useHighQualityRendering = json['UseHighQualityRendering'] as bool;
     } else {
@@ -366,6 +360,12 @@ abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
       verticalResolution = json['VerticalResolution'] as double;
     } else {
       verticalResolution = null;
+    }
+
+    if (json.containsKey('UseGdiEmfRenderer')) {
+      useGdiEmfRenderer = json['UseGdiEmfRenderer'] as bool;
+    } else {
+      useGdiEmfRenderer = null;
     }
   }
 
@@ -427,16 +427,16 @@ abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
       _result['UseAntiAliasing'] = useAntiAliasing!;
     }
 
-    if (useGdiEmfRenderer != null) {
-      _result['UseGdiEmfRenderer'] = useGdiEmfRenderer!;
-    }
-
     if (useHighQualityRendering != null) {
       _result['UseHighQualityRendering'] = useHighQualityRendering!;
     }
 
     if (verticalResolution != null) {
       _result['VerticalResolution'] = verticalResolution!;
+    }
+
+    if (useGdiEmfRenderer != null) {
+      _result['UseGdiEmfRenderer'] = useGdiEmfRenderer!;
     }
     return _result;
   }

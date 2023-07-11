@@ -52,18 +52,18 @@ class RtfSaveOptionsData extends SaveOptionsData {
   set prettyFormat(bool? val) => _prettyFormat = val;
 
 
-  /// Gets the format of save.
-  String? _saveFormat = 'rtf';
-
-  @override
-  String? get saveFormat => _saveFormat;
-
-
   /// Gets or sets a value indicating whether when true all images will be saved as WMF. This option might help to avoid WordPad warning messages.
   bool? _saveImagesAsWmf;
 
   bool? get saveImagesAsWmf => _saveImagesAsWmf;
   set saveImagesAsWmf(bool? val) => _saveImagesAsWmf = val;
+
+
+  /// Gets the format of save.
+  String? _saveFormat = 'rtf';
+
+  @override
+  String? get saveFormat => _saveFormat;
 
 
   @override
@@ -210,12 +210,12 @@ class RtfSaveOptionsData extends SaveOptionsData {
       _result['PrettyFormat'] = prettyFormat!;
     }
 
-    if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat!;
-    }
-
     if (saveImagesAsWmf != null) {
       _result['SaveImagesAsWmf'] = saveImagesAsWmf!;
+    }
+
+    if (saveFormat != null) {
+      _result['SaveFormat'] = saveFormat!;
     }
     return _result;
   }

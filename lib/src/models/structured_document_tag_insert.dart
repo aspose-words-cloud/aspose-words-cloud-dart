@@ -52,6 +52,24 @@ class StructuredDocumentTagInsert extends StructuredDocumentTag {
       nodeId = null;
     }
 
+    if (json.containsKey('ListItems')) {
+      // Array processing
+      listItems = <StructuredDocumentTagListItem>[];
+      for(final _element in json['ListItems']) {
+        var _elementValue = StructuredDocumentTagListItem();
+        _elementValue.deserialize(_element as Map<String, dynamic>);
+        listItems!.add(_elementValue);
+      }
+    } else {
+      listItems = null;
+    }
+
+    if (json.containsKey('Checked')) {
+      checked = json['Checked'] as bool;
+    } else {
+      checked = null;
+    }
+
     if (json.containsKey('Appearance')) {
       switch (json['Appearance'] as String) {
         case 'Default': appearance = StructuredDocumentTag_AppearanceEnum.defaultValue; break;
@@ -64,16 +82,70 @@ class StructuredDocumentTagInsert extends StructuredDocumentTag {
       appearance = null;
     }
 
-    if (json.containsKey('BuildingBlockCategory')) {
-      buildingBlockCategory = json['BuildingBlockCategory'] as String;
+    if (json.containsKey('DateDisplayLocale')) {
+      dateDisplayLocale = json['DateDisplayLocale'] as int;
     } else {
-      buildingBlockCategory = null;
+      dateDisplayLocale = null;
+    }
+
+    if (json.containsKey('DateDisplayFormat')) {
+      dateDisplayFormat = json['DateDisplayFormat'] as String;
+    } else {
+      dateDisplayFormat = null;
+    }
+
+    if (json.containsKey('FullDate')) {
+      fullDate = DateTime.parse(json['FullDate'] as String);
+    } else {
+      fullDate = null;
+    }
+
+    if (json.containsKey('Title')) {
+      title = json['Title'] as String;
+    } else {
+      title = null;
+    }
+
+    if (json.containsKey('DateStorageFormat')) {
+      switch (json['DateStorageFormat'] as String) {
+        case 'Date': dateStorageFormat = StructuredDocumentTag_DateStorageFormatEnum.date; break;
+        case 'DateTime': dateStorageFormat = StructuredDocumentTag_DateStorageFormatEnum.dateTime; break;
+        case 'Default': dateStorageFormat = StructuredDocumentTag_DateStorageFormatEnum.defaultValue; break;
+        case 'Text': dateStorageFormat = StructuredDocumentTag_DateStorageFormatEnum.text; break;
+        default: dateStorageFormat = null; break;
+      }
+    } else {
+      dateStorageFormat = null;
     }
 
     if (json.containsKey('BuildingBlockGallery')) {
       buildingBlockGallery = json['BuildingBlockGallery'] as String;
     } else {
       buildingBlockGallery = null;
+    }
+
+    if (json.containsKey('BuildingBlockCategory')) {
+      buildingBlockCategory = json['BuildingBlockCategory'] as String;
+    } else {
+      buildingBlockCategory = null;
+    }
+
+    if (json.containsKey('Multiline')) {
+      multiline = json['Multiline'] as bool;
+    } else {
+      multiline = null;
+    }
+
+    if (json.containsKey('Color')) {
+      color = json['Color'] as String;
+    } else {
+      color = null;
+    }
+
+    if (json.containsKey('StyleName')) {
+      styleName = json['StyleName'] as String;
+    } else {
+      styleName = null;
     }
 
     if (json.containsKey('CalendarType')) {
@@ -99,60 +171,6 @@ class StructuredDocumentTagInsert extends StructuredDocumentTag {
       calendarType = null;
     }
 
-    if (json.containsKey('Checked')) {
-      checked = json['Checked'] as bool;
-    } else {
-      checked = null;
-    }
-
-    if (json.containsKey('Color')) {
-      color = json['Color'] as String;
-    } else {
-      color = null;
-    }
-
-    if (json.containsKey('DateDisplayFormat')) {
-      dateDisplayFormat = json['DateDisplayFormat'] as String;
-    } else {
-      dateDisplayFormat = null;
-    }
-
-    if (json.containsKey('DateDisplayLocale')) {
-      dateDisplayLocale = json['DateDisplayLocale'] as int;
-    } else {
-      dateDisplayLocale = null;
-    }
-
-    if (json.containsKey('DateStorageFormat')) {
-      switch (json['DateStorageFormat'] as String) {
-        case 'Date': dateStorageFormat = StructuredDocumentTag_DateStorageFormatEnum.date; break;
-        case 'DateTime': dateStorageFormat = StructuredDocumentTag_DateStorageFormatEnum.dateTime; break;
-        case 'Default': dateStorageFormat = StructuredDocumentTag_DateStorageFormatEnum.defaultValue; break;
-        case 'Text': dateStorageFormat = StructuredDocumentTag_DateStorageFormatEnum.text; break;
-        default: dateStorageFormat = null; break;
-      }
-    } else {
-      dateStorageFormat = null;
-    }
-
-    if (json.containsKey('FullDate')) {
-      fullDate = DateTime.parse(json['FullDate'] as String);
-    } else {
-      fullDate = null;
-    }
-
-    if (json.containsKey('Id')) {
-      id = json['Id'] as int;
-    } else {
-      id = null;
-    }
-
-    if (json.containsKey('IsShowingPlaceholderText')) {
-      isShowingPlaceholderText = json['IsShowingPlaceholderText'] as bool;
-    } else {
-      isShowingPlaceholderText = null;
-    }
-
     if (json.containsKey('IsTemporary')) {
       isTemporary = json['IsTemporary'] as bool;
     } else {
@@ -170,42 +188,6 @@ class StructuredDocumentTagInsert extends StructuredDocumentTag {
       }
     } else {
       level = null;
-    }
-
-    if (json.containsKey('ListItems')) {
-      // Array processing
-      listItems = <StructuredDocumentTagListItem>[];
-      for(final _element in json['ListItems']) {
-        var _elementValue = StructuredDocumentTagListItem();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        listItems!.add(_elementValue);
-      }
-    } else {
-      listItems = null;
-    }
-
-    if (json.containsKey('LockContentControl')) {
-      lockContentControl = json['LockContentControl'] as bool;
-    } else {
-      lockContentControl = null;
-    }
-
-    if (json.containsKey('LockContents')) {
-      lockContents = json['LockContents'] as bool;
-    } else {
-      lockContents = null;
-    }
-
-    if (json.containsKey('Multiline')) {
-      multiline = json['Multiline'] as bool;
-    } else {
-      multiline = null;
-    }
-
-    if (json.containsKey('PlaceholderName')) {
-      placeholderName = json['PlaceholderName'] as String;
-    } else {
-      placeholderName = null;
     }
 
     if (json.containsKey('SdtType')) {
@@ -233,10 +215,28 @@ class StructuredDocumentTagInsert extends StructuredDocumentTag {
       sdtType = null;
     }
 
-    if (json.containsKey('StyleName')) {
-      styleName = json['StyleName'] as String;
+    if (json.containsKey('PlaceholderName')) {
+      placeholderName = json['PlaceholderName'] as String;
     } else {
-      styleName = null;
+      placeholderName = null;
+    }
+
+    if (json.containsKey('LockContentControl')) {
+      lockContentControl = json['LockContentControl'] as bool;
+    } else {
+      lockContentControl = null;
+    }
+
+    if (json.containsKey('LockContents')) {
+      lockContents = json['LockContents'] as bool;
+    } else {
+      lockContents = null;
+    }
+
+    if (json.containsKey('IsShowingPlaceholderText')) {
+      isShowingPlaceholderText = json['IsShowingPlaceholderText'] as bool;
+    } else {
+      isShowingPlaceholderText = null;
     }
 
     if (json.containsKey('Tag')) {
@@ -245,10 +245,10 @@ class StructuredDocumentTagInsert extends StructuredDocumentTag {
       tag = null;
     }
 
-    if (json.containsKey('Title')) {
-      title = json['Title'] as String;
+    if (json.containsKey('Id')) {
+      id = json['Id'] as int;
     } else {
-      title = null;
+      id = null;
     }
 
     if (json.containsKey('WordOpenXML')) {

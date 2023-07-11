@@ -31,14 +31,6 @@ import '../../aspose_words_cloud.dart';
 
 /// Words document property DTO.
 class DocumentProperty extends LinkElement {
-  /// Gets or sets a value indicating whether the property is built-in or not.
-  /// If true the property is built-in, if false the property is custom.
-  bool? _builtIn;
-
-  bool? get builtIn => _builtIn;
-  set builtIn(bool? val) => _builtIn = val;
-
-
   /// Gets or sets the name of the document property.
   String? _name;
 
@@ -51,6 +43,14 @@ class DocumentProperty extends LinkElement {
 
   String? get value => _value;
   set value(String? val) => _value = val;
+
+
+  /// Gets or sets a value indicating whether the property is built-in or not.
+  /// If true the property is built-in, if false the property is custom.
+  bool? _builtIn;
+
+  bool? get builtIn => _builtIn;
+  set builtIn(bool? val) => _builtIn = val;
 
 
   @override
@@ -67,12 +67,6 @@ class DocumentProperty extends LinkElement {
       link = null;
     }
 
-    if (json.containsKey('BuiltIn')) {
-      builtIn = json['BuiltIn'] as bool;
-    } else {
-      builtIn = null;
-    }
-
     if (json.containsKey('Name')) {
       name = json['Name'] as String;
     } else {
@@ -84,22 +78,28 @@ class DocumentProperty extends LinkElement {
     } else {
       value = null;
     }
+
+    if (json.containsKey('BuiltIn')) {
+      builtIn = json['BuiltIn'] as bool;
+    } else {
+      builtIn = null;
+    }
   }
 
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (builtIn != null) {
-      _result['BuiltIn'] = builtIn!;
-    }
-
     if (name != null) {
       _result['Name'] = name!;
     }
 
     if (value != null) {
       _result['Value'] = value!;
+    }
+
+    if (builtIn != null) {
+      _result['BuiltIn'] = builtIn!;
     }
     return _result;
   }

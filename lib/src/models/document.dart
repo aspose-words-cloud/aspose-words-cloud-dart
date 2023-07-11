@@ -31,6 +31,13 @@ import '../../aspose_words_cloud.dart';
 
 /// Represents Words document DTO.
 class Document implements ModelBase {
+  /// Gets or sets the list of links that originate from this document.
+  List<Link?>? _links;
+
+  List<Link?>? get links => _links;
+  set links(List<Link?>? val) => _links = val;
+
+
   /// Gets or sets the document properties.
   DocumentProperties? _documentProperties;
 
@@ -59,13 +66,6 @@ class Document implements ModelBase {
   set isSigned(bool? val) => _isSigned = val;
 
 
-  /// Gets or sets the list of links that originate from this document.
-  List<Link?>? _links;
-
-  List<Link?>? get links => _links;
-  set links(List<Link?>? val) => _links = val;
-
-
   /// Gets or sets the original format of the document.
   Document_SourceFormatEnum? _sourceFormat;
 
@@ -77,6 +77,18 @@ class Document implements ModelBase {
   void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize Document data model.');
+    }
+
+    if (json.containsKey('Links')) {
+      // Array processing
+      links = <Link>[];
+      for(final _element in json['Links']) {
+        var _elementValue = Link();
+        _elementValue.deserialize(_element as Map<String, dynamic>);
+        links!.add(_elementValue);
+      }
+    } else {
+      links = null;
     }
 
     if (json.containsKey('DocumentProperties')) {
@@ -102,18 +114,6 @@ class Document implements ModelBase {
       isSigned = json['IsSigned'] as bool;
     } else {
       isSigned = null;
-    }
-
-    if (json.containsKey('Links')) {
-      // Array processing
-      links = <Link>[];
-      for(final _element in json['Links']) {
-        var _elementValue = Link();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        links!.add(_elementValue);
-      }
-    } else {
-      links = null;
     }
 
     if (json.containsKey('SourceFormat')) {
@@ -149,6 +149,10 @@ class Document implements ModelBase {
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
+    if (links != null) {
+      _result['Links'] = links!.map((_element) => _element?.serialize()).toList();
+    }
+
     if (documentProperties != null) {
       _result['DocumentProperties'] = documentProperties!.serialize();
     }
@@ -163,10 +167,6 @@ class Document implements ModelBase {
 
     if (isSigned != null) {
       _result['IsSigned'] = isSigned!;
-    }
-
-    if (links != null) {
-      _result['Links'] = links!.map((_element) => _element?.serialize()).toList();
     }
 
     if (sourceFormat != null) {
