@@ -31,18 +31,18 @@ import '../../aspose_words_cloud.dart';
 
 /// DTO container with a table element.
 class Table extends NodeLink {
-  /// Gets or sets table properties.
-  TableProperties? _tableProperties;
-
-  TableProperties? get tableProperties => _tableProperties;
-  set tableProperties(TableProperties? val) => _tableProperties = val;
-
-
   /// Gets or sets the collection of table's rows.
   List<TableRow?>? _tableRowList;
 
   List<TableRow?>? get tableRowList => _tableRowList;
   set tableRowList(List<TableRow?>? val) => _tableRowList = val;
+
+
+  /// Gets or sets table properties.
+  TableProperties? _tableProperties;
+
+  TableProperties? get tableProperties => _tableProperties;
+  set tableProperties(TableProperties? val) => _tableProperties = val;
 
 
   @override
@@ -65,13 +65,6 @@ class Table extends NodeLink {
       nodeId = null;
     }
 
-    if (json.containsKey('TableProperties')) {
-      tableProperties = TableProperties();
-      tableProperties!.deserialize(json['TableProperties'] as Map<String, dynamic>);
-    } else {
-      tableProperties = null;
-    }
-
     if (json.containsKey('TableRowList')) {
       // Array processing
       tableRowList = <TableRow>[];
@@ -83,18 +76,25 @@ class Table extends NodeLink {
     } else {
       tableRowList = null;
     }
+
+    if (json.containsKey('TableProperties')) {
+      tableProperties = TableProperties();
+      tableProperties!.deserialize(json['TableProperties'] as Map<String, dynamic>);
+    } else {
+      tableProperties = null;
+    }
   }
 
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (tableProperties != null) {
-      _result['TableProperties'] = tableProperties!.serialize();
-    }
-
     if (tableRowList != null) {
       _result['TableRowList'] = tableRowList!.map((_element) => _element?.serialize()).toList();
+    }
+
+    if (tableProperties != null) {
+      _result['TableProperties'] = tableProperties!.serialize();
     }
     return _result;
   }

@@ -31,18 +31,18 @@ import '../../aspose_words_cloud.dart';
 
 /// DTO container with a table row element.
 class TableRow extends NodeLink {
-  /// Gets or sets the formatting properties of a row.
-  TableRowFormat? _rowFormat;
-
-  TableRowFormat? get rowFormat => _rowFormat;
-  set rowFormat(TableRowFormat? val) => _rowFormat = val;
-
-
   /// Gets or sets the collection of rows.
   List<TableCell?>? _tableCellList;
 
   List<TableCell?>? get tableCellList => _tableCellList;
   set tableCellList(List<TableCell?>? val) => _tableCellList = val;
+
+
+  /// Gets or sets the formatting properties of a row.
+  TableRowFormat? _rowFormat;
+
+  TableRowFormat? get rowFormat => _rowFormat;
+  set rowFormat(TableRowFormat? val) => _rowFormat = val;
 
 
   @override
@@ -65,13 +65,6 @@ class TableRow extends NodeLink {
       nodeId = null;
     }
 
-    if (json.containsKey('RowFormat')) {
-      rowFormat = TableRowFormat();
-      rowFormat!.deserialize(json['RowFormat'] as Map<String, dynamic>);
-    } else {
-      rowFormat = null;
-    }
-
     if (json.containsKey('TableCellList')) {
       // Array processing
       tableCellList = <TableCell>[];
@@ -83,18 +76,25 @@ class TableRow extends NodeLink {
     } else {
       tableCellList = null;
     }
+
+    if (json.containsKey('RowFormat')) {
+      rowFormat = TableRowFormat();
+      rowFormat!.deserialize(json['RowFormat'] as Map<String, dynamic>);
+    } else {
+      rowFormat = null;
+    }
   }
 
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (rowFormat != null) {
-      _result['RowFormat'] = rowFormat!.serialize();
-    }
-
     if (tableCellList != null) {
       _result['TableCellList'] = tableCellList!.map((_element) => _element?.serialize()).toList();
+    }
+
+    if (rowFormat != null) {
+      _result['RowFormat'] = rowFormat!.serialize();
     }
     return _result;
   }

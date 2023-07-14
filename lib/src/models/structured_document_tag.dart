@@ -31,32 +31,11 @@ import '../../aspose_words_cloud.dart';
 
 /// DTO container with a StructuredDocumentTag.
 class StructuredDocumentTag extends NodeLink {
-  /// Gets or sets the appearance of a structured document tag.
-  StructuredDocumentTag_AppearanceEnum? _appearance;
+  /// Gets or sets Aspose.Words.Markup.SdtListItemCollection associated with this SDT.
+  List<StructuredDocumentTagListItem?>? _listItems;
 
-  StructuredDocumentTag_AppearanceEnum? get appearance => _appearance;
-  set appearance(StructuredDocumentTag_AppearanceEnum? val) => _appearance = val;
-
-
-  /// Gets or sets category of building block for this SDT node. Can not be null.
-  String? _buildingBlockCategory;
-
-  String? get buildingBlockCategory => _buildingBlockCategory;
-  set buildingBlockCategory(String? val) => _buildingBlockCategory = val;
-
-
-  /// Gets or sets type of building block for this SDT. Can not be null.
-  String? _buildingBlockGallery;
-
-  String? get buildingBlockGallery => _buildingBlockGallery;
-  set buildingBlockGallery(String? val) => _buildingBlockGallery = val;
-
-
-  /// Gets or sets the type of calendar for this SDT. Default is Aspose.Words.Markup.SdtCalendarType.Default.
-  StructuredDocumentTag_CalendarTypeEnum? _calendarType;
-
-  StructuredDocumentTag_CalendarTypeEnum? get calendarType => _calendarType;
-  set calendarType(StructuredDocumentTag_CalendarTypeEnum? val) => _calendarType = val;
+  List<StructuredDocumentTagListItem?>? get listItems => _listItems;
+  set listItems(List<StructuredDocumentTagListItem?>? val) => _listItems = val;
 
 
   /// Gets or sets a value indicating whether current state of the Checkbox SDT. Default value for this property.
@@ -66,11 +45,18 @@ class StructuredDocumentTag extends NodeLink {
   set checked(bool? val) => _checked = val;
 
 
-  /// Gets or sets the color of the structured document tag.
-  String? _color;
+  /// Gets or sets the appearance of a structured document tag.
+  StructuredDocumentTag_AppearanceEnum? _appearance;
 
-  String? get color => _color;
-  set color(String? val) => _color = val;
+  StructuredDocumentTag_AppearanceEnum? get appearance => _appearance;
+  set appearance(StructuredDocumentTag_AppearanceEnum? val) => _appearance = val;
+
+
+  /// Gets or sets the language format for the date displayed in this SDT.
+  int? _dateDisplayLocale;
+
+  int? get dateDisplayLocale => _dateDisplayLocale;
+  set dateDisplayLocale(int? val) => _dateDisplayLocale = val;
 
 
   /// Gets or sets String that represents the format in which dates are displayed. Can not be null. The dates for English (U.S.) is "mm/dd/yyyy".
@@ -80,11 +66,18 @@ class StructuredDocumentTag extends NodeLink {
   set dateDisplayFormat(String? val) => _dateDisplayFormat = val;
 
 
-  /// Gets or sets the language format for the date displayed in this SDT.
-  int? _dateDisplayLocale;
+  /// Gets or sets the full date and time last entered into this SDT.
+  DateTime? _fullDate;
 
-  int? get dateDisplayLocale => _dateDisplayLocale;
-  set dateDisplayLocale(int? val) => _dateDisplayLocale = val;
+  DateTime? get fullDate => _fullDate;
+  set fullDate(DateTime? val) => _fullDate = val;
+
+
+  /// Gets or sets the friendly name associated with this SDT. Can not be null.
+  String? _title;
+
+  String? get title => _title;
+  set title(String? val) => _title = val;
 
 
   /// Gets or sets format in which the date for a date SDT is stored when the SDT is bound to an XML node in the document's data store.
@@ -95,26 +88,46 @@ class StructuredDocumentTag extends NodeLink {
   set dateStorageFormat(StructuredDocumentTag_DateStorageFormatEnum? val) => _dateStorageFormat = val;
 
 
-  /// Gets or sets the full date and time last entered into this SDT.
-  DateTime? _fullDate;
+  /// Gets or sets type of building block for this SDT. Can not be null.
+  String? _buildingBlockGallery;
 
-  DateTime? get fullDate => _fullDate;
-  set fullDate(DateTime? val) => _fullDate = val;
-
-
-  /// Gets or sets a unique read-only persistent numerical Id for this SDT.
-  int? _id;
-
-  int? get id => _id;
-  set id(int? val) => _id = val;
+  String? get buildingBlockGallery => _buildingBlockGallery;
+  set buildingBlockGallery(String? val) => _buildingBlockGallery = val;
 
 
-  /// Gets or sets a value indicating whether the content of this SDT shall be interpreted to contain placeholder text (as opposed to regular text contents within the SDT).
-  /// If set to true, this state shall be resumed (showing placeholder text) upon opening his document.
-  bool? _isShowingPlaceholderText;
+  /// Gets or sets category of building block for this SDT node. Can not be null.
+  String? _buildingBlockCategory;
 
-  bool? get isShowingPlaceholderText => _isShowingPlaceholderText;
-  set isShowingPlaceholderText(bool? val) => _isShowingPlaceholderText = val;
+  String? get buildingBlockCategory => _buildingBlockCategory;
+  set buildingBlockCategory(String? val) => _buildingBlockCategory = val;
+
+
+  /// Gets or sets a value indicating whether this SDT allows multiple lines of text.
+  bool? _multiline;
+
+  bool? get multiline => _multiline;
+  set multiline(bool? val) => _multiline = val;
+
+
+  /// Gets or sets the color of the structured document tag.
+  String? _color;
+
+  String? get color => _color;
+  set color(String? val) => _color = val;
+
+
+  /// Gets or sets the name of the style applied to the structured document tag.
+  String? _styleName;
+
+  String? get styleName => _styleName;
+  set styleName(String? val) => _styleName = val;
+
+
+  /// Gets or sets the type of calendar for this SDT. Default is Aspose.Words.Markup.SdtCalendarType.Default.
+  StructuredDocumentTag_CalendarTypeEnum? _calendarType;
+
+  StructuredDocumentTag_CalendarTypeEnum? get calendarType => _calendarType;
+  set calendarType(StructuredDocumentTag_CalendarTypeEnum? val) => _calendarType = val;
 
 
   /// Gets or sets a value indicating whether this SDT shall be removed from the WordProcessingML document when its contents are modified.
@@ -131,11 +144,19 @@ class StructuredDocumentTag extends NodeLink {
   set level(StructuredDocumentTag_LevelEnum? val) => _level = val;
 
 
-  /// Gets or sets Aspose.Words.Markup.SdtListItemCollection associated with this SDT.
-  List<StructuredDocumentTagListItem?>? _listItems;
+  /// Gets or sets type of this Structured document tag.
+  StructuredDocumentTag_SdtTypeEnum? _sdtType;
 
-  List<StructuredDocumentTagListItem?>? get listItems => _listItems;
-  set listItems(List<StructuredDocumentTagListItem?>? val) => _listItems = val;
+  StructuredDocumentTag_SdtTypeEnum? get sdtType => _sdtType;
+  set sdtType(StructuredDocumentTag_SdtTypeEnum? val) => _sdtType = val;
+
+
+  /// Gets or sets Name of the Aspose.Words.BuildingBlocks.BuildingBlock containing placeholder text.
+  /// Aspose.Words.BuildingBlocks.BuildingBlock with this name Aspose.Words.BuildingBlocks.BuildingBlock.Name has to be present in the Aspose.Words.Document.GlossaryDocument otherwise System.InvalidOperationException will occur.
+  String? _placeholderName;
+
+  String? get placeholderName => _placeholderName;
+  set placeholderName(String? val) => _placeholderName = val;
 
 
   /// Gets or sets a value indicating whether, this property will prohibit a user from deleting this SDT.
@@ -152,33 +173,12 @@ class StructuredDocumentTag extends NodeLink {
   set lockContents(bool? val) => _lockContents = val;
 
 
-  /// Gets or sets a value indicating whether this SDT allows multiple lines of text.
-  bool? _multiline;
+  /// Gets or sets a value indicating whether the content of this SDT shall be interpreted to contain placeholder text (as opposed to regular text contents within the SDT).
+  /// If set to true, this state shall be resumed (showing placeholder text) upon opening his document.
+  bool? _isShowingPlaceholderText;
 
-  bool? get multiline => _multiline;
-  set multiline(bool? val) => _multiline = val;
-
-
-  /// Gets or sets Name of the Aspose.Words.BuildingBlocks.BuildingBlock containing placeholder text.
-  /// Aspose.Words.BuildingBlocks.BuildingBlock with this name Aspose.Words.BuildingBlocks.BuildingBlock.Name has to be present in the Aspose.Words.Document.GlossaryDocument otherwise System.InvalidOperationException will occur.
-  String? _placeholderName;
-
-  String? get placeholderName => _placeholderName;
-  set placeholderName(String? val) => _placeholderName = val;
-
-
-  /// Gets or sets type of this Structured document tag.
-  StructuredDocumentTag_SdtTypeEnum? _sdtType;
-
-  StructuredDocumentTag_SdtTypeEnum? get sdtType => _sdtType;
-  set sdtType(StructuredDocumentTag_SdtTypeEnum? val) => _sdtType = val;
-
-
-  /// Gets or sets the name of the style applied to the structured document tag.
-  String? _styleName;
-
-  String? get styleName => _styleName;
-  set styleName(String? val) => _styleName = val;
+  bool? get isShowingPlaceholderText => _isShowingPlaceholderText;
+  set isShowingPlaceholderText(bool? val) => _isShowingPlaceholderText = val;
 
 
   /// Gets or sets a tag associated with the current SDT node. Can not be null.
@@ -188,11 +188,11 @@ class StructuredDocumentTag extends NodeLink {
   set tag(String? val) => _tag = val;
 
 
-  /// Gets or sets the friendly name associated with this SDT. Can not be null.
-  String? _title;
+  /// Gets or sets a unique read-only persistent numerical Id for this SDT.
+  int? _id;
 
-  String? get title => _title;
-  set title(String? val) => _title = val;
+  int? get id => _id;
+  set id(int? val) => _id = val;
 
 
   /// Gets a string that represents the XML contained within the node in the Aspose.Words.SaveFormat.FlatOpc format.
@@ -222,6 +222,24 @@ class StructuredDocumentTag extends NodeLink {
       nodeId = null;
     }
 
+    if (json.containsKey('ListItems')) {
+      // Array processing
+      listItems = <StructuredDocumentTagListItem>[];
+      for(final _element in json['ListItems']) {
+        var _elementValue = StructuredDocumentTagListItem();
+        _elementValue.deserialize(_element as Map<String, dynamic>);
+        listItems!.add(_elementValue);
+      }
+    } else {
+      listItems = null;
+    }
+
+    if (json.containsKey('Checked')) {
+      checked = json['Checked'] as bool;
+    } else {
+      checked = null;
+    }
+
     if (json.containsKey('Appearance')) {
       switch (json['Appearance'] as String) {
         case 'Default': appearance = StructuredDocumentTag_AppearanceEnum.defaultValue; break;
@@ -234,16 +252,70 @@ class StructuredDocumentTag extends NodeLink {
       appearance = null;
     }
 
-    if (json.containsKey('BuildingBlockCategory')) {
-      buildingBlockCategory = json['BuildingBlockCategory'] as String;
+    if (json.containsKey('DateDisplayLocale')) {
+      dateDisplayLocale = json['DateDisplayLocale'] as int;
     } else {
-      buildingBlockCategory = null;
+      dateDisplayLocale = null;
+    }
+
+    if (json.containsKey('DateDisplayFormat')) {
+      dateDisplayFormat = json['DateDisplayFormat'] as String;
+    } else {
+      dateDisplayFormat = null;
+    }
+
+    if (json.containsKey('FullDate')) {
+      fullDate = DateTime.parse(json['FullDate'] as String);
+    } else {
+      fullDate = null;
+    }
+
+    if (json.containsKey('Title')) {
+      title = json['Title'] as String;
+    } else {
+      title = null;
+    }
+
+    if (json.containsKey('DateStorageFormat')) {
+      switch (json['DateStorageFormat'] as String) {
+        case 'Date': dateStorageFormat = StructuredDocumentTag_DateStorageFormatEnum.date; break;
+        case 'DateTime': dateStorageFormat = StructuredDocumentTag_DateStorageFormatEnum.dateTime; break;
+        case 'Default': dateStorageFormat = StructuredDocumentTag_DateStorageFormatEnum.defaultValue; break;
+        case 'Text': dateStorageFormat = StructuredDocumentTag_DateStorageFormatEnum.text; break;
+        default: dateStorageFormat = null; break;
+      }
+    } else {
+      dateStorageFormat = null;
     }
 
     if (json.containsKey('BuildingBlockGallery')) {
       buildingBlockGallery = json['BuildingBlockGallery'] as String;
     } else {
       buildingBlockGallery = null;
+    }
+
+    if (json.containsKey('BuildingBlockCategory')) {
+      buildingBlockCategory = json['BuildingBlockCategory'] as String;
+    } else {
+      buildingBlockCategory = null;
+    }
+
+    if (json.containsKey('Multiline')) {
+      multiline = json['Multiline'] as bool;
+    } else {
+      multiline = null;
+    }
+
+    if (json.containsKey('Color')) {
+      color = json['Color'] as String;
+    } else {
+      color = null;
+    }
+
+    if (json.containsKey('StyleName')) {
+      styleName = json['StyleName'] as String;
+    } else {
+      styleName = null;
     }
 
     if (json.containsKey('CalendarType')) {
@@ -269,60 +341,6 @@ class StructuredDocumentTag extends NodeLink {
       calendarType = null;
     }
 
-    if (json.containsKey('Checked')) {
-      checked = json['Checked'] as bool;
-    } else {
-      checked = null;
-    }
-
-    if (json.containsKey('Color')) {
-      color = json['Color'] as String;
-    } else {
-      color = null;
-    }
-
-    if (json.containsKey('DateDisplayFormat')) {
-      dateDisplayFormat = json['DateDisplayFormat'] as String;
-    } else {
-      dateDisplayFormat = null;
-    }
-
-    if (json.containsKey('DateDisplayLocale')) {
-      dateDisplayLocale = json['DateDisplayLocale'] as int;
-    } else {
-      dateDisplayLocale = null;
-    }
-
-    if (json.containsKey('DateStorageFormat')) {
-      switch (json['DateStorageFormat'] as String) {
-        case 'Date': dateStorageFormat = StructuredDocumentTag_DateStorageFormatEnum.date; break;
-        case 'DateTime': dateStorageFormat = StructuredDocumentTag_DateStorageFormatEnum.dateTime; break;
-        case 'Default': dateStorageFormat = StructuredDocumentTag_DateStorageFormatEnum.defaultValue; break;
-        case 'Text': dateStorageFormat = StructuredDocumentTag_DateStorageFormatEnum.text; break;
-        default: dateStorageFormat = null; break;
-      }
-    } else {
-      dateStorageFormat = null;
-    }
-
-    if (json.containsKey('FullDate')) {
-      fullDate = DateTime.parse(json['FullDate'] as String);
-    } else {
-      fullDate = null;
-    }
-
-    if (json.containsKey('Id')) {
-      id = json['Id'] as int;
-    } else {
-      id = null;
-    }
-
-    if (json.containsKey('IsShowingPlaceholderText')) {
-      isShowingPlaceholderText = json['IsShowingPlaceholderText'] as bool;
-    } else {
-      isShowingPlaceholderText = null;
-    }
-
     if (json.containsKey('IsTemporary')) {
       isTemporary = json['IsTemporary'] as bool;
     } else {
@@ -340,42 +358,6 @@ class StructuredDocumentTag extends NodeLink {
       }
     } else {
       level = null;
-    }
-
-    if (json.containsKey('ListItems')) {
-      // Array processing
-      listItems = <StructuredDocumentTagListItem>[];
-      for(final _element in json['ListItems']) {
-        var _elementValue = StructuredDocumentTagListItem();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        listItems!.add(_elementValue);
-      }
-    } else {
-      listItems = null;
-    }
-
-    if (json.containsKey('LockContentControl')) {
-      lockContentControl = json['LockContentControl'] as bool;
-    } else {
-      lockContentControl = null;
-    }
-
-    if (json.containsKey('LockContents')) {
-      lockContents = json['LockContents'] as bool;
-    } else {
-      lockContents = null;
-    }
-
-    if (json.containsKey('Multiline')) {
-      multiline = json['Multiline'] as bool;
-    } else {
-      multiline = null;
-    }
-
-    if (json.containsKey('PlaceholderName')) {
-      placeholderName = json['PlaceholderName'] as String;
-    } else {
-      placeholderName = null;
     }
 
     if (json.containsKey('SdtType')) {
@@ -403,10 +385,28 @@ class StructuredDocumentTag extends NodeLink {
       sdtType = null;
     }
 
-    if (json.containsKey('StyleName')) {
-      styleName = json['StyleName'] as String;
+    if (json.containsKey('PlaceholderName')) {
+      placeholderName = json['PlaceholderName'] as String;
     } else {
-      styleName = null;
+      placeholderName = null;
+    }
+
+    if (json.containsKey('LockContentControl')) {
+      lockContentControl = json['LockContentControl'] as bool;
+    } else {
+      lockContentControl = null;
+    }
+
+    if (json.containsKey('LockContents')) {
+      lockContents = json['LockContents'] as bool;
+    } else {
+      lockContents = null;
+    }
+
+    if (json.containsKey('IsShowingPlaceholderText')) {
+      isShowingPlaceholderText = json['IsShowingPlaceholderText'] as bool;
+    } else {
+      isShowingPlaceholderText = null;
     }
 
     if (json.containsKey('Tag')) {
@@ -415,10 +415,10 @@ class StructuredDocumentTag extends NodeLink {
       tag = null;
     }
 
-    if (json.containsKey('Title')) {
-      title = json['Title'] as String;
+    if (json.containsKey('Id')) {
+      id = json['Id'] as int;
     } else {
-      title = null;
+      id = null;
     }
 
     if (json.containsKey('WordOpenXML')) {
@@ -432,6 +432,14 @@ class StructuredDocumentTag extends NodeLink {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
+    if (listItems != null) {
+      _result['ListItems'] = listItems!.map((_element) => _element?.serialize()).toList();
+    }
+
+    if (checked != null) {
+      _result['Checked'] = checked!;
+    }
+
     if (appearance != null) {
       switch (appearance!) {
         case StructuredDocumentTag_AppearanceEnum.defaultValue: _result['Appearance'] = 'Default'; break;
@@ -442,12 +450,50 @@ class StructuredDocumentTag extends NodeLink {
       }
     }
 
-    if (buildingBlockCategory != null) {
-      _result['BuildingBlockCategory'] = buildingBlockCategory!;
+    if (dateDisplayLocale != null) {
+      _result['DateDisplayLocale'] = dateDisplayLocale!;
+    }
+
+    if (dateDisplayFormat != null) {
+      _result['DateDisplayFormat'] = dateDisplayFormat!;
+    }
+
+    if (fullDate != null) {
+      _result['FullDate'] = fullDate!.toIso8601String();
+    }
+
+    if (title != null) {
+      _result['Title'] = title!;
+    }
+
+    if (dateStorageFormat != null) {
+      switch (dateStorageFormat!) {
+        case StructuredDocumentTag_DateStorageFormatEnum.date: _result['DateStorageFormat'] = 'Date'; break;
+        case StructuredDocumentTag_DateStorageFormatEnum.dateTime: _result['DateStorageFormat'] = 'DateTime'; break;
+        case StructuredDocumentTag_DateStorageFormatEnum.defaultValue: _result['DateStorageFormat'] = 'Default'; break;
+        case StructuredDocumentTag_DateStorageFormatEnum.text: _result['DateStorageFormat'] = 'Text'; break;
+        default: break;
+      }
     }
 
     if (buildingBlockGallery != null) {
       _result['BuildingBlockGallery'] = buildingBlockGallery!;
+    }
+
+    if (buildingBlockCategory != null) {
+      _result['BuildingBlockCategory'] = buildingBlockCategory!;
+    }
+
+    if (multiline != null) {
+      _result['Multiline'] = multiline!;
+    }
+
+    if (color != null) {
+      _result['Color'] = color!;
+    }
+
+    if (styleName != null) {
+      _result['StyleName'] = styleName!;
     }
 
     if (calendarType != null) {
@@ -471,44 +517,6 @@ class StructuredDocumentTag extends NodeLink {
       }
     }
 
-    if (checked != null) {
-      _result['Checked'] = checked!;
-    }
-
-    if (color != null) {
-      _result['Color'] = color!;
-    }
-
-    if (dateDisplayFormat != null) {
-      _result['DateDisplayFormat'] = dateDisplayFormat!;
-    }
-
-    if (dateDisplayLocale != null) {
-      _result['DateDisplayLocale'] = dateDisplayLocale!;
-    }
-
-    if (dateStorageFormat != null) {
-      switch (dateStorageFormat!) {
-        case StructuredDocumentTag_DateStorageFormatEnum.date: _result['DateStorageFormat'] = 'Date'; break;
-        case StructuredDocumentTag_DateStorageFormatEnum.dateTime: _result['DateStorageFormat'] = 'DateTime'; break;
-        case StructuredDocumentTag_DateStorageFormatEnum.defaultValue: _result['DateStorageFormat'] = 'Default'; break;
-        case StructuredDocumentTag_DateStorageFormatEnum.text: _result['DateStorageFormat'] = 'Text'; break;
-        default: break;
-      }
-    }
-
-    if (fullDate != null) {
-      _result['FullDate'] = fullDate!.toIso8601String();
-    }
-
-    if (id != null) {
-      _result['Id'] = id!;
-    }
-
-    if (isShowingPlaceholderText != null) {
-      _result['IsShowingPlaceholderText'] = isShowingPlaceholderText!;
-    }
-
     if (isTemporary != null) {
       _result['IsTemporary'] = isTemporary!;
     }
@@ -522,26 +530,6 @@ class StructuredDocumentTag extends NodeLink {
         case StructuredDocumentTag_LevelEnum.cell: _result['Level'] = 'Cell'; break;
         default: break;
       }
-    }
-
-    if (listItems != null) {
-      _result['ListItems'] = listItems!.map((_element) => _element?.serialize()).toList();
-    }
-
-    if (lockContentControl != null) {
-      _result['LockContentControl'] = lockContentControl!;
-    }
-
-    if (lockContents != null) {
-      _result['LockContents'] = lockContents!;
-    }
-
-    if (multiline != null) {
-      _result['Multiline'] = multiline!;
-    }
-
-    if (placeholderName != null) {
-      _result['PlaceholderName'] = placeholderName!;
     }
 
     if (sdtType != null) {
@@ -567,16 +555,28 @@ class StructuredDocumentTag extends NodeLink {
       }
     }
 
-    if (styleName != null) {
-      _result['StyleName'] = styleName!;
+    if (placeholderName != null) {
+      _result['PlaceholderName'] = placeholderName!;
+    }
+
+    if (lockContentControl != null) {
+      _result['LockContentControl'] = lockContentControl!;
+    }
+
+    if (lockContents != null) {
+      _result['LockContents'] = lockContents!;
+    }
+
+    if (isShowingPlaceholderText != null) {
+      _result['IsShowingPlaceholderText'] = isShowingPlaceholderText!;
     }
 
     if (tag != null) {
       _result['Tag'] = tag!;
     }
 
-    if (title != null) {
-      _result['Title'] = title!;
+    if (id != null) {
+      _result['Id'] = id!;
     }
 
     if (wordOpenXML != null) {
@@ -599,6 +599,16 @@ enum StructuredDocumentTag_AppearanceEnum
   hidden
 }
 
+/// Gets or sets format in which the date for a date SDT is stored when the SDT is bound to an XML node in the document's data store.
+/// Default value is Aspose.Words.Markup.SdtDateStorageFormat.DateTime.
+enum StructuredDocumentTag_DateStorageFormatEnum
+{ 
+  date,
+  dateTime,
+  defaultValue,
+  text
+}
+
 /// Gets or sets the type of calendar for this SDT. Default is Aspose.Words.Markup.SdtCalendarType.Default.
 enum StructuredDocumentTag_CalendarTypeEnum
 { 
@@ -617,16 +627,6 @@ enum StructuredDocumentTag_CalendarTypeEnum
   saka,
   taiwan,
   thai
-}
-
-/// Gets or sets format in which the date for a date SDT is stored when the SDT is bound to an XML node in the document's data store.
-/// Default value is Aspose.Words.Markup.SdtDateStorageFormat.DateTime.
-enum StructuredDocumentTag_DateStorageFormatEnum
-{ 
-  date,
-  dateTime,
-  defaultValue,
-  text
 }
 
 /// Gets or sets the level at which this SDT occurs in the document tree.

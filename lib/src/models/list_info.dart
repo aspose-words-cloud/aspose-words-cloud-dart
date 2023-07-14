@@ -31,18 +31,11 @@ import '../../aspose_words_cloud.dart';
 
 /// DTO container with a single document list.
 class ListInfo extends LinkElement {
-  /// Gets or sets a value indicating whether this list is a definition of a list style.
-  bool? _isListStyleDefinition;
+  /// Gets or sets the unique identifier of the list.
+  int? _listId;
 
-  bool? get isListStyleDefinition => _isListStyleDefinition;
-  set isListStyleDefinition(bool? val) => _isListStyleDefinition = val;
-
-
-  /// Gets or sets a value indicating whether this list is a reference to a list style.
-  bool? _isListStyleReference;
-
-  bool? get isListStyleReference => _isListStyleReference;
-  set isListStyleReference(bool? val) => _isListStyleReference = val;
+  int? get listId => _listId;
+  set listId(int? val) => _listId = val;
 
 
   /// Gets or sets a value indicating whether the list contains 9 levels; false when 1 level.
@@ -59,18 +52,18 @@ class ListInfo extends LinkElement {
   set isRestartAtEachSection(bool? val) => _isRestartAtEachSection = val;
 
 
-  /// Gets or sets the unique identifier of the list.
-  int? _listId;
+  /// Gets or sets a value indicating whether this list is a definition of a list style.
+  bool? _isListStyleDefinition;
 
-  int? get listId => _listId;
-  set listId(int? val) => _listId = val;
+  bool? get isListStyleDefinition => _isListStyleDefinition;
+  set isListStyleDefinition(bool? val) => _isListStyleDefinition = val;
 
 
-  /// Gets or sets the collection of list levels for this list.
-  ListLevels? _listLevels;
+  /// Gets or sets a value indicating whether this list is a reference to a list style.
+  bool? _isListStyleReference;
 
-  ListLevels? get listLevels => _listLevels;
-  set listLevels(ListLevels? val) => _listLevels = val;
+  bool? get isListStyleReference => _isListStyleReference;
+  set isListStyleReference(bool? val) => _isListStyleReference = val;
 
 
   /// Gets or sets the list style that this list references or defines.
@@ -78,6 +71,13 @@ class ListInfo extends LinkElement {
 
   Style? get style => _style;
   set style(Style? val) => _style = val;
+
+
+  /// Gets or sets the collection of list levels for this list.
+  ListLevels? _listLevels;
+
+  ListLevels? get listLevels => _listLevels;
+  set listLevels(ListLevels? val) => _listLevels = val;
 
 
   @override
@@ -94,16 +94,10 @@ class ListInfo extends LinkElement {
       link = null;
     }
 
-    if (json.containsKey('IsListStyleDefinition')) {
-      isListStyleDefinition = json['IsListStyleDefinition'] as bool;
+    if (json.containsKey('ListId')) {
+      listId = json['ListId'] as int;
     } else {
-      isListStyleDefinition = null;
-    }
-
-    if (json.containsKey('IsListStyleReference')) {
-      isListStyleReference = json['IsListStyleReference'] as bool;
-    } else {
-      isListStyleReference = null;
+      listId = null;
     }
 
     if (json.containsKey('IsMultiLevel')) {
@@ -118,17 +112,16 @@ class ListInfo extends LinkElement {
       isRestartAtEachSection = null;
     }
 
-    if (json.containsKey('ListId')) {
-      listId = json['ListId'] as int;
+    if (json.containsKey('IsListStyleDefinition')) {
+      isListStyleDefinition = json['IsListStyleDefinition'] as bool;
     } else {
-      listId = null;
+      isListStyleDefinition = null;
     }
 
-    if (json.containsKey('ListLevels')) {
-      listLevels = ListLevels();
-      listLevels!.deserialize(json['ListLevels'] as Map<String, dynamic>);
+    if (json.containsKey('IsListStyleReference')) {
+      isListStyleReference = json['IsListStyleReference'] as bool;
     } else {
-      listLevels = null;
+      isListStyleReference = null;
     }
 
     if (json.containsKey('Style')) {
@@ -137,18 +130,21 @@ class ListInfo extends LinkElement {
     } else {
       style = null;
     }
+
+    if (json.containsKey('ListLevels')) {
+      listLevels = ListLevels();
+      listLevels!.deserialize(json['ListLevels'] as Map<String, dynamic>);
+    } else {
+      listLevels = null;
+    }
   }
 
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (isListStyleDefinition != null) {
-      _result['IsListStyleDefinition'] = isListStyleDefinition!;
-    }
-
-    if (isListStyleReference != null) {
-      _result['IsListStyleReference'] = isListStyleReference!;
+    if (listId != null) {
+      _result['ListId'] = listId!;
     }
 
     if (isMultiLevel != null) {
@@ -159,16 +155,20 @@ class ListInfo extends LinkElement {
       _result['IsRestartAtEachSection'] = isRestartAtEachSection!;
     }
 
-    if (listId != null) {
-      _result['ListId'] = listId!;
+    if (isListStyleDefinition != null) {
+      _result['IsListStyleDefinition'] = isListStyleDefinition!;
     }
 
-    if (listLevels != null) {
-      _result['ListLevels'] = listLevels!.serialize();
+    if (isListStyleReference != null) {
+      _result['IsListStyleReference'] = isListStyleReference!;
     }
 
     if (style != null) {
       _result['Style'] = style!.serialize();
+    }
+
+    if (listLevels != null) {
+      _result['ListLevels'] = listLevels!.serialize();
     }
     return _result;
   }

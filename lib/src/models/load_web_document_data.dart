@@ -31,18 +31,18 @@ import '../../aspose_words_cloud.dart';
 
 /// Contains data for load web document.
 class LoadWebDocumentData implements ModelBase {
-  /// Gets or sets the web document URL.
-  String? _loadingDocumentUrl;
-
-  String? get loadingDocumentUrl => _loadingDocumentUrl;
-  set loadingDocumentUrl(String? val) => _loadingDocumentUrl = val;
-
-
   /// Gets or sets the save options.
   SaveOptionsData? _saveOptions;
 
   SaveOptionsData? get saveOptions => _saveOptions;
   set saveOptions(SaveOptionsData? val) => _saveOptions = val;
+
+
+  /// Gets or sets the web document URL.
+  String? _loadingDocumentUrl;
+
+  String? get loadingDocumentUrl => _loadingDocumentUrl;
+  set loadingDocumentUrl(String? val) => _loadingDocumentUrl = val;
 
 
   @override
@@ -51,28 +51,28 @@ class LoadWebDocumentData implements ModelBase {
       throw ApiException(400, 'Failed to deserialize LoadWebDocumentData data model.');
     }
 
-    if (json.containsKey('LoadingDocumentUrl')) {
-      loadingDocumentUrl = json['LoadingDocumentUrl'] as String;
-    } else {
-      loadingDocumentUrl = null;
-    }
-
     if (json.containsKey('SaveOptions')) {
       throw ApiException(400, 'Cannot deserialize abstract data model SaveOptionsData.');
     } else {
       saveOptions = null;
+    }
+
+    if (json.containsKey('LoadingDocumentUrl')) {
+      loadingDocumentUrl = json['LoadingDocumentUrl'] as String;
+    } else {
+      loadingDocumentUrl = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
-    if (loadingDocumentUrl != null) {
-      _result['LoadingDocumentUrl'] = loadingDocumentUrl!;
-    }
-
     if (saveOptions != null) {
       _result['SaveOptions'] = saveOptions!.serialize();
+    }
+
+    if (loadingDocumentUrl != null) {
+      _result['LoadingDocumentUrl'] = loadingDocumentUrl!;
     }
     return _result;
   }

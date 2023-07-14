@@ -293,13 +293,6 @@ class HtmlSaveOptionsData extends SaveOptionsData {
   set resourceFolderAlias(String? val) => _resourceFolderAlias = val;
 
 
-  /// Gets the format of save.
-  String? _saveFormat = 'html';
-
-  @override
-  String? get saveFormat => _saveFormat;
-
-
   /// Gets or sets a value indicating whether images are scaled by Aspose.Words to the bounding shape size when exporting.
   bool? _scaleImageToShapeSize;
 
@@ -312,6 +305,13 @@ class HtmlSaveOptionsData extends SaveOptionsData {
 
   HtmlSaveOptionsData_TableWidthOutputModeEnum? get tableWidthOutputMode => _tableWidthOutputMode;
   set tableWidthOutputMode(HtmlSaveOptionsData_TableWidthOutputModeEnum? val) => _tableWidthOutputMode = val;
+
+
+  /// Gets the format of save.
+  String? _saveFormat = 'html';
+
+  @override
+  String? get saveFormat => _saveFormat;
 
 
   @override
@@ -873,10 +873,6 @@ class HtmlSaveOptionsData extends SaveOptionsData {
       _result['ResourceFolderAlias'] = resourceFolderAlias!;
     }
 
-    if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat!;
-    }
-
     if (scaleImageToShapeSize != null) {
       _result['ScaleImageToShapeSize'] = scaleImageToShapeSize!;
     }
@@ -888,6 +884,10 @@ class HtmlSaveOptionsData extends SaveOptionsData {
         case HtmlSaveOptionsData_TableWidthOutputModeEnum.none: _result['TableWidthOutputMode'] = 'None'; break;
         default: break;
       }
+    }
+
+    if (saveFormat != null) {
+      _result['SaveFormat'] = saveFormat!;
     }
     return _result;
   }

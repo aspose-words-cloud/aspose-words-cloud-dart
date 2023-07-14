@@ -38,11 +38,11 @@ class Section extends LinkElement {
   set childNodes(List<NodeLink?>? val) => _childNodes = val;
 
 
-  /// Gets or sets the link to HeaderFooters resource.
-  LinkElement? _headerFooters;
+  /// Gets or sets the link to Paragraphs resource.
+  LinkElement? _paragraphs;
 
-  LinkElement? get headerFooters => _headerFooters;
-  set headerFooters(LinkElement? val) => _headerFooters = val;
+  LinkElement? get paragraphs => _paragraphs;
+  set paragraphs(LinkElement? val) => _paragraphs = val;
 
 
   /// Gets or sets the link to PageSetup resource.
@@ -52,11 +52,11 @@ class Section extends LinkElement {
   set pageSetup(LinkElement? val) => _pageSetup = val;
 
 
-  /// Gets or sets the link to Paragraphs resource.
-  LinkElement? _paragraphs;
+  /// Gets or sets the link to HeaderFooters resource.
+  LinkElement? _headerFooters;
 
-  LinkElement? get paragraphs => _paragraphs;
-  set paragraphs(LinkElement? val) => _paragraphs = val;
+  LinkElement? get headerFooters => _headerFooters;
+  set headerFooters(LinkElement? val) => _headerFooters = val;
 
 
   /// Gets or sets the link to Tables resource.
@@ -92,11 +92,11 @@ class Section extends LinkElement {
       childNodes = null;
     }
 
-    if (json.containsKey('HeaderFooters')) {
-      headerFooters = LinkElement();
-      headerFooters!.deserialize(json['HeaderFooters'] as Map<String, dynamic>);
+    if (json.containsKey('Paragraphs')) {
+      paragraphs = LinkElement();
+      paragraphs!.deserialize(json['Paragraphs'] as Map<String, dynamic>);
     } else {
-      headerFooters = null;
+      paragraphs = null;
     }
 
     if (json.containsKey('PageSetup')) {
@@ -106,11 +106,11 @@ class Section extends LinkElement {
       pageSetup = null;
     }
 
-    if (json.containsKey('Paragraphs')) {
-      paragraphs = LinkElement();
-      paragraphs!.deserialize(json['Paragraphs'] as Map<String, dynamic>);
+    if (json.containsKey('HeaderFooters')) {
+      headerFooters = LinkElement();
+      headerFooters!.deserialize(json['HeaderFooters'] as Map<String, dynamic>);
     } else {
-      paragraphs = null;
+      headerFooters = null;
     }
 
     if (json.containsKey('Tables')) {
@@ -129,16 +129,16 @@ class Section extends LinkElement {
       _result['ChildNodes'] = childNodes!.map((_element) => _element?.serialize()).toList();
     }
 
-    if (headerFooters != null) {
-      _result['HeaderFooters'] = headerFooters!.serialize();
+    if (paragraphs != null) {
+      _result['Paragraphs'] = paragraphs!.serialize();
     }
 
     if (pageSetup != null) {
       _result['PageSetup'] = pageSetup!.serialize();
     }
 
-    if (paragraphs != null) {
-      _result['Paragraphs'] = paragraphs!.serialize();
+    if (headerFooters != null) {
+      _result['HeaderFooters'] = headerFooters!.serialize();
     }
 
     if (tables != null) {

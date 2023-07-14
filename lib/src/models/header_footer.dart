@@ -38,18 +38,18 @@ class HeaderFooter extends HeaderFooterLink {
   set childNodes(List<NodeLink?>? val) => _childNodes = val;
 
 
-  /// Gets or sets the link to DrawingObjects resource.
-  LinkElement? _drawingObjects;
-
-  LinkElement? get drawingObjects => _drawingObjects;
-  set drawingObjects(LinkElement? val) => _drawingObjects = val;
-
-
   /// Gets or sets the link to Paragraphs resource.
   LinkElement? _paragraphs;
 
   LinkElement? get paragraphs => _paragraphs;
   set paragraphs(LinkElement? val) => _paragraphs = val;
+
+
+  /// Gets or sets the link to DrawingObjects resource.
+  LinkElement? _drawingObjects;
+
+  LinkElement? get drawingObjects => _drawingObjects;
+  set drawingObjects(LinkElement? val) => _drawingObjects = val;
 
 
   @override
@@ -92,18 +92,18 @@ class HeaderFooter extends HeaderFooterLink {
       childNodes = null;
     }
 
-    if (json.containsKey('DrawingObjects')) {
-      drawingObjects = LinkElement();
-      drawingObjects!.deserialize(json['DrawingObjects'] as Map<String, dynamic>);
-    } else {
-      drawingObjects = null;
-    }
-
     if (json.containsKey('Paragraphs')) {
       paragraphs = LinkElement();
       paragraphs!.deserialize(json['Paragraphs'] as Map<String, dynamic>);
     } else {
       paragraphs = null;
+    }
+
+    if (json.containsKey('DrawingObjects')) {
+      drawingObjects = LinkElement();
+      drawingObjects!.deserialize(json['DrawingObjects'] as Map<String, dynamic>);
+    } else {
+      drawingObjects = null;
     }
   }
 
@@ -115,12 +115,12 @@ class HeaderFooter extends HeaderFooterLink {
       _result['ChildNodes'] = childNodes!.map((_element) => _element?.serialize()).toList();
     }
 
-    if (drawingObjects != null) {
-      _result['DrawingObjects'] = drawingObjects!.serialize();
-    }
-
     if (paragraphs != null) {
       _result['Paragraphs'] = paragraphs!.serialize();
+    }
+
+    if (drawingObjects != null) {
+      _result['DrawingObjects'] = drawingObjects!.serialize();
     }
     return _result;
   }

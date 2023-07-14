@@ -39,6 +39,20 @@ class CommentUpdate extends CommentBase {
     }
 
     super.deserialize(json);
+    if (json.containsKey('RangeStart')) {
+      rangeStart = NewDocumentPosition();
+      rangeStart!.deserialize(json['RangeStart'] as Map<String, dynamic>);
+    } else {
+      rangeStart = null;
+    }
+
+    if (json.containsKey('RangeEnd')) {
+      rangeEnd = NewDocumentPosition();
+      rangeEnd!.deserialize(json['RangeEnd'] as Map<String, dynamic>);
+    } else {
+      rangeEnd = null;
+    }
+
     if (json.containsKey('Author')) {
       author = json['Author'] as String;
     } else {
@@ -55,20 +69,6 @@ class CommentUpdate extends CommentBase {
       initial = json['Initial'] as String;
     } else {
       initial = null;
-    }
-
-    if (json.containsKey('RangeEnd')) {
-      rangeEnd = NewDocumentPosition();
-      rangeEnd!.deserialize(json['RangeEnd'] as Map<String, dynamic>);
-    } else {
-      rangeEnd = null;
-    }
-
-    if (json.containsKey('RangeStart')) {
-      rangeStart = NewDocumentPosition();
-      rangeStart!.deserialize(json['RangeStart'] as Map<String, dynamic>);
-    } else {
-      rangeStart = null;
     }
 
     if (json.containsKey('Text')) {

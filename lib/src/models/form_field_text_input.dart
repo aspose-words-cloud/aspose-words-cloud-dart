@@ -31,20 +31,6 @@ import '../../aspose_words_cloud.dart';
 
 /// FormField text input element.
 class FormFieldTextInput extends FormField {
-  /// Gets or sets the maximum length for the text field. Zero when the length is not limited.
-  int? _maxLength;
-
-  int? get maxLength => _maxLength;
-  set maxLength(int? val) => _maxLength = val;
-
-
-  /// Gets or sets the default string or a calculation expression of the text form field.
-  String? _textInputDefault;
-
-  String? get textInputDefault => _textInputDefault;
-  set textInputDefault(String? val) => _textInputDefault = val;
-
-
   /// Gets or sets text formatting for the text form field.
   String? _textInputFormat;
 
@@ -57,6 +43,20 @@ class FormFieldTextInput extends FormField {
 
   FormFieldTextInput_TextInputTypeEnum? get textInputType => _textInputType;
   set textInputType(FormFieldTextInput_TextInputTypeEnum? val) => _textInputType = val;
+
+
+  /// Gets or sets the default string or a calculation expression of the text form field.
+  String? _textInputDefault;
+
+  String? get textInputDefault => _textInputDefault;
+  set textInputDefault(String? val) => _textInputDefault = val;
+
+
+  /// Gets or sets the maximum length for the text field. Zero when the length is not limited.
+  int? _maxLength;
+
+  int? get maxLength => _maxLength;
+  set maxLength(int? val) => _maxLength = val;
 
 
   @override
@@ -79,16 +79,46 @@ class FormFieldTextInput extends FormField {
       nodeId = null;
     }
 
-    if (json.containsKey('CalculateOnExit')) {
-      calculateOnExit = json['CalculateOnExit'] as bool;
+    if (json.containsKey('Name')) {
+      name = json['Name'] as String;
     } else {
-      calculateOnExit = null;
+      name = null;
     }
 
     if (json.containsKey('Enabled')) {
       enabled = json['Enabled'] as bool;
     } else {
       enabled = null;
+    }
+
+    if (json.containsKey('StatusText')) {
+      statusText = json['StatusText'] as String;
+    } else {
+      statusText = null;
+    }
+
+    if (json.containsKey('OwnStatus')) {
+      ownStatus = json['OwnStatus'] as bool;
+    } else {
+      ownStatus = null;
+    }
+
+    if (json.containsKey('HelpText')) {
+      helpText = json['HelpText'] as String;
+    } else {
+      helpText = null;
+    }
+
+    if (json.containsKey('OwnHelp')) {
+      ownHelp = json['OwnHelp'] as bool;
+    } else {
+      ownHelp = null;
+    }
+
+    if (json.containsKey('CalculateOnExit')) {
+      calculateOnExit = json['CalculateOnExit'] as bool;
+    } else {
+      calculateOnExit = null;
     }
 
     if (json.containsKey('EntryMacro')) {
@@ -101,48 +131,6 @@ class FormFieldTextInput extends FormField {
       exitMacro = json['ExitMacro'] as String;
     } else {
       exitMacro = null;
-    }
-
-    if (json.containsKey('HelpText')) {
-      helpText = json['HelpText'] as String;
-    } else {
-      helpText = null;
-    }
-
-    if (json.containsKey('Name')) {
-      name = json['Name'] as String;
-    } else {
-      name = null;
-    }
-
-    if (json.containsKey('OwnHelp')) {
-      ownHelp = json['OwnHelp'] as bool;
-    } else {
-      ownHelp = null;
-    }
-
-    if (json.containsKey('OwnStatus')) {
-      ownStatus = json['OwnStatus'] as bool;
-    } else {
-      ownStatus = null;
-    }
-
-    if (json.containsKey('StatusText')) {
-      statusText = json['StatusText'] as String;
-    } else {
-      statusText = null;
-    }
-
-    if (json.containsKey('MaxLength')) {
-      maxLength = json['MaxLength'] as int;
-    } else {
-      maxLength = null;
-    }
-
-    if (json.containsKey('TextInputDefault')) {
-      textInputDefault = json['TextInputDefault'] as String;
-    } else {
-      textInputDefault = null;
     }
 
     if (json.containsKey('TextInputFormat')) {
@@ -164,20 +152,24 @@ class FormFieldTextInput extends FormField {
     } else {
       textInputType = null;
     }
+
+    if (json.containsKey('TextInputDefault')) {
+      textInputDefault = json['TextInputDefault'] as String;
+    } else {
+      textInputDefault = null;
+    }
+
+    if (json.containsKey('MaxLength')) {
+      maxLength = json['MaxLength'] as int;
+    } else {
+      maxLength = null;
+    }
   }
 
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (maxLength != null) {
-      _result['MaxLength'] = maxLength!;
-    }
-
-    if (textInputDefault != null) {
-      _result['TextInputDefault'] = textInputDefault!;
-    }
-
     if (textInputFormat != null) {
       _result['TextInputFormat'] = textInputFormat!;
     }
@@ -192,6 +184,14 @@ class FormFieldTextInput extends FormField {
         case FormFieldTextInput_TextInputTypeEnum.calculated: _result['TextInputType'] = 'Calculated'; break;
         default: break;
       }
+    }
+
+    if (textInputDefault != null) {
+      _result['TextInputDefault'] = textInputDefault!;
+    }
+
+    if (maxLength != null) {
+      _result['MaxLength'] = maxLength!;
     }
     return _result;
   }

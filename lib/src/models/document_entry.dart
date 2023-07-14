@@ -39,10 +39,10 @@ class DocumentEntry extends BaseEntry {
 
 
   /// Gets or sets the option that controls formatting will be used: appended or destination document. Can be KeepSourceFormatting or UseDestinationStyles.
-  String? _importFormatMode;
+  DocumentEntry_ImportFormatModeEnum? _importFormatMode;
 
-  String? get importFormatMode => _importFormatMode;
-  set importFormatMode(String? val) => _importFormatMode = val;
+  DocumentEntry_ImportFormatModeEnum? get importFormatMode => _importFormatMode;
+  set importFormatMode(DocumentEntry_ImportFormatModeEnum? val) => _importFormatMode = val;
 
 
   @override
@@ -65,7 +65,12 @@ class DocumentEntry extends BaseEntry {
     }
 
     if (json.containsKey('ImportFormatMode')) {
-      importFormatMode = json['ImportFormatMode'] as String;
+      switch (json['ImportFormatMode'] as String) {
+        case 'UseDestinationStyles': importFormatMode = DocumentEntry_ImportFormatModeEnum.useDestinationStyles; break;
+        case 'KeepSourceFormatting': importFormatMode = DocumentEntry_ImportFormatModeEnum.keepSourceFormatting; break;
+        case 'KeepDifferentStyles': importFormatMode = DocumentEntry_ImportFormatModeEnum.keepDifferentStyles; break;
+        default: importFormatMode = null; break;
+      }
     } else {
       importFormatMode = null;
     }
@@ -80,7 +85,12 @@ class DocumentEntry extends BaseEntry {
     }
 
     if (importFormatMode != null) {
-      _result['ImportFormatMode'] = importFormatMode!;
+      switch (importFormatMode!) {
+        case DocumentEntry_ImportFormatModeEnum.useDestinationStyles: _result['ImportFormatMode'] = 'UseDestinationStyles'; break;
+        case DocumentEntry_ImportFormatModeEnum.keepSourceFormatting: _result['ImportFormatMode'] = 'KeepSourceFormatting'; break;
+        case DocumentEntry_ImportFormatModeEnum.keepDifferentStyles: _result['ImportFormatMode'] = 'KeepDifferentStyles'; break;
+        default: break;
+      }
     }
     return _result;
   }
@@ -91,4 +101,11 @@ class DocumentEntry extends BaseEntry {
   }
 }
 
+/// Gets or sets the option that controls formatting will be used: appended or destination document. Can be KeepSourceFormatting or UseDestinationStyles.
+enum DocumentEntry_ImportFormatModeEnum
+{ 
+  useDestinationStyles,
+  keepSourceFormatting,
+  keepDifferentStyles
+}
 

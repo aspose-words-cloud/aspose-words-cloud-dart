@@ -31,13 +31,6 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for tiff save options.
 class TiffSaveOptionsData extends ImageSaveOptionsData {
-  /// Gets the format of save.
-  String? _saveFormat = 'tiff';
-
-  @override
-  String? get saveFormat => _saveFormat;
-
-
   /// Gets or sets the threshold that determines the value of the binarization error in the Floyd-Steinberg method. when ImageBinarizationMethod is ImageBinarizationMethod.FloydSteinbergDithering.
   /// Default value is 128.
   int? _thresholdForFloydSteinbergDithering;
@@ -58,6 +51,13 @@ class TiffSaveOptionsData extends ImageSaveOptionsData {
 
   TiffSaveOptionsData_TiffCompressionEnum? get tiffCompression => _tiffCompression;
   set tiffCompression(TiffSaveOptionsData_TiffCompressionEnum? val) => _tiffCompression = val;
+
+
+  /// Gets the format of save.
+  String? _saveFormat = 'tiff';
+
+  @override
+  String? get saveFormat => _saveFormat;
 
 
   @override
@@ -289,12 +289,6 @@ class TiffSaveOptionsData extends ImageSaveOptionsData {
       useAntiAliasing = null;
     }
 
-    if (json.containsKey('UseGdiEmfRenderer')) {
-      useGdiEmfRenderer = json['UseGdiEmfRenderer'] as bool;
-    } else {
-      useGdiEmfRenderer = null;
-    }
-
     if (json.containsKey('UseHighQualityRendering')) {
       useHighQualityRendering = json['UseHighQualityRendering'] as bool;
     } else {
@@ -305,6 +299,12 @@ class TiffSaveOptionsData extends ImageSaveOptionsData {
       verticalResolution = json['VerticalResolution'] as double;
     } else {
       verticalResolution = null;
+    }
+
+    if (json.containsKey('UseGdiEmfRenderer')) {
+      useGdiEmfRenderer = json['UseGdiEmfRenderer'] as bool;
+    } else {
+      useGdiEmfRenderer = null;
     }
 
     if (json.containsKey('ThresholdForFloydSteinbergDithering')) {
@@ -341,10 +341,6 @@ class TiffSaveOptionsData extends ImageSaveOptionsData {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat!;
-    }
-
     if (thresholdForFloydSteinbergDithering != null) {
       _result['ThresholdForFloydSteinbergDithering'] = thresholdForFloydSteinbergDithering!;
     }
@@ -366,6 +362,10 @@ class TiffSaveOptionsData extends ImageSaveOptionsData {
         case TiffSaveOptionsData_TiffCompressionEnum.ccitt4: _result['TiffCompression'] = 'Ccitt4'; break;
         default: break;
       }
+    }
+
+    if (saveFormat != null) {
+      _result['SaveFormat'] = saveFormat!;
     }
     return _result;
   }

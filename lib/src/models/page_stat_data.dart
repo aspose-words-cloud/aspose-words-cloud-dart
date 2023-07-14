@@ -38,13 +38,6 @@ class PageStatData implements ModelBase {
   set footnotesStatData(FootnotesStatData? val) => _footnotesStatData = val;
 
 
-  /// Gets or sets the page number.
-  int? _pageNumber;
-
-  int? get pageNumber => _pageNumber;
-  set pageNumber(int? val) => _pageNumber = val;
-
-
   /// Gets or sets the total count of paragraphs in the page.
   int? _paragraphCount;
 
@@ -57,6 +50,13 @@ class PageStatData implements ModelBase {
 
   int? get wordCount => _wordCount;
   set wordCount(int? val) => _wordCount = val;
+
+
+  /// Gets or sets the page number.
+  int? _pageNumber;
+
+  int? get pageNumber => _pageNumber;
+  set pageNumber(int? val) => _pageNumber = val;
 
 
   @override
@@ -72,12 +72,6 @@ class PageStatData implements ModelBase {
       footnotesStatData = null;
     }
 
-    if (json.containsKey('PageNumber')) {
-      pageNumber = json['PageNumber'] as int;
-    } else {
-      pageNumber = null;
-    }
-
     if (json.containsKey('ParagraphCount')) {
       paragraphCount = json['ParagraphCount'] as int;
     } else {
@@ -89,6 +83,12 @@ class PageStatData implements ModelBase {
     } else {
       wordCount = null;
     }
+
+    if (json.containsKey('PageNumber')) {
+      pageNumber = json['PageNumber'] as int;
+    } else {
+      pageNumber = null;
+    }
   }
 
   @override
@@ -98,16 +98,16 @@ class PageStatData implements ModelBase {
       _result['FootnotesStatData'] = footnotesStatData!.serialize();
     }
 
-    if (pageNumber != null) {
-      _result['PageNumber'] = pageNumber!;
-    }
-
     if (paragraphCount != null) {
       _result['ParagraphCount'] = paragraphCount!;
     }
 
     if (wordCount != null) {
       _result['WordCount'] = wordCount!;
+    }
+
+    if (pageNumber != null) {
+      _result['PageNumber'] = pageNumber!;
     }
     return _result;
   }

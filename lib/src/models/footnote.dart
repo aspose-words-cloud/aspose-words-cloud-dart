@@ -31,11 +31,11 @@ import '../../aspose_words_cloud.dart';
 
 /// DTO container with a footnote.
 class Footnote extends FootnoteLink {
-  /// Gets or sets the content of the footnote.
-  StoryChildNodes? _content;
+  /// Gets or sets the link to comment range start node.
+  DocumentPosition? _position;
 
-  StoryChildNodes? get content => _content;
-  set content(StoryChildNodes? val) => _content = val;
+  DocumentPosition? get position => _position;
+  set position(DocumentPosition? val) => _position = val;
 
 
   /// Gets or sets the value, that specifies whether this is a footnote or endnote.
@@ -43,13 +43,6 @@ class Footnote extends FootnoteLink {
 
   Footnote_FootnoteTypeEnum? get footnoteType => _footnoteType;
   set footnoteType(Footnote_FootnoteTypeEnum? val) => _footnoteType = val;
-
-
-  /// Gets or sets the link to comment range start node.
-  DocumentPosition? _position;
-
-  DocumentPosition? get position => _position;
-  set position(DocumentPosition? val) => _position = val;
 
 
   /// Gets or sets the custom reference mark to be used for this footnote.
@@ -65,6 +58,13 @@ class Footnote extends FootnoteLink {
 
   String? get text => _text;
   set text(String? val) => _text = val;
+
+
+  /// Gets or sets the content of the footnote.
+  StoryChildNodes? _content;
+
+  StoryChildNodes? get content => _content;
+  set content(StoryChildNodes? val) => _content = val;
 
 
   @override
@@ -87,11 +87,11 @@ class Footnote extends FootnoteLink {
       nodeId = null;
     }
 
-    if (json.containsKey('Content')) {
-      content = StoryChildNodes();
-      content!.deserialize(json['Content'] as Map<String, dynamic>);
+    if (json.containsKey('Position')) {
+      position = DocumentPosition();
+      position!.deserialize(json['Position'] as Map<String, dynamic>);
     } else {
-      content = null;
+      position = null;
     }
 
     if (json.containsKey('FootnoteType')) {
@@ -102,13 +102,6 @@ class Footnote extends FootnoteLink {
       }
     } else {
       footnoteType = null;
-    }
-
-    if (json.containsKey('Position')) {
-      position = DocumentPosition();
-      position!.deserialize(json['Position'] as Map<String, dynamic>);
-    } else {
-      position = null;
     }
 
     if (json.containsKey('ReferenceMark')) {
@@ -122,14 +115,21 @@ class Footnote extends FootnoteLink {
     } else {
       text = null;
     }
+
+    if (json.containsKey('Content')) {
+      content = StoryChildNodes();
+      content!.deserialize(json['Content'] as Map<String, dynamic>);
+    } else {
+      content = null;
+    }
   }
 
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (content != null) {
-      _result['Content'] = content!.serialize();
+    if (position != null) {
+      _result['Position'] = position!.serialize();
     }
 
     if (footnoteType != null) {
@@ -140,16 +140,16 @@ class Footnote extends FootnoteLink {
       }
     }
 
-    if (position != null) {
-      _result['Position'] = position!.serialize();
-    }
-
     if (referenceMark != null) {
       _result['ReferenceMark'] = referenceMark!;
     }
 
     if (text != null) {
       _result['Text'] = text!;
+    }
+
+    if (content != null) {
+      _result['Content'] = content!.serialize();
     }
     return _result;
   }

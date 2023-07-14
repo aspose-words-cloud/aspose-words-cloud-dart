@@ -31,13 +31,6 @@ import '../../aspose_words_cloud.dart';
 
 /// Result of saving.
 class SaveResult implements ModelBase {
-  /// Gets or sets the list of links to additional items (css, images etc).
-  List<FileLink?>? _additionalItems;
-
-  List<FileLink?>? get additionalItems => _additionalItems;
-  set additionalItems(List<FileLink?>? val) => _additionalItems = val;
-
-
   /// Gets or sets the link to destination document.
   FileLink? _destDocument;
 
@@ -52,22 +45,17 @@ class SaveResult implements ModelBase {
   set sourceDocument(FileLink? val) => _sourceDocument = val;
 
 
+  /// Gets or sets the list of links to additional items (css, images etc).
+  List<FileLink?>? _additionalItems;
+
+  List<FileLink?>? get additionalItems => _additionalItems;
+  set additionalItems(List<FileLink?>? val) => _additionalItems = val;
+
+
   @override
   void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize SaveResult data model.');
-    }
-
-    if (json.containsKey('AdditionalItems')) {
-      // Array processing
-      additionalItems = <FileLink>[];
-      for(final _element in json['AdditionalItems']) {
-        var _elementValue = FileLink();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        additionalItems!.add(_elementValue);
-      }
-    } else {
-      additionalItems = null;
     }
 
     if (json.containsKey('DestDocument')) {
@@ -83,21 +71,33 @@ class SaveResult implements ModelBase {
     } else {
       sourceDocument = null;
     }
+
+    if (json.containsKey('AdditionalItems')) {
+      // Array processing
+      additionalItems = <FileLink>[];
+      for(final _element in json['AdditionalItems']) {
+        var _elementValue = FileLink();
+        _elementValue.deserialize(_element as Map<String, dynamic>);
+        additionalItems!.add(_elementValue);
+      }
+    } else {
+      additionalItems = null;
+    }
   }
 
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
-    if (additionalItems != null) {
-      _result['AdditionalItems'] = additionalItems!.map((_element) => _element?.serialize()).toList();
-    }
-
     if (destDocument != null) {
       _result['DestDocument'] = destDocument!.serialize();
     }
 
     if (sourceDocument != null) {
       _result['SourceDocument'] = sourceDocument!.serialize();
+    }
+
+    if (additionalItems != null) {
+      _result['AdditionalItems'] = additionalItems!.map((_element) => _element?.serialize()).toList();
     }
     return _result;
   }

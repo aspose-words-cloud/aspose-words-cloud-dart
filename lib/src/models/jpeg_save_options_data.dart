@@ -267,12 +267,6 @@ class JpegSaveOptionsData extends ImageSaveOptionsData {
       useAntiAliasing = null;
     }
 
-    if (json.containsKey('UseGdiEmfRenderer')) {
-      useGdiEmfRenderer = json['UseGdiEmfRenderer'] as bool;
-    } else {
-      useGdiEmfRenderer = null;
-    }
-
     if (json.containsKey('UseHighQualityRendering')) {
       useHighQualityRendering = json['UseHighQualityRendering'] as bool;
     } else {
@@ -283,6 +277,12 @@ class JpegSaveOptionsData extends ImageSaveOptionsData {
       verticalResolution = json['VerticalResolution'] as double;
     } else {
       verticalResolution = null;
+    }
+
+    if (json.containsKey('UseGdiEmfRenderer')) {
+      useGdiEmfRenderer = json['UseGdiEmfRenderer'] as bool;
+    } else {
+      useGdiEmfRenderer = null;
     }
   }
 

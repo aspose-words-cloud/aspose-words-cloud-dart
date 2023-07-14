@@ -119,13 +119,6 @@ class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   set saveFontFaceCssSeparately(bool? val) => _saveFontFaceCssSeparately = val;
 
 
-  /// Gets the format of save.
-  String? _saveFormat = 'htmlfixed';
-
-  @override
-  String? get saveFormat => _saveFormat;
-
-
   /// Gets or sets a value indicating whether to show border around pages.
   bool? _showPageBorder;
 
@@ -138,6 +131,13 @@ class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
 
   bool? get useTargetMachineFonts => _useTargetMachineFonts;
   set useTargetMachineFonts(bool? val) => _useTargetMachineFonts = val;
+
+
+  /// Gets the format of save.
+  String? _saveFormat = 'htmlfixed';
+
+  @override
+  String? get saveFormat => _saveFormat;
 
 
   @override
@@ -452,16 +452,16 @@ class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
       _result['SaveFontFaceCssSeparately'] = saveFontFaceCssSeparately!;
     }
 
-    if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat!;
-    }
-
     if (showPageBorder != null) {
       _result['ShowPageBorder'] = showPageBorder!;
     }
 
     if (useTargetMachineFonts != null) {
       _result['UseTargetMachineFonts'] = useTargetMachineFonts!;
+    }
+
+    if (saveFormat != null) {
+      _result['SaveFormat'] = saveFormat!;
     }
     return _result;
   }

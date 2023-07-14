@@ -144,13 +144,6 @@ class ParagraphFormatBase extends LinkElement {
   set rightIndent(double? val) => _rightIndent = val;
 
 
-  /// Gets or sets the Shading object, that refers to the shading formatting for the paragraph.
-  Shading? _shading;
-
-  Shading? get shading => _shading;
-  set shading(Shading? val) => _shading = val;
-
-
   /// Gets or sets the amount of spacing (in points) after the paragraph.
   double? _spaceAfter;
 
@@ -212,6 +205,13 @@ class ParagraphFormatBase extends LinkElement {
 
   bool? get widowControl => _widowControl;
   set widowControl(bool? val) => _widowControl = val;
+
+
+  /// Gets or sets the Shading object, that refers to the shading formatting for the paragraph.
+  Shading? _shading;
+
+  Shading? get shading => _shading;
+  set shading(Shading? val) => _shading = val;
 
 
   @override
@@ -356,13 +356,6 @@ class ParagraphFormatBase extends LinkElement {
       rightIndent = json['RightIndent'] as double;
     } else {
       rightIndent = null;
-    }
-
-    if (json.containsKey('Shading')) {
-      shading = Shading();
-      shading!.deserialize(json['Shading'] as Map<String, dynamic>);
-    } else {
-      shading = null;
     }
 
     if (json.containsKey('SpaceAfter')) {
@@ -798,6 +791,13 @@ class ParagraphFormatBase extends LinkElement {
     } else {
       widowControl = null;
     }
+
+    if (json.containsKey('Shading')) {
+      shading = Shading();
+      shading!.deserialize(json['Shading'] as Map<String, dynamic>);
+    } else {
+      shading = null;
+    }
   }
 
   @override
@@ -900,10 +900,6 @@ class ParagraphFormatBase extends LinkElement {
 
     if (rightIndent != null) {
       _result['RightIndent'] = rightIndent!;
-    }
-
-    if (shading != null) {
-      _result['Shading'] = shading!.serialize();
     }
 
     if (spaceAfter != null) {
@@ -1320,6 +1316,10 @@ class ParagraphFormatBase extends LinkElement {
 
     if (widowControl != null) {
       _result['WidowControl'] = widowControl!;
+    }
+
+    if (shading != null) {
+      _result['Shading'] = shading!.serialize();
     }
     return _result;
   }

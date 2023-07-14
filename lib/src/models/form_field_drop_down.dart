@@ -65,16 +65,46 @@ class FormFieldDropDown extends FormField {
       nodeId = null;
     }
 
-    if (json.containsKey('CalculateOnExit')) {
-      calculateOnExit = json['CalculateOnExit'] as bool;
+    if (json.containsKey('Name')) {
+      name = json['Name'] as String;
     } else {
-      calculateOnExit = null;
+      name = null;
     }
 
     if (json.containsKey('Enabled')) {
       enabled = json['Enabled'] as bool;
     } else {
       enabled = null;
+    }
+
+    if (json.containsKey('StatusText')) {
+      statusText = json['StatusText'] as String;
+    } else {
+      statusText = null;
+    }
+
+    if (json.containsKey('OwnStatus')) {
+      ownStatus = json['OwnStatus'] as bool;
+    } else {
+      ownStatus = null;
+    }
+
+    if (json.containsKey('HelpText')) {
+      helpText = json['HelpText'] as String;
+    } else {
+      helpText = null;
+    }
+
+    if (json.containsKey('OwnHelp')) {
+      ownHelp = json['OwnHelp'] as bool;
+    } else {
+      ownHelp = null;
+    }
+
+    if (json.containsKey('CalculateOnExit')) {
+      calculateOnExit = json['CalculateOnExit'] as bool;
+    } else {
+      calculateOnExit = null;
     }
 
     if (json.containsKey('EntryMacro')) {
@@ -87,36 +117,6 @@ class FormFieldDropDown extends FormField {
       exitMacro = json['ExitMacro'] as String;
     } else {
       exitMacro = null;
-    }
-
-    if (json.containsKey('HelpText')) {
-      helpText = json['HelpText'] as String;
-    } else {
-      helpText = null;
-    }
-
-    if (json.containsKey('Name')) {
-      name = json['Name'] as String;
-    } else {
-      name = null;
-    }
-
-    if (json.containsKey('OwnHelp')) {
-      ownHelp = json['OwnHelp'] as bool;
-    } else {
-      ownHelp = null;
-    }
-
-    if (json.containsKey('OwnStatus')) {
-      ownStatus = json['OwnStatus'] as bool;
-    } else {
-      ownStatus = null;
-    }
-
-    if (json.containsKey('StatusText')) {
-      statusText = json['StatusText'] as String;
-    } else {
-      statusText = null;
     }
 
     if (json.containsKey('DropDownItems')) {

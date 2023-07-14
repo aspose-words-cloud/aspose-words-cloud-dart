@@ -31,6 +31,13 @@ import '../../aspose_words_cloud.dart';
 
 /// FormField checkbox element.
 class FormFieldCheckbox extends FormField {
+  /// Gets or sets a value indicating whether the size of the textbox is automatic or specified explicitly.
+  bool? _isCheckBoxExactSize;
+
+  bool? get isCheckBoxExactSize => _isCheckBoxExactSize;
+  set isCheckBoxExactSize(bool? val) => _isCheckBoxExactSize = val;
+
+
   /// Gets or sets the size of the checkbox in points. Has effect only when IsCheckBoxExactSize is true.
   double? _checkBoxSize;
 
@@ -43,13 +50,6 @@ class FormFieldCheckbox extends FormField {
 
   bool? get checked => _checked;
   set checked(bool? val) => _checked = val;
-
-
-  /// Gets or sets a value indicating whether the size of the textbox is automatic or specified explicitly.
-  bool? _isCheckBoxExactSize;
-
-  bool? get isCheckBoxExactSize => _isCheckBoxExactSize;
-  set isCheckBoxExactSize(bool? val) => _isCheckBoxExactSize = val;
 
 
   @override
@@ -72,16 +72,46 @@ class FormFieldCheckbox extends FormField {
       nodeId = null;
     }
 
-    if (json.containsKey('CalculateOnExit')) {
-      calculateOnExit = json['CalculateOnExit'] as bool;
+    if (json.containsKey('Name')) {
+      name = json['Name'] as String;
     } else {
-      calculateOnExit = null;
+      name = null;
     }
 
     if (json.containsKey('Enabled')) {
       enabled = json['Enabled'] as bool;
     } else {
       enabled = null;
+    }
+
+    if (json.containsKey('StatusText')) {
+      statusText = json['StatusText'] as String;
+    } else {
+      statusText = null;
+    }
+
+    if (json.containsKey('OwnStatus')) {
+      ownStatus = json['OwnStatus'] as bool;
+    } else {
+      ownStatus = null;
+    }
+
+    if (json.containsKey('HelpText')) {
+      helpText = json['HelpText'] as String;
+    } else {
+      helpText = null;
+    }
+
+    if (json.containsKey('OwnHelp')) {
+      ownHelp = json['OwnHelp'] as bool;
+    } else {
+      ownHelp = null;
+    }
+
+    if (json.containsKey('CalculateOnExit')) {
+      calculateOnExit = json['CalculateOnExit'] as bool;
+    } else {
+      calculateOnExit = null;
     }
 
     if (json.containsKey('EntryMacro')) {
@@ -96,34 +126,10 @@ class FormFieldCheckbox extends FormField {
       exitMacro = null;
     }
 
-    if (json.containsKey('HelpText')) {
-      helpText = json['HelpText'] as String;
+    if (json.containsKey('IsCheckBoxExactSize')) {
+      isCheckBoxExactSize = json['IsCheckBoxExactSize'] as bool;
     } else {
-      helpText = null;
-    }
-
-    if (json.containsKey('Name')) {
-      name = json['Name'] as String;
-    } else {
-      name = null;
-    }
-
-    if (json.containsKey('OwnHelp')) {
-      ownHelp = json['OwnHelp'] as bool;
-    } else {
-      ownHelp = null;
-    }
-
-    if (json.containsKey('OwnStatus')) {
-      ownStatus = json['OwnStatus'] as bool;
-    } else {
-      ownStatus = null;
-    }
-
-    if (json.containsKey('StatusText')) {
-      statusText = json['StatusText'] as String;
-    } else {
-      statusText = null;
+      isCheckBoxExactSize = null;
     }
 
     if (json.containsKey('CheckBoxSize')) {
@@ -137,28 +143,22 @@ class FormFieldCheckbox extends FormField {
     } else {
       checked = null;
     }
-
-    if (json.containsKey('IsCheckBoxExactSize')) {
-      isCheckBoxExactSize = json['IsCheckBoxExactSize'] as bool;
-    } else {
-      isCheckBoxExactSize = null;
-    }
   }
 
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
+    if (isCheckBoxExactSize != null) {
+      _result['IsCheckBoxExactSize'] = isCheckBoxExactSize!;
+    }
+
     if (checkBoxSize != null) {
       _result['CheckBoxSize'] = checkBoxSize!;
     }
 
     if (checked != null) {
       _result['Checked'] = checked!;
-    }
-
-    if (isCheckBoxExactSize != null) {
-      _result['IsCheckBoxExactSize'] = isCheckBoxExactSize!;
     }
     return _result;
   }

@@ -31,6 +31,20 @@ import '../../aspose_words_cloud.dart';
 
 /// Comment.
 abstract class CommentBase implements ModelBase {
+  /// Gets or sets the link to comment range start node.
+  NewDocumentPosition? _rangeStart;
+
+  NewDocumentPosition? get rangeStart => _rangeStart;
+  set rangeStart(NewDocumentPosition? val) => _rangeStart = val;
+
+
+  /// Gets or sets the link to comment range end node.
+  NewDocumentPosition? _rangeEnd;
+
+  NewDocumentPosition? get rangeEnd => _rangeEnd;
+  set rangeEnd(NewDocumentPosition? val) => _rangeEnd = val;
+
+
   /// Gets or sets the author name for a comment.
   String? _author;
 
@@ -52,20 +66,6 @@ abstract class CommentBase implements ModelBase {
   set initial(String? val) => _initial = val;
 
 
-  /// Gets or sets the link to comment range end node.
-  NewDocumentPosition? _rangeEnd;
-
-  NewDocumentPosition? get rangeEnd => _rangeEnd;
-  set rangeEnd(NewDocumentPosition? val) => _rangeEnd = val;
-
-
-  /// Gets or sets the link to comment range start node.
-  NewDocumentPosition? _rangeStart;
-
-  NewDocumentPosition? get rangeStart => _rangeStart;
-  set rangeStart(NewDocumentPosition? val) => _rangeStart = val;
-
-
   /// Gets or sets text of the comment.
   String? _text;
 
@@ -77,6 +77,20 @@ abstract class CommentBase implements ModelBase {
   void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize CommentBase data model.');
+    }
+
+    if (json.containsKey('RangeStart')) {
+      rangeStart = NewDocumentPosition();
+      rangeStart!.deserialize(json['RangeStart'] as Map<String, dynamic>);
+    } else {
+      rangeStart = null;
+    }
+
+    if (json.containsKey('RangeEnd')) {
+      rangeEnd = NewDocumentPosition();
+      rangeEnd!.deserialize(json['RangeEnd'] as Map<String, dynamic>);
+    } else {
+      rangeEnd = null;
     }
 
     if (json.containsKey('Author')) {
@@ -97,20 +111,6 @@ abstract class CommentBase implements ModelBase {
       initial = null;
     }
 
-    if (json.containsKey('RangeEnd')) {
-      rangeEnd = NewDocumentPosition();
-      rangeEnd!.deserialize(json['RangeEnd'] as Map<String, dynamic>);
-    } else {
-      rangeEnd = null;
-    }
-
-    if (json.containsKey('RangeStart')) {
-      rangeStart = NewDocumentPosition();
-      rangeStart!.deserialize(json['RangeStart'] as Map<String, dynamic>);
-    } else {
-      rangeStart = null;
-    }
-
     if (json.containsKey('Text')) {
       text = json['Text'] as String;
     } else {
@@ -121,6 +121,14 @@ abstract class CommentBase implements ModelBase {
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
+    if (rangeStart != null) {
+      _result['RangeStart'] = rangeStart!.serialize();
+    }
+
+    if (rangeEnd != null) {
+      _result['RangeEnd'] = rangeEnd!.serialize();
+    }
+
     if (author != null) {
       _result['Author'] = author!;
     }
@@ -131,14 +139,6 @@ abstract class CommentBase implements ModelBase {
 
     if (initial != null) {
       _result['Initial'] = initial!;
-    }
-
-    if (rangeEnd != null) {
-      _result['RangeEnd'] = rangeEnd!.serialize();
-    }
-
-    if (rangeStart != null) {
-      _result['RangeStart'] = rangeStart!.serialize();
     }
 
     if (text != null) {

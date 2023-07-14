@@ -31,18 +31,18 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for ps save options.
 class PsSaveOptionsData extends FixedPageSaveOptionsData {
-  /// Gets the format of save.
-  String? _saveFormat = 'ps';
-
-  @override
-  String? get saveFormat => _saveFormat;
-
-
   /// Gets or sets a value indicating whether the document should be saved using a booklet printing layout.
   bool? _useBookFoldPrintingSettings;
 
   bool? get useBookFoldPrintingSettings => _useBookFoldPrintingSettings;
   set useBookFoldPrintingSettings(bool? val) => _useBookFoldPrintingSettings = val;
+
+
+  /// Gets the format of save.
+  String? _saveFormat = 'ps';
+
+  @override
+  String? get saveFormat => _saveFormat;
 
 
   @override
@@ -213,12 +213,12 @@ class PsSaveOptionsData extends FixedPageSaveOptionsData {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat!;
-    }
-
     if (useBookFoldPrintingSettings != null) {
       _result['UseBookFoldPrintingSettings'] = useBookFoldPrintingSettings!;
+    }
+
+    if (saveFormat != null) {
+      _result['SaveFormat'] = saveFormat!;
     }
     return _result;
   }

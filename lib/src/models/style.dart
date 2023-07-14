@@ -31,18 +31,11 @@ import '../../aspose_words_cloud.dart';
 
 /// DTO container with a single document style.
 class Style extends LinkElement {
-  /// Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.
-  List<String?>? _aliases;
+  /// Gets or sets the character formatting of the style.
+  Font? _font;
 
-  List<String?>? get aliases => _aliases;
-  set aliases(List<String?>? val) => _aliases = val;
-
-
-  /// Gets or sets the name of the style this style is based on.
-  String? _baseStyleName;
-
-  String? get baseStyleName => _baseStyleName;
-  set baseStyleName(String? val) => _baseStyleName = val;
+  Font? get font => _font;
+  set font(Font? val) => _font = val;
 
 
   /// Gets or sets a value indicating whether this style is one of the built-in styles in MS Word.
@@ -52,18 +45,18 @@ class Style extends LinkElement {
   set builtIn(bool? val) => _builtIn = val;
 
 
-  /// Gets or sets the character formatting of the style.
-  Font? _font;
+  /// Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
+  String? _nextParagraphStyleName;
 
-  Font? get font => _font;
-  set font(Font? val) => _font = val;
+  String? get nextParagraphStyleName => _nextParagraphStyleName;
+  set nextParagraphStyleName(String? val) => _nextParagraphStyleName = val;
 
 
-  /// Gets or sets a value indicating whether the style is one of the built-in Heading styles.
-  bool? _isHeading;
+  /// Gets or sets the name of the style this style is based on.
+  String? _baseStyleName;
 
-  bool? get isHeading => _isHeading;
-  set isHeading(bool? val) => _isHeading = val;
+  String? get baseStyleName => _baseStyleName;
+  set baseStyleName(String? val) => _baseStyleName = val;
 
 
   /// Gets or sets a value indicating whether this style is shown in the Quick Style gallery inside MS Word UI.
@@ -80,18 +73,25 @@ class Style extends LinkElement {
   set linkedStyleName(String? val) => _linkedStyleName = val;
 
 
-  /// Gets or sets the name of the style.
-  String? _name;
+  /// Gets or sets the style type (paragraph or character).
+  Style_TypeEnum? _type;
 
-  String? get name => _name;
-  set name(String? val) => _name = val;
+  Style_TypeEnum? get type => _type;
+  set type(Style_TypeEnum? val) => _type = val;
 
 
-  /// Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
-  String? _nextParagraphStyleName;
+  /// Gets or sets a value indicating whether the style is one of the built-in Heading styles.
+  bool? _isHeading;
 
-  String? get nextParagraphStyleName => _nextParagraphStyleName;
-  set nextParagraphStyleName(String? val) => _nextParagraphStyleName = val;
+  bool? get isHeading => _isHeading;
+  set isHeading(bool? val) => _isHeading = val;
+
+
+  /// Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.
+  List<String?>? _aliases;
+
+  List<String?>? get aliases => _aliases;
+  set aliases(List<String?>? val) => _aliases = val;
 
 
   /// Gets or sets the locale independent style identifier for a built-in style.
@@ -101,11 +101,11 @@ class Style extends LinkElement {
   set styleIdentifier(Style_StyleIdentifierEnum? val) => _styleIdentifier = val;
 
 
-  /// Gets or sets the style type (paragraph or character).
-  Style_TypeEnum? _type;
+  /// Gets or sets the name of the style.
+  String? _name;
 
-  Style_TypeEnum? get type => _type;
-  set type(Style_TypeEnum? val) => _type = val;
+  String? get name => _name;
+  set name(String? val) => _name = val;
 
 
   @override
@@ -122,20 +122,11 @@ class Style extends LinkElement {
       link = null;
     }
 
-    if (json.containsKey('Aliases')) {
-      // Array processing
-      aliases = <String>[];
-      for(final _element in json['Aliases']) {
-        aliases!.add(_element as String);
-      }
+    if (json.containsKey('Font')) {
+      font = Font();
+      font!.deserialize(json['Font'] as Map<String, dynamic>);
     } else {
-      aliases = null;
-    }
-
-    if (json.containsKey('BaseStyleName')) {
-      baseStyleName = json['BaseStyleName'] as String;
-    } else {
-      baseStyleName = null;
+      font = null;
     }
 
     if (json.containsKey('BuiltIn')) {
@@ -144,17 +135,16 @@ class Style extends LinkElement {
       builtIn = null;
     }
 
-    if (json.containsKey('Font')) {
-      font = Font();
-      font!.deserialize(json['Font'] as Map<String, dynamic>);
+    if (json.containsKey('NextParagraphStyleName')) {
+      nextParagraphStyleName = json['NextParagraphStyleName'] as String;
     } else {
-      font = null;
+      nextParagraphStyleName = null;
     }
 
-    if (json.containsKey('IsHeading')) {
-      isHeading = json['IsHeading'] as bool;
+    if (json.containsKey('BaseStyleName')) {
+      baseStyleName = json['BaseStyleName'] as String;
     } else {
-      isHeading = null;
+      baseStyleName = null;
     }
 
     if (json.containsKey('IsQuickStyle')) {
@@ -169,16 +159,32 @@ class Style extends LinkElement {
       linkedStyleName = null;
     }
 
-    if (json.containsKey('Name')) {
-      name = json['Name'] as String;
+    if (json.containsKey('Type')) {
+      switch (json['Type'] as String) {
+        case 'Paragraph': type = Style_TypeEnum.paragraph; break;
+        case 'Character': type = Style_TypeEnum.character; break;
+        case 'Table': type = Style_TypeEnum.table; break;
+        case 'List': type = Style_TypeEnum.list; break;
+        default: type = null; break;
+      }
     } else {
-      name = null;
+      type = null;
     }
 
-    if (json.containsKey('NextParagraphStyleName')) {
-      nextParagraphStyleName = json['NextParagraphStyleName'] as String;
+    if (json.containsKey('IsHeading')) {
+      isHeading = json['IsHeading'] as bool;
     } else {
-      nextParagraphStyleName = null;
+      isHeading = null;
+    }
+
+    if (json.containsKey('Aliases')) {
+      // Array processing
+      aliases = <String>[];
+      for(final _element in json['Aliases']) {
+        aliases!.add(_element as String);
+      }
+    } else {
+      aliases = null;
     }
 
     if (json.containsKey('StyleIdentifier')) {
@@ -567,16 +573,10 @@ class Style extends LinkElement {
       styleIdentifier = null;
     }
 
-    if (json.containsKey('Type')) {
-      switch (json['Type'] as String) {
-        case 'Paragraph': type = Style_TypeEnum.paragraph; break;
-        case 'Character': type = Style_TypeEnum.character; break;
-        case 'Table': type = Style_TypeEnum.table; break;
-        case 'List': type = Style_TypeEnum.list; break;
-        default: type = null; break;
-      }
+    if (json.containsKey('Name')) {
+      name = json['Name'] as String;
     } else {
-      type = null;
+      name = null;
     }
   }
 
@@ -584,24 +584,20 @@ class Style extends LinkElement {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (aliases != null) {
-      _result['Aliases'] = aliases!;
-    }
-
-    if (baseStyleName != null) {
-      _result['BaseStyleName'] = baseStyleName!;
+    if (font != null) {
+      _result['Font'] = font!.serialize();
     }
 
     if (builtIn != null) {
       _result['BuiltIn'] = builtIn!;
     }
 
-    if (font != null) {
-      _result['Font'] = font!.serialize();
+    if (nextParagraphStyleName != null) {
+      _result['NextParagraphStyleName'] = nextParagraphStyleName!;
     }
 
-    if (isHeading != null) {
-      _result['IsHeading'] = isHeading!;
+    if (baseStyleName != null) {
+      _result['BaseStyleName'] = baseStyleName!;
     }
 
     if (isQuickStyle != null) {
@@ -612,12 +608,22 @@ class Style extends LinkElement {
       _result['LinkedStyleName'] = linkedStyleName!;
     }
 
-    if (name != null) {
-      _result['Name'] = name!;
+    if (type != null) {
+      switch (type!) {
+        case Style_TypeEnum.paragraph: _result['Type'] = 'Paragraph'; break;
+        case Style_TypeEnum.character: _result['Type'] = 'Character'; break;
+        case Style_TypeEnum.table: _result['Type'] = 'Table'; break;
+        case Style_TypeEnum.list: _result['Type'] = 'List'; break;
+        default: break;
+      }
     }
 
-    if (nextParagraphStyleName != null) {
-      _result['NextParagraphStyleName'] = nextParagraphStyleName!;
+    if (isHeading != null) {
+      _result['IsHeading'] = isHeading!;
+    }
+
+    if (aliases != null) {
+      _result['Aliases'] = aliases!;
     }
 
     if (styleIdentifier != null) {
@@ -1004,14 +1010,8 @@ class Style extends LinkElement {
       }
     }
 
-    if (type != null) {
-      switch (type!) {
-        case Style_TypeEnum.paragraph: _result['Type'] = 'Paragraph'; break;
-        case Style_TypeEnum.character: _result['Type'] = 'Character'; break;
-        case Style_TypeEnum.table: _result['Type'] = 'Table'; break;
-        case Style_TypeEnum.list: _result['Type'] = 'List'; break;
-        default: break;
-      }
+    if (name != null) {
+      _result['Name'] = name!;
     }
     return _result;
   }
@@ -1019,6 +1019,15 @@ class Style extends LinkElement {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+}
+
+/// Gets or sets the style type (paragraph or character).
+enum Style_TypeEnum
+{ 
+  paragraph,
+  character,
+  table,
+  list
 }
 
 /// Gets or sets the locale independent style identifier for a built-in style.
@@ -1402,14 +1411,5 @@ enum Style_StyleIdentifierEnum
   unresolvedMention,
   user,
   nil
-}
-
-/// Gets or sets the style type (paragraph or character).
-enum Style_TypeEnum
-{ 
-  paragraph,
-  character,
-  table,
-  list
 }
 

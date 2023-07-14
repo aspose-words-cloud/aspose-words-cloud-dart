@@ -46,13 +46,6 @@ class DocSaveOptionsData extends SaveOptionsData {
   set password(String? val) => _password = val;
 
 
-  /// Gets the format of save.
-  String? _saveFormat = 'doc';
-
-  @override
-  String? get saveFormat => _saveFormat;
-
-
   /// Gets or sets a value indicating when False, that PictureBullet data is not saved to the output document.
   /// The default value is true.
   bool? _savePictureBullet;
@@ -66,6 +59,13 @@ class DocSaveOptionsData extends SaveOptionsData {
 
   bool? get saveRoutingSlip => _saveRoutingSlip;
   set saveRoutingSlip(bool? val) => _saveRoutingSlip = val;
+
+
+  /// Gets the format of save.
+  String? _saveFormat = 'doc';
+
+  @override
+  String? get saveFormat => _saveFormat;
 
 
   @override
@@ -208,16 +208,16 @@ class DocSaveOptionsData extends SaveOptionsData {
       _result['Password'] = password!;
     }
 
-    if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat!;
-    }
-
     if (savePictureBullet != null) {
       _result['SavePictureBullet'] = savePictureBullet!;
     }
 
     if (saveRoutingSlip != null) {
       _result['SaveRoutingSlip'] = saveRoutingSlip!;
+    }
+
+    if (saveFormat != null) {
+      _result['SaveFormat'] = saveFormat!;
     }
     return _result;
   }

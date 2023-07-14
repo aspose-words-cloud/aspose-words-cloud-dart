@@ -1,3 +1,8 @@
+## [23.6.0] - Aspose Words Cloud for Dart 23.6 Release Notes
+
+- Fix XMLHttpRequest in web applications.
+
+
 ## [23.5.0] - Aspose Words Cloud for Dart 23.5 Release Notes
 
 - Added InsertSection method.

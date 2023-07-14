@@ -59,13 +59,6 @@ class SvgSaveOptionsData extends FixedPageSaveOptionsData {
   set resourcesFolderAlias(String? val) => _resourcesFolderAlias = val;
 
 
-  /// Gets the format of save.
-  String? _saveFormat = 'svg';
-
-  @override
-  String? get saveFormat => _saveFormat;
-
-
   /// Gets or sets a value indicating whether to show or hide page stepper.
   bool? _showPageBorder;
 
@@ -78,6 +71,13 @@ class SvgSaveOptionsData extends FixedPageSaveOptionsData {
 
   SvgSaveOptionsData_TextOutputModeEnum? get textOutputMode => _textOutputMode;
   set textOutputMode(SvgSaveOptionsData_TextOutputModeEnum? val) => _textOutputMode = val;
+
+
+  /// Gets the format of save.
+  String? _saveFormat = 'svg';
+
+  @override
+  String? get saveFormat => _saveFormat;
 
 
   @override
@@ -299,10 +299,6 @@ class SvgSaveOptionsData extends FixedPageSaveOptionsData {
       _result['ResourcesFolderAlias'] = resourcesFolderAlias!;
     }
 
-    if (saveFormat != null) {
-      _result['SaveFormat'] = saveFormat!;
-    }
-
     if (showPageBorder != null) {
       _result['ShowPageBorder'] = showPageBorder!;
     }
@@ -314,6 +310,10 @@ class SvgSaveOptionsData extends FixedPageSaveOptionsData {
         case SvgSaveOptionsData_TextOutputModeEnum.usePlacedGlyphs: _result['TextOutputMode'] = 'UsePlacedGlyphs'; break;
         default: break;
       }
+    }
+
+    if (saveFormat != null) {
+      _result['SaveFormat'] = saveFormat!;
     }
     return _result;
   }

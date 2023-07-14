@@ -31,18 +31,18 @@ import '../../aspose_words_cloud.dart';
 
 /// DTO container with a CustomXmlPart.
 class CustomXmlPart extends CustomXmlPartLink {
-  /// Gets or sets the custom xml part data.
-  String? _data;
-
-  String? get data => _data;
-  set data(String? val) => _data = val;
-
-
   /// Gets or sets the custom xml part id.
   String? _id;
 
   String? get id => _id;
   set id(String? val) => _id = val;
+
+
+  /// Gets or sets the custom xml part data.
+  String? _data;
+
+  String? get data => _data;
+  set data(String? val) => _data = val;
 
 
   @override
@@ -59,16 +59,16 @@ class CustomXmlPart extends CustomXmlPartLink {
       link = null;
     }
 
-    if (json.containsKey('Data')) {
-      data = json['Data'] as String;
-    } else {
-      data = null;
-    }
-
     if (json.containsKey('Id')) {
       id = json['Id'] as String;
     } else {
       id = null;
+    }
+
+    if (json.containsKey('Data')) {
+      data = json['Data'] as String;
+    } else {
+      data = null;
     }
   }
 
@@ -76,12 +76,12 @@ class CustomXmlPart extends CustomXmlPartLink {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (data != null) {
-      _result['Data'] = data!;
-    }
-
     if (id != null) {
       _result['Id'] = id!;
+    }
+
+    if (data != null) {
+      _result['Data'] = data!;
     }
     return _result;
   }

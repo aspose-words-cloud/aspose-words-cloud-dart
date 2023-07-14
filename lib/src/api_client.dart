@@ -122,7 +122,7 @@ class ApiClient {
   }
 
   Future<void> _updateAuthToken() async {
-    final url = configuration.baseUrl + '/connect/token';
+    final url = configuration.baseUrl + '/v4.0/words/connect/token';
     final data = 'grant_type=client_credentials&client_id=${configuration.clientId}&client_secret=${configuration.clientSecret}';
     final headers = {'Content-Type' : 'application/x-www-form-urlencoded'};
     final response = await http.post(Uri.parse(url), headers: headers, body: data).timeout(configuration.timeout);
@@ -503,7 +503,7 @@ class ApiClient {
 
     var httpRequest = http.Request(requestData.method, Uri.parse(requestData.url));
     httpRequest.headers['x-aspose-client'] = 'dart sdk';
-    httpRequest.headers['x-aspose-client-version'] = '23.5';
+    httpRequest.headers['x-aspose-client-version'] = '23.6';
     httpRequest.headers['Authorization'] = await _getAuthToken();
     httpRequest.headers.addAll(requestData.headers);
 
