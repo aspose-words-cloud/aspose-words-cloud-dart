@@ -110,13 +110,6 @@ abstract class SaveOptionsData implements ModelBase {
   set updateLastSavedTimeProperty(bool? val) => _updateLastSavedTimeProperty = val;
 
 
-  /// Gets or sets a value indicating whether content of StructuredDocumentTag is updated before saving.
-  bool? _updateSdtContent;
-
-  bool? get updateSdtContent => _updateSdtContent;
-  set updateSdtContent(bool? val) => _updateSdtContent = val;
-
-
   /// Gets or sets a value indicating whether to zip output or not.
   /// The default value is false.
   bool? _zipOutput;
@@ -221,12 +214,6 @@ abstract class SaveOptionsData implements ModelBase {
       updateLastSavedTimeProperty = null;
     }
 
-    if (json.containsKey('UpdateSdtContent')) {
-      updateSdtContent = json['UpdateSdtContent'] as bool;
-    } else {
-      updateSdtContent = null;
-    }
-
     if (json.containsKey('ZipOutput')) {
       zipOutput = json['ZipOutput'] as bool;
     } else {
@@ -296,10 +283,6 @@ abstract class SaveOptionsData implements ModelBase {
 
     if (updateLastSavedTimeProperty != null) {
       _result['UpdateLastSavedTimeProperty'] = updateLastSavedTimeProperty!;
-    }
-
-    if (updateSdtContent != null) {
-      _result['UpdateSdtContent'] = updateSdtContent!;
     }
 
     if (zipOutput != null) {

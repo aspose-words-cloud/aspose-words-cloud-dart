@@ -136,12 +136,6 @@ class PsSaveOptionsData extends FixedPageSaveOptionsData {
       updateLastSavedTimeProperty = null;
     }
 
-    if (json.containsKey('UpdateSdtContent')) {
-      updateSdtContent = json['UpdateSdtContent'] as bool;
-    } else {
-      updateSdtContent = null;
-    }
-
     if (json.containsKey('ZipOutput')) {
       zipOutput = json['ZipOutput'] as bool;
     } else {
