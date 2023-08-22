@@ -44,7 +44,6 @@ class LoadWebDocumentTests
     requestDataSaveOptions.fileName = 'google.doc';
     requestDataSaveOptions.dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.none;
     requestDataSaveOptions.dmlRenderingMode = SaveOptionsData_DmlRenderingModeEnum.drawingML;
-    requestDataSaveOptions.updateSdtContent = false;
     requestDataSaveOptions.zipOutput = false;
 
     final requestData = LoadWebDocumentData();

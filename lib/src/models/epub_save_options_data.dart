@@ -32,10 +32,10 @@ import '../../aspose_words_cloud.dart';
 /// Container class for epub save options.
 class EpubSaveOptionsData extends HtmlSaveOptionsData {
   /// Gets or sets the maximum level of headings populated to the navigation map when exporting.
-  int? _epubNavigationMapLevel;
+  int? _navigationMapLevel;
 
-  int? get epubNavigationMapLevel => _epubNavigationMapLevel;
-  set epubNavigationMapLevel(int? val) => _epubNavigationMapLevel = val;
+  int? get navigationMapLevel => _navigationMapLevel;
+  set navigationMapLevel(int? val) => _navigationMapLevel = val;
 
 
   /// Gets the format of save.
@@ -134,12 +134,6 @@ class EpubSaveOptionsData extends HtmlSaveOptionsData {
       updateLastSavedTimeProperty = json['UpdateLastSavedTimeProperty'] as bool;
     } else {
       updateLastSavedTimeProperty = null;
-    }
-
-    if (json.containsKey('UpdateSdtContent')) {
-      updateSdtContent = json['UpdateSdtContent'] as bool;
-    } else {
-      updateSdtContent = null;
     }
 
     if (json.containsKey('ZipOutput')) {
@@ -418,10 +412,10 @@ class EpubSaveOptionsData extends HtmlSaveOptionsData {
       tableWidthOutputMode = null;
     }
 
-    if (json.containsKey('EpubNavigationMapLevel')) {
-      epubNavigationMapLevel = json['EpubNavigationMapLevel'] as int;
+    if (json.containsKey('NavigationMapLevel')) {
+      navigationMapLevel = json['NavigationMapLevel'] as int;
     } else {
-      epubNavigationMapLevel = null;
+      navigationMapLevel = null;
     }
   }
 
@@ -429,8 +423,8 @@ class EpubSaveOptionsData extends HtmlSaveOptionsData {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (epubNavigationMapLevel != null) {
-      _result['EpubNavigationMapLevel'] = epubNavigationMapLevel!;
+    if (navigationMapLevel != null) {
+      _result['NavigationMapLevel'] = navigationMapLevel!;
     }
 
     if (saveFormat != null) {
