@@ -1,3 +1,8 @@
+## [23.9.0] - Aspose Words Cloud for Dart 23.9 Release Notes
+
+- Support for class inheritance in responses from the server.
+
+
 ## [23.6.0] - Aspose Words Cloud for Dart 23.6 Release Notes
 
 - Fix XMLHttpRequest in web applications.

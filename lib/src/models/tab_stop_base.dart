@@ -30,7 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Base class for paragraph format tab stop DTO.
-class TabStopBase implements ModelBase {
+abstract class TabStopBase implements ModelBase {
   /// Gets or sets the alignment of text at this tab stop.
   TabStopBase_AlignmentEnum? _alignment;
 

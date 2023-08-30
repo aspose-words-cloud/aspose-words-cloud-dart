@@ -30,7 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Paragraph format element base class.
-class ParagraphFormatBase extends LinkElement {
+abstract class ParagraphFormatBase extends LinkElement {
   /// Gets or sets a value indicating whether inter-character spacing is automatically adjusted between regions of Latin text and regions of East Asian text in the current paragraph.
   bool? _addSpaceBetweenFarEastAndAlpha;
 

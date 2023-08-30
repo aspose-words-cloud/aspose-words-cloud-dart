@@ -30,7 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// FromField.
-class FormField extends NodeLink {
+abstract class FormField extends NodeLink {
   /// Gets or sets the form field name.
   String? _name;
 
