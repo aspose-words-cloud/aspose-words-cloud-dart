@@ -52,8 +52,7 @@ class ParagraphResponse extends WordsResponse {
     }
 
     if (json.containsKey('Paragraph')) {
-      paragraph = Paragraph();
-      paragraph!.deserialize(json['Paragraph'] as Map<String, dynamic>);
+      paragraph = ModelBase.createInstance< Paragraph >(json['Paragraph'] as Map<String, dynamic>);
     } else {
       paragraph = null;
     }

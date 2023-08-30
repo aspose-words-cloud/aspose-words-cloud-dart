@@ -59,8 +59,7 @@ class ReplaceTextResponse extends WordsResponse {
     }
 
     if (json.containsKey('DocumentLink')) {
-      documentLink = FileLink();
-      documentLink!.deserialize(json['DocumentLink'] as Map<String, dynamic>);
+      documentLink = ModelBase.createInstance< FileLink >(json['DocumentLink'] as Map<String, dynamic>);
     } else {
       documentLink = null;
     }

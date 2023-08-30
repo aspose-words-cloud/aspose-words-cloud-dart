@@ -46,8 +46,7 @@ class ParagraphLinkCollection extends LinkElement {
 
     super.deserialize(json);
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link!.deserialize(json['Link'] as Map<String, dynamic>);
+      link = ModelBase.createInstance< WordsApiLink >(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -56,9 +55,7 @@ class ParagraphLinkCollection extends LinkElement {
       // Array processing
       paragraphLinkList = <ParagraphLink>[];
       for(final _element in json['ParagraphLinkList']) {
-        var _elementValue = ParagraphLink();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        paragraphLinkList!.add(_elementValue);
+        paragraphLinkList!.add(ModelBase.createInstance< ParagraphLink >(_element as Map<String, dynamic>));
       }
     } else {
       paragraphLinkList = null;

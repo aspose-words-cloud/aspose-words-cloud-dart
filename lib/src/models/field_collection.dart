@@ -46,8 +46,7 @@ class FieldCollection extends LinkElement {
 
     super.deserialize(json);
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link!.deserialize(json['Link'] as Map<String, dynamic>);
+      link = ModelBase.createInstance< WordsApiLink >(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -56,9 +55,7 @@ class FieldCollection extends LinkElement {
       // Array processing
       list = <Field>[];
       for(final _element in json['List']) {
-        var _elementValue = Field();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        list!.add(_elementValue);
+        list!.add(ModelBase.createInstance< Field >(_element as Map<String, dynamic>));
       }
     } else {
       list = null;

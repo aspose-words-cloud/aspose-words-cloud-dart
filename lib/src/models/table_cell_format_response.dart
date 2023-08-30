@@ -52,8 +52,7 @@ class TableCellFormatResponse extends WordsResponse {
     }
 
     if (json.containsKey('CellFormat')) {
-      cellFormat = TableCellFormat();
-      cellFormat!.deserialize(json['CellFormat'] as Map<String, dynamic>);
+      cellFormat = ModelBase.createInstance< TableCellFormat >(json['CellFormat'] as Map<String, dynamic>);
     } else {
       cellFormat = null;
     }

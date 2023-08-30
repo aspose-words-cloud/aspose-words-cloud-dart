@@ -88,22 +88,19 @@ class Comment extends CommentLink {
 
     super.deserialize(json);
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link!.deserialize(json['Link'] as Map<String, dynamic>);
+      link = ModelBase.createInstance< WordsApiLink >(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
 
     if (json.containsKey('RangeStart')) {
-      rangeStart = DocumentPosition();
-      rangeStart!.deserialize(json['RangeStart'] as Map<String, dynamic>);
+      rangeStart = ModelBase.createInstance< DocumentPosition >(json['RangeStart'] as Map<String, dynamic>);
     } else {
       rangeStart = null;
     }
 
     if (json.containsKey('RangeEnd')) {
-      rangeEnd = DocumentPosition();
-      rangeEnd!.deserialize(json['RangeEnd'] as Map<String, dynamic>);
+      rangeEnd = ModelBase.createInstance< DocumentPosition >(json['RangeEnd'] as Map<String, dynamic>);
     } else {
       rangeEnd = null;
     }
@@ -133,8 +130,7 @@ class Comment extends CommentLink {
     }
 
     if (json.containsKey('Content')) {
-      content = StoryChildNodes();
-      content!.deserialize(json['Content'] as Map<String, dynamic>);
+      content = ModelBase.createInstance< StoryChildNodes >(json['Content'] as Map<String, dynamic>);
     } else {
       content = null;
     }

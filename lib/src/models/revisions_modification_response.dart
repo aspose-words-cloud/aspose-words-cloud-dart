@@ -52,8 +52,7 @@ class RevisionsModificationResponse extends WordsResponse {
     }
 
     if (json.containsKey('Result')) {
-      result = ModificationOperationResult();
-      result!.deserialize(json['Result'] as Map<String, dynamic>);
+      result = ModelBase.createInstance< ModificationOperationResult >(json['Result'] as Map<String, dynamic>);
     } else {
       result = null;
     }

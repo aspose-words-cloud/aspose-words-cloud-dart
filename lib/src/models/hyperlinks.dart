@@ -46,8 +46,7 @@ class Hyperlinks extends LinkElement {
 
     super.deserialize(json);
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link!.deserialize(json['Link'] as Map<String, dynamic>);
+      link = ModelBase.createInstance< WordsApiLink >(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -56,9 +55,7 @@ class Hyperlinks extends LinkElement {
       // Array processing
       hyperlinkList = <Hyperlink>[];
       for(final _element in json['HyperlinkList']) {
-        var _elementValue = Hyperlink();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        hyperlinkList!.add(_elementValue);
+        hyperlinkList!.add(ModelBase.createInstance< Hyperlink >(_element as Map<String, dynamic>));
       }
     } else {
       hyperlinkList = null;

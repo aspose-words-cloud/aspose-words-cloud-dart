@@ -55,9 +55,7 @@ class StylesResponse extends WordsResponse {
       // Array processing
       styles = <Style>[];
       for(final _element in json['Styles']) {
-        var _elementValue = Style();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        styles!.add(_elementValue);
+        styles!.add(ModelBase.createInstance< Style >(_element as Map<String, dynamic>));
       }
     } else {
       styles = null;

@@ -83,9 +83,7 @@ class OutlineOptionsData implements ModelBase {
       // Array processing
       bookmarksOutlineLevels = <BookmarksOutlineLevelData>[];
       for(final _element in json['BookmarksOutlineLevels']) {
-        var _elementValue = BookmarksOutlineLevelData();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        bookmarksOutlineLevels!.add(_elementValue);
+        bookmarksOutlineLevels!.add(ModelBase.createInstance< BookmarksOutlineLevelData >(_element as Map<String, dynamic>));
       }
     } else {
       bookmarksOutlineLevels = null;

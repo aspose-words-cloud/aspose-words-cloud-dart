@@ -46,8 +46,7 @@ class Paragraph extends NodeLink {
 
     super.deserialize(json);
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link!.deserialize(json['Link'] as Map<String, dynamic>);
+      link = ModelBase.createInstance< WordsApiLink >(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -62,9 +61,7 @@ class Paragraph extends NodeLink {
       // Array processing
       childNodes = <NodeLink>[];
       for(final _element in json['ChildNodes']) {
-        var _elementValue = NodeLink();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        childNodes!.add(_elementValue);
+        childNodes!.add(ModelBase.createInstance< NodeLink >(_element as Map<String, dynamic>));
       }
     } else {
       childNodes = null;

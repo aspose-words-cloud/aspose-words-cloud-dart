@@ -44,11 +44,10 @@ class InsertTableCellOnlineResponse implements ResponseBase {
 
   @override
   void deserialize(ApiClient apiClient, Map<String, BodyPartData> _parts) {
-    model = TableCellResponse();
     final _modelBody = _parts['model'];
     if (_modelBody != null) {
         final _modelJsonData = utf8.decode(_modelBody.content.buffer.asUint8List(_modelBody.content.offsetInBytes, _modelBody.content.lengthInBytes));
-        model!.deserialize(jsonDecode(_modelJsonData) as Map<String, dynamic>);
+        model = ModelBase.createInstance< TableCellResponse >(jsonDecode(_modelJsonData) as Map<String, dynamic>);
     }
 
     final _documentFile = _parts['document'];

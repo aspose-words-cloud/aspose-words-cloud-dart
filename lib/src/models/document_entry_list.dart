@@ -62,9 +62,7 @@ class DocumentEntryList extends BaseEntryList {
       // Array processing
       documentEntries = <DocumentEntry>[];
       for(final _element in json['DocumentEntries']) {
-        var _elementValue = DocumentEntry();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        documentEntries!.add(_elementValue);
+        documentEntries!.add(ModelBase.createInstance< DocumentEntry >(_element as Map<String, dynamic>));
       }
     } else {
       documentEntries = null;

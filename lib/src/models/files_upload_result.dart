@@ -55,9 +55,7 @@ class FilesUploadResult implements ModelBase {
       // Array processing
       errors = <Error>[];
       for(final _element in json['Errors']) {
-        var _elementValue = Error();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        errors!.add(_elementValue);
+        errors!.add(ModelBase.createInstance< Error >(_element as Map<String, dynamic>));
       }
     } else {
       errors = null;

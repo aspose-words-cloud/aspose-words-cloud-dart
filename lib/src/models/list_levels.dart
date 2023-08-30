@@ -46,8 +46,7 @@ class ListLevels extends LinkElement {
 
     super.deserialize(json);
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link!.deserialize(json['Link'] as Map<String, dynamic>);
+      link = ModelBase.createInstance< WordsApiLink >(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -56,9 +55,7 @@ class ListLevels extends LinkElement {
       // Array processing
       listLevel = <ListLevel>[];
       for(final _element in json['ListLevel']) {
-        var _elementValue = ListLevel();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        listLevel!.add(_elementValue);
+        listLevel!.add(ModelBase.createInstance< ListLevel >(_element as Map<String, dynamic>));
       }
     } else {
       listLevel = null;

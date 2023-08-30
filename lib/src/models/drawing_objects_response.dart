@@ -52,8 +52,7 @@ class DrawingObjectsResponse extends WordsResponse {
     }
 
     if (json.containsKey('DrawingObjects')) {
-      drawingObjects = DrawingObjectCollection();
-      drawingObjects!.deserialize(json['DrawingObjects'] as Map<String, dynamic>);
+      drawingObjects = ModelBase.createInstance< DrawingObjectCollection >(json['DrawingObjects'] as Map<String, dynamic>);
     } else {
       drawingObjects = null;
     }

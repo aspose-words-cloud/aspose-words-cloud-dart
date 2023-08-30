@@ -80,8 +80,7 @@ class ReportEngineSettings implements ModelBase {
     }
 
     if (json.containsKey('CsvDataLoadOptions')) {
-      csvDataLoadOptions = CsvDataLoadOptions();
-      csvDataLoadOptions!.deserialize(json['CsvDataLoadOptions'] as Map<String, dynamic>);
+      csvDataLoadOptions = ModelBase.createInstance< CsvDataLoadOptions >(json['CsvDataLoadOptions'] as Map<String, dynamic>);
     } else {
       csvDataLoadOptions = null;
     }
@@ -104,8 +103,7 @@ class ReportEngineSettings implements ModelBase {
     }
 
     if (json.containsKey('JsonDataLoadOptions')) {
-      jsonDataLoadOptions = JsonDataLoadOptions();
-      jsonDataLoadOptions!.deserialize(json['JsonDataLoadOptions'] as Map<String, dynamic>);
+      jsonDataLoadOptions = ModelBase.createInstance< JsonDataLoadOptions >(json['JsonDataLoadOptions'] as Map<String, dynamic>);
     } else {
       jsonDataLoadOptions = null;
     }
@@ -129,8 +127,7 @@ class ReportEngineSettings implements ModelBase {
     }
 
     if (json.containsKey('XmlDataLoadOptions')) {
-      xmlDataLoadOptions = XmlDataLoadOptions();
-      xmlDataLoadOptions!.deserialize(json['XmlDataLoadOptions'] as Map<String, dynamic>);
+      xmlDataLoadOptions = ModelBase.createInstance< XmlDataLoadOptions >(json['XmlDataLoadOptions'] as Map<String, dynamic>);
     } else {
       xmlDataLoadOptions = null;
     }

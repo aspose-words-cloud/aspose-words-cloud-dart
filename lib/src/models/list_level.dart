@@ -123,8 +123,7 @@ class ListLevel extends LinkElement {
 
     super.deserialize(json);
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link!.deserialize(json['Link'] as Map<String, dynamic>);
+      link = ModelBase.createInstance< WordsApiLink >(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -246,8 +245,7 @@ class ListLevel extends LinkElement {
     }
 
     if (json.containsKey('Font')) {
-      font = Font();
-      font!.deserialize(json['Font'] as Map<String, dynamic>);
+      font = ModelBase.createInstance< Font >(json['Font'] as Map<String, dynamic>);
     } else {
       font = null;
     }
@@ -271,8 +269,7 @@ class ListLevel extends LinkElement {
     }
 
     if (json.containsKey('LinkedStyle')) {
-      linkedStyle = Style();
-      linkedStyle!.deserialize(json['LinkedStyle'] as Map<String, dynamic>);
+      linkedStyle = ModelBase.createInstance< Style >(json['LinkedStyle'] as Map<String, dynamic>);
     } else {
       linkedStyle = null;
     }

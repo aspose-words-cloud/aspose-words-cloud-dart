@@ -46,8 +46,7 @@ class SearchResultsCollection extends LinkElement {
 
     super.deserialize(json);
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link!.deserialize(json['Link'] as Map<String, dynamic>);
+      link = ModelBase.createInstance< WordsApiLink >(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -56,9 +55,7 @@ class SearchResultsCollection extends LinkElement {
       // Array processing
       resultsList = <SearchResult>[];
       for(final _element in json['ResultsList']) {
-        var _elementValue = SearchResult();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        resultsList!.add(_elementValue);
+        resultsList!.add(ModelBase.createInstance< SearchResult >(_element as Map<String, dynamic>));
       }
     } else {
       resultsList = null;

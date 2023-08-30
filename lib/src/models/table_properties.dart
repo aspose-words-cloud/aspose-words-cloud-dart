@@ -138,8 +138,7 @@ class TableProperties extends LinkElement {
 
     super.deserialize(json);
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link!.deserialize(json['Link'] as Map<String, dynamic>);
+      link = ModelBase.createInstance< WordsApiLink >(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -192,8 +191,7 @@ class TableProperties extends LinkElement {
     }
 
     if (json.containsKey('PreferredWidth')) {
-      preferredWidth = PreferredWidth();
-      preferredWidth!.deserialize(json['PreferredWidth'] as Map<String, dynamic>);
+      preferredWidth = ModelBase.createInstance< PreferredWidth >(json['PreferredWidth'] as Map<String, dynamic>);
     } else {
       preferredWidth = null;
     }

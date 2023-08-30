@@ -52,8 +52,7 @@ class ParagraphLinkCollectionResponse extends WordsResponse {
     }
 
     if (json.containsKey('Paragraphs')) {
-      paragraphs = ParagraphLinkCollection();
-      paragraphs!.deserialize(json['Paragraphs'] as Map<String, dynamic>);
+      paragraphs = ModelBase.createInstance< ParagraphLinkCollection >(json['Paragraphs'] as Map<String, dynamic>);
     } else {
       paragraphs = null;
     }

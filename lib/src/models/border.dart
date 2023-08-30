@@ -81,8 +81,7 @@ class Border extends LinkElement {
 
     super.deserialize(json);
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link!.deserialize(json['Link'] as Map<String, dynamic>);
+      link = ModelBase.createInstance< WordsApiLink >(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -105,8 +104,7 @@ class Border extends LinkElement {
     }
 
     if (json.containsKey('Color')) {
-      color = XmlColor();
-      color!.deserialize(json['Color'] as Map<String, dynamic>);
+      color = ModelBase.createInstance< XmlColor >(json['Color'] as Map<String, dynamic>);
     } else {
       color = null;
     }

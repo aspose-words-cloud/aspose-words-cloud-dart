@@ -40,8 +40,7 @@ class ParagraphFormatUpdate extends ParagraphFormatBase {
 
     super.deserialize(json);
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link!.deserialize(json['Link'] as Map<String, dynamic>);
+      link = ModelBase.createInstance< WordsApiLink >(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -611,8 +610,7 @@ class ParagraphFormatUpdate extends ParagraphFormatBase {
     }
 
     if (json.containsKey('Shading')) {
-      shading = Shading();
-      shading!.deserialize(json['Shading'] as Map<String, dynamic>);
+      shading = ModelBase.createInstance< Shading >(json['Shading'] as Map<String, dynamic>);
     } else {
       shading = null;
     }

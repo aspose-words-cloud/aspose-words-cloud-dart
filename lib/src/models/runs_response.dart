@@ -52,8 +52,7 @@ class RunsResponse extends WordsResponse {
     }
 
     if (json.containsKey('Runs')) {
-      runs = Runs();
-      runs!.deserialize(json['Runs'] as Map<String, dynamic>);
+      runs = ModelBase.createInstance< Runs >(json['Runs'] as Map<String, dynamic>);
     } else {
       runs = null;
     }

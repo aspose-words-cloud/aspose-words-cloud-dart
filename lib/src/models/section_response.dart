@@ -52,8 +52,7 @@ class SectionResponse extends WordsResponse {
     }
 
     if (json.containsKey('Section')) {
-      section = Section();
-      section!.deserialize(json['Section'] as Map<String, dynamic>);
+      section = ModelBase.createInstance< Section >(json['Section'] as Map<String, dynamic>);
     } else {
       section = null;
     }

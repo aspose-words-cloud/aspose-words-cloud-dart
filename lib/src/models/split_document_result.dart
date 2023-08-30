@@ -59,15 +59,13 @@ class SplitDocumentResult implements ModelBase {
     }
 
     if (json.containsKey('SourceDocument')) {
-      sourceDocument = FileLink();
-      sourceDocument!.deserialize(json['SourceDocument'] as Map<String, dynamic>);
+      sourceDocument = ModelBase.createInstance< FileLink >(json['SourceDocument'] as Map<String, dynamic>);
     } else {
       sourceDocument = null;
     }
 
     if (json.containsKey('ZippedPages')) {
-      zippedPages = FileLink();
-      zippedPages!.deserialize(json['ZippedPages'] as Map<String, dynamic>);
+      zippedPages = ModelBase.createInstance< FileLink >(json['ZippedPages'] as Map<String, dynamic>);
     } else {
       zippedPages = null;
     }
@@ -76,9 +74,7 @@ class SplitDocumentResult implements ModelBase {
       // Array processing
       pages = <FileLink>[];
       for(final _element in json['Pages']) {
-        var _elementValue = FileLink();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        pages!.add(_elementValue);
+        pages!.add(ModelBase.createInstance< FileLink >(_element as Map<String, dynamic>));
       }
     } else {
       pages = null;

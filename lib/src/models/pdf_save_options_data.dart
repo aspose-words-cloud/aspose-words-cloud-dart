@@ -245,8 +245,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('CustomTimeZoneInfoData')) {
-      customTimeZoneInfoData = TimeZoneInfoData();
-      customTimeZoneInfoData!.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+      customTimeZoneInfoData = ModelBase.createInstance< TimeZoneInfoData >(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
     } else {
       customTimeZoneInfoData = null;
     }
@@ -345,8 +344,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('MetafileRenderingOptions')) {
-      metafileRenderingOptions = MetafileRenderingOptionsData();
-      metafileRenderingOptions!.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
+      metafileRenderingOptions = ModelBase.createInstance< MetafileRenderingOptionsData >(json['MetafileRenderingOptions'] as Map<String, dynamic>);
     } else {
       metafileRenderingOptions = null;
     }
@@ -422,8 +420,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('DigitalSignatureDetails')) {
-      digitalSignatureDetails = PdfDigitalSignatureDetailsData();
-      digitalSignatureDetails!.deserialize(json['DigitalSignatureDetails'] as Map<String, dynamic>);
+      digitalSignatureDetails = ModelBase.createInstance< PdfDigitalSignatureDetailsData >(json['DigitalSignatureDetails'] as Map<String, dynamic>);
     } else {
       digitalSignatureDetails = null;
     }
@@ -435,8 +432,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('DownsampleOptions')) {
-      downsampleOptions = DownsampleOptionsData();
-      downsampleOptions!.deserialize(json['DownsampleOptions'] as Map<String, dynamic>);
+      downsampleOptions = ModelBase.createInstance< DownsampleOptionsData >(json['DownsampleOptions'] as Map<String, dynamic>);
     } else {
       downsampleOptions = null;
     }
@@ -454,8 +450,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('EncryptionDetails')) {
-      encryptionDetails = PdfEncryptionDetailsData();
-      encryptionDetails!.deserialize(json['EncryptionDetails'] as Map<String, dynamic>);
+      encryptionDetails = ModelBase.createInstance< PdfEncryptionDetailsData >(json['EncryptionDetails'] as Map<String, dynamic>);
     } else {
       encryptionDetails = null;
     }
@@ -523,8 +518,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('OutlineOptions')) {
-      outlineOptions = OutlineOptionsData();
-      outlineOptions!.deserialize(json['OutlineOptions'] as Map<String, dynamic>);
+      outlineOptions = ModelBase.createInstance< OutlineOptionsData >(json['OutlineOptions'] as Map<String, dynamic>);
     } else {
       outlineOptions = null;
     }

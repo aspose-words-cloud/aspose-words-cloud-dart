@@ -52,8 +52,7 @@ class ParagraphFormatResponse extends WordsResponse {
     }
 
     if (json.containsKey('ParagraphFormat')) {
-      paragraphFormat = ParagraphFormat();
-      paragraphFormat!.deserialize(json['ParagraphFormat'] as Map<String, dynamic>);
+      paragraphFormat = ModelBase.createInstance< ParagraphFormat >(json['ParagraphFormat'] as Map<String, dynamic>);
     } else {
       paragraphFormat = null;
     }

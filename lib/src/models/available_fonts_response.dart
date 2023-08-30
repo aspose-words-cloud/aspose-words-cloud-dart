@@ -69,9 +69,7 @@ class AvailableFontsResponse extends WordsResponse {
       // Array processing
       additionalFonts = <FontInfo>[];
       for(final _element in json['AdditionalFonts']) {
-        var _elementValue = FontInfo();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        additionalFonts!.add(_elementValue);
+        additionalFonts!.add(ModelBase.createInstance< FontInfo >(_element as Map<String, dynamic>));
       }
     } else {
       additionalFonts = null;
@@ -81,9 +79,7 @@ class AvailableFontsResponse extends WordsResponse {
       // Array processing
       customFonts = <FontInfo>[];
       for(final _element in json['CustomFonts']) {
-        var _elementValue = FontInfo();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        customFonts!.add(_elementValue);
+        customFonts!.add(ModelBase.createInstance< FontInfo >(_element as Map<String, dynamic>));
       }
     } else {
       customFonts = null;
@@ -93,9 +89,7 @@ class AvailableFontsResponse extends WordsResponse {
       // Array processing
       systemFonts = <FontInfo>[];
       for(final _element in json['SystemFonts']) {
-        var _elementValue = FontInfo();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        systemFonts!.add(_elementValue);
+        systemFonts!.add(ModelBase.createInstance< FontInfo >(_element as Map<String, dynamic>));
       }
     } else {
       systemFonts = null;

@@ -40,8 +40,7 @@ class StructuredDocumentTagUpdate extends StructuredDocumentTag {
 
     super.deserialize(json);
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link!.deserialize(json['Link'] as Map<String, dynamic>);
+      link = ModelBase.createInstance< WordsApiLink >(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -56,9 +55,7 @@ class StructuredDocumentTagUpdate extends StructuredDocumentTag {
       // Array processing
       listItems = <StructuredDocumentTagListItem>[];
       for(final _element in json['ListItems']) {
-        var _elementValue = StructuredDocumentTagListItem();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        listItems!.add(_elementValue);
+        listItems!.add(ModelBase.createInstance< StructuredDocumentTagListItem >(_element as Map<String, dynamic>));
       }
     } else {
       listItems = null;

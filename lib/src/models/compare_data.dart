@@ -79,8 +79,7 @@ class CompareData implements ModelBase {
     }
 
     if (json.containsKey('CompareOptions')) {
-      compareOptions = CompareOptions();
-      compareOptions!.deserialize(json['CompareOptions'] as Map<String, dynamic>);
+      compareOptions = ModelBase.createInstance< CompareOptions >(json['CompareOptions'] as Map<String, dynamic>);
     } else {
       compareOptions = null;
     }

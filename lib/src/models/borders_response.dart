@@ -52,8 +52,7 @@ class BordersResponse extends WordsResponse {
     }
 
     if (json.containsKey('Borders')) {
-      borders = BordersCollection();
-      borders!.deserialize(json['Borders'] as Map<String, dynamic>);
+      borders = ModelBase.createInstance< BordersCollection >(json['Borders'] as Map<String, dynamic>);
     } else {
       borders = null;
     }

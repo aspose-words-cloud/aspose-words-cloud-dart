@@ -52,8 +52,7 @@ class SaveResponse extends WordsResponse {
     }
 
     if (json.containsKey('SaveResult')) {
-      saveResult = SaveResult();
-      saveResult!.deserialize(json['SaveResult'] as Map<String, dynamic>);
+      saveResult = ModelBase.createInstance< SaveResult >(json['SaveResult'] as Map<String, dynamic>);
     } else {
       saveResult = null;
     }

@@ -88,8 +88,7 @@ class ListInfo extends LinkElement {
 
     super.deserialize(json);
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link!.deserialize(json['Link'] as Map<String, dynamic>);
+      link = ModelBase.createInstance< WordsApiLink >(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -125,15 +124,13 @@ class ListInfo extends LinkElement {
     }
 
     if (json.containsKey('Style')) {
-      style = Style();
-      style!.deserialize(json['Style'] as Map<String, dynamic>);
+      style = ModelBase.createInstance< Style >(json['Style'] as Map<String, dynamic>);
     } else {
       style = null;
     }
 
     if (json.containsKey('ListLevels')) {
-      listLevels = ListLevels();
-      listLevels!.deserialize(json['ListLevels'] as Map<String, dynamic>);
+      listLevels = ModelBase.createInstance< ListLevels >(json['ListLevels'] as Map<String, dynamic>);
     } else {
       listLevels = null;
     }

@@ -59,15 +59,13 @@ class SaveResult implements ModelBase {
     }
 
     if (json.containsKey('DestDocument')) {
-      destDocument = FileLink();
-      destDocument!.deserialize(json['DestDocument'] as Map<String, dynamic>);
+      destDocument = ModelBase.createInstance< FileLink >(json['DestDocument'] as Map<String, dynamic>);
     } else {
       destDocument = null;
     }
 
     if (json.containsKey('SourceDocument')) {
-      sourceDocument = FileLink();
-      sourceDocument!.deserialize(json['SourceDocument'] as Map<String, dynamic>);
+      sourceDocument = ModelBase.createInstance< FileLink >(json['SourceDocument'] as Map<String, dynamic>);
     } else {
       sourceDocument = null;
     }
@@ -76,9 +74,7 @@ class SaveResult implements ModelBase {
       // Array processing
       additionalItems = <FileLink>[];
       for(final _element in json['AdditionalItems']) {
-        var _elementValue = FileLink();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        additionalItems!.add(_elementValue);
+        additionalItems!.add(ModelBase.createInstance< FileLink >(_element as Map<String, dynamic>));
       }
     } else {
       additionalItems = null;

@@ -81,9 +81,7 @@ class ClassificationResponse extends WordsResponse {
       // Array processing
       bestResults = <ClassificationResult>[];
       for(final _element in json['BestResults']) {
-        var _elementValue = ClassificationResult();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        bestResults!.add(_elementValue);
+        bestResults!.add(ModelBase.createInstance< ClassificationResult >(_element as Map<String, dynamic>));
       }
     } else {
       bestResults = null;

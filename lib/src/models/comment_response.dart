@@ -52,8 +52,7 @@ class CommentResponse extends WordsResponse {
     }
 
     if (json.containsKey('Comment')) {
-      comment = Comment();
-      comment!.deserialize(json['Comment'] as Map<String, dynamic>);
+      comment = ModelBase.createInstance< Comment >(json['Comment'] as Map<String, dynamic>);
     } else {
       comment = null;
     }

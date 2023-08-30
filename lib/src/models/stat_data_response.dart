@@ -59,15 +59,13 @@ class StatDataResponse extends WordsResponse {
     }
 
     if (json.containsKey('DocumentLink')) {
-      documentLink = FileLink();
-      documentLink!.deserialize(json['DocumentLink'] as Map<String, dynamic>);
+      documentLink = ModelBase.createInstance< FileLink >(json['DocumentLink'] as Map<String, dynamic>);
     } else {
       documentLink = null;
     }
 
     if (json.containsKey('StatData')) {
-      statData = DocumentStatData();
-      statData!.deserialize(json['StatData'] as Map<String, dynamic>);
+      statData = ModelBase.createInstance< DocumentStatData >(json['StatData'] as Map<String, dynamic>);
     } else {
       statData = null;
     }

@@ -52,8 +52,7 @@ class CustomXmlPartResponse extends WordsResponse {
     }
 
     if (json.containsKey('CustomXmlPart')) {
-      customXmlPart = CustomXmlPart();
-      customXmlPart!.deserialize(json['CustomXmlPart'] as Map<String, dynamic>);
+      customXmlPart = ModelBase.createInstance< CustomXmlPart >(json['CustomXmlPart'] as Map<String, dynamic>);
     } else {
       customXmlPart = null;
     }

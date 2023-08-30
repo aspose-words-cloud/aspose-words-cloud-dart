@@ -52,8 +52,7 @@ class HyperlinkResponse extends WordsResponse {
     }
 
     if (json.containsKey('Hyperlink')) {
-      hyperlink = Hyperlink();
-      hyperlink!.deserialize(json['Hyperlink'] as Map<String, dynamic>);
+      hyperlink = ModelBase.createInstance< Hyperlink >(json['Hyperlink'] as Map<String, dynamic>);
     } else {
       hyperlink = null;
     }

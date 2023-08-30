@@ -52,8 +52,7 @@ class StyleResponse extends WordsResponse {
     }
 
     if (json.containsKey('Style')) {
-      style = Style();
-      style!.deserialize(json['Style'] as Map<String, dynamic>);
+      style = ModelBase.createInstance< Style >(json['Style'] as Map<String, dynamic>);
     } else {
       style = null;
     }

@@ -62,9 +62,7 @@ class ImageEntryList extends BaseEntryList {
       // Array processing
       imageEntries = <ImageEntry>[];
       for(final _element in json['ImageEntries']) {
-        var _elementValue = ImageEntry();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        imageEntries!.add(_elementValue);
+        imageEntries!.add(ModelBase.createInstance< ImageEntry >(_element as Map<String, dynamic>));
       }
     } else {
       imageEntries = null;

@@ -52,8 +52,7 @@ class BookmarksResponse extends WordsResponse {
     }
 
     if (json.containsKey('Bookmarks')) {
-      bookmarks = Bookmarks();
-      bookmarks!.deserialize(json['Bookmarks'] as Map<String, dynamic>);
+      bookmarks = ModelBase.createInstance< Bookmarks >(json['Bookmarks'] as Map<String, dynamic>);
     } else {
       bookmarks = null;
     }

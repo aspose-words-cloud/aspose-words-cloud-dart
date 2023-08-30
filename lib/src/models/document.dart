@@ -83,17 +83,14 @@ class Document implements ModelBase {
       // Array processing
       links = <Link>[];
       for(final _element in json['Links']) {
-        var _elementValue = Link();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        links!.add(_elementValue);
+        links!.add(ModelBase.createInstance< Link >(_element as Map<String, dynamic>));
       }
     } else {
       links = null;
     }
 
     if (json.containsKey('DocumentProperties')) {
-      documentProperties = DocumentProperties();
-      documentProperties!.deserialize(json['DocumentProperties'] as Map<String, dynamic>);
+      documentProperties = ModelBase.createInstance< DocumentProperties >(json['DocumentProperties'] as Map<String, dynamic>);
     } else {
       documentProperties = null;
     }

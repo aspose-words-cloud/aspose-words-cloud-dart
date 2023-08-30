@@ -52,8 +52,7 @@ class TablePropertiesResponse extends WordsResponse {
     }
 
     if (json.containsKey('Properties')) {
-      properties = TableProperties();
-      properties!.deserialize(json['Properties'] as Map<String, dynamic>);
+      properties = ModelBase.createInstance< TableProperties >(json['Properties'] as Map<String, dynamic>);
     } else {
       properties = null;
     }

@@ -75,8 +75,7 @@ class Footnote extends FootnoteLink {
 
     super.deserialize(json);
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link!.deserialize(json['Link'] as Map<String, dynamic>);
+      link = ModelBase.createInstance< WordsApiLink >(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -88,8 +87,7 @@ class Footnote extends FootnoteLink {
     }
 
     if (json.containsKey('Position')) {
-      position = DocumentPosition();
-      position!.deserialize(json['Position'] as Map<String, dynamic>);
+      position = ModelBase.createInstance< DocumentPosition >(json['Position'] as Map<String, dynamic>);
     } else {
       position = null;
     }
@@ -117,8 +115,7 @@ class Footnote extends FootnoteLink {
     }
 
     if (json.containsKey('Content')) {
-      content = StoryChildNodes();
-      content!.deserialize(json['Content'] as Map<String, dynamic>);
+      content = ModelBase.createInstance< StoryChildNodes >(json['Content'] as Map<String, dynamic>);
     } else {
       content = null;
     }

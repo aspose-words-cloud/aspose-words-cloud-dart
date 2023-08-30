@@ -52,8 +52,7 @@ class FormFieldsResponse extends WordsResponse {
     }
 
     if (json.containsKey('FormFields')) {
-      formFields = FormFieldCollection();
-      formFields!.deserialize(json['FormFields'] as Map<String, dynamic>);
+      formFields = ModelBase.createInstance< FormFieldCollection >(json['FormFields'] as Map<String, dynamic>);
     } else {
       formFields = null;
     }

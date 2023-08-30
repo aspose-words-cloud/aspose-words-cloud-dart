@@ -320,8 +320,7 @@ class Font extends LinkElement {
 
     super.deserialize(json);
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link!.deserialize(json['Link'] as Map<String, dynamic>);
+      link = ModelBase.createInstance< WordsApiLink >(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -351,15 +350,13 @@ class Font extends LinkElement {
     }
 
     if (json.containsKey('Border')) {
-      border = Border();
-      border!.deserialize(json['Border'] as Map<String, dynamic>);
+      border = ModelBase.createInstance< Border >(json['Border'] as Map<String, dynamic>);
     } else {
       border = null;
     }
 
     if (json.containsKey('Color')) {
-      color = XmlColor();
-      color!.deserialize(json['Color'] as Map<String, dynamic>);
+      color = ModelBase.createInstance< XmlColor >(json['Color'] as Map<String, dynamic>);
     } else {
       color = null;
     }
@@ -395,8 +392,7 @@ class Font extends LinkElement {
     }
 
     if (json.containsKey('HighlightColor')) {
-      highlightColor = XmlColor();
-      highlightColor!.deserialize(json['HighlightColor'] as Map<String, dynamic>);
+      highlightColor = ModelBase.createInstance< XmlColor >(json['HighlightColor'] as Map<String, dynamic>);
     } else {
       highlightColor = null;
     }
@@ -973,8 +969,7 @@ class Font extends LinkElement {
     }
 
     if (json.containsKey('UnderlineColor')) {
-      underlineColor = XmlColor();
-      underlineColor!.deserialize(json['UnderlineColor'] as Map<String, dynamic>);
+      underlineColor = ModelBase.createInstance< XmlColor >(json['UnderlineColor'] as Map<String, dynamic>);
     } else {
       underlineColor = null;
     }

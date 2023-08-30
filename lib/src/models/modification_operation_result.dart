@@ -52,15 +52,13 @@ class ModificationOperationResult implements ModelBase {
     }
 
     if (json.containsKey('Dest')) {
-      dest = FileLink();
-      dest!.deserialize(json['Dest'] as Map<String, dynamic>);
+      dest = ModelBase.createInstance< FileLink >(json['Dest'] as Map<String, dynamic>);
     } else {
       dest = null;
     }
 
     if (json.containsKey('Source')) {
-      source = FileLink();
-      source!.deserialize(json['Source'] as Map<String, dynamic>);
+      source = ModelBase.createInstance< FileLink >(json['Source'] as Map<String, dynamic>);
     } else {
       source = null;
     }

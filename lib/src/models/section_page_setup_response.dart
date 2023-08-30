@@ -52,8 +52,7 @@ class SectionPageSetupResponse extends WordsResponse {
     }
 
     if (json.containsKey('PageSetup')) {
-      pageSetup = PageSetup();
-      pageSetup!.deserialize(json['PageSetup'] as Map<String, dynamic>);
+      pageSetup = ModelBase.createInstance< PageSetup >(json['PageSetup'] as Map<String, dynamic>);
     } else {
       pageSetup = null;
     }

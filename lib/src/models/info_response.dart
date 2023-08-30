@@ -69,9 +69,7 @@ class InfoResponse extends WordsResponse {
       // Array processing
       additionalInfo = <InfoAdditionalItem>[];
       for(final _element in json['AdditionalInfo']) {
-        var _elementValue = InfoAdditionalItem();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        additionalInfo!.add(_elementValue);
+        additionalInfo!.add(ModelBase.createInstance< InfoAdditionalItem >(_element as Map<String, dynamic>));
       }
     } else {
       additionalInfo = null;

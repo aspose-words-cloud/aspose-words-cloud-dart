@@ -52,15 +52,13 @@ class SearchResult implements ModelBase {
     }
 
     if (json.containsKey('RangeStart')) {
-      rangeStart = DocumentPosition();
-      rangeStart!.deserialize(json['RangeStart'] as Map<String, dynamic>);
+      rangeStart = ModelBase.createInstance< DocumentPosition >(json['RangeStart'] as Map<String, dynamic>);
     } else {
       rangeStart = null;
     }
 
     if (json.containsKey('RangeEnd')) {
-      rangeEnd = DocumentPosition();
-      rangeEnd!.deserialize(json['RangeEnd'] as Map<String, dynamic>);
+      rangeEnd = ModelBase.createInstance< DocumentPosition >(json['RangeEnd'] as Map<String, dynamic>);
     } else {
       rangeEnd = null;
     }

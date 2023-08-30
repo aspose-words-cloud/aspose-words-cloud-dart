@@ -48,9 +48,7 @@ class StoryChildNodes implements ModelBase {
       // Array processing
       childNodes = <NodeLink>[];
       for(final _element in json['ChildNodes']) {
-        var _elementValue = NodeLink();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        childNodes!.add(_elementValue);
+        childNodes!.add(ModelBase.createInstance< NodeLink >(_element as Map<String, dynamic>));
       }
     } else {
       childNodes = null;

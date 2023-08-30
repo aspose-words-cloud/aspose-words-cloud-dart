@@ -52,8 +52,7 @@ class ListsResponse extends WordsResponse {
     }
 
     if (json.containsKey('Lists')) {
-      lists = Lists();
-      lists!.deserialize(json['Lists'] as Map<String, dynamic>);
+      lists = ModelBase.createInstance< Lists >(json['Lists'] as Map<String, dynamic>);
     } else {
       lists = null;
     }

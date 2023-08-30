@@ -52,8 +52,7 @@ class OfficeMathObjectsResponse extends WordsResponse {
     }
 
     if (json.containsKey('OfficeMathObjects')) {
-      officeMathObjects = OfficeMathObjectsCollection();
-      officeMathObjects!.deserialize(json['OfficeMathObjects'] as Map<String, dynamic>);
+      officeMathObjects = ModelBase.createInstance< OfficeMathObjectsCollection >(json['OfficeMathObjects'] as Map<String, dynamic>);
     } else {
       officeMathObjects = null;
     }

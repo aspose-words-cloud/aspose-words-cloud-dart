@@ -77,8 +77,7 @@ abstract class FootnoteBase implements ModelBase {
     }
 
     if (json.containsKey('Position')) {
-      position = NewDocumentPosition();
-      position!.deserialize(json['Position'] as Map<String, dynamic>);
+      position = ModelBase.createInstance< NewDocumentPosition >(json['Position'] as Map<String, dynamic>);
     } else {
       position = null;
     }

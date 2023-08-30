@@ -52,8 +52,7 @@ class CompressResponse extends WordsResponse {
     }
 
     if (json.containsKey('Document')) {
-      document = Document();
-      document!.deserialize(json['Document'] as Map<String, dynamic>);
+      document = ModelBase.createInstance< Document >(json['Document'] as Map<String, dynamic>);
     } else {
       document = null;
     }

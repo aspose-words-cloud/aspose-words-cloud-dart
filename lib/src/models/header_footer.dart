@@ -60,8 +60,7 @@ class HeaderFooter extends HeaderFooterLink {
 
     super.deserialize(json);
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link!.deserialize(json['Link'] as Map<String, dynamic>);
+      link = ModelBase.createInstance< WordsApiLink >(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -84,24 +83,20 @@ class HeaderFooter extends HeaderFooterLink {
       // Array processing
       childNodes = <NodeLink>[];
       for(final _element in json['ChildNodes']) {
-        var _elementValue = NodeLink();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        childNodes!.add(_elementValue);
+        childNodes!.add(ModelBase.createInstance< NodeLink >(_element as Map<String, dynamic>));
       }
     } else {
       childNodes = null;
     }
 
     if (json.containsKey('Paragraphs')) {
-      paragraphs = LinkElement();
-      paragraphs!.deserialize(json['Paragraphs'] as Map<String, dynamic>);
+      paragraphs = ModelBase.createInstance< LinkElement >(json['Paragraphs'] as Map<String, dynamic>);
     } else {
       paragraphs = null;
     }
 
     if (json.containsKey('DrawingObjects')) {
-      drawingObjects = LinkElement();
-      drawingObjects!.deserialize(json['DrawingObjects'] as Map<String, dynamic>);
+      drawingObjects = ModelBase.createInstance< LinkElement >(json['DrawingObjects'] as Map<String, dynamic>);
     } else {
       drawingObjects = null;
     }

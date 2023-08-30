@@ -55,9 +55,7 @@ class TabStopsResponse extends WordsResponse {
       // Array processing
       tabStops = <TabStop>[];
       for(final _element in json['TabStops']) {
-        var _elementValue = TabStop();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        tabStops!.add(_elementValue);
+        tabStops!.add(ModelBase.createInstance< TabStop >(_element as Map<String, dynamic>));
       }
     } else {
       tabStops = null;

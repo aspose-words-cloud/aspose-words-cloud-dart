@@ -52,8 +52,7 @@ class TableRowFormatResponse extends WordsResponse {
     }
 
     if (json.containsKey('RowFormat')) {
-      rowFormat = TableRowFormat();
-      rowFormat!.deserialize(json['RowFormat'] as Map<String, dynamic>);
+      rowFormat = ModelBase.createInstance< TableRowFormat >(json['RowFormat'] as Map<String, dynamic>);
     } else {
       rowFormat = null;
     }
