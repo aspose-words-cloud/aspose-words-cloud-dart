@@ -53,8 +53,7 @@ class Table extends NodeLink {
 
     super.deserialize(json);
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link!.deserialize(json['Link'] as Map<String, dynamic>);
+      link = ModelBase.createInstance< WordsApiLink >(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -69,17 +68,14 @@ class Table extends NodeLink {
       // Array processing
       tableRowList = <TableRow>[];
       for(final _element in json['TableRowList']) {
-        var _elementValue = TableRow();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        tableRowList!.add(_elementValue);
+        tableRowList!.add(ModelBase.createInstance< TableRow >(_element as Map<String, dynamic>));
       }
     } else {
       tableRowList = null;
     }
 
     if (json.containsKey('TableProperties')) {
-      tableProperties = TableProperties();
-      tableProperties!.deserialize(json['TableProperties'] as Map<String, dynamic>);
+      tableProperties = ModelBase.createInstance< TableProperties >(json['TableProperties'] as Map<String, dynamic>);
     } else {
       tableProperties = null;
     }

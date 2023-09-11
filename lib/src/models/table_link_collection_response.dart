@@ -52,8 +52,7 @@ class TableLinkCollectionResponse extends WordsResponse {
     }
 
     if (json.containsKey('Tables')) {
-      tables = TableLinkCollection();
-      tables!.deserialize(json['Tables'] as Map<String, dynamic>);
+      tables = ModelBase.createInstance< TableLinkCollection >(json['Tables'] as Map<String, dynamic>);
     } else {
       tables = null;
     }

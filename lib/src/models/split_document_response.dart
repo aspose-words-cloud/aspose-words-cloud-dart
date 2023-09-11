@@ -52,8 +52,7 @@ class SplitDocumentResponse extends WordsResponse {
     }
 
     if (json.containsKey('SplitResult')) {
-      splitResult = SplitDocumentResult();
-      splitResult!.deserialize(json['SplitResult'] as Map<String, dynamic>);
+      splitResult = ModelBase.createInstance< SplitDocumentResult >(json['SplitResult'] as Map<String, dynamic>);
     } else {
       splitResult = null;
     }

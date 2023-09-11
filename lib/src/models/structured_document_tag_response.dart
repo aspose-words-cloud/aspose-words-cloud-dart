@@ -52,8 +52,7 @@ class StructuredDocumentTagResponse extends WordsResponse {
     }
 
     if (json.containsKey('StructuredDocumentTag')) {
-      structuredDocumentTag = StructuredDocumentTag();
-      structuredDocumentTag!.deserialize(json['StructuredDocumentTag'] as Map<String, dynamic>);
+      structuredDocumentTag = ModelBase.createInstance< StructuredDocumentTag >(json['StructuredDocumentTag'] as Map<String, dynamic>);
     } else {
       structuredDocumentTag = null;
     }

@@ -73,8 +73,7 @@ class DocumentStatData implements ModelBase {
     }
 
     if (json.containsKey('FootnotesStatData')) {
-      footnotesStatData = FootnotesStatData();
-      footnotesStatData!.deserialize(json['FootnotesStatData'] as Map<String, dynamic>);
+      footnotesStatData = ModelBase.createInstance< FootnotesStatData >(json['FootnotesStatData'] as Map<String, dynamic>);
     } else {
       footnotesStatData = null;
     }
@@ -101,9 +100,7 @@ class DocumentStatData implements ModelBase {
       // Array processing
       pageStatData = <PageStatData>[];
       for(final _element in json['PageStatData']) {
-        var _elementValue = PageStatData();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        pageStatData!.add(_elementValue);
+        pageStatData!.add(ModelBase.createInstance< PageStatData >(_element as Map<String, dynamic>));
       }
     } else {
       pageStatData = null;

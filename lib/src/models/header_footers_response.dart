@@ -52,8 +52,7 @@ class HeaderFootersResponse extends WordsResponse {
     }
 
     if (json.containsKey('HeaderFooters')) {
-      headerFooters = HeaderFooterLinkCollection();
-      headerFooters!.deserialize(json['HeaderFooters'] as Map<String, dynamic>);
+      headerFooters = ModelBase.createInstance< HeaderFooterLinkCollection >(json['HeaderFooters'] as Map<String, dynamic>);
     } else {
       headerFooters = null;
     }

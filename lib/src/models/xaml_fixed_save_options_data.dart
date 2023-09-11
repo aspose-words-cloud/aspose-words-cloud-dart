@@ -67,8 +67,7 @@ class XamlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('CustomTimeZoneInfoData')) {
-      customTimeZoneInfoData = TimeZoneInfoData();
-      customTimeZoneInfoData!.deserialize(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
+      customTimeZoneInfoData = ModelBase.createInstance< TimeZoneInfoData >(json['CustomTimeZoneInfoData'] as Map<String, dynamic>);
     } else {
       customTimeZoneInfoData = null;
     }
@@ -167,8 +166,7 @@ class XamlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     if (json.containsKey('MetafileRenderingOptions')) {
-      metafileRenderingOptions = MetafileRenderingOptionsData();
-      metafileRenderingOptions!.deserialize(json['MetafileRenderingOptions'] as Map<String, dynamic>);
+      metafileRenderingOptions = ModelBase.createInstance< MetafileRenderingOptionsData >(json['MetafileRenderingOptions'] as Map<String, dynamic>);
     } else {
       metafileRenderingOptions = null;
     }

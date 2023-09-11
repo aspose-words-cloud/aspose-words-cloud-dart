@@ -67,8 +67,7 @@ class OfficeMathObject extends OfficeMathLink {
 
     super.deserialize(json);
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link!.deserialize(json['Link'] as Map<String, dynamic>);
+      link = ModelBase.createInstance< WordsApiLink >(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -80,8 +79,7 @@ class OfficeMathObject extends OfficeMathLink {
     }
 
     if (json.containsKey('Content')) {
-      content = StoryChildNodes();
-      content!.deserialize(json['Content'] as Map<String, dynamic>);
+      content = ModelBase.createInstance< StoryChildNodes >(json['Content'] as Map<String, dynamic>);
     } else {
       content = null;
     }

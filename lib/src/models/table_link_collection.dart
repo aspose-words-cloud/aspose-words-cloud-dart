@@ -46,8 +46,7 @@ class TableLinkCollection extends LinkElement {
 
     super.deserialize(json);
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link!.deserialize(json['Link'] as Map<String, dynamic>);
+      link = ModelBase.createInstance< WordsApiLink >(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -56,9 +55,7 @@ class TableLinkCollection extends LinkElement {
       // Array processing
       tableLinkList = <TableLink>[];
       for(final _element in json['TableLinkList']) {
-        var _elementValue = TableLink();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        tableLinkList!.add(_elementValue);
+        tableLinkList!.add(ModelBase.createInstance< TableLink >(_element as Map<String, dynamic>));
       }
     } else {
       tableLinkList = null;

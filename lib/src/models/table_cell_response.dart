@@ -52,8 +52,7 @@ class TableCellResponse extends WordsResponse {
     }
 
     if (json.containsKey('Cell')) {
-      cell = TableCell();
-      cell!.deserialize(json['Cell'] as Map<String, dynamic>);
+      cell = ModelBase.createInstance< TableCell >(json['Cell'] as Map<String, dynamic>);
     } else {
       cell = null;
     }

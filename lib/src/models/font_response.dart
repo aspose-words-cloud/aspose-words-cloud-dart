@@ -52,8 +52,7 @@ class FontResponse extends WordsResponse {
     }
 
     if (json.containsKey('Font')) {
-      font = Font();
-      font!.deserialize(json['Font'] as Map<String, dynamic>);
+      font = ModelBase.createInstance< Font >(json['Font'] as Map<String, dynamic>);
     } else {
       font = null;
     }

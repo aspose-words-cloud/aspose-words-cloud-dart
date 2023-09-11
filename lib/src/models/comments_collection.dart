@@ -46,8 +46,7 @@ class CommentsCollection extends LinkElement {
 
     super.deserialize(json);
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link!.deserialize(json['Link'] as Map<String, dynamic>);
+      link = ModelBase.createInstance< WordsApiLink >(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -56,9 +55,7 @@ class CommentsCollection extends LinkElement {
       // Array processing
       commentList = <Comment>[];
       for(final _element in json['CommentList']) {
-        var _elementValue = Comment();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        commentList!.add(_elementValue);
+        commentList!.add(ModelBase.createInstance< Comment >(_element as Map<String, dynamic>));
       }
     } else {
       commentList = null;

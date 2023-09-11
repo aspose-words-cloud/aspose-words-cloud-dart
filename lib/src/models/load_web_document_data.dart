@@ -52,7 +52,7 @@ class LoadWebDocumentData implements ModelBase {
     }
 
     if (json.containsKey('SaveOptions')) {
-      throw ApiException(400, 'Cannot deserialize abstract data model SaveOptionsData.');
+      saveOptions = ModelBase.createInstance< SaveOptionsData >(json['SaveOptions'] as Map<String, dynamic>);
     } else {
       saveOptions = null;
     }

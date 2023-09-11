@@ -78,8 +78,7 @@ class Error implements ModelBase {
     }
 
     if (json.containsKey('InnerError')) {
-      innerError = ErrorDetails();
-      innerError!.deserialize(json['InnerError'] as Map<String, dynamic>);
+      innerError = ModelBase.createInstance< ErrorDetails >(json['InnerError'] as Map<String, dynamic>);
     } else {
       innerError = null;
     }

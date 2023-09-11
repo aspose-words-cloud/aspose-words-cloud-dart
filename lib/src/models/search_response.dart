@@ -65,8 +65,7 @@ class SearchResponse extends WordsResponse {
     }
 
     if (json.containsKey('SearchResults')) {
-      searchResults = SearchResultsCollection();
-      searchResults!.deserialize(json['SearchResults'] as Map<String, dynamic>);
+      searchResults = ModelBase.createInstance< SearchResultsCollection >(json['SearchResults'] as Map<String, dynamic>);
     } else {
       searchResults = null;
     }

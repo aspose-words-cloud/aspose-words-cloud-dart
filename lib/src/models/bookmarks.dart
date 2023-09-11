@@ -46,8 +46,7 @@ class Bookmarks extends LinkElement {
 
     super.deserialize(json);
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link!.deserialize(json['Link'] as Map<String, dynamic>);
+      link = ModelBase.createInstance< WordsApiLink >(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -56,9 +55,7 @@ class Bookmarks extends LinkElement {
       // Array processing
       bookmarkList = <Bookmark>[];
       for(final _element in json['BookmarkList']) {
-        var _elementValue = Bookmark();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        bookmarkList!.add(_elementValue);
+        bookmarkList!.add(ModelBase.createInstance< Bookmark >(_element as Map<String, dynamic>));
       }
     } else {
       bookmarkList = null;

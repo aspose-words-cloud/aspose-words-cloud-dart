@@ -109,8 +109,7 @@ class DrawingObject extends DrawingObjectLink {
 
     super.deserialize(json);
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link!.deserialize(json['Link'] as Map<String, dynamic>);
+      link = ModelBase.createInstance< WordsApiLink >(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -125,9 +124,7 @@ class DrawingObject extends DrawingObjectLink {
       // Array processing
       renderLinks = <WordsApiLink>[];
       for(final _element in json['RenderLinks']) {
-        var _elementValue = WordsApiLink();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        renderLinks!.add(_elementValue);
+        renderLinks!.add(ModelBase.createInstance< WordsApiLink >(_element as Map<String, dynamic>));
       }
     } else {
       renderLinks = null;
@@ -146,15 +143,13 @@ class DrawingObject extends DrawingObjectLink {
     }
 
     if (json.containsKey('OleDataLink')) {
-      oleDataLink = WordsApiLink();
-      oleDataLink!.deserialize(json['OleDataLink'] as Map<String, dynamic>);
+      oleDataLink = ModelBase.createInstance< WordsApiLink >(json['OleDataLink'] as Map<String, dynamic>);
     } else {
       oleDataLink = null;
     }
 
     if (json.containsKey('ImageDataLink')) {
-      imageDataLink = WordsApiLink();
-      imageDataLink!.deserialize(json['ImageDataLink'] as Map<String, dynamic>);
+      imageDataLink = ModelBase.createInstance< WordsApiLink >(json['ImageDataLink'] as Map<String, dynamic>);
     } else {
       imageDataLink = null;
     }

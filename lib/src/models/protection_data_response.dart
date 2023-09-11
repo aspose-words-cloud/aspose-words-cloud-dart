@@ -59,15 +59,13 @@ class ProtectionDataResponse extends WordsResponse {
     }
 
     if (json.containsKey('DocumentLink')) {
-      documentLink = FileLink();
-      documentLink!.deserialize(json['DocumentLink'] as Map<String, dynamic>);
+      documentLink = ModelBase.createInstance< FileLink >(json['DocumentLink'] as Map<String, dynamic>);
     } else {
       documentLink = null;
     }
 
     if (json.containsKey('ProtectionData')) {
-      protectionData = ProtectionData();
-      protectionData!.deserialize(json['ProtectionData'] as Map<String, dynamic>);
+      protectionData = ModelBase.createInstance< ProtectionData >(json['ProtectionData'] as Map<String, dynamic>);
     } else {
       protectionData = null;
     }

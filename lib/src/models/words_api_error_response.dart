@@ -52,8 +52,7 @@ class WordsApiErrorResponse extends WordsResponse {
     }
 
     if (json.containsKey('Error')) {
-      error = ApiError();
-      error!.deserialize(json['Error'] as Map<String, dynamic>);
+      error = ModelBase.createInstance< ApiError >(json['Error'] as Map<String, dynamic>);
     } else {
       error = null;
     }

@@ -48,9 +48,7 @@ class FilesList implements ModelBase {
       // Array processing
       value = <StorageFile>[];
       for(final _element in json['Value']) {
-        var _elementValue = StorageFile();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        value!.add(_elementValue);
+        value!.add(ModelBase.createInstance< StorageFile >(_element as Map<String, dynamic>));
       }
     } else {
       value = null;

@@ -46,8 +46,7 @@ class CustomXmlPartsCollection extends LinkElement {
 
     super.deserialize(json);
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link!.deserialize(json['Link'] as Map<String, dynamic>);
+      link = ModelBase.createInstance< WordsApiLink >(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -56,9 +55,7 @@ class CustomXmlPartsCollection extends LinkElement {
       // Array processing
       customXmlPartsList = <CustomXmlPart>[];
       for(final _element in json['CustomXmlPartsList']) {
-        var _elementValue = CustomXmlPart();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        customXmlPartsList!.add(_elementValue);
+        customXmlPartsList!.add(ModelBase.createInstance< CustomXmlPart >(_element as Map<String, dynamic>));
       }
     } else {
       customXmlPartsList = null;

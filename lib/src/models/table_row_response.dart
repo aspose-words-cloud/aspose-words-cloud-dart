@@ -52,8 +52,7 @@ class TableRowResponse extends WordsResponse {
     }
 
     if (json.containsKey('Row')) {
-      row = TableRow();
-      row!.deserialize(json['Row'] as Map<String, dynamic>);
+      row = ModelBase.createInstance< TableRow >(json['Row'] as Map<String, dynamic>);
     } else {
       row = null;
     }

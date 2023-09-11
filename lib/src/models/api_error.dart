@@ -91,8 +91,7 @@ class ApiError implements ModelBase {
     }
 
     if (json.containsKey('InnerError')) {
-      innerError = ApiError();
-      innerError!.deserialize(json['InnerError'] as Map<String, dynamic>);
+      innerError = ModelBase.createInstance< ApiError >(json['InnerError'] as Map<String, dynamic>);
     } else {
       innerError = null;
     }

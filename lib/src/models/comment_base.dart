@@ -80,15 +80,13 @@ abstract class CommentBase implements ModelBase {
     }
 
     if (json.containsKey('RangeStart')) {
-      rangeStart = NewDocumentPosition();
-      rangeStart!.deserialize(json['RangeStart'] as Map<String, dynamic>);
+      rangeStart = ModelBase.createInstance< NewDocumentPosition >(json['RangeStart'] as Map<String, dynamic>);
     } else {
       rangeStart = null;
     }
 
     if (json.containsKey('RangeEnd')) {
-      rangeEnd = NewDocumentPosition();
-      rangeEnd!.deserialize(json['RangeEnd'] as Map<String, dynamic>);
+      rangeEnd = ModelBase.createInstance< NewDocumentPosition >(json['RangeEnd'] as Map<String, dynamic>);
     } else {
       rangeEnd = null;
     }

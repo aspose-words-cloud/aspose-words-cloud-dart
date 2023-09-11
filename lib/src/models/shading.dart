@@ -59,15 +59,13 @@ class Shading implements ModelBase {
     }
 
     if (json.containsKey('BackgroundPatternColor')) {
-      backgroundPatternColor = XmlColor();
-      backgroundPatternColor!.deserialize(json['BackgroundPatternColor'] as Map<String, dynamic>);
+      backgroundPatternColor = ModelBase.createInstance< XmlColor >(json['BackgroundPatternColor'] as Map<String, dynamic>);
     } else {
       backgroundPatternColor = null;
     }
 
     if (json.containsKey('ForegroundPatternColor')) {
-      foregroundPatternColor = XmlColor();
-      foregroundPatternColor!.deserialize(json['ForegroundPatternColor'] as Map<String, dynamic>);
+      foregroundPatternColor = ModelBase.createInstance< XmlColor >(json['ForegroundPatternColor'] as Map<String, dynamic>);
     } else {
       foregroundPatternColor = null;
     }

@@ -141,8 +141,7 @@ class FieldOptions implements ModelBase {
     }
 
     if (json.containsKey('CurrentUser')) {
-      currentUser = UserInformation();
-      currentUser!.deserialize(json['CurrentUser'] as Map<String, dynamic>);
+      currentUser = ModelBase.createInstance< UserInformation >(json['CurrentUser'] as Map<String, dynamic>);
     } else {
       currentUser = null;
     }

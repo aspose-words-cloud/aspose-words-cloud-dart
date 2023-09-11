@@ -52,8 +52,7 @@ class DocumentPropertiesResponse extends WordsResponse {
     }
 
     if (json.containsKey('DocumentProperties')) {
-      documentProperties = DocumentProperties();
-      documentProperties!.deserialize(json['DocumentProperties'] as Map<String, dynamic>);
+      documentProperties = ModelBase.createInstance< DocumentProperties >(json['DocumentProperties'] as Map<String, dynamic>);
     } else {
       documentProperties = null;
     }

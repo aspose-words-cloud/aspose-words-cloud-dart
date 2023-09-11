@@ -30,7 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// FromField.
-class FormField extends NodeLink {
+abstract class FormField extends NodeLink {
   /// Gets or sets the form field name.
   String? _name;
 
@@ -102,8 +102,7 @@ class FormField extends NodeLink {
 
     super.deserialize(json);
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link!.deserialize(json['Link'] as Map<String, dynamic>);
+      link = ModelBase.createInstance< WordsApiLink >(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }

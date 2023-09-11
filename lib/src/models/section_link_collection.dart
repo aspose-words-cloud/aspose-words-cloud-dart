@@ -46,8 +46,7 @@ class SectionLinkCollection extends LinkElement {
 
     super.deserialize(json);
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link!.deserialize(json['Link'] as Map<String, dynamic>);
+      link = ModelBase.createInstance< WordsApiLink >(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -56,9 +55,7 @@ class SectionLinkCollection extends LinkElement {
       // Array processing
       sectionLinkList = <SectionLink>[];
       for(final _element in json['SectionLinkList']) {
-        var _elementValue = SectionLink();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        sectionLinkList!.add(_elementValue);
+        sectionLinkList!.add(ModelBase.createInstance< SectionLink >(_element as Map<String, dynamic>));
       }
     } else {
       sectionLinkList = null;

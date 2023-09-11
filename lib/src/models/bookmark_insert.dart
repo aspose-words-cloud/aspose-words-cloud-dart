@@ -65,15 +65,13 @@ class BookmarkInsert extends BookmarkData {
     }
 
     if (json.containsKey('EndRange')) {
-      endRange = NewDocumentPosition();
-      endRange!.deserialize(json['EndRange'] as Map<String, dynamic>);
+      endRange = ModelBase.createInstance< NewDocumentPosition >(json['EndRange'] as Map<String, dynamic>);
     } else {
       endRange = null;
     }
 
     if (json.containsKey('StartRange')) {
-      startRange = NewDocumentPosition();
-      startRange!.deserialize(json['StartRange'] as Map<String, dynamic>);
+      startRange = ModelBase.createInstance< NewDocumentPosition >(json['StartRange'] as Map<String, dynamic>);
     } else {
       startRange = null;
     }

@@ -45,19 +45,19 @@ class MetafileRenderingOptionsData implements ModelBase {
   set emulateRasterOperations(bool? val) => _emulateRasterOperations = val;
 
 
+  /// Gets or sets a value determining whether metafile rendering emulates the display of the metafile according to the size on page
+  /// or the display of the metafile in its default size.
+  bool? _emulateRenderingToSizeOnPage;
+
+  bool? get emulateRenderingToSizeOnPage => _emulateRenderingToSizeOnPage;
+  set emulateRenderingToSizeOnPage(bool? val) => _emulateRenderingToSizeOnPage = val;
+
+
   /// Gets or sets the option that controls how metafile images should be rendered.
   MetafileRenderingOptionsData_RenderingModeEnum? _renderingMode;
 
   MetafileRenderingOptionsData_RenderingModeEnum? get renderingMode => _renderingMode;
   set renderingMode(MetafileRenderingOptionsData_RenderingModeEnum? val) => _renderingMode = val;
-
-
-  /// Gets or sets a value indicating whether to scale fonts in WMF metafile according to metafile size on the page.
-  /// The default value is true.
-  bool? _scaleWmfFontsToMetafileSize;
-
-  bool? get scaleWmfFontsToMetafileSize => _scaleWmfFontsToMetafileSize;
-  set scaleWmfFontsToMetafileSize(bool? val) => _scaleWmfFontsToMetafileSize = val;
 
 
   /// Gets or sets the flag, that controls how WMF metafiles with embedded EMF metafiles should be rendered.
@@ -90,6 +90,12 @@ class MetafileRenderingOptionsData implements ModelBase {
       emulateRasterOperations = null;
     }
 
+    if (json.containsKey('EmulateRenderingToSizeOnPage')) {
+      emulateRenderingToSizeOnPage = json['EmulateRenderingToSizeOnPage'] as bool;
+    } else {
+      emulateRenderingToSizeOnPage = null;
+    }
+
     if (json.containsKey('RenderingMode')) {
       switch (json['RenderingMode'] as String) {
         case 'VectorWithFallback': renderingMode = MetafileRenderingOptionsData_RenderingModeEnum.vectorWithFallback; break;
@@ -99,12 +105,6 @@ class MetafileRenderingOptionsData implements ModelBase {
       }
     } else {
       renderingMode = null;
-    }
-
-    if (json.containsKey('ScaleWmfFontsToMetafileSize')) {
-      scaleWmfFontsToMetafileSize = json['ScaleWmfFontsToMetafileSize'] as bool;
-    } else {
-      scaleWmfFontsToMetafileSize = null;
     }
 
     if (json.containsKey('UseEmfEmbeddedToWmf')) {
@@ -130,6 +130,10 @@ class MetafileRenderingOptionsData implements ModelBase {
       _result['EmulateRasterOperations'] = emulateRasterOperations!;
     }
 
+    if (emulateRenderingToSizeOnPage != null) {
+      _result['EmulateRenderingToSizeOnPage'] = emulateRenderingToSizeOnPage!;
+    }
+
     if (renderingMode != null) {
       switch (renderingMode!) {
         case MetafileRenderingOptionsData_RenderingModeEnum.vectorWithFallback: _result['RenderingMode'] = 'VectorWithFallback'; break;
@@ -137,10 +141,6 @@ class MetafileRenderingOptionsData implements ModelBase {
         case MetafileRenderingOptionsData_RenderingModeEnum.bitmap: _result['RenderingMode'] = 'Bitmap'; break;
         default: break;
       }
-    }
-
-    if (scaleWmfFontsToMetafileSize != null) {
-      _result['ScaleWmfFontsToMetafileSize'] = scaleWmfFontsToMetafileSize!;
     }
 
     if (useEmfEmbeddedToWmf != null) {

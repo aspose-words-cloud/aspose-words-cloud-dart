@@ -30,7 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Paragraph format element base class.
-class ParagraphFormatBase extends LinkElement {
+abstract class ParagraphFormatBase extends LinkElement {
   /// Gets or sets a value indicating whether inter-character spacing is automatically adjusted between regions of Latin text and regions of East Asian text in the current paragraph.
   bool? _addSpaceBetweenFarEastAndAlpha;
 
@@ -222,8 +222,7 @@ class ParagraphFormatBase extends LinkElement {
 
     super.deserialize(json);
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link!.deserialize(json['Link'] as Map<String, dynamic>);
+      link = ModelBase.createInstance< WordsApiLink >(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -793,8 +792,7 @@ class ParagraphFormatBase extends LinkElement {
     }
 
     if (json.containsKey('Shading')) {
-      shading = Shading();
-      shading!.deserialize(json['Shading'] as Map<String, dynamic>);
+      shading = ModelBase.createInstance< Shading >(json['Shading'] as Map<String, dynamic>);
     } else {
       shading = null;
     }

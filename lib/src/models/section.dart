@@ -74,8 +74,7 @@ class Section extends LinkElement {
 
     super.deserialize(json);
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link!.deserialize(json['Link'] as Map<String, dynamic>);
+      link = ModelBase.createInstance< WordsApiLink >(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -84,38 +83,32 @@ class Section extends LinkElement {
       // Array processing
       childNodes = <NodeLink>[];
       for(final _element in json['ChildNodes']) {
-        var _elementValue = NodeLink();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        childNodes!.add(_elementValue);
+        childNodes!.add(ModelBase.createInstance< NodeLink >(_element as Map<String, dynamic>));
       }
     } else {
       childNodes = null;
     }
 
     if (json.containsKey('Paragraphs')) {
-      paragraphs = LinkElement();
-      paragraphs!.deserialize(json['Paragraphs'] as Map<String, dynamic>);
+      paragraphs = ModelBase.createInstance< LinkElement >(json['Paragraphs'] as Map<String, dynamic>);
     } else {
       paragraphs = null;
     }
 
     if (json.containsKey('PageSetup')) {
-      pageSetup = LinkElement();
-      pageSetup!.deserialize(json['PageSetup'] as Map<String, dynamic>);
+      pageSetup = ModelBase.createInstance< LinkElement >(json['PageSetup'] as Map<String, dynamic>);
     } else {
       pageSetup = null;
     }
 
     if (json.containsKey('HeaderFooters')) {
-      headerFooters = LinkElement();
-      headerFooters!.deserialize(json['HeaderFooters'] as Map<String, dynamic>);
+      headerFooters = ModelBase.createInstance< LinkElement >(json['HeaderFooters'] as Map<String, dynamic>);
     } else {
       headerFooters = null;
     }
 
     if (json.containsKey('Tables')) {
-      tables = LinkElement();
-      tables!.deserialize(json['Tables'] as Map<String, dynamic>);
+      tables = ModelBase.createInstance< LinkElement >(json['Tables'] as Map<String, dynamic>);
     } else {
       tables = null;
     }

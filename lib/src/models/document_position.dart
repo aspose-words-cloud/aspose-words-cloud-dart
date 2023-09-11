@@ -52,8 +52,7 @@ class DocumentPosition implements ModelBase {
     }
 
     if (json.containsKey('Node')) {
-      node = NodeLink();
-      node!.deserialize(json['Node'] as Map<String, dynamic>);
+      node = ModelBase.createInstance< NodeLink >(json['Node'] as Map<String, dynamic>);
     } else {
       node = null;
     }

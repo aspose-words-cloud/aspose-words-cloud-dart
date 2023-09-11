@@ -52,8 +52,7 @@ class FieldResponse extends WordsResponse {
     }
 
     if (json.containsKey('Field')) {
-      field = Field();
-      field!.deserialize(json['Field'] as Map<String, dynamic>);
+      field = ModelBase.createInstance< Field >(json['Field'] as Map<String, dynamic>);
     } else {
       field = null;
     }

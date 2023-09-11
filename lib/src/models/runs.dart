@@ -46,8 +46,7 @@ class Runs extends LinkElement {
 
     super.deserialize(json);
     if (json.containsKey('Link')) {
-      link = WordsApiLink();
-      link!.deserialize(json['Link'] as Map<String, dynamic>);
+      link = ModelBase.createInstance< WordsApiLink >(json['Link'] as Map<String, dynamic>);
     } else {
       link = null;
     }
@@ -56,9 +55,7 @@ class Runs extends LinkElement {
       // Array processing
       list = <Run>[];
       for(final _element in json['List']) {
-        var _elementValue = Run();
-        _elementValue.deserialize(_element as Map<String, dynamic>);
-        list!.add(_elementValue);
+        list!.add(ModelBase.createInstance< Run >(_element as Map<String, dynamic>));
       }
     } else {
       list = null;

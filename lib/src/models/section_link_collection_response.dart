@@ -52,8 +52,7 @@ class SectionLinkCollectionResponse extends WordsResponse {
     }
 
     if (json.containsKey('Sections')) {
-      sections = SectionLinkCollection();
-      sections!.deserialize(json['Sections'] as Map<String, dynamic>);
+      sections = ModelBase.createInstance< SectionLinkCollection >(json['Sections'] as Map<String, dynamic>);
     } else {
       sections = null;
     }

@@ -66,8 +66,7 @@ class PageStatData implements ModelBase {
     }
 
     if (json.containsKey('FootnotesStatData')) {
-      footnotesStatData = FootnotesStatData();
-      footnotesStatData!.deserialize(json['FootnotesStatData'] as Map<String, dynamic>);
+      footnotesStatData = ModelBase.createInstance< FootnotesStatData >(json['FootnotesStatData'] as Map<String, dynamic>);
     } else {
       footnotesStatData = null;
     }

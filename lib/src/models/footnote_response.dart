@@ -52,8 +52,7 @@ class FootnoteResponse extends WordsResponse {
     }
 
     if (json.containsKey('Footnote')) {
-      footnote = Footnote();
-      footnote!.deserialize(json['Footnote'] as Map<String, dynamic>);
+      footnote = ModelBase.createInstance< Footnote >(json['Footnote'] as Map<String, dynamic>);
     } else {
       footnote = null;
     }
