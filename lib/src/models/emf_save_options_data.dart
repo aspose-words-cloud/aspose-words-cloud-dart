@@ -271,6 +271,18 @@ class EmfSaveOptionsData extends ImageSaveOptionsData {
       verticalResolution = null;
     }
 
+    if (json.containsKey('ImageHeight')) {
+      imageHeight = json['ImageHeight'] as int;
+    } else {
+      imageHeight = null;
+    }
+
+    if (json.containsKey('ImageWidth')) {
+      imageWidth = json['ImageWidth'] as int;
+    } else {
+      imageWidth = null;
+    }
+
     if (json.containsKey('UseGdiEmfRenderer')) {
       useGdiEmfRenderer = json['UseGdiEmfRenderer'] as bool;
     } else {

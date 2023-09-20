@@ -94,6 +94,7 @@ export 'src/models/drawing_object_response.dart';
 export 'src/models/drawing_object_update.dart';
 export 'src/models/drawing_objects_response.dart';
 export 'src/models/emf_save_options_data.dart';
+export 'src/models/eps_save_options_data.dart';
 export 'src/models/epub_save_options_data.dart';
 export 'src/models/error.dart';
 export 'src/models/error_details.dart';

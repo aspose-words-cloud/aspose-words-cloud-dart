@@ -96,6 +96,7 @@ abstract class ModelBase {
     'DrawingObjectsResponse, _': () => DrawingObjectsResponse(),
     'DrawingObjectUpdate, _': () => DrawingObjectUpdate(),
     'EmfSaveOptionsData, _': () => EmfSaveOptionsData(),
+    'EpsSaveOptionsData, _': () => EpsSaveOptionsData(),
     'EpubSaveOptionsData, _': () => EpubSaveOptionsData(),
     'Error, _': () => Error(),
     'ErrorDetails, _': () => ErrorDetails(),

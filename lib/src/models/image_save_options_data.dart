@@ -114,6 +114,20 @@ abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
   set verticalResolution(double? val) => _verticalResolution = val;
 
 
+  /// Gets or sets the height of a generated image in pixels.
+  int? _imageHeight;
+
+  int? get imageHeight => _imageHeight;
+  set imageHeight(int? val) => _imageHeight = val;
+
+
+  /// Gets or sets the width of a generated image in pixels.
+  int? _imageWidth;
+
+  int? get imageWidth => _imageWidth;
+  set imageWidth(int? val) => _imageWidth = val;
+
+
   /// Gets or sets a value indicating whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.
   bool? _useGdiEmfRenderer;
 
@@ -354,6 +368,18 @@ abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
       verticalResolution = null;
     }
 
+    if (json.containsKey('ImageHeight')) {
+      imageHeight = json['ImageHeight'] as int;
+    } else {
+      imageHeight = null;
+    }
+
+    if (json.containsKey('ImageWidth')) {
+      imageWidth = json['ImageWidth'] as int;
+    } else {
+      imageWidth = null;
+    }
+
     if (json.containsKey('UseGdiEmfRenderer')) {
       useGdiEmfRenderer = json['UseGdiEmfRenderer'] as bool;
     } else {
@@ -425,6 +451,14 @@ abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (verticalResolution != null) {
       _result['VerticalResolution'] = verticalResolution!;
+    }
+
+    if (imageHeight != null) {
+      _result['ImageHeight'] = imageHeight!;
+    }
+
+    if (imageWidth != null) {
+      _result['ImageWidth'] = imageWidth!;
     }
 
     if (useGdiEmfRenderer != null) {
