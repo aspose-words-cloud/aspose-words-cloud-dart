@@ -31,14 +31,14 @@ import '../../aspose_words_cloud.dart';
 
 /// The error details.
 class ErrorDetails implements ModelBase {
-  /// Error datetime.
+  /// Gets or sets ErrorDateTime.
   DateTime? _errorDateTime;
 
   DateTime? get errorDateTime => _errorDateTime;
   set errorDateTime(DateTime? val) => _errorDateTime = val;
 
 
-  /// The request id.
+  /// Gets or sets RequestId.
   String? _requestId;
 
   String? get requestId => _requestId;

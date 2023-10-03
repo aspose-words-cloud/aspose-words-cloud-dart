@@ -30,6 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// The REST response with data on multi-class text classification.
+/// This response is returned by the Service when handling "PUT https://api.aspose.cloud/v4.0/words/classify" REST API requests.
 class ClassificationResponse extends WordsResponse {
   /// Gets or sets the best class name.
   String? _bestClassName;

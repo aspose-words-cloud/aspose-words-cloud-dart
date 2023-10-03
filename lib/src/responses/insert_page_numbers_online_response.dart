@@ -36,7 +36,7 @@ import '../body_part_data.dart';
 
 /// Inserts page numbers to the document.
 class InsertPageNumbersOnlineResponse implements ResponseBase {
-  /// The response model.
+  /// The REST response with a document description.
   DocumentResponse? model;
 
   /// The document after modification.

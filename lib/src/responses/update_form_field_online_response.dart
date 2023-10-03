@@ -36,7 +36,8 @@ import '../body_part_data.dart';
 
 /// Updates a form field in the document node.
 class UpdateFormFieldOnlineResponse implements ResponseBase {
-  /// The response model.
+  /// The REST response with a form field.
+  /// This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/form fields/{1}" REST API requests.
   FormFieldResponse? model;
 
   /// The document after modification.

@@ -32,6 +32,7 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a single document style.
 class Style extends LinkElement {
   /// Gets or sets the character formatting of the style.
+  /// For list styles this property returns null.
   Font? _font;
 
   Font? get font => _font;
@@ -46,6 +47,7 @@ class Style extends LinkElement {
 
 
   /// Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
+  /// This property is not used by Aspose.Words. The next paragraph style will only be applied automatically when you edit the document in MS Word.
   String? _nextParagraphStyleName;
 
   String? get nextParagraphStyleName => _nextParagraphStyleName;
@@ -53,6 +55,7 @@ class Style extends LinkElement {
 
 
   /// Gets or sets the name of the style this style is based on.
+  /// This will be an empty string if the style is not based on any other style and it can be set to an empty string.
   String? _baseStyleName;
 
   String? get baseStyleName => _baseStyleName;
@@ -95,6 +98,8 @@ class Style extends LinkElement {
 
 
   /// Gets or sets the locale independent style identifier for a built-in style.
+  /// For user defined (custom) styles, this property returns Aspose.Words.StyleIdentifier.User.
+  /// Aspose.Words.Style.Name.
   Style_StyleIdentifierEnum? _styleIdentifier;
 
   Style_StyleIdentifierEnum? get styleIdentifier => _styleIdentifier;
@@ -102,6 +107,7 @@ class Style extends LinkElement {
 
 
   /// Gets or sets the name of the style.
+  /// Can not be empty string. If there already is a style with such name in the collection, then this style will override it. All affected nodes will reference new style.
   String? _name;
 
   String? get name => _name;
@@ -1029,6 +1035,8 @@ enum Style_TypeEnum
 }
 
 /// Gets or sets the locale independent style identifier for a built-in style.
+/// For user defined (custom) styles, this property returns Aspose.Words.StyleIdentifier.User.
+/// Aspose.Words.Style.Name.
 enum Style_StyleIdentifierEnum
 { 
   normal,

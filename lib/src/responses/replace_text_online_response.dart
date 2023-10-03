@@ -36,7 +36,7 @@ import '../body_part_data.dart';
 
 /// Replaces text in the document.
 class ReplaceTextOnlineResponse implements ResponseBase {
-  /// The response model.
+  /// The REST response with a number of occurrences of the captured text in the document.
   ReplaceTextResponse? model;
 
   /// The document after modification.

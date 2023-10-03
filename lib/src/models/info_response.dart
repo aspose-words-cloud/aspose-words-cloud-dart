@@ -31,21 +31,21 @@ import '../../aspose_words_cloud.dart';
 
 /// Response with API info.
 class InfoResponse extends WordsResponse {
-  /// Gets or sets additional info.
+  /// Gets or sets AdditionalInfo.
   List<InfoAdditionalItem?>? _additionalInfo;
 
   List<InfoAdditionalItem?>? get additionalInfo => _additionalInfo;
   set additionalInfo(List<InfoAdditionalItem?>? val) => _additionalInfo = val;
 
 
-  /// Gets or sets application name.
+  /// Gets or sets Name.
   String? _name;
 
   String? get name => _name;
   set name(String? val) => _name = val;
 
 
-  /// Gets or sets version.
+  /// Gets or sets Version.
   String? _version;
 
   String? get version => _version;

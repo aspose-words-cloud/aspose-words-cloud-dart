@@ -31,13 +31,6 @@ import '../../aspose_words_cloud.dart';
 
 /// Footnote base class.
 abstract class FootnoteBase implements ModelBase {
-  /// Gets or sets the option, that specifies whether this is a footnote or endnote.
-  FootnoteBase_FootnoteTypeEnum? _footnoteType;
-
-  FootnoteBase_FootnoteTypeEnum? get footnoteType => _footnoteType;
-  set footnoteType(FootnoteBase_FootnoteTypeEnum? val) => _footnoteType = val;
-
-
   /// Gets or sets the link to comment range start node.
   NewDocumentPosition? _position;
 
@@ -45,8 +38,16 @@ abstract class FootnoteBase implements ModelBase {
   set position(NewDocumentPosition? val) => _position = val;
 
 
+  /// Gets or sets the option, that specifies whether this is a footnote or endnote.
+  FootnoteBase_FootnoteTypeEnum? _footnoteType;
+
+  FootnoteBase_FootnoteTypeEnum? get footnoteType => _footnoteType;
+  set footnoteType(FootnoteBase_FootnoteTypeEnum? val) => _footnoteType = val;
+
+
   /// Gets or sets the custom reference mark to be used for this footnote.
   /// Default value is Empty, meaning auto-numbered footnotes are used.
+  /// RTF-format can only store 1 symbol as custom reference mark, so upon export only the first symbol will be written others will be discard.
   String? _referenceMark;
 
   String? get referenceMark => _referenceMark;
@@ -54,6 +55,7 @@ abstract class FootnoteBase implements ModelBase {
 
 
   /// Gets or sets text of the footnote.
+  /// This method allows to quickly set text of a footnote from a string. The string can contain paragraph breaks, this will create paragraphs of text in the footnote accordingly.
   String? _text;
 
   String? get text => _text;
@@ -66,6 +68,12 @@ abstract class FootnoteBase implements ModelBase {
       throw ApiException(400, 'Failed to deserialize FootnoteBase data model.');
     }
 
+    if (json.containsKey('Position')) {
+      position = ModelBase.createInstance< NewDocumentPosition >(json['Position'] as Map<String, dynamic>);
+    } else {
+      position = null;
+    }
+
     if (json.containsKey('FootnoteType')) {
       switch (json['FootnoteType'] as String) {
         case 'Footnote': footnoteType = FootnoteBase_FootnoteTypeEnum.footnote; break;
@@ -74,12 +82,6 @@ abstract class FootnoteBase implements ModelBase {
       }
     } else {
       footnoteType = null;
-    }
-
-    if (json.containsKey('Position')) {
-      position = ModelBase.createInstance< NewDocumentPosition >(json['Position'] as Map<String, dynamic>);
-    } else {
-      position = null;
     }
 
     if (json.containsKey('ReferenceMark')) {
@@ -98,16 +100,16 @@ abstract class FootnoteBase implements ModelBase {
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
+    if (position != null) {
+      _result['Position'] = position!.serialize();
+    }
+
     if (footnoteType != null) {
       switch (footnoteType!) {
         case FootnoteBase_FootnoteTypeEnum.footnote: _result['FootnoteType'] = 'Footnote'; break;
         case FootnoteBase_FootnoteTypeEnum.endnote: _result['FootnoteType'] = 'Endnote'; break;
         default: break;
       }
-    }
-
-    if (position != null) {
-      _result['Position'] = position!.serialize();
     }
 
     if (referenceMark != null) {

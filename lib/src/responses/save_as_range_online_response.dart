@@ -36,7 +36,7 @@ import '../body_part_data.dart';
 
 /// Saves a range as a new document.
 class SaveAsRangeOnlineResponse implements ResponseBase {
-  /// The response model.
+  /// The REST response with a document description.
   DocumentResponse? model;
 
   /// The document after modification.

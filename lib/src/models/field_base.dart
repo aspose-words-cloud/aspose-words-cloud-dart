@@ -31,18 +31,18 @@ import '../../aspose_words_cloud.dart';
 
 /// Field.
 abstract class FieldBase implements ModelBase {
-  /// Gets or sets the field code.
-  String? _fieldCode;
-
-  String? get fieldCode => _fieldCode;
-  set fieldCode(String? val) => _fieldCode = val;
-
-
   /// Gets or sets the LCID of the field.
   String? _localeId;
 
   String? get localeId => _localeId;
   set localeId(String? val) => _localeId = val;
+
+
+  /// Gets or sets the field code.
+  String? _fieldCode;
+
+  String? get fieldCode => _fieldCode;
+  set fieldCode(String? val) => _fieldCode = val;
 
 
   @override
@@ -51,28 +51,28 @@ abstract class FieldBase implements ModelBase {
       throw ApiException(400, 'Failed to deserialize FieldBase data model.');
     }
 
-    if (json.containsKey('FieldCode')) {
-      fieldCode = json['FieldCode'] as String;
-    } else {
-      fieldCode = null;
-    }
-
     if (json.containsKey('LocaleId')) {
       localeId = json['LocaleId'] as String;
     } else {
       localeId = null;
+    }
+
+    if (json.containsKey('FieldCode')) {
+      fieldCode = json['FieldCode'] as String;
+    } else {
+      fieldCode = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
-    if (fieldCode != null) {
-      _result['FieldCode'] = fieldCode!;
-    }
-
     if (localeId != null) {
       _result['LocaleId'] = localeId!;
+    }
+
+    if (fieldCode != null) {
+      _result['FieldCode'] = fieldCode!;
     }
     return _result;
   }

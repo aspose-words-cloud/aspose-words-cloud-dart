@@ -115,6 +115,8 @@ abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
 
 
   /// Gets or sets the height of a generated image in pixels.
+  /// This property has effect only when saving to raster image formats
+  /// and used in pair with ImageWidth.
   int? _imageHeight;
 
   int? get imageHeight => _imageHeight;
@@ -122,6 +124,8 @@ abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
 
 
   /// Gets or sets the width of a generated image in pixels.
+  /// This property has effect only when saving to raster image formats
+  /// and used in pair with ImageHeight.
   int? _imageWidth;
 
   int? get imageWidth => _imageWidth;
@@ -129,6 +133,7 @@ abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
 
 
   /// Gets or sets a value indicating whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.
+  /// If set to true - GDI+ metafile renderer is used. I.e. content is written to GDI+ graphics object and saved to metafile.If set to false - Aspose.Words metafile renderer is used. I.e. content is written directly to the metafile format with Aspose.Words.The default value is true.Has effect only when saving to EMF.
   bool? _useGdiEmfRenderer;
 
   bool? get useGdiEmfRenderer => _useGdiEmfRenderer;

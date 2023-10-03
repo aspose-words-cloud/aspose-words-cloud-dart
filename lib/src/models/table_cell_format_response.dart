@@ -30,6 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// The REST response with the formatting properties of a table cell.
+/// This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/rows/{1}/cells/{2}/cellformat" REST API requests.
 class TableCellFormatResponse extends WordsResponse {
   /// Gets or sets the formatting properties of a table cell.
   TableCellFormat? _cellFormat;

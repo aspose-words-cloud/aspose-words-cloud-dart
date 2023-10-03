@@ -36,7 +36,7 @@ import '../body_part_data.dart';
 
 /// Inserts a new watermark image to the document.
 class InsertWatermarkImageOnlineResponse implements ResponseBase {
-  /// The response model.
+  /// The REST response with a document description.
   DocumentResponse? model;
 
   /// The document after modification.

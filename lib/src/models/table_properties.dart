@@ -32,6 +32,7 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with table properties.
 class TableProperties extends LinkElement {
   /// Gets or sets the option that controls how an inline table is aligned in the document.
+  /// The default value is Left.
   TableProperties_AlignmentEnum? _alignment;
 
   TableProperties_AlignmentEnum? get alignment => _alignment;
@@ -39,6 +40,7 @@ class TableProperties extends LinkElement {
 
 
   /// Gets or sets a value indicating whether to automatically resize cells in a table to fit their contents.
+  /// The default value is true.
   bool? _allowAutoFit;
 
   bool? get allowAutoFit => _allowAutoFit;
@@ -46,6 +48,7 @@ class TableProperties extends LinkElement {
 
 
   /// Gets or sets a value indicating whether this is a right-to-left table.
+  /// When true, the cells in this row are laid out right to left.The default value is false.
   bool? _bidi;
 
   bool? get bidi => _bidi;
@@ -1098,6 +1101,7 @@ class TableProperties extends LinkElement {
 }
 
 /// Gets or sets the option that controls how an inline table is aligned in the document.
+/// The default value is Left.
 enum TableProperties_AlignmentEnum
 { 
   left,

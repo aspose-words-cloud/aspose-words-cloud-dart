@@ -36,7 +36,7 @@ import '../body_part_data.dart';
 
 /// Adds protection to the document.
 class ProtectDocumentOnlineResponse implements ResponseBase {
-  /// The response model.
+  /// The REST response with data on document's protection.
   ProtectionDataResponse? model;
 
   /// The document after modification.

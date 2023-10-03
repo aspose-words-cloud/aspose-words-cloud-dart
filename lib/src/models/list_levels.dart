@@ -32,6 +32,7 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a single document list.
 class ListLevels extends LinkElement {
   /// Gets or sets the collection of list levels for this list.
+  /// Use this property to access and modify formatting individual to each level of the list.
   List<ListLevel?>? _listLevel;
 
   List<ListLevel?>? get listLevel => _listLevel;

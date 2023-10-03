@@ -36,7 +36,8 @@ import '../body_part_data.dart';
 
 /// Inserts a new custom xml part to the document.
 class InsertCustomXmlPartOnlineResponse implements ResponseBase {
-  /// The response model.
+  /// The REST response with a custom xml part.
+  /// This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/customXmlParts/0" REST API requests.
   CustomXmlPartResponse? model;
 
   /// The document after modification.

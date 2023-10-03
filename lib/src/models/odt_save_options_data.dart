@@ -47,6 +47,7 @@ class OdtSaveOptionsData extends SaveOptionsData {
 
 
   /// Gets or sets the password to encrypt document.
+  /// In order to save document without encryption this property should be null or empty string.
   String? _password;
 
   String? get password => _password;

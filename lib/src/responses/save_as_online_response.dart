@@ -34,9 +34,9 @@ import '../../aspose_words_cloud.dart';
 import '../api_client.dart';
 import '../body_part_data.dart';
 
-/// Converts a document to the specified format.
+/// Converts a document in cloud storage to the specified format.
 class SaveAsOnlineResponse implements ResponseBase {
-  /// The response model.
+  /// The REST response with a save result.
   SaveResponse? model;
 
   /// The document after modification.

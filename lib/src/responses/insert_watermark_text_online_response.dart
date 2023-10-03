@@ -36,7 +36,7 @@ import '../body_part_data.dart';
 
 /// Inserts a new watermark text to the document.
 class InsertWatermarkTextOnlineResponse implements ResponseBase {
-  /// The response model.
+  /// The REST response with a document description.
   DocumentResponse? model;
 
   /// The document after modification.

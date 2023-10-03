@@ -31,28 +31,28 @@ import '../../aspose_words_cloud.dart';
 
 /// Error.
 class Error implements ModelBase {
-  /// Code.
+  /// Gets or sets Code.
   String? _code;
 
   String? get code => _code;
   set code(String? val) => _code = val;
 
 
-  /// Description.
+  /// Gets or sets Description.
   String? _description;
 
   String? get description => _description;
   set description(String? val) => _description = val;
 
 
-  /// Inner Error.
+  /// Gets or sets InnerError.
   ErrorDetails? _innerError;
 
   ErrorDetails? get innerError => _innerError;
   set innerError(ErrorDetails? val) => _innerError = val;
 
 
-  /// Message.
+  /// Gets or sets Message.
   String? _message;
 
   String? get message => _message;

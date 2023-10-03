@@ -32,6 +32,7 @@ import '../../aspose_words_cloud.dart';
 /// FormField dropdownlist element.
 class FormFieldDropDown extends FormField {
   /// Gets or sets the items array of a dropdown form field.
+  /// Microsoft Word allows maximum 25 items in a dropdown form field.
   List<String?>? _dropDownItems;
 
   List<String?>? get dropDownItems => _dropDownItems;

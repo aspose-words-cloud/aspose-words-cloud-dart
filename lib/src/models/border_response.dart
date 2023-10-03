@@ -30,6 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// The REST response with a border.
+/// This response is returned by the Service when handling "GET {nodeWithBorders}/borders" REST API requests.
 class BorderResponse extends WordsResponse {
   /// Gets or sets the border.
   Border? _border;

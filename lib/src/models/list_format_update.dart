@@ -31,18 +31,21 @@ import '../../aspose_words_cloud.dart';
 
 /// Paragraph list format element for update.
 class ListFormatUpdate implements ModelBase {
-  /// Gets or sets the list id of this paragraph.
-  int? _listId;
-
-  int? get listId => _listId;
-  set listId(int? val) => _listId = val;
-
-
   /// Gets or sets the list level number (0 to 8) for the paragraph.
+  /// In Word documents, lists may consist of 1 or 9 levels, numbered 0 to 8. Has effect only when the Aspose.Words.ListFormat.List property is set to reference a valid list. Aspose.Words.ListFormat.List.
   int? _listLevelNumber;
 
   int? get listLevelNumber => _listLevelNumber;
   set listLevelNumber(int? val) => _listLevelNumber = val;
+
+
+  /// Gets or sets the list id of this paragraph.
+  /// The list that is being assigned to this property must belong to the current document.
+  /// The list that is being assigned to this property must not be a list style definition.
+  int? _listId;
+
+  int? get listId => _listId;
+  set listId(int? val) => _listId = val;
 
 
   @override
@@ -51,28 +54,28 @@ class ListFormatUpdate implements ModelBase {
       throw ApiException(400, 'Failed to deserialize ListFormatUpdate data model.');
     }
 
-    if (json.containsKey('ListId')) {
-      listId = json['ListId'] as int;
-    } else {
-      listId = null;
-    }
-
     if (json.containsKey('ListLevelNumber')) {
       listLevelNumber = json['ListLevelNumber'] as int;
     } else {
       listLevelNumber = null;
+    }
+
+    if (json.containsKey('ListId')) {
+      listId = json['ListId'] as int;
+    } else {
+      listId = null;
     }
   }
 
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
-    if (listId != null) {
-      _result['ListId'] = listId!;
-    }
-
     if (listLevelNumber != null) {
       _result['ListLevelNumber'] = listLevelNumber!;
+    }
+
+    if (listId != null) {
+      _result['ListId'] = listId!;
     }
     return _result;
   }

@@ -30,6 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Represents a border of an object.
+/// Borders can be applied to various document elements including paragraph, run of text inside a paragraph or a table cell.
 class Border extends LinkElement {
   /// Gets or sets the border type.
   Border_BorderTypeEnum? _borderType;
@@ -46,6 +47,7 @@ class Border extends LinkElement {
 
 
   /// Gets or sets the distance of the border from text or from the page edge in points.
+  /// Has no effect and will be automatically reset to zero for borders of table cells.
   double? _distanceFromText;
 
   double? get distanceFromText => _distanceFromText;
@@ -53,6 +55,7 @@ class Border extends LinkElement {
 
 
   /// Gets or sets the border style.
+  /// If you set line style to none, then line width is automatically changed to zero.
   Border_LineStyleEnum? _lineStyle;
 
   Border_LineStyleEnum? get lineStyle => _lineStyle;
@@ -60,6 +63,7 @@ class Border extends LinkElement {
 
 
   /// Gets or sets the border width in points.
+  /// If you set line width greater than zero when line style is none, the line style is automatically changed to single line.
   double? _lineWidth;
 
   double? get lineWidth => _lineWidth;
@@ -67,6 +71,7 @@ class Border extends LinkElement {
 
 
   /// Gets or sets a value indicating whether the border has a shadow.
+  /// In Microsoft Word, for a border to have a shadow, the borders on all four sides (left, top, right and bottom) should be of the same type, width, color and all should have the Shadow property set to true.
   bool? _shadow;
 
   bool? get shadow => _shadow;
@@ -253,6 +258,7 @@ enum Border_BorderTypeEnum
 }
 
 /// Gets or sets the border style.
+/// If you set line style to none, then line width is automatically changed to zero.
 enum Border_LineStyleEnum
 { 
   none,

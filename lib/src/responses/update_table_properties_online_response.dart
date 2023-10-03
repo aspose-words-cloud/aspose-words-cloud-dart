@@ -36,7 +36,8 @@ import '../body_part_data.dart';
 
 /// Updates properties of a table in the document node.
 class UpdateTablePropertiesOnlineResponse implements ResponseBase {
-  /// The response model.
+  /// The REST response with a table.
+  /// This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/properties" REST API requests.
   TablePropertiesResponse? model;
 
   /// The document after modification.

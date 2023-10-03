@@ -36,7 +36,8 @@ import '../body_part_data.dart';
 
 /// Updates a Run object in the paragraph.
 class UpdateRunOnlineResponse implements ResponseBase {
-  /// The response model.
+  /// The REST response with a Run element.
+  /// This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/runs/{1}" REST API requests.
   RunResponse? model;
 
   /// The document after modification.
