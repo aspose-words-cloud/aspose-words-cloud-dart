@@ -36,7 +36,7 @@ import '../body_part_data.dart';
 
 /// Applies a style to the document node.
 class ApplyStyleToDocumentElementOnlineResponse implements ResponseBase {
-  /// The response model.
+  /// The base class for all responses.
   WordsResponse? model;
 
   /// The document after modification.

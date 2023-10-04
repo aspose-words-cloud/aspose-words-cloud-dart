@@ -36,7 +36,7 @@ import '../body_part_data.dart';
 
 /// Inserts a new StructuredDocumentTag (SDT) to the document node.
 class InsertStructuredDocumentTagOnlineResponse implements ResponseBase {
-  /// The response model.
+  /// The REST response with a StructuredDocumentTag.
   StructuredDocumentTagResponse? model;
 
   /// The document after modification.

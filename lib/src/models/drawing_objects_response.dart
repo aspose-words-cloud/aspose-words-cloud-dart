@@ -30,6 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// The REST response with a collection of DrawingObjects.
+/// This response should be returned by the service when handling: GET /drawingObjects.
 class DrawingObjectsResponse extends WordsResponse {
   /// Gets or sets the collection of DrawingObjects.
   DrawingObjectCollection? _drawingObjects;

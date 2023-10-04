@@ -35,8 +35,9 @@ import '../api_client.dart';
 import '../body_part_data.dart';
 
 /// Compress and resize images inside the document.
+/// The default settings allows to reduce the size of the document without any visible degradation of images quality.
 class CompressDocumentOnlineResponse implements ResponseBase {
-  /// The response model.
+  /// The REST response of compressed document.
   CompressResponse? model;
 
   /// The document after modification.

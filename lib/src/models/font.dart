@@ -39,6 +39,7 @@ class Font extends LinkElement {
 
 
   /// Gets or sets a value indicating whether the contents of this run shall have right-to-left characteristics.
+  /// This property, when on, shall not be used with strongly left-to-right text. Any behavior under that condition is unspecified. This property, when off, shall not be used with strong right-to-left text. Any behavior under that condition is unspecified.When the contents of this run are displayed, all characters shall be treated as complex script characters for formatting purposes. This means that BoldBi, ItalicBi, SizeBi and a corresponding font name will be used when rendering this run.Also, when the contents of this run are displayed, this property acts as a right-to-left override for characters which are classified as "weak types" and "neutral types".
   bool? _bidi;
 
   bool? get bidi => _bidi;
@@ -137,6 +138,7 @@ class Font extends LinkElement {
 
 
   /// Gets or sets the locale identifier (language) of the formatted characters.
+  /// For the list of locale identifiers see http://www.microsoft.com/globaldev/reference/lcid-all.mspx.
   int? _localeId;
 
   int? get localeId => _localeId;
@@ -144,6 +146,7 @@ class Font extends LinkElement {
 
 
   /// Gets or sets the locale identifier (language) of the formatted right-to-left characters.
+  /// For the list of locale identifiers see http://www.microsoft.com/globaldev/reference/lcid-all.mspx.
   int? _localeIdBi;
 
   int? get localeIdBi => _localeIdBi;
@@ -151,6 +154,7 @@ class Font extends LinkElement {
 
 
   /// Gets or sets the locale identifier (language) of the formatted Asian characters.
+  /// For the list of locale identifiers see http://www.microsoft.com/globaldev/reference/lcid-all.mspx.
   int? _localeIdFarEast;
 
   int? get localeIdFarEast => _localeIdFarEast;

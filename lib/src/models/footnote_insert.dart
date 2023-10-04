@@ -39,6 +39,12 @@ class FootnoteInsert extends FootnoteBase {
     }
 
     super.deserialize(json);
+    if (json.containsKey('Position')) {
+      position = ModelBase.createInstance< NewDocumentPosition >(json['Position'] as Map<String, dynamic>);
+    } else {
+      position = null;
+    }
+
     if (json.containsKey('FootnoteType')) {
       switch (json['FootnoteType'] as String) {
         case 'Footnote': footnoteType = FootnoteBase_FootnoteTypeEnum.footnote; break;
@@ -47,12 +53,6 @@ class FootnoteInsert extends FootnoteBase {
       }
     } else {
       footnoteType = null;
-    }
-
-    if (json.containsKey('Position')) {
-      position = ModelBase.createInstance< NewDocumentPosition >(json['Position'] as Map<String, dynamic>);
-    } else {
-      position = null;
     }
 
     if (json.containsKey('ReferenceMark')) {

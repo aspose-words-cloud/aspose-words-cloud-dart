@@ -33,6 +33,8 @@ import '../../aspose_words_cloud.dart';
 abstract class FixedPageSaveOptionsData extends SaveOptionsData {
   /// Gets or sets the value determining how colors are rendered.
   /// { Normal | Grayscale}.
+  /// The default value is Normal.
+  /// This property is used when the document is exported to fixed page formats.
   FixedPageSaveOptionsData_ColorModeEnum? _colorMode;
 
   FixedPageSaveOptionsData_ColorModeEnum? get colorMode => _colorMode;
@@ -285,6 +287,8 @@ abstract class FixedPageSaveOptionsData extends SaveOptionsData {
 
 /// Gets or sets the value determining how colors are rendered.
 /// { Normal | Grayscale}.
+/// The default value is Normal.
+/// This property is used when the document is exported to fixed page formats.
 enum FixedPageSaveOptionsData_ColorModeEnum
 { 
   normal,

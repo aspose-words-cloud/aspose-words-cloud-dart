@@ -31,7 +31,32 @@ import '../../aspose_words_cloud.dart';
 
 /// Represents a document list levels.
 class ListLevelUpdate implements ModelBase {
+  /// Gets or sets the starting number for this list level.
+  /// Default value is 1.
+  int? _startAt;
+
+  int? get startAt => _startAt;
+  set startAt(int? val) => _startAt = val;
+
+
+  /// Gets or sets the number style for this list level.
+  ListLevelUpdate_NumberStyleEnum? _numberStyle;
+
+  ListLevelUpdate_NumberStyleEnum? get numberStyle => _numberStyle;
+  set numberStyle(ListLevelUpdate_NumberStyleEnum? val) => _numberStyle = val;
+
+
+  /// Gets or sets the number format for the list level.
+  /// Among normal text characters, the string can contain placeholder characters \\x0000 to \\x0008 representing the numbers from the corresponding list levels. For example, the string "\\x0000.\\x0001)" will generate a list label that looks something like "1.5)". The number "1" is the current number from the 1st list level, the number "5" is the current number from the 2nd list level. Null is not allowed, but an empty string meaning no number is valid.
+  String? _numberFormat;
+
+  String? get numberFormat => _numberFormat;
+  set numberFormat(String? val) => _numberFormat = val;
+
+
   /// Gets or sets the justification of the actual number of the list item.
+  /// The list label is justified relative to the Aspose.Words.Lists.ListLevel.NumberPosition
+  /// property.
   ListLevelUpdate_AlignmentEnum? _alignment;
 
   ListLevelUpdate_AlignmentEnum? get alignment => _alignment;
@@ -45,53 +70,12 @@ class ListLevelUpdate implements ModelBase {
   set isLegal(bool? val) => _isLegal = val;
 
 
-  /// Gets or sets the number format for the list level.
-  String? _numberFormat;
-
-  String? get numberFormat => _numberFormat;
-  set numberFormat(String? val) => _numberFormat = val;
-
-
-  /// Gets or sets the position (in points) of the number or bullet for the list level.
-  double? _numberPosition;
-
-  double? get numberPosition => _numberPosition;
-  set numberPosition(double? val) => _numberPosition = val;
-
-
-  /// Gets or sets the number style for this list level.
-  ListLevelUpdate_NumberStyleEnum? _numberStyle;
-
-  ListLevelUpdate_NumberStyleEnum? get numberStyle => _numberStyle;
-  set numberStyle(ListLevelUpdate_NumberStyleEnum? val) => _numberStyle = val;
-
-
   /// Gets or sets the list level that must appear before the specified list level restarts numbering.
+  /// The value of -1 means the numbering will continue.
   int? _restartAfterLevel;
 
   int? get restartAfterLevel => _restartAfterLevel;
   set restartAfterLevel(int? val) => _restartAfterLevel = val;
-
-
-  /// Gets or sets the starting number for this list level.
-  int? _startAt;
-
-  int? get startAt => _startAt;
-  set startAt(int? val) => _startAt = val;
-
-
-  /// Gets or sets the tab position (in points) for the list level.
-  double? _tabPosition;
-
-  double? get tabPosition => _tabPosition;
-  set tabPosition(double? val) => _tabPosition = val;
-
-
-  /// Gets or sets the position (in points) for the second line of wrapping text for the list level.
-  double? _textPosition;
-
-  double? get textPosition => _textPosition;
-  set textPosition(double? val) => _textPosition = val;
 
 
   /// Gets or sets the character to be inserted after the number for the list level.
@@ -101,39 +85,42 @@ class ListLevelUpdate implements ModelBase {
   set trailingCharacter(ListLevelUpdate_TrailingCharacterEnum? val) => _trailingCharacter = val;
 
 
+  /// Gets or sets the tab position (in points) for the list level.
+  /// Has effect only when Aspose.Words.Lists.ListLevel.TrailingCharacter is a tab.
+  /// Aspose.Words.Lists.ListLevel.NumberPosition Aspose.Words.Lists.ListLevel.TextPosition.
+  double? _tabPosition;
+
+  double? get tabPosition => _tabPosition;
+  set tabPosition(double? val) => _tabPosition = val;
+
+
+  /// Gets or sets the position (in points) of the number or bullet for the list level.
+  /// Aspose.Words.Lists.ListLevel.NumberPosition corresponds to LeftIndent plus FirstLineIndent of the paragraph. Aspose.Words.Lists.ListLevel.TextPosition Aspose.Words.Lists.ListLevel.TabPosition.
+  double? _numberPosition;
+
+  double? get numberPosition => _numberPosition;
+  set numberPosition(double? val) => _numberPosition = val;
+
+
+  /// Gets or sets the position (in points) for the second line of wrapping text for the list level.
+  /// Aspose.Words.Lists.ListLevel.TextPosition corresponds to LeftIndent of the paragraph.
+  /// Aspose.Words.Lists.ListLevel.NumberPosition Aspose.Words.Lists.ListLevel.TabPosition.
+  double? _textPosition;
+
+  double? get textPosition => _textPosition;
+  set textPosition(double? val) => _textPosition = val;
+
+
   @override
   void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize ListLevelUpdate data model.');
     }
 
-    if (json.containsKey('Alignment')) {
-      switch (json['Alignment'] as String) {
-        case 'Left': alignment = ListLevelUpdate_AlignmentEnum.left; break;
-        case 'Center': alignment = ListLevelUpdate_AlignmentEnum.center; break;
-        case 'Right': alignment = ListLevelUpdate_AlignmentEnum.right; break;
-        default: alignment = null; break;
-      }
+    if (json.containsKey('StartAt')) {
+      startAt = json['StartAt'] as int;
     } else {
-      alignment = null;
-    }
-
-    if (json.containsKey('IsLegal')) {
-      isLegal = json['IsLegal'] as bool;
-    } else {
-      isLegal = null;
-    }
-
-    if (json.containsKey('NumberFormat')) {
-      numberFormat = json['NumberFormat'] as String;
-    } else {
-      numberFormat = null;
-    }
-
-    if (json.containsKey('NumberPosition')) {
-      numberPosition = json['NumberPosition'] as double;
-    } else {
-      numberPosition = null;
+      startAt = null;
     }
 
     if (json.containsKey('NumberStyle')) {
@@ -206,28 +193,33 @@ class ListLevelUpdate implements ModelBase {
       numberStyle = null;
     }
 
+    if (json.containsKey('NumberFormat')) {
+      numberFormat = json['NumberFormat'] as String;
+    } else {
+      numberFormat = null;
+    }
+
+    if (json.containsKey('Alignment')) {
+      switch (json['Alignment'] as String) {
+        case 'Left': alignment = ListLevelUpdate_AlignmentEnum.left; break;
+        case 'Center': alignment = ListLevelUpdate_AlignmentEnum.center; break;
+        case 'Right': alignment = ListLevelUpdate_AlignmentEnum.right; break;
+        default: alignment = null; break;
+      }
+    } else {
+      alignment = null;
+    }
+
+    if (json.containsKey('IsLegal')) {
+      isLegal = json['IsLegal'] as bool;
+    } else {
+      isLegal = null;
+    }
+
     if (json.containsKey('RestartAfterLevel')) {
       restartAfterLevel = json['RestartAfterLevel'] as int;
     } else {
       restartAfterLevel = null;
-    }
-
-    if (json.containsKey('StartAt')) {
-      startAt = json['StartAt'] as int;
-    } else {
-      startAt = null;
-    }
-
-    if (json.containsKey('TabPosition')) {
-      tabPosition = json['TabPosition'] as double;
-    } else {
-      tabPosition = null;
-    }
-
-    if (json.containsKey('TextPosition')) {
-      textPosition = json['TextPosition'] as double;
-    } else {
-      textPosition = null;
     }
 
     if (json.containsKey('TrailingCharacter')) {
@@ -240,30 +232,31 @@ class ListLevelUpdate implements ModelBase {
     } else {
       trailingCharacter = null;
     }
+
+    if (json.containsKey('TabPosition')) {
+      tabPosition = json['TabPosition'] as double;
+    } else {
+      tabPosition = null;
+    }
+
+    if (json.containsKey('NumberPosition')) {
+      numberPosition = json['NumberPosition'] as double;
+    } else {
+      numberPosition = null;
+    }
+
+    if (json.containsKey('TextPosition')) {
+      textPosition = json['TextPosition'] as double;
+    } else {
+      textPosition = null;
+    }
   }
 
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
-    if (alignment != null) {
-      switch (alignment!) {
-        case ListLevelUpdate_AlignmentEnum.left: _result['Alignment'] = 'Left'; break;
-        case ListLevelUpdate_AlignmentEnum.center: _result['Alignment'] = 'Center'; break;
-        case ListLevelUpdate_AlignmentEnum.right: _result['Alignment'] = 'Right'; break;
-        default: break;
-      }
-    }
-
-    if (isLegal != null) {
-      _result['IsLegal'] = isLegal!;
-    }
-
-    if (numberFormat != null) {
-      _result['NumberFormat'] = numberFormat!;
-    }
-
-    if (numberPosition != null) {
-      _result['NumberPosition'] = numberPosition!;
+    if (startAt != null) {
+      _result['StartAt'] = startAt!;
     }
 
     if (numberStyle != null) {
@@ -334,20 +327,25 @@ class ListLevelUpdate implements ModelBase {
       }
     }
 
+    if (numberFormat != null) {
+      _result['NumberFormat'] = numberFormat!;
+    }
+
+    if (alignment != null) {
+      switch (alignment!) {
+        case ListLevelUpdate_AlignmentEnum.left: _result['Alignment'] = 'Left'; break;
+        case ListLevelUpdate_AlignmentEnum.center: _result['Alignment'] = 'Center'; break;
+        case ListLevelUpdate_AlignmentEnum.right: _result['Alignment'] = 'Right'; break;
+        default: break;
+      }
+    }
+
+    if (isLegal != null) {
+      _result['IsLegal'] = isLegal!;
+    }
+
     if (restartAfterLevel != null) {
       _result['RestartAfterLevel'] = restartAfterLevel!;
-    }
-
-    if (startAt != null) {
-      _result['StartAt'] = startAt!;
-    }
-
-    if (tabPosition != null) {
-      _result['TabPosition'] = tabPosition!;
-    }
-
-    if (textPosition != null) {
-      _result['TextPosition'] = textPosition!;
     }
 
     if (trailingCharacter != null) {
@@ -358,20 +356,24 @@ class ListLevelUpdate implements ModelBase {
         default: break;
       }
     }
+
+    if (tabPosition != null) {
+      _result['TabPosition'] = tabPosition!;
+    }
+
+    if (numberPosition != null) {
+      _result['NumberPosition'] = numberPosition!;
+    }
+
+    if (textPosition != null) {
+      _result['TextPosition'] = textPosition!;
+    }
     return _result;
   }
 
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
-}
-
-/// Gets or sets the justification of the actual number of the list item.
-enum ListLevelUpdate_AlignmentEnum
-{ 
-  left,
-  center,
-  right
 }
 
 /// Gets or sets the number style for this list level.
@@ -439,6 +441,16 @@ enum ListLevelUpdate_NumberStyleEnum
   uppercaseRussian,
   none,
   custom
+}
+
+/// Gets or sets the justification of the actual number of the list item.
+/// The list label is justified relative to the Aspose.Words.Lists.ListLevel.NumberPosition
+/// property.
+enum ListLevelUpdate_AlignmentEnum
+{ 
+  left,
+  center,
+  right
 }
 
 /// Gets or sets the character to be inserted after the number for the list level.

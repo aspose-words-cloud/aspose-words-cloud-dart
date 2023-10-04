@@ -36,7 +36,7 @@ import '../body_part_data.dart';
 
 /// Removes protection from the document.
 class UnprotectDocumentOnlineResponse implements ResponseBase {
-  /// The response model.
+  /// The REST response with data on document's protection.
   ProtectionDataResponse? model;
 
   /// The document after modification.

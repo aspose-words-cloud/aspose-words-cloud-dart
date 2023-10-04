@@ -30,6 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// The REST response with the formatting properties of a paragraph.
+/// This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/format" REST API requests.
 class ParagraphFormatResponse extends WordsResponse {
   /// Gets or sets the formatting properties of a paragraph.
   ParagraphFormat? _paragraphFormat;

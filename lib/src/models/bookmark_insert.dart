@@ -31,18 +31,18 @@ import '../../aspose_words_cloud.dart';
 
 /// Represents a bookmark to insert.
 class BookmarkInsert extends BookmarkData {
-  /// Gets or sets the link to end bookmark node.
-  NewDocumentPosition? _endRange;
-
-  NewDocumentPosition? get endRange => _endRange;
-  set endRange(NewDocumentPosition? val) => _endRange = val;
-
-
   /// Gets or sets the link to start bookmark node.
   NewDocumentPosition? _startRange;
 
   NewDocumentPosition? get startRange => _startRange;
   set startRange(NewDocumentPosition? val) => _startRange = val;
+
+
+  /// Gets or sets the link to end bookmark node.
+  NewDocumentPosition? _endRange;
+
+  NewDocumentPosition? get endRange => _endRange;
+  set endRange(NewDocumentPosition? val) => _endRange = val;
 
 
   @override
@@ -64,16 +64,16 @@ class BookmarkInsert extends BookmarkData {
       text = null;
     }
 
-    if (json.containsKey('EndRange')) {
-      endRange = ModelBase.createInstance< NewDocumentPosition >(json['EndRange'] as Map<String, dynamic>);
-    } else {
-      endRange = null;
-    }
-
     if (json.containsKey('StartRange')) {
       startRange = ModelBase.createInstance< NewDocumentPosition >(json['StartRange'] as Map<String, dynamic>);
     } else {
       startRange = null;
+    }
+
+    if (json.containsKey('EndRange')) {
+      endRange = ModelBase.createInstance< NewDocumentPosition >(json['EndRange'] as Map<String, dynamic>);
+    } else {
+      endRange = null;
     }
   }
 
@@ -81,12 +81,12 @@ class BookmarkInsert extends BookmarkData {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
-    if (endRange != null) {
-      _result['EndRange'] = endRange!.serialize();
-    }
-
     if (startRange != null) {
       _result['StartRange'] = startRange!.serialize();
+    }
+
+    if (endRange != null) {
+      _result['EndRange'] = endRange!.serialize();
     }
     return _result;
   }

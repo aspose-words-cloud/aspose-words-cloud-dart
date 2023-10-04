@@ -36,7 +36,7 @@ import '../body_part_data.dart';
 
 /// Appends documents to the original document.
 class AppendDocumentOnlineResponse implements ResponseBase {
-  /// The response model.
+  /// The REST response with a document description.
   DocumentResponse? model;
 
   /// The document after modification.

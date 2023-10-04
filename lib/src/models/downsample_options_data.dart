@@ -32,6 +32,7 @@ import '../../aspose_words_cloud.dart';
 /// Container class for Downsample options.
 class DownsampleOptionsData implements ModelBase {
   /// Gets or sets a value indicating whether images should be downsampled.
+  /// The default value is true.
   bool? _downsampleImages;
 
   bool? get downsampleImages => _downsampleImages;
@@ -39,6 +40,7 @@ class DownsampleOptionsData implements ModelBase {
 
 
   /// Gets or sets the resolution in pixels per inch which the images should be downsampled to.
+  /// The default value is 220 ppi.
   int? _resolution;
 
   int? get resolution => _resolution;
@@ -46,6 +48,7 @@ class DownsampleOptionsData implements ModelBase {
 
 
   /// Gets or sets the threshold resolution in pixels per inch. If resolution of an image in the document is less than threshold value, the downsampling algorithm will not be applied. A value of 0 means the threshold check is not used and all images that can be reduced in size are downsampled.
+  /// The default value is 0.
   int? _resolutionThreshold;
 
   int? get resolutionThreshold => _resolutionThreshold;

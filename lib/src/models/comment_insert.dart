@@ -57,16 +57,16 @@ class CommentInsert extends CommentBase {
       author = null;
     }
 
-    if (json.containsKey('DateTime')) {
-      dateTime = DateTime.parse(json['DateTime'] as String);
-    } else {
-      dateTime = null;
-    }
-
     if (json.containsKey('Initial')) {
       initial = json['Initial'] as String;
     } else {
       initial = null;
+    }
+
+    if (json.containsKey('DateTime')) {
+      dateTime = DateTime.parse(json['DateTime'] as String);
+    } else {
+      dateTime = null;
     }
 
     if (json.containsKey('Text')) {

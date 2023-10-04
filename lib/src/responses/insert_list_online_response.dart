@@ -36,7 +36,8 @@ import '../body_part_data.dart';
 
 /// Inserts a new list to the document.
 class InsertListOnlineResponse implements ResponseBase {
-  /// The response model.
+  /// The REST response with a list information.
+  /// This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/lists/{n}" REST API requests.
   ListResponse? model;
 
   /// The document after modification.

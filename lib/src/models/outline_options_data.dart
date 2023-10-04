@@ -31,13 +31,6 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for outline options.
 class OutlineOptionsData implements ModelBase {
-  /// Gets or sets the individual bookmarks outline level.
-  List<BookmarksOutlineLevelData?>? _bookmarksOutlineLevels;
-
-  List<BookmarksOutlineLevelData?>? get bookmarksOutlineLevels => _bookmarksOutlineLevels;
-  set bookmarksOutlineLevels(List<BookmarksOutlineLevelData?>? val) => _bookmarksOutlineLevels = val;
-
-
   /// Gets or sets a value indicating whether to create missing outline levels when the document is exported. The default value is false.
   bool? _createMissingOutlineLevels;
 
@@ -46,6 +39,7 @@ class OutlineOptionsData implements ModelBase {
 
 
   /// Gets or sets a value indicating whether to create outlines for headings (paragraphs formatted with the Heading styles) inside tables.
+  /// The default value is false.
   bool? _createOutlinesForHeadingsInTables;
 
   bool? get createOutlinesForHeadingsInTables => _createOutlinesForHeadingsInTables;
@@ -73,20 +67,17 @@ class OutlineOptionsData implements ModelBase {
   set headingsOutlineLevels(int? val) => _headingsOutlineLevels = val;
 
 
+  /// Gets or sets the individual bookmarks outline level.
+  List<BookmarksOutlineLevelData?>? _bookmarksOutlineLevels;
+
+  List<BookmarksOutlineLevelData?>? get bookmarksOutlineLevels => _bookmarksOutlineLevels;
+  set bookmarksOutlineLevels(List<BookmarksOutlineLevelData?>? val) => _bookmarksOutlineLevels = val;
+
+
   @override
   void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize OutlineOptionsData data model.');
-    }
-
-    if (json.containsKey('BookmarksOutlineLevels')) {
-      // Array processing
-      bookmarksOutlineLevels = <BookmarksOutlineLevelData>[];
-      for(final _element in json['BookmarksOutlineLevels']) {
-        bookmarksOutlineLevels!.add(ModelBase.createInstance< BookmarksOutlineLevelData >(_element as Map<String, dynamic>));
-      }
-    } else {
-      bookmarksOutlineLevels = null;
     }
 
     if (json.containsKey('CreateMissingOutlineLevels')) {
@@ -118,15 +109,21 @@ class OutlineOptionsData implements ModelBase {
     } else {
       headingsOutlineLevels = null;
     }
+
+    if (json.containsKey('BookmarksOutlineLevels')) {
+      // Array processing
+      bookmarksOutlineLevels = <BookmarksOutlineLevelData>[];
+      for(final _element in json['BookmarksOutlineLevels']) {
+        bookmarksOutlineLevels!.add(ModelBase.createInstance< BookmarksOutlineLevelData >(_element as Map<String, dynamic>));
+      }
+    } else {
+      bookmarksOutlineLevels = null;
+    }
   }
 
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
-    if (bookmarksOutlineLevels != null) {
-      _result['BookmarksOutlineLevels'] = bookmarksOutlineLevels!.map((_element) => _element?.serialize()).toList();
-    }
-
     if (createMissingOutlineLevels != null) {
       _result['CreateMissingOutlineLevels'] = createMissingOutlineLevels!;
     }
@@ -145,6 +142,10 @@ class OutlineOptionsData implements ModelBase {
 
     if (headingsOutlineLevels != null) {
       _result['HeadingsOutlineLevels'] = headingsOutlineLevels!;
+    }
+
+    if (bookmarksOutlineLevels != null) {
+      _result['BookmarksOutlineLevels'] = bookmarksOutlineLevels!.map((_element) => _element?.serialize()).toList();
     }
     return _result;
   }

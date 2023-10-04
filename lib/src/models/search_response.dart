@@ -30,6 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// The REST response with a regular expression pattern and a collection of search results.
+/// This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/search" REST API requests.
 class SearchResponse extends WordsResponse {
   /// Gets or sets the regular expression pattern used to find matches.
   String? _searchingPattern;

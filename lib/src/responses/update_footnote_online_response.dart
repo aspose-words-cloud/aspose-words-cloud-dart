@@ -36,7 +36,8 @@ import '../body_part_data.dart';
 
 /// Updates a footnote in the document node.
 class UpdateFootnoteOnlineResponse implements ResponseBase {
-  /// The response model.
+  /// The REST response with a footnote.
+  /// This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/footnote/0" REST API requests.
   FootnoteResponse? model;
 
   /// The document after modification.

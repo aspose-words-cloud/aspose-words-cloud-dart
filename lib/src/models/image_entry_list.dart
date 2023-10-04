@@ -32,6 +32,7 @@ import '../../aspose_words_cloud.dart';
 /// Represents a list of images which will be appended to the original resource document or image.
 class ImageEntryList extends BaseEntryList {
   /// Gets or sets a value indicating whether each image should be added to a new page in the document.
+  /// This value only has an effect when adding images to a document that supports pagination.
   bool? _appendEachImageOnNewPage;
 
   bool? get appendEachImageOnNewPage => _appendEachImageOnNewPage;
