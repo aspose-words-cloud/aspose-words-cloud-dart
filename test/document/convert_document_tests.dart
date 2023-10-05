@@ -118,43 +118,6 @@ class ConvertDocumentTests
     expect(result.saveResult?.destDocument, isNotNull);
   }
 
-  /// Test for converting document to one of the available formats.
-  Future<void> testSaveAsTiff() async
-  {
-    final localName = 'test_multi_pages.docx';
-    final remoteName = 'TestSaveAsTiff.pdf';
-    await context.uploadFile('Common/' + localName, remoteFolder + '/' + remoteName);
-    final requestSaveOptions = TiffSaveOptionsData();
-    requestSaveOptions.fileName = context.baseTestOutPath + '/abc.tiff';
-
-    final request = SaveAsTiffRequest(
-      remoteName,
-      requestSaveOptions,
-      folder: remoteFolder
-    );
-
-    final result = await context.getApi().saveAsTiff(request);
-    expect(result.saveResult, isNotNull);
-    expect(result.saveResult?.destDocument, isNotNull);
-  }
-
-  /// Test for converting document to one of the available formats.
-  Future<void> testSaveAsTiffOnline() async
-  {
-    final localName = 'test_multi_pages.docx';
-    final requestDocument = await context.loadBinaryFile('Common/' + localName);
-
-    final requestSaveOptions = TiffSaveOptionsData();
-    requestSaveOptions.fileName = context.baseTestOutPath + '/abc.tiff';
-
-    final request = SaveAsTiffOnlineRequest(
-      requestDocument,
-      requestSaveOptions
-    );
-
-    await context.getApi().saveAsTiffOnline(request);
-  }
-
   /// A test for ConvertDocument.
   Future<void> testConvertDocument() async
   {
