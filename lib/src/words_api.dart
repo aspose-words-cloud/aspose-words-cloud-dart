@@ -1444,11 +1444,13 @@ class WordsApi {
   }
 
   /// Converts a document in cloud storage to TIFF format using detailed conversion settings.
+  @Deprecated('This operation will be removed in the future.')
   Future< SaveResponse > saveAsTiff(SaveAsTiffRequest request) async {
     return await _apiClient.call(request) as SaveResponse;
   }
 
   /// Converts a document in cloud storage to TIFF format using detailed conversion settings.
+  @Deprecated('This operation will be removed in the future.')
   Future< SaveAsTiffOnlineResponse > saveAsTiffOnline(SaveAsTiffOnlineRequest request) async {
     return await _apiClient.call(request) as SaveAsTiffOnlineResponse;
   }
