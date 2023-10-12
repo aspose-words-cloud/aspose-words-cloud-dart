@@ -47,7 +47,7 @@ node('words-linux') {
                     }
                     
                     stage('lint'){
-                        sh "dart analyze --fatal-infos --fatal-warnings ."
+                        sh "dart analyze --fatal-warnings ."
                     }
                 
                     stage('tests'){

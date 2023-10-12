@@ -1,0 +1,5 @@
+include: package:lints/recommended.yaml
+
+linter:
+  rules:
+    - deprecated_member_use_from_same_package
