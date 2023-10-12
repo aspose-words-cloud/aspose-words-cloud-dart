@@ -65,7 +65,7 @@ class InsertWatermarkImageOnlineRequest implements RequestBase {
   /// The filename of the image. If the parameter value is missing — the image data is expected in the request content.
   final String? image;
 
-  InsertWatermarkImageOnlineRequest(this.document, this.imageFile, {this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime, this.rotationAngle, this.image});
+  InsertWatermarkImageOnlineRequest(this.document, {this.imageFile, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime, this.rotationAngle, this.image});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -121,9 +121,6 @@ class InsertWatermarkImageOnlineRequest implements RequestBase {
       if (_formBody != null) {
         _bodyParts.add(_formBody);
       }
-    }
-    else {
-      throw ApiException(400, 'Parameter imageFile is required.');
     }
 
     for (final _fileContentPart in _fileContentParts) {

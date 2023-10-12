@@ -30,6 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// The REST response with a font.
+/// This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/runs/{1}/font" REST API requests.
 class FontResponse extends WordsResponse {
   /// Gets or sets the font.
   Font? _font;

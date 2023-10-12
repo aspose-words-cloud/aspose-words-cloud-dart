@@ -45,6 +45,19 @@ class XmlColor implements ModelBase {
   set web(String? val) => _web = val;
 
 
+  /// Gets or sets the Alpha wrapper for serialization.
+  int? _xmlAlpha;
+
+  int? get xmlAlpha => _xmlAlpha;
+  set xmlAlpha(int? val) => _xmlAlpha = val;
+
+
+  /// Gets a value indicating whether Alpha is specified.
+  bool? _xmlAlphaSpecified;
+
+  bool? get xmlAlphaSpecified => _xmlAlphaSpecified;
+
+
   @override
   void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
@@ -62,6 +75,12 @@ class XmlColor implements ModelBase {
     } else {
       web = null;
     }
+
+    if (json.containsKey('XmlAlpha')) {
+      xmlAlpha = json['XmlAlpha'] as int;
+    } else {
+      xmlAlpha = null;
+    }
   }
 
   @override
@@ -73,6 +92,14 @@ class XmlColor implements ModelBase {
 
     if (web != null) {
       _result['Web'] = web!;
+    }
+
+    if (xmlAlpha != null) {
+      _result['XmlAlpha'] = xmlAlpha!;
+    }
+
+    if (xmlAlphaSpecified != null) {
+      _result['XmlAlphaSpecified'] = xmlAlphaSpecified!;
     }
     return _result;
   }

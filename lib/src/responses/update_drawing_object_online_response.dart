@@ -36,7 +36,7 @@ import '../body_part_data.dart';
 
 /// Updates a DrawingObject in the document node.
 class UpdateDrawingObjectOnlineResponse implements ResponseBase {
-  /// The response model.
+  /// The REST response with a DrawingObject.
   DrawingObjectResponse? model;
 
   /// The document after modification.

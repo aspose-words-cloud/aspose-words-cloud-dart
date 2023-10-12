@@ -36,7 +36,7 @@ import '../body_part_data.dart';
 
 /// Removes a watermark from the document.
 class DeleteWatermarkOnlineResponse implements ResponseBase {
-  /// The response model.
+  /// The REST response with a document description.
   DocumentResponse? model;
 
   /// The document after modification.

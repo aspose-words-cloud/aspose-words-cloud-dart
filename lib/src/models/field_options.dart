@@ -31,13 +31,6 @@ import '../../aspose_words_cloud.dart';
 
 /// DTO for field options.
 class FieldOptions implements ModelBase {
-  /// Gets or sets BuiltIn Templates Paths.
-  List<String?>? _builtInTemplatesPaths;
-
-  List<String?>? get builtInTemplatesPaths => _builtInTemplatesPaths;
-  set builtInTemplatesPaths(List<String?>? val) => _builtInTemplatesPaths = val;
-
-
   /// Gets or sets Curren tUser.
   UserInformation? _currentUser;
 
@@ -124,20 +117,17 @@ class FieldOptions implements ModelBase {
   set useInvariantCultureNumberFormat(bool? val) => _useInvariantCultureNumberFormat = val;
 
 
+  /// Gets or sets BuiltIn Templates Paths.
+  List<String?>? _builtInTemplatesPaths;
+
+  List<String?>? get builtInTemplatesPaths => _builtInTemplatesPaths;
+  set builtInTemplatesPaths(List<String?>? val) => _builtInTemplatesPaths = val;
+
+
   @override
   void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize FieldOptions data model.');
-    }
-
-    if (json.containsKey('BuiltInTemplatesPaths')) {
-      // Array processing
-      builtInTemplatesPaths = <String>[];
-      for(final _element in json['BuiltInTemplatesPaths']) {
-        builtInTemplatesPaths!.add(_element as String);
-      }
-    } else {
-      builtInTemplatesPaths = null;
     }
 
     if (json.containsKey('CurrentUser')) {
@@ -224,15 +214,21 @@ class FieldOptions implements ModelBase {
     } else {
       useInvariantCultureNumberFormat = null;
     }
+
+    if (json.containsKey('BuiltInTemplatesPaths')) {
+      // Array processing
+      builtInTemplatesPaths = <String>[];
+      for(final _element in json['BuiltInTemplatesPaths']) {
+        builtInTemplatesPaths!.add(_element as String);
+      }
+    } else {
+      builtInTemplatesPaths = null;
+    }
   }
 
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
-    if (builtInTemplatesPaths != null) {
-      _result['BuiltInTemplatesPaths'] = builtInTemplatesPaths!;
-    }
-
     if (currentUser != null) {
       _result['CurrentUser'] = currentUser!.serialize();
     }
@@ -292,6 +288,10 @@ class FieldOptions implements ModelBase {
 
     if (useInvariantCultureNumberFormat != null) {
       _result['UseInvariantCultureNumberFormat'] = useInvariantCultureNumberFormat!;
+    }
+
+    if (builtInTemplatesPaths != null) {
+      _result['BuiltInTemplatesPaths'] = builtInTemplatesPaths!;
     }
     return _result;
   }

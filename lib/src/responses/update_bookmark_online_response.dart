@@ -36,7 +36,8 @@ import '../body_part_data.dart';
 
 /// Updates a bookmark in the document.
 class UpdateBookmarkOnlineResponse implements ResponseBase {
-  /// The response model.
+  /// The REST response with a bookmark.
+  /// This response should be returned by the service when handling: GET bookmarks/{bookmarkName}.
   BookmarkResponse? model;
 
   /// The document after modification.

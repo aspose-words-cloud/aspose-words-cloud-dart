@@ -36,7 +36,7 @@ import '../body_part_data.dart';
 
 /// Rejects all revisions in the document.
 class RejectAllRevisionsOnlineResponse implements ResponseBase {
-  /// The response model.
+  /// The REST response with a result of the modification operations for the revisions collection (now these are acceptAll and rejectAll).
   RevisionsModificationResponse? model;
 
   /// The document after modification.

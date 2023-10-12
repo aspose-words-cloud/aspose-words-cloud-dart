@@ -30,6 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// The REST response with a footnote.
+/// This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/footnote/0" REST API requests.
 class FootnoteResponse extends WordsResponse {
   /// Gets or sets the footnote.
   Footnote? _footnote;

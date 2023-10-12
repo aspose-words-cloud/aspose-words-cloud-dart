@@ -31,8 +31,10 @@ import '../../aspose_words_cloud.dart';
 
 /// Represents options for parsing CSV data.
 /// To learn more, visit the LINQ Reporting Engine documentation article.
+/// An instance of this class can be passed into constructors of CsvDataSource.
 class CsvDataLoadOptions implements ModelBase {
   /// Gets or sets the character that is used to comment lines of CSV data.
+  /// The default value is '#' (number sign).
   String? _commentChar;
 
   String? get commentChar => _commentChar;
@@ -40,6 +42,7 @@ class CsvDataLoadOptions implements ModelBase {
 
 
   /// Gets or sets the character to be used as a column delimiter.
+  /// The default value is ',' (comma).
   String? _delimiter;
 
   String? get delimiter => _delimiter;
@@ -47,6 +50,7 @@ class CsvDataLoadOptions implements ModelBase {
 
 
   /// Gets or sets a value indicating whether the first record of CSV data contains column names.
+  /// The default value is false.
   bool? _hasHeaders;
 
   bool? get hasHeaders => _hasHeaders;
@@ -54,6 +58,7 @@ class CsvDataLoadOptions implements ModelBase {
 
 
   /// Gets or sets the character that is used to quote field values.
+  /// The default value is '"' (quotation mark).Double the character to place it into quoted text.
   String? _quoteChar;
 
   String? get quoteChar => _quoteChar;

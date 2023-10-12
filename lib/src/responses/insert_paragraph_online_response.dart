@@ -36,7 +36,8 @@ import '../body_part_data.dart';
 
 /// Inserts a new paragraph to the document node.
 class InsertParagraphOnlineResponse implements ResponseBase {
-  /// The response model.
+  /// The REST response with a paragraph.
+  /// This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}" REST API requests.
   ParagraphResponse? model;
 
   /// The document after modification.

@@ -31,20 +31,6 @@ import '../../aspose_words_cloud.dart';
 
 /// Drawing object element for insert.
 class DrawingObjectInsert implements ModelBase {
-  /// Gets or sets the height of the DrawingObject in points.
-  double? _height;
-
-  double? get height => _height;
-  set height(double? val) => _height = val;
-
-
-  /// Gets or sets the distance in points from the origin to the left side of the image.
-  double? _left;
-
-  double? get left => _left;
-  set left(double? val) => _left = val;
-
-
   /// Gets or sets the position, before which the DrawingObject will be inserted.
   NewDocumentPosition? _position;
 
@@ -57,6 +43,13 @@ class DrawingObjectInsert implements ModelBase {
 
   DrawingObjectInsert_RelativeHorizontalPositionEnum? get relativeHorizontalPosition => _relativeHorizontalPosition;
   set relativeHorizontalPosition(DrawingObjectInsert_RelativeHorizontalPositionEnum? val) => _relativeHorizontalPosition = val;
+
+
+  /// Gets or sets the distance in points from the origin to the left side of the image.
+  double? _left;
+
+  double? get left => _left;
+  set left(double? val) => _left = val;
 
 
   /// Gets or sets the relative vertical position, from which the distance to the image is measured.
@@ -80,6 +73,13 @@ class DrawingObjectInsert implements ModelBase {
   set width(double? val) => _width = val;
 
 
+  /// Gets or sets the height of the DrawingObject in points.
+  double? _height;
+
+  double? get height => _height;
+  set height(double? val) => _height = val;
+
+
   /// Gets or sets the option indicating how to wrap text around the image.
   DrawingObjectInsert_WrapTypeEnum? _wrapType;
 
@@ -91,18 +91,6 @@ class DrawingObjectInsert implements ModelBase {
   void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize DrawingObjectInsert data model.');
-    }
-
-    if (json.containsKey('Height')) {
-      height = json['Height'] as double;
-    } else {
-      height = null;
-    }
-
-    if (json.containsKey('Left')) {
-      left = json['Left'] as double;
-    } else {
-      left = null;
     }
 
     if (json.containsKey('Position')) {
@@ -126,6 +114,12 @@ class DrawingObjectInsert implements ModelBase {
       }
     } else {
       relativeHorizontalPosition = null;
+    }
+
+    if (json.containsKey('Left')) {
+      left = json['Left'] as double;
+    } else {
+      left = null;
     }
 
     if (json.containsKey('RelativeVerticalPosition')) {
@@ -158,6 +152,12 @@ class DrawingObjectInsert implements ModelBase {
       width = null;
     }
 
+    if (json.containsKey('Height')) {
+      height = json['Height'] as double;
+    } else {
+      height = null;
+    }
+
     if (json.containsKey('WrapType')) {
       switch (json['WrapType'] as String) {
         case 'Inline': wrapType = DrawingObjectInsert_WrapTypeEnum.inline; break;
@@ -176,14 +176,6 @@ class DrawingObjectInsert implements ModelBase {
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
-    if (height != null) {
-      _result['Height'] = height!;
-    }
-
-    if (left != null) {
-      _result['Left'] = left!;
-    }
-
     if (position != null) {
       _result['Position'] = position!.serialize();
     }
@@ -201,6 +193,10 @@ class DrawingObjectInsert implements ModelBase {
         case DrawingObjectInsert_RelativeHorizontalPositionEnum.outsideMargin: _result['RelativeHorizontalPosition'] = 'OutsideMargin'; break;
         default: break;
       }
+    }
+
+    if (left != null) {
+      _result['Left'] = left!;
     }
 
     if (relativeVerticalPosition != null) {
@@ -225,6 +221,10 @@ class DrawingObjectInsert implements ModelBase {
 
     if (width != null) {
       _result['Width'] = width!;
+    }
+
+    if (height != null) {
+      _result['Height'] = height!;
     }
 
     if (wrapType != null) {

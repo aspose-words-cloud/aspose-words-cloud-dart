@@ -104,12 +104,14 @@ class WordsApi {
     return await _apiClient.call(request) as CompareDocumentOnlineResponse;
   }
 
+  /// Compress and resize images inside the document.
   /// The default settings allows to reduce the size of the document without any visible degradation of images quality.
   Future< CompressResponse > compressDocument(CompressDocumentRequest request) async {
     return await _apiClient.call(request) as CompressResponse;
   }
 
   /// Compress and resize images inside the document.
+  /// The default settings allows to reduce the size of the document without any visible degradation of images quality.
   Future< CompressDocumentOnlineResponse > compressDocumentOnline(CompressDocumentOnlineRequest request) async {
     return await _apiClient.call(request) as CompressDocumentOnlineResponse;
   }
@@ -144,6 +146,7 @@ class WordsApi {
     return await _apiClient.call(request) as WordsResponse;
   }
 
+  /// Creates a new document in cloud storage in the format, determined by the file extension.
   /// Supported all save format extensions.
   Future< DocumentResponse > createDocument(CreateDocumentRequest request) async {
     return await _apiClient.call(request) as DocumentResponse;
@@ -194,22 +197,26 @@ class WordsApi {
     return await _apiClient.call(request) as Map<String, ByteData>;
   }
 
+  /// Removes a border from the document node.
   /// The 'nodePath' parameter should refer to a paragraph, a cell or a row.
   Future< BorderResponse > deleteBorder(DeleteBorderRequest request) async {
     return await _apiClient.call(request) as BorderResponse;
   }
 
   /// Removes a border from the document node.
+  /// The 'nodePath' parameter should refer to a paragraph, a cell or a row.
   Future< DeleteBorderOnlineResponse > deleteBorderOnline(DeleteBorderOnlineRequest request) async {
     return await _apiClient.call(request) as DeleteBorderOnlineResponse;
   }
 
+  /// Removes borders from the document node.
   /// The 'nodePath' parameter should refer to a paragraph, a cell or a row.
   Future< BordersResponse > deleteBorders(DeleteBordersRequest request) async {
     return await _apiClient.call(request) as BordersResponse;
   }
 
   /// Removes borders from the document node.
+  /// The 'nodePath' parameter should refer to a paragraph, a cell or a row.
   Future< DeleteBordersOnlineResponse > deleteBordersOnline(DeleteBordersOnlineRequest request) async {
     return await _apiClient.call(request) as DeleteBordersOnlineResponse;
   }
@@ -504,12 +511,14 @@ class WordsApi {
     return await _apiClient.call(request) as BookmarksResponse;
   }
 
+  /// Reads a border from the document node.
   /// The 'nodePath' parameter should refer to a paragraph, a cell or a row.
   Future< BorderResponse > getBorder(GetBorderRequest request) async {
     return await _apiClient.call(request) as BorderResponse;
   }
 
   /// Reads a border from the document node.
+  /// The 'nodePath' parameter should refer to a paragraph, a cell or a row.
   Future< BorderResponse > getBorderOnline(GetBorderOnlineRequest request) async {
     return await _apiClient.call(request) as BorderResponse;
   }
@@ -1419,7 +1428,7 @@ class WordsApi {
     return await _apiClient.call(request) as SaveResponse;
   }
 
-  /// Converts a document to the specified format.
+  /// Converts a document in cloud storage to the specified format.
   Future< SaveAsOnlineResponse > saveAsOnline(SaveAsOnlineRequest request) async {
     return await _apiClient.call(request) as SaveAsOnlineResponse;
   }
@@ -1435,11 +1444,13 @@ class WordsApi {
   }
 
   /// Converts a document in cloud storage to TIFF format using detailed conversion settings.
+  @Deprecated('This operation will be removed in the future.')
   Future< SaveResponse > saveAsTiff(SaveAsTiffRequest request) async {
     return await _apiClient.call(request) as SaveResponse;
   }
 
-  /// Converts a document to TIFF format using detailed conversion settings.
+  /// Converts a document in cloud storage to TIFF format using detailed conversion settings.
+  @Deprecated('This operation will be removed in the future.')
   Future< SaveAsTiffOnlineResponse > saveAsTiffOnline(SaveAsTiffOnlineRequest request) async {
     return await _apiClient.call(request) as SaveAsTiffOnlineResponse;
   }
@@ -1484,12 +1495,14 @@ class WordsApi {
     return await _apiClient.call(request) as UpdateBookmarkOnlineResponse;
   }
 
+  /// Updates a border in the document node.
   /// The 'nodePath' parameter should refer to a paragraph, a cell or a row.
   Future< BorderResponse > updateBorder(UpdateBorderRequest request) async {
     return await _apiClient.call(request) as BorderResponse;
   }
 
   /// Updates a border in the document node.
+  /// The 'nodePath' parameter should refer to a paragraph, a cell or a row.
   Future< UpdateBorderOnlineResponse > updateBorderOnline(UpdateBorderOnlineRequest request) async {
     return await _apiClient.call(request) as UpdateBorderOnlineResponse;
   }

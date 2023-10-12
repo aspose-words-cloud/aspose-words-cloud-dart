@@ -32,6 +32,7 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a SdtListItem for StructuredDocumentTag.
 class StructuredDocumentTagListItem implements ModelBase {
   /// Gets or sets the text to display in the run content in place of the Aspose.Words.Markup.SdtListItem.Value attribute contents for this list item.
+  /// Cannot be null and cannot be an empty string.
   String? _displayText;
 
   String? get displayText => _displayText;
@@ -39,6 +40,7 @@ class StructuredDocumentTagListItem implements ModelBase {
 
 
   /// Gets or sets the value of this list item.
+  /// Cannot be null and cannot be an empty string.
   String? _value;
 
   String? get value => _value;

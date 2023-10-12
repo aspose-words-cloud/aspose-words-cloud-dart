@@ -36,7 +36,8 @@ import '../body_part_data.dart';
 
 /// Inserts a new or updates an existing paragraph tab stop in the document node.
 class InsertOrUpdateParagraphTabStopOnlineResponse implements ResponseBase {
-  /// The response model.
+  /// The REST response with an array of tab stops.
+  /// This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/tabstops" REST API requests.
   TabStopsResponse? model;
 
   /// The document after modification.

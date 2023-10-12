@@ -31,11 +31,11 @@ import '../../aspose_words_cloud.dart';
 
 /// Drawing object element for update.
 class DrawingObjectUpdate implements ModelBase {
-  /// Gets or sets the height of the DrawingObject in points.
-  double? _height;
+  /// Gets or sets the relative horizontal position, from which the distance to the image is measured.
+  DrawingObjectUpdate_RelativeHorizontalPositionEnum? _relativeHorizontalPosition;
 
-  double? get height => _height;
-  set height(double? val) => _height = val;
+  DrawingObjectUpdate_RelativeHorizontalPositionEnum? get relativeHorizontalPosition => _relativeHorizontalPosition;
+  set relativeHorizontalPosition(DrawingObjectUpdate_RelativeHorizontalPositionEnum? val) => _relativeHorizontalPosition = val;
 
 
   /// Gets or sets the distance in points from the origin to the left side of the image.
@@ -43,13 +43,6 @@ class DrawingObjectUpdate implements ModelBase {
 
   double? get left => _left;
   set left(double? val) => _left = val;
-
-
-  /// Gets or sets the relative horizontal position, from which the distance to the image is measured.
-  DrawingObjectUpdate_RelativeHorizontalPositionEnum? _relativeHorizontalPosition;
-
-  DrawingObjectUpdate_RelativeHorizontalPositionEnum? get relativeHorizontalPosition => _relativeHorizontalPosition;
-  set relativeHorizontalPosition(DrawingObjectUpdate_RelativeHorizontalPositionEnum? val) => _relativeHorizontalPosition = val;
 
 
   /// Gets or sets the relative vertical position, from which the distance to the image measured.
@@ -73,6 +66,13 @@ class DrawingObjectUpdate implements ModelBase {
   set width(double? val) => _width = val;
 
 
+  /// Gets or sets the height of the DrawingObject in points.
+  double? _height;
+
+  double? get height => _height;
+  set height(double? val) => _height = val;
+
+
   /// Gets or sets the option that controls how to wrap text around the image.
   DrawingObjectUpdate_WrapTypeEnum? _wrapType;
 
@@ -84,18 +84,6 @@ class DrawingObjectUpdate implements ModelBase {
   void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize DrawingObjectUpdate data model.');
-    }
-
-    if (json.containsKey('Height')) {
-      height = json['Height'] as double;
-    } else {
-      height = null;
-    }
-
-    if (json.containsKey('Left')) {
-      left = json['Left'] as double;
-    } else {
-      left = null;
     }
 
     if (json.containsKey('RelativeHorizontalPosition')) {
@@ -113,6 +101,12 @@ class DrawingObjectUpdate implements ModelBase {
       }
     } else {
       relativeHorizontalPosition = null;
+    }
+
+    if (json.containsKey('Left')) {
+      left = json['Left'] as double;
+    } else {
+      left = null;
     }
 
     if (json.containsKey('RelativeVerticalPosition')) {
@@ -145,6 +139,12 @@ class DrawingObjectUpdate implements ModelBase {
       width = null;
     }
 
+    if (json.containsKey('Height')) {
+      height = json['Height'] as double;
+    } else {
+      height = null;
+    }
+
     if (json.containsKey('WrapType')) {
       switch (json['WrapType'] as String) {
         case 'Inline': wrapType = DrawingObjectUpdate_WrapTypeEnum.inline; break;
@@ -163,14 +163,6 @@ class DrawingObjectUpdate implements ModelBase {
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
-    if (height != null) {
-      _result['Height'] = height!;
-    }
-
-    if (left != null) {
-      _result['Left'] = left!;
-    }
-
     if (relativeHorizontalPosition != null) {
       switch (relativeHorizontalPosition!) {
         case DrawingObjectUpdate_RelativeHorizontalPositionEnum.margin: _result['RelativeHorizontalPosition'] = 'Margin'; break;
@@ -184,6 +176,10 @@ class DrawingObjectUpdate implements ModelBase {
         case DrawingObjectUpdate_RelativeHorizontalPositionEnum.outsideMargin: _result['RelativeHorizontalPosition'] = 'OutsideMargin'; break;
         default: break;
       }
+    }
+
+    if (left != null) {
+      _result['Left'] = left!;
     }
 
     if (relativeVerticalPosition != null) {
@@ -208,6 +204,10 @@ class DrawingObjectUpdate implements ModelBase {
 
     if (width != null) {
       _result['Width'] = width!;
+    }
+
+    if (height != null) {
+      _result['Height'] = height!;
     }
 
     if (wrapType != null) {

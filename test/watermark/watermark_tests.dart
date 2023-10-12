@@ -73,7 +73,7 @@ class WatermarkTests
 
     final request = InsertWatermarkImageOnlineRequest(
       requestDocument,
-      requestImageFile
+      imageFile: requestImageFile
     );
 
     await context.getApi().insertWatermarkImageOnline(request);

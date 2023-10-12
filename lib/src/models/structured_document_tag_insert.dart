@@ -247,12 +247,6 @@ class StructuredDocumentTagInsert extends StructuredDocumentTag {
     } else {
       id = null;
     }
-
-    if (json.containsKey('WordOpenXML')) {
-      wordOpenXML = json['WordOpenXML'] as String;
-    } else {
-      wordOpenXML = null;
-    }
   }
 
   @override

@@ -31,7 +31,16 @@ import '../../aspose_words_cloud.dart';
 
 /// Represents a single document style properties to update.
 class StyleUpdate implements ModelBase {
+  /// Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
+  /// This property is not used by Aspose.Words. The next paragraph style will only be applied automatically when you edit the document in MS Word.
+  String? _nextParagraphStyleName;
+
+  String? get nextParagraphStyleName => _nextParagraphStyleName;
+  set nextParagraphStyleName(String? val) => _nextParagraphStyleName = val;
+
+
   /// Gets or sets the name of the style this style is based on.
+  /// This will be an empty string if the style is not based on any other style and it can be set to an empty string.
   String? _baseStyleName;
 
   String? get baseStyleName => _baseStyleName;
@@ -46,23 +55,23 @@ class StyleUpdate implements ModelBase {
 
 
   /// Gets or sets the name of the style.
+  /// Can not be empty string. If there already is a style with such name in the collection, than this style will override it. All affected nodes will reference new style.
   String? _name;
 
   String? get name => _name;
   set name(String? val) => _name = val;
 
 
-  /// Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
-  String? _nextParagraphStyleName;
-
-  String? get nextParagraphStyleName => _nextParagraphStyleName;
-  set nextParagraphStyleName(String? val) => _nextParagraphStyleName = val;
-
-
   @override
   void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize StyleUpdate data model.');
+    }
+
+    if (json.containsKey('NextParagraphStyleName')) {
+      nextParagraphStyleName = json['NextParagraphStyleName'] as String;
+    } else {
+      nextParagraphStyleName = null;
     }
 
     if (json.containsKey('BaseStyleName')) {
@@ -82,17 +91,15 @@ class StyleUpdate implements ModelBase {
     } else {
       name = null;
     }
-
-    if (json.containsKey('NextParagraphStyleName')) {
-      nextParagraphStyleName = json['NextParagraphStyleName'] as String;
-    } else {
-      nextParagraphStyleName = null;
-    }
   }
 
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
+    if (nextParagraphStyleName != null) {
+      _result['NextParagraphStyleName'] = nextParagraphStyleName!;
+    }
+
     if (baseStyleName != null) {
       _result['BaseStyleName'] = baseStyleName!;
     }
@@ -103,10 +110,6 @@ class StyleUpdate implements ModelBase {
 
     if (name != null) {
       _result['Name'] = name!;
-    }
-
-    if (nextParagraphStyleName != null) {
-      _result['NextParagraphStyleName'] = nextParagraphStyleName!;
     }
     return _result;
   }

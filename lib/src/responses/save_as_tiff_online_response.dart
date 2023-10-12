@@ -34,9 +34,9 @@ import '../../aspose_words_cloud.dart';
 import '../api_client.dart';
 import '../body_part_data.dart';
 
-/// Converts a document to TIFF format using detailed conversion settings.
+/// Converts a document in cloud storage to TIFF format using detailed conversion settings.
 class SaveAsTiffOnlineResponse implements ResponseBase {
-  /// The response model.
+  /// The REST response with a save result.
   SaveResponse? model;
 
   /// The document after modification.

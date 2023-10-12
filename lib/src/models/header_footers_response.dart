@@ -30,6 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// The REST response with a collection of HeaderFooter elements.
+/// This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/headersfooters" REST API requests.
 class HeaderFootersResponse extends WordsResponse {
   /// Gets or sets the collection of HeaderFooter elements.
   HeaderFooterLinkCollection? _headerFooters;

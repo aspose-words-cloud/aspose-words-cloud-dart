@@ -36,7 +36,8 @@ import '../body_part_data.dart';
 
 /// Adds a new or updates an existing document property.
 class CreateOrUpdateDocumentPropertyOnlineResponse implements ResponseBase {
-  /// The response model.
+  /// The REST response with a document property.
+  /// This response should be returned by the service when handling: GET documentProperties/{propertyName}.
   DocumentPropertyResponse? model;
 
   /// The document after modification.

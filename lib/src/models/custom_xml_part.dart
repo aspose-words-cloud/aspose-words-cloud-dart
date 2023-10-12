@@ -32,6 +32,7 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a CustomXmlPart.
 class CustomXmlPart extends CustomXmlPartLink {
   /// Gets or sets the custom xml part id.
+  /// Cannot be null.
   String? _id;
 
   String? get id => _id;
@@ -39,6 +40,7 @@ class CustomXmlPart extends CustomXmlPartLink {
 
 
   /// Gets or sets the custom xml part data.
+  /// Cannot be null.Default is empty string.
   String? _data;
 
   String? get data => _data;

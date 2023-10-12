@@ -36,7 +36,7 @@ import '../body_part_data.dart';
 
 /// Updates a StructuredDocumentTag (SDT) in the document node.
 class UpdateStructuredDocumentTagOnlineResponse implements ResponseBase {
-  /// The response model.
+  /// The REST response with a StructuredDocumentTag.
   StructuredDocumentTagResponse? model;
 
   /// The document after modification.

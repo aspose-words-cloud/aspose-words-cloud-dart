@@ -46,6 +46,7 @@ class Comment extends CommentLink {
 
 
   /// Gets or sets the author name for a comment.
+  /// Cannot be null.Default is empty string.
   String? _author;
 
   String? get author => _author;
@@ -53,6 +54,7 @@ class Comment extends CommentLink {
 
 
   /// Gets or sets the initials of the user associated with a specific comment.
+  /// Cannot be null.Default is empty string.
   String? _initial;
 
   String? get initial => _initial;
@@ -67,6 +69,7 @@ class Comment extends CommentLink {
 
 
   /// Gets or sets text of the comment.
+  /// This method allows to quickly set text of a comment from a string. The string can contain paragraph breaks, this will create paragraphs of text in the comment accordingly.
   String? _text;
 
   String? get text => _text;

@@ -36,7 +36,7 @@ import '../body_part_data.dart';
 
 /// Replaces a range with text in the document.
 class ReplaceWithTextOnlineResponse implements ResponseBase {
-  /// The response model.
+  /// The REST response with a document description.
   DocumentResponse? model;
 
   /// The document after modification.

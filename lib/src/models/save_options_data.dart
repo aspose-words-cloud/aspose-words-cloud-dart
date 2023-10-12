@@ -32,6 +32,9 @@ import '../../aspose_words_cloud.dart';
 /// base container class for save options data.
 abstract class SaveOptionsData implements ModelBase {
   /// Gets or sets a boolean value indicating whether to allow embedding fonts with PostScript outlines when embedding TrueType fonts in a document upon it is saved. The default value is false..
+  /// Note, Word does not embed PostScript fonts, but can open documents with embedded fonts of this type.
+  /// This option only works when Aspose.Words.Fonts.FontInfoCollection.EmbedTrueTypeFonts of the Aspose.Words.DocumentBase.FontInfos property is set to true.
+  /// The default value is false.
   bool? _allowEmbeddingPostScriptFonts;
 
   bool? get allowEmbeddingPostScriptFonts => _allowEmbeddingPostScriptFonts;
@@ -46,6 +49,7 @@ abstract class SaveOptionsData implements ModelBase {
 
 
   /// Gets or sets the value determining how 3D effects are rendered.
+  /// The default value is Aspose.Words.Saving.Dml3DEffectsRenderingMode.Basic.
   SaveOptionsData_Dml3DEffectsRenderingModeEnum? _dml3DEffectsRenderingMode;
 
   SaveOptionsData_Dml3DEffectsRenderingModeEnum? get dml3DEffectsRenderingMode => _dml3DEffectsRenderingMode;
@@ -54,6 +58,8 @@ abstract class SaveOptionsData implements ModelBase {
 
   /// Gets or sets the value determining how DrawingML effects are rendered.
   /// { Simplified | None | Fine }.
+  /// The default value is Simplified.
+  /// This property is used when the document is exported to fixed page formats.
   SaveOptionsData_DmlEffectsRenderingModeEnum? _dmlEffectsRenderingMode;
 
   SaveOptionsData_DmlEffectsRenderingModeEnum? get dmlEffectsRenderingMode => _dmlEffectsRenderingMode;
@@ -61,6 +67,8 @@ abstract class SaveOptionsData implements ModelBase {
 
 
   /// Gets or sets the option that controls how DrawingML shapes are rendered.
+  /// { Fallback | DrawingML }. The default value is Fallback.
+  /// This property is used when the document is exported to fixed page formats.
   SaveOptionsData_DmlRenderingModeEnum? _dmlRenderingMode;
 
   SaveOptionsData_DmlRenderingModeEnum? get dmlRenderingMode => _dmlRenderingMode;
@@ -75,6 +83,7 @@ abstract class SaveOptionsData implements ModelBase {
 
 
   /// Gets or sets the value determining how ink (InkML) objects are rendered.
+  /// The default value is Aspose.Words.Saving.ImlRenderingMode.InkML.
   SaveOptionsData_ImlRenderingModeEnum? _imlRenderingMode;
 
   SaveOptionsData_ImlRenderingModeEnum? get imlRenderingMode => _imlRenderingMode;
@@ -104,6 +113,7 @@ abstract class SaveOptionsData implements ModelBase {
 
 
   /// Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
+  /// The default value is false.
   bool? _updateLastSavedTimeProperty;
 
   bool? get updateLastSavedTimeProperty => _updateLastSavedTimeProperty;
@@ -112,6 +122,7 @@ abstract class SaveOptionsData implements ModelBase {
 
   /// Gets or sets a value indicating whether to zip output or not.
   /// The default value is false.
+  /// When set to true, output files will be zipped.
   bool? _zipOutput;
 
   bool? get zipOutput => _zipOutput;
@@ -300,6 +311,7 @@ abstract class SaveOptionsData implements ModelBase {
 }
 
 /// Gets or sets the value determining how 3D effects are rendered.
+/// The default value is Aspose.Words.Saving.Dml3DEffectsRenderingMode.Basic.
 enum SaveOptionsData_Dml3DEffectsRenderingModeEnum
 { 
   basic,
@@ -308,6 +320,8 @@ enum SaveOptionsData_Dml3DEffectsRenderingModeEnum
 
 /// Gets or sets the value determining how DrawingML effects are rendered.
 /// { Simplified | None | Fine }.
+/// The default value is Simplified.
+/// This property is used when the document is exported to fixed page formats.
 enum SaveOptionsData_DmlEffectsRenderingModeEnum
 { 
   simplified,
@@ -316,6 +330,8 @@ enum SaveOptionsData_DmlEffectsRenderingModeEnum
 }
 
 /// Gets or sets the option that controls how DrawingML shapes are rendered.
+/// { Fallback | DrawingML }. The default value is Fallback.
+/// This property is used when the document is exported to fixed page formats.
 enum SaveOptionsData_DmlRenderingModeEnum
 { 
   fallback,
@@ -323,6 +339,7 @@ enum SaveOptionsData_DmlRenderingModeEnum
 }
 
 /// Gets or sets the value determining how ink (InkML) objects are rendered.
+/// The default value is Aspose.Words.Saving.ImlRenderingMode.InkML.
 enum SaveOptionsData_ImlRenderingModeEnum
 { 
   fallback,

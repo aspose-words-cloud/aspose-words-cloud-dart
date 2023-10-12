@@ -53,6 +53,7 @@ abstract class ParagraphFormatBase extends LinkElement {
 
 
   /// Gets or sets a value indicating whether this is a right-to-left paragraph.
+  /// When true, the runs and other inline objects in this paragraph are laid out right to left.
   bool? _bidi;
 
   bool? get bidi => _bidi;
@@ -96,6 +97,7 @@ abstract class ParagraphFormatBase extends LinkElement {
 
 
   /// Gets or sets the line spacing (in points) for the paragraph.
+  /// When LineSpacingRule property is set to AtLeast, the line spacing can be greater than or equal to, but never less than the specified LineSpacing value.When LineSpacingRule property is set to Exactly, the line spacing never changes from the specified LineSpacing value, even if a larger font is used within the paragraph.
   double? _lineSpacing;
 
   double? get lineSpacing => _lineSpacing;
@@ -117,6 +119,7 @@ abstract class ParagraphFormatBase extends LinkElement {
 
 
   /// Gets or sets a value indicating whether SpaceBefore and SpaceAfter will be ignored between the paragraphs of the same style.
+  /// This setting only takes affect when applied to a paragraph style. If applied to a paragraph directly, it has no effect.
   bool? _noSpaceBetweenParagraphsOfSameStyle;
 
   bool? get noSpaceBetweenParagraphsOfSameStyle => _noSpaceBetweenParagraphsOfSameStyle;
@@ -145,6 +148,7 @@ abstract class ParagraphFormatBase extends LinkElement {
 
 
   /// Gets or sets the amount of spacing (in points) after the paragraph.
+  /// Has no effect when SpaceAfterAuto is true.
   double? _spaceAfter;
 
   double? get spaceAfter => _spaceAfter;
@@ -152,6 +156,7 @@ abstract class ParagraphFormatBase extends LinkElement {
 
 
   /// Gets or sets a value indicating whether the amount of spacing after the paragraph is set automatically.
+  /// When set to true, overrides the effect of SpaceAfter.
   bool? _spaceAfterAuto;
 
   bool? get spaceAfterAuto => _spaceAfterAuto;
@@ -159,6 +164,7 @@ abstract class ParagraphFormatBase extends LinkElement {
 
 
   /// Gets or sets the amount of spacing (in points) before the paragraph.
+  /// Has no effect when SpaceBeforeAuto is true.
   double? _spaceBefore;
 
   double? get spaceBefore => _spaceBefore;
@@ -166,6 +172,7 @@ abstract class ParagraphFormatBase extends LinkElement {
 
 
   /// Gets or sets a value indicating whether the amount of spacing before the paragraph is set automatically.
+  /// When set to true, overrides the effect of SpaceBefore.
   bool? _spaceBeforeAuto;
 
   bool? get spaceBeforeAuto => _spaceBeforeAuto;
