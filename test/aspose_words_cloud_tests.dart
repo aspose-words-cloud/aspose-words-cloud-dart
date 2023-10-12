@@ -175,6 +175,8 @@ void main() {
     test('SaveAsOnline', () async => await ConvertDocumentTests(testContext).testSaveAsOnline());
     test('SaveAsOnlineHtmlMultifile', () async => await ConvertDocumentTests(testContext).testSaveAsOnlineHtmlMultifile());
     test('SaveAsDocx', () async => await ConvertDocumentTests(testContext).testSaveAsDocx());
+    test('SaveAsTiff', () async => await ConvertDocumentTests(testContext).testSaveAsTiff());
+    test('SaveAsTiffOnline', () async => await ConvertDocumentTests(testContext).testSaveAsTiffOnline());
     test('ConvertDocument', () async => await ConvertDocumentTests(testContext).testConvertDocument());
   });
 
