@@ -120,6 +120,8 @@ class CreateOrUpdateDocumentPropertyRequest implements RequestBase {
     }
 
     if (property != null) {
+      property!.validate();
+
       var _body = _apiClient.serializeBody(property, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

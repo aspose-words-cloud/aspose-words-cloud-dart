@@ -80,6 +80,20 @@ class WatermarkText implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (rotationAngle == null)
+    {
+        throw new ApiException(400, 'Property RotationAngle in WatermarkText is required.');
+    }
+
+    if (text == null)
+    {
+        throw new ApiException(400, 'Property Text in WatermarkText is required.');
+    }
+
+  }
 }
 
 

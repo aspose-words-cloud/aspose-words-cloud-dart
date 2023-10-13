@@ -80,6 +80,20 @@ class FootnotesStatData implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (paragraphCount == null)
+    {
+        throw new ApiException(400, 'Property ParagraphCount in FootnotesStatData is required.');
+    }
+
+    if (wordCount == null)
+    {
+        throw new ApiException(400, 'Property WordCount in FootnotesStatData is required.');
+    }
+
+  }
 }
 
 

@@ -123,6 +123,11 @@ class HeaderFooter extends HeaderFooterLink {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+  }
 }
 
 

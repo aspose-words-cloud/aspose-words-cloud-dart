@@ -65,6 +65,7 @@ class UploadFileRequest implements RequestBase {
     }
 
     if (fileContent != null) {
+
       var _formBody = _apiClient.serializeBody(fileContent, 'FileContent');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

@@ -80,6 +80,15 @@ class ErrorDetails implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (errorDateTime == null)
+    {
+        throw new ApiException(400, 'Property ErrorDateTime in ErrorDetails is required.');
+    }
+
+  }
 }
 
 

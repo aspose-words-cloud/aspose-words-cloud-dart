@@ -129,6 +129,20 @@ class JsonDataLoadOptions implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (alwaysGenerateRootObject == null)
+    {
+        throw new ApiException(400, 'Property AlwaysGenerateRootObject in JsonDataLoadOptions is required.');
+    }
+
+    if (simpleValueParseMode == null)
+    {
+        throw new ApiException(400, 'Property SimpleValueParseMode in JsonDataLoadOptions is required.');
+    }
+
+  }
 }
 
 /// Gets or sets a mode for parsing JSON simple values (null, boolean, number, integer,

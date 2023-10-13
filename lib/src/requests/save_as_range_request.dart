@@ -103,6 +103,8 @@ class SaveAsRangeRequest implements RequestBase {
     }
 
     if (documentParameters != null) {
+      documentParameters!.validate();
+
       var _body = _apiClient.serializeBody(documentParameters, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

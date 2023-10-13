@@ -80,6 +80,15 @@ class TableRowInsert implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (columnsCount == null)
+    {
+        throw new ApiException(400, 'Property ColumnsCount in TableRowInsert is required.');
+    }
+
+  }
 }
 
 

@@ -72,6 +72,11 @@ class TableCellResponse extends WordsResponse {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+  }
 }
 
 

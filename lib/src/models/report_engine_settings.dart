@@ -180,6 +180,15 @@ class ReportEngineSettings implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (dataSourceType == null)
+    {
+        throw new ApiException(400, 'Property DataSourceType in ReportEngineSettings is required.');
+    }
+
+  }
 }
 
 /// Gets or sets type of datasource.

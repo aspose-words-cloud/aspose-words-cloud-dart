@@ -259,6 +259,11 @@ class StructuredDocumentTagUpdate extends StructuredDocumentTag {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+  }
 }
 
 

@@ -153,6 +153,16 @@ class FormFieldDropDown extends FormField {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+    if (dropDownItems == null)
+    {
+        throw new ApiException(400, 'Property DropDownItems in FormFieldDropDown is required.');
+    }
+
+  }
 }
 
 

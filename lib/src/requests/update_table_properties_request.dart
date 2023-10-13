@@ -124,6 +124,8 @@ class UpdateTablePropertiesRequest implements RequestBase {
     }
 
     if (properties != null) {
+      properties!.validate();
+
       var _body = _apiClient.serializeBody(properties, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

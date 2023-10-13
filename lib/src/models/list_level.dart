@@ -417,6 +417,56 @@ class ListLevel extends LinkElement {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+    if (startAt == null)
+    {
+        throw new ApiException(400, 'Property StartAt in ListLevel is required.');
+    }
+
+    if (numberStyle == null)
+    {
+        throw new ApiException(400, 'Property NumberStyle in ListLevel is required.');
+    }
+
+    if (alignment == null)
+    {
+        throw new ApiException(400, 'Property Alignment in ListLevel is required.');
+    }
+
+    if (isLegal == null)
+    {
+        throw new ApiException(400, 'Property IsLegal in ListLevel is required.');
+    }
+
+    if (restartAfterLevel == null)
+    {
+        throw new ApiException(400, 'Property RestartAfterLevel in ListLevel is required.');
+    }
+
+    if (trailingCharacter == null)
+    {
+        throw new ApiException(400, 'Property TrailingCharacter in ListLevel is required.');
+    }
+
+    if (tabPosition == null)
+    {
+        throw new ApiException(400, 'Property TabPosition in ListLevel is required.');
+    }
+
+    if (numberPosition == null)
+    {
+        throw new ApiException(400, 'Property NumberPosition in ListLevel is required.');
+    }
+
+    if (textPosition == null)
+    {
+        throw new ApiException(400, 'Property TextPosition in ListLevel is required.');
+    }
+
+  }
 }
 
 /// Gets or sets the number style for this list level.

@@ -608,6 +608,11 @@ class StructuredDocumentTag extends NodeLink {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+  }
 }
 
 /// Gets or sets the appearance of a structured document tag.

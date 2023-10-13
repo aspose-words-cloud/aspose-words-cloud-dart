@@ -217,6 +217,8 @@ class SaveAsTiffRequest implements RequestBase {
     }
 
     if (saveOptions != null) {
+      saveOptions!.validate();
+
       var _body = _apiClient.serializeBody(saveOptions, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

@@ -247,6 +247,16 @@ class TextSaveOptionsData extends TxtSaveOptionsBaseData {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+    if (maxCharactersPerLine == null)
+    {
+        throw new ApiException(400, 'Property MaxCharactersPerLine in TextSaveOptionsData is required.');
+    }
+
+  }
 }
 
 

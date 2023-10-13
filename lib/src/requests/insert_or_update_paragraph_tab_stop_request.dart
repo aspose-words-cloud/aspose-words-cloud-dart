@@ -110,6 +110,8 @@ class InsertOrUpdateParagraphTabStopRequest implements RequestBase {
     }
 
     if (tabStopInsertDto != null) {
+      tabStopInsertDto!.validate();
+
       var _body = _apiClient.serializeBody(tabStopInsertDto, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

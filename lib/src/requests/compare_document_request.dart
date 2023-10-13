@@ -105,6 +105,8 @@ class CompareDocumentRequest implements RequestBase {
     }
 
     if (compareData != null) {
+      compareData!.validate();
+
       var _body = _apiClient.serializeBody(compareData, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

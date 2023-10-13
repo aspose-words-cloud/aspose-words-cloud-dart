@@ -100,6 +100,7 @@ class CreateOrUpdateDocumentPropertyOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -110,6 +111,8 @@ class CreateOrUpdateDocumentPropertyOnlineRequest implements RequestBase {
     }
 
     if (property != null) {
+      property!.validate();
+
       var _formBody = _apiClient.serializeBody(property, 'Property');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

@@ -68,6 +68,11 @@ class CustomXmlPartInsert extends CustomXmlPart {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+  }
 }
 
 

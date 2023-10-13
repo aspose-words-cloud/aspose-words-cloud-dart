@@ -99,6 +99,16 @@ class DocumentEntry extends BaseEntry {
   void getFilesContent(List<FileReference> resultFilesContent) {
     super.getFilesContent(resultFilesContent);
   }
+
+  @override
+  void validate() {
+    super.validate();
+    if (importFormatMode == null)
+    {
+        throw new ApiException(400, 'Property ImportFormatMode in DocumentEntry is required.');
+    }
+
+  }
 }
 
 /// Gets or sets the option that controls formatting will be used: appended or destination document. Can be KeepSourceFormatting or UseDestinationStyles.

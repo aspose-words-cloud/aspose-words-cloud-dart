@@ -80,6 +80,10 @@ class SearchResult implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+  }
 }
 
 

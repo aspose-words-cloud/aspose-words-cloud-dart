@@ -112,6 +112,8 @@ class InsertWatermarkTextRequest implements RequestBase {
     }
 
     if (watermarkText != null) {
+      watermarkText!.validate();
+
       var _body = _apiClient.serializeBody(watermarkText, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

@@ -112,6 +112,8 @@ class ReplaceTextRequest implements RequestBase {
     }
 
     if (replaceText != null) {
+      replaceText!.validate();
+
       var _body = _apiClient.serializeBody(replaceText, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

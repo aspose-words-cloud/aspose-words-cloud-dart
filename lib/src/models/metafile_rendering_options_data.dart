@@ -153,6 +153,10 @@ class MetafileRenderingOptionsData implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+  }
 }
 
 /// Gets or sets the option that controls how EMF+ Dual metafiles should be rendered.

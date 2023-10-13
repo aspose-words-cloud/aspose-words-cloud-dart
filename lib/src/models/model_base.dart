@@ -33,6 +33,7 @@ abstract class ModelBase {
   void deserialize(Map<String, dynamic>? json);
   Map<String, dynamic> serialize();
   void getFilesContent(List<FileReference> resultFilesContent);
+  void validate();
 
   static final Map<String, ModelBase Function()> _modelsFactory = <String, ModelBase Function()> {
     'ApiError, _': () => ApiError(),

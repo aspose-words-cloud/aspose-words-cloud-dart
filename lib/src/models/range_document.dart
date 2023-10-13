@@ -63,6 +63,15 @@ class RangeDocument implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (documentName == null)
+    {
+        throw new ApiException(400, 'Property DocumentName in RangeDocument is required.');
+    }
+
+  }
 }
 
 

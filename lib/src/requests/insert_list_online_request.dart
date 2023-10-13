@@ -93,6 +93,7 @@ class InsertListOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -103,6 +104,8 @@ class InsertListOnlineRequest implements RequestBase {
     }
 
     if (listInsert != null) {
+      listInsert!.validate();
+
       var _formBody = _apiClient.serializeBody(listInsert, 'ListInsert');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

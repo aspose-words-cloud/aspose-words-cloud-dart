@@ -63,6 +63,15 @@ abstract class RunBase implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (text == null)
+    {
+        throw new ApiException(400, 'Property Text in RunBase is required.');
+    }
+
+  }
 }
 
 

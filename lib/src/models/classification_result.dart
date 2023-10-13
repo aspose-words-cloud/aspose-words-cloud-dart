@@ -80,6 +80,15 @@ class ClassificationResult implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (classProbability == null)
+    {
+        throw new ApiException(400, 'Property ClassProbability in ClassificationResult is required.');
+    }
+
+  }
 }
 
 

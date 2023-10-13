@@ -307,6 +307,11 @@ class TableCellFormat extends LinkElement {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+  }
 }
 
 /// Gets or sets the option that controls how the cell is merged horizontally with other cells in the row.

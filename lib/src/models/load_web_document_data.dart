@@ -80,6 +80,15 @@ class LoadWebDocumentData implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (loadingDocumentUrl == null)
+    {
+        throw new ApiException(400, 'Property LoadingDocumentUrl in LoadWebDocumentData is required.');
+    }
+
+  }
 }
 
 

@@ -100,6 +100,7 @@ class UpdateBookmarkOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -110,6 +111,8 @@ class UpdateBookmarkOnlineRequest implements RequestBase {
     }
 
     if (bookmarkData != null) {
+      bookmarkData!.validate();
+
       var _formBody = _apiClient.serializeBody(bookmarkData, 'BookmarkData');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

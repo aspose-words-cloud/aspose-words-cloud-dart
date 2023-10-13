@@ -1023,6 +1023,36 @@ class Style extends LinkElement {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+    if (builtIn == null)
+    {
+        throw new ApiException(400, 'Property BuiltIn in Style is required.');
+    }
+
+    if (isQuickStyle == null)
+    {
+        throw new ApiException(400, 'Property IsQuickStyle in Style is required.');
+    }
+
+    if (type == null)
+    {
+        throw new ApiException(400, 'Property Type in Style is required.');
+    }
+
+    if (isHeading == null)
+    {
+        throw new ApiException(400, 'Property IsHeading in Style is required.');
+    }
+
+    if (styleIdentifier == null)
+    {
+        throw new ApiException(400, 'Property StyleIdentifier in Style is required.');
+    }
+
+  }
 }
 
 /// Gets or sets the style type (paragraph or character).

@@ -100,6 +100,16 @@ class TabStop extends TabStopBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+    if (isClear == null)
+    {
+        throw new ApiException(400, 'Property IsClear in TabStop is required.');
+    }
+
+  }
 }
 
 

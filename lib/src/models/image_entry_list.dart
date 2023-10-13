@@ -96,6 +96,11 @@ class ImageEntryList extends BaseEntryList {
     }
 
   }
+
+  @override
+  void validate() {
+    super.validate();
+  }
 }
 
 

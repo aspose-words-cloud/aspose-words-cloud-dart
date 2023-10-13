@@ -93,6 +93,7 @@ class InsertPageNumbersOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -103,6 +104,8 @@ class InsertPageNumbersOnlineRequest implements RequestBase {
     }
 
     if (pageNumber != null) {
+      pageNumber!.validate();
+
       var _formBody = _apiClient.serializeBody(pageNumber, 'PageNumber');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

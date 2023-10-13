@@ -87,6 +87,16 @@ class HeaderFooterLink extends LinkElement {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+    if (type == null)
+    {
+        throw new ApiException(400, 'Property Type in HeaderFooterLink is required.');
+    }
+
+  }
 }
 
 /// Gets or sets the paragraph's text.

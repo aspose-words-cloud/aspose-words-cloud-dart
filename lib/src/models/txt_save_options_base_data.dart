@@ -217,6 +217,11 @@ abstract class TxtSaveOptionsBaseData extends SaveOptionsData {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+  }
 }
 
 /// Gets or sets the option that controls whether to output headers and footers when exporting in plain text format.

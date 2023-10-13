@@ -135,6 +135,25 @@ class DocumentStatData implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (pageCount == null)
+    {
+        throw new ApiException(400, 'Property PageCount in DocumentStatData is required.');
+    }
+
+    if (paragraphCount == null)
+    {
+        throw new ApiException(400, 'Property ParagraphCount in DocumentStatData is required.');
+    }
+
+    if (wordCount == null)
+    {
+        throw new ApiException(400, 'Property WordCount in DocumentStatData is required.');
+    }
+
+  }
 }
 
 

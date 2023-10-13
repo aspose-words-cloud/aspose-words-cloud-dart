@@ -126,6 +126,7 @@ class InsertWatermarkImageRequest implements RequestBase {
     }
 
     if (imageFile != null) {
+
       var _formBody = _apiClient.serializeBody(imageFile, 'ImageFile');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

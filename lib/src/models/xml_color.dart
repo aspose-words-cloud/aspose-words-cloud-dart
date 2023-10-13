@@ -107,6 +107,20 @@ class XmlColor implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (xmlAlpha == null)
+    {
+        throw new ApiException(400, 'Property XmlAlpha in XmlColor is required.');
+    }
+
+    if (xmlAlphaSpecified == null)
+    {
+        throw new ApiException(400, 'Property XmlAlphaSpecified in XmlColor is required.');
+    }
+
+  }
 }
 
 

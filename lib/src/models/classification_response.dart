@@ -110,6 +110,16 @@ class ClassificationResponse extends WordsResponse {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+    if (bestClassProbability == null)
+    {
+        throw new ApiException(400, 'Property BestClassProbability in ClassificationResponse is required.');
+    }
+
+  }
 }
 
 

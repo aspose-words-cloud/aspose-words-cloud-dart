@@ -100,6 +100,7 @@ class InsertDrawingObjectOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -110,6 +111,8 @@ class InsertDrawingObjectOnlineRequest implements RequestBase {
     }
 
     if (drawingObject != null) {
+      drawingObject!.validate();
+
       var _formBody = _apiClient.serializeBody(drawingObject, 'DrawingObject');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -120,6 +123,7 @@ class InsertDrawingObjectOnlineRequest implements RequestBase {
     }
 
     if (imageFile != null) {
+
       var _formBody = _apiClient.serializeBody(imageFile, 'ImageFile');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

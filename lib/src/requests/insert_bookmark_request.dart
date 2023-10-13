@@ -112,6 +112,8 @@ class InsertBookmarkRequest implements RequestBase {
     }
 
     if (bookmark != null) {
+      bookmark!.validate();
+
       var _body = _apiClient.serializeBody(bookmark, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

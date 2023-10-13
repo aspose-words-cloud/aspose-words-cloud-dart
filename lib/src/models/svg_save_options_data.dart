@@ -313,6 +313,11 @@ class SvgSaveOptionsData extends FixedPageSaveOptionsData {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+  }
 }
 
 /// Gets or sets the option that controls how text should be rendered.

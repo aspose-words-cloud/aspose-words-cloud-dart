@@ -79,6 +79,7 @@ class SaveAsOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -89,6 +90,8 @@ class SaveAsOnlineRequest implements RequestBase {
     }
 
     if (saveOptionsData != null) {
+      saveOptionsData!.validate();
+
       var _formBody = _apiClient.serializeBody(saveOptionsData, 'SaveOptionsData');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

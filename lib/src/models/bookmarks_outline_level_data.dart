@@ -80,6 +80,15 @@ class BookmarksOutlineLevelData implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (bookmarksOutlineLevel == null)
+    {
+        throw new ApiException(400, 'Property BookmarksOutlineLevel in BookmarksOutlineLevelData is required.');
+    }
+
+  }
 }
 
 

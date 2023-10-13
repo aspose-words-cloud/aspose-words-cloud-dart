@@ -68,6 +68,15 @@ class XmlDataLoadOptions implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (alwaysGenerateRootObject == null)
+    {
+        throw new ApiException(400, 'Property AlwaysGenerateRootObject in XmlDataLoadOptions is required.');
+    }
+
+  }
 }
 
 

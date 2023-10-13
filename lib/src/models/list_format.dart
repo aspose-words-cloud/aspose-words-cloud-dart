@@ -107,6 +107,21 @@ class ListFormat extends LinkElement {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+    if (listLevelNumber == null)
+    {
+        throw new ApiException(400, 'Property ListLevelNumber in ListFormat is required.');
+    }
+
+    if (isListItem == null)
+    {
+        throw new ApiException(400, 'Property IsListItem in ListFormat is required.');
+    }
+
+  }
 }
 
 

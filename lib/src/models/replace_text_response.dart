@@ -88,6 +88,16 @@ class ReplaceTextResponse extends WordsResponse {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+    if (matches == null)
+    {
+        throw new ApiException(400, 'Property Matches in ReplaceTextResponse is required.');
+    }
+
+  }
 }
 
 

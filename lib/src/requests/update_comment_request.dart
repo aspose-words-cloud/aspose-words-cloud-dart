@@ -120,6 +120,8 @@ class UpdateCommentRequest implements RequestBase {
     }
 
     if (comment != null) {
+      comment!.validate();
+
       var _body = _apiClient.serializeBody(comment, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

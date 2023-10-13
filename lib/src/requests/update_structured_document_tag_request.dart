@@ -124,6 +124,8 @@ class UpdateStructuredDocumentTagRequest implements RequestBase {
     }
 
     if (structuredDocumentTag != null) {
+      structuredDocumentTag!.validate();
+
       var _body = _apiClient.serializeBody(structuredDocumentTag, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

@@ -92,6 +92,15 @@ class StyleInsert implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (styleType == null)
+    {
+        throw new ApiException(400, 'Property StyleType in StyleInsert is required.');
+    }
+
+  }
 }
 
 /// Gets or sets the StyleType value that specifies the type of the style to create.

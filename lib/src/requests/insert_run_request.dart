@@ -127,6 +127,8 @@ class InsertRunRequest implements RequestBase {
     }
 
     if (run != null) {
+      run!.validate();
+
       var _body = _apiClient.serializeBody(run, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

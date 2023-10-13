@@ -108,6 +108,7 @@ class UpdateTableRowFormatOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -118,6 +119,8 @@ class UpdateTableRowFormatOnlineRequest implements RequestBase {
     }
 
     if (format != null) {
+      format!.validate();
+
       var _formBody = _apiClient.serializeBody(format, 'Format');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

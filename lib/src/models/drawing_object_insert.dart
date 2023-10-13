@@ -244,6 +244,45 @@ class DrawingObjectInsert implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (relativeHorizontalPosition == null)
+    {
+        throw new ApiException(400, 'Property RelativeHorizontalPosition in DrawingObjectInsert is required.');
+    }
+
+    if (left == null)
+    {
+        throw new ApiException(400, 'Property Left in DrawingObjectInsert is required.');
+    }
+
+    if (relativeVerticalPosition == null)
+    {
+        throw new ApiException(400, 'Property RelativeVerticalPosition in DrawingObjectInsert is required.');
+    }
+
+    if (top == null)
+    {
+        throw new ApiException(400, 'Property Top in DrawingObjectInsert is required.');
+    }
+
+    if (width == null)
+    {
+        throw new ApiException(400, 'Property Width in DrawingObjectInsert is required.');
+    }
+
+    if (height == null)
+    {
+        throw new ApiException(400, 'Property Height in DrawingObjectInsert is required.');
+    }
+
+    if (wrapType == null)
+    {
+        throw new ApiException(400, 'Property WrapType in DrawingObjectInsert is required.');
+    }
+
+  }
 }
 
 /// Gets or sets the relative horizontal position, from which the distance to the image is measured.

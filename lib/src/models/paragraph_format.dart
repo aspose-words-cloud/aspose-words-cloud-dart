@@ -658,6 +658,11 @@ class ParagraphFormat extends ParagraphFormatBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+  }
 }
 
 

@@ -74,4 +74,8 @@ class FileReference implements ModelBase {
   void getFilesContent(List<FileReference> resultFilesContent) {
     resultFilesContent.add(this);
   }
+
+  @override
+  void validate() {
+  }
 }

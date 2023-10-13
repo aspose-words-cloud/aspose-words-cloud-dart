@@ -80,6 +80,15 @@ class NewDocumentPosition implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (nodeId == null)
+    {
+        throw new ApiException(400, 'Property NodeId in NewDocumentPosition is required.');
+    }
+
+  }
 }
 
 

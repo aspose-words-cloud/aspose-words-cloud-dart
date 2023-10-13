@@ -131,6 +131,20 @@ class StorageFile implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (isFolder == null)
+    {
+        throw new ApiException(400, 'Property IsFolder in StorageFile is required.');
+    }
+
+    if (size == null)
+    {
+        throw new ApiException(400, 'Property Size in StorageFile is required.');
+    }
+
+  }
 }
 
 

@@ -198,6 +198,7 @@ class SaveAsTiffOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -208,6 +209,8 @@ class SaveAsTiffOnlineRequest implements RequestBase {
     }
 
     if (saveOptions != null) {
+      saveOptions!.validate();
+
       var _formBody = _apiClient.serializeBody(saveOptions, 'SaveOptions');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

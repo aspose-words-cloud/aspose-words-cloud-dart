@@ -778,6 +778,11 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+  }
 }
 
 /// Gets or sets the PDF standards compliance level for output documents.

@@ -227,6 +227,11 @@ abstract class OoxmlSaveOptionsData extends SaveOptionsData {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+  }
 }
 
 /// Gets or sets the oOXML version for the output document.

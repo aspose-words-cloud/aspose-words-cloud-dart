@@ -127,6 +127,8 @@ class UpdateDrawingObjectRequest implements RequestBase {
     }
 
     if (drawingObject != null) {
+      drawingObject!.validate();
+
       var _formBody = _apiClient.serializeBody(drawingObject, 'DrawingObject');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -137,6 +139,7 @@ class UpdateDrawingObjectRequest implements RequestBase {
     }
 
     if (imageFile != null) {
+
       var _formBody = _apiClient.serializeBody(imageFile, 'ImageFile');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

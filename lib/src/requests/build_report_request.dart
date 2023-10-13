@@ -101,6 +101,7 @@ class BuildReportRequest implements RequestBase {
     }
 
     if (data != null) {
+
       var _formBody = _apiClient.serializeBody(data, 'Data');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -111,6 +112,8 @@ class BuildReportRequest implements RequestBase {
     }
 
     if (reportEngineSettings != null) {
+      reportEngineSettings!.validate();
+
       var _formBody = _apiClient.serializeBody(reportEngineSettings, 'ReportEngineSettings');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

@@ -308,6 +308,15 @@ abstract class SaveOptionsData implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (fileName == null)
+    {
+        throw new ApiException(400, 'Property FileName in SaveOptionsData is required.');
+    }
+
+  }
 }
 
 /// Gets or sets the value determining how 3D effects are rendered.

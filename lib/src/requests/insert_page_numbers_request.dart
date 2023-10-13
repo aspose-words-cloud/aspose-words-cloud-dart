@@ -112,6 +112,8 @@ class InsertPageNumbersRequest implements RequestBase {
     }
 
     if (pageNumber != null) {
+      pageNumber!.validate();
+
       var _body = _apiClient.serializeBody(pageNumber, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);
