@@ -79,6 +79,12 @@ class CustomXmlPartsCollection extends LinkElement {
   @override
   void validate() {
     super.validate();
+
+    for (final elementCustomXmlPartsList in customXmlPartsList ?? [])
+    {
+        elementCustomXmlPartsList?.validate();
+    }
+
   }
 }
 

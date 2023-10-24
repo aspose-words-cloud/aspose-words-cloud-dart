@@ -76,6 +76,9 @@ class SectionResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    section?.validate();
+
   }
 }
 

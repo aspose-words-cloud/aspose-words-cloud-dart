@@ -76,6 +76,9 @@ class HyperlinksResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    hyperlinks?.validate();
+
   }
 }
 

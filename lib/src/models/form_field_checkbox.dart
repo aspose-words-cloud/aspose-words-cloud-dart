@@ -173,7 +173,6 @@ class FormFieldCheckbox extends FormField {
     {
         throw new ApiException(400, 'Property Checked in FormFieldCheckbox is required.');
     }
-
   }
 }
 

@@ -1336,6 +1336,9 @@ abstract class ParagraphFormatBase extends LinkElement {
   @override
   void validate() {
     super.validate();
+
+    shading?.validate();
+
   }
 }
 

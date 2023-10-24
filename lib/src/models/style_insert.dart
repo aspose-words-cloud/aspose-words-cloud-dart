@@ -99,7 +99,6 @@ class StyleInsert implements ModelBase {
     {
         throw new ApiException(400, 'Property StyleType in StyleInsert is required.');
     }
-
   }
 }
 

@@ -76,6 +76,9 @@ class CustomXmlPartResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    customXmlPart?.validate();
+
   }
 }
 

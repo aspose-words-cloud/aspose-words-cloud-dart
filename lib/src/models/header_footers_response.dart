@@ -76,6 +76,9 @@ class HeaderFootersResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    headerFooters?.validate();
+
   }
 }
 

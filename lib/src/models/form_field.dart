@@ -229,7 +229,6 @@ abstract class FormField extends NodeLink {
     {
         throw new ApiException(400, 'Property Name in FormField is required.');
     }
-
   }
 }
 

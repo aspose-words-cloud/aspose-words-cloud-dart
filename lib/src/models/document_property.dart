@@ -114,7 +114,6 @@ class DocumentProperty extends LinkElement {
     {
         throw new ApiException(400, 'Property BuiltIn in DocumentProperty is required.');
     }
-
   }
 }
 

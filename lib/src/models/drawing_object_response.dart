@@ -75,6 +75,9 @@ class DrawingObjectResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    drawingObject?.validate();
+
   }
 }
 

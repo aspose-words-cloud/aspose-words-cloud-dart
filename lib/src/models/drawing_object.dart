@@ -300,6 +300,27 @@ class DrawingObject extends DrawingObjectLink {
   @override
   void validate() {
     super.validate();
+
+    for (final elementRenderLinks in renderLinks ?? [])
+    {
+        elementRenderLinks?.validate();
+    }
+
+
+
+
+
+    oleDataLink?.validate();
+
+
+
+    imageDataLink?.validate();
+
+
+
+
+
+
   }
 }
 

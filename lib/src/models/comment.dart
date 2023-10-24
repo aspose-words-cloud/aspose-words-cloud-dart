@@ -180,6 +180,21 @@ class Comment extends CommentLink {
   @override
   void validate() {
     super.validate();
+
+    rangeStart?.validate();
+
+
+
+    rangeEnd?.validate();
+
+
+
+
+
+
+
+    content?.validate();
+
   }
 }
 

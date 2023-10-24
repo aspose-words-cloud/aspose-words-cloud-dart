@@ -76,6 +76,9 @@ class FootnotesResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    footnotes?.validate();
+
   }
 }
 

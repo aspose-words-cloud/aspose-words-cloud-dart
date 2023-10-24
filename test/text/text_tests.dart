@@ -49,6 +49,9 @@ class TextTests
     final requestReplaceText = ReplaceTextParameters();
     requestReplaceText.oldValue = 'Testing';
     requestReplaceText.newValue = 'Aspose testing';
+    requestReplaceText.isMatchCase = true;
+    requestReplaceText.isMatchWholeWord = false;
+    requestReplaceText.isOldValueRegex = false;
 
     final request = ReplaceTextRequest(
       remoteFileName,
@@ -70,6 +73,9 @@ class TextTests
     final requestReplaceText = ReplaceTextParameters();
     requestReplaceText.oldValue = 'aspose';
     requestReplaceText.newValue = 'aspose new';
+    requestReplaceText.isMatchCase = true;
+    requestReplaceText.isMatchWholeWord = false;
+    requestReplaceText.isOldValueRegex = false;
 
     final request = ReplaceTextOnlineRequest(
       requestDocument,

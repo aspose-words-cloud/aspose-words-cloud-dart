@@ -76,7 +76,7 @@ abstract class BaseEntry implements ModelBase {
         throw new ApiException(400, 'Property FileReference in BaseEntry is required.');
     }
 
-    fileReference!.validate();
+    fileReference?.validate();
 
   }
 }

@@ -76,6 +76,9 @@ class FieldNamesResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    fieldNames?.validate();
+
   }
 }
 

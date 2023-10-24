@@ -134,6 +134,10 @@ class ApiError implements ModelBase {
 
   @override
   void validate() {
+
+    innerError?.validate();
+
+
   }
 }
 

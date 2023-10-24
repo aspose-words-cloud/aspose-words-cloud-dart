@@ -104,6 +104,20 @@ class SaveResult implements ModelBase {
 
   @override
   void validate() {
+
+    destDocument?.validate();
+
+
+
+    sourceDocument?.validate();
+
+
+
+    for (final elementAdditionalItems in additionalItems ?? [])
+    {
+        elementAdditionalItems?.validate();
+    }
+
   }
 }
 

@@ -95,7 +95,6 @@ class HeaderFooterLink extends LinkElement {
     {
         throw new ApiException(400, 'Property Type in HeaderFooterLink is required.');
     }
-
   }
 }
 

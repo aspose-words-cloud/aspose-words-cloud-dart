@@ -107,7 +107,6 @@ class DocumentEntry extends BaseEntry {
     {
         throw new ApiException(400, 'Property ImportFormatMode in DocumentEntry is required.');
     }
-
   }
 }
 

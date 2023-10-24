@@ -205,16 +205,27 @@ class Document implements ModelBase {
     {
         throw new ApiException(400, 'Property IsEncrypted in Document is required.');
     }
-
     if (isSigned == null)
     {
         throw new ApiException(400, 'Property IsSigned in Document is required.');
     }
-
     if (sourceFormat == null)
     {
         throw new ApiException(400, 'Property SourceFormat in Document is required.');
     }
+
+    for (final elementLinks in links ?? [])
+    {
+        elementLinks?.validate();
+    }
+
+
+
+    documentProperties?.validate();
+
+
+
+
 
   }
 }

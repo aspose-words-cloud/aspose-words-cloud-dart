@@ -138,11 +138,15 @@ class CompareData implements ModelBase {
     {
         throw new ApiException(400, 'Property Author in CompareData is required.');
     }
-
     if (comparingWithDocument == null)
     {
         throw new ApiException(400, 'Property ComparingWithDocument in CompareData is required.');
     }
+
+    compareOptions?.validate();
+
+
+
 
   }
 }

@@ -75,6 +75,9 @@ class CompressResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    document?.validate();
+
   }
 }
 

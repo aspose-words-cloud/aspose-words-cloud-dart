@@ -75,6 +75,9 @@ class WordsApiErrorResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    error?.validate();
+
   }
 }
 

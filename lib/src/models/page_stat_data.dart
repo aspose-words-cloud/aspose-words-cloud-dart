@@ -121,16 +121,19 @@ class PageStatData implements ModelBase {
     {
         throw new ApiException(400, 'Property ParagraphCount in PageStatData is required.');
     }
-
     if (wordCount == null)
     {
         throw new ApiException(400, 'Property WordCount in PageStatData is required.');
     }
-
     if (pageNumber == null)
     {
         throw new ApiException(400, 'Property PageNumber in PageStatData is required.');
     }
+
+    footnotesStatData?.validate();
+
+
+
 
   }
 }

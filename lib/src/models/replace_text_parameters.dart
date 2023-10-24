@@ -138,22 +138,18 @@ class ReplaceTextParameters implements ModelBase {
     {
         throw new ApiException(400, 'Property IsMatchCase in ReplaceTextParameters is required.');
     }
-
     if (isMatchWholeWord == null)
     {
         throw new ApiException(400, 'Property IsMatchWholeWord in ReplaceTextParameters is required.');
     }
-
     if (isOldValueRegex == null)
     {
         throw new ApiException(400, 'Property IsOldValueRegex in ReplaceTextParameters is required.');
     }
-
     if (oldValue == null)
     {
         throw new ApiException(400, 'Property OldValue in ReplaceTextParameters is required.');
     }
-
   }
 }
 

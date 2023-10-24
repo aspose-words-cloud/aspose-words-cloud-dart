@@ -91,6 +91,13 @@ class FilesUploadResult implements ModelBase {
 
   @override
   void validate() {
+
+    for (final elementErrors in errors ?? [])
+    {
+        elementErrors?.validate();
+    }
+
+
   }
 }
 

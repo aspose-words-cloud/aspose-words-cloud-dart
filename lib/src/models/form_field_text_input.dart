@@ -208,12 +208,10 @@ class FormFieldTextInput extends FormField {
     {
         throw new ApiException(400, 'Property TextInputFormat in FormFieldTextInput is required.');
     }
-
     if (textInputDefault == null)
     {
         throw new ApiException(400, 'Property TextInputDefault in FormFieldTextInput is required.');
     }
-
   }
 }
 

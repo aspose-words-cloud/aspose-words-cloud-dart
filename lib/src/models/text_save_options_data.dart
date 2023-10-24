@@ -255,7 +255,6 @@ class TextSaveOptionsData extends TxtSaveOptionsBaseData {
     {
         throw new ApiException(400, 'Property MaxCharactersPerLine in TextSaveOptionsData is required.');
     }
-
   }
 }
 

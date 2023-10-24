@@ -75,7 +75,6 @@ class XmlDataLoadOptions implements ModelBase {
     {
         throw new ApiException(400, 'Property AlwaysGenerateRootObject in XmlDataLoadOptions is required.');
     }
-
   }
 }
 

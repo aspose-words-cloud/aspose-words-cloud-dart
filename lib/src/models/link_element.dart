@@ -66,6 +66,9 @@ class LinkElement implements ModelBase {
 
   @override
   void validate() {
+
+    link?.validate();
+
   }
 }
 

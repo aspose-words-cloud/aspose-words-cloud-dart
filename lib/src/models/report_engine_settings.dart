@@ -188,6 +188,19 @@ class ReportEngineSettings implements ModelBase {
         throw new ApiException(400, 'Property DataSourceType in ReportEngineSettings is required.');
     }
 
+    csvDataLoadOptions?.validate();
+
+
+
+
+
+    jsonDataLoadOptions?.validate();
+
+
+
+
+    xmlDataLoadOptions?.validate();
+
   }
 }
 

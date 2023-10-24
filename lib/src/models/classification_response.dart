@@ -119,6 +119,11 @@ class ClassificationResponse extends WordsResponse {
         throw new ApiException(400, 'Property BestClassProbability in ClassificationResponse is required.');
     }
 
+    for (final elementBestResults in bestResults ?? [])
+    {
+        elementBestResults?.validate();
+    }
+
   }
 }
 

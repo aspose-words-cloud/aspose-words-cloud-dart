@@ -119,7 +119,6 @@ class ListInsert implements ModelBase {
     {
         throw new ApiException(400, 'Property Template in ListInsert is required.');
     }
-
   }
 }
 

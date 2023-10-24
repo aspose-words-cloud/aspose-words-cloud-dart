@@ -87,7 +87,6 @@ class BookmarksOutlineLevelData implements ModelBase {
     {
         throw new ApiException(400, 'Property BookmarksOutlineLevel in BookmarksOutlineLevelData is required.');
     }
-
   }
 }
 

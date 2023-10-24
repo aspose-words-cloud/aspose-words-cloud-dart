@@ -76,6 +76,9 @@ class ListsResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    lists?.validate();
+
   }
 }
 

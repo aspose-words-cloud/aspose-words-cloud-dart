@@ -76,6 +76,9 @@ class ParagraphLinkCollectionResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    paragraphs?.validate();
+
   }
 }
 

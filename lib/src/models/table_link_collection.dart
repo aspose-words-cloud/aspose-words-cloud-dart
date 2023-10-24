@@ -79,6 +79,12 @@ class TableLinkCollection extends LinkElement {
   @override
   void validate() {
     super.validate();
+
+    for (final elementTableLinkList in tableLinkList ?? [])
+    {
+        elementTableLinkList?.validate();
+    }
+
   }
 }
 

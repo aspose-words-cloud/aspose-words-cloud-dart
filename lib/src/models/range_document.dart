@@ -70,7 +70,6 @@ class RangeDocument implements ModelBase {
     {
         throw new ApiException(400, 'Property DocumentName in RangeDocument is required.');
     }
-
   }
 }
 

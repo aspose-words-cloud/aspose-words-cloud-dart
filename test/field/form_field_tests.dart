@@ -54,6 +54,7 @@ class FormFieldTests
     requestFormField.statusText = '';
     requestFormField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
     requestFormField.textInputDefault = 'No name';
+    requestFormField.textInputFormat = '';
 
     final request = UpdateFormFieldRequest(
       remoteFileName,
@@ -82,6 +83,7 @@ class FormFieldTests
     requestFormField.statusText = '';
     requestFormField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
     requestFormField.textInputDefault = 'No name';
+    requestFormField.textInputFormat = '';
 
     final request = UpdateFormFieldOnlineRequest(
       requestDocument,
@@ -105,6 +107,7 @@ class FormFieldTests
     requestFormField.statusText = '';
     requestFormField.textInputType = FormFieldTextInput_TextInputTypeEnum.regular;
     requestFormField.textInputDefault = 'No name';
+    requestFormField.textInputFormat = '';
 
     final request = UpdateFormFieldRequest(
       remoteFileName,

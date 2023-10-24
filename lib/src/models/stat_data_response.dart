@@ -92,6 +92,13 @@ class StatDataResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    documentLink?.validate();
+
+
+
+    statData?.validate();
+
   }
 }
 

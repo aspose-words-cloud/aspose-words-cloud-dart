@@ -76,6 +76,9 @@ class SectionLinkCollectionResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    sections?.validate();
+
   }
 }
 

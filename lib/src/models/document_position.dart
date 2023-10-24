@@ -83,6 +83,10 @@ class DocumentPosition implements ModelBase {
 
   @override
   void validate() {
+
+    node?.validate();
+
+
   }
 }
 

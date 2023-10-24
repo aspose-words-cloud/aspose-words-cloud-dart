@@ -76,6 +76,9 @@ class TableLinkCollectionResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    tables?.validate();
+
   }
 }
 

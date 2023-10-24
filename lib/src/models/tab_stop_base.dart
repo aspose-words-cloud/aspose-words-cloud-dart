@@ -138,17 +138,14 @@ abstract class TabStopBase implements ModelBase {
     {
         throw new ApiException(400, 'Property Alignment in TabStopBase is required.');
     }
-
     if (leader == null)
     {
         throw new ApiException(400, 'Property Leader in TabStopBase is required.');
     }
-
     if (position == null)
     {
         throw new ApiException(400, 'Property Position in TabStopBase is required.');
     }
-
   }
 }
 

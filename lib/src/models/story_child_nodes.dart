@@ -70,6 +70,12 @@ class StoryChildNodes implements ModelBase {
 
   @override
   void validate() {
+
+    for (final elementChildNodes in childNodes ?? [])
+    {
+        elementChildNodes?.validate();
+    }
+
   }
 }
 

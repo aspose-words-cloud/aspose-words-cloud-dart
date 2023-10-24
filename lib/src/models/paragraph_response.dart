@@ -76,6 +76,9 @@ class ParagraphResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    paragraph?.validate();
+
   }
 }
 

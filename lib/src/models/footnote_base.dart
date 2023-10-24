@@ -128,6 +128,12 @@ abstract class FootnoteBase implements ModelBase {
 
   @override
   void validate() {
+
+    position?.validate();
+
+
+
+
   }
 }
 

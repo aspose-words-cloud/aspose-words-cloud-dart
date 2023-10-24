@@ -782,6 +782,41 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   @override
   void validate() {
     super.validate();
+
+    digitalSignatureDetails?.validate();
+
+
+
+
+    downsampleOptions?.validate();
+
+
+
+
+
+    encryptionDetails?.validate();
+
+
+
+
+
+
+
+
+
+
+
+    outlineOptions?.validate();
+
+
+
+
+
+
+
+
+
+
   }
 }
 

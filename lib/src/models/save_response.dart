@@ -75,6 +75,9 @@ class SaveResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    saveResult?.validate();
+
   }
 }
 

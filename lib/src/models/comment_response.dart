@@ -76,6 +76,9 @@ class CommentResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    comment?.validate();
+
   }
 }
 

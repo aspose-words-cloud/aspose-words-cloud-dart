@@ -76,6 +76,9 @@ class TableRowFormatResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    rowFormat?.validate();
+
   }
 }
 

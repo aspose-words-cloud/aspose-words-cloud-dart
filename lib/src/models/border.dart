@@ -245,6 +245,13 @@ class Border extends LinkElement {
   @override
   void validate() {
     super.validate();
+
+    color?.validate();
+
+
+
+
+
   }
 }
 

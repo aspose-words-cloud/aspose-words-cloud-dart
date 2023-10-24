@@ -222,6 +222,12 @@ class OfficeMathObject extends OfficeMathLink {
   @override
   void validate() {
     super.validate();
+
+    content?.validate();
+
+
+
+
   }
 }
 

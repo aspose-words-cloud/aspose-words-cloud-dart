@@ -97,7 +97,6 @@ class PreferredWidth implements ModelBase {
     {
         throw new ApiException(400, 'Property Type in PreferredWidth is required.');
     }
-
   }
 }
 

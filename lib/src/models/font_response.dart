@@ -76,6 +76,9 @@ class FontResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    font?.validate();
+
   }
 }
 

@@ -612,6 +612,35 @@ class StructuredDocumentTag extends NodeLink {
   @override
   void validate() {
     super.validate();
+
+    for (final elementListItems in listItems ?? [])
+    {
+        elementListItems?.validate();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   }
 }
 

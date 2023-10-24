@@ -76,6 +76,9 @@ class SplitDocumentResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    splitResult?.validate();
+
   }
 }
 

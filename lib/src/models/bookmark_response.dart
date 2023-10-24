@@ -76,6 +76,9 @@ class BookmarkResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    bookmark?.validate();
+
   }
 }
 

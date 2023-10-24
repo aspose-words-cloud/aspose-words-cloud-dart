@@ -79,6 +79,12 @@ class Hyperlinks extends LinkElement {
   @override
   void validate() {
     super.validate();
+
+    for (final elementHyperlinkList in hyperlinkList ?? [])
+    {
+        elementHyperlinkList?.validate();
+    }
+
   }
 }
 

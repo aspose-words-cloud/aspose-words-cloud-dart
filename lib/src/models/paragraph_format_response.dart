@@ -76,6 +76,9 @@ class ParagraphFormatResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    paragraphFormat?.validate();
+
   }
 }
 

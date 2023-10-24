@@ -90,7 +90,6 @@ class OptimizationOptions implements ModelBase {
     {
         throw new ApiException(400, 'Property MsWordVersion in OptimizationOptions is required.');
     }
-
   }
 }
 

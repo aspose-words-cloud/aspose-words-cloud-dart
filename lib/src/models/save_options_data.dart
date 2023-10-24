@@ -316,6 +316,19 @@ abstract class SaveOptionsData implements ModelBase {
         throw new ApiException(400, 'Property FileName in SaveOptionsData is required.');
     }
 
+    customTimeZoneInfoData?.validate();
+
+
+
+
+
+
+
+
+
+
+
+
   }
 }
 

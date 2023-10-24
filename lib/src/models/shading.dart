@@ -212,6 +212,14 @@ class Shading implements ModelBase {
 
   @override
   void validate() {
+
+    backgroundPatternColor?.validate();
+
+
+
+    foregroundPatternColor?.validate();
+
+
   }
 }
 

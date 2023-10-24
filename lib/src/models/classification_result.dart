@@ -87,7 +87,6 @@ class ClassificationResult implements ModelBase {
     {
         throw new ApiException(400, 'Property ClassProbability in ClassificationResult is required.');
     }
-
   }
 }
 

@@ -75,6 +75,9 @@ class RevisionsModificationResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    result?.validate();
+
   }
 }
 

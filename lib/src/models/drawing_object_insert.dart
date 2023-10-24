@@ -251,36 +251,39 @@ class DrawingObjectInsert implements ModelBase {
     {
         throw new ApiException(400, 'Property RelativeHorizontalPosition in DrawingObjectInsert is required.');
     }
-
     if (left == null)
     {
         throw new ApiException(400, 'Property Left in DrawingObjectInsert is required.');
     }
-
     if (relativeVerticalPosition == null)
     {
         throw new ApiException(400, 'Property RelativeVerticalPosition in DrawingObjectInsert is required.');
     }
-
     if (top == null)
     {
         throw new ApiException(400, 'Property Top in DrawingObjectInsert is required.');
     }
-
     if (width == null)
     {
         throw new ApiException(400, 'Property Width in DrawingObjectInsert is required.');
     }
-
     if (height == null)
     {
         throw new ApiException(400, 'Property Height in DrawingObjectInsert is required.');
     }
-
     if (wrapType == null)
     {
         throw new ApiException(400, 'Property WrapType in DrawingObjectInsert is required.');
     }
+
+    position?.validate();
+
+
+
+
+
+
+
 
   }
 }

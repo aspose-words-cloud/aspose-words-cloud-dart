@@ -76,6 +76,9 @@ class DocumentPropertyResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    documentProperty?.validate();
+
   }
 }
 

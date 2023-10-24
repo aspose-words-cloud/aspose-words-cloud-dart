@@ -80,6 +80,12 @@ class TabStopsResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    for (final elementTabStops in tabStops ?? [])
+    {
+        elementTabStops?.validate();
+    }
+
   }
 }
 

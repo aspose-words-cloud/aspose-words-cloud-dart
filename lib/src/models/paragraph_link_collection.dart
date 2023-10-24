@@ -79,6 +79,12 @@ class ParagraphLinkCollection extends LinkElement {
   @override
   void validate() {
     super.validate();
+
+    for (final elementParagraphLinkList in paragraphLinkList ?? [])
+    {
+        elementParagraphLinkList?.validate();
+    }
+
   }
 }
 

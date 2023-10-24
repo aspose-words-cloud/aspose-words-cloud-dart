@@ -76,6 +76,9 @@ class SectionPageSetupResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    pageSetup?.validate();
+
   }
 }
 

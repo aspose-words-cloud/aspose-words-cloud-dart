@@ -108,7 +108,6 @@ class TabStop extends TabStopBase {
     {
         throw new ApiException(400, 'Property IsClear in TabStop is required.');
     }
-
   }
 }
 

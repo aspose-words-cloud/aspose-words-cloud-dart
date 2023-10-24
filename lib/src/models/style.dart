@@ -1031,26 +1031,34 @@ class Style extends LinkElement {
     {
         throw new ApiException(400, 'Property BuiltIn in Style is required.');
     }
-
     if (isQuickStyle == null)
     {
         throw new ApiException(400, 'Property IsQuickStyle in Style is required.');
     }
-
     if (type == null)
     {
         throw new ApiException(400, 'Property Type in Style is required.');
     }
-
     if (isHeading == null)
     {
         throw new ApiException(400, 'Property IsHeading in Style is required.');
     }
-
     if (styleIdentifier == null)
     {
         throw new ApiException(400, 'Property StyleIdentifier in Style is required.');
     }
+
+    font?.validate();
+
+
+
+
+
+
+
+
+
+
 
   }
 }

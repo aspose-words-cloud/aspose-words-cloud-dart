@@ -156,6 +156,12 @@ class OutlineOptionsData implements ModelBase {
 
   @override
   void validate() {
+
+    for (final elementBookmarksOutlineLevels in bookmarksOutlineLevels ?? [])
+    {
+        elementBookmarksOutlineLevels?.validate();
+    }
+
   }
 }
 

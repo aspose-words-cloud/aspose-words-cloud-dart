@@ -85,6 +85,12 @@ class Paragraph extends NodeLink {
   @override
   void validate() {
     super.validate();
+
+    for (final elementChildNodes in childNodes ?? [])
+    {
+        elementChildNodes?.validate();
+    }
+
   }
 }
 

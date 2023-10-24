@@ -76,6 +76,9 @@ class TableResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    table?.validate();
+
   }
 }
 

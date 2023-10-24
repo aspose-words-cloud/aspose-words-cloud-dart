@@ -273,6 +273,11 @@ class XpsSaveOptionsData extends FixedPageSaveOptionsData {
   @override
   void validate() {
     super.validate();
+
+    outlineOptions?.validate();
+
+
+
   }
 }
 

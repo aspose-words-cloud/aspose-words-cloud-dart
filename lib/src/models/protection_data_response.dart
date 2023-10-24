@@ -92,6 +92,13 @@ class ProtectionDataResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    documentLink?.validate();
+
+
+
+    protectionData?.validate();
+
   }
 }
 

@@ -79,6 +79,12 @@ class BordersCollection extends LinkElement {
   @override
   void validate() {
     super.validate();
+
+    for (final elementList in list ?? [])
+    {
+        elementList?.validate();
+    }
+
   }
 }
 

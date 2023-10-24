@@ -70,6 +70,12 @@ class FilesList implements ModelBase {
 
   @override
   void validate() {
+
+    for (final elementValue in value ?? [])
+    {
+        elementValue?.validate();
+    }
+
   }
 }
 

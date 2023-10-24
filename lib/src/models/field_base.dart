@@ -87,7 +87,6 @@ abstract class FieldBase implements ModelBase {
     {
         throw new ApiException(400, 'Property FieldCode in FieldBase is required.');
     }
-
   }
 }
 

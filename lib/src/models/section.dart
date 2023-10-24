@@ -147,6 +147,28 @@ class Section extends LinkElement {
   @override
   void validate() {
     super.validate();
+
+    for (final elementChildNodes in childNodes ?? [])
+    {
+        elementChildNodes?.validate();
+    }
+
+
+
+    paragraphs?.validate();
+
+
+
+    pageSetup?.validate();
+
+
+
+    headerFooters?.validate();
+
+
+
+    tables?.validate();
+
   }
 }
 

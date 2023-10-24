@@ -76,6 +76,9 @@ class BorderResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    border?.validate();
+
   }
 }
 

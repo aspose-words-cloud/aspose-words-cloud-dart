@@ -79,6 +79,12 @@ class Lists extends LinkElement {
   @override
   void validate() {
     super.validate();
+
+    for (final elementListInfo in listInfo ?? [])
+    {
+        elementListInfo?.validate();
+    }
+
   }
 }
 

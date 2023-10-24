@@ -115,12 +115,10 @@ class ListFormat extends LinkElement {
     {
         throw new ApiException(400, 'Property ListLevelNumber in ListFormat is required.');
     }
-
     if (isListItem == null)
     {
         throw new ApiException(400, 'Property IsListItem in ListFormat is required.');
     }
-
   }
 }
 

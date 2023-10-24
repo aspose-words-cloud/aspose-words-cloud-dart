@@ -88,6 +88,9 @@ class LoadWebDocumentData implements ModelBase {
         throw new ApiException(400, 'Property LoadingDocumentUrl in LoadWebDocumentData is required.');
     }
 
+    saveOptions?.validate();
+
+
   }
 }
 

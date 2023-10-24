@@ -76,6 +76,9 @@ class OfficeMathObjectsResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    officeMathObjects?.validate();
+
   }
 }
 

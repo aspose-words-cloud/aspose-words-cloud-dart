@@ -302,6 +302,21 @@ class FieldOptions implements ModelBase {
 
   @override
   void validate() {
+
+    currentUser?.validate();
+
+
+
+
+
+
+
+
+
+
+
+
+
   }
 }
 

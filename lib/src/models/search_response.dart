@@ -93,6 +93,9 @@ class SearchResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    searchResults?.validate();
+
   }
 }
 

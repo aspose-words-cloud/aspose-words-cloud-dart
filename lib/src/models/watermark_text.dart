@@ -87,12 +87,10 @@ class WatermarkText implements ModelBase {
     {
         throw new ApiException(400, 'Property RotationAngle in WatermarkText is required.');
     }
-
     if (text == null)
     {
         throw new ApiException(400, 'Property Text in WatermarkText is required.');
     }
-
   }
 }
 

@@ -97,6 +97,9 @@ class ReplaceTextResponse extends WordsResponse {
         throw new ApiException(400, 'Property Matches in ReplaceTextResponse is required.');
     }
 
+    documentLink?.validate();
+
+
   }
 }
 

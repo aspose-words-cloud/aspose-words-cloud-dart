@@ -87,7 +87,6 @@ class ErrorDetails implements ModelBase {
     {
         throw new ApiException(400, 'Property ErrorDateTime in ErrorDetails is required.');
     }
-
   }
 }
 

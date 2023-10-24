@@ -188,26 +188,28 @@ class ListInfo extends LinkElement {
     {
         throw new ApiException(400, 'Property ListId in ListInfo is required.');
     }
-
     if (isMultiLevel == null)
     {
         throw new ApiException(400, 'Property IsMultiLevel in ListInfo is required.');
     }
-
     if (isRestartAtEachSection == null)
     {
         throw new ApiException(400, 'Property IsRestartAtEachSection in ListInfo is required.');
     }
-
     if (isListStyleDefinition == null)
     {
         throw new ApiException(400, 'Property IsListStyleDefinition in ListInfo is required.');
     }
-
     if (isListStyleReference == null)
     {
         throw new ApiException(400, 'Property IsListStyleReference in ListInfo is required.');
     }
+
+    style?.validate();
+
+
+
+    listLevels?.validate();
 
   }
 }

@@ -102,6 +102,16 @@ class Table extends NodeLink {
   @override
   void validate() {
     super.validate();
+
+    for (final elementTableRowList in tableRowList ?? [])
+    {
+        elementTableRowList?.validate();
+    }
+
+
+
+    tableProperties?.validate();
+
   }
 }
 

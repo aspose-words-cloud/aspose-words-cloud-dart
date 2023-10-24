@@ -75,6 +75,9 @@ class StructuredDocumentTagResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    structuredDocumentTag?.validate();
+
   }
 }
 

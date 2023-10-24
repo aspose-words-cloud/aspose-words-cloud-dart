@@ -69,7 +69,8 @@ class DocumentProtectionTests
     final requestDocument = await context.loadBinaryFile(localFile);
 
     final requestProtectionRequest = ProtectionRequest();
-    requestProtectionRequest.newPassword = '123';
+    requestProtectionRequest.password = '123';
+    requestProtectionRequest.protectionType = 'ReadOnly';
 
     final request = ProtectDocumentOnlineRequest(
       requestDocument,

@@ -70,7 +70,6 @@ abstract class RunBase implements ModelBase {
     {
         throw new ApiException(400, 'Property Text in RunBase is required.');
     }
-
   }
 }
 

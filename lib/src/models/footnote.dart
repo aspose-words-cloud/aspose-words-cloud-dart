@@ -160,6 +160,16 @@ class Footnote extends FootnoteLink {
   @override
   void validate() {
     super.validate();
+
+    position?.validate();
+
+
+
+
+
+
+    content?.validate();
+
   }
 }
 

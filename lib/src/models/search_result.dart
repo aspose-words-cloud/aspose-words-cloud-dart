@@ -83,6 +83,13 @@ class SearchResult implements ModelBase {
 
   @override
   void validate() {
+
+    rangeStart?.validate();
+
+
+
+    rangeEnd?.validate();
+
   }
 }
 

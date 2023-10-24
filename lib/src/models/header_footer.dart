@@ -127,6 +127,20 @@ class HeaderFooter extends HeaderFooterLink {
   @override
   void validate() {
     super.validate();
+
+    for (final elementChildNodes in childNodes ?? [])
+    {
+        elementChildNodes?.validate();
+    }
+
+
+
+    paragraphs?.validate();
+
+
+
+    drawingObjects?.validate();
+
   }
 }
 

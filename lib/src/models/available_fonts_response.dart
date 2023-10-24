@@ -121,6 +121,26 @@ class AvailableFontsResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    for (final elementAdditionalFonts in additionalFonts ?? [])
+    {
+        elementAdditionalFonts?.validate();
+    }
+
+
+
+    for (final elementCustomFonts in customFonts ?? [])
+    {
+        elementCustomFonts?.validate();
+    }
+
+
+
+    for (final elementSystemFonts in systemFonts ?? [])
+    {
+        elementSystemFonts?.validate();
+    }
+
   }
 }
 

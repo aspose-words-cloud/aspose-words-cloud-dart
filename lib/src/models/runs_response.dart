@@ -76,6 +76,9 @@ class RunsResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    runs?.validate();
+
   }
 }
 

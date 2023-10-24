@@ -87,12 +87,10 @@ class FootnotesStatData implements ModelBase {
     {
         throw new ApiException(400, 'Property ParagraphCount in FootnotesStatData is required.');
     }
-
     if (wordCount == null)
     {
         throw new ApiException(400, 'Property WordCount in FootnotesStatData is required.');
     }
-
   }
 }
 

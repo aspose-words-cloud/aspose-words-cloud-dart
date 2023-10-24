@@ -117,6 +117,10 @@ class Error implements ModelBase {
 
   @override
   void validate() {
+
+    innerError?.validate();
+
+
   }
 }
 

@@ -79,6 +79,12 @@ class SearchResultsCollection extends LinkElement {
   @override
   void validate() {
     super.validate();
+
+    for (final elementResultsList in resultsList ?? [])
+    {
+        elementResultsList?.validate();
+    }
+
   }
 }
 

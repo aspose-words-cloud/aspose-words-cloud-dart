@@ -1102,6 +1102,15 @@ class TableProperties extends LinkElement {
   @override
   void validate() {
     super.validate();
+
+    preferredWidth?.validate();
+
+
+
+
+
+
+
   }
 }
 

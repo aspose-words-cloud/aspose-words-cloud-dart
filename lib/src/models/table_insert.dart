@@ -104,11 +104,13 @@ class TableInsert implements ModelBase {
     {
         throw new ApiException(400, 'Property ColumnsCount in TableInsert is required.');
     }
-
     if (rowsCount == null)
     {
         throw new ApiException(400, 'Property RowsCount in TableInsert is required.');
     }
+
+    position?.validate();
+
 
   }
 }

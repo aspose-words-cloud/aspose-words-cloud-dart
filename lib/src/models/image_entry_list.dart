@@ -100,6 +100,12 @@ class ImageEntryList extends BaseEntryList {
   @override
   void validate() {
     super.validate();
+
+    for (final elementImageEntries in imageEntries ?? [])
+    {
+        elementImageEntries?.validate();
+    }
+
   }
 }
 

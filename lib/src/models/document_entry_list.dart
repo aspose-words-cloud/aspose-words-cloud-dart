@@ -104,7 +104,7 @@ class DocumentEntryList extends BaseEntryList {
         throw new ApiException(400, 'Property DocumentEntries in DocumentEntryList is required.');
     }
 
-    for (final elementDocumentEntries in documentEntries!)
+    for (final elementDocumentEntries in documentEntries ?? [])
     {
         elementDocumentEntries?.validate();
     }

@@ -79,6 +79,12 @@ class Bookmarks extends LinkElement {
   @override
   void validate() {
     super.validate();
+
+    for (final elementBookmarkList in bookmarkList ?? [])
+    {
+        elementBookmarkList?.validate();
+    }
+
   }
 }
 

@@ -104,7 +104,6 @@ class ProtectionRequest implements ModelBase {
     {
         throw new ApiException(400, 'Property Password in ProtectionRequest is required.');
     }
-
   }
 }
 

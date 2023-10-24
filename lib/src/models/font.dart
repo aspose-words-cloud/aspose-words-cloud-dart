@@ -1561,6 +1561,53 @@ class Font extends LinkElement {
   @override
   void validate() {
     super.validate();
+
+    border?.validate();
+
+
+
+    color?.validate();
+
+
+
+
+
+
+
+
+    highlightColor?.validate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    underlineColor?.validate();
+
   }
 }
 

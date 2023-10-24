@@ -98,6 +98,13 @@ class BookmarkInsert extends BookmarkData {
   @override
   void validate() {
     super.validate();
+
+    startRange?.validate();
+
+
+
+    endRange?.validate();
+
   }
 }
 

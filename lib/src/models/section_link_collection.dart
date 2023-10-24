@@ -79,6 +79,12 @@ class SectionLinkCollection extends LinkElement {
   @override
   void validate() {
     super.validate();
+
+    for (final elementSectionLinkList in sectionLinkList ?? [])
+    {
+        elementSectionLinkList?.validate();
+    }
+
   }
 }
 

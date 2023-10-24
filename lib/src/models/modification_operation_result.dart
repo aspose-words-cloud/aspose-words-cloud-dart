@@ -83,6 +83,13 @@ class ModificationOperationResult implements ModelBase {
 
   @override
   void validate() {
+
+    dest?.validate();
+
+
+
+    source?.validate();
+
   }
 }
 

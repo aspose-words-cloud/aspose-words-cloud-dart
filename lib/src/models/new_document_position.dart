@@ -87,7 +87,6 @@ class NewDocumentPosition implements ModelBase {
     {
         throw new ApiException(400, 'Property NodeId in NewDocumentPosition is required.');
     }
-
   }
 }
 

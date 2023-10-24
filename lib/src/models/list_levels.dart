@@ -80,6 +80,12 @@ class ListLevels extends LinkElement {
   @override
   void validate() {
     super.validate();
+
+    for (final elementListLevel in listLevel ?? [])
+    {
+        elementListLevel?.validate();
+    }
+
   }
 }
 

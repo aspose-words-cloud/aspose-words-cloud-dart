@@ -113,6 +113,14 @@ class InfoResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    for (final elementAdditionalInfo in additionalInfo ?? [])
+    {
+        elementAdditionalInfo?.validate();
+    }
+
+
+
   }
 }
 

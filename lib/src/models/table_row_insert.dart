@@ -87,7 +87,6 @@ class TableRowInsert implements ModelBase {
     {
         throw new ApiException(400, 'Property ColumnsCount in TableRowInsert is required.');
     }
-
   }
 }
 

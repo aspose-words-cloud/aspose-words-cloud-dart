@@ -98,7 +98,6 @@ class CustomXmlPart extends CustomXmlPartLink {
     {
         throw new ApiException(400, 'Property Data in CustomXmlPart is required.');
     }
-
   }
 }
 

@@ -79,6 +79,12 @@ class DocumentProperties extends LinkElement {
   @override
   void validate() {
     super.validate();
+
+    for (final elementList in list ?? [])
+    {
+        elementList?.validate();
+    }
+
   }
 }
 

@@ -80,6 +80,12 @@ class StylesResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    for (final elementStyles in styles ?? [])
+    {
+        elementStyles?.validate();
+    }
+
   }
 }
 

@@ -287,6 +287,13 @@ abstract class FixedPageSaveOptionsData extends SaveOptionsData {
   @override
   void validate() {
     super.validate();
+
+    metafileRenderingOptions?.validate();
+
+
+
+
+
   }
 }
 

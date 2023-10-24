@@ -76,6 +76,9 @@ class StyleResponse extends WordsResponse {
   @override
   void validate() {
     super.validate();
+
+    style?.validate();
+
   }
 }
 
