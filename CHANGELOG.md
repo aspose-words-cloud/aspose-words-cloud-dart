@@ -1,3 +1,8 @@
+## [23.11.0] - Aspose Words Cloud for Dart 23.11 Release Notes
+
+- Support of required properties in models.
+
+
 ## [23.9.0] - Aspose Words Cloud for Dart 23.9 Release Notes
 
 - Support for class inheritance in responses from the server.
