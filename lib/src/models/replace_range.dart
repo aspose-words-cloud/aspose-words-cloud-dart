@@ -88,6 +88,14 @@ class ReplaceRange implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (text == null)
+    {
+        throw new ApiException(400, 'Property Text in ReplaceRange is required.');
+    }
+  }
 }
 
 /// Gets or sets the range's text type.

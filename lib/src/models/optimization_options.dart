@@ -83,6 +83,14 @@ class OptimizationOptions implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (msWordVersion == null)
+    {
+        throw new ApiException(400, 'Property MsWordVersion in OptimizationOptions is required.');
+    }
+  }
 }
 
 /// Gets or sets the specific MSWord version.

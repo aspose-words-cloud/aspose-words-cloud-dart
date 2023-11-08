@@ -90,6 +90,7 @@ class InsertOrUpdateParagraphTabStopOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -100,6 +101,8 @@ class InsertOrUpdateParagraphTabStopOnlineRequest implements RequestBase {
     }
 
     if (tabStopInsertDto != null) {
+      tabStopInsertDto!.validate();
+
       var _formBody = _apiClient.serializeBody(tabStopInsertDto, 'TabStopInsertDto');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

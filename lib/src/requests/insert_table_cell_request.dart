@@ -120,6 +120,8 @@ class InsertTableCellRequest implements RequestBase {
     }
 
     if (cell != null) {
+      cell!.validate();
+
       var _body = _apiClient.serializeBody(cell, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

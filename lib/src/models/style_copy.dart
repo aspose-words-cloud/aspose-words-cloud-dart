@@ -63,6 +63,14 @@ class StyleCopy implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (styleName == null)
+    {
+        throw new ApiException(400, 'Property StyleName in StyleCopy is required.');
+    }
+  }
 }
 
 

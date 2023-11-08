@@ -100,6 +100,7 @@ class UpdateCommentOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -110,6 +111,8 @@ class UpdateCommentOnlineRequest implements RequestBase {
     }
 
     if (comment != null) {
+      comment!.validate();
+
       var _formBody = _apiClient.serializeBody(comment, 'Comment');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

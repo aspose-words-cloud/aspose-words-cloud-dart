@@ -120,6 +120,8 @@ class UpdateBookmarkRequest implements RequestBase {
     }
 
     if (bookmarkData != null) {
+      bookmarkData!.validate();
+
       var _body = _apiClient.serializeBody(bookmarkData, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

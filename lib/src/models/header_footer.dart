@@ -123,6 +123,25 @@ class HeaderFooter extends HeaderFooterLink {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+
+    for (final elementChildNodes in childNodes ?? [])
+    {
+        elementChildNodes?.validate();
+    }
+
+
+
+    paragraphs?.validate();
+
+
+
+    drawingObjects?.validate();
+
+  }
 }
 
 

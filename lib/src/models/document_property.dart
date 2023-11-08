@@ -106,6 +106,15 @@ class DocumentProperty extends LinkElement {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+    if (builtIn == null)
+    {
+        throw new ApiException(400, 'Property BuiltIn in DocumentProperty is required.');
+    }
+  }
 }
 
 

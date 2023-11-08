@@ -132,6 +132,11 @@ class TableRowFormat extends LinkElement {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+  }
 }
 
 /// Gets or sets the rule for determining the height of the table row.

@@ -104,6 +104,7 @@ class InsertFieldOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -114,6 +115,8 @@ class InsertFieldOnlineRequest implements RequestBase {
     }
 
     if (field != null) {
+      field!.validate();
+
       var _formBody = _apiClient.serializeBody(field, 'Field');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

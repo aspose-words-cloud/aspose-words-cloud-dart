@@ -128,6 +128,8 @@ class UpdateTableCellFormatRequest implements RequestBase {
     }
 
     if (format != null) {
+      format!.validate();
+
       var _body = _apiClient.serializeBody(format, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

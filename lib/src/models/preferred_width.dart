@@ -90,6 +90,14 @@ class PreferredWidth implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (type == null)
+    {
+        throw new ApiException(400, 'Property Type in PreferredWidth is required.');
+    }
+  }
 }
 
 /// Gets or sets the unit of measure used for this preferred width value.

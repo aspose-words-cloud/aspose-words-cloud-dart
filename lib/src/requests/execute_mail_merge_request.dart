@@ -129,6 +129,7 @@ class ExecuteMailMergeRequest implements RequestBase {
     }
 
     if (data != null) {
+
       var _formBody = _apiClient.serializeBody(data, 'Data');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -136,6 +137,8 @@ class ExecuteMailMergeRequest implements RequestBase {
     }
 
     if (options != null) {
+      options!.validate();
+
       var _formBody = _apiClient.serializeBody(options, 'Options');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

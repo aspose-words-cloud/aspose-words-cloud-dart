@@ -100,6 +100,7 @@ class ApplyStyleToDocumentElementOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -110,6 +111,8 @@ class ApplyStyleToDocumentElementOnlineRequest implements RequestBase {
     }
 
     if (styleApply != null) {
+      styleApply!.validate();
+
       var _formBody = _apiClient.serializeBody(styleApply, 'StyleApply');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

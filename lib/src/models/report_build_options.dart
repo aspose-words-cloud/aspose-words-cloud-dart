@@ -35,5 +35,6 @@ enum ReportBuildOptionsEnum {
   removeEmptyParagraphs,
   inlineErrorMessages,
   useLegacyHeaderFooterVisiting,
-  respectJpegExifOrientation
+  respectJpegExifOrientation,
+  updateFieldsSyntaxAware
 }

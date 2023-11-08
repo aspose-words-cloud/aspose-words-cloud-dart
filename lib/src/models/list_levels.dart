@@ -76,6 +76,17 @@ class ListLevels extends LinkElement {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+
+    for (final elementListLevel in listLevel ?? [])
+    {
+        elementListLevel?.validate();
+    }
+
+  }
 }
 
 

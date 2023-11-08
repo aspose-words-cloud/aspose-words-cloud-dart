@@ -104,6 +104,7 @@ class UpdateFormFieldOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -114,6 +115,8 @@ class UpdateFormFieldOnlineRequest implements RequestBase {
     }
 
     if (formField != null) {
+      formField!.validate();
+
       var _formBody = _apiClient.serializeBody(formField, 'FormField');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

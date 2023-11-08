@@ -77,6 +77,7 @@ class GetDocumentFieldNamesOnlineRequest implements RequestBase {
     }
 
     if (template != null) {
+
       var _formBody = _apiClient.serializeBody(template, 'Template');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

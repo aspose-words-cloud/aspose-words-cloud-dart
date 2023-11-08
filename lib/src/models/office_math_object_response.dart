@@ -72,6 +72,14 @@ class OfficeMathObjectResponse extends WordsResponse {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+
+    officeMathObject?.validate();
+
+  }
 }
 
 

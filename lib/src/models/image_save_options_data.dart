@@ -475,6 +475,11 @@ abstract class ImageSaveOptionsData extends FixedPageSaveOptionsData {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+  }
 }
 
 /// Gets or sets the color mode of the image.

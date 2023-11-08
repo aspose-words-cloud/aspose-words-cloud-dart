@@ -56,6 +56,11 @@ class RunUpdate extends RunBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+  }
 }
 
 

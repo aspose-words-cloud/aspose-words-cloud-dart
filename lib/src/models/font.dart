@@ -1557,6 +1557,58 @@ class Font extends LinkElement {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+
+    border?.validate();
+
+
+
+    color?.validate();
+
+
+
+
+
+
+
+
+    highlightColor?.validate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    underlineColor?.validate();
+
+  }
 }
 
 /// Gets or sets the locale independent style identifier of the character style applied to this formatting.

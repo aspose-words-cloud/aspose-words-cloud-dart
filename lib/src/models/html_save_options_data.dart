@@ -893,6 +893,11 @@ class HtmlSaveOptionsData extends SaveOptionsData {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+  }
 }
 
 /// Gets or sets the option that controls how the CSS styles are exported.

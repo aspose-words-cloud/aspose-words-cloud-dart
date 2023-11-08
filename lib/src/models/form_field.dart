@@ -221,6 +221,15 @@ abstract class FormField extends NodeLink {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+    if (name == null)
+    {
+        throw new ApiException(400, 'Property Name in FormField is required.');
+    }
+  }
 }
 
 

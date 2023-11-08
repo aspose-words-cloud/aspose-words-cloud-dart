@@ -101,6 +101,24 @@ class SplitDocumentResult implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+
+    sourceDocument?.validate();
+
+
+
+    zippedPages?.validate();
+
+
+
+    for (final elementPages in pages ?? [])
+    {
+        elementPages?.validate();
+    }
+
+  }
 }
 
 

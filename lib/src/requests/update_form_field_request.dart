@@ -124,6 +124,8 @@ class UpdateFormFieldRequest implements RequestBase {
     }
 
     if (formField != null) {
+      formField!.validate();
+
       var _body = _apiClient.serializeBody(formField, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

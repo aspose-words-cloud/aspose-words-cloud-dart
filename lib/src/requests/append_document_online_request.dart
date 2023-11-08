@@ -93,6 +93,7 @@ class AppendDocumentOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -103,6 +104,8 @@ class AppendDocumentOnlineRequest implements RequestBase {
     }
 
     if (documentList != null) {
+      documentList!.validate();
+
       var _formBody = _apiClient.serializeBody(documentList, 'DocumentList');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

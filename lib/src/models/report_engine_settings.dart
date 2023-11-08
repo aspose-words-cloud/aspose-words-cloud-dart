@@ -119,6 +119,7 @@ class ReportEngineSettings implements ModelBase {
           case 'InlineErrorMessages': reportBuildOptions!.add(ReportBuildOptionsEnum.inlineErrorMessages); break;
           case 'UseLegacyHeaderFooterVisiting': reportBuildOptions!.add(ReportBuildOptionsEnum.useLegacyHeaderFooterVisiting); break;
           case 'RespectJpegExifOrientation': reportBuildOptions!.add(ReportBuildOptionsEnum.respectJpegExifOrientation); break;
+          case 'UpdateFieldsSyntaxAware': reportBuildOptions!.add(ReportBuildOptionsEnum.updateFieldsSyntaxAware); break;
           default: break;
         }
       }
@@ -166,6 +167,7 @@ class ReportEngineSettings implements ModelBase {
             case ReportBuildOptionsEnum.inlineErrorMessages: return 'InlineErrorMessages';
             case ReportBuildOptionsEnum.useLegacyHeaderFooterVisiting: return 'UseLegacyHeaderFooterVisiting';
             case ReportBuildOptionsEnum.respectJpegExifOrientation: return 'RespectJpegExifOrientation';
+            case ReportBuildOptionsEnum.updateFieldsSyntaxAware: return 'UpdateFieldsSyntaxAware';
             default: return null;
         }
       }).toList();
@@ -179,6 +181,28 @@ class ReportEngineSettings implements ModelBase {
 
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
+  }
+
+  @override
+  void validate() {
+    if (dataSourceType == null)
+    {
+        throw new ApiException(400, 'Property DataSourceType in ReportEngineSettings is required.');
+    }
+
+    csvDataLoadOptions?.validate();
+
+
+
+
+
+    jsonDataLoadOptions?.validate();
+
+
+
+
+    xmlDataLoadOptions?.validate();
+
   }
 }
 

@@ -112,6 +112,8 @@ class AppendDocumentRequest implements RequestBase {
     }
 
     if (documentList != null) {
+      documentList!.validate();
+
       var _body = _apiClient.serializeBody(documentList, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

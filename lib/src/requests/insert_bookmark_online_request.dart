@@ -93,6 +93,7 @@ class InsertBookmarkOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -103,6 +104,8 @@ class InsertBookmarkOnlineRequest implements RequestBase {
     }
 
     if (bookmark != null) {
+      bookmark!.validate();
+
       var _formBody = _apiClient.serializeBody(bookmark, 'Bookmark');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

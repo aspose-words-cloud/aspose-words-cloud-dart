@@ -131,6 +131,24 @@ class CompareData implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (author == null)
+    {
+        throw new ApiException(400, 'Property Author in CompareData is required.');
+    }
+    if (comparingWithDocument == null)
+    {
+        throw new ApiException(400, 'Property ComparingWithDocument in CompareData is required.');
+    }
+
+    compareOptions?.validate();
+
+
+
+
+  }
 }
 
 

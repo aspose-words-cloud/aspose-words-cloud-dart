@@ -75,6 +75,17 @@ class Hyperlinks extends LinkElement {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+
+    for (final elementHyperlinkList in hyperlinkList ?? [])
+    {
+        elementHyperlinkList?.validate();
+    }
+
+  }
 }
 
 

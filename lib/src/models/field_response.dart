@@ -72,6 +72,14 @@ class FieldResponse extends WordsResponse {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+
+    field?.validate();
+
+  }
 }
 
 

@@ -75,6 +75,17 @@ class TableLinkCollection extends LinkElement {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+
+    for (final elementTableLinkList in tableLinkList ?? [])
+    {
+        elementTableLinkList?.validate();
+    }
+
+  }
 }
 
 

@@ -93,6 +93,7 @@ class InsertWatermarkTextOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -103,6 +104,8 @@ class InsertWatermarkTextOnlineRequest implements RequestBase {
     }
 
     if (watermarkText != null) {
+      watermarkText!.validate();
+
       var _formBody = _apiClient.serializeBody(watermarkText, 'WatermarkText');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

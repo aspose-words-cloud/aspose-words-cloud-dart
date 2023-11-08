@@ -104,6 +104,7 @@ class UpdateTablePropertiesOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -114,6 +115,8 @@ class UpdateTablePropertiesOnlineRequest implements RequestBase {
     }
 
     if (properties != null) {
+      properties!.validate();
+
       var _formBody = _apiClient.serializeBody(properties, 'Properties');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

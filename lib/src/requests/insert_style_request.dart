@@ -112,6 +112,8 @@ class InsertStyleRequest implements RequestBase {
     }
 
     if (styleInsert != null) {
+      styleInsert!.validate();
+
       var _body = _apiClient.serializeBody(styleInsert, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

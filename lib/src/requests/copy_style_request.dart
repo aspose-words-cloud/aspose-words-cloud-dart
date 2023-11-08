@@ -112,6 +112,8 @@ class CopyStyleRequest implements RequestBase {
     }
 
     if (styleCopy != null) {
+      styleCopy!.validate();
+
       var _body = _apiClient.serializeBody(styleCopy, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

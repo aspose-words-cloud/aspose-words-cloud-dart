@@ -120,6 +120,8 @@ class InsertTableRowRequest implements RequestBase {
     }
 
     if (row != null) {
+      row!.validate();
+
       var _body = _apiClient.serializeBody(row, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

@@ -74,6 +74,11 @@ class WordsApiLink extends Link {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+  }
 }
 
 

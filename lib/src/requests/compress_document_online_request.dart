@@ -79,6 +79,7 @@ class CompressDocumentOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -89,6 +90,8 @@ class CompressDocumentOnlineRequest implements RequestBase {
     }
 
     if (compressOptions != null) {
+      compressOptions!.validate();
+
       var _formBody = _apiClient.serializeBody(compressOptions, 'CompressOptions');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

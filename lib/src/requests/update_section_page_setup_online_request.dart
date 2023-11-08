@@ -100,6 +100,7 @@ class UpdateSectionPageSetupOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -110,6 +111,8 @@ class UpdateSectionPageSetupOnlineRequest implements RequestBase {
     }
 
     if (pageSetup != null) {
+      pageSetup!.validate();
+
       var _formBody = _apiClient.serializeBody(pageSetup, 'PageSetup');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

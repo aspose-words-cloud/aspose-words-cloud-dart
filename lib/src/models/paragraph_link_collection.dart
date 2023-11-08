@@ -75,6 +75,17 @@ class ParagraphLinkCollection extends LinkElement {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+
+    for (final elementParagraphLinkList in paragraphLinkList ?? [])
+    {
+        elementParagraphLinkList?.validate();
+    }
+
+  }
 }
 
 

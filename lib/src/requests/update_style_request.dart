@@ -120,6 +120,8 @@ class UpdateStyleRequest implements RequestBase {
     }
 
     if (styleUpdate != null) {
+      styleUpdate!.validate();
+
       var _body = _apiClient.serializeBody(styleUpdate, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

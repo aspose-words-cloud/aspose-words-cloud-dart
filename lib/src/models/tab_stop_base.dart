@@ -131,6 +131,22 @@ abstract class TabStopBase implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (alignment == null)
+    {
+        throw new ApiException(400, 'Property Alignment in TabStopBase is required.');
+    }
+    if (leader == null)
+    {
+        throw new ApiException(400, 'Property Leader in TabStopBase is required.');
+    }
+    if (position == null)
+    {
+        throw new ApiException(400, 'Property Position in TabStopBase is required.');
+    }
+  }
 }
 
 /// Gets or sets the alignment of text at this tab stop.

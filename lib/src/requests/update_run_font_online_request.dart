@@ -108,6 +108,7 @@ class UpdateRunFontOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -118,6 +119,8 @@ class UpdateRunFontOnlineRequest implements RequestBase {
     }
 
     if (fontDto != null) {
+      fontDto!.validate();
+
       var _formBody = _apiClient.serializeBody(fontDto, 'FontDto');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

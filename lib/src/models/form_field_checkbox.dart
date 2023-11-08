@@ -165,6 +165,15 @@ class FormFieldCheckbox extends FormField {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+    if (checked == null)
+    {
+        throw new ApiException(400, 'Property Checked in FormFieldCheckbox is required.');
+    }
+  }
 }
 
 

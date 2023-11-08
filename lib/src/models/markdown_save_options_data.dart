@@ -207,6 +207,11 @@ class MarkdownSaveOptionsData extends TxtSaveOptionsBaseData {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+  }
 }
 
 /// Gets or sets the value, that specifies how to align contents in tables when exporting into the Markdown format.

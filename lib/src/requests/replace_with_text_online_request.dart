@@ -90,6 +90,7 @@ class ReplaceWithTextOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -100,6 +101,8 @@ class ReplaceWithTextOnlineRequest implements RequestBase {
     }
 
     if (rangeText != null) {
+      rangeText!.validate();
+
       var _formBody = _apiClient.serializeBody(rangeText, 'RangeText');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
