@@ -176,6 +176,11 @@ class OttSaveOptionsData extends OdtSaveOptionsData {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+  }
 }
 
 

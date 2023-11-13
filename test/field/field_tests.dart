@@ -257,6 +257,8 @@ class FieldTests
     final requestPageNumber = PageNumber();
     requestPageNumber.alignment = 'center';
     requestPageNumber.format = '{PAGE} of {NUMPAGES}';
+    requestPageNumber.isTop = true;
+    requestPageNumber.setPageNumberOnFirstPage = true;
 
     final request = InsertPageNumbersRequest(
       remoteFileName,
@@ -279,6 +281,8 @@ class FieldTests
     final requestPageNumber = PageNumber();
     requestPageNumber.alignment = 'center';
     requestPageNumber.format = '{PAGE} of {NUMPAGES}';
+    requestPageNumber.isTop = true;
+    requestPageNumber.setPageNumberOnFirstPage = true;
 
     final request = InsertPageNumbersOnlineRequest(
       requestDocument,

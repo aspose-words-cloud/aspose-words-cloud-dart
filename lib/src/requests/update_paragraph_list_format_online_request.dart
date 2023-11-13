@@ -104,6 +104,7 @@ class UpdateParagraphListFormatOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -114,6 +115,8 @@ class UpdateParagraphListFormatOnlineRequest implements RequestBase {
     }
 
     if (listFormatDto != null) {
+      listFormatDto!.validate();
+
       var _formBody = _apiClient.serializeBody(listFormatDto, 'ListFormatDto');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

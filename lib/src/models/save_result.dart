@@ -101,6 +101,24 @@ class SaveResult implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+
+    destDocument?.validate();
+
+
+
+    sourceDocument?.validate();
+
+
+
+    for (final elementAdditionalItems in additionalItems ?? [])
+    {
+        elementAdditionalItems?.validate();
+    }
+
+  }
 }
 
 

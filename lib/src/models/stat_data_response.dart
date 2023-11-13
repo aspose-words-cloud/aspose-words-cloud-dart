@@ -88,6 +88,18 @@ class StatDataResponse extends WordsResponse {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+
+    documentLink?.validate();
+
+
+
+    statData?.validate();
+
+  }
 }
 
 

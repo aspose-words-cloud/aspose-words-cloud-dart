@@ -466,6 +466,11 @@ class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+  }
 }
 
 /// Gets or sets the export format of fonts.

@@ -237,6 +237,11 @@ class PclSaveOptionsData extends FixedPageSaveOptionsData {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+  }
 }
 
 

@@ -107,6 +107,7 @@ class InsertWatermarkImageOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -117,6 +118,7 @@ class InsertWatermarkImageOnlineRequest implements RequestBase {
     }
 
     if (imageFile != null) {
+
       var _formBody = _apiClient.serializeBody(imageFile, 'ImageFile');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

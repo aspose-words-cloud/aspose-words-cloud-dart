@@ -120,6 +120,8 @@ class UpdateSectionPageSetupRequest implements RequestBase {
     }
 
     if (pageSetup != null) {
+      pageSetup!.validate();
+
       var _body = _apiClient.serializeBody(pageSetup, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

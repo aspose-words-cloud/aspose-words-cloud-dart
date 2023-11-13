@@ -90,6 +90,15 @@ class CustomXmlPart extends CustomXmlPartLink {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+    if (data == null)
+    {
+        throw new ApiException(400, 'Property Data in CustomXmlPart is required.');
+    }
+  }
 }
 
 

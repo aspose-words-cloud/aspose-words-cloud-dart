@@ -128,6 +128,8 @@ class UpdateRunFontRequest implements RequestBase {
     }
 
     if (fontDto != null) {
+      fontDto!.validate();
+
       var _body = _apiClient.serializeBody(fontDto, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

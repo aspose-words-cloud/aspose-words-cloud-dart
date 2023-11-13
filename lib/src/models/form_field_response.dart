@@ -72,6 +72,14 @@ class FormFieldResponse extends WordsResponse {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+
+    formField?.validate();
+
+  }
 }
 
 

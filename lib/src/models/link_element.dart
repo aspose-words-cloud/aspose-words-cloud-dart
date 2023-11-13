@@ -63,6 +63,13 @@ class LinkElement implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+
+    link?.validate();
+
+  }
 }
 
 

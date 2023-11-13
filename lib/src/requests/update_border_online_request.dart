@@ -104,6 +104,7 @@ class UpdateBorderOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -114,6 +115,8 @@ class UpdateBorderOnlineRequest implements RequestBase {
     }
 
     if (borderProperties != null) {
+      borderProperties!.validate();
+
       var _formBody = _apiClient.serializeBody(borderProperties, 'BorderProperties');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

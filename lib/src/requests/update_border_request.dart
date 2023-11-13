@@ -124,6 +124,8 @@ class UpdateBorderRequest implements RequestBase {
     }
 
     if (borderProperties != null) {
+      borderProperties!.validate();
+
       var _body = _apiClient.serializeBody(borderProperties, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

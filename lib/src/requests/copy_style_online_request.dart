@@ -93,6 +93,7 @@ class CopyStyleOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -103,6 +104,8 @@ class CopyStyleOnlineRequest implements RequestBase {
     }
 
     if (styleCopy != null) {
+      styleCopy!.validate();
+
       var _formBody = _apiClient.serializeBody(styleCopy, 'StyleCopy');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

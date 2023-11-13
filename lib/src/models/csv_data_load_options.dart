@@ -120,6 +120,26 @@ class CsvDataLoadOptions implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (commentChar == null)
+    {
+        throw new ApiException(400, 'Property CommentChar in CsvDataLoadOptions is required.');
+    }
+    if (delimiter == null)
+    {
+        throw new ApiException(400, 'Property Delimiter in CsvDataLoadOptions is required.');
+    }
+    if (hasHeaders == null)
+    {
+        throw new ApiException(400, 'Property HasHeaders in CsvDataLoadOptions is required.');
+    }
+    if (quoteChar == null)
+    {
+        throw new ApiException(400, 'Property QuoteChar in CsvDataLoadOptions is required.');
+    }
+  }
 }
 
 

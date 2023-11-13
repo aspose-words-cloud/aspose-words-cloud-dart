@@ -110,6 +110,8 @@ class ReplaceWithTextRequest implements RequestBase {
     }
 
     if (rangeText != null) {
+      rangeText!.validate();
+
       var _body = _apiClient.serializeBody(rangeText, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

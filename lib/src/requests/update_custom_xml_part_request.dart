@@ -120,6 +120,8 @@ class UpdateCustomXmlPartRequest implements RequestBase {
     }
 
     if (customXmlPart != null) {
+      customXmlPart!.validate();
+
       var _body = _apiClient.serializeBody(customXmlPart, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

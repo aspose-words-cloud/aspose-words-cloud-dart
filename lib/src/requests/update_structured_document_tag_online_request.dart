@@ -104,6 +104,7 @@ class UpdateStructuredDocumentTagOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -114,6 +115,8 @@ class UpdateStructuredDocumentTagOnlineRequest implements RequestBase {
     }
 
     if (structuredDocumentTag != null) {
+      structuredDocumentTag!.validate();
+
       var _formBody = _apiClient.serializeBody(structuredDocumentTag, 'StructuredDocumentTag');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

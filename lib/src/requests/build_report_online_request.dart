@@ -61,6 +61,7 @@ class BuildReportOnlineRequest implements RequestBase {
     }
 
     if (template != null) {
+
       var _formBody = _apiClient.serializeBody(template, 'Template');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -71,6 +72,7 @@ class BuildReportOnlineRequest implements RequestBase {
     }
 
     if (data != null) {
+
       var _formBody = _apiClient.serializeBody(data, 'Data');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -81,6 +83,8 @@ class BuildReportOnlineRequest implements RequestBase {
     }
 
     if (reportEngineSettings != null) {
+      reportEngineSettings!.validate();
+
       var _formBody = _apiClient.serializeBody(reportEngineSettings, 'ReportEngineSettings');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

@@ -131,6 +131,18 @@ class PageNumber implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (isTop == null)
+    {
+        throw new ApiException(400, 'Property IsTop in PageNumber is required.');
+    }
+    if (setPageNumberOnFirstPage == null)
+    {
+        throw new ApiException(400, 'Property SetPageNumberOnFirstPage in PageNumber is required.');
+    }
+  }
 }
 
 

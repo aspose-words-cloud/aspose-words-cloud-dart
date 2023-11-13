@@ -123,6 +123,8 @@ class InsertParagraphRequest implements RequestBase {
     }
 
     if (paragraph != null) {
+      paragraph!.validate();
+
       var _body = _apiClient.serializeBody(paragraph, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

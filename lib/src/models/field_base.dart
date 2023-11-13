@@ -80,6 +80,14 @@ abstract class FieldBase implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (fieldCode == null)
+    {
+        throw new ApiException(400, 'Property FieldCode in FieldBase is required.');
+    }
+  }
 }
 
 

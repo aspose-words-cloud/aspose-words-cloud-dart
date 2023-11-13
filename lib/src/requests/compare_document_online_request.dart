@@ -89,6 +89,7 @@ class CompareDocumentOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -99,6 +100,8 @@ class CompareDocumentOnlineRequest implements RequestBase {
     }
 
     if (compareData != null) {
+      compareData!.validate();
+
       var _formBody = _apiClient.serializeBody(compareData, 'CompareData');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -109,6 +112,7 @@ class CompareDocumentOnlineRequest implements RequestBase {
     }
 
     if (comparingDocument != null) {
+
       var _formBody = _apiClient.serializeBody(comparingDocument, 'ComparingDocument');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

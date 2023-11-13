@@ -76,6 +76,17 @@ class TabStopsResponse extends WordsResponse {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+
+    for (final elementTabStops in tabStops ?? [])
+    {
+        elementTabStops?.validate();
+    }
+
+  }
 }
 
 

@@ -152,6 +152,41 @@ abstract class CommentBase implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (rangeStart == null)
+    {
+        throw new ApiException(400, 'Property RangeStart in CommentBase is required.');
+    }
+    if (rangeEnd == null)
+    {
+        throw new ApiException(400, 'Property RangeEnd in CommentBase is required.');
+    }
+    if (author == null)
+    {
+        throw new ApiException(400, 'Property Author in CommentBase is required.');
+    }
+    if (initial == null)
+    {
+        throw new ApiException(400, 'Property Initial in CommentBase is required.');
+    }
+    if (text == null)
+    {
+        throw new ApiException(400, 'Property Text in CommentBase is required.');
+    }
+
+    rangeStart?.validate();
+
+
+
+    rangeEnd?.validate();
+
+
+
+
+
+  }
 }
 
 

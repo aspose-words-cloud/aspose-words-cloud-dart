@@ -76,6 +76,17 @@ class StylesResponse extends WordsResponse {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+
+    for (final elementStyles in styles ?? [])
+    {
+        elementStyles?.validate();
+    }
+
+  }
 }
 
 

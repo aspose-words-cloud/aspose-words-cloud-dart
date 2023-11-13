@@ -75,6 +75,17 @@ class SearchResultsCollection extends LinkElement {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+
+    for (final elementResultsList in resultsList ?? [])
+    {
+        elementResultsList?.validate();
+    }
+
+  }
 }
 
 

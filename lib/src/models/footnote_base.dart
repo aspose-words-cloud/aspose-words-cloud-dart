@@ -125,6 +125,16 @@ abstract class FootnoteBase implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+
+    position?.validate();
+
+
+
+
+  }
 }
 
 /// Gets or sets the option, that specifies whether this is a footnote or endnote.

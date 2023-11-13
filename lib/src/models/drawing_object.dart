@@ -296,6 +296,32 @@ class DrawingObject extends DrawingObjectLink {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+
+    for (final elementRenderLinks in renderLinks ?? [])
+    {
+        elementRenderLinks?.validate();
+    }
+
+
+
+
+
+    oleDataLink?.validate();
+
+
+
+    imageDataLink?.validate();
+
+
+
+
+
+
+  }
 }
 
 /// Gets or sets the relative horizontal position, from which the distance to the image is measured.

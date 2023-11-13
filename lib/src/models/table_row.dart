@@ -98,6 +98,21 @@ class TableRow extends NodeLink {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+
+    for (final elementTableCellList in tableCellList ?? [])
+    {
+        elementTableCellList?.validate();
+    }
+
+
+
+    rowFormat?.validate();
+
+  }
 }
 
 

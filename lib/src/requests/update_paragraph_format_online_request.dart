@@ -104,6 +104,7 @@ class UpdateParagraphFormatOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -114,6 +115,8 @@ class UpdateParagraphFormatOnlineRequest implements RequestBase {
     }
 
     if (paragraphFormatDto != null) {
+      paragraphFormatDto!.validate();
+
       var _formBody = _apiClient.serializeBody(paragraphFormatDto, 'ParagraphFormatDto');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

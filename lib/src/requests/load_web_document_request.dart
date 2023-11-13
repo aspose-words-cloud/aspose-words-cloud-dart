@@ -56,6 +56,8 @@ class LoadWebDocumentRequest implements RequestBase {
     }
 
     if (data != null) {
+      data!.validate();
+
       var _body = _apiClient.serializeBody(data, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

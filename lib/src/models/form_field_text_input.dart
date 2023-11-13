@@ -200,6 +200,19 @@ class FormFieldTextInput extends FormField {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+    if (textInputFormat == null)
+    {
+        throw new ApiException(400, 'Property TextInputFormat in FormFieldTextInput is required.');
+    }
+    if (textInputDefault == null)
+    {
+        throw new ApiException(400, 'Property TextInputDefault in FormFieldTextInput is required.');
+    }
+  }
 }
 
 /// Gets or sets the type of the text form field.

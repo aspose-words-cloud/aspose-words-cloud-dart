@@ -83,6 +83,7 @@ class SaveAsRangeOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -93,6 +94,8 @@ class SaveAsRangeOnlineRequest implements RequestBase {
     }
 
     if (documentParameters != null) {
+      documentParameters!.validate();
+
       var _formBody = _apiClient.serializeBody(documentParameters, 'DocumentParameters');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

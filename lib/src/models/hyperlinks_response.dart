@@ -72,6 +72,14 @@ class HyperlinksResponse extends WordsResponse {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+
+    hyperlinks?.validate();
+
+  }
 }
 
 

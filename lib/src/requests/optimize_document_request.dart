@@ -111,6 +111,8 @@ class OptimizeDocumentRequest implements RequestBase {
     }
 
     if (options != null) {
+      options!.validate();
+
       var _body = _apiClient.serializeBody(options, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

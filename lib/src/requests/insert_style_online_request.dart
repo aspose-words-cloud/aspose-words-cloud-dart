@@ -93,6 +93,7 @@ class InsertStyleOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -103,6 +104,8 @@ class InsertStyleOnlineRequest implements RequestBase {
     }
 
     if (styleInsert != null) {
+      styleInsert!.validate();
+
       var _formBody = _apiClient.serializeBody(styleInsert, 'StyleInsert');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

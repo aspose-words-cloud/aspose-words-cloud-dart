@@ -30,7 +30,20 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// DTO container with a StructuredDocumentTag.
-class StructuredDocumentTagInsert extends StructuredDocumentTag {
+class StructuredDocumentTagInsert extends StructuredDocumentTagBase {
+  /// Gets or sets the level at which this SDT occurs in the document tree.
+  StructuredDocumentTagInsert_LevelEnum? _level;
+
+  StructuredDocumentTagInsert_LevelEnum? get level => _level;
+  set level(StructuredDocumentTagInsert_LevelEnum? val) => _level = val;
+
+
+  /// Gets or sets type of this Structured document tag.
+  StructuredDocumentTagInsert_SdtTypeEnum? _sdtType;
+
+  StructuredDocumentTagInsert_SdtTypeEnum? get sdtType => _sdtType;
+  set sdtType(StructuredDocumentTagInsert_SdtTypeEnum? val) => _sdtType = val;
+
 
   @override
   void deserialize(Map<String, dynamic>? json) {
@@ -69,10 +82,10 @@ class StructuredDocumentTagInsert extends StructuredDocumentTag {
 
     if (json.containsKey('Appearance')) {
       switch (json['Appearance'] as String) {
-        case 'Default': appearance = StructuredDocumentTag_AppearanceEnum.defaultValue; break;
-        case 'BoundingBox': appearance = StructuredDocumentTag_AppearanceEnum.boundingBox; break;
-        case 'Tags': appearance = StructuredDocumentTag_AppearanceEnum.tags; break;
-        case 'Hidden': appearance = StructuredDocumentTag_AppearanceEnum.hidden; break;
+        case 'Default': appearance = StructuredDocumentTagBase_AppearanceEnum.defaultValue; break;
+        case 'BoundingBox': appearance = StructuredDocumentTagBase_AppearanceEnum.boundingBox; break;
+        case 'Tags': appearance = StructuredDocumentTagBase_AppearanceEnum.tags; break;
+        case 'Hidden': appearance = StructuredDocumentTagBase_AppearanceEnum.hidden; break;
         default: appearance = null; break;
       }
     } else {
@@ -105,10 +118,10 @@ class StructuredDocumentTagInsert extends StructuredDocumentTag {
 
     if (json.containsKey('DateStorageFormat')) {
       switch (json['DateStorageFormat'] as String) {
-        case 'Date': dateStorageFormat = StructuredDocumentTag_DateStorageFormatEnum.date; break;
-        case 'DateTime': dateStorageFormat = StructuredDocumentTag_DateStorageFormatEnum.dateTime; break;
-        case 'Default': dateStorageFormat = StructuredDocumentTag_DateStorageFormatEnum.defaultValue; break;
-        case 'Text': dateStorageFormat = StructuredDocumentTag_DateStorageFormatEnum.text; break;
+        case 'Date': dateStorageFormat = StructuredDocumentTagBase_DateStorageFormatEnum.date; break;
+        case 'DateTime': dateStorageFormat = StructuredDocumentTagBase_DateStorageFormatEnum.dateTime; break;
+        case 'Default': dateStorageFormat = StructuredDocumentTagBase_DateStorageFormatEnum.defaultValue; break;
+        case 'Text': dateStorageFormat = StructuredDocumentTagBase_DateStorageFormatEnum.text; break;
         default: dateStorageFormat = null; break;
       }
     } else {
@@ -147,21 +160,21 @@ class StructuredDocumentTagInsert extends StructuredDocumentTag {
 
     if (json.containsKey('CalendarType')) {
       switch (json['CalendarType'] as String) {
-        case 'Default': calendarType = StructuredDocumentTag_CalendarTypeEnum.defaultValue; break;
-        case 'Gregorian': calendarType = StructuredDocumentTag_CalendarTypeEnum.gregorian; break;
-        case 'GregorianArabic': calendarType = StructuredDocumentTag_CalendarTypeEnum.gregorianArabic; break;
-        case 'GregorianMeFrench': calendarType = StructuredDocumentTag_CalendarTypeEnum.gregorianMeFrench; break;
-        case 'GregorianUs': calendarType = StructuredDocumentTag_CalendarTypeEnum.gregorianUs; break;
-        case 'GregorianXlitEnglish': calendarType = StructuredDocumentTag_CalendarTypeEnum.gregorianXlitEnglish; break;
-        case 'GregorianXlitFrench': calendarType = StructuredDocumentTag_CalendarTypeEnum.gregorianXlitFrench; break;
-        case 'Hebrew': calendarType = StructuredDocumentTag_CalendarTypeEnum.hebrew; break;
-        case 'Hijri': calendarType = StructuredDocumentTag_CalendarTypeEnum.hijri; break;
-        case 'Japan': calendarType = StructuredDocumentTag_CalendarTypeEnum.japan; break;
-        case 'Korea': calendarType = StructuredDocumentTag_CalendarTypeEnum.korea; break;
-        case 'None': calendarType = StructuredDocumentTag_CalendarTypeEnum.none; break;
-        case 'Saka': calendarType = StructuredDocumentTag_CalendarTypeEnum.saka; break;
-        case 'Taiwan': calendarType = StructuredDocumentTag_CalendarTypeEnum.taiwan; break;
-        case 'Thai': calendarType = StructuredDocumentTag_CalendarTypeEnum.thai; break;
+        case 'Default': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.defaultValue; break;
+        case 'Gregorian': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.gregorian; break;
+        case 'GregorianArabic': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.gregorianArabic; break;
+        case 'GregorianMeFrench': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.gregorianMeFrench; break;
+        case 'GregorianUs': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.gregorianUs; break;
+        case 'GregorianXlitEnglish': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.gregorianXlitEnglish; break;
+        case 'GregorianXlitFrench': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.gregorianXlitFrench; break;
+        case 'Hebrew': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.hebrew; break;
+        case 'Hijri': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.hijri; break;
+        case 'Japan': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.japan; break;
+        case 'Korea': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.korea; break;
+        case 'None': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.none; break;
+        case 'Saka': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.saka; break;
+        case 'Taiwan': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.taiwan; break;
+        case 'Thai': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.thai; break;
         default: calendarType = null; break;
       }
     } else {
@@ -172,44 +185,6 @@ class StructuredDocumentTagInsert extends StructuredDocumentTag {
       isTemporary = json['IsTemporary'] as bool;
     } else {
       isTemporary = null;
-    }
-
-    if (json.containsKey('Level')) {
-      switch (json['Level'] as String) {
-        case 'Unknown': level = StructuredDocumentTag_LevelEnum.unknown; break;
-        case 'Inline': level = StructuredDocumentTag_LevelEnum.inline; break;
-        case 'Block': level = StructuredDocumentTag_LevelEnum.block; break;
-        case 'Row': level = StructuredDocumentTag_LevelEnum.row; break;
-        case 'Cell': level = StructuredDocumentTag_LevelEnum.cell; break;
-        default: level = null; break;
-      }
-    } else {
-      level = null;
-    }
-
-    if (json.containsKey('SdtType')) {
-      switch (json['SdtType'] as String) {
-        case 'None': sdtType = StructuredDocumentTag_SdtTypeEnum.none; break;
-        case 'Bibliography': sdtType = StructuredDocumentTag_SdtTypeEnum.bibliography; break;
-        case 'Citation': sdtType = StructuredDocumentTag_SdtTypeEnum.citation; break;
-        case 'Equation': sdtType = StructuredDocumentTag_SdtTypeEnum.equation; break;
-        case 'DropDownList': sdtType = StructuredDocumentTag_SdtTypeEnum.dropDownList; break;
-        case 'ComboBox': sdtType = StructuredDocumentTag_SdtTypeEnum.comboBox; break;
-        case 'Date': sdtType = StructuredDocumentTag_SdtTypeEnum.date; break;
-        case 'BuildingBlockGallery': sdtType = StructuredDocumentTag_SdtTypeEnum.buildingBlockGallery; break;
-        case 'DocPartObj': sdtType = StructuredDocumentTag_SdtTypeEnum.docPartObj; break;
-        case 'Group': sdtType = StructuredDocumentTag_SdtTypeEnum.group; break;
-        case 'Picture': sdtType = StructuredDocumentTag_SdtTypeEnum.picture; break;
-        case 'RichText': sdtType = StructuredDocumentTag_SdtTypeEnum.richText; break;
-        case 'PlainText': sdtType = StructuredDocumentTag_SdtTypeEnum.plainText; break;
-        case 'Checkbox': sdtType = StructuredDocumentTag_SdtTypeEnum.checkbox; break;
-        case 'RepeatingSection': sdtType = StructuredDocumentTag_SdtTypeEnum.repeatingSection; break;
-        case 'RepeatingSectionItem': sdtType = StructuredDocumentTag_SdtTypeEnum.repeatingSectionItem; break;
-        case 'EntityPicker': sdtType = StructuredDocumentTag_SdtTypeEnum.entityPicker; break;
-        default: sdtType = null; break;
-      }
-    } else {
-      sdtType = null;
     }
 
     if (json.containsKey('PlaceholderName')) {
@@ -247,18 +222,133 @@ class StructuredDocumentTagInsert extends StructuredDocumentTag {
     } else {
       id = null;
     }
+
+    if (json.containsKey('Level')) {
+      switch (json['Level'] as String) {
+        case 'Unknown': level = StructuredDocumentTagInsert_LevelEnum.unknown; break;
+        case 'Inline': level = StructuredDocumentTagInsert_LevelEnum.inline; break;
+        case 'Block': level = StructuredDocumentTagInsert_LevelEnum.block; break;
+        case 'Row': level = StructuredDocumentTagInsert_LevelEnum.row; break;
+        case 'Cell': level = StructuredDocumentTagInsert_LevelEnum.cell; break;
+        default: level = null; break;
+      }
+    } else {
+      level = null;
+    }
+
+    if (json.containsKey('SdtType')) {
+      switch (json['SdtType'] as String) {
+        case 'None': sdtType = StructuredDocumentTagInsert_SdtTypeEnum.none; break;
+        case 'Bibliography': sdtType = StructuredDocumentTagInsert_SdtTypeEnum.bibliography; break;
+        case 'Citation': sdtType = StructuredDocumentTagInsert_SdtTypeEnum.citation; break;
+        case 'Equation': sdtType = StructuredDocumentTagInsert_SdtTypeEnum.equation; break;
+        case 'DropDownList': sdtType = StructuredDocumentTagInsert_SdtTypeEnum.dropDownList; break;
+        case 'ComboBox': sdtType = StructuredDocumentTagInsert_SdtTypeEnum.comboBox; break;
+        case 'Date': sdtType = StructuredDocumentTagInsert_SdtTypeEnum.date; break;
+        case 'BuildingBlockGallery': sdtType = StructuredDocumentTagInsert_SdtTypeEnum.buildingBlockGallery; break;
+        case 'DocPartObj': sdtType = StructuredDocumentTagInsert_SdtTypeEnum.docPartObj; break;
+        case 'Group': sdtType = StructuredDocumentTagInsert_SdtTypeEnum.group; break;
+        case 'Picture': sdtType = StructuredDocumentTagInsert_SdtTypeEnum.picture; break;
+        case 'RichText': sdtType = StructuredDocumentTagInsert_SdtTypeEnum.richText; break;
+        case 'PlainText': sdtType = StructuredDocumentTagInsert_SdtTypeEnum.plainText; break;
+        case 'Checkbox': sdtType = StructuredDocumentTagInsert_SdtTypeEnum.checkbox; break;
+        case 'RepeatingSection': sdtType = StructuredDocumentTagInsert_SdtTypeEnum.repeatingSection; break;
+        case 'RepeatingSectionItem': sdtType = StructuredDocumentTagInsert_SdtTypeEnum.repeatingSectionItem; break;
+        case 'EntityPicker': sdtType = StructuredDocumentTagInsert_SdtTypeEnum.entityPicker; break;
+        default: sdtType = null; break;
+      }
+    } else {
+      sdtType = null;
+    }
   }
 
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
+    if (level != null) {
+      switch (level!) {
+        case StructuredDocumentTagInsert_LevelEnum.unknown: _result['Level'] = 'Unknown'; break;
+        case StructuredDocumentTagInsert_LevelEnum.inline: _result['Level'] = 'Inline'; break;
+        case StructuredDocumentTagInsert_LevelEnum.block: _result['Level'] = 'Block'; break;
+        case StructuredDocumentTagInsert_LevelEnum.row: _result['Level'] = 'Row'; break;
+        case StructuredDocumentTagInsert_LevelEnum.cell: _result['Level'] = 'Cell'; break;
+        default: break;
+      }
+    }
+
+    if (sdtType != null) {
+      switch (sdtType!) {
+        case StructuredDocumentTagInsert_SdtTypeEnum.none: _result['SdtType'] = 'None'; break;
+        case StructuredDocumentTagInsert_SdtTypeEnum.bibliography: _result['SdtType'] = 'Bibliography'; break;
+        case StructuredDocumentTagInsert_SdtTypeEnum.citation: _result['SdtType'] = 'Citation'; break;
+        case StructuredDocumentTagInsert_SdtTypeEnum.equation: _result['SdtType'] = 'Equation'; break;
+        case StructuredDocumentTagInsert_SdtTypeEnum.dropDownList: _result['SdtType'] = 'DropDownList'; break;
+        case StructuredDocumentTagInsert_SdtTypeEnum.comboBox: _result['SdtType'] = 'ComboBox'; break;
+        case StructuredDocumentTagInsert_SdtTypeEnum.date: _result['SdtType'] = 'Date'; break;
+        case StructuredDocumentTagInsert_SdtTypeEnum.buildingBlockGallery: _result['SdtType'] = 'BuildingBlockGallery'; break;
+        case StructuredDocumentTagInsert_SdtTypeEnum.docPartObj: _result['SdtType'] = 'DocPartObj'; break;
+        case StructuredDocumentTagInsert_SdtTypeEnum.group: _result['SdtType'] = 'Group'; break;
+        case StructuredDocumentTagInsert_SdtTypeEnum.picture: _result['SdtType'] = 'Picture'; break;
+        case StructuredDocumentTagInsert_SdtTypeEnum.richText: _result['SdtType'] = 'RichText'; break;
+        case StructuredDocumentTagInsert_SdtTypeEnum.plainText: _result['SdtType'] = 'PlainText'; break;
+        case StructuredDocumentTagInsert_SdtTypeEnum.checkbox: _result['SdtType'] = 'Checkbox'; break;
+        case StructuredDocumentTagInsert_SdtTypeEnum.repeatingSection: _result['SdtType'] = 'RepeatingSection'; break;
+        case StructuredDocumentTagInsert_SdtTypeEnum.repeatingSectionItem: _result['SdtType'] = 'RepeatingSectionItem'; break;
+        case StructuredDocumentTagInsert_SdtTypeEnum.entityPicker: _result['SdtType'] = 'EntityPicker'; break;
+        default: break;
+      }
+    }
     return _result;
   }
 
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+    if (level == null)
+    {
+        throw new ApiException(400, 'Property Level in StructuredDocumentTagInsert is required.');
+    }
+    if (sdtType == null)
+    {
+        throw new ApiException(400, 'Property SdtType in StructuredDocumentTagInsert is required.');
+    }
+  }
 }
 
+/// Gets or sets the level at which this SDT occurs in the document tree.
+enum StructuredDocumentTagInsert_LevelEnum
+{ 
+  unknown,
+  inline,
+  block,
+  row,
+  cell
+}
+
+/// Gets or sets type of this Structured document tag.
+enum StructuredDocumentTagInsert_SdtTypeEnum
+{ 
+  none,
+  bibliography,
+  citation,
+  equation,
+  dropDownList,
+  comboBox,
+  date,
+  buildingBlockGallery,
+  docPartObj,
+  group,
+  picture,
+  richText,
+  plainText,
+  checkbox,
+  repeatingSection,
+  repeatingSectionItem,
+  entityPicker
+}
 

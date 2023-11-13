@@ -112,6 +112,8 @@ class InsertListRequest implements RequestBase {
     }
 
     if (listInsert != null) {
+      listInsert!.validate();
+
       var _body = _apiClient.serializeBody(listInsert, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

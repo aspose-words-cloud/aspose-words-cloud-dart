@@ -283,6 +283,18 @@ abstract class FixedPageSaveOptionsData extends SaveOptionsData {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+
+    metafileRenderingOptions?.validate();
+
+
+
+
+
+  }
 }
 
 /// Gets or sets the value determining how colors are rendered.

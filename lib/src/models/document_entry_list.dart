@@ -95,6 +95,21 @@ class DocumentEntryList extends BaseEntryList {
     }
 
   }
+
+  @override
+  void validate() {
+    super.validate();
+    if (documentEntries == null)
+    {
+        throw new ApiException(400, 'Property DocumentEntries in DocumentEntryList is required.');
+    }
+
+    for (final elementDocumentEntries in documentEntries ?? [])
+    {
+        elementDocumentEntries?.validate();
+    }
+
+  }
 }
 
 

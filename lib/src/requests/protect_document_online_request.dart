@@ -79,6 +79,7 @@ class ProtectDocumentOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -89,6 +90,8 @@ class ProtectDocumentOnlineRequest implements RequestBase {
     }
 
     if (protectionRequest != null) {
+      protectionRequest!.validate();
+
       var _formBody = _apiClient.serializeBody(protectionRequest, 'ProtectionRequest');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

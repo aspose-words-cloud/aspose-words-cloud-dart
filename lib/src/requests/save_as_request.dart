@@ -98,6 +98,8 @@ class SaveAsRequest implements RequestBase {
     }
 
     if (saveOptionsData != null) {
+      saveOptionsData!.validate();
+
       var _body = _apiClient.serializeBody(saveOptionsData, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

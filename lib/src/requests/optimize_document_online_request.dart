@@ -94,6 +94,7 @@ class OptimizeDocumentOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -104,6 +105,8 @@ class OptimizeDocumentOnlineRequest implements RequestBase {
     }
 
     if (options != null) {
+      options!.validate();
+
       var _formBody = _apiClient.serializeBody(options, 'Options');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

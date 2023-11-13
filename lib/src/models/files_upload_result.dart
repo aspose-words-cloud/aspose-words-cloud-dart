@@ -88,6 +88,17 @@ class FilesUploadResult implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+
+    for (final elementErrors in errors ?? [])
+    {
+        elementErrors?.validate();
+    }
+
+
+  }
 }
 
 

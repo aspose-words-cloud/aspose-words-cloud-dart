@@ -112,6 +112,14 @@ class ListInsert implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (template == null)
+    {
+        throw new ApiException(400, 'Property Template in ListInsert is required.');
+    }
+  }
 }
 
 /// Gets or sets the option that controls how list should be restarted at each section.

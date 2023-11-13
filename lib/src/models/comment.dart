@@ -176,6 +176,26 @@ class Comment extends CommentLink {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    super.validate();
+
+    rangeStart?.validate();
+
+
+
+    rangeEnd?.validate();
+
+
+
+
+
+
+
+    content?.validate();
+
+  }
 }
 
 

@@ -97,6 +97,7 @@ class InsertTableOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -107,6 +108,8 @@ class InsertTableOnlineRequest implements RequestBase {
     }
 
     if (table != null) {
+      table!.validate();
+
       var _formBody = _apiClient.serializeBody(table, 'Table');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

@@ -124,6 +124,8 @@ class UpdateFootnoteRequest implements RequestBase {
     }
 
     if (footnoteDto != null) {
+      footnoteDto!.validate();
+
       var _body = _apiClient.serializeBody(footnoteDto, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

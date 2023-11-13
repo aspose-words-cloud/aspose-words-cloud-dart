@@ -54,6 +54,15 @@ class MetafileRenderingOptionsData implements ModelBase {
   set emulateRenderingToSizeOnPage(bool? val) => _emulateRenderingToSizeOnPage = val;
 
 
+  /// Gets or sets the resolution in pixels per inch for the emulation of metafile rendering to the size on page.
+  /// This option is used only when EmulateRenderingToSizeOnPage is set to true.The default value is 96. This is a default display resolution. I.e. metafile rendering will emulate the display of
+  /// the metafile in MS Word with a 100% zoom factor.
+  int? _emulateRenderingToSizeOnPageResolution;
+
+  int? get emulateRenderingToSizeOnPageResolution => _emulateRenderingToSizeOnPageResolution;
+  set emulateRenderingToSizeOnPageResolution(int? val) => _emulateRenderingToSizeOnPageResolution = val;
+
+
   /// Gets or sets the option that controls how metafile images should be rendered.
   MetafileRenderingOptionsData_RenderingModeEnum? _renderingMode;
 
@@ -97,6 +106,12 @@ class MetafileRenderingOptionsData implements ModelBase {
       emulateRenderingToSizeOnPage = null;
     }
 
+    if (json.containsKey('EmulateRenderingToSizeOnPageResolution')) {
+      emulateRenderingToSizeOnPageResolution = json['EmulateRenderingToSizeOnPageResolution'] as int;
+    } else {
+      emulateRenderingToSizeOnPageResolution = null;
+    }
+
     if (json.containsKey('RenderingMode')) {
       switch (json['RenderingMode'] as String) {
         case 'VectorWithFallback': renderingMode = MetafileRenderingOptionsData_RenderingModeEnum.vectorWithFallback; break;
@@ -135,6 +150,10 @@ class MetafileRenderingOptionsData implements ModelBase {
       _result['EmulateRenderingToSizeOnPage'] = emulateRenderingToSizeOnPage!;
     }
 
+    if (emulateRenderingToSizeOnPageResolution != null) {
+      _result['EmulateRenderingToSizeOnPageResolution'] = emulateRenderingToSizeOnPageResolution!;
+    }
+
     if (renderingMode != null) {
       switch (renderingMode!) {
         case MetafileRenderingOptionsData_RenderingModeEnum.vectorWithFallback: _result['RenderingMode'] = 'VectorWithFallback'; break;
@@ -152,6 +171,10 @@ class MetafileRenderingOptionsData implements ModelBase {
 
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
+  }
+
+  @override
+  void validate() {
   }
 }
 

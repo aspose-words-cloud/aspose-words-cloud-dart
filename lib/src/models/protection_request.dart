@@ -97,6 +97,14 @@ class ProtectionRequest implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+    if (password == null)
+    {
+        throw new ApiException(400, 'Property Password in ProtectionRequest is required.');
+    }
+  }
 }
 
 

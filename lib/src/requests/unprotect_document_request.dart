@@ -98,6 +98,8 @@ class UnprotectDocumentRequest implements RequestBase {
     }
 
     if (protectionRequest != null) {
+      protectionRequest!.validate();
+
       var _body = _apiClient.serializeBody(protectionRequest, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

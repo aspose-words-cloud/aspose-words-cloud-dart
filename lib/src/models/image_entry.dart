@@ -57,6 +57,11 @@ class ImageEntry extends BaseEntry {
   void getFilesContent(List<FileReference> resultFilesContent) {
     super.getFilesContent(resultFilesContent);
   }
+
+  @override
+  void validate() {
+    super.validate();
+  }
 }
 
 

@@ -105,8 +105,8 @@ class StructuredDocumentTagTests
     final remoteFileName = 'TestInsetStructuredDocumentTag.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
     final requestStructuredDocumentTag = StructuredDocumentTagInsert();
-    requestStructuredDocumentTag.sdtType = StructuredDocumentTag_SdtTypeEnum.comboBox;
-    requestStructuredDocumentTag.level = StructuredDocumentTag_LevelEnum.inline;
+    requestStructuredDocumentTag.sdtType = StructuredDocumentTagInsert_SdtTypeEnum.comboBox;
+    requestStructuredDocumentTag.level = StructuredDocumentTagInsert_LevelEnum.inline;
 
     final request = InsertStructuredDocumentTagRequest(
       remoteFileName,
@@ -124,8 +124,8 @@ class StructuredDocumentTagTests
     final requestDocument = await context.loadBinaryFile(localFile);
 
     final requestStructuredDocumentTag = StructuredDocumentTagInsert();
-    requestStructuredDocumentTag.sdtType = StructuredDocumentTag_SdtTypeEnum.comboBox;
-    requestStructuredDocumentTag.level = StructuredDocumentTag_LevelEnum.inline;
+    requestStructuredDocumentTag.sdtType = StructuredDocumentTagInsert_SdtTypeEnum.comboBox;
+    requestStructuredDocumentTag.level = StructuredDocumentTagInsert_LevelEnum.inline;
 
     final request = InsertStructuredDocumentTagOnlineRequest(
       requestDocument,

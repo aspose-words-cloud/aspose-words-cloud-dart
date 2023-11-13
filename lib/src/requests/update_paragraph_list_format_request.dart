@@ -124,6 +124,8 @@ class UpdateParagraphListFormatRequest implements RequestBase {
     }
 
     if (listFormatDto != null) {
+      listFormatDto!.validate();
+
       var _body = _apiClient.serializeBody(listFormatDto, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

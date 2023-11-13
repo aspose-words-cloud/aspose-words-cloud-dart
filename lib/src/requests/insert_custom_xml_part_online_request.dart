@@ -93,6 +93,7 @@ class InsertCustomXmlPartOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -103,6 +104,8 @@ class InsertCustomXmlPartOnlineRequest implements RequestBase {
     }
 
     if (customXmlPart != null) {
+      customXmlPart!.validate();
+
       var _formBody = _apiClient.serializeBody(customXmlPart, 'CustomXmlPart');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

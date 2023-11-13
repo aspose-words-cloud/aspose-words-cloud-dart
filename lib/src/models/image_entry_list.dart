@@ -96,6 +96,21 @@ class ImageEntryList extends BaseEntryList {
     }
 
   }
+
+  @override
+  void validate() {
+    super.validate();
+    if (imageEntries == null)
+    {
+        throw new ApiException(400, 'Property ImageEntries in ImageEntryList is required.');
+    }
+
+    for (final elementImageEntries in imageEntries ?? [])
+    {
+        elementImageEntries?.validate();
+    }
+
+  }
 }
 
 

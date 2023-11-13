@@ -56,6 +56,7 @@ class ClassifyRequest implements RequestBase {
     }
 
     if (text != null) {
+
       var _formBody = _apiClient.serializeBody(text, 'Text');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

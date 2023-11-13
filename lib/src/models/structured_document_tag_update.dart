@@ -69,10 +69,10 @@ class StructuredDocumentTagUpdate extends StructuredDocumentTag {
 
     if (json.containsKey('Appearance')) {
       switch (json['Appearance'] as String) {
-        case 'Default': appearance = StructuredDocumentTag_AppearanceEnum.defaultValue; break;
-        case 'BoundingBox': appearance = StructuredDocumentTag_AppearanceEnum.boundingBox; break;
-        case 'Tags': appearance = StructuredDocumentTag_AppearanceEnum.tags; break;
-        case 'Hidden': appearance = StructuredDocumentTag_AppearanceEnum.hidden; break;
+        case 'Default': appearance = StructuredDocumentTagBase_AppearanceEnum.defaultValue; break;
+        case 'BoundingBox': appearance = StructuredDocumentTagBase_AppearanceEnum.boundingBox; break;
+        case 'Tags': appearance = StructuredDocumentTagBase_AppearanceEnum.tags; break;
+        case 'Hidden': appearance = StructuredDocumentTagBase_AppearanceEnum.hidden; break;
         default: appearance = null; break;
       }
     } else {
@@ -105,10 +105,10 @@ class StructuredDocumentTagUpdate extends StructuredDocumentTag {
 
     if (json.containsKey('DateStorageFormat')) {
       switch (json['DateStorageFormat'] as String) {
-        case 'Date': dateStorageFormat = StructuredDocumentTag_DateStorageFormatEnum.date; break;
-        case 'DateTime': dateStorageFormat = StructuredDocumentTag_DateStorageFormatEnum.dateTime; break;
-        case 'Default': dateStorageFormat = StructuredDocumentTag_DateStorageFormatEnum.defaultValue; break;
-        case 'Text': dateStorageFormat = StructuredDocumentTag_DateStorageFormatEnum.text; break;
+        case 'Date': dateStorageFormat = StructuredDocumentTagBase_DateStorageFormatEnum.date; break;
+        case 'DateTime': dateStorageFormat = StructuredDocumentTagBase_DateStorageFormatEnum.dateTime; break;
+        case 'Default': dateStorageFormat = StructuredDocumentTagBase_DateStorageFormatEnum.defaultValue; break;
+        case 'Text': dateStorageFormat = StructuredDocumentTagBase_DateStorageFormatEnum.text; break;
         default: dateStorageFormat = null; break;
       }
     } else {
@@ -147,21 +147,21 @@ class StructuredDocumentTagUpdate extends StructuredDocumentTag {
 
     if (json.containsKey('CalendarType')) {
       switch (json['CalendarType'] as String) {
-        case 'Default': calendarType = StructuredDocumentTag_CalendarTypeEnum.defaultValue; break;
-        case 'Gregorian': calendarType = StructuredDocumentTag_CalendarTypeEnum.gregorian; break;
-        case 'GregorianArabic': calendarType = StructuredDocumentTag_CalendarTypeEnum.gregorianArabic; break;
-        case 'GregorianMeFrench': calendarType = StructuredDocumentTag_CalendarTypeEnum.gregorianMeFrench; break;
-        case 'GregorianUs': calendarType = StructuredDocumentTag_CalendarTypeEnum.gregorianUs; break;
-        case 'GregorianXlitEnglish': calendarType = StructuredDocumentTag_CalendarTypeEnum.gregorianXlitEnglish; break;
-        case 'GregorianXlitFrench': calendarType = StructuredDocumentTag_CalendarTypeEnum.gregorianXlitFrench; break;
-        case 'Hebrew': calendarType = StructuredDocumentTag_CalendarTypeEnum.hebrew; break;
-        case 'Hijri': calendarType = StructuredDocumentTag_CalendarTypeEnum.hijri; break;
-        case 'Japan': calendarType = StructuredDocumentTag_CalendarTypeEnum.japan; break;
-        case 'Korea': calendarType = StructuredDocumentTag_CalendarTypeEnum.korea; break;
-        case 'None': calendarType = StructuredDocumentTag_CalendarTypeEnum.none; break;
-        case 'Saka': calendarType = StructuredDocumentTag_CalendarTypeEnum.saka; break;
-        case 'Taiwan': calendarType = StructuredDocumentTag_CalendarTypeEnum.taiwan; break;
-        case 'Thai': calendarType = StructuredDocumentTag_CalendarTypeEnum.thai; break;
+        case 'Default': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.defaultValue; break;
+        case 'Gregorian': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.gregorian; break;
+        case 'GregorianArabic': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.gregorianArabic; break;
+        case 'GregorianMeFrench': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.gregorianMeFrench; break;
+        case 'GregorianUs': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.gregorianUs; break;
+        case 'GregorianXlitEnglish': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.gregorianXlitEnglish; break;
+        case 'GregorianXlitFrench': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.gregorianXlitFrench; break;
+        case 'Hebrew': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.hebrew; break;
+        case 'Hijri': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.hijri; break;
+        case 'Japan': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.japan; break;
+        case 'Korea': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.korea; break;
+        case 'None': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.none; break;
+        case 'Saka': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.saka; break;
+        case 'Taiwan': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.taiwan; break;
+        case 'Thai': calendarType = StructuredDocumentTagBase_CalendarTypeEnum.thai; break;
         default: calendarType = null; break;
       }
     } else {
@@ -172,6 +172,42 @@ class StructuredDocumentTagUpdate extends StructuredDocumentTag {
       isTemporary = json['IsTemporary'] as bool;
     } else {
       isTemporary = null;
+    }
+
+    if (json.containsKey('PlaceholderName')) {
+      placeholderName = json['PlaceholderName'] as String;
+    } else {
+      placeholderName = null;
+    }
+
+    if (json.containsKey('LockContentControl')) {
+      lockContentControl = json['LockContentControl'] as bool;
+    } else {
+      lockContentControl = null;
+    }
+
+    if (json.containsKey('LockContents')) {
+      lockContents = json['LockContents'] as bool;
+    } else {
+      lockContents = null;
+    }
+
+    if (json.containsKey('IsShowingPlaceholderText')) {
+      isShowingPlaceholderText = json['IsShowingPlaceholderText'] as bool;
+    } else {
+      isShowingPlaceholderText = null;
+    }
+
+    if (json.containsKey('Tag')) {
+      tag = json['Tag'] as String;
+    } else {
+      tag = null;
+    }
+
+    if (json.containsKey('Id')) {
+      id = json['Id'] as int;
+    } else {
+      id = null;
     }
 
     if (json.containsKey('Level')) {
@@ -211,42 +247,6 @@ class StructuredDocumentTagUpdate extends StructuredDocumentTag {
     } else {
       sdtType = null;
     }
-
-    if (json.containsKey('PlaceholderName')) {
-      placeholderName = json['PlaceholderName'] as String;
-    } else {
-      placeholderName = null;
-    }
-
-    if (json.containsKey('LockContentControl')) {
-      lockContentControl = json['LockContentControl'] as bool;
-    } else {
-      lockContentControl = null;
-    }
-
-    if (json.containsKey('LockContents')) {
-      lockContents = json['LockContents'] as bool;
-    } else {
-      lockContents = null;
-    }
-
-    if (json.containsKey('IsShowingPlaceholderText')) {
-      isShowingPlaceholderText = json['IsShowingPlaceholderText'] as bool;
-    } else {
-      isShowingPlaceholderText = null;
-    }
-
-    if (json.containsKey('Tag')) {
-      tag = json['Tag'] as String;
-    } else {
-      tag = null;
-    }
-
-    if (json.containsKey('Id')) {
-      id = json['Id'] as int;
-    } else {
-      id = null;
-    }
   }
 
   @override
@@ -258,6 +258,11 @@ class StructuredDocumentTagUpdate extends StructuredDocumentTag {
 
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
+  }
+
+  @override
+  void validate() {
+    super.validate();
   }
 }
 

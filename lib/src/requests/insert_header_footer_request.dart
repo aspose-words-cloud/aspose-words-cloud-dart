@@ -120,6 +120,7 @@ class InsertHeaderFooterRequest implements RequestBase {
     }
 
     if (headerFooterType != null) {
+
       var _body = _apiClient.serializeBody(headerFooterType, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

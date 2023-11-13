@@ -104,6 +104,7 @@ class UpdateFootnoteOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -114,6 +115,8 @@ class UpdateFootnoteOnlineRequest implements RequestBase {
     }
 
     if (footnoteDto != null) {
+      footnoteDto!.validate();
+
       var _formBody = _apiClient.serializeBody(footnoteDto, 'FootnoteDto');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

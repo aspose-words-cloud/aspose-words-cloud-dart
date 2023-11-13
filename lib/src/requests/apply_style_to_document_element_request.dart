@@ -120,6 +120,8 @@ class ApplyStyleToDocumentElementRequest implements RequestBase {
     }
 
     if (styleApply != null) {
+      styleApply!.validate();
+
       var _body = _apiClient.serializeBody(styleApply, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);

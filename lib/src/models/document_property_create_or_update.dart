@@ -30,7 +30,13 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Words document property DTO for create or update.
-class DocumentPropertyCreateOrUpdate extends DocumentPropertyBase {
+class DocumentPropertyCreateOrUpdate implements ModelBase {
+  /// Gets or sets the value of the document property.
+  String? _value;
+
+  String? get value => _value;
+  set value(String? val) => _value = val;
+
 
   @override
   void deserialize(Map<String, dynamic>? json) {
@@ -38,7 +44,6 @@ class DocumentPropertyCreateOrUpdate extends DocumentPropertyBase {
       throw ApiException(400, 'Failed to deserialize DocumentPropertyCreateOrUpdate data model.');
     }
 
-    super.deserialize(json);
     if (json.containsKey('Value')) {
       value = json['Value'] as String;
     } else {
@@ -49,12 +54,22 @@ class DocumentPropertyCreateOrUpdate extends DocumentPropertyBase {
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
-    _result.addAll(super.serialize());
+    if (value != null) {
+      _result['Value'] = value!;
+    }
     return _result;
   }
 
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
+  }
+
+  @override
+  void validate() {
+    if (value == null)
+    {
+        throw new ApiException(400, 'Property Value in DocumentPropertyCreateOrUpdate is required.');
+    }
   }
 }
 

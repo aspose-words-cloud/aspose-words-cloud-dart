@@ -374,6 +374,10 @@ class ListLevelUpdate implements ModelBase {
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
   }
+
+  @override
+  void validate() {
+  }
 }
 
 /// Gets or sets the number style for this list level.

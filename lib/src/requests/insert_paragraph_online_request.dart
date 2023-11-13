@@ -104,6 +104,7 @@ class InsertParagraphOnlineRequest implements RequestBase {
     }
 
     if (document != null) {
+
       var _formBody = _apiClient.serializeBody(document, 'Document');
       if (_formBody != null) {
         _bodyParts.add(_formBody);
@@ -114,6 +115,8 @@ class InsertParagraphOnlineRequest implements RequestBase {
     }
 
     if (paragraph != null) {
+      paragraph!.validate();
+
       var _formBody = _apiClient.serializeBody(paragraph, 'Paragraph');
       if (_formBody != null) {
         _bodyParts.add(_formBody);

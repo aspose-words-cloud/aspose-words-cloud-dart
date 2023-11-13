@@ -128,6 +128,8 @@ class UpdateListLevelRequest implements RequestBase {
     }
 
     if (listUpdate != null) {
+      listUpdate!.validate();
+
       var _body = _apiClient.serializeBody(listUpdate, 'Body');
       if (_body != null) {
         _bodyParts.add(_body);
