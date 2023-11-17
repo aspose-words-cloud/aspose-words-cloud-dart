@@ -423,6 +423,8 @@ void main() {
     test('DeleteOfficeMathObject', () async => await MathObjectTests(testContext).testDeleteOfficeMathObject());
     test('DeleteOfficeMathObjectOnline', () async => await MathObjectTests(testContext).testDeleteOfficeMathObjectOnline());
     test('DeleteOfficeMathObjectWithoutNodePath', () async => await MathObjectTests(testContext).testDeleteOfficeMathObjectWithoutNodePath());
+    test('DeleteOfficeMathObjects', () async => await MathObjectTests(testContext).testDeleteOfficeMathObjects());
+    test('DeleteOfficeMathObjectsOnline', () async => await MathObjectTests(testContext).testDeleteOfficeMathObjectsOnline());
   });
 
   group('PageSetup', () {

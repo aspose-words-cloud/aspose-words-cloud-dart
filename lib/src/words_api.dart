@@ -371,6 +371,16 @@ class WordsApi {
     return await _apiClient.call(request) as Map<String, ByteData>;
   }
 
+  /// Removes all office math objects from the document.
+  Future< void > deleteOfficeMathObjects(DeleteOfficeMathObjectsRequest request) async {
+  await _apiClient.call(request);
+  }
+
+  /// Removes all office math objects from the document.
+  Future< Map<String, ByteData> > deleteOfficeMathObjectsOnline(DeleteOfficeMathObjectsOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
+  }
+
   /// Removes a paragraph from the document node.
   Future< void > deleteParagraph(DeleteParagraphRequest request) async {
   await _apiClient.call(request);

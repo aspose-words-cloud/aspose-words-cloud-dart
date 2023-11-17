@@ -233,4 +233,30 @@ class MathObjectTests
 
     await context.getApi().deleteOfficeMathObject(request);
   }
+
+  /// Test for deleting math objects.
+  Future<void> testDeleteOfficeMathObjects() async
+  {
+    final remoteFileName = 'TestDeleteOfficeMathObject.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+
+    final request = DeleteOfficeMathObjectsRequest(
+      remoteFileName,
+      folder: remoteDataFolder
+    );
+
+    await context.getApi().deleteOfficeMathObjects(request);
+  }
+
+  /// Test for deleting math objects online.
+  Future<void> testDeleteOfficeMathObjectsOnline() async
+  {
+    final requestDocument = await context.loadBinaryFile(localFile);
+
+    final request = DeleteOfficeMathObjectsOnlineRequest(
+      requestDocument
+    );
+
+    await context.getApi().deleteOfficeMathObjectsOnline(request);
+  }
 }

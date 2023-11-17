@@ -1,6 +1,7 @@
 ## [23.12.0] - Aspose Words Cloud for Dart 23.12 Release Notes
 
 - Properties Name, Text, StartRange, EndRange marked as required for InsertBookmark operation.
+- Implemented DeleteOfficeMathObjects operation to delete all office math objects from document.
 
 
 ## [23.11.0] - Aspose Words Cloud for Dart 23.11 Release Notes

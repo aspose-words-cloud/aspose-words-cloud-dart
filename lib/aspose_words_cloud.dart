@@ -368,6 +368,8 @@ export 'src/requests/delete_macros_online_request.dart';
 export 'src/requests/delete_macros_request.dart';
 export 'src/requests/delete_office_math_object_online_request.dart';
 export 'src/requests/delete_office_math_object_request.dart';
+export 'src/requests/delete_office_math_objects_online_request.dart';
+export 'src/requests/delete_office_math_objects_request.dart';
 export 'src/requests/delete_paragraph_list_format_online_request.dart';
 export 'src/requests/delete_paragraph_list_format_request.dart';
 export 'src/requests/delete_paragraph_online_request.dart';
