@@ -206,6 +206,7 @@ abstract class ModelBase {
     'ProtectionData, _': () => ProtectionData(),
     'ProtectionDataResponse, _': () => ProtectionDataResponse(),
     'ProtectionRequest, _': () => ProtectionRequest(),
+    'ProtectionRequestV2, _': () => ProtectionRequestV2(),
     'PsSaveOptionsData, _': () => PsSaveOptionsData(),
     'PublicKeyResponse, _': () => PublicKeyResponse(),
     'RangeDocument, _': () => RangeDocument(),

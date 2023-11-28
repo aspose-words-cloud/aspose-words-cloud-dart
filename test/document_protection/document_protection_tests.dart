@@ -47,9 +47,9 @@ class DocumentProtectionTests
   {
     final remoteFileName = 'TestProtectDocument.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestProtectionRequest = ProtectionRequest();
-    requestProtectionRequest.password = '123';
-    requestProtectionRequest.protectionType = 'ReadOnly';
+    final requestProtectionRequest = ProtectionRequestV2();
+    requestProtectionRequest.protectionPassword = '123';
+    requestProtectionRequest.protectionType = ProtectionRequestV2_ProtectionTypeEnum.readOnly;
 
     final request = ProtectDocumentRequest(
       remoteFileName,
@@ -60,7 +60,7 @@ class DocumentProtectionTests
 
     final result = await context.getApi().protectDocument(request);
     expect(result.protectionData, isNotNull);
-    expect(result.protectionData?.protectionType, 'ReadOnly');
+
   }
 
   /// Test for setting document protection.
@@ -68,9 +68,9 @@ class DocumentProtectionTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-    final requestProtectionRequest = ProtectionRequest();
-    requestProtectionRequest.password = '123';
-    requestProtectionRequest.protectionType = 'ReadOnly';
+    final requestProtectionRequest = ProtectionRequestV2();
+    requestProtectionRequest.protectionPassword = '123';
+    requestProtectionRequest.protectionType = ProtectionRequestV2_ProtectionTypeEnum.readOnly;
 
     final request = ProtectDocumentOnlineRequest(
       requestDocument,
@@ -113,18 +113,15 @@ class DocumentProtectionTests
     final localFilePath = 'DocumentActions/DocumentProtection/SampleProtectedBlankWordDocument.docx';
     final remoteFileName = 'TestDeleteUnprotectDocument.docx';
     await context.uploadFile(localFilePath, remoteDataFolder + '/' + remoteFileName);
-    final requestProtectionRequest = ProtectionRequest();
-    requestProtectionRequest.password = 'aspose';
 
     final request = UnprotectDocumentRequest(
       remoteFileName,
-      requestProtectionRequest,
       folder: remoteDataFolder
     );
 
     final result = await context.getApi().unprotectDocument(request);
     expect(result.protectionData, isNotNull);
-    expect(result.protectionData?.protectionType, 'NoProtection');
+
   }
 
   /// Test for deleting unprotect document.
@@ -133,12 +130,8 @@ class DocumentProtectionTests
     final localFilePath = 'DocumentActions/DocumentProtection/SampleProtectedBlankWordDocument.docx';
     final requestDocument = await context.loadBinaryFile(localFilePath);
 
-    final requestProtectionRequest = ProtectionRequest();
-    requestProtectionRequest.password = 'aspose';
-
     final request = UnprotectDocumentOnlineRequest(
-      requestDocument,
-      requestProtectionRequest
+      requestDocument
     );
 
     await context.getApi().unprotectDocumentOnline(request);

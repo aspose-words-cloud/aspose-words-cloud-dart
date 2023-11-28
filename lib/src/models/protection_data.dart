@@ -32,10 +32,10 @@ import '../../aspose_words_cloud.dart';
 /// Container for the data about protection of the document.
 class ProtectionData implements ModelBase {
   /// Gets or sets type of the protection.
-  String? _protectionType;
+  ProtectionData_ProtectionTypeEnum? _protectionType;
 
-  String? get protectionType => _protectionType;
-  set protectionType(String? val) => _protectionType = val;
+  ProtectionData_ProtectionTypeEnum? get protectionType => _protectionType;
+  set protectionType(ProtectionData_ProtectionTypeEnum? val) => _protectionType = val;
 
 
   @override
@@ -45,7 +45,14 @@ class ProtectionData implements ModelBase {
     }
 
     if (json.containsKey('ProtectionType')) {
-      protectionType = json['ProtectionType'] as String;
+      switch (json['ProtectionType'] as String) {
+        case 'AllowOnlyRevisions': protectionType = ProtectionData_ProtectionTypeEnum.allowOnlyRevisions; break;
+        case 'AllowOnlyComments': protectionType = ProtectionData_ProtectionTypeEnum.allowOnlyComments; break;
+        case 'AllowOnlyFormFields': protectionType = ProtectionData_ProtectionTypeEnum.allowOnlyFormFields; break;
+        case 'ReadOnly': protectionType = ProtectionData_ProtectionTypeEnum.readOnly; break;
+        case 'NoProtection': protectionType = ProtectionData_ProtectionTypeEnum.noProtection; break;
+        default: protectionType = null; break;
+      }
     } else {
       protectionType = null;
     }
@@ -55,7 +62,14 @@ class ProtectionData implements ModelBase {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     if (protectionType != null) {
-      _result['ProtectionType'] = protectionType!;
+      switch (protectionType!) {
+        case ProtectionData_ProtectionTypeEnum.allowOnlyRevisions: _result['ProtectionType'] = 'AllowOnlyRevisions'; break;
+        case ProtectionData_ProtectionTypeEnum.allowOnlyComments: _result['ProtectionType'] = 'AllowOnlyComments'; break;
+        case ProtectionData_ProtectionTypeEnum.allowOnlyFormFields: _result['ProtectionType'] = 'AllowOnlyFormFields'; break;
+        case ProtectionData_ProtectionTypeEnum.readOnly: _result['ProtectionType'] = 'ReadOnly'; break;
+        case ProtectionData_ProtectionTypeEnum.noProtection: _result['ProtectionType'] = 'NoProtection'; break;
+        default: break;
+      }
     }
     return _result;
   }
@@ -66,7 +80,20 @@ class ProtectionData implements ModelBase {
 
   @override
   void validate() {
+    if (protectionType == null)
+    {
+        throw new ApiException(400, 'Property ProtectionType in ProtectionData is required.');
+    }
   }
 }
 
+/// Gets or sets type of the protection.
+enum ProtectionData_ProtectionTypeEnum
+{ 
+  allowOnlyRevisions,
+  allowOnlyComments,
+  allowOnlyFormFields,
+  readOnly,
+  noProtection
+}
 
