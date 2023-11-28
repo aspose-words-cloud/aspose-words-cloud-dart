@@ -210,6 +210,8 @@ export 'src/models/png_save_options_data.dart';
 export 'src/models/preferred_width.dart';
 export 'src/models/protection_data_response.dart';
 export 'src/models/protection_data.dart';
+export 'src/models/protection_request_base.dart';
+export 'src/models/protection_request_v2.dart';
 export 'src/models/protection_request.dart';
 export 'src/models/ps_save_options_data.dart';
 export 'src/models/public_key_response.dart';

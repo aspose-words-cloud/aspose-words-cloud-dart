@@ -34,7 +34,7 @@ import '../../aspose_words_cloud.dart';
 import '../api_client.dart';
 import '../body_part_data.dart';
 
-/// Adds protection to the document.
+/// Changes the document protection. The previous protection will be overwritten if it exist.
 class ProtectDocumentOnlineResponse implements ResponseBase {
   /// The REST response with data on document's protection.
   ProtectionDataResponse? model;

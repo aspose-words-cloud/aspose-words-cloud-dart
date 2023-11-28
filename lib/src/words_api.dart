@@ -1328,12 +1328,12 @@ class WordsApi {
     return await _apiClient.call(request) as Map<String, ByteData>;
   }
 
-  /// Adds protection to the document.
+  /// Changes the document protection. The previous protection will be overwritten if it exist.
   Future< ProtectionDataResponse > protectDocument(ProtectDocumentRequest request) async {
     return await _apiClient.call(request) as ProtectionDataResponse;
   }
 
-  /// Adds protection to the document.
+  /// Changes the document protection. The previous protection will be overwritten if it exist.
   Future< ProtectDocumentOnlineResponse > protectDocumentOnline(ProtectDocumentOnlineRequest request) async {
     return await _apiClient.call(request) as ProtectDocumentOnlineResponse;
   }

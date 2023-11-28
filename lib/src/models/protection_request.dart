@@ -30,7 +30,8 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Request on changing of protection.
-class ProtectionRequest implements ModelBase {
+@Deprecated('ProtectionRequest is deprecated and remains for backwards compatibility only.')
+class ProtectionRequest extends ProtectionRequestBase {
   /// Gets or sets the new password.
   String? _newPassword;
 
@@ -58,6 +59,7 @@ class ProtectionRequest implements ModelBase {
       throw ApiException(400, 'Failed to deserialize ProtectionRequest data model.');
     }
 
+    super.deserialize(json);
     if (json.containsKey('NewPassword')) {
       newPassword = json['NewPassword'] as String;
     } else {
@@ -80,6 +82,7 @@ class ProtectionRequest implements ModelBase {
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
+    _result.addAll(super.serialize());
     if (newPassword != null) {
       _result['NewPassword'] = newPassword!;
     }
@@ -100,6 +103,7 @@ class ProtectionRequest implements ModelBase {
 
   @override
   void validate() {
+    super.validate();
     if (password == null)
     {
         throw new ApiException(400, 'Property Password in ProtectionRequest is required.');
