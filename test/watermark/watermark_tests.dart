@@ -85,7 +85,7 @@ class WatermarkTests
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
 
     await context.uploadFile('Common/aspose-cloud.png', remoteImagePath);
-    final requestWatermarkDataImage = FileReference.fromRemoteFile(remoteDataFolder + '/' + remoteFileName);
+    final requestWatermarkDataImage = FileReference.fromRemoteFile(remoteImagePath);
 
     final requestWatermarkData = WatermarkDataImage();
     requestWatermarkData.image = requestWatermarkDataImage;
@@ -106,7 +106,7 @@ class WatermarkTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-    final requestWatermarkDataImageStream = await context.loadBinaryFile(localFile);
+    final requestWatermarkDataImageStream = await context.loadBinaryFile('Common/aspose-cloud.png');
     final requestWatermarkDataImage = FileReference.fromLocalFile(requestWatermarkDataImageStream);
 
     final requestWatermarkData = WatermarkDataImage();
