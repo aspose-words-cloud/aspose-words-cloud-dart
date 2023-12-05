@@ -129,10 +129,10 @@ abstract class StructuredDocumentTagBase extends NodeLink {
 
 
   /// Gets or sets the color of the structured document tag.
-  String? _color;
+  XmlColor? _color;
 
-  String? get color => _color;
-  set color(String? val) => _color = val;
+  XmlColor? get color => _color;
+  set color(XmlColor? val) => _color = val;
 
 
   /// Gets or sets the name of the style applied to the structured document tag.
@@ -319,7 +319,7 @@ abstract class StructuredDocumentTagBase extends NodeLink {
     }
 
     if (json.containsKey('Color')) {
-      color = json['Color'] as String;
+      color = ModelBase.createInstance< XmlColor >(json['Color'] as Map<String, dynamic>);
     } else {
       color = null;
     }
@@ -457,7 +457,7 @@ abstract class StructuredDocumentTagBase extends NodeLink {
     }
 
     if (color != null) {
-      _result['Color'] = color!;
+      _result['Color'] = color!.serialize();
     }
 
     if (styleName != null) {
@@ -542,6 +542,9 @@ abstract class StructuredDocumentTagBase extends NodeLink {
 
 
 
+
+
+    color?.validate();
 
 
 

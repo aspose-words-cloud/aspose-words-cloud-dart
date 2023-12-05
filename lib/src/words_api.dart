@@ -1278,22 +1278,36 @@ class WordsApi {
     return await _apiClient.call(request) as InsertTableRowOnlineResponse;
   }
 
+  /// Insert a watermark to the document.
+  Future< DocumentResponse > insertWatermark(InsertWatermarkRequest request) async {
+    return await _apiClient.call(request) as DocumentResponse;
+  }
+
   /// Inserts a new watermark image to the document.
+  @Deprecated('This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.')
   Future< DocumentResponse > insertWatermarkImage(InsertWatermarkImageRequest request) async {
     return await _apiClient.call(request) as DocumentResponse;
   }
 
   /// Inserts a new watermark image to the document.
+  @Deprecated('This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.')
   Future< InsertWatermarkImageOnlineResponse > insertWatermarkImageOnline(InsertWatermarkImageOnlineRequest request) async {
     return await _apiClient.call(request) as InsertWatermarkImageOnlineResponse;
   }
 
+  /// Insert a watermark to the document.
+  Future< InsertWatermarkOnlineResponse > insertWatermarkOnline(InsertWatermarkOnlineRequest request) async {
+    return await _apiClient.call(request) as InsertWatermarkOnlineResponse;
+  }
+
   /// Inserts a new watermark text to the document.
+  @Deprecated('This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.')
   Future< DocumentResponse > insertWatermarkText(InsertWatermarkTextRequest request) async {
     return await _apiClient.call(request) as DocumentResponse;
   }
 
   /// Inserts a new watermark text to the document.
+  @Deprecated('This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.')
   Future< InsertWatermarkTextOnlineResponse > insertWatermarkTextOnline(InsertWatermarkTextOnlineRequest request) async {
     return await _apiClient.call(request) as InsertWatermarkTextOnlineResponse;
   }

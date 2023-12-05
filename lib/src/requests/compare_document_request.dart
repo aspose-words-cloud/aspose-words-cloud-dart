@@ -111,6 +111,7 @@ class CompareDocumentRequest implements RequestBase {
       if (_body != null) {
         _bodyParts.add(_body);
       }
+      compareData!.getFilesContent(_fileContentParts);
     }
     else {
       throw ApiException(400, 'Parameter compareData is required.');

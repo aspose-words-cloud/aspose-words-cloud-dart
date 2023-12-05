@@ -52,10 +52,12 @@ class CompareDocumentTests
     await context.uploadFile(localFolder + '/' + localName1, remoteFolder + '/' + remoteName1);
 
     await context.uploadFile(localFolder + '/' + localName2, remoteFolder + '/' + remoteName2);
+    final requestCompareDataFileReference = FileReference.fromRemoteFile(remoteFolder + '/' + remoteName2);
+
     final requestCompareData = CompareData();
     requestCompareData.author = 'author';
-    requestCompareData.comparingWithDocument = remoteFolder + '/' + remoteName2;
     requestCompareData.dateTime = DateTime(2015, 10, 26, 0, 0, 0);
+    requestCompareData.fileReference = requestCompareDataFileReference;
 
     final request = CompareDocumentRequest(
       remoteName1,
@@ -78,10 +80,12 @@ class CompareDocumentTests
     await context.uploadFile(localFolder + '/' + localName2, remoteFolder + '/' + remoteName2);
     final requestDocument = await context.loadBinaryFile(localFolder + '/' + localName1);
 
+    final requestCompareDataFileReference = FileReference.fromRemoteFile(remoteFolder + '/' + remoteName2);
+
     final requestCompareData = CompareData();
     requestCompareData.author = 'author';
-    requestCompareData.comparingWithDocument = remoteFolder + '/' + remoteName2;
     requestCompareData.dateTime = DateTime(2015, 10, 26, 0, 0, 0);
+    requestCompareData.fileReference = requestCompareDataFileReference;
 
     final request = CompareDocumentOnlineRequest(
       requestDocument,
@@ -101,17 +105,17 @@ class CompareDocumentTests
     await context.uploadFile(localFolder + '/' + localName2, remoteFolder + '/' + remoteName2);
     final requestDocument = await context.loadBinaryFile(localFolder + '/' + localName1);
 
+    final requestCompareDataFileReferenceStream = await context.loadBinaryFile(localFolder + '/' + localName2);
+    final requestCompareDataFileReference = FileReference.fromLocalFile(requestCompareDataFileReferenceStream);
+
     final requestCompareData = CompareData();
     requestCompareData.author = 'author';
-    requestCompareData.comparingWithDocument = remoteFolder + '/' + remoteName2;
     requestCompareData.dateTime = DateTime(2015, 10, 26, 0, 0, 0);
-
-    final requestComparingDocument = await context.loadBinaryFile(localFolder + '/' + localName2);
+    requestCompareData.fileReference = requestCompareDataFileReference;
 
     final request = CompareDocumentOnlineRequest(
       requestDocument,
       requestCompareData,
-      comparingDocument: requestComparingDocument,
       destFileName: context.baseTestOutPath + '/TestCompareDocumentOut.doc'
     );
 

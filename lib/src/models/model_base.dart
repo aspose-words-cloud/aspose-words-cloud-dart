@@ -282,6 +282,8 @@ abstract class ModelBase {
     'TiffSaveOptionsData, _': () => TiffSaveOptionsData(),
     'TimeZoneInfoData, _': () => TimeZoneInfoData(),
     'UserInformation, _': () => UserInformation(),
+    'WatermarkDataImage, _': () => WatermarkDataImage(),
+    'WatermarkDataText, _': () => WatermarkDataText(),
     'WatermarkText, _': () => WatermarkText(),
     'WordMLSaveOptionsData, _': () => WordMLSaveOptionsData(),
     'WordsApiErrorResponse, _': () => WordsApiErrorResponse(),

@@ -147,7 +147,7 @@ class StructuredDocumentTagInsert extends StructuredDocumentTagBase {
     }
 
     if (json.containsKey('Color')) {
-      color = json['Color'] as String;
+      color = ModelBase.createInstance< XmlColor >(json['Color'] as Map<String, dynamic>);
     } else {
       color = null;
     }
