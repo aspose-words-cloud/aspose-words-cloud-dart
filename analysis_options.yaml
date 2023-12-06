@@ -1,4 +1,5 @@
 analyzer:
   exclude:
     - test/**
-    - lib/src/models/model_base.dart
+    - lib/src/models/*.dart
+    - lib/src/requests/*.dart

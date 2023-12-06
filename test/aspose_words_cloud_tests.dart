@@ -637,10 +637,14 @@ void main() {
   });
 
   group('Watermark', () {
-    test('InsertWatermarkImage', () async => await WatermarkTests(testContext).testInsertWatermarkImage());
-    test('InsertWatermarkImageOnline', () async => await WatermarkTests(testContext).testInsertWatermarkImageOnline());
     test('InsertWatermarkText', () async => await WatermarkTests(testContext).testInsertWatermarkText());
     test('InsertWatermarkTextOnline', () async => await WatermarkTests(testContext).testInsertWatermarkTextOnline());
+    test('InsertWatermarkImage', () async => await WatermarkTests(testContext).testInsertWatermarkImage());
+    test('InsertWatermarkImageOnline', () async => await WatermarkTests(testContext).testInsertWatermarkImageOnline());
+    test('InsertWatermarkImageDeprecated', () async => await WatermarkTests(testContext).testInsertWatermarkImageDeprecated());
+    test('InsertWatermarkImageDeprecatedOnline', () async => await WatermarkTests(testContext).testInsertWatermarkImageDeprecatedOnline());
+    test('InsertWatermarkTextDeprecated', () async => await WatermarkTests(testContext).testInsertWatermarkTextDeprecated());
+    test('InsertWatermarkTextDeprecatedOnline', () async => await WatermarkTests(testContext).testInsertWatermarkTextDeprecatedOnline());
     test('DeleteWatermark', () async => await WatermarkTests(testContext).testDeleteWatermark());
     test('DeleteWatermarkOnline', () async => await WatermarkTests(testContext).testDeleteWatermarkOnline());
   });

@@ -41,9 +41,6 @@ class CompareDocumentOnlineRequest implements RequestBase {
   /// Compare data.
   final CompareData? compareData;
 
-  /// The comparing document.
-  final ByteData? comparingDocument;
-
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
   final String? loadEncoding;
 
@@ -59,7 +56,7 @@ class CompareDocumentOnlineRequest implements RequestBase {
   /// encrypted password for the second document.
   final String? encryptedPassword2;
 
-  CompareDocumentOnlineRequest(this.document, this.compareData, {this.comparingDocument, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.encryptedPassword2});
+  CompareDocumentOnlineRequest(this.document, this.compareData, {this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.encryptedPassword2});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -106,17 +103,10 @@ class CompareDocumentOnlineRequest implements RequestBase {
       if (_formBody != null) {
         _bodyParts.add(_formBody);
       }
+      compareData!.getFilesContent(_fileContentParts);
     }
     else {
       throw ApiException(400, 'Parameter compareData is required.');
-    }
-
-    if (comparingDocument != null) {
-
-      var _formBody = _apiClient.serializeBody(comparingDocument, 'ComparingDocument');
-      if (_formBody != null) {
-        _bodyParts.add(_formBody);
-      }
     }
 
     for (final _fileContentPart in _fileContentParts) {
