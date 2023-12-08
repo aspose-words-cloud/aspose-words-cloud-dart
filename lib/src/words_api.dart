@@ -371,6 +371,16 @@ class WordsApi {
     return await _apiClient.call(request) as Map<String, ByteData>;
   }
 
+  /// Removes all office math objects from the document.
+  Future< void > deleteOfficeMathObjects(DeleteOfficeMathObjectsRequest request) async {
+  await _apiClient.call(request);
+  }
+
+  /// Removes all office math objects from the document.
+  Future< Map<String, ByteData> > deleteOfficeMathObjectsOnline(DeleteOfficeMathObjectsOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
+  }
+
   /// Removes a paragraph from the document node.
   Future< void > deleteParagraph(DeleteParagraphRequest request) async {
   await _apiClient.call(request);
@@ -1268,22 +1278,36 @@ class WordsApi {
     return await _apiClient.call(request) as InsertTableRowOnlineResponse;
   }
 
+  /// Insert a watermark to the document.
+  Future< DocumentResponse > insertWatermark(InsertWatermarkRequest request) async {
+    return await _apiClient.call(request) as DocumentResponse;
+  }
+
   /// Inserts a new watermark image to the document.
+  @Deprecated('This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.')
   Future< DocumentResponse > insertWatermarkImage(InsertWatermarkImageRequest request) async {
     return await _apiClient.call(request) as DocumentResponse;
   }
 
   /// Inserts a new watermark image to the document.
+  @Deprecated('This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.')
   Future< InsertWatermarkImageOnlineResponse > insertWatermarkImageOnline(InsertWatermarkImageOnlineRequest request) async {
     return await _apiClient.call(request) as InsertWatermarkImageOnlineResponse;
   }
 
+  /// Insert a watermark to the document.
+  Future< InsertWatermarkOnlineResponse > insertWatermarkOnline(InsertWatermarkOnlineRequest request) async {
+    return await _apiClient.call(request) as InsertWatermarkOnlineResponse;
+  }
+
   /// Inserts a new watermark text to the document.
+  @Deprecated('This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.')
   Future< DocumentResponse > insertWatermarkText(InsertWatermarkTextRequest request) async {
     return await _apiClient.call(request) as DocumentResponse;
   }
 
   /// Inserts a new watermark text to the document.
+  @Deprecated('This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.')
   Future< InsertWatermarkTextOnlineResponse > insertWatermarkTextOnline(InsertWatermarkTextOnlineRequest request) async {
     return await _apiClient.call(request) as InsertWatermarkTextOnlineResponse;
   }
@@ -1318,12 +1342,12 @@ class WordsApi {
     return await _apiClient.call(request) as Map<String, ByteData>;
   }
 
-  /// Adds protection to the document.
+  /// Changes the document protection. The previous protection will be overwritten if it exist.
   Future< ProtectionDataResponse > protectDocument(ProtectDocumentRequest request) async {
     return await _apiClient.call(request) as ProtectionDataResponse;
   }
 
-  /// Adds protection to the document.
+  /// Changes the document protection. The previous protection will be overwritten if it exist.
   Future< ProtectDocumentOnlineResponse > protectDocumentOnline(ProtectDocumentOnlineRequest request) async {
     return await _apiClient.call(request) as ProtectDocumentOnlineResponse;
   }

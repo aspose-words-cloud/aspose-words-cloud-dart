@@ -38,9 +38,6 @@ class UnprotectDocumentOnlineRequest implements RequestBase {
   /// The document.
   final ByteData? document;
 
-  /// Protection request.
-  final ProtectionRequest? protectionRequest;
-
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
   final String? loadEncoding;
 
@@ -53,7 +50,7 @@ class UnprotectDocumentOnlineRequest implements RequestBase {
   /// Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
   final String? destFileName;
 
-  UnprotectDocumentOnlineRequest(this.document, this.protectionRequest, {this.loadEncoding, this.password, this.encryptedPassword, this.destFileName});
+  UnprotectDocumentOnlineRequest(this.document, {this.loadEncoding, this.password, this.encryptedPassword, this.destFileName});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -87,18 +84,6 @@ class UnprotectDocumentOnlineRequest implements RequestBase {
     }
     else {
       throw ApiException(400, 'Parameter document is required.');
-    }
-
-    if (protectionRequest != null) {
-      protectionRequest!.validate();
-
-      var _formBody = _apiClient.serializeBody(protectionRequest, 'ProtectionRequest');
-      if (_formBody != null) {
-        _bodyParts.add(_formBody);
-      }
-    }
-    else {
-      throw ApiException(400, 'Parameter protectionRequest is required.');
     }
 
     for (final _fileContentPart in _fileContentParts) {

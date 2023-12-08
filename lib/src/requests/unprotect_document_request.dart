@@ -39,9 +39,6 @@ class UnprotectDocumentRequest implements RequestBase {
   /// The filename of the input document.
   final String? name;
 
-  /// Protection request.
-  final ProtectionRequest? protectionRequest;
-
   /// Original document folder.
   final String? folder;
 
@@ -60,7 +57,7 @@ class UnprotectDocumentRequest implements RequestBase {
   /// Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
   final String? destFileName;
 
-  UnprotectDocumentRequest(this.name, this.protectionRequest, {this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName});
+  UnprotectDocumentRequest(this.name, {this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -95,18 +92,6 @@ class UnprotectDocumentRequest implements RequestBase {
 
     if (destFileName != null) {
       _queryParams['destFileName'] = _apiClient.serializeToString(destFileName) ?? "";
-    }
-
-    if (protectionRequest != null) {
-      protectionRequest!.validate();
-
-      var _body = _apiClient.serializeBody(protectionRequest, 'Body');
-      if (_body != null) {
-        _bodyParts.add(_body);
-      }
-    }
-    else {
-      throw ApiException(400, 'Parameter protectionRequest is required.');
     }
 
     for (final _fileContentPart in _fileContentParts) {

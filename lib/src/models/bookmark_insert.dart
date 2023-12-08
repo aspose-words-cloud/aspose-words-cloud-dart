@@ -30,7 +30,21 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Represents a bookmark to insert.
-class BookmarkInsert extends BookmarkData {
+class BookmarkInsert implements ModelBase {
+  /// Gets or sets the name of the bookmark.
+  String? _name;
+
+  String? get name => _name;
+  set name(String? val) => _name = val;
+
+
+  /// Gets or sets text, enclosed in the bookmark.
+  String? _text;
+
+  String? get text => _text;
+  set text(String? val) => _text = val;
+
+
   /// Gets or sets the link to start bookmark node.
   NewDocumentPosition? _startRange;
 
@@ -51,7 +65,6 @@ class BookmarkInsert extends BookmarkData {
       throw ApiException(400, 'Failed to deserialize BookmarkInsert data model.');
     }
 
-    super.deserialize(json);
     if (json.containsKey('Name')) {
       name = json['Name'] as String;
     } else {
@@ -80,7 +93,14 @@ class BookmarkInsert extends BookmarkData {
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
-    _result.addAll(super.serialize());
+    if (name != null) {
+      _result['Name'] = name!;
+    }
+
+    if (text != null) {
+      _result['Text'] = text!;
+    }
+
     if (startRange != null) {
       _result['StartRange'] = startRange!.serialize();
     }
@@ -97,7 +117,22 @@ class BookmarkInsert extends BookmarkData {
 
   @override
   void validate() {
-    super.validate();
+    if (name == null)
+    {
+        throw new ApiException(400, 'Property Name in BookmarkInsert is required.');
+    }
+    if (text == null)
+    {
+        throw new ApiException(400, 'Property Text in BookmarkInsert is required.');
+    }
+    if (startRange == null)
+    {
+        throw new ApiException(400, 'Property StartRange in BookmarkInsert is required.');
+    }
+    if (endRange == null)
+    {
+        throw new ApiException(400, 'Property EndRange in BookmarkInsert is required.');
+    }
 
     startRange?.validate();
 

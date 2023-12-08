@@ -39,8 +39,8 @@ class ProtectDocumentRequest implements RequestBase {
   /// The filename of the input document.
   final String? name;
 
-  /// Protection request.
-  final ProtectionRequest? protectionRequest;
+  /// Use ProtectionRequestV2 model to provide protection options.
+  final ProtectionRequestBase? protectionRequest;
 
   /// Original document folder.
   final String? folder;

@@ -42,8 +42,86 @@ class WatermarkTests
     localFile = 'Common/test_multi_pages.docx';
   }
 
-  /// Test for adding watermark image.
+  /// Test for adding watermark text.
+  Future<void> testInsertWatermarkText() async
+  {
+    final remoteFileName = 'TestInsertWatermarkText.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+    final requestWatermarkData = WatermarkDataText();
+    requestWatermarkData.text = 'watermark text';
+
+    final request = InsertWatermarkRequest(
+      remoteFileName,
+      requestWatermarkData,
+      folder: remoteDataFolder,
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
+    );
+
+    final result = await context.getApi().insertWatermark(request);
+    expect(result.document, isNotNull);
+  }
+
+  /// Test for adding watermark text online.
+  Future<void> testInsertWatermarkTextOnline() async
+  {
+    final requestDocument = await context.loadBinaryFile(localFile);
+
+    final requestWatermarkData = WatermarkDataText();
+    requestWatermarkData.text = 'watermark text';
+
+    final request = InsertWatermarkOnlineRequest(
+      requestDocument,
+      requestWatermarkData
+    );
+
+    await context.getApi().insertWatermarkOnline(request);
+  }
+
+  /// Test for adding watermark text.
   Future<void> testInsertWatermarkImage() async
+  {
+    final remoteFileName = 'TestInsertWatermarkImage.docx';
+    final remoteImagePath = remoteDataFolder + '/TestInsertWatermarkImage.png';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+
+    await context.uploadFile('Common/aspose-cloud.png', remoteImagePath);
+    final requestWatermarkDataImage = FileReference.fromRemoteFile(remoteImagePath);
+
+    final requestWatermarkData = WatermarkDataImage();
+    requestWatermarkData.image = requestWatermarkDataImage;
+
+    final request = InsertWatermarkRequest(
+      remoteFileName,
+      requestWatermarkData,
+      folder: remoteDataFolder,
+      destFileName: context.baseTestOutPath + '/' + remoteFileName
+    );
+
+    final result = await context.getApi().insertWatermark(request);
+    expect(result.document, isNotNull);
+  }
+
+  /// Test for adding watermark text online.
+  Future<void> testInsertWatermarkImageOnline() async
+  {
+    final requestDocument = await context.loadBinaryFile(localFile);
+
+    final requestWatermarkDataImageStream = await context.loadBinaryFile('Common/aspose-cloud.png');
+    final requestWatermarkDataImage = FileReference.fromLocalFile(requestWatermarkDataImageStream);
+
+    final requestWatermarkData = WatermarkDataImage();
+    requestWatermarkData.image = requestWatermarkDataImage;
+
+    final request = InsertWatermarkOnlineRequest(
+      requestDocument,
+      requestWatermarkData
+    );
+
+    await context.getApi().insertWatermarkOnline(request);
+  }
+
+  /// Test for adding watermark image.
+  Future<void> testInsertWatermarkImageDeprecated() async
   {
     final remoteFileName = 'TestInsertWatermarkImage.docx';
     final remoteImagePath = remoteDataFolder + '/TestInsertWatermarkImage.png';
@@ -65,7 +143,7 @@ class WatermarkTests
   }
 
   /// Test for adding watermark image online.
-  Future<void> testInsertWatermarkImageOnline() async
+  Future<void> testInsertWatermarkImageDeprecatedOnline() async
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
@@ -80,7 +158,7 @@ class WatermarkTests
   }
 
   /// Test for adding watermark text.
-  Future<void> testInsertWatermarkText() async
+  Future<void> testInsertWatermarkTextDeprecated() async
   {
     final remoteFileName = 'TestInsertWatermarkText.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
@@ -101,7 +179,7 @@ class WatermarkTests
   }
 
   /// Test for adding watermark text online.
-  Future<void> testInsertWatermarkTextOnline() async
+  Future<void> testInsertWatermarkTextDeprecatedOnline() async
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 

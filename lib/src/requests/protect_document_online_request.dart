@@ -38,8 +38,8 @@ class ProtectDocumentOnlineRequest implements RequestBase {
   /// The document.
   final ByteData? document;
 
-  /// Protection request.
-  final ProtectionRequest? protectionRequest;
+  /// Use ProtectionRequestV2 model to provide protection options.
+  final ProtectionRequestBase? protectionRequest;
 
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
   final String? loadEncoding;

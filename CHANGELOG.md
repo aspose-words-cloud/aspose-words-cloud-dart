@@ -1,3 +1,11 @@
+## [23.12.0] - Aspose Words Cloud for Dart 23.12 Release Notes
+
+- Properties Name, Text, StartRange, EndRange marked as required for InsertBookmark operation.
+- Implemented DeleteOfficeMathObjects operation to delete all office math objects from document.
+- Parameter ProtectionRequest was removed from the UnprotectDocument operation. Now removing protection from a document does not require a password.
+- Model ProtectionRequest marked as deprecated, please use ProtectionRequestV2 instead for perform ProtectDocument operation. To change the password or protection type of protected document, the old password is no required.
+
+
 ## [23.11.0] - Aspose Words Cloud for Dart 23.11 Release Notes
 
 - Support of required properties in models.

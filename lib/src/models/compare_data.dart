@@ -48,7 +48,9 @@ class CompareData implements ModelBase {
   /// Gets or sets the path to document to compare at the server.
   String? _comparingWithDocument;
 
+  @Deprecated('This field is deprecated and used only for backward compatibility. Please use FileReference instead.')
   String? get comparingWithDocument => _comparingWithDocument;
+  @Deprecated('This field is deprecated and used only for backward compatibility. Please use FileReference instead.')
   set comparingWithDocument(String? val) => _comparingWithDocument = val;
 
 
@@ -57,6 +59,13 @@ class CompareData implements ModelBase {
 
   DateTime? get dateTime => _dateTime;
   set dateTime(DateTime? val) => _dateTime = val;
+
+
+  /// Gets or sets the file reference.
+  FileReference? _fileReference;
+
+  FileReference? get fileReference => _fileReference;
+  set fileReference(FileReference? val) => _fileReference = val;
 
 
   /// Gets or sets the result document format.
@@ -96,6 +105,12 @@ class CompareData implements ModelBase {
       dateTime = null;
     }
 
+    if (json.containsKey('FileReference')) {
+      throw ApiException(400, 'File content is not supported for deserialization.');
+    } else {
+      fileReference = null;
+    }
+
     if (json.containsKey('ResultDocumentFormat')) {
       resultDocumentFormat = json['ResultDocumentFormat'] as String;
     } else {
@@ -122,6 +137,10 @@ class CompareData implements ModelBase {
       _result['DateTime'] = dateTime!.toIso8601String();
     }
 
+    if (fileReference != null) {
+      _result['FileReference'] = fileReference!.serialize();
+    }
+
     if (resultDocumentFormat != null) {
       _result['ResultDocumentFormat'] = resultDocumentFormat!;
     }
@@ -130,6 +149,12 @@ class CompareData implements ModelBase {
 
   @override
   void getFilesContent(List<FileReference> resultFilesContent) {
+    if (fileReference != null)
+    {
+        fileReference!.getFilesContent(resultFilesContent);
+    }
+
+
   }
 
   @override
@@ -138,14 +163,18 @@ class CompareData implements ModelBase {
     {
         throw new ApiException(400, 'Property Author in CompareData is required.');
     }
-    if (comparingWithDocument == null)
+    if (fileReference == null)
     {
-        throw new ApiException(400, 'Property ComparingWithDocument in CompareData is required.');
+        throw new ApiException(400, 'Property FileReference in CompareData is required.');
     }
 
     compareOptions?.validate();
 
 
+
+
+
+    fileReference?.validate();
 
 
   }
