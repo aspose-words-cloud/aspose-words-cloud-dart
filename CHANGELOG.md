@@ -4,6 +4,7 @@
 - Implemented DeleteOfficeMathObjects operation to delete all office math objects from document.
 - Parameter ProtectionRequest was removed from the UnprotectDocument operation. Now removing protection from a document does not require a password.
 - Model ProtectionRequest marked as deprecated, please use ProtectionRequestV2 instead for perform ProtectDocument operation. To change the password or protection type of protected document, the old password is no required.
+- Added fields Password and EncryptedPassword to FileReference for documents encrypted by password.
 
 
 ## [23.11.0] - Aspose Words Cloud for Dart 23.11 Release Notes

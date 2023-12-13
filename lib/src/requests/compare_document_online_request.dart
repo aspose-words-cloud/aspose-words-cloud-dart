@@ -53,10 +53,7 @@ class CompareDocumentOnlineRequest implements RequestBase {
   /// Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
   final String? destFileName;
 
-  /// encrypted password for the second document.
-  final String? encryptedPassword2;
-
-  CompareDocumentOnlineRequest(this.document, this.compareData, {this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.encryptedPassword2});
+  CompareDocumentOnlineRequest(this.document, this.compareData, {this.loadEncoding, this.password, this.encryptedPassword, this.destFileName});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -79,10 +76,6 @@ class CompareDocumentOnlineRequest implements RequestBase {
 
     if (destFileName != null) {
       _queryParams['destFileName'] = _apiClient.serializeToString(destFileName) ?? "";
-    }
-
-    if (encryptedPassword2 != null) {
-      _queryParams['encryptedPassword2'] = _apiClient.serializeToString(encryptedPassword2) ?? "";
     }
 
     if (document != null) {
@@ -110,6 +103,7 @@ class CompareDocumentOnlineRequest implements RequestBase {
     }
 
     for (final _fileContentPart in _fileContentParts) {
+        _fileContentPart.encryptPassword(_apiClient);
         if (_fileContentPart.source == 'Request') {
             _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }

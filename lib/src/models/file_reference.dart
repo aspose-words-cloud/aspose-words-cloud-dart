@@ -28,13 +28,16 @@
 library aspose_words_cloud;
 
 import 'dart:typed_data';
+import 'package:aspose_words_cloud/aspose_words_cloud.dart';
+import 'package:aspose_words_cloud/src/api_client.dart';
 import 'package:uuid/uuid.dart';
-import '../../aspose_words_cloud.dart';
 
 class FileReference implements ModelBase {
   String? _source;
   String? _reference;
   ByteData? _content;
+  String? _password;
+  String? _encryptedPassword;
 
   /// Gets the file source.
   String? get source => _source;
@@ -45,11 +48,11 @@ class FileReference implements ModelBase {
   /// Gets the file content
   ByteData? get content => _content;
 
-  FileReference.fromRemoteFile(String remoteFilePath)
-    : _source = 'Storage', _content = null, _reference = remoteFilePath;
+  FileReference.fromRemoteFile(String remoteFilePath, [String? password])
+    : _source = 'Storage', _content = null, _reference = remoteFilePath, _password = password, _encryptedPassword = null;
 
-  FileReference.fromLocalFile(ByteData localFileContent)
-    : _source = 'Request', _content = localFileContent, _reference = Uuid().v4();
+  FileReference.fromLocalFile(ByteData localFileContent, [String? password])
+    : _source = 'Request', _content = localFileContent, _reference = Uuid().v4(), _password = password, _encryptedPassword = null;
 
   @override
   void deserialize(Map<String, dynamic>? json) {
@@ -67,6 +70,14 @@ class FileReference implements ModelBase {
       _result['Reference'] = _reference;
     }
 
+    if (_password != null) {
+      _result['Password'] = _password;
+    }
+
+    if (_encryptedPassword != null) {
+      _result['EncryptedPassword'] = _encryptedPassword;
+    }
+
     return _result;
   }
 
@@ -77,5 +88,12 @@ class FileReference implements ModelBase {
 
   @override
   void validate() {
+  }
+
+  Future encryptPassword(ApiClient apiClient) async {
+    if (_password != null) {
+      _encryptedPassword = await apiClient.encryptPassword(_password!);
+      _password = null;
+    }
   }
 }
