@@ -48,9 +48,9 @@ class CompareData implements ModelBase {
   /// Gets or sets the path to document to compare at the server.
   String? _comparingWithDocument;
 
-  @Deprecated('This field is deprecated and used only for backward compatibility. Please use FileReference instead.')
+  @Deprecated("This field is deprecated and used only for backward compatibility. Please use FileReference instead.")
   String? get comparingWithDocument => _comparingWithDocument;
-  @Deprecated('This field is deprecated and used only for backward compatibility. Please use FileReference instead.')
+  @Deprecated("This field is deprecated and used only for backward compatibility. Please use FileReference instead.")
   set comparingWithDocument(String? val) => _comparingWithDocument = val;
 
 

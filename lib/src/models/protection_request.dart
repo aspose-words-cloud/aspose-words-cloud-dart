@@ -30,7 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Request on changing of protection.
-@Deprecated('ProtectionRequest is deprecated and remains for backwards compatibility only.')
+@Deprecated("ProtectionRequest is deprecated and remains for backwards compatibility only.")
 class ProtectionRequest extends ProtectionRequestBase {
   /// Gets or sets the new password.
   String? _newPassword;
