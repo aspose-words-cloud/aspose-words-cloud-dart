@@ -163,6 +163,7 @@ void main() {
     test('CompareDocument', () async => await CompareDocumentTests(testContext).testCompareDocument());
     test('CompareDocumentOnline', () async => await CompareDocumentTests(testContext).testCompareDocumentOnline());
     test('CompareTwoDocumentOnline', () async => await CompareDocumentTests(testContext).testCompareTwoDocumentOnline());
+    test('CompareDocumentWithPassword', () async => await CompareDocumentTests(testContext).testCompareDocumentWithPassword());
   });
 
   group('CompressDocument', () {
