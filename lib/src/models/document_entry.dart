@@ -34,7 +34,9 @@ class DocumentEntry extends BaseEntry {
   /// Gets or sets document password encrypted on API public key. The default value is null (the document has no password).
   String? _encryptedPassword;
 
+  @Deprecated("This field is deprecated and used only for backward compatibility. Please use 'Password' or 'EncryptedPassword' from 'FileReference' instead.")
   String? get encryptedPassword => _encryptedPassword;
+  @Deprecated("This field is deprecated and used only for backward compatibility. Please use 'Password' or 'EncryptedPassword' from 'FileReference' instead.")
   set encryptedPassword(String? val) => _encryptedPassword = val;
 
 

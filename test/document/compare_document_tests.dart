@@ -121,4 +121,33 @@ class CompareDocumentTests
 
     await context.getApi().compareDocumentOnline(request);
   }
+
+  /// Test for document comparison with password protection.
+  Future<void> testCompareDocumentWithPassword() async
+  {
+    final localName = 'DocWithPassword.docx';
+    final remoteName1 = 'TestCompareDocument1.docx';
+    final remoteName2 = 'TestCompareDocument2.docx';
+    await context.uploadFile('Common/' + localName, remoteFolder + '/' + remoteName1);
+
+    await context.uploadFile('Common/' + localName, remoteFolder + '/' + remoteName2);
+    final requestCompareDataFileReference = FileReference.fromRemoteFile(remoteFolder + '/' + remoteName2, "12345");
+
+    final requestCompareData = CompareData();
+    requestCompareData.author = 'author';
+    requestCompareData.dateTime = DateTime(2015, 10, 26, 0, 0, 0);
+    requestCompareData.fileReference = requestCompareDataFileReference;
+
+    final request = CompareDocumentRequest(
+      remoteName1,
+      requestCompareData,
+      folder: remoteFolder,
+      password: '12345',
+      destFileName: context.baseTestOutPath + '/TestCompareDocumentOut.docx'
+    );
+
+    final result = await context.getApi().compareDocument(request);
+    expect(result.document, isNotNull);
+    expect(result.document?.fileName, 'TestCompareDocumentOut.docx');
+  }
 }

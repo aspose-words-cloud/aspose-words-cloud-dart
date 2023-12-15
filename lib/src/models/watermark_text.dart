@@ -30,7 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Class for insert watermark text request building.
-@Deprecated('This model will be removed in the future.')
+@Deprecated("This model will be removed in the future.")
 class WatermarkText implements ModelBase {
   /// Gets or sets the watermark rotation angle.
   double? _rotationAngle;

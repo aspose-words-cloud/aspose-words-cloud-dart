@@ -72,8 +72,8 @@ class ApiClient {
             if (rsaPublicKey == null || rsaPublicKey.modulus == null || rsaPublicKey.exponent == null) {
               throw ApiException(400, 'Invalid public key response.');
             }
-            exponentString = rsaPublicKey.modulus as String;
-            modulusString = rsaPublicKey.exponent as String;
+            exponentString = rsaPublicKey.exponent as String;
+            modulusString = rsaPublicKey.modulus as String;
         }
 
         final modulus = BigInt.parse(hex.encode(base64Decode(modulusString)), radix: 16);
