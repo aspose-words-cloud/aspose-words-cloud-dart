@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="insert_paragraph_online_request.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -62,10 +62,7 @@ class InsertParagraphOnlineRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String? revisionDateTime;
 
-  /// The index of the node. A new paragraph will be inserted before the node with the specified index.
-  final String? insertBeforeNode;
-
-  InsertParagraphOnlineRequest(this.document, this.paragraph, {this.nodePath, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime, this.insertBeforeNode});
+  InsertParagraphOnlineRequest(this.document, this.paragraph, {this.nodePath, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -97,10 +94,6 @@ class InsertParagraphOnlineRequest implements RequestBase {
 
     if (revisionDateTime != null) {
       _queryParams['revisionDateTime'] = _apiClient.serializeToString(revisionDateTime) ?? "";
-    }
-
-    if (insertBeforeNode != null) {
-      _queryParams['insertBeforeNode'] = _apiClient.serializeToString(insertBeforeNode) ?? "";
     }
 
     if (document != null) {

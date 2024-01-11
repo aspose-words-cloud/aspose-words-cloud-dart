@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="drawing_object_insert.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,11 +31,11 @@ import '../../aspose_words_cloud.dart';
 
 /// Drawing object element for insert.
 class DrawingObjectInsert implements ModelBase {
-  /// Gets or sets the position, before which the DrawingObject will be inserted.
-  NewDocumentPosition? _position;
+  /// Gets or sets the position, where the DrawingObject will be inserted.
+  Position? _position;
 
-  NewDocumentPosition? get position => _position;
-  set position(NewDocumentPosition? val) => _position = val;
+  Position? get position => _position;
+  set position(Position? val) => _position = val;
 
 
   /// Gets or sets the relative horizontal position, from which the distance to the image is measured.
@@ -94,7 +94,7 @@ class DrawingObjectInsert implements ModelBase {
     }
 
     if (json.containsKey('Position')) {
-      position = ModelBase.createInstance< NewDocumentPosition >(json['Position'] as Map<String, dynamic>);
+      position = ModelBase.createInstance< Position >(json['Position'] as Map<String, dynamic>);
     } else {
       position = null;
     }

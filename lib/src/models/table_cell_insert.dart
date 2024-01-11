@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="table_cell_insert.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,10 +31,19 @@ import '../../aspose_words_cloud.dart';
 
 /// DTO container with a table cell.
 class TableCellInsert implements ModelBase {
+  /// Gets or sets the position of the table cell that will be used to determine the placement of a new cell.
+  Position? _existingCellPosition;
+
+  Position? get existingCellPosition => _existingCellPosition;
+  set existingCellPosition(Position? val) => _existingCellPosition = val;
+
+
   /// Gets or sets the 0-based index, the table cell will be inserted after.
   int? _insertAfter;
 
+  @Deprecated("This property will be removed in the future.")
   int? get insertAfter => _insertAfter;
+  @Deprecated("This property will be removed in the future.")
   set insertAfter(int? val) => _insertAfter = val;
 
 
@@ -42,6 +51,12 @@ class TableCellInsert implements ModelBase {
   void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
       throw ApiException(400, 'Failed to deserialize TableCellInsert data model.');
+    }
+
+    if (json.containsKey('ExistingCellPosition')) {
+      existingCellPosition = ModelBase.createInstance< Position >(json['ExistingCellPosition'] as Map<String, dynamic>);
+    } else {
+      existingCellPosition = null;
     }
 
     if (json.containsKey('InsertAfter')) {
@@ -54,6 +69,10 @@ class TableCellInsert implements ModelBase {
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
+    if (existingCellPosition != null) {
+      _result['ExistingCellPosition'] = existingCellPosition!.serialize();
+    }
+
     if (insertAfter != null) {
       _result['InsertAfter'] = insertAfter!;
     }
@@ -66,6 +85,10 @@ class TableCellInsert implements ModelBase {
 
   @override
   void validate() {
+
+    existingCellPosition?.validate();
+
+
   }
 }
 

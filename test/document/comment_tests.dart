@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="comment_tests.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -107,11 +107,11 @@ class CommentTests
   {
     final remoteFileName = 'TestInsertComment.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestCommentRangeStart = NewDocumentPosition();
+    final requestCommentRangeStart = PositionInsideNode();
     requestCommentRangeStart.nodeId = '0.3.0.3';
     requestCommentRangeStart.offset = 0;
 
-    final requestCommentRangeEnd = NewDocumentPosition();
+    final requestCommentRangeEnd = PositionInsideNode();
     requestCommentRangeEnd.nodeId = '0.3.0.3';
     requestCommentRangeEnd.offset = 0;
 
@@ -141,11 +141,11 @@ class CommentTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-    final requestCommentRangeStart = NewDocumentPosition();
+    final requestCommentRangeStart = PositionInsideNode();
     requestCommentRangeStart.nodeId = '0.3.0.3';
     requestCommentRangeStart.offset = 0;
 
-    final requestCommentRangeEnd = NewDocumentPosition();
+    final requestCommentRangeEnd = PositionInsideNode();
     requestCommentRangeEnd.nodeId = '0.3.0.3';
     requestCommentRangeEnd.offset = 0;
 
@@ -169,11 +169,11 @@ class CommentTests
   {
     final remoteFileName = 'TestUpdateComment.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestCommentRangeStart = NewDocumentPosition();
+    final requestCommentRangeStart = PositionInsideNode();
     requestCommentRangeStart.nodeId = '0.3.0';
     requestCommentRangeStart.offset = 0;
 
-    final requestCommentRangeEnd = NewDocumentPosition();
+    final requestCommentRangeEnd = PositionInsideNode();
     requestCommentRangeEnd.nodeId = '0.3.0';
     requestCommentRangeEnd.offset = 0;
 
@@ -204,11 +204,11 @@ class CommentTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-    final requestCommentRangeStart = NewDocumentPosition();
+    final requestCommentRangeStart = PositionInsideNode();
     requestCommentRangeStart.nodeId = '0.3.0';
     requestCommentRangeStart.offset = 0;
 
-    final requestCommentRangeEnd = NewDocumentPosition();
+    final requestCommentRangeEnd = PositionInsideNode();
     requestCommentRangeEnd.nodeId = '0.3.0';
     requestCommentRangeEnd.offset = 0;
 

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="insert_table_cell_online_request.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -38,11 +38,11 @@ class InsertTableCellOnlineRequest implements RequestBase {
   /// The document.
   final ByteData? document;
 
-  /// The path to the table row in the document tree.
-  final String? tableRowPath;
-
   /// Table cell parameters.
   final TableCellInsert? cell;
+
+  /// The path to the table row in the document tree.
+  final String? tableRowPath;
 
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
   final String? loadEncoding;
@@ -62,7 +62,7 @@ class InsertTableCellOnlineRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String? revisionDateTime;
 
-  InsertTableCellOnlineRequest(this.document, this.tableRowPath, this.cell, {this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime});
+  InsertTableCellOnlineRequest(this.document, this.cell, {this.tableRowPath, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -71,9 +71,6 @@ class InsertTableCellOnlineRequest implements RequestBase {
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
     var _fileContentParts = <FileReference>[];
-    if (tableRowPath == null) {
-      throw ApiException(400, 'Parameter tableRowPath is required.');
-    }
     _path = _path.replaceAll('{tableRowPath}', _apiClient.serializeToString(tableRowPath) ?? "");
     if (loadEncoding != null) {
       _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding) ?? "";

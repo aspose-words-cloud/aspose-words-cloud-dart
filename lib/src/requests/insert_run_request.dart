@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="insert_run_request.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,11 +39,11 @@ class InsertRunRequest implements RequestBase {
   /// The filename of the input document.
   final String? name;
 
-  /// The path to the paragraph in the document tree.
-  final String? paragraphPath;
-
   /// Run data.
   final RunInsert? run;
+
+  /// The path to the paragraph in the document tree.
+  final String? paragraphPath;
 
   /// Original document folder.
   final String? folder;
@@ -69,10 +69,7 @@ class InsertRunRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String? revisionDateTime;
 
-  /// The index of the node. A new Run object will be inserted before the node with the specified node Id.
-  final String? insertBeforeNode;
-
-  InsertRunRequest(this.name, this.paragraphPath, this.run, {this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime, this.insertBeforeNode});
+  InsertRunRequest(this.name, this.run, {this.paragraphPath, this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -85,10 +82,6 @@ class InsertRunRequest implements RequestBase {
       throw ApiException(400, 'Parameter name is required.');
     }
     _path = _path.replaceAll('{name}', _apiClient.serializeToString(name) ?? "");
-
-    if (paragraphPath == null) {
-      throw ApiException(400, 'Parameter paragraphPath is required.');
-    }
     _path = _path.replaceAll('{paragraphPath}', _apiClient.serializeToString(paragraphPath) ?? "");
     if (folder != null) {
       _queryParams['folder'] = _apiClient.serializeToString(folder) ?? "";
@@ -120,10 +113,6 @@ class InsertRunRequest implements RequestBase {
 
     if (revisionDateTime != null) {
       _queryParams['revisionDateTime'] = _apiClient.serializeToString(revisionDateTime) ?? "";
-    }
-
-    if (insertBeforeNode != null) {
-      _queryParams['insertBeforeNode'] = _apiClient.serializeToString(insertBeforeNode) ?? "";
     }
 
     if (run != null) {

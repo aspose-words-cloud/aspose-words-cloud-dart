@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="comment_base.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,17 +32,17 @@ import '../../aspose_words_cloud.dart';
 /// Comment.
 abstract class CommentBase implements ModelBase {
   /// Gets or sets the link to comment range start node.
-  NewDocumentPosition? _rangeStart;
+  PositionInsideNode? _rangeStart;
 
-  NewDocumentPosition? get rangeStart => _rangeStart;
-  set rangeStart(NewDocumentPosition? val) => _rangeStart = val;
+  PositionInsideNode? get rangeStart => _rangeStart;
+  set rangeStart(PositionInsideNode? val) => _rangeStart = val;
 
 
   /// Gets or sets the link to comment range end node.
-  NewDocumentPosition? _rangeEnd;
+  PositionInsideNode? _rangeEnd;
 
-  NewDocumentPosition? get rangeEnd => _rangeEnd;
-  set rangeEnd(NewDocumentPosition? val) => _rangeEnd = val;
+  PositionInsideNode? get rangeEnd => _rangeEnd;
+  set rangeEnd(PositionInsideNode? val) => _rangeEnd = val;
 
 
   /// Gets or sets the author name for a comment.
@@ -84,13 +84,13 @@ abstract class CommentBase implements ModelBase {
     }
 
     if (json.containsKey('RangeStart')) {
-      rangeStart = ModelBase.createInstance< NewDocumentPosition >(json['RangeStart'] as Map<String, dynamic>);
+      rangeStart = ModelBase.createInstance< PositionInsideNode >(json['RangeStart'] as Map<String, dynamic>);
     } else {
       rangeStart = null;
     }
 
     if (json.containsKey('RangeEnd')) {
-      rangeEnd = ModelBase.createInstance< NewDocumentPosition >(json['RangeEnd'] as Map<String, dynamic>);
+      rangeEnd = ModelBase.createInstance< PositionInsideNode >(json['RangeEnd'] as Map<String, dynamic>);
     } else {
       rangeEnd = null;
     }

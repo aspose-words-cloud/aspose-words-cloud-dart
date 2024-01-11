@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="insert_table_row_online_request.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -38,11 +38,11 @@ class InsertTableRowOnlineRequest implements RequestBase {
   /// The document.
   final ByteData? document;
 
-  /// The path to the table in the document tree.
-  final String? tablePath;
-
   /// Table row parameters.
   final TableRowInsert? row;
+
+  /// The path to the table in the document tree.
+  final String? nodePath;
 
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
   final String? loadEncoding;
@@ -62,19 +62,16 @@ class InsertTableRowOnlineRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String? revisionDateTime;
 
-  InsertTableRowOnlineRequest(this.document, this.tablePath, this.row, {this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime});
+  InsertTableRowOnlineRequest(this.document, this.row, {this.nodePath, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
-    var _path = '/words/online/post/{tablePath}/rows';
+    var _path = '/words/online/post/{nodePath}/rows';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
     var _fileContentParts = <FileReference>[];
-    if (tablePath == null) {
-      throw ApiException(400, 'Parameter tablePath is required.');
-    }
-    _path = _path.replaceAll('{tablePath}', _apiClient.serializeToString(tablePath) ?? "");
+    _path = _path.replaceAll('{nodePath}', _apiClient.serializeToString(nodePath) ?? "");
     if (loadEncoding != null) {
       _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding) ?? "";
     }

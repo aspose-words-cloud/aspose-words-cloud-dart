@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="insert_table_row_request.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,11 +39,11 @@ class InsertTableRowRequest implements RequestBase {
   /// The filename of the input document.
   final String? name;
 
-  /// The path to the table in the document tree.
-  final String? tablePath;
-
   /// Table row parameters.
   final TableRowInsert? row;
+
+  /// The path to the table in the document tree.
+  final String? nodePath;
 
   /// Original document folder.
   final String? folder;
@@ -69,11 +69,11 @@ class InsertTableRowRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String? revisionDateTime;
 
-  InsertTableRowRequest(this.name, this.tablePath, this.row, {this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime});
+  InsertTableRowRequest(this.name, this.row, {this.nodePath, this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
-    var _path = '/words/{name}/{tablePath}/rows';
+    var _path = '/words/{name}/{nodePath}/rows';
     var _queryParams = <String, String>{};
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
@@ -82,11 +82,7 @@ class InsertTableRowRequest implements RequestBase {
       throw ApiException(400, 'Parameter name is required.');
     }
     _path = _path.replaceAll('{name}', _apiClient.serializeToString(name) ?? "");
-
-    if (tablePath == null) {
-      throw ApiException(400, 'Parameter tablePath is required.');
-    }
-    _path = _path.replaceAll('{tablePath}', _apiClient.serializeToString(tablePath) ?? "");
+    _path = _path.replaceAll('{nodePath}', _apiClient.serializeToString(nodePath) ?? "");
     if (folder != null) {
       _queryParams['folder'] = _apiClient.serializeToString(folder) ?? "";
     }

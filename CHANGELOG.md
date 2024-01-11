@@ -1,3 +1,12 @@
+## [24.1.0] - Aspose Words Cloud for Dart 24.1 Release Notes
+
+- Added support for InsertAfterNode in the insert API without NodePath.
+- Added support for inserting nodes (runs/rows/cells/bookmarks) without NodePath.
+- Added support for transparency in the Watermark API.
+- Added support for password and encryptedPassword fields in FileReference.
+- Fixed missing href value in document responses.
+
+
 ## [23.12.0] - Aspose Words Cloud for Dart 23.12 Release Notes
 
 - Properties Name, Text, StartRange, EndRange marked as required for InsertBookmark operation.
