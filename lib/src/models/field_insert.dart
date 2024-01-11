@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="field_insert.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,6 +31,12 @@ import '../../aspose_words_cloud.dart';
 
 /// Field for insert.
 class FieldInsert extends FieldBase {
+  /// Gets or sets the position of the node that will be used to determine the placement of a new field.
+  Position? _position;
+
+  Position? get position => _position;
+  set position(Position? val) => _position = val;
+
 
   @override
   void deserialize(Map<String, dynamic>? json) {
@@ -50,12 +56,21 @@ class FieldInsert extends FieldBase {
     } else {
       fieldCode = null;
     }
+
+    if (json.containsKey('Position')) {
+      position = ModelBase.createInstance< Position >(json['Position'] as Map<String, dynamic>);
+    } else {
+      position = null;
+    }
   }
 
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
+    if (position != null) {
+      _result['Position'] = position!.serialize();
+    }
     return _result;
   }
 
@@ -66,6 +81,9 @@ class FieldInsert extends FieldBase {
   @override
   void validate() {
     super.validate();
+
+    position?.validate();
+
   }
 }
 

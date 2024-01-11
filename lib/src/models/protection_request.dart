@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="protection_request.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,7 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Request on changing of protection.
-@Deprecated('ProtectionRequest is deprecated and remains for backwards compatibility only.')
+@Deprecated("ProtectionRequest is deprecated and remains for backwards compatibility only.")
 class ProtectionRequest extends ProtectionRequestBase {
   /// Gets or sets the new password.
   String? _newPassword;

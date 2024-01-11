@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="compare_data.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -48,9 +48,9 @@ class CompareData implements ModelBase {
   /// Gets or sets the path to document to compare at the server.
   String? _comparingWithDocument;
 
-  @Deprecated('This field is deprecated and used only for backward compatibility. Please use FileReference instead.')
+  @Deprecated("This field is deprecated and used only for backward compatibility. Please use FileReference instead.")
   String? get comparingWithDocument => _comparingWithDocument;
-  @Deprecated('This field is deprecated and used only for backward compatibility. Please use FileReference instead.')
+  @Deprecated("This field is deprecated and used only for backward compatibility. Please use FileReference instead.")
   set comparingWithDocument(String? val) => _comparingWithDocument = val;
 
 

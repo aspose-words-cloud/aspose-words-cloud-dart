@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="words_api.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1284,13 +1284,13 @@ class WordsApi {
   }
 
   /// Inserts a new watermark image to the document.
-  @Deprecated('This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.')
+  @Deprecated("This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.")
   Future< DocumentResponse > insertWatermarkImage(InsertWatermarkImageRequest request) async {
     return await _apiClient.call(request) as DocumentResponse;
   }
 
   /// Inserts a new watermark image to the document.
-  @Deprecated('This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.')
+  @Deprecated("This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.")
   Future< InsertWatermarkImageOnlineResponse > insertWatermarkImageOnline(InsertWatermarkImageOnlineRequest request) async {
     return await _apiClient.call(request) as InsertWatermarkImageOnlineResponse;
   }
@@ -1301,13 +1301,13 @@ class WordsApi {
   }
 
   /// Inserts a new watermark text to the document.
-  @Deprecated('This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.')
+  @Deprecated("This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.")
   Future< DocumentResponse > insertWatermarkText(InsertWatermarkTextRequest request) async {
     return await _apiClient.call(request) as DocumentResponse;
   }
 
   /// Inserts a new watermark text to the document.
-  @Deprecated('This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.')
+  @Deprecated("This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.")
   Future< InsertWatermarkTextOnlineResponse > insertWatermarkTextOnline(InsertWatermarkTextOnlineRequest request) async {
     return await _apiClient.call(request) as InsertWatermarkTextOnlineResponse;
   }
@@ -1468,13 +1468,13 @@ class WordsApi {
   }
 
   /// Converts a document in cloud storage to TIFF format using detailed conversion settings.
-  @Deprecated('This operation will be removed in the future.')
+  @Deprecated("This operation will be removed in the future.")
   Future< SaveResponse > saveAsTiff(SaveAsTiffRequest request) async {
     return await _apiClient.call(request) as SaveResponse;
   }
 
   /// Converts a document in cloud storage to TIFF format using detailed conversion settings.
-  @Deprecated('This operation will be removed in the future.')
+  @Deprecated("This operation will be removed in the future.")
   Future< SaveAsTiffOnlineResponse > saveAsTiffOnline(SaveAsTiffOnlineRequest request) async {
     return await _apiClient.call(request) as SaveAsTiffOnlineResponse;
   }

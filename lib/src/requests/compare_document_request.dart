@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="compare_document_request.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -60,10 +60,7 @@ class CompareDocumentRequest implements RequestBase {
   /// Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
   final String? destFileName;
 
-  /// encrypted password for the second document.
-  final String? encryptedPassword2;
-
-  CompareDocumentRequest(this.name, this.compareData, {this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.encryptedPassword2});
+  CompareDocumentRequest(this.name, this.compareData, {this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -100,10 +97,6 @@ class CompareDocumentRequest implements RequestBase {
       _queryParams['destFileName'] = _apiClient.serializeToString(destFileName) ?? "";
     }
 
-    if (encryptedPassword2 != null) {
-      _queryParams['encryptedPassword2'] = _apiClient.serializeToString(encryptedPassword2) ?? "";
-    }
-
     if (compareData != null) {
       compareData!.validate();
 
@@ -118,6 +111,7 @@ class CompareDocumentRequest implements RequestBase {
     }
 
     for (final _fileContentPart in _fileContentParts) {
+        _fileContentPart.encryptPassword(_apiClient);
         if (_fileContentPart.source == 'Request') {
             _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }

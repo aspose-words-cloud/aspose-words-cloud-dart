@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="model_base.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -171,7 +171,6 @@ abstract class ModelBase {
     'MetafileRenderingOptionsData, _': () => MetafileRenderingOptionsData(),
     'MhtmlSaveOptionsData, _': () => MhtmlSaveOptionsData(),
     'ModificationOperationResult, _': () => ModificationOperationResult(),
-    'NewDocumentPosition, _': () => NewDocumentPosition(),
     'NodeLink, _': () => NodeLink(),
     'OdtSaveOptionsData, _': () => OdtSaveOptionsData(),
     'OfficeMathLink, _': () => OfficeMathLink(),
@@ -202,6 +201,9 @@ abstract class ModelBase {
     'PdfPermissions, _': () => throw ApiException(400, 'Invalid type of class.'),
     'PdfSaveOptionsData, _': () => PdfSaveOptionsData(),
     'PngSaveOptionsData, _': () => PngSaveOptionsData(),
+    'PositionAfterNode, _': () => PositionAfterNode(),
+    'PositionBeforeNode, _': () => PositionBeforeNode(),
+    'PositionInsideNode, _': () => PositionInsideNode(),
     'PreferredWidth, _': () => PreferredWidth(),
     'ProtectionData, _': () => ProtectionData(),
     'ProtectionDataResponse, _': () => ProtectionDataResponse(),

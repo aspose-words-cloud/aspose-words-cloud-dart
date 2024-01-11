@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="watermark_text.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,7 +30,7 @@ library aspose_words_cloud;
 import '../../aspose_words_cloud.dart';
 
 /// Class for insert watermark text request building.
-@Deprecated('This model will be removed in the future.')
+@Deprecated("This model will be removed in the future.")
 class WatermarkText implements ModelBase {
   /// Gets or sets the watermark rotation angle.
   double? _rotationAngle;

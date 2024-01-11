@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="structured_document_tag_insert.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,6 +43,13 @@ class StructuredDocumentTagInsert extends StructuredDocumentTagBase {
 
   StructuredDocumentTagInsert_SdtTypeEnum? get sdtType => _sdtType;
   set sdtType(StructuredDocumentTagInsert_SdtTypeEnum? val) => _sdtType = val;
+
+
+  /// Gets or sets the position of the node that will be used to determine the placement of a new node.
+  Position? _position;
+
+  Position? get position => _position;
+  set position(Position? val) => _position = val;
 
 
   @override
@@ -260,6 +267,12 @@ class StructuredDocumentTagInsert extends StructuredDocumentTagBase {
     } else {
       sdtType = null;
     }
+
+    if (json.containsKey('Position')) {
+      position = ModelBase.createInstance< Position >(json['Position'] as Map<String, dynamic>);
+    } else {
+      position = null;
+    }
   }
 
   @override
@@ -299,6 +312,10 @@ class StructuredDocumentTagInsert extends StructuredDocumentTagBase {
         default: break;
       }
     }
+
+    if (position != null) {
+      _result['Position'] = position!.serialize();
+    }
     return _result;
   }
 
@@ -317,6 +334,9 @@ class StructuredDocumentTagInsert extends StructuredDocumentTagBase {
     {
         throw new ApiException(400, 'Property SdtType in StructuredDocumentTagInsert is required.');
     }
+
+    position?.validate();
+
   }
 }
 

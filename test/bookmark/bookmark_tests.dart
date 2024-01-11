@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="bookmark_tests.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -197,11 +197,11 @@ class BookmarkTests
   {
     final remoteFileName = 'TestInsertBookmark.docx';
     await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestBookmarkStartRange = NewDocumentPosition();
+    final requestBookmarkStartRange = PositionInsideNode();
     requestBookmarkStartRange.nodeId = '0.0.0.0';
     requestBookmarkStartRange.offset = 0;
 
-    final requestBookmarkEndRange = NewDocumentPosition();
+    final requestBookmarkEndRange = PositionInsideNode();
     requestBookmarkEndRange.nodeId = '0.0.0.0';
     requestBookmarkEndRange.offset = 0;
 
@@ -225,11 +225,11 @@ class BookmarkTests
   {
     final requestDocument = await context.loadBinaryFile(localFile);
 
-    final requestBookmarkStartRange = NewDocumentPosition();
+    final requestBookmarkStartRange = PositionInsideNode();
     requestBookmarkStartRange.nodeId = '0.0.0.0';
     requestBookmarkStartRange.offset = 0;
 
-    final requestBookmarkEndRange = NewDocumentPosition();
+    final requestBookmarkEndRange = PositionInsideNode();
     requestBookmarkEndRange.nodeId = '0.0.0.0';
     requestBookmarkEndRange.offset = 0;
 

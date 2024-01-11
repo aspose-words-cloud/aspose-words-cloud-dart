@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="insert_run_online_request.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -38,11 +38,11 @@ class InsertRunOnlineRequest implements RequestBase {
   /// The document.
   final ByteData? document;
 
-  /// The path to the paragraph in the document tree.
-  final String? paragraphPath;
-
   /// Run data.
   final RunInsert? run;
+
+  /// The path to the paragraph in the document tree.
+  final String? paragraphPath;
 
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
   final String? loadEncoding;
@@ -62,10 +62,7 @@ class InsertRunOnlineRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String? revisionDateTime;
 
-  /// The index of the node. A new Run object will be inserted before the node with the specified node Id.
-  final String? insertBeforeNode;
-
-  InsertRunOnlineRequest(this.document, this.paragraphPath, this.run, {this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime, this.insertBeforeNode});
+  InsertRunOnlineRequest(this.document, this.run, {this.paragraphPath, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -74,9 +71,6 @@ class InsertRunOnlineRequest implements RequestBase {
     var _headers = <String, String>{};
     var _bodyParts = <ApiRequestPart>[];
     var _fileContentParts = <FileReference>[];
-    if (paragraphPath == null) {
-      throw ApiException(400, 'Parameter paragraphPath is required.');
-    }
     _path = _path.replaceAll('{paragraphPath}', _apiClient.serializeToString(paragraphPath) ?? "");
     if (loadEncoding != null) {
       _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding) ?? "";
@@ -100,10 +94,6 @@ class InsertRunOnlineRequest implements RequestBase {
 
     if (revisionDateTime != null) {
       _queryParams['revisionDateTime'] = _apiClient.serializeToString(revisionDateTime) ?? "";
-    }
-
-    if (insertBeforeNode != null) {
-      _queryParams['insertBeforeNode'] = _apiClient.serializeToString(insertBeforeNode) ?? "";
     }
 
     if (document != null) {
@@ -130,6 +120,7 @@ class InsertRunOnlineRequest implements RequestBase {
     }
 
     for (final _fileContentPart in _fileContentParts) {
+        _fileContentPart.encryptPassword(_apiClient);
         if (_fileContentPart.source == 'Request') {
             _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }

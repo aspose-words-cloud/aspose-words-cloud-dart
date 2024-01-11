@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="insert_field_request.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -69,10 +69,7 @@ class InsertFieldRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String? revisionDateTime;
 
-  /// The index of the node. A new field will be inserted before the node with the specified node Id.
-  final String? insertBeforeNode;
-
-  InsertFieldRequest(this.name, this.field, {this.nodePath, this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime, this.insertBeforeNode});
+  InsertFieldRequest(this.name, this.field, {this.nodePath, this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -118,10 +115,6 @@ class InsertFieldRequest implements RequestBase {
       _queryParams['revisionDateTime'] = _apiClient.serializeToString(revisionDateTime) ?? "";
     }
 
-    if (insertBeforeNode != null) {
-      _queryParams['insertBeforeNode'] = _apiClient.serializeToString(insertBeforeNode) ?? "";
-    }
-
     if (field != null) {
       field!.validate();
 
@@ -135,6 +128,7 @@ class InsertFieldRequest implements RequestBase {
     }
 
     for (final _fileContentPart in _fileContentParts) {
+        _fileContentPart.encryptPassword(_apiClient);
         if (_fileContentPart.source == 'Request') {
             _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }

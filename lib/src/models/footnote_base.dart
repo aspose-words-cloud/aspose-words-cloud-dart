@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="footnote_base.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,11 +31,11 @@ import '../../aspose_words_cloud.dart';
 
 /// Footnote base class.
 abstract class FootnoteBase implements ModelBase {
-  /// Gets or sets the link to comment range start node.
-  NewDocumentPosition? _position;
+  /// Gets or sets the link to range start node.
+  Position? _position;
 
-  NewDocumentPosition? get position => _position;
-  set position(NewDocumentPosition? val) => _position = val;
+  Position? get position => _position;
+  set position(Position? val) => _position = val;
 
 
   /// Gets or sets the option, that specifies whether this is a footnote or endnote.
@@ -69,7 +69,7 @@ abstract class FootnoteBase implements ModelBase {
     }
 
     if (json.containsKey('Position')) {
-      position = ModelBase.createInstance< NewDocumentPosition >(json['Position'] as Map<String, dynamic>);
+      position = ModelBase.createInstance< Position >(json['Position'] as Map<String, dynamic>);
     } else {
       position = null;
     }

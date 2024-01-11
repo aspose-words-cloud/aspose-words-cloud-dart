@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="insert_table_cell_request.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,11 +39,11 @@ class InsertTableCellRequest implements RequestBase {
   /// The filename of the input document.
   final String? name;
 
-  /// The path to the table row in the document tree.
-  final String? tableRowPath;
-
   /// Table cell parameters.
   final TableCellInsert? cell;
+
+  /// The path to the table row in the document tree.
+  final String? tableRowPath;
 
   /// Original document folder.
   final String? folder;
@@ -69,7 +69,7 @@ class InsertTableCellRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String? revisionDateTime;
 
-  InsertTableCellRequest(this.name, this.tableRowPath, this.cell, {this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime});
+  InsertTableCellRequest(this.name, this.cell, {this.tableRowPath, this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -82,10 +82,6 @@ class InsertTableCellRequest implements RequestBase {
       throw ApiException(400, 'Parameter name is required.');
     }
     _path = _path.replaceAll('{name}', _apiClient.serializeToString(name) ?? "");
-
-    if (tableRowPath == null) {
-      throw ApiException(400, 'Parameter tableRowPath is required.');
-    }
     _path = _path.replaceAll('{tableRowPath}', _apiClient.serializeToString(tableRowPath) ?? "");
     if (folder != null) {
       _queryParams['folder'] = _apiClient.serializeToString(folder) ?? "";
@@ -132,6 +128,7 @@ class InsertTableCellRequest implements RequestBase {
     }
 
     for (final _fileContentPart in _fileContentParts) {
+        _fileContentPart.encryptPassword(_apiClient);
         if (_fileContentPart.source == 'Request') {
             _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }

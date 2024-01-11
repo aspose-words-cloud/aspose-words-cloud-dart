@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="bookmark_insert.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -46,17 +46,17 @@ class BookmarkInsert implements ModelBase {
 
 
   /// Gets or sets the link to start bookmark node.
-  NewDocumentPosition? _startRange;
+  Position? _startRange;
 
-  NewDocumentPosition? get startRange => _startRange;
-  set startRange(NewDocumentPosition? val) => _startRange = val;
+  Position? get startRange => _startRange;
+  set startRange(Position? val) => _startRange = val;
 
 
   /// Gets or sets the link to end bookmark node.
-  NewDocumentPosition? _endRange;
+  Position? _endRange;
 
-  NewDocumentPosition? get endRange => _endRange;
-  set endRange(NewDocumentPosition? val) => _endRange = val;
+  Position? get endRange => _endRange;
+  set endRange(Position? val) => _endRange = val;
 
 
   @override
@@ -78,13 +78,13 @@ class BookmarkInsert implements ModelBase {
     }
 
     if (json.containsKey('StartRange')) {
-      startRange = ModelBase.createInstance< NewDocumentPosition >(json['StartRange'] as Map<String, dynamic>);
+      startRange = ModelBase.createInstance< Position >(json['StartRange'] as Map<String, dynamic>);
     } else {
       startRange = null;
     }
 
     if (json.containsKey('EndRange')) {
-      endRange = ModelBase.createInstance< NewDocumentPosition >(json['EndRange'] as Map<String, dynamic>);
+      endRange = ModelBase.createInstance< Position >(json['EndRange'] as Map<String, dynamic>);
     } else {
       endRange = null;
     }

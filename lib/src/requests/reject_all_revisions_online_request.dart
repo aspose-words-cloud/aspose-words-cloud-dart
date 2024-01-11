@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="reject_all_revisions_online_request.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -87,6 +87,7 @@ class RejectAllRevisionsOnlineRequest implements RequestBase {
     }
 
     for (final _fileContentPart in _fileContentParts) {
+        _fileContentPart.encryptPassword(_apiClient);
         if (_fileContentPart.source == 'Request') {
             _bodyParts.add(ApiRequestPart(_fileContentPart.content!, 'application/octet-stream', name: _fileContentPart.reference));
         }

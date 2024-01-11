@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="aspose_words_cloud_tests.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -163,6 +163,7 @@ void main() {
     test('CompareDocument', () async => await CompareDocumentTests(testContext).testCompareDocument());
     test('CompareDocumentOnline', () async => await CompareDocumentTests(testContext).testCompareDocumentOnline());
     test('CompareTwoDocumentOnline', () async => await CompareDocumentTests(testContext).testCompareTwoDocumentOnline());
+    test('CompareDocumentWithPassword', () async => await CompareDocumentTests(testContext).testCompareDocumentWithPassword());
   });
 
   group('CompressDocument', () {

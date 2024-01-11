@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="paragraph_insert.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -38,6 +38,13 @@ class ParagraphInsert implements ModelBase {
   set text(String? val) => _text = val;
 
 
+  /// Gets or sets the position of the node that will be used to determine the placement of a new paragraph.
+  Position? _position;
+
+  Position? get position => _position;
+  set position(Position? val) => _position = val;
+
+
   @override
   void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
@@ -49,6 +56,12 @@ class ParagraphInsert implements ModelBase {
     } else {
       text = null;
     }
+
+    if (json.containsKey('Position')) {
+      position = ModelBase.createInstance< Position >(json['Position'] as Map<String, dynamic>);
+    } else {
+      position = null;
+    }
   }
 
   @override
@@ -56,6 +69,10 @@ class ParagraphInsert implements ModelBase {
     var _result = <String, dynamic>{};
     if (text != null) {
       _result['Text'] = text!;
+    }
+
+    if (position != null) {
+      _result['Position'] = position!.serialize();
     }
     return _result;
   }
@@ -70,6 +87,9 @@ class ParagraphInsert implements ModelBase {
     {
         throw new ApiException(400, 'Property Text in ParagraphInsert is required.');
     }
+
+    position?.validate();
+
   }
 }
 

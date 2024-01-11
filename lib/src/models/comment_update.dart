@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="comment_update.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -40,13 +40,13 @@ class CommentUpdate extends CommentBase {
 
     super.deserialize(json);
     if (json.containsKey('RangeStart')) {
-      rangeStart = ModelBase.createInstance< NewDocumentPosition >(json['RangeStart'] as Map<String, dynamic>);
+      rangeStart = ModelBase.createInstance< PositionInsideNode >(json['RangeStart'] as Map<String, dynamic>);
     } else {
       rangeStart = null;
     }
 
     if (json.containsKey('RangeEnd')) {
-      rangeEnd = ModelBase.createInstance< NewDocumentPosition >(json['RangeEnd'] as Map<String, dynamic>);
+      rangeEnd = ModelBase.createInstance< PositionInsideNode >(json['RangeEnd'] as Map<String, dynamic>);
     } else {
       rangeEnd = null;
     }

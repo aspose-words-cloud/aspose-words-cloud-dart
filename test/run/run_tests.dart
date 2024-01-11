@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="run_tests.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -91,8 +91,8 @@ class RunTests
 
     final request = InsertRunRequest(
       remoteFileName,
-      'paragraphs/1',
       requestRun,
+      paragraphPath: 'paragraphs/1',
       folder: remoteDataFolder
     );
 
@@ -112,8 +112,8 @@ class RunTests
 
     final request = InsertRunOnlineRequest(
       requestDocument,
-      'paragraphs/1',
-      requestRun
+      requestRun,
+      paragraphPath: 'paragraphs/1'
     );
 
     await context.getApi().insertRunOnline(request);

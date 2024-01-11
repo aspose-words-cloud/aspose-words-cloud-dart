@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="aspose_words_cloud.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -174,7 +174,6 @@ export 'src/models/metafile_rendering_options_data.dart';
 export 'src/models/mhtml_save_options_data.dart';
 export 'src/models/model_base.dart';
 export 'src/models/modification_operation_result.dart';
-export 'src/models/new_document_position.dart';
 export 'src/models/node_link.dart';
 export 'src/models/odt_save_options_data.dart';
 export 'src/models/office_math_link.dart';
@@ -207,6 +206,10 @@ export 'src/models/pdf_encryption_details_data.dart';
 export 'src/models/pdf_permissions.dart';
 export 'src/models/pdf_save_options_data.dart';
 export 'src/models/png_save_options_data.dart';
+export 'src/models/position_after_node.dart';
+export 'src/models/position_before_node.dart';
+export 'src/models/position_inside_node.dart';
+export 'src/models/position.dart';
 export 'src/models/preferred_width.dart';
 export 'src/models/protection_data_response.dart';
 export 'src/models/protection_data.dart';

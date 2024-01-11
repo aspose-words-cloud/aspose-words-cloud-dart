@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="api_client.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -72,8 +72,8 @@ class ApiClient {
             if (rsaPublicKey == null || rsaPublicKey.modulus == null || rsaPublicKey.exponent == null) {
               throw ApiException(400, 'Invalid public key response.');
             }
-            exponentString = rsaPublicKey.modulus as String;
-            modulusString = rsaPublicKey.exponent as String;
+            exponentString = rsaPublicKey.exponent as String;
+            modulusString = rsaPublicKey.modulus as String;
         }
 
         final modulus = BigInt.parse(hex.encode(base64Decode(modulusString)), radix: 16);
@@ -503,7 +503,7 @@ class ApiClient {
 
     var httpRequest = http.Request(requestData.method, Uri.parse(requestData.url));
     httpRequest.headers['x-aspose-client'] = 'dart sdk';
-    httpRequest.headers['x-aspose-client-version'] = '23.12';
+    httpRequest.headers['x-aspose-client-version'] = '24.1';
     httpRequest.headers['Authorization'] = await _getAuthToken();
     httpRequest.headers.addAll(requestData.headers);
 

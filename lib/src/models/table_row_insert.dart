@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="table_row_insert.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -38,10 +38,19 @@ class TableRowInsert implements ModelBase {
   set columnsCount(int? val) => _columnsCount = val;
 
 
+  /// Gets or sets the position of the table row that will be used to determine the placement of a new row.
+  Position? _existingRowPosition;
+
+  Position? get existingRowPosition => _existingRowPosition;
+  set existingRowPosition(Position? val) => _existingRowPosition = val;
+
+
   /// Gets or sets table row will be inserted after row with specified 0-based index.
   int? _insertAfter;
 
+  @Deprecated("This property will be removed in the future.")
   int? get insertAfter => _insertAfter;
+  @Deprecated("This property will be removed in the future.")
   set insertAfter(int? val) => _insertAfter = val;
 
 
@@ -57,6 +66,12 @@ class TableRowInsert implements ModelBase {
       columnsCount = null;
     }
 
+    if (json.containsKey('ExistingRowPosition')) {
+      existingRowPosition = ModelBase.createInstance< Position >(json['ExistingRowPosition'] as Map<String, dynamic>);
+    } else {
+      existingRowPosition = null;
+    }
+
     if (json.containsKey('InsertAfter')) {
       insertAfter = json['InsertAfter'] as int;
     } else {
@@ -69,6 +84,10 @@ class TableRowInsert implements ModelBase {
     var _result = <String, dynamic>{};
     if (columnsCount != null) {
       _result['ColumnsCount'] = columnsCount!;
+    }
+
+    if (existingRowPosition != null) {
+      _result['ExistingRowPosition'] = existingRowPosition!.serialize();
     }
 
     if (insertAfter != null) {
@@ -87,6 +106,10 @@ class TableRowInsert implements ModelBase {
     {
         throw new ApiException(400, 'Property ColumnsCount in TableRowInsert is required.');
     }
+
+    existingRowPosition?.validate();
+
+
   }
 }
 

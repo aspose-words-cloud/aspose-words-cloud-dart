@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="table_tests.dart">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -459,8 +459,8 @@ class TableTests
 
     final request = InsertTableRowRequest(
       remoteFileName,
-      'sections/0/tables/2',
       requestRow,
+      nodePath: 'sections/0/tables/2',
       folder: remoteDataFolder
     );
 
@@ -480,8 +480,8 @@ class TableTests
 
     final request = InsertTableRowOnlineRequest(
       requestDocument,
-      'sections/0/tables/2',
-      requestRow
+      requestRow,
+      nodePath: 'sections/0/tables/2'
     );
 
     await context.getApi().insertTableRowOnline(request);
@@ -638,8 +638,8 @@ class TableTests
 
     final request = InsertTableCellRequest(
       remoteFileName,
-      'sections/0/tables/2/rows/0',
       requestCell,
+      tableRowPath: 'sections/0/tables/2/rows/0',
       folder: remoteDataFolder
     );
 
@@ -658,8 +658,8 @@ class TableTests
 
     final request = InsertTableCellOnlineRequest(
       requestDocument,
-      'sections/0/tables/2/rows/0',
-      requestCell
+      requestCell,
+      tableRowPath: 'sections/0/tables/2/rows/0'
     );
 
     await context.getApi().insertTableCellOnline(request);
