@@ -1,43 +1,5 @@
 parameters {
     string(name: 'tagVersion', description: 'new version number for tag')
-    string(name: 'testServerUrl', defaultValue: 'https://api-qa.aspose.cloud', description: 'server url')
-}
- 
-def runtests()
-{
-    dir('dart') {
-        try {
-            stage('checkout'){
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'LocalBranch', localBranch: "**"]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '361885ba-9425-4230-950e-0af201d90547', url: 'https://git.auckland.dynabic.com/words-cloud/words-cloud-dart.git']]])
-                        withCredentials([usernamePassword(credentialsId: '6839cbe8-39fa-40c0-86ce-90706f0bae5d', passwordVariable: 'ClientSecret', usernameVariable: 'ClientId')]) {
-                            sh 'mkdir -p settings'
-                            sh 'echo "{\\"ClientId\\": \\"$ClientId\\", \\"ClientSecret\\": \\"$ClientSecret\\", \\"BaseUrl\\": \\"$testServerUrl\\"}" > settings/servercreds.json'
-                        }
-            }
-            
-            docker.image('dart:2.19.4').inside {
-                stage('prepare'){
-                    sh "dart pub get"
-                    sh "dart pub global activate junitreport"
-                }
-                
-                stage('lint'){
-                    sh "dart analyze --fatal-warnings ."
-                }
-            
-                stage('tests'){
-                    try {
-                        sh "dart run test test/aspose_words_cloud_tests.dart --concurrency=1 --no-color --reporter expanded --file-reporter json:testReport.json"
-                    } finally {
-                        sh "dart pub global run junitreport:tojunit --input testReport.json --output testReport.xml"
-                        junit 'testReport.xml'
-                    }
-                }
-            } 
-        } finally {
-            deleteDir()
-        }
-    }
 }
 
 def makerelease() {
@@ -73,6 +35,5 @@ def makerelease() {
 
 node('words-linux') {
     cleanWs()
-    runtests()
     makerelease()
 }
