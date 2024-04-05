@@ -30,7 +30,6 @@
 .pub/
 build/
 **/servercreds.json
-Settings/**
 testReport.json
 testReport.xml
 

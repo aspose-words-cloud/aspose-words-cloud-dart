@@ -1322,6 +1322,16 @@ class WordsApi {
     return await _apiClient.call(request) as SaveResponse;
   }
 
+  /// Merge the section with the next one.
+  Future< void > mergeWithNext(MergeWithNextRequest request) async {
+  await _apiClient.call(request);
+  }
+
+  /// Merge the section with the next one.
+  Future< Map<String, ByteData> > mergeWithNextOnline(MergeWithNextOnlineRequest request) async {
+    return await _apiClient.call(request) as Map<String, ByteData>;
+  }
+
   /// Move file.
   Future< void > moveFile(MoveFileRequest request) async {
   await _apiClient.call(request);

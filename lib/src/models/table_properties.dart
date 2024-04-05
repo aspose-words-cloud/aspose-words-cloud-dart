@@ -616,8 +616,8 @@ class TableProperties extends LinkElement {
 
     if (json.containsKey('TextWrapping')) {
       switch (json['TextWrapping'] as String) {
-        case 'Default': textWrapping = TableProperties_TextWrappingEnum.defaultValue; break;
         case 'None': textWrapping = TableProperties_TextWrappingEnum.none; break;
+        case 'Default': textWrapping = TableProperties_TextWrappingEnum.defaultValue; break;
         case 'Around': textWrapping = TableProperties_TextWrappingEnum.around; break;
         default: textWrapping = null; break;
       }
@@ -1082,8 +1082,8 @@ class TableProperties extends LinkElement {
 
     if (textWrapping != null) {
       switch (textWrapping!) {
-        case TableProperties_TextWrappingEnum.defaultValue: _result['TextWrapping'] = 'Default'; break;
         case TableProperties_TextWrappingEnum.none: _result['TextWrapping'] = 'None'; break;
+        case TableProperties_TextWrappingEnum.defaultValue: _result['TextWrapping'] = 'Default'; break;
         case TableProperties_TextWrappingEnum.around: _result['TextWrapping'] = 'Around'; break;
         default: break;
       }
@@ -1523,8 +1523,8 @@ enum TableProperties_StyleOptionsEnum
 /// Gets or sets the option that controls text wrapping for the table.
 enum TableProperties_TextWrappingEnum
 { 
-  defaultValue,
   none,
+  defaultValue,
   around
 }
 

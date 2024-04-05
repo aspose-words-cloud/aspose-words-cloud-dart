@@ -565,6 +565,8 @@ export 'src/requests/insert_watermark_text_online_request.dart';
 export 'src/requests/insert_watermark_text_request.dart';
 export 'src/requests/link_header_footers_to_previous_request.dart';
 export 'src/requests/load_web_document_request.dart';
+export 'src/requests/merge_with_next_online_request.dart';
+export 'src/requests/merge_with_next_request.dart';
 export 'src/requests/move_file_request.dart';
 export 'src/requests/move_folder_request.dart';
 export 'src/requests/optimize_document_online_request.dart';

@@ -82,8 +82,8 @@ class StructuredDocumentTag extends StructuredDocumentTagBase {
 
     if (json.containsKey('Appearance')) {
       switch (json['Appearance'] as String) {
-        case 'Default': appearance = StructuredDocumentTagBase_AppearanceEnum.defaultValue; break;
         case 'BoundingBox': appearance = StructuredDocumentTagBase_AppearanceEnum.boundingBox; break;
+        case 'Default': appearance = StructuredDocumentTagBase_AppearanceEnum.defaultValue; break;
         case 'Tags': appearance = StructuredDocumentTagBase_AppearanceEnum.tags; break;
         case 'Hidden': appearance = StructuredDocumentTagBase_AppearanceEnum.hidden; break;
         default: appearance = null; break;

@@ -254,8 +254,8 @@ abstract class StructuredDocumentTagBase extends NodeLink {
 
     if (json.containsKey('Appearance')) {
       switch (json['Appearance'] as String) {
-        case 'Default': appearance = StructuredDocumentTagBase_AppearanceEnum.defaultValue; break;
         case 'BoundingBox': appearance = StructuredDocumentTagBase_AppearanceEnum.boundingBox; break;
+        case 'Default': appearance = StructuredDocumentTagBase_AppearanceEnum.defaultValue; break;
         case 'Tags': appearance = StructuredDocumentTagBase_AppearanceEnum.tags; break;
         case 'Hidden': appearance = StructuredDocumentTagBase_AppearanceEnum.hidden; break;
         default: appearance = null; break;
@@ -410,8 +410,8 @@ abstract class StructuredDocumentTagBase extends NodeLink {
 
     if (appearance != null) {
       switch (appearance!) {
-        case StructuredDocumentTagBase_AppearanceEnum.defaultValue: _result['Appearance'] = 'Default'; break;
         case StructuredDocumentTagBase_AppearanceEnum.boundingBox: _result['Appearance'] = 'BoundingBox'; break;
+        case StructuredDocumentTagBase_AppearanceEnum.defaultValue: _result['Appearance'] = 'Default'; break;
         case StructuredDocumentTagBase_AppearanceEnum.tags: _result['Appearance'] = 'Tags'; break;
         case StructuredDocumentTagBase_AppearanceEnum.hidden: _result['Appearance'] = 'Hidden'; break;
         default: break;
@@ -562,8 +562,8 @@ abstract class StructuredDocumentTagBase extends NodeLink {
 /// Gets or sets the appearance of a structured document tag.
 enum StructuredDocumentTagBase_AppearanceEnum
 { 
-  defaultValue,
   boundingBox,
+  defaultValue,
   tags,
   hidden
 }
