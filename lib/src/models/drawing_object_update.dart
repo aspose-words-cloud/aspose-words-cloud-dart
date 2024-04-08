@@ -80,6 +80,13 @@ class DrawingObjectUpdate implements ModelBase {
   set wrapType(DrawingObjectUpdate_WrapTypeEnum? val) => _wrapType = val;
 
 
+  /// Gets or sets a value indicating whether AspectRatioLocked option on or off.
+  bool? _aspectRatioLocked;
+
+  bool? get aspectRatioLocked => _aspectRatioLocked;
+  set aspectRatioLocked(bool? val) => _aspectRatioLocked = val;
+
+
   @override
   void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
@@ -158,6 +165,12 @@ class DrawingObjectUpdate implements ModelBase {
     } else {
       wrapType = null;
     }
+
+    if (json.containsKey('AspectRatioLocked')) {
+      aspectRatioLocked = json['AspectRatioLocked'] as bool;
+    } else {
+      aspectRatioLocked = null;
+    }
   }
 
   @override
@@ -220,6 +233,10 @@ class DrawingObjectUpdate implements ModelBase {
         case DrawingObjectUpdate_WrapTypeEnum.through: _result['WrapType'] = 'Through'; break;
         default: break;
       }
+    }
+
+    if (aspectRatioLocked != null) {
+      _result['AspectRatioLocked'] = aspectRatioLocked!;
     }
     return _result;
   }

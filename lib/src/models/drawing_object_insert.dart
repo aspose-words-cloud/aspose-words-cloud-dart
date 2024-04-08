@@ -87,6 +87,13 @@ class DrawingObjectInsert implements ModelBase {
   set wrapType(DrawingObjectInsert_WrapTypeEnum? val) => _wrapType = val;
 
 
+  /// Gets or sets a value indicating whether AspectRatioLocked option on or off.
+  bool? _aspectRatioLocked;
+
+  bool? get aspectRatioLocked => _aspectRatioLocked;
+  set aspectRatioLocked(bool? val) => _aspectRatioLocked = val;
+
+
   @override
   void deserialize(Map<String, dynamic>? json) {
     if (json == null) {
@@ -171,6 +178,12 @@ class DrawingObjectInsert implements ModelBase {
     } else {
       wrapType = null;
     }
+
+    if (json.containsKey('AspectRatioLocked')) {
+      aspectRatioLocked = json['AspectRatioLocked'] as bool;
+    } else {
+      aspectRatioLocked = null;
+    }
   }
 
   @override
@@ -238,6 +251,10 @@ class DrawingObjectInsert implements ModelBase {
         default: break;
       }
     }
+
+    if (aspectRatioLocked != null) {
+      _result['AspectRatioLocked'] = aspectRatioLocked!;
+    }
     return _result;
   }
 
@@ -277,6 +294,7 @@ class DrawingObjectInsert implements ModelBase {
     }
 
     position?.validate();
+
 
 
 
