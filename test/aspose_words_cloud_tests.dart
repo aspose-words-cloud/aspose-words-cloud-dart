@@ -521,6 +521,8 @@ void main() {
     test('GetSectionsOnline', () async => await SectionTests(testContext).testGetSectionsOnline());
     test('DeleteSection', () async => await SectionTests(testContext).testDeleteSection());
     test('DeleteSectionOnline', () async => await SectionTests(testContext).testDeleteSectionOnline());
+    test('MergeWithNext', () async => await SectionTests(testContext).testMergeWithNext());
+    test('MergeWithNextOnline', () async => await SectionTests(testContext).testMergeWithNextOnline());
     test('InsertSection', () async => await SectionTests(testContext).testInsertSection());
     test('InsertSectionOnline', () async => await SectionTests(testContext).testInsertSectionOnline());
     test('LinkHeaderFootersToPrevious', () async => await SectionTests(testContext).testLinkHeaderFootersToPrevious());

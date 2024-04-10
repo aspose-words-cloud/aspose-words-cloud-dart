@@ -132,6 +132,34 @@ class SectionTests
     await context.getApi().deleteSectionOnline(request);
   }
 
+  /// Test for merge a section with the next one.
+  Future<void> testMergeWithNext() async
+  {
+    final remoteFileName = 'TestMergeWithNext.docx';
+    await context.uploadFile('DocumentElements/Sections/Source.docx', remoteDataFolder + '/' + remoteFileName);
+
+    final request = MergeWithNextRequest(
+      remoteFileName,
+      0,
+      folder: remoteDataFolder
+    );
+
+    await context.getApi().mergeWithNext(request);
+  }
+
+  /// Test for merge a section with the next one online.
+  Future<void> testMergeWithNextOnline() async
+  {
+    final requestDocument = await context.loadBinaryFile('DocumentElements/Sections/Source.docx');
+
+    final request = MergeWithNextOnlineRequest(
+      requestDocument,
+      0
+    );
+
+    await context.getApi().mergeWithNextOnline(request);
+  }
+
   /// Test for insertion a section.
   Future<void> testInsertSection() async
   {

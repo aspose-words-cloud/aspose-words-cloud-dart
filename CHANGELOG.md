@@ -1,3 +1,8 @@
+## [24.4.0] - Aspose Words Cloud for Dart 24.4 Release Notes
+
+- Added the 'MergeWithNext' method to merge a section with the next one.
+
+
 ## [24.3.0] - Aspose Words Cloud for Dart 24.3 Release Notes
 
 - Added support for 'RemoveEmptyCells' option for the 'Cleanup' parameter in the insert 'MailMerge' API method.
