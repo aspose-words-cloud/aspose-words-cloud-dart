@@ -1,6 +1,7 @@
 ## [24.4.0] - Aspose Words Cloud for Dart 24.4 Release Notes
 
 - Added the 'MergeWithNext' method to merge a section with the next one.
+- Added the 'LockAspectRatio' propperty for DrawingObjectInsert and DrawingObjectUpdate methods.
 
 
 ## [24.3.0] - Aspose Words Cloud for Dart 24.3 Release Notes
