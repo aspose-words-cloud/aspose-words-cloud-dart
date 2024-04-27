@@ -41,14 +41,17 @@ class UpdateDrawingObjectOnlineRequest implements RequestBase {
   /// Drawing object parameters.
   final DrawingObjectUpdate? drawingObject;
 
-  /// File with image.
-  final ByteData? imageFile;
-
   /// Object index.
   final int? index;
 
   /// The path to the node in the document tree.
   final String? nodePath;
+
+  /// File with image.
+  final ByteData? imageFile;
+
+  /// The link to the image.
+  final String? url;
 
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
   final String? loadEncoding;
@@ -68,7 +71,7 @@ class UpdateDrawingObjectOnlineRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String? revisionDateTime;
 
-  UpdateDrawingObjectOnlineRequest(this.document, this.drawingObject, this.imageFile, this.index, {this.nodePath, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime});
+  UpdateDrawingObjectOnlineRequest(this.document, this.drawingObject, this.index, {this.nodePath, this.imageFile, this.url, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -82,6 +85,10 @@ class UpdateDrawingObjectOnlineRequest implements RequestBase {
     }
     _path = _path.replaceAll('{index}', _apiClient.serializeToString(index) ?? "");
     _path = _path.replaceAll('{nodePath}', _apiClient.serializeToString(nodePath) ?? "");
+    if (url != null) {
+      _queryParams['url'] = _apiClient.serializeToString(url) ?? "";
+    }
+
     if (loadEncoding != null) {
       _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding) ?? "";
     }
@@ -135,9 +142,6 @@ class UpdateDrawingObjectOnlineRequest implements RequestBase {
       if (_formBody != null) {
         _bodyParts.add(_formBody);
       }
-    }
-    else {
-      throw ApiException(400, 'Parameter imageFile is required.');
     }
 
     for (final _fileContentPart in _fileContentParts) {

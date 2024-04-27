@@ -1,3 +1,8 @@
+## [24.5.0] - Aspose Words Cloud for Dart 24.5 Release Notes
+
+- Added an url parameter to InsertImage / UpdateImage methods. It allows to link to an image from a web URL.
+
+
 ## [24.4.0] - Aspose Words Cloud for Dart 24.4 Release Notes
 
 - Added the 'MergeWithNext' method to merge a section with the next one.

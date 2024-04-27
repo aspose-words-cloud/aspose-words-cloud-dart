@@ -270,12 +270,14 @@ void main() {
     test('InsertDrawingObject', () async => await DrawingObjectsTests(testContext).testInsertDrawingObject());
     test('InsertDrawingObjectOnline', () async => await DrawingObjectsTests(testContext).testInsertDrawingObjectOnline());
     test('InsertDrawingObjectWithoutNodePath', () async => await DrawingObjectsTests(testContext).testInsertDrawingObjectWithoutNodePath());
+    test('InsertDrawingObjectLink', () async => await DrawingObjectsTests(testContext).testInsertDrawingObjectLink());
     test('DeleteDrawingObject', () async => await DrawingObjectsTests(testContext).testDeleteDrawingObject());
     test('DeleteDrawingObjectOnline', () async => await DrawingObjectsTests(testContext).testDeleteDrawingObjectOnline());
     test('DeleteDrawingObjectWithoutNodePath', () async => await DrawingObjectsTests(testContext).testDeleteDrawingObjectWithoutNodePath());
     test('UpdateDrawingObject', () async => await DrawingObjectsTests(testContext).testUpdateDrawingObject());
     test('UpdateDrawingObjectOnline', () async => await DrawingObjectsTests(testContext).testUpdateDrawingObjectOnline());
     test('UpdateDrawingObjectWithoutNodePath', () async => await DrawingObjectsTests(testContext).testUpdateDrawingObjectWithoutNodePath());
+    test('UpdateDrawingObjectLink', () async => await DrawingObjectsTests(testContext).testUpdateDrawingObjectLink());
   });
 
   group('Field', () {

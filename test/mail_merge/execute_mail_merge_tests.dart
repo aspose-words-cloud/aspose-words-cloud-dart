@@ -53,7 +53,8 @@ class ExecuteMailMergeTests
 
     final request = ExecuteMailMergeOnlineRequest(
       requestTemplate,
-      requestData
+      requestData,
+      withRegions: true
     );
 
     await context.getApi().executeMailMergeOnline(request);
@@ -71,7 +72,7 @@ class ExecuteMailMergeTests
       remoteFileName,
       data: localDataFile,
       folder: remoteDataFolder,
-      withRegions: false,
+      withRegions: true,
       destFileName: context.baseTestOutPath + '/' + remoteFileName
     );
 
