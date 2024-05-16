@@ -42,17 +42,14 @@ class UpdateDrawingObjectRequest implements RequestBase {
   /// Drawing object parameters.
   final DrawingObjectUpdate? drawingObject;
 
+  /// File with image.
+  final ByteData? imageFile;
+
   /// Object index.
   final int? index;
 
   /// The path to the node in the document tree.
   final String? nodePath;
-
-  /// File with image.
-  final ByteData? imageFile;
-
-  /// The link to the image.
-  final String? url;
 
   /// Original document folder.
   final String? folder;
@@ -78,7 +75,7 @@ class UpdateDrawingObjectRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String? revisionDateTime;
 
-  UpdateDrawingObjectRequest(this.name, this.drawingObject, this.index, {this.nodePath, this.imageFile, this.url, this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime});
+  UpdateDrawingObjectRequest(this.name, this.drawingObject, this.imageFile, this.index, {this.nodePath, this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -97,10 +94,6 @@ class UpdateDrawingObjectRequest implements RequestBase {
     }
     _path = _path.replaceAll('{index}', _apiClient.serializeToString(index) ?? "");
     _path = _path.replaceAll('{nodePath}', _apiClient.serializeToString(nodePath) ?? "");
-    if (url != null) {
-      _queryParams['url'] = _apiClient.serializeToString(url) ?? "";
-    }
-
     if (folder != null) {
       _queryParams['folder'] = _apiClient.serializeToString(folder) ?? "";
     }
@@ -151,6 +144,9 @@ class UpdateDrawingObjectRequest implements RequestBase {
       if (_formBody != null) {
         _bodyParts.add(_formBody);
       }
+    }
+    else {
+      throw ApiException(400, 'Parameter imageFile is required.');
     }
 
     for (final _fileContentPart in _fileContentParts) {

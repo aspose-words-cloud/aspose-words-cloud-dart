@@ -41,14 +41,11 @@ class InsertDrawingObjectOnlineRequest implements RequestBase {
   /// Drawing object parameters.
   final DrawingObjectInsert? drawingObject;
 
-  /// The path to the node in the document tree.
-  final String? nodePath;
-
   /// File with image.
   final ByteData? imageFile;
 
-  /// The link to the image.
-  final String? url;
+  /// The path to the node in the document tree.
+  final String? nodePath;
 
   /// Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
   final String? loadEncoding;
@@ -68,7 +65,7 @@ class InsertDrawingObjectOnlineRequest implements RequestBase {
   /// The date and time to use for revisions.
   final String? revisionDateTime;
 
-  InsertDrawingObjectOnlineRequest(this.document, this.drawingObject, {this.nodePath, this.imageFile, this.url, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime});
+  InsertDrawingObjectOnlineRequest(this.document, this.drawingObject, this.imageFile, {this.nodePath, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -78,10 +75,6 @@ class InsertDrawingObjectOnlineRequest implements RequestBase {
     var _bodyParts = <ApiRequestPart>[];
     var _fileContentParts = <FileReference>[];
     _path = _path.replaceAll('{nodePath}', _apiClient.serializeToString(nodePath) ?? "");
-    if (url != null) {
-      _queryParams['url'] = _apiClient.serializeToString(url) ?? "";
-    }
-
     if (loadEncoding != null) {
       _queryParams['loadEncoding'] = _apiClient.serializeToString(loadEncoding) ?? "";
     }
@@ -135,6 +128,9 @@ class InsertDrawingObjectOnlineRequest implements RequestBase {
       if (_formBody != null) {
         _bodyParts.add(_formBody);
       }
+    }
+    else {
+      throw ApiException(400, 'Parameter imageFile is required.');
     }
 
     for (final _fileContentPart in _fileContentParts) {

@@ -287,8 +287,8 @@ class DrawingObjectsTests
     final request = InsertDrawingObjectRequest(
       remoteFileName,
       requestDrawingObject,
+      requestImageFile,
       nodePath: '',
-      imageFile: requestImageFile,
       folder: remoteDataFolder
     );
 
@@ -314,8 +314,8 @@ class DrawingObjectsTests
     final request = InsertDrawingObjectOnlineRequest(
       requestDocument,
       requestDrawingObject,
-      nodePath: '',
-      imageFile: requestImageFile
+      requestImageFile,
+      nodePath: ''
     );
 
     await context.getApi().insertDrawingObjectOnline(request);
@@ -340,32 +340,7 @@ class DrawingObjectsTests
     final request = InsertDrawingObjectRequest(
       remoteFileName,
       requestDrawingObject,
-      imageFile: requestImageFile,
-      folder: remoteDataFolder
-    );
-
-    await context.getApi().insertDrawingObject(request);
-  }
-
-  /// Test for adding a link to a drawing object.
-  Future<void> testInsertDrawingObjectLink() async
-  {
-    final remoteFileName = 'TestInsetDrawingObject.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestDrawingObject = DrawingObjectInsert();
-    requestDrawingObject.height = 0;
-    requestDrawingObject.left = 0;
-    requestDrawingObject.top = 0;
-    requestDrawingObject.width = 0;
-    requestDrawingObject.relativeHorizontalPosition = DrawingObjectInsert_RelativeHorizontalPositionEnum.margin;
-    requestDrawingObject.relativeVerticalPosition = DrawingObjectInsert_RelativeVerticalPositionEnum.margin;
-    requestDrawingObject.wrapType = DrawingObjectInsert_WrapTypeEnum.inline;
-
-    final request = InsertDrawingObjectRequest(
-      remoteFileName,
-      requestDrawingObject,
-      nodePath: '',
-      url: 'https://products.aspose.com/words/static/img/aspose_words_cloud-for-net.png',
+      requestImageFile,
       folder: remoteDataFolder
     );
 
@@ -430,9 +405,9 @@ class DrawingObjectsTests
     final request = UpdateDrawingObjectRequest(
       remoteFileName,
       requestDrawingObject,
+      requestImageFile,
       0,
       nodePath: '',
-      imageFile: requestImageFile,
       folder: remoteDataFolder
     );
 
@@ -452,9 +427,9 @@ class DrawingObjectsTests
     final request = UpdateDrawingObjectOnlineRequest(
       requestDocument,
       requestDrawingObject,
+      requestImageFile,
       0,
-      nodePath: '',
-      imageFile: requestImageFile
+      nodePath: ''
     );
 
     await context.getApi().updateDrawingObjectOnline(request);
@@ -473,28 +448,8 @@ class DrawingObjectsTests
     final request = UpdateDrawingObjectRequest(
       remoteFileName,
       requestDrawingObject,
+      requestImageFile,
       0,
-      imageFile: requestImageFile,
-      folder: remoteDataFolder
-    );
-
-    await context.getApi().updateDrawingObject(request);
-  }
-
-  /// Test for updating drawing object to a link to it.
-  Future<void> testUpdateDrawingObjectLink() async
-  {
-    final remoteFileName = 'TestUpdateDrawingObjectLink.docx';
-    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
-    final requestDrawingObject = DrawingObjectUpdate();
-    requestDrawingObject.left = 0;
-
-    final request = UpdateDrawingObjectRequest(
-      remoteFileName,
-      requestDrawingObject,
-      0,
-      nodePath: '',
-      url: 'https://products.aspose.com/words/static/img/aspose_words_cloud-for-net.png',
       folder: remoteDataFolder
     );
 
