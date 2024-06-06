@@ -180,4 +180,32 @@ class RangeTests
 
     await context.getApi().replaceWithTextOnline(request);
   }
+
+  /// Test to translate node id to node path.
+  Future<void> testTranslateNodeId() async
+  {
+    final remoteFileName = 'TestTranslateNodeId.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+
+    final request = TranslateNodeIdRequest(
+      remoteFileName,
+      'id0.0.0'
+    );
+
+    final result = await context.getApi().translateNodeId(request);
+    expect(result.text, 'sections/0/body/paragraphs/0');
+  }
+
+  /// Test to translate node id to node path online.
+  Future<void> testTranslateNodeIdOnline() async
+  {
+    final requestDocument = await context.loadBinaryFile(localFile);
+
+    final request = TranslateNodeIdOnlineRequest(
+      requestDocument,
+      'id0.0.0'
+    );
+
+    await context.getApi().translateNodeIdOnline(request);
+  }
 }

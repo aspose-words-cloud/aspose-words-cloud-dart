@@ -1,3 +1,8 @@
+## [24.6.0] - Aspose Words Cloud for Dart 24.6 Release Notes
+
+- Added the 'TranslateNodeId' method to transalate a node id to a node path.
+
+
 ## [24.5.0] - Aspose Words Cloud for Dart 24.5 Release Notes
 
 - Added the support of multistorage operations. Saving a file as a result of an operation can be performed in a specific storage, when, used file path in the next format '@storage:path/to/file.doc'.

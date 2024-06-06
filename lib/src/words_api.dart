@@ -1509,6 +1509,16 @@ class WordsApi {
     return await _apiClient.call(request) as SplitDocumentOnlineResponse;
   }
 
+  /// Translate a node id to a node path.
+  Future< TranslateNodeIdResponse > translateNodeId(TranslateNodeIdRequest request) async {
+    return await _apiClient.call(request) as TranslateNodeIdResponse;
+  }
+
+  /// Translate a node id to a node path.
+  Future< TranslateNodeIdResponse > translateNodeIdOnline(TranslateNodeIdOnlineRequest request) async {
+    return await _apiClient.call(request) as TranslateNodeIdResponse;
+  }
+
   /// Removes protection from the document.
   Future< ProtectionDataResponse > unprotectDocument(UnprotectDocumentRequest request) async {
     return await _apiClient.call(request) as ProtectionDataResponse;

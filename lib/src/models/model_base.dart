@@ -283,6 +283,7 @@ abstract class ModelBase {
     'TextSaveOptionsData, _': () => TextSaveOptionsData(),
     'TiffSaveOptionsData, _': () => TiffSaveOptionsData(),
     'TimeZoneInfoData, _': () => TimeZoneInfoData(),
+    'TranslateNodeIdResponse, _': () => TranslateNodeIdResponse(),
     'UserInformation, _': () => UserInformation(),
     'WatermarkDataImage, _': () => WatermarkDataImage(),
     'WatermarkDataText, _': () => WatermarkDataText(),
