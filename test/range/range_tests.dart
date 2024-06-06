@@ -189,7 +189,8 @@ class RangeTests
 
     final request = TranslateNodeIdRequest(
       remoteFileName,
-      'id0.0.0'
+      'id0.0.0',
+      folder: remoteDataFolder
     );
 
     final result = await context.getApi().translateNodeId(request);
