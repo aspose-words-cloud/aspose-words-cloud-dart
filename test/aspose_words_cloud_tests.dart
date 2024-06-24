@@ -498,6 +498,8 @@ void main() {
     test('SaveAsRangeOnline', () async => await RangeTests(testContext).testSaveAsRangeOnline());
     test('ReplaceWithText', () async => await RangeTests(testContext).testReplaceWithText());
     test('ReplaceWithTextOnline', () async => await RangeTests(testContext).testReplaceWithTextOnline());
+    test('TranslateNodeId', () async => await RangeTests(testContext).testTranslateNodeId());
+    test('TranslateNodeIdOnline', () async => await RangeTests(testContext).testTranslateNodeIdOnline());
   });
 
   group('BuildReport', () {
