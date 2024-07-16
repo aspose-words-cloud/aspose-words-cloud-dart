@@ -38,6 +38,7 @@ abstract class ModelBase {
   static final Map<String, ModelBase Function()> _modelsFactory = <String, ModelBase Function()> {
     'ApiError, _': () => ApiError(),
     'AvailableFontsResponse, _': () => AvailableFontsResponse(),
+    'Azw3SaveOptionsData, _': () => Azw3SaveOptionsData(),
     'BmpSaveOptionsData, _': () => BmpSaveOptionsData(),
     'Bookmark, _': () => Bookmark(),
     'BookmarkData, _': () => BookmarkData(),
