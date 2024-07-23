@@ -411,7 +411,9 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         case 'PdfA2a': compliance = PdfSaveOptionsData_ComplianceEnum.pdfA2a; break;
         case 'PdfA2u': compliance = PdfSaveOptionsData_ComplianceEnum.pdfA2u; break;
         case 'PdfA4': compliance = PdfSaveOptionsData_ComplianceEnum.pdfA4; break;
+        case 'PdfA4Ua2': compliance = PdfSaveOptionsData_ComplianceEnum.pdfA4Ua2; break;
         case 'PdfUa1': compliance = PdfSaveOptionsData_ComplianceEnum.pdfUa1; break;
+        case 'PdfUa2': compliance = PdfSaveOptionsData_ComplianceEnum.pdfUa2; break;
         default: compliance = null; break;
       }
     } else {
@@ -625,7 +627,9 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         case PdfSaveOptionsData_ComplianceEnum.pdfA2a: _result['Compliance'] = 'PdfA2a'; break;
         case PdfSaveOptionsData_ComplianceEnum.pdfA2u: _result['Compliance'] = 'PdfA2u'; break;
         case PdfSaveOptionsData_ComplianceEnum.pdfA4: _result['Compliance'] = 'PdfA4'; break;
+        case PdfSaveOptionsData_ComplianceEnum.pdfA4Ua2: _result['Compliance'] = 'PdfA4Ua2'; break;
         case PdfSaveOptionsData_ComplianceEnum.pdfUa1: _result['Compliance'] = 'PdfUa1'; break;
+        case PdfSaveOptionsData_ComplianceEnum.pdfUa2: _result['Compliance'] = 'PdfUa2'; break;
         default: break;
       }
     }
@@ -830,7 +834,9 @@ enum PdfSaveOptionsData_ComplianceEnum
   pdfA2a,
   pdfA2u,
   pdfA4,
-  pdfUa1
+  pdfA4Ua2,
+  pdfUa1,
+  pdfUa2
 }
 
 /// Gets or sets the option that controls the way CustomDocumentProperties are exported to PDF file.

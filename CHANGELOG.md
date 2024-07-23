@@ -1,3 +1,8 @@
+## [24.7.0] - Aspose Words Cloud for Dart 24.7 Release Notes
+
+- Added support for azw3 (Amazon Kindle Format) documents.
+
+
 ## [24.6.0] - Aspose Words Cloud for Dart 24.6 Release Notes
 
 - Added the 'TranslateNodeId' method to transalate a node id to a node path.

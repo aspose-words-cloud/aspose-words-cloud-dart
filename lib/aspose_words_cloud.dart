@@ -31,6 +31,7 @@ export 'src/api_exception.dart';
 export 'src/configuration.dart';
 export 'src/models/api_error.dart';
 export 'src/models/available_fonts_response.dart';
+export 'src/models/azw3_save_options_data.dart';
 export 'src/models/base_entry_list.dart';
 export 'src/models/base_entry.dart';
 export 'src/models/bmp_save_options_data.dart';

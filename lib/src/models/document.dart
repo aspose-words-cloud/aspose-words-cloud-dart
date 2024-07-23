@@ -136,6 +136,7 @@ class Document implements ModelBase {
         case 'Xps': sourceFormat = Document_SourceFormatEnum.xps; break;
         case 'Tiff': sourceFormat = Document_SourceFormatEnum.tiff; break;
         case 'Svg': sourceFormat = Document_SourceFormatEnum.svg; break;
+        case 'Azw3': sourceFormat = Document_SourceFormatEnum.azw3; break;
         default: sourceFormat = null; break;
       }
     } else {
@@ -189,6 +190,7 @@ class Document implements ModelBase {
         case Document_SourceFormatEnum.xps: _result['SourceFormat'] = 'Xps'; break;
         case Document_SourceFormatEnum.tiff: _result['SourceFormat'] = 'Tiff'; break;
         case Document_SourceFormatEnum.svg: _result['SourceFormat'] = 'Svg'; break;
+        case Document_SourceFormatEnum.azw3: _result['SourceFormat'] = 'Azw3'; break;
         default: break;
       }
     }
@@ -253,6 +255,7 @@ enum Document_SourceFormatEnum
   pdf,
   xps,
   tiff,
-  svg
+  svg,
+  azw3
 }
 
