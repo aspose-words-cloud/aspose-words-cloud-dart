@@ -28,6 +28,7 @@
 library aspose_words_cloud;
 
 import 'dart:convert';
+import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:convert/convert.dart';
@@ -40,7 +41,6 @@ import './api_request_part.dart';
 import './api_response_data.dart';
 import './body_part_data.dart';
 import './byte_data_extensions.dart';
-import './api_http_request.dart';
 import '../aspose_words_cloud.dart';
 
 class ApiClient {
@@ -502,15 +502,25 @@ class ApiClient {
       print(debugMessage);
     }
 
-    var httpRequest = ApiHttpRequest(requestData.method, Uri.parse(requestData.url), requestData.sendDataProgressCallback);
+    http.BaseRequest httpRequest;
+    if (requestData.sendDataProgressCallback != null && requestData.body != null) {
+      final streamRequest = httpRequest = http.StreamedRequest(requestData.method, Uri.parse(requestData.url));
+      streamRequest.sink.addStream(_streamedByteData(requestData.body!, requestData.sendDataProgressCallback!)).then((_) {
+        streamRequest.sink.close();
+      });
+    }
+    else {
+      final bodyRequest = httpRequest = http.Request(requestData.method, Uri.parse(requestData.url));
+      if (requestData.body != null) {
+        bodyRequest.bodyBytes = requestData.body!.buffer.asUint8List(
+            requestData.body!.offsetInBytes, requestData.body!.lengthInBytes);
+      }
+    }
+
     httpRequest.headers['x-aspose-client'] = 'dart sdk';
     httpRequest.headers['x-aspose-client-version'] = '24.7';
     httpRequest.headers['Authorization'] = await _getAuthToken();
     httpRequest.headers.addAll(requestData.headers);
-
-    if (requestData.body != null) {
-      httpRequest.bodyBytes = requestData.body!.buffer.asUint8List(requestData.body!.offsetInBytes, requestData.body!.lengthInBytes);
-    }
 
     var response = await httpRequest.send().timeout(configuration.timeout);
     ByteData responseData;
@@ -549,6 +559,18 @@ class ApiClient {
 
     _handleResponse(response.statusCode, response.reasonPhrase ?? "", responseData);
     return ApiResponseData(response.headers, responseData);
+  }
+
+  Stream<Uint8List> _streamedByteData(ByteData buffer, final SendDataProgressCallback sendDataProgressCallback) async* {
+    final maxChunkSize = 1024 * 64;
+    final streamTotal = buffer.lengthInBytes;
+    for (int i = 0; i < streamTotal; i += maxChunkSize) {
+      final chunkProgress = i;
+      final chunkOffset = buffer.offsetInBytes + i;
+      final chunkSize = min(maxChunkSize, streamTotal - i);
+      sendDataProgressCallback(chunkProgress + chunkSize, streamTotal);
+      yield buffer.buffer.asUint8List(chunkOffset, chunkSize);
+    }
   }
 }
 
