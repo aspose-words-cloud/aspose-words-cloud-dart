@@ -65,7 +65,13 @@ class InsertWatermarkImageOnlineRequest implements RequestBase {
   /// The filename of the image. If the parameter value is missing — the image data is expected in the request content.
   final String? image;
 
-  InsertWatermarkImageOnlineRequest(this.document, {this.imageFile, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime, this.rotationAngle, this.image});
+  /// Request send data progress callback
+  final SendDataProgressCallback? sendDataProgressCallback;
+
+  /// Response receive data progress callback
+  final ReceiveDataProgressCallback? receiveDataProgressCallback;
+
+  InsertWatermarkImageOnlineRequest(this.document, {this.imageFile, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime, this.rotationAngle, this.image, this.sendDataProgressCallback, this.receiveDataProgressCallback});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -133,7 +139,7 @@ class InsertWatermarkImageOnlineRequest implements RequestBase {
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('PUT', _url, _headers, _body);
+    return ApiRequestData('PUT', _url, _headers, _body, this.sendDataProgressCallback, this.receiveDataProgressCallback);
   }
 
   @override

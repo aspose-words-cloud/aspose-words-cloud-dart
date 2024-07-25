@@ -104,7 +104,13 @@ class SaveAsTiffOnlineRequest implements RequestBase {
   /// Folder in filestorage with custom fonts.
   final String? fontsLocation;
 
-  SaveAsTiffOnlineRequest(this.document, this.saveOptions, {this.loadEncoding, this.password, this.encryptedPassword, this.useAntiAliasing, this.useHighQualityRendering, this.imageBrightness, this.imageColorMode, this.imageContrast, this.numeralFormat, this.pageCount, this.pageIndex, this.paperColor, this.pixelFormat, this.resolution, this.scale, this.tiffCompression, this.dmlRenderingMode, this.dmlEffectsRenderingMode, this.tiffBinarizationMethod, this.zipOutput, this.fontsLocation});
+  /// Request send data progress callback
+  final SendDataProgressCallback? sendDataProgressCallback;
+
+  /// Response receive data progress callback
+  final ReceiveDataProgressCallback? receiveDataProgressCallback;
+
+  SaveAsTiffOnlineRequest(this.document, this.saveOptions, {this.loadEncoding, this.password, this.encryptedPassword, this.useAntiAliasing, this.useHighQualityRendering, this.imageBrightness, this.imageColorMode, this.imageContrast, this.numeralFormat, this.pageCount, this.pageIndex, this.paperColor, this.pixelFormat, this.resolution, this.scale, this.tiffCompression, this.dmlRenderingMode, this.dmlEffectsRenderingMode, this.tiffBinarizationMethod, this.zipOutput, this.fontsLocation, this.sendDataProgressCallback, this.receiveDataProgressCallback});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -228,7 +234,7 @@ class SaveAsTiffOnlineRequest implements RequestBase {
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('PUT', _url, _headers, _body);
+    return ApiRequestData('PUT', _url, _headers, _body, this.sendDataProgressCallback, this.receiveDataProgressCallback);
   }
 
   @override

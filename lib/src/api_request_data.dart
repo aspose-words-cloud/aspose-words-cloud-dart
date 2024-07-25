@@ -28,11 +28,14 @@
 library aspose_words_cloud;
 
 import 'dart:typed_data';
+import './requests/request_base.dart';
 
 class ApiRequestData {
   final String method;
   final String url;
   final Map<String, String> headers;
   final ByteData? body;
-  ApiRequestData(this.method, this.url, this.headers, this.body);
+  final SendDataProgressCallback? sendDataProgressCallback;
+  final ReceiveDataProgressCallback? receiveDataProgressCallback;
+  ApiRequestData(this.method, this.url, this.headers, this.body, this.sendDataProgressCallback, this.receiveDataProgressCallback);
 }

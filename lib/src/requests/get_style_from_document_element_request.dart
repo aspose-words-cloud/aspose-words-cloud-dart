@@ -57,7 +57,13 @@ class GetStyleFromDocumentElementRequest implements RequestBase {
   /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
   final String? encryptedPassword;
 
-  GetStyleFromDocumentElementRequest(this.name, this.styledNodePath, {this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword});
+  /// Request send data progress callback
+  final SendDataProgressCallback? sendDataProgressCallback;
+
+  /// Response receive data progress callback
+  final ReceiveDataProgressCallback? receiveDataProgressCallback;
+
+  GetStyleFromDocumentElementRequest(this.name, this.styledNodePath, {this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.sendDataProgressCallback, this.receiveDataProgressCallback});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -103,7 +109,7 @@ class GetStyleFromDocumentElementRequest implements RequestBase {
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('GET', _url, _headers, _body);
+    return ApiRequestData('GET', _url, _headers, _body, this.sendDataProgressCallback, this.receiveDataProgressCallback);
   }
 
   @override

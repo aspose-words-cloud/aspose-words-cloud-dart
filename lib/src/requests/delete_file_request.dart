@@ -44,7 +44,13 @@ class DeleteFileRequest implements RequestBase {
   /// File version ID to delete.
   final String? versionId;
 
-  DeleteFileRequest(this.path, {this.storageName, this.versionId});
+  /// Request send data progress callback
+  final SendDataProgressCallback? sendDataProgressCallback;
+
+  /// Response receive data progress callback
+  final ReceiveDataProgressCallback? receiveDataProgressCallback;
+
+  DeleteFileRequest(this.path, {this.storageName, this.versionId, this.sendDataProgressCallback, this.receiveDataProgressCallback});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -73,7 +79,7 @@ class DeleteFileRequest implements RequestBase {
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('DELETE', _url, _headers, _body);
+    return ApiRequestData('DELETE', _url, _headers, _body, this.sendDataProgressCallback, this.receiveDataProgressCallback);
   }
 
   @override

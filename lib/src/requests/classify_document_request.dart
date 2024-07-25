@@ -60,7 +60,13 @@ class ClassifyDocumentRequest implements RequestBase {
   /// The taxonomy to use.
   final String? taxonomy;
 
-  ClassifyDocumentRequest(this.name, {this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.bestClassesCount, this.taxonomy});
+  /// Request send data progress callback
+  final SendDataProgressCallback? sendDataProgressCallback;
+
+  /// Response receive data progress callback
+  final ReceiveDataProgressCallback? receiveDataProgressCallback;
+
+  ClassifyDocumentRequest(this.name, {this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.bestClassesCount, this.taxonomy, this.sendDataProgressCallback, this.receiveDataProgressCallback});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -109,7 +115,7 @@ class ClassifyDocumentRequest implements RequestBase {
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('GET', _url, _headers, _body);
+    return ApiRequestData('GET', _url, _headers, _body, this.sendDataProgressCallback, this.receiveDataProgressCallback);
   }
 
   @override
