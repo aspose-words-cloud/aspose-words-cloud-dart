@@ -1,3 +1,7 @@
+## [24.8.0] - Aspose Words Cloud for Dart 24.8 Release Notes
+
+- Added support for send/receive progress callbacks in the dart sdk.
+
 ## [24.7.0] - Aspose Words Cloud for Dart 24.7 Release Notes
 
 - Added support for azw3 (Amazon Kindle Format) documents.
