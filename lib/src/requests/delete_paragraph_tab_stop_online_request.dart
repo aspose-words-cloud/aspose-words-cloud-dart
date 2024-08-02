@@ -56,6 +56,9 @@ class DeleteParagraphTabStopOnlineRequest implements RequestBase {
   /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
   final String? encryptedPassword;
 
+  /// The value indicates whether OpenType support is on.
+  final bool? openTypeSupport;
+
   /// Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
   final String? destFileName;
 
@@ -65,7 +68,7 @@ class DeleteParagraphTabStopOnlineRequest implements RequestBase {
   /// Response receive data progress callback
   final ReceiveDataProgressCallback? receiveDataProgressCallback;
 
-  DeleteParagraphTabStopOnlineRequest(this.document, this.position, this.index, {this.nodePath, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.sendDataProgressCallback, this.receiveDataProgressCallback});
+  DeleteParagraphTabStopOnlineRequest(this.document, this.position, this.index, {this.nodePath, this.loadEncoding, this.password, this.encryptedPassword, this.openTypeSupport, this.destFileName, this.sendDataProgressCallback, this.receiveDataProgressCallback});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -96,6 +99,10 @@ class DeleteParagraphTabStopOnlineRequest implements RequestBase {
 
     if (encryptedPassword != null) {
       _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword) ?? "";
+    }
+
+    if (openTypeSupport != null) {
+      _queryParams['openTypeSupport'] = _apiClient.serializeToString(openTypeSupport) ?? "";
     }
 
     if (destFileName != null) {

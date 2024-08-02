@@ -54,13 +54,16 @@ class GetParagraphTabStopsOnlineRequest implements RequestBase {
   /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
   final String? encryptedPassword;
 
+  /// The value indicates whether OpenType support is on.
+  final bool? openTypeSupport;
+
   /// Request send data progress callback
   final SendDataProgressCallback? sendDataProgressCallback;
 
   /// Response receive data progress callback
   final ReceiveDataProgressCallback? receiveDataProgressCallback;
 
-  GetParagraphTabStopsOnlineRequest(this.document, this.index, {this.nodePath, this.loadEncoding, this.password, this.encryptedPassword, this.sendDataProgressCallback, this.receiveDataProgressCallback});
+  GetParagraphTabStopsOnlineRequest(this.document, this.index, {this.nodePath, this.loadEncoding, this.password, this.encryptedPassword, this.openTypeSupport, this.sendDataProgressCallback, this.receiveDataProgressCallback});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -84,6 +87,10 @@ class GetParagraphTabStopsOnlineRequest implements RequestBase {
 
     if (encryptedPassword != null) {
       _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword) ?? "";
+    }
+
+    if (openTypeSupport != null) {
+      _queryParams['openTypeSupport'] = _apiClient.serializeToString(openTypeSupport) ?? "";
     }
 
     if (document != null) {

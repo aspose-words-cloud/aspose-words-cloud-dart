@@ -48,6 +48,9 @@ class GetDocumentFieldNamesOnlineRequest implements RequestBase {
   /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
   final String? encryptedPassword;
 
+  /// The value indicates whether OpenType support is on.
+  final bool? openTypeSupport;
+
   /// The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
   final bool? useNonMergeFields;
 
@@ -57,7 +60,7 @@ class GetDocumentFieldNamesOnlineRequest implements RequestBase {
   /// Response receive data progress callback
   final ReceiveDataProgressCallback? receiveDataProgressCallback;
 
-  GetDocumentFieldNamesOnlineRequest(this.template, {this.loadEncoding, this.password, this.encryptedPassword, this.useNonMergeFields, this.sendDataProgressCallback, this.receiveDataProgressCallback});
+  GetDocumentFieldNamesOnlineRequest(this.template, {this.loadEncoding, this.password, this.encryptedPassword, this.openTypeSupport, this.useNonMergeFields, this.sendDataProgressCallback, this.receiveDataProgressCallback});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -76,6 +79,10 @@ class GetDocumentFieldNamesOnlineRequest implements RequestBase {
 
     if (encryptedPassword != null) {
       _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword) ?? "";
+    }
+
+    if (openTypeSupport != null) {
+      _queryParams['openTypeSupport'] = _apiClient.serializeToString(openTypeSupport) ?? "";
     }
 
     if (useNonMergeFields != null) {

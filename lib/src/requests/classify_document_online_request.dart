@@ -48,6 +48,9 @@ class ClassifyDocumentOnlineRequest implements RequestBase {
   /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
   final String? encryptedPassword;
 
+  /// The value indicates whether OpenType support is on.
+  final bool? openTypeSupport;
+
   /// The number of the best classes to return.
   final String? bestClassesCount;
 
@@ -60,7 +63,7 @@ class ClassifyDocumentOnlineRequest implements RequestBase {
   /// Response receive data progress callback
   final ReceiveDataProgressCallback? receiveDataProgressCallback;
 
-  ClassifyDocumentOnlineRequest(this.document, {this.loadEncoding, this.password, this.encryptedPassword, this.bestClassesCount, this.taxonomy, this.sendDataProgressCallback, this.receiveDataProgressCallback});
+  ClassifyDocumentOnlineRequest(this.document, {this.loadEncoding, this.password, this.encryptedPassword, this.openTypeSupport, this.bestClassesCount, this.taxonomy, this.sendDataProgressCallback, this.receiveDataProgressCallback});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -79,6 +82,10 @@ class ClassifyDocumentOnlineRequest implements RequestBase {
 
     if (encryptedPassword != null) {
       _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword) ?? "";
+    }
+
+    if (openTypeSupport != null) {
+      _queryParams['openTypeSupport'] = _apiClient.serializeToString(openTypeSupport) ?? "";
     }
 
     if (bestClassesCount != null) {

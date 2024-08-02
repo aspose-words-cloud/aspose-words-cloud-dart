@@ -50,6 +50,9 @@ class SaveAsTiffOnlineRequest implements RequestBase {
   /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
   final String? encryptedPassword;
 
+  /// The value indicates whether OpenType support is on.
+  final bool? openTypeSupport;
+
   /// The flag indicating whether to use antialiasing.
   final bool? useAntiAliasing;
 
@@ -110,7 +113,7 @@ class SaveAsTiffOnlineRequest implements RequestBase {
   /// Response receive data progress callback
   final ReceiveDataProgressCallback? receiveDataProgressCallback;
 
-  SaveAsTiffOnlineRequest(this.document, this.saveOptions, {this.loadEncoding, this.password, this.encryptedPassword, this.useAntiAliasing, this.useHighQualityRendering, this.imageBrightness, this.imageColorMode, this.imageContrast, this.numeralFormat, this.pageCount, this.pageIndex, this.paperColor, this.pixelFormat, this.resolution, this.scale, this.tiffCompression, this.dmlRenderingMode, this.dmlEffectsRenderingMode, this.tiffBinarizationMethod, this.zipOutput, this.fontsLocation, this.sendDataProgressCallback, this.receiveDataProgressCallback});
+  SaveAsTiffOnlineRequest(this.document, this.saveOptions, {this.loadEncoding, this.password, this.encryptedPassword, this.openTypeSupport, this.useAntiAliasing, this.useHighQualityRendering, this.imageBrightness, this.imageColorMode, this.imageContrast, this.numeralFormat, this.pageCount, this.pageIndex, this.paperColor, this.pixelFormat, this.resolution, this.scale, this.tiffCompression, this.dmlRenderingMode, this.dmlEffectsRenderingMode, this.tiffBinarizationMethod, this.zipOutput, this.fontsLocation, this.sendDataProgressCallback, this.receiveDataProgressCallback});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -129,6 +132,10 @@ class SaveAsTiffOnlineRequest implements RequestBase {
 
     if (encryptedPassword != null) {
       _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword) ?? "";
+    }
+
+    if (openTypeSupport != null) {
+      _queryParams['openTypeSupport'] = _apiClient.serializeToString(openTypeSupport) ?? "";
     }
 
     if (useAntiAliasing != null) {

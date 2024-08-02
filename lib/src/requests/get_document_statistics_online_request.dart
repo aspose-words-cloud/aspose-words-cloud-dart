@@ -48,6 +48,9 @@ class GetDocumentStatisticsOnlineRequest implements RequestBase {
   /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
   final String? encryptedPassword;
 
+  /// The value indicates whether OpenType support is on.
+  final bool? openTypeSupport;
+
   /// The flag indicating whether to include comments from the WordCount. The default value is "false".
   final bool? includeComments;
 
@@ -63,7 +66,7 @@ class GetDocumentStatisticsOnlineRequest implements RequestBase {
   /// Response receive data progress callback
   final ReceiveDataProgressCallback? receiveDataProgressCallback;
 
-  GetDocumentStatisticsOnlineRequest(this.document, {this.loadEncoding, this.password, this.encryptedPassword, this.includeComments, this.includeFootnotes, this.includeTextInShapes, this.sendDataProgressCallback, this.receiveDataProgressCallback});
+  GetDocumentStatisticsOnlineRequest(this.document, {this.loadEncoding, this.password, this.encryptedPassword, this.openTypeSupport, this.includeComments, this.includeFootnotes, this.includeTextInShapes, this.sendDataProgressCallback, this.receiveDataProgressCallback});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -82,6 +85,10 @@ class GetDocumentStatisticsOnlineRequest implements RequestBase {
 
     if (encryptedPassword != null) {
       _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword) ?? "";
+    }
+
+    if (openTypeSupport != null) {
+      _queryParams['openTypeSupport'] = _apiClient.serializeToString(openTypeSupport) ?? "";
     }
 
     if (includeComments != null) {

@@ -51,6 +51,9 @@ class GetHeaderFootersOnlineRequest implements RequestBase {
   /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
   final String? encryptedPassword;
 
+  /// The value indicates whether OpenType support is on.
+  final bool? openTypeSupport;
+
   /// The list of HeaderFooter types.
   final String? filterByType;
 
@@ -60,7 +63,7 @@ class GetHeaderFootersOnlineRequest implements RequestBase {
   /// Response receive data progress callback
   final ReceiveDataProgressCallback? receiveDataProgressCallback;
 
-  GetHeaderFootersOnlineRequest(this.document, this.sectionPath, {this.loadEncoding, this.password, this.encryptedPassword, this.filterByType, this.sendDataProgressCallback, this.receiveDataProgressCallback});
+  GetHeaderFootersOnlineRequest(this.document, this.sectionPath, {this.loadEncoding, this.password, this.encryptedPassword, this.openTypeSupport, this.filterByType, this.sendDataProgressCallback, this.receiveDataProgressCallback});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -83,6 +86,10 @@ class GetHeaderFootersOnlineRequest implements RequestBase {
 
     if (encryptedPassword != null) {
       _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword) ?? "";
+    }
+
+    if (openTypeSupport != null) {
+      _queryParams['openTypeSupport'] = _apiClient.serializeToString(openTypeSupport) ?? "";
     }
 
     if (filterByType != null) {

@@ -60,6 +60,9 @@ class ExecuteMailMergeRequest implements RequestBase {
   /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
   final String? encryptedPassword;
 
+  /// The value indicates whether OpenType support is on.
+  final bool? openTypeSupport;
+
   /// The flag indicating whether to execute Mail Merge operation with regions.
   final bool? withRegions;
 
@@ -81,7 +84,7 @@ class ExecuteMailMergeRequest implements RequestBase {
   /// Response receive data progress callback
   final ReceiveDataProgressCallback? receiveDataProgressCallback;
 
-  ExecuteMailMergeRequest(this.name, {this.data, this.options, this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.withRegions, this.mailMergeDataFile, this.cleanup, this.useWholeParagraphAsRegion, this.destFileName, this.sendDataProgressCallback, this.receiveDataProgressCallback});
+  ExecuteMailMergeRequest(this.name, {this.data, this.options, this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.openTypeSupport, this.withRegions, this.mailMergeDataFile, this.cleanup, this.useWholeParagraphAsRegion, this.destFileName, this.sendDataProgressCallback, this.receiveDataProgressCallback});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -112,6 +115,10 @@ class ExecuteMailMergeRequest implements RequestBase {
 
     if (encryptedPassword != null) {
       _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword) ?? "";
+    }
+
+    if (openTypeSupport != null) {
+      _queryParams['openTypeSupport'] = _apiClient.serializeToString(openTypeSupport) ?? "";
     }
 
     if (withRegions != null) {

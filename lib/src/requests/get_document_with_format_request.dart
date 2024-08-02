@@ -56,6 +56,9 @@ class GetDocumentWithFormatRequest implements RequestBase {
   /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
   final String? encryptedPassword;
 
+  /// The value indicates whether OpenType support is on.
+  final bool? openTypeSupport;
+
   /// The path to the output document.
   final String? outPath;
 
@@ -68,7 +71,7 @@ class GetDocumentWithFormatRequest implements RequestBase {
   /// Response receive data progress callback
   final ReceiveDataProgressCallback? receiveDataProgressCallback;
 
-  GetDocumentWithFormatRequest(this.name, this.format, {this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.outPath, this.fontsLocation, this.sendDataProgressCallback, this.receiveDataProgressCallback});
+  GetDocumentWithFormatRequest(this.name, this.format, {this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.openTypeSupport, this.outPath, this.fontsLocation, this.sendDataProgressCallback, this.receiveDataProgressCallback});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -106,6 +109,10 @@ class GetDocumentWithFormatRequest implements RequestBase {
 
     if (encryptedPassword != null) {
       _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword) ?? "";
+    }
+
+    if (openTypeSupport != null) {
+      _queryParams['openTypeSupport'] = _apiClient.serializeToString(openTypeSupport) ?? "";
     }
 
     if (outPath != null) {
