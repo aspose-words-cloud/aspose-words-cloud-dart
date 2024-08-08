@@ -45,6 +45,15 @@ class SvgSaveOptionsData extends FixedPageSaveOptionsData {
   set fitToViewPort(bool? val) => _fitToViewPort = val;
 
 
+  /// Gets or sets a value in pixels per inch that limits resolution of exported raster images.
+  /// If the value of this property is non-zero, it limits resolution of exported raster images.
+  /// That is, higher-resolution images are resampled down to the limit and lower-resolution images are exported as is.
+  int? _maxImageResolution;
+
+  int? get maxImageResolution => _maxImageResolution;
+  set maxImageResolution(int? val) => _maxImageResolution = val;
+
+
   /// Gets or sets the physical folder where resources (images) are saved when exporting.
   String? _resourcesFolder;
 
@@ -241,6 +250,12 @@ class SvgSaveOptionsData extends FixedPageSaveOptionsData {
       fitToViewPort = null;
     }
 
+    if (json.containsKey('MaxImageResolution')) {
+      maxImageResolution = json['MaxImageResolution'] as int;
+    } else {
+      maxImageResolution = null;
+    }
+
     if (json.containsKey('ResourcesFolder')) {
       resourcesFolder = json['ResourcesFolder'] as String;
     } else {
@@ -281,6 +296,10 @@ class SvgSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (fitToViewPort != null) {
       _result['FitToViewPort'] = fitToViewPort!;
+    }
+
+    if (maxImageResolution != null) {
+      _result['MaxImageResolution'] = maxImageResolution!;
     }
 
     if (resourcesFolder != null) {
