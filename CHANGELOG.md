@@ -1,6 +1,12 @@
+## [24.8.0] - Aspose Words Cloud for Dart 24.8 Release Notes
+
+- Added the support of OpenType standard. It is usefull for languages required advanced typography.
+- Added support for send/receive progress callbacks in the dart sdk.
+
 ## [24.7.0] - Aspose Words Cloud for Dart 24.7 Release Notes
 
 - Added support for azw3 (Amazon Kindle Format) documents.
+- Added 'MaxImageResolution' property for SvgSaveOptionsData class.
 
 
 ## [24.6.0] - Aspose Words Cloud for Dart 24.6 Release Notes

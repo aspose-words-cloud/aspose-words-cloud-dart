@@ -148,4 +148,28 @@ class BatchTests
     expect(actual.length, 1);
     expect(actual[0] is ByteData, isTrue); // BuildReportOnline
   }
+
+  /// Test for request progress callbacks
+  Future<void> testProgressSendReceive() async
+  {
+    var sendCallbackExecuted = false;
+    var receiveCallbackExecuted = false;
+    final requestDocument = await context.loadBinaryFile('DocumentActions/ConvertDocument/test_uploadfile.docx');
+    final request = ConvertDocumentRequest(
+      requestDocument,
+      'pdf',
+      sendDataProgressCallback: (current, total) {
+        sendCallbackExecuted = true;
+        print('Send progress callback: $current / $total');
+      },
+      receiveDataProgressCallback: (current, total) {
+        receiveCallbackExecuted = true;
+        print('Receive progress callback: $current / $total');
+      },
+    );
+
+    await context.getApi().convertDocument(request);
+    expect(sendCallbackExecuted, true);
+    expect(receiveCallbackExecuted, true);
+  }
 }

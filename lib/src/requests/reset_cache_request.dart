@@ -36,7 +36,13 @@ import '../api_request_part.dart';
 /// Request model for ResetCache operation.
 class ResetCacheRequest implements RequestBase {
 
-  ResetCacheRequest();
+  /// Request send data progress callback
+  final SendDataProgressCallback? sendDataProgressCallback;
+
+  /// Response receive data progress callback
+  final ReceiveDataProgressCallback? receiveDataProgressCallback;
+
+  ResetCacheRequest({ this.sendDataProgressCallback, this.receiveDataProgressCallback });
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -53,7 +59,7 @@ class ResetCacheRequest implements RequestBase {
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('DELETE', _url, _headers, _body);
+    return ApiRequestData('DELETE', _url, _headers, _body, this.sendDataProgressCallback, this.receiveDataProgressCallback);
   }
 
   @override

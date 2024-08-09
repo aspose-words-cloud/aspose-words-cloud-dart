@@ -31,6 +31,9 @@ import 'dart:typed_data';
 import '../api_client.dart';
 import '../api_request_data.dart';
 
+typedef void SendDataProgressCallback(int current, int total);
+typedef void ReceiveDataProgressCallback(int current, int total);
+
 abstract class RequestBase {
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient);
   dynamic deserializeResponse(final ApiClient _apiClient, final Map<String, String> _headers, final ByteData? _body);

@@ -28,6 +28,7 @@
 library aspose_words_cloud;
 
 import 'dart:convert';
+import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:convert/convert.dart';
@@ -457,7 +458,7 @@ class ApiClient {
     var batchBody = serializeMultipart(bodyParts, boundary);
     batchHeaders['Content-Type'] = 'multipart/form-data; boundary="$boundary"';
 
-    var batchRequestData = ApiRequestData('PUT', batchUrl, batchHeaders, batchBody);
+    var batchRequestData = ApiRequestData('PUT', batchUrl, batchHeaders, batchBody, null, null);
     var response = await _callWithChecks(batchRequestData);
     var responseParts = deserializeMultipartBatch(response.content);
     var result = <dynamic>[];
@@ -501,19 +502,46 @@ class ApiClient {
       print(debugMessage);
     }
 
-    var httpRequest = http.Request(requestData.method, Uri.parse(requestData.url));
+    http.BaseRequest httpRequest;
+    if (requestData.sendDataProgressCallback != null && requestData.body != null) {
+      final streamRequest = httpRequest = http.StreamedRequest(requestData.method, Uri.parse(requestData.url));
+      streamRequest.sink.addStream(_streamedByteData(requestData.body!, requestData.sendDataProgressCallback!)).then((_) {
+        streamRequest.sink.close();
+      });
+    }
+    else {
+      final bodyRequest = httpRequest = http.Request(requestData.method, Uri.parse(requestData.url));
+      if (requestData.body != null) {
+        bodyRequest.bodyBytes = requestData.body!.buffer.asUint8List(
+            requestData.body!.offsetInBytes, requestData.body!.lengthInBytes);
+      }
+    }
+
     httpRequest.headers['x-aspose-client'] = 'dart sdk';
-    httpRequest.headers['x-aspose-client-version'] = '24.7';
+    httpRequest.headers['x-aspose-client-version'] = '24.8';
     httpRequest.headers['Authorization'] = await _getAuthToken();
     httpRequest.headers.addAll(requestData.headers);
 
-    if (requestData.body != null) {
-      httpRequest.bodyBytes = requestData.body!.buffer.asUint8List(requestData.body!.offsetInBytes, requestData.body!.lengthInBytes);
-    }
-
     var response = await httpRequest.send().timeout(configuration.timeout);
-    var bytes = await response.stream.toBytes();
-    var responseData = ByteData.view(bytes.buffer);
+    ByteData responseData;
+    if (requestData.receiveDataProgressCallback != null) {
+      var responseReceivedBytes = 0;
+      final responseTotalBytes = response.contentLength ?? 0;
+      final bytes = BytesBuilder();
+      await for (final chunkValue in response.stream) {
+        final chunk = Uint8List.fromList(chunkValue);
+        bytes.write(chunk, chunk.offsetInBytes, chunk.lengthInBytes);
+        responseReceivedBytes += chunk.lengthInBytes;
+        requestData.receiveDataProgressCallback!(responseReceivedBytes, responseTotalBytes);
+      }
+
+      final totalBytes = bytes.takeBytes();
+      responseData = ByteData.view(totalBytes.buffer, totalBytes.offsetInBytes, totalBytes.lengthInBytes);
+    }
+    else {
+      final bytes = await response.stream.toBytes();
+      responseData = ByteData.view(bytes.buffer, bytes.offsetInBytes, bytes.lengthInBytes);
+    }
 
     if (configuration.debugMode == true) {
       var debugMessage = 'RESPONSE STATUS: ${response.statusCode} ${response.reasonPhrase}\r\n';
@@ -531,6 +559,18 @@ class ApiClient {
 
     _handleResponse(response.statusCode, response.reasonPhrase ?? "", responseData);
     return ApiResponseData(response.headers, responseData);
+  }
+
+  Stream<Uint8List> _streamedByteData(ByteData buffer, final SendDataProgressCallback sendDataProgressCallback) async* {
+    final maxChunkSize = 1024 * 64;
+    final streamTotal = buffer.lengthInBytes;
+    for (int i = 0; i < streamTotal; i += maxChunkSize) {
+      final chunkProgress = i;
+      final chunkOffset = buffer.offsetInBytes + i;
+      final chunkSize = min(maxChunkSize, streamTotal - i);
+      sendDataProgressCallback(chunkProgress + chunkSize, streamTotal);
+      yield buffer.buffer.asUint8List(chunkOffset, chunkSize);
+    }
   }
 }
 

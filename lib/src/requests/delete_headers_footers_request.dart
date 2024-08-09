@@ -56,6 +56,9 @@ class DeleteHeadersFootersRequest implements RequestBase {
   /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
   final String? encryptedPassword;
 
+  /// The value indicates whether OpenType support is on.
+  final bool? openTypeSupport;
+
   /// Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
   final String? destFileName;
 
@@ -68,7 +71,13 @@ class DeleteHeadersFootersRequest implements RequestBase {
   /// The list of HeaderFooter types.
   final String? headersFootersTypes;
 
-  DeleteHeadersFootersRequest(this.name, this.sectionPath, {this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.destFileName, this.revisionAuthor, this.revisionDateTime, this.headersFootersTypes});
+  /// Request send data progress callback
+  final SendDataProgressCallback? sendDataProgressCallback;
+
+  /// Response receive data progress callback
+  final ReceiveDataProgressCallback? receiveDataProgressCallback;
+
+  DeleteHeadersFootersRequest(this.name, this.sectionPath, {this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.openTypeSupport, this.destFileName, this.revisionAuthor, this.revisionDateTime, this.headersFootersTypes, this.sendDataProgressCallback, this.receiveDataProgressCallback});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -106,6 +115,10 @@ class DeleteHeadersFootersRequest implements RequestBase {
       _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword) ?? "";
     }
 
+    if (openTypeSupport != null) {
+      _queryParams['openTypeSupport'] = _apiClient.serializeToString(openTypeSupport) ?? "";
+    }
+
     if (destFileName != null) {
       _queryParams['destFileName'] = _apiClient.serializeToString(destFileName) ?? "";
     }
@@ -130,7 +143,7 @@ class DeleteHeadersFootersRequest implements RequestBase {
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('DELETE', _url, _headers, _body);
+    return ApiRequestData('DELETE', _url, _headers, _body, this.sendDataProgressCallback, this.receiveDataProgressCallback);
   }
 
   @override

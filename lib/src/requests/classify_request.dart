@@ -42,7 +42,13 @@ class ClassifyRequest implements RequestBase {
   /// The number of the best classes to return.
   final String? bestClassesCount;
 
-  ClassifyRequest(this.text, {this.bestClassesCount});
+  /// Request send data progress callback
+  final SendDataProgressCallback? sendDataProgressCallback;
+
+  /// Response receive data progress callback
+  final ReceiveDataProgressCallback? receiveDataProgressCallback;
+
+  ClassifyRequest(this.text, {this.bestClassesCount, this.sendDataProgressCallback, this.receiveDataProgressCallback});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -74,7 +80,7 @@ class ClassifyRequest implements RequestBase {
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('PUT', _url, _headers, _body);
+    return ApiRequestData('PUT', _url, _headers, _body, this.sendDataProgressCallback, this.receiveDataProgressCallback);
   }
 
   @override

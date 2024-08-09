@@ -50,10 +50,19 @@ class SaveAsOnlineRequest implements RequestBase {
   /// Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
   final String? encryptedPassword;
 
+  /// The value indicates whether OpenType support is on.
+  final bool? openTypeSupport;
+
   /// Folder in filestorage with custom fonts.
   final String? fontsLocation;
 
-  SaveAsOnlineRequest(this.document, this.saveOptionsData, {this.loadEncoding, this.password, this.encryptedPassword, this.fontsLocation});
+  /// Request send data progress callback
+  final SendDataProgressCallback? sendDataProgressCallback;
+
+  /// Response receive data progress callback
+  final ReceiveDataProgressCallback? receiveDataProgressCallback;
+
+  SaveAsOnlineRequest(this.document, this.saveOptionsData, {this.loadEncoding, this.password, this.encryptedPassword, this.openTypeSupport, this.fontsLocation, this.sendDataProgressCallback, this.receiveDataProgressCallback});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -72,6 +81,10 @@ class SaveAsOnlineRequest implements RequestBase {
 
     if (encryptedPassword != null) {
       _queryParams['encryptedPassword'] = _apiClient.serializeToString(encryptedPassword) ?? "";
+    }
+
+    if (openTypeSupport != null) {
+      _queryParams['openTypeSupport'] = _apiClient.serializeToString(openTypeSupport) ?? "";
     }
 
     if (fontsLocation != null) {
@@ -109,7 +122,7 @@ class SaveAsOnlineRequest implements RequestBase {
     }
     var _url = _apiClient.configuration.getApiRootUrl() + _apiClient.applyQueryParams(_path, _queryParams).replaceAll('//', '/');
     var _body = _apiClient.serializeBodyParts(_bodyParts, _headers);
-    return ApiRequestData('PUT', _url, _headers, _body);
+    return ApiRequestData('PUT', _url, _headers, _body, this.sendDataProgressCallback, this.receiveDataProgressCallback);
   }
 
   @override
