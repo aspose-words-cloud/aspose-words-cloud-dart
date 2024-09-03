@@ -145,6 +145,12 @@ class XamlFlowPackSaveOptionsData extends XamlFlowSaveOptionsData {
     } else {
       imagesFolderAlias = null;
     }
+
+    if (json.containsKey('ReplaceBackslashWithYenSign')) {
+      replaceBackslashWithYenSign = json['ReplaceBackslashWithYenSign'] as bool;
+    } else {
+      replaceBackslashWithYenSign = null;
+    }
   }
 
   @override

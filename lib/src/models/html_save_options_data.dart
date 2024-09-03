@@ -276,6 +276,17 @@ class HtmlSaveOptionsData extends SaveOptionsData {
   set prettyFormat(bool? val) => _prettyFormat = val;
 
 
+  /// Gets or sets the flag that indicates whether backslash characters should be replaced with yen signs.
+  /// Default value is false.
+  /// By default, Aspose.Words mimics MS Word's behavior and doesn't replace backslash characters with yen signs in
+  /// generated HTML documents. However, previous versions of Aspose.Words performed such replacements in certain
+  /// scenarios. This flag enables backward compatibility with previous versions of Aspose.Words.
+  bool? _replaceBackslashWithYenSign;
+
+  bool? get replaceBackslashWithYenSign => _replaceBackslashWithYenSign;
+  set replaceBackslashWithYenSign(bool? val) => _replaceBackslashWithYenSign = val;
+
+
   /// Gets or sets a value indicating whether font family names used in the document are resolved and substituted according to FontSettings when being written into HTML-based formats.
   /// The default value is false.
   bool? _resolveFontNames;
@@ -650,6 +661,12 @@ class HtmlSaveOptionsData extends SaveOptionsData {
       prettyFormat = null;
     }
 
+    if (json.containsKey('ReplaceBackslashWithYenSign')) {
+      replaceBackslashWithYenSign = json['ReplaceBackslashWithYenSign'] as bool;
+    } else {
+      replaceBackslashWithYenSign = null;
+    }
+
     if (json.containsKey('ResolveFontNames')) {
       resolveFontNames = json['ResolveFontNames'] as bool;
     } else {
@@ -857,6 +874,10 @@ class HtmlSaveOptionsData extends SaveOptionsData {
 
     if (prettyFormat != null) {
       _result['PrettyFormat'] = prettyFormat!;
+    }
+
+    if (replaceBackslashWithYenSign != null) {
+      _result['ReplaceBackslashWithYenSign'] = replaceBackslashWithYenSign!;
     }
 
     if (resolveFontNames != null) {

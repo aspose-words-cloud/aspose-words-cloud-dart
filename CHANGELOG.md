@@ -1,3 +1,10 @@
+## [24.9.0] - Aspose Words Cloud for Dart 24.9 Release Notes
+
+- Added ReplaceBackslashWithYenSign property for XpsSaveOptions and HtmlSaveOptions.
+- Added DigitalSignature property for XpsSaveOptions.
+- Added UseSdtTagAsFormFieldName property for PdfSaveOptions.
+
+
 ## [24.8.0] - Aspose Words Cloud for Dart 24.8 Release Notes
 
 - Added the support of OpenType standard. It is usefull for languages required advanced typography.

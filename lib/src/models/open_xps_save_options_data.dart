@@ -193,6 +193,12 @@ class OpenXpsSaveOptionsData extends XpsSaveOptionsData {
       bookmarksOutlineLevel = null;
     }
 
+    if (json.containsKey('DigitalSignatureDetails')) {
+      digitalSignatureDetails = ModelBase.createInstance< DigitalSignatureDetails >(json['DigitalSignatureDetails'] as Map<String, dynamic>);
+    } else {
+      digitalSignatureDetails = null;
+    }
+
     if (json.containsKey('HeadingsOutlineLevels')) {
       headingsOutlineLevels = json['HeadingsOutlineLevels'] as int;
     } else {

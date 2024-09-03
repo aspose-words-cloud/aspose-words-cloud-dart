@@ -45,6 +45,17 @@ class XamlFlowSaveOptionsData extends SaveOptionsData {
   set imagesFolderAlias(String? val) => _imagesFolderAlias = val;
 
 
+  /// Gets or sets the flag that indicates whether backslash characters should be replaced with yen signs.
+  /// Default value is false.
+  /// By default, Aspose.Words mimics MS Word's behavior and doesn't replace backslash characters with yen signs in
+  /// generated HTML documents. However, previous versions of Aspose.Words performed such replacements in certain
+  /// scenarios. This flag enables backward compatibility with previous versions of Aspose.Words.
+  bool? _replaceBackslashWithYenSign;
+
+  bool? get replaceBackslashWithYenSign => _replaceBackslashWithYenSign;
+  set replaceBackslashWithYenSign(bool? val) => _replaceBackslashWithYenSign = val;
+
+
   /// Gets the format of save.
   String? _saveFormat = 'xamlflow';
 
@@ -159,6 +170,12 @@ class XamlFlowSaveOptionsData extends SaveOptionsData {
     } else {
       imagesFolderAlias = null;
     }
+
+    if (json.containsKey('ReplaceBackslashWithYenSign')) {
+      replaceBackslashWithYenSign = json['ReplaceBackslashWithYenSign'] as bool;
+    } else {
+      replaceBackslashWithYenSign = null;
+    }
   }
 
   @override
@@ -171,6 +188,10 @@ class XamlFlowSaveOptionsData extends SaveOptionsData {
 
     if (imagesFolderAlias != null) {
       _result['ImagesFolderAlias'] = imagesFolderAlias!;
+    }
+
+    if (replaceBackslashWithYenSign != null) {
+      _result['ReplaceBackslashWithYenSign'] = replaceBackslashWithYenSign!;
     }
 
     if (saveFormat != null) {

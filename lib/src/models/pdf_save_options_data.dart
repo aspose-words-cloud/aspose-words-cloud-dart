@@ -226,6 +226,15 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   set useCoreFonts(bool? val) => _useCoreFonts = val;
 
 
+  /// Gets or sets a value indicating whether to use SDT control Tag or Id property as a name of form field in PDF.
+  /// The default value is false.When set to false, SDT control Id property is used as a name of form field in PDF.When set to true, SDT control Tag property is used as a name of form field in PDF.If set to true and Tag is empty, Id property will be used as a form field name.If set to true and Tag values are not unique, duplicate Tag values will be altered to build
+  /// unique PDF form field names.
+  bool? _useSdtTagAsFormFieldName;
+
+  bool? get useSdtTagAsFormFieldName => _useSdtTagAsFormFieldName;
+  set useSdtTagAsFormFieldName(bool? val) => _useSdtTagAsFormFieldName = val;
+
+
   /// Gets or sets the option that controls what type of zoom should be applied when a document is opened with a PDF viewer.
   PdfSaveOptionsData_ZoomBehaviorEnum? _zoomBehavior;
 
@@ -589,6 +598,12 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
       useCoreFonts = null;
     }
 
+    if (json.containsKey('UseSdtTagAsFormFieldName')) {
+      useSdtTagAsFormFieldName = json['UseSdtTagAsFormFieldName'] as bool;
+    } else {
+      useSdtTagAsFormFieldName = null;
+    }
+
     if (json.containsKey('ZoomBehavior')) {
       switch (json['ZoomBehavior'] as String) {
         case 'None': zoomBehavior = PdfSaveOptionsData_ZoomBehaviorEnum.none; break;
@@ -757,6 +772,10 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
       _result['UseCoreFonts'] = useCoreFonts!;
     }
 
+    if (useSdtTagAsFormFieldName != null) {
+      _result['UseSdtTagAsFormFieldName'] = useSdtTagAsFormFieldName!;
+    }
+
     if (zoomBehavior != null) {
       switch (zoomBehavior!) {
         case PdfSaveOptionsData_ZoomBehaviorEnum.none: _result['ZoomBehavior'] = 'None'; break;
@@ -811,6 +830,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
 
     outlineOptions?.validate();
+
 
 
 

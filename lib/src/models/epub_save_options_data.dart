@@ -376,6 +376,12 @@ class EpubSaveOptionsData extends HtmlSaveOptionsData {
       prettyFormat = null;
     }
 
+    if (json.containsKey('ReplaceBackslashWithYenSign')) {
+      replaceBackslashWithYenSign = json['ReplaceBackslashWithYenSign'] as bool;
+    } else {
+      replaceBackslashWithYenSign = null;
+    }
+
     if (json.containsKey('ResolveFontNames')) {
       resolveFontNames = json['ResolveFontNames'] as bool;
     } else {
