@@ -50,6 +50,7 @@ import './document/document_with_format_tests.dart';
 import './document/load_web_document_tests.dart';
 import './document/password_encryption_tests.dart';
 import './document/revisions_tests.dart';
+import './document/signature_tests.dart';
 import './document/split_document_to_format_tests.dart';
 import './drawing/drawing_objects_tests.dart';
 import './encoding_tests.dart';
@@ -225,6 +226,15 @@ void main() {
     test('AcceptAllRevisionsOnline', () async => await RevisionsTests(testContext).testAcceptAllRevisionsOnline());
     test('RejectAllRevisions', () async => await RevisionsTests(testContext).testRejectAllRevisions());
     test('RejectAllRevisionsOnline', () async => await RevisionsTests(testContext).testRejectAllRevisionsOnline());
+  });
+
+  group('Signature', () {
+    test('GetSignatures', () async => await SignatureTests(testContext).testGetSignatures());
+    test('GetSignaturesOnline', () async => await SignatureTests(testContext).testGetSignaturesOnline());
+    test('RemoveAllSignatures', () async => await SignatureTests(testContext).testRemoveAllSignatures());
+    test('RemoveAllSignaturesOnline', () async => await SignatureTests(testContext).testRemoveAllSignaturesOnline());
+    test('SignDocument', () async => await SignatureTests(testContext).testSignDocument());
+    test('SignDocumentOnline', () async => await SignatureTests(testContext).testSignDocumentOnline());
   });
 
   group('SplitDocumentToFormat', () {

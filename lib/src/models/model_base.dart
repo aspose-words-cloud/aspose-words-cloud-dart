@@ -241,6 +241,8 @@ abstract class ModelBase {
     'SectionPageSetupResponse, _': () => SectionPageSetupResponse(),
     'SectionResponse, _': () => SectionResponse(),
     'Shading, _': () => Shading(),
+    'Signature, _': () => Signature(),
+    'SignatureCollectionResponse, _': () => SignatureCollectionResponse(),
     'SignOptions, _': () => SignOptions(),
     'SplitDocumentResponse, _': () => SplitDocumentResponse(),
     'SplitDocumentResult, _': () => SplitDocumentResult(),
