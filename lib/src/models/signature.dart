@@ -60,11 +60,11 @@ class Signature implements ModelBase {
   set signatureType(Signature_SignatureTypeEnum? val) => _signatureType = val;
 
 
-  /// Gets or sets an array of bytes representing a signature value.
-  ByteData? _signatureValue;
+  /// Gets or sets an array of bytes representing a signature value as base64 string.
+  String? _signatureValue;
 
-  ByteData? get signatureValue => _signatureValue;
-  set signatureValue(ByteData? val) => _signatureValue = val;
+  String? get signatureValue => _signatureValue;
+  set signatureValue(String? val) => _signatureValue = val;
 
 
   /// Gets or sets the time the document was signed.
@@ -117,7 +117,7 @@ class Signature implements ModelBase {
     }
 
     if (json.containsKey('SignatureValue')) {
-      signatureValue = json['SignatureValue'] as ByteData;
+      signatureValue = json['SignatureValue'] as String;
     } else {
       signatureValue = null;
     }
