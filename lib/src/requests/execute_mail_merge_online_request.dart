@@ -47,6 +47,9 @@ class ExecuteMailMergeOnlineRequest implements RequestBase {
   /// The flag indicating whether to execute Mail Merge operation with regions.
   final bool? withRegions;
 
+  /// The flag indicating whether fields in whole document are updated while executing of a mail merge with regions.
+  final bool? mergeWholeDocument;
+
   /// The cleanup options.
   final String? cleanup;
 
@@ -59,7 +62,7 @@ class ExecuteMailMergeOnlineRequest implements RequestBase {
   /// Response receive data progress callback
   final ReceiveDataProgressCallback? receiveDataProgressCallback;
 
-  ExecuteMailMergeOnlineRequest(this.template, this.data, {this.options, this.withRegions, this.cleanup, this.documentFileName, this.sendDataProgressCallback, this.receiveDataProgressCallback});
+  ExecuteMailMergeOnlineRequest(this.template, this.data, {this.options, this.withRegions, this.mergeWholeDocument, this.cleanup, this.documentFileName, this.sendDataProgressCallback, this.receiveDataProgressCallback});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -70,6 +73,10 @@ class ExecuteMailMergeOnlineRequest implements RequestBase {
     var _fileContentParts = <FileReference>[];
     if (withRegions != null) {
       _queryParams['withRegions'] = _apiClient.serializeToString(withRegions) ?? "";
+    }
+
+    if (mergeWholeDocument != null) {
+      _queryParams['mergeWholeDocument'] = _apiClient.serializeToString(mergeWholeDocument) ?? "";
     }
 
     if (cleanup != null) {

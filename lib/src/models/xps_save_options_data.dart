@@ -38,6 +38,13 @@ class XpsSaveOptionsData extends FixedPageSaveOptionsData {
   set bookmarksOutlineLevel(int? val) => _bookmarksOutlineLevel = val;
 
 
+  /// Gets or sets the details for signing the output document.
+  DigitalSignatureDetails? _digitalSignatureDetails;
+
+  DigitalSignatureDetails? get digitalSignatureDetails => _digitalSignatureDetails;
+  set digitalSignatureDetails(DigitalSignatureDetails? val) => _digitalSignatureDetails = val;
+
+
   /// Gets or sets the number of heading levels (paragraphs formatted with the Heading styles) to include in the XPS document outline.
   int? _headingsOutlineLevels;
 
@@ -221,6 +228,12 @@ class XpsSaveOptionsData extends FixedPageSaveOptionsData {
       bookmarksOutlineLevel = null;
     }
 
+    if (json.containsKey('DigitalSignatureDetails')) {
+      digitalSignatureDetails = ModelBase.createInstance< DigitalSignatureDetails >(json['DigitalSignatureDetails'] as Map<String, dynamic>);
+    } else {
+      digitalSignatureDetails = null;
+    }
+
     if (json.containsKey('HeadingsOutlineLevels')) {
       headingsOutlineLevels = json['HeadingsOutlineLevels'] as int;
     } else {
@@ -248,6 +261,10 @@ class XpsSaveOptionsData extends FixedPageSaveOptionsData {
       _result['BookmarksOutlineLevel'] = bookmarksOutlineLevel!;
     }
 
+    if (digitalSignatureDetails != null) {
+      _result['DigitalSignatureDetails'] = digitalSignatureDetails!.serialize();
+    }
+
     if (headingsOutlineLevels != null) {
       _result['HeadingsOutlineLevels'] = headingsOutlineLevels!;
     }
@@ -273,6 +290,11 @@ class XpsSaveOptionsData extends FixedPageSaveOptionsData {
   @override
   void validate() {
     super.validate();
+
+    digitalSignatureDetails?.validate();
+
+
+
 
     outlineOptions?.validate();
 

@@ -1,3 +1,12 @@
+## [24.9.0] - Aspose Words Cloud for Dart 24.9 Release Notes
+
+- Added digital signature methds for DOC, DOCX, XPS, or ODT documents.
+- Added ReplaceBackslashWithYenSign property for XpsSaveOptions and HtmlSaveOptions.
+- Added DigitalSignature property for XpsSaveOptions.
+- Added UseSdtTagAsFormFieldName property for PdfSaveOptions.
+- Added MergeWholeDocument parameter to the MailMerge operations to update fields in whole document after executing of a mail merge with regions.
+
+
 ## [24.8.0] - Aspose Words Cloud for Dart 24.8 Release Notes
 
 - Added the support of OpenType standard. It is usefull for languages required advanced typography.

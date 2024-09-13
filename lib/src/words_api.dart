@@ -968,6 +968,16 @@ class WordsApi {
     return await _apiClient.call(request) as SectionLinkCollectionResponse;
   }
 
+  /// Gets signatures from the document.
+  Future< SignatureCollectionResponse > getSignatures(GetSignaturesRequest request) async {
+    return await _apiClient.call(request) as SignatureCollectionResponse;
+  }
+
+  /// Gets signatures from the document.
+  Future< SignatureCollectionResponse > getSignaturesOnline(GetSignaturesOnlineRequest request) async {
+    return await _apiClient.call(request) as SignatureCollectionResponse;
+  }
+
   /// Reads a StructuredDocumentTag (SDT) from the document node.
   Future< StructuredDocumentTagResponse > getStructuredDocumentTag(GetStructuredDocumentTagRequest request) async {
     return await _apiClient.call(request) as StructuredDocumentTagResponse;
@@ -1372,6 +1382,16 @@ class WordsApi {
     return await _apiClient.call(request) as RejectAllRevisionsOnlineResponse;
   }
 
+  /// Removes all signatures of the document.
+  Future< SignatureCollectionResponse > removeAllSignatures(RemoveAllSignaturesRequest request) async {
+    return await _apiClient.call(request) as SignatureCollectionResponse;
+  }
+
+  /// Removes all signatures of the document.
+  Future< RemoveAllSignaturesOnlineResponse > removeAllSignaturesOnline(RemoveAllSignaturesOnlineRequest request) async {
+    return await _apiClient.call(request) as RemoveAllSignaturesOnlineResponse;
+  }
+
   /// Removes a range from the document.
   Future< DocumentResponse > removeRange(RemoveRangeRequest request) async {
     return await _apiClient.call(request) as DocumentResponse;
@@ -1497,6 +1517,16 @@ class WordsApi {
   /// Searches text, specified by the regular expression, in the document.
   Future< SearchResponse > searchOnline(SearchOnlineRequest request) async {
     return await _apiClient.call(request) as SearchResponse;
+  }
+
+  /// Signs the document with given certificate.
+  Future< SignatureCollectionResponse > signDocument(SignDocumentRequest request) async {
+    return await _apiClient.call(request) as SignatureCollectionResponse;
+  }
+
+  /// Signs the document with given certificate.
+  Future< SignDocumentOnlineResponse > signDocumentOnline(SignDocumentOnlineRequest request) async {
+    return await _apiClient.call(request) as SignDocumentOnlineResponse;
   }
 
   /// Splits a document into parts and saves them in the specified format.
