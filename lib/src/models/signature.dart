@@ -54,10 +54,10 @@ class Signature implements ModelBase {
 
 
   /// Gets or sets the type of the digital signature.
-  Signature_SignatureTypeEnum? _signatureType;
+  String? _signatureType;
 
-  Signature_SignatureTypeEnum? get signatureType => _signatureType;
-  set signatureType(Signature_SignatureTypeEnum? val) => _signatureType = val;
+  String? get signatureType => _signatureType;
+  set signatureType(String? val) => _signatureType = val;
 
 
   /// Gets or sets an array of bytes representing a signature value as base64 string.
@@ -106,12 +106,7 @@ class Signature implements ModelBase {
     }
 
     if (json.containsKey('SignatureType')) {
-      switch (json['SignatureType'] as String) {
-        case 'Unknown': signatureType = Signature_SignatureTypeEnum.unknown; break;
-        case 'CryptoApi': signatureType = Signature_SignatureTypeEnum.cryptoApi; break;
-        case 'XmlDsig': signatureType = Signature_SignatureTypeEnum.xmlDsig; break;
-        default: signatureType = null; break;
-      }
+      signatureType = json['SignatureType'] as String;
     } else {
       signatureType = null;
     }
@@ -151,12 +146,7 @@ class Signature implements ModelBase {
     }
 
     if (signatureType != null) {
-      switch (signatureType!) {
-        case Signature_SignatureTypeEnum.unknown: _result['SignatureType'] = 'Unknown'; break;
-        case Signature_SignatureTypeEnum.cryptoApi: _result['SignatureType'] = 'CryptoApi'; break;
-        case Signature_SignatureTypeEnum.xmlDsig: _result['SignatureType'] = 'XmlDsig'; break;
-        default: break;
-      }
+      _result['SignatureType'] = signatureType!;
     }
 
     if (signatureValue != null) {
@@ -183,10 +173,6 @@ class Signature implements ModelBase {
     {
         throw new ApiException(400, 'Property IsValid in Signature is required.');
     }
-    if (signatureType == null)
-    {
-        throw new ApiException(400, 'Property SignatureType in Signature is required.');
-    }
     if (signTime == null)
     {
         throw new ApiException(400, 'Property SignTime in Signature is required.');
@@ -194,11 +180,4 @@ class Signature implements ModelBase {
   }
 }
 
-/// Gets or sets the type of the digital signature.
-enum Signature_SignatureTypeEnum
-{ 
-  unknown,
-  cryptoApi,
-  xmlDsig
-}
 
