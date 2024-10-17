@@ -121,7 +121,7 @@ class RevisionsTests
 
     final result = await context.getApi().getAllRevisions(request);
     expect(result.revisions, isNotNull);
-    expect(result.revisions?.length, 6);
+    expect(result.revisions?.revisions?.length, 6);
   }
 
   /// Test for getting revisions online from document.
@@ -134,8 +134,7 @@ class RevisionsTests
     );
 
     final result = await context.getApi().getAllRevisionsOnline(request);
-    expect(result.document, isNotNull);
-    expect(result.model, isNotNull);
-    expect(result.model?.revisions, isNotNull);
+    expect(result.revisions, isNotNull);
+    expect(result.revisions?.revisions?.length, 6);
   }
 }
