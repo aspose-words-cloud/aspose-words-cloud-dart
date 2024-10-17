@@ -107,4 +107,35 @@ class RevisionsTests
     expect(result.model?.result, isNotNull);
     expect(result.model?.result?.dest, isNotNull);
   }
+
+  /// Test for getting revisions from document.
+  Future<void> testGetAllRevisions() async
+  {
+    final remoteFileName = 'TestAcceptAllRevisions.docx';
+    await context.uploadFile(localFile, remoteDataFolder + '/' + remoteFileName);
+
+    final request = GetAllRevisionsRequest(
+      remoteFileName,
+      folder: remoteDataFolder
+    );
+
+    final result = await context.getApi().getAllRevisions(request);
+    expect(result.revisions, isNotNull);
+    expect(result.revisions?.length, 6);
+  }
+
+  /// Test for getting revisions online from document.
+  Future<void> testGetAllRevisionsOnline() async
+  {
+    final requestDocument = await context.loadBinaryFile(localFile);
+
+    final request = GetAllRevisionsOnlineRequest(
+      requestDocument
+    );
+
+    final result = await context.getApi().getAllRevisionsOnline(request);
+    expect(result.document, isNotNull);
+    expect(result.model, isNotNull);
+    expect(result.model?.revisions, isNotNull);
+  }
 }

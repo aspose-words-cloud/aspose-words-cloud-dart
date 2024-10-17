@@ -1,3 +1,8 @@
+## [24.11.0] - Aspose Words Cloud for Dart 24.11 Release Notes
+
+- Added GetAllRevisions method to obtain all available revisions in document.
+
+
 ## [24.9.0] - Aspose Words Cloud for Dart 24.9 Release Notes
 
 - Added digital signature methds for DOC, DOCX, XPS, or ODT documents.
