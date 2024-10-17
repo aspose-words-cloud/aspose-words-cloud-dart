@@ -39,7 +39,7 @@ class RevisionsTests
 
   RevisionsTests(this.context) {
     remoteDataFolder = context.remoteBaseTestDataFolder + '/DocumentActions/Revisions';
-    localFile = 'Common/test_multi_pages.docx';
+    localFile = 'DocumentElements/Revisions/TestRevisions.doc';
   }
 
   /// Test for accepting revisions in document.
