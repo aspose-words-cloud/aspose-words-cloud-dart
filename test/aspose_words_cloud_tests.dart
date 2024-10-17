@@ -226,6 +226,8 @@ void main() {
     test('AcceptAllRevisionsOnline', () async => await RevisionsTests(testContext).testAcceptAllRevisionsOnline());
     test('RejectAllRevisions', () async => await RevisionsTests(testContext).testRejectAllRevisions());
     test('RejectAllRevisionsOnline', () async => await RevisionsTests(testContext).testRejectAllRevisionsOnline());
+    test('GetAllRevisions', () async => await RevisionsTests(testContext).testGetAllRevisions());
+    test('GetAllRevisionsOnline', () async => await RevisionsTests(testContext).testGetAllRevisionsOnline());
   });
 
   group('Signature', () {
