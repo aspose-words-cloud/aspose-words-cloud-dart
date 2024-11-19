@@ -56,7 +56,7 @@ class DocumentPropertiesTests
     final result = await context.getApi().getDocumentProperties(request);
     expect(result.documentProperties, isNotNull);
     expect(result.documentProperties?.list, isNotNull);
-    expect(result.documentProperties?.list?.length, 24);
+    expect(result.documentProperties?.list?.length, 27);
     expect(result.documentProperties?.list?[0], isNotNull);
     expect(result.documentProperties?.list?[0]?.name, 'Author');
     expect(result.documentProperties?.list?[0]?.value, '');
