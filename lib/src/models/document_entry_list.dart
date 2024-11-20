@@ -31,6 +31,13 @@ import '../../aspose_words_cloud.dart';
 
 /// Represents a list of documents which will be appended to the original resource document.
 class DocumentEntryList extends BaseEntryList {
+  /// Gets or sets a value indicating whether to append all documents to the same section.
+  bool? _appendAllEntriesToOneSection;
+
+  bool? get appendAllEntriesToOneSection => _appendAllEntriesToOneSection;
+  set appendAllEntriesToOneSection(bool? val) => _appendAllEntriesToOneSection = val;
+
+
   /// Gets or sets a value indicating whether to apply headers and footers from base document to appending documents. The default value is true.
   bool? _applyBaseDocumentHeadersAndFootersToAppendingDocuments;
 
@@ -52,6 +59,12 @@ class DocumentEntryList extends BaseEntryList {
     }
 
     super.deserialize(json);
+    if (json.containsKey('AppendAllEntriesToOneSection')) {
+      appendAllEntriesToOneSection = json['AppendAllEntriesToOneSection'] as bool;
+    } else {
+      appendAllEntriesToOneSection = null;
+    }
+
     if (json.containsKey('ApplyBaseDocumentHeadersAndFootersToAppendingDocuments')) {
       applyBaseDocumentHeadersAndFootersToAppendingDocuments = json['ApplyBaseDocumentHeadersAndFootersToAppendingDocuments'] as bool;
     } else {
@@ -73,6 +86,10 @@ class DocumentEntryList extends BaseEntryList {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
+    if (appendAllEntriesToOneSection != null) {
+      _result['AppendAllEntriesToOneSection'] = appendAllEntriesToOneSection!;
+    }
+
     if (applyBaseDocumentHeadersAndFootersToAppendingDocuments != null) {
       _result['ApplyBaseDocumentHeadersAndFootersToAppendingDocuments'] = applyBaseDocumentHeadersAndFootersToAppendingDocuments!;
     }

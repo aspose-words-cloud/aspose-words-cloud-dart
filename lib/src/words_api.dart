@@ -496,6 +496,16 @@ class WordsApi {
     return await _apiClient.call(request) as ByteData;
   }
 
+  /// Get all information about revisions.
+  Future< RevisionsResponse > getAllRevisions(GetAllRevisionsRequest request) async {
+    return await _apiClient.call(request) as RevisionsResponse;
+  }
+
+  /// Get all information about revisions.
+  Future< RevisionsResponse > getAllRevisionsOnline(GetAllRevisionsOnlineRequest request) async {
+    return await _apiClient.call(request) as RevisionsResponse;
+  }
+
   /// Reads available fonts from the document.
   Future< AvailableFontsResponse > getAvailableFonts(GetAvailableFontsRequest request) async {
     return await _apiClient.call(request) as AvailableFontsResponse;
