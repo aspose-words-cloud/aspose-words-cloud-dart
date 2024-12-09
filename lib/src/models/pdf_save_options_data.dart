@@ -205,6 +205,15 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   set preserveFormFields(bool? val) => _preserveFormFields = val;
 
 
+  /// Gets or sets a value indicating whether to render PDF choice form field border.
+  /// PDF choice form fields are used for export of SDT Combo Box Content Control, SDT Drop-Down List Content
+  /// Control and legacy Drop-Down Form Field when PreserveFormFields option is enabled.The default value is true.
+  bool? _renderChoiceFormFieldBorder;
+
+  bool? get renderChoiceFormFieldBorder => _renderChoiceFormFieldBorder;
+  set renderChoiceFormFieldBorder(bool? val) => _renderChoiceFormFieldBorder = val;
+
+
   /// Gets or sets the compression type to be used for all textual content in the document.
   PdfSaveOptionsData_TextCompressionEnum? _textCompression;
 
@@ -576,6 +585,12 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
       preserveFormFields = null;
     }
 
+    if (json.containsKey('RenderChoiceFormFieldBorder')) {
+      renderChoiceFormFieldBorder = json['RenderChoiceFormFieldBorder'] as bool;
+    } else {
+      renderChoiceFormFieldBorder = null;
+    }
+
     if (json.containsKey('TextCompression')) {
       switch (json['TextCompression'] as String) {
         case 'None': textCompression = PdfSaveOptionsData_TextCompressionEnum.none; break;
@@ -756,6 +771,10 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
       _result['PreserveFormFields'] = preserveFormFields!;
     }
 
+    if (renderChoiceFormFieldBorder != null) {
+      _result['RenderChoiceFormFieldBorder'] = renderChoiceFormFieldBorder!;
+    }
+
     if (textCompression != null) {
       switch (textCompression!) {
         case PdfSaveOptionsData_TextCompressionEnum.none: _result['TextCompression'] = 'None'; break;
@@ -830,6 +849,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
 
     outlineOptions?.validate();
+
 
 
 

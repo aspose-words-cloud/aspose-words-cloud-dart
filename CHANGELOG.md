@@ -1,3 +1,9 @@
+## [24.12.0] - Aspose Words Cloud for Dart 24.12 Release Notes
+
+- Added 'RenderChoiceFormFieldBorder' property for PdfSaveOptionsData class.
+- Added 'ApplySuperscript' property for ReplaceTextParameters class.
+
+
 ## [24.11.0] - Aspose Words Cloud for Dart 24.11 Release Notes
 
 - Added GetAllRevisions method to obtain all available revisions in document.

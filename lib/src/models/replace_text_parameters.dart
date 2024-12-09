@@ -31,6 +31,13 @@ import '../../aspose_words_cloud.dart';
 
 /// Class for document replace text request building.
 class ReplaceTextParameters implements ModelBase {
+  /// Gets or sets a value indicating whether apply superscript to font or not.
+  bool? _applySuperscript;
+
+  bool? get applySuperscript => _applySuperscript;
+  set applySuperscript(bool? val) => _applySuperscript = val;
+
+
   /// Gets or sets a value indicating whether flag, true means the search is case-sensitive; false means the search is not case-sensitive.
   bool? _isMatchCase;
 
@@ -72,6 +79,12 @@ class ReplaceTextParameters implements ModelBase {
       throw ApiException(400, 'Failed to deserialize ReplaceTextParameters data model.');
     }
 
+    if (json.containsKey('ApplySuperscript')) {
+      applySuperscript = json['ApplySuperscript'] as bool;
+    } else {
+      applySuperscript = null;
+    }
+
     if (json.containsKey('IsMatchCase')) {
       isMatchCase = json['IsMatchCase'] as bool;
     } else {
@@ -106,6 +119,10 @@ class ReplaceTextParameters implements ModelBase {
   @override
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
+    if (applySuperscript != null) {
+      _result['ApplySuperscript'] = applySuperscript!;
+    }
+
     if (isMatchCase != null) {
       _result['IsMatchCase'] = isMatchCase!;
     }
