@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="api_client.dart">
- *   Copyright (c) 2024 Aspose.Words for Cloud
+ *   Copyright (c) 2025 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -518,7 +518,7 @@ class ApiClient {
     }
 
     httpRequest.headers['x-aspose-client'] = 'dart sdk';
-    httpRequest.headers['x-aspose-client-version'] = '24.12';
+    httpRequest.headers['x-aspose-client-version'] = '25.1';
     httpRequest.headers['Authorization'] = await _getAuthToken();
     httpRequest.headers.addAll(requestData.headers);
 
