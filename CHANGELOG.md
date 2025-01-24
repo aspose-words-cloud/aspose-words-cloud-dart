@@ -1,3 +1,8 @@
+## [25.2.0] - Aspose Words Cloud for Dart 25.2 Release Notes
+
+- Added 'IdPrefix' property for HtmlFixedSaveOptionsData and SvgSaveOptionsData class.
+
+
 ## [24.12.0] - Aspose Words Cloud for Dart 24.12 Release Notes
 
 - Added 'RenderChoiceFormFieldBorder' property for PdfSaveOptionsData class.
