@@ -81,6 +81,16 @@ class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   set fontFormat(HtmlFixedSaveOptionsData_FontFormatEnum? val) => _fontFormat = val;
 
 
+  /// Gets or sets a prefix that is prepended to all generated element IDs in the output document.
+  /// Default value is null and no prefix is prepended.
+  /// If the prefix is specified, it can contain only letters, digits, underscores, and hyphens,
+  /// and must start with a letter.
+  String? _idPrefix;
+
+  String? get idPrefix => _idPrefix;
+  set idPrefix(String? val) => _idPrefix = val;
+
+
   /// Gets or sets the horizontal alignment of pages in the HTML document.
   /// The default value is HtmlFixedHorizontalPageAlignment.Center.
   HtmlFixedSaveOptionsData_PageHorizontalAlignmentEnum? _pageHorizontalAlignment;
@@ -340,6 +350,12 @@ class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
       fontFormat = null;
     }
 
+    if (json.containsKey('IdPrefix')) {
+      idPrefix = json['IdPrefix'] as String;
+    } else {
+      idPrefix = null;
+    }
+
     if (json.containsKey('PageHorizontalAlignment')) {
       switch (json['PageHorizontalAlignment'] as String) {
         case 'Left': pageHorizontalAlignment = HtmlFixedSaveOptionsData_PageHorizontalAlignmentEnum.left; break;
@@ -422,6 +438,10 @@ class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
         case HtmlFixedSaveOptionsData_FontFormatEnum.ttf: _result['FontFormat'] = 'Ttf'; break;
         default: break;
       }
+    }
+
+    if (idPrefix != null) {
+      _result['IdPrefix'] = idPrefix!;
     }
 
     if (pageHorizontalAlignment != null) {

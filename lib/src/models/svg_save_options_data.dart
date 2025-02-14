@@ -45,6 +45,16 @@ class SvgSaveOptionsData extends FixedPageSaveOptionsData {
   set fitToViewPort(bool? val) => _fitToViewPort = val;
 
 
+  /// Gets or sets specifies a prefix that is prepended to all generated element IDs in the output document.
+  /// Default value is null and no prefix is prepended.
+  /// If the prefix is specified, it can contain only letters, digits, underscores, and hyphens,
+  /// and must start with a letter.
+  String? _idPrefix;
+
+  String? get idPrefix => _idPrefix;
+  set idPrefix(String? val) => _idPrefix = val;
+
+
   /// Gets or sets a value in pixels per inch that limits resolution of exported raster images.
   /// If the value of this property is non-zero, it limits resolution of exported raster images.
   /// That is, higher-resolution images are resampled down to the limit and lower-resolution images are exported as is.
@@ -250,6 +260,12 @@ class SvgSaveOptionsData extends FixedPageSaveOptionsData {
       fitToViewPort = null;
     }
 
+    if (json.containsKey('IdPrefix')) {
+      idPrefix = json['IdPrefix'] as String;
+    } else {
+      idPrefix = null;
+    }
+
     if (json.containsKey('MaxImageResolution')) {
       maxImageResolution = json['MaxImageResolution'] as int;
     } else {
@@ -296,6 +312,10 @@ class SvgSaveOptionsData extends FixedPageSaveOptionsData {
 
     if (fitToViewPort != null) {
       _result['FitToViewPort'] = fitToViewPort!;
+    }
+
+    if (idPrefix != null) {
+      _result['IdPrefix'] = idPrefix!;
     }
 
     if (maxImageResolution != null) {
