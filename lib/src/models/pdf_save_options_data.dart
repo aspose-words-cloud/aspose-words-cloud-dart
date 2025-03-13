@@ -95,7 +95,9 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   /// Embedding attachments is not supported when encryption is enabled. false value will be used automatically.
   bool? _embedAttachments;
 
+  @Deprecated("This property will be removed in the future.")
   bool? get embedAttachments => _embedAttachments;
+  @Deprecated("This property will be removed in the future.")
   set embedAttachments(bool? val) => _embedAttachments = val;
 
 
@@ -428,7 +430,10 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         case 'PdfA1b': compliance = PdfSaveOptionsData_ComplianceEnum.pdfA1b; break;
         case 'PdfA2a': compliance = PdfSaveOptionsData_ComplianceEnum.pdfA2a; break;
         case 'PdfA2u': compliance = PdfSaveOptionsData_ComplianceEnum.pdfA2u; break;
+        case 'PdfA3a': compliance = PdfSaveOptionsData_ComplianceEnum.pdfA3a; break;
+        case 'PdfA3u': compliance = PdfSaveOptionsData_ComplianceEnum.pdfA3u; break;
         case 'PdfA4': compliance = PdfSaveOptionsData_ComplianceEnum.pdfA4; break;
+        case 'PdfA4f': compliance = PdfSaveOptionsData_ComplianceEnum.pdfA4f; break;
         case 'PdfA4Ua2': compliance = PdfSaveOptionsData_ComplianceEnum.pdfA4Ua2; break;
         case 'PdfUa1': compliance = PdfSaveOptionsData_ComplianceEnum.pdfUa1; break;
         case 'PdfUa2': compliance = PdfSaveOptionsData_ComplianceEnum.pdfUa2; break;
@@ -656,7 +661,10 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         case PdfSaveOptionsData_ComplianceEnum.pdfA1b: _result['Compliance'] = 'PdfA1b'; break;
         case PdfSaveOptionsData_ComplianceEnum.pdfA2a: _result['Compliance'] = 'PdfA2a'; break;
         case PdfSaveOptionsData_ComplianceEnum.pdfA2u: _result['Compliance'] = 'PdfA2u'; break;
+        case PdfSaveOptionsData_ComplianceEnum.pdfA3a: _result['Compliance'] = 'PdfA3a'; break;
+        case PdfSaveOptionsData_ComplianceEnum.pdfA3u: _result['Compliance'] = 'PdfA3u'; break;
         case PdfSaveOptionsData_ComplianceEnum.pdfA4: _result['Compliance'] = 'PdfA4'; break;
+        case PdfSaveOptionsData_ComplianceEnum.pdfA4f: _result['Compliance'] = 'PdfA4f'; break;
         case PdfSaveOptionsData_ComplianceEnum.pdfA4Ua2: _result['Compliance'] = 'PdfA4Ua2'; break;
         case PdfSaveOptionsData_ComplianceEnum.pdfUa1: _result['Compliance'] = 'PdfUa1'; break;
         case PdfSaveOptionsData_ComplianceEnum.pdfUa2: _result['Compliance'] = 'PdfUa2'; break;
@@ -873,7 +881,10 @@ enum PdfSaveOptionsData_ComplianceEnum
   pdfA1b,
   pdfA2a,
   pdfA2u,
+  pdfA3a,
+  pdfA3u,
   pdfA4,
+  pdfA4f,
   pdfA4Ua2,
   pdfUa1,
   pdfUa2
