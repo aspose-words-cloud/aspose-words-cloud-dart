@@ -31,6 +31,16 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for pdf save options.
 class PdfSaveOptionsData extends FixedPageSaveOptionsData {
+  /// Gets or sets a value determining how attachments are embedded to the PDF document.
+  /// Default value is None and attachments are not embedded.
+  /// PDF/A-1, PDF/A-2 and regular PDF/A-4 (not PDF/A-4f) standards do not allow embedded files.
+  /// None value will be used automatically.
+  PdfSaveOptionsData_AttachmentsEmbeddingModeEnum? _attachmentsEmbeddingMode;
+
+  PdfSaveOptionsData_AttachmentsEmbeddingModeEnum? get attachmentsEmbeddingMode => _attachmentsEmbeddingMode;
+  set attachmentsEmbeddingMode(PdfSaveOptionsData_AttachmentsEmbeddingModeEnum? val) => _attachmentsEmbeddingMode = val;
+
+
   /// Gets or sets a value determining whether or not to cache graphics placed in document's background.
   /// Default value is true and background graphics are written to the PDF document as an xObject. When the value is false background graphics are not cached. Some shapes are not supported for caching(shapes with fields, bookmarks, HRefs). Document background graphic is various shapes, charts, images placed in the footer or header,
   /// well as background and border of a page.
@@ -95,9 +105,9 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   /// Embedding attachments is not supported when encryption is enabled. false value will be used automatically.
   bool? _embedAttachments;
 
-  @Deprecated("This property will be removed in the future.")
+  @Deprecated("Obsolete, please use AttachmentsEmbeddingMode instead.")
   bool? get embedAttachments => _embedAttachments;
-  @Deprecated("This property will be removed in the future.")
+  @Deprecated("Obsolete, please use AttachmentsEmbeddingMode instead.")
   set embedAttachments(bool? val) => _embedAttachments = val;
 
 
@@ -333,6 +343,12 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
       imlRenderingMode = null;
     }
 
+    if (json.containsKey('UpdateAmbiguousTextFont')) {
+      updateAmbiguousTextFont = json['UpdateAmbiguousTextFont'] as bool;
+    } else {
+      updateAmbiguousTextFont = null;
+    }
+
     if (json.containsKey('UpdateCreatedTimeProperty')) {
       updateCreatedTimeProperty = json['UpdateCreatedTimeProperty'] as bool;
     } else {
@@ -414,6 +430,17 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
       pageIndex = json['PageIndex'] as int;
     } else {
       pageIndex = null;
+    }
+
+    if (json.containsKey('AttachmentsEmbeddingMode')) {
+      switch (json['AttachmentsEmbeddingMode'] as String) {
+        case 'None': attachmentsEmbeddingMode = PdfSaveOptionsData_AttachmentsEmbeddingModeEnum.none; break;
+        case 'Annotations': attachmentsEmbeddingMode = PdfSaveOptionsData_AttachmentsEmbeddingModeEnum.annotations; break;
+        case 'DocumentEmbeddedFiles': attachmentsEmbeddingMode = PdfSaveOptionsData_AttachmentsEmbeddingModeEnum.documentEmbeddedFiles; break;
+        default: attachmentsEmbeddingMode = null; break;
+      }
+    } else {
+      attachmentsEmbeddingMode = null;
     }
 
     if (json.containsKey('CacheBackgroundGraphics')) {
@@ -649,6 +676,15 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   Map<String, dynamic> serialize() {
     var _result = <String, dynamic>{};
     _result.addAll(super.serialize());
+    if (attachmentsEmbeddingMode != null) {
+      switch (attachmentsEmbeddingMode!) {
+        case PdfSaveOptionsData_AttachmentsEmbeddingModeEnum.none: _result['AttachmentsEmbeddingMode'] = 'None'; break;
+        case PdfSaveOptionsData_AttachmentsEmbeddingModeEnum.annotations: _result['AttachmentsEmbeddingMode'] = 'Annotations'; break;
+        case PdfSaveOptionsData_AttachmentsEmbeddingModeEnum.documentEmbeddedFiles: _result['AttachmentsEmbeddingMode'] = 'DocumentEmbeddedFiles'; break;
+        default: break;
+      }
+    }
+
     if (cacheBackgroundGraphics != null) {
       _result['CacheBackgroundGraphics'] = cacheBackgroundGraphics!;
     }
@@ -870,6 +906,17 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
 
   }
+}
+
+/// Gets or sets a value determining how attachments are embedded to the PDF document.
+/// Default value is None and attachments are not embedded.
+/// PDF/A-1, PDF/A-2 and regular PDF/A-4 (not PDF/A-4f) standards do not allow embedded files.
+/// None value will be used automatically.
+enum PdfSaveOptionsData_AttachmentsEmbeddingModeEnum
+{ 
+  none,
+  annotations,
+  documentEmbeddedFiles
 }
 
 /// Gets or sets the PDF standards compliance level for output documents.
