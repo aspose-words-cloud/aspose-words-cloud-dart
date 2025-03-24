@@ -2,6 +2,7 @@
 
 - Added 'AttachmentsEmbeddingMode' property for PdfSaveOptionsData class.
 - Added 'UpdateAmbiguousTextFont' property for SaveOptionsData class.
+- Added 'Granularity' property for CompareOptions class.
 
 
 ## [25.2.0] - Aspose Words Cloud for Dart 25.2 Release Notes
