@@ -126,6 +126,12 @@ class TiffSaveOptionsData extends ImageSaveOptionsData {
       imlRenderingMode = null;
     }
 
+    if (json.containsKey('UpdateAmbiguousTextFont')) {
+      updateAmbiguousTextFont = json['UpdateAmbiguousTextFont'] as bool;
+    } else {
+      updateAmbiguousTextFont = null;
+    }
+
     if (json.containsKey('UpdateCreatedTimeProperty')) {
       updateCreatedTimeProperty = json['UpdateCreatedTimeProperty'] as bool;
     } else {

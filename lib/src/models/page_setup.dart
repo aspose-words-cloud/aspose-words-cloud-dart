@@ -483,6 +483,8 @@ class PageSetup extends LinkElement {
         case 'Paper10x14': paperSize = PageSetup_PaperSizeEnum.paper10x14; break;
         case 'Paper11x17': paperSize = PageSetup_PaperSizeEnum.paper11x17; break;
         case 'Number10Envelope': paperSize = PageSetup_PaperSizeEnum.number10Envelope; break;
+        case 'JisB4': paperSize = PageSetup_PaperSizeEnum.jisB4; break;
+        case 'JisB5': paperSize = PageSetup_PaperSizeEnum.jisB5; break;
         case 'Custom': paperSize = PageSetup_PaperSizeEnum.custom; break;
         default: paperSize = null; break;
       }
@@ -735,6 +737,8 @@ class PageSetup extends LinkElement {
         case PageSetup_PaperSizeEnum.paper10x14: _result['PaperSize'] = 'Paper10x14'; break;
         case PageSetup_PaperSizeEnum.paper11x17: _result['PaperSize'] = 'Paper11x17'; break;
         case PageSetup_PaperSizeEnum.number10Envelope: _result['PaperSize'] = 'Number10Envelope'; break;
+        case PageSetup_PaperSizeEnum.jisB4: _result['PaperSize'] = 'JisB4'; break;
+        case PageSetup_PaperSizeEnum.jisB5: _result['PaperSize'] = 'JisB5'; break;
         case PageSetup_PaperSizeEnum.custom: _result['PaperSize'] = 'Custom'; break;
         default: break;
       }
@@ -912,6 +916,8 @@ enum PageSetup_PaperSizeEnum
   paper10x14,
   paper11x17,
   number10Envelope,
+  jisB4,
+  jisB5,
   custom
 }
 

@@ -1,3 +1,10 @@
+## [25.4.0] - Aspose Words Cloud for Dart 25.4 Release Notes
+
+- Added 'AttachmentsEmbeddingMode' property for PdfSaveOptionsData class.
+- Added 'UpdateAmbiguousTextFont' property for SaveOptionsData class.
+- Added 'Granularity' property for CompareOptions class.
+
+
 ## [25.2.0] - Aspose Words Cloud for Dart 25.2 Release Notes
 
 - Added 'IdPrefix' property for HtmlFixedSaveOptionsData and SvgSaveOptionsData class.

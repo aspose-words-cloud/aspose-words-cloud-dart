@@ -90,6 +90,13 @@ abstract class SaveOptionsData implements ModelBase {
   set imlRenderingMode(SaveOptionsData_ImlRenderingModeEnum? val) => _imlRenderingMode = val;
 
 
+  /// Gets or sets a value indicating whether the font attributes will be changed according to the character code being used.
+  bool? _updateAmbiguousTextFont;
+
+  bool? get updateAmbiguousTextFont => _updateAmbiguousTextFont;
+  set updateAmbiguousTextFont(bool? val) => _updateAmbiguousTextFont = val;
+
+
   /// Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.CreatedTime property is updated before saving.
   /// Default value is false.
   bool? _updateCreatedTimeProperty;
@@ -200,6 +207,12 @@ abstract class SaveOptionsData implements ModelBase {
       imlRenderingMode = null;
     }
 
+    if (json.containsKey('UpdateAmbiguousTextFont')) {
+      updateAmbiguousTextFont = json['UpdateAmbiguousTextFont'] as bool;
+    } else {
+      updateAmbiguousTextFont = null;
+    }
+
     if (json.containsKey('UpdateCreatedTimeProperty')) {
       updateCreatedTimeProperty = json['UpdateCreatedTimeProperty'] as bool;
     } else {
@@ -279,6 +292,10 @@ abstract class SaveOptionsData implements ModelBase {
       }
     }
 
+    if (updateAmbiguousTextFont != null) {
+      _result['UpdateAmbiguousTextFont'] = updateAmbiguousTextFont!;
+    }
+
     if (updateCreatedTimeProperty != null) {
       _result['UpdateCreatedTimeProperty'] = updateCreatedTimeProperty!;
     }
@@ -317,6 +334,7 @@ abstract class SaveOptionsData implements ModelBase {
     }
 
     customTimeZoneInfoData?.validate();
+
 
 
 

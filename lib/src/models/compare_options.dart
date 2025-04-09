@@ -38,6 +38,13 @@ class CompareOptions implements ModelBase {
   set acceptAllRevisionsBeforeComparison(bool? val) => _acceptAllRevisionsBeforeComparison = val;
 
 
+  /// Gets or sets the option indicating whether changes are tracked by character or by word.
+  CompareOptions_GranularityEnum? _granularity;
+
+  CompareOptions_GranularityEnum? get granularity => _granularity;
+  set granularity(CompareOptions_GranularityEnum? val) => _granularity = val;
+
+
   /// Gets or sets a value indicating whether documents comparison is case insensitive. By default comparison is case sensitive.
   bool? _ignoreCaseChanges;
 
@@ -113,6 +120,16 @@ class CompareOptions implements ModelBase {
       acceptAllRevisionsBeforeComparison = null;
     }
 
+    if (json.containsKey('Granularity')) {
+      switch (json['Granularity'] as String) {
+        case 'CharLevel': granularity = CompareOptions_GranularityEnum.charLevel; break;
+        case 'WordLevel': granularity = CompareOptions_GranularityEnum.wordLevel; break;
+        default: granularity = null; break;
+      }
+    } else {
+      granularity = null;
+    }
+
     if (json.containsKey('IgnoreCaseChanges')) {
       ignoreCaseChanges = json['IgnoreCaseChanges'] as bool;
     } else {
@@ -179,6 +196,14 @@ class CompareOptions implements ModelBase {
       _result['AcceptAllRevisionsBeforeComparison'] = acceptAllRevisionsBeforeComparison!;
     }
 
+    if (granularity != null) {
+      switch (granularity!) {
+        case CompareOptions_GranularityEnum.charLevel: _result['Granularity'] = 'CharLevel'; break;
+        case CompareOptions_GranularityEnum.wordLevel: _result['Granularity'] = 'WordLevel'; break;
+        default: break;
+      }
+    }
+
     if (ignoreCaseChanges != null) {
       _result['IgnoreCaseChanges'] = ignoreCaseChanges!;
     }
@@ -228,6 +253,13 @@ class CompareOptions implements ModelBase {
   @override
   void validate() {
   }
+}
+
+/// Gets or sets the option indicating whether changes are tracked by character or by word.
+enum CompareOptions_GranularityEnum
+{ 
+  charLevel,
+  wordLevel
 }
 
 /// Gets or sets the option that controls which document shall be used as a target during comparison.
