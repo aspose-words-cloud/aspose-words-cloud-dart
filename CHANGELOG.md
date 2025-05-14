@@ -1,3 +1,9 @@
+## [25.5.0] - Aspose Words Cloud for Dart 25.5 Release Notes
+
+- Added data models support for classes 'CommentRangeStart', 'CommentRangeEnd'.
+- Added data models support for classes 'FormFieldCheckboxLink', 'FormFieldDropDownLink', 'FormFieldTextInputLink'.
+
+
 ## [25.4.0] - Aspose Words Cloud for Dart 25.4 Release Notes
 
 - Added 'AttachmentsEmbeddingMode' property for PdfSaveOptionsData class.
