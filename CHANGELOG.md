@@ -1,3 +1,8 @@
+## [25.6.0] - Aspose Words Cloud for Dart 25.6 Release Notes
+
+- Added support for SVG images format in Watermark API.
+
+
 ## [25.5.0] - Aspose Words Cloud for Dart 25.5 Release Notes
 
 - Added data models support for classes 'CommentRangeStart', 'CommentRangeEnd'.
