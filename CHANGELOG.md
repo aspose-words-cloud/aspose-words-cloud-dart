@@ -1,6 +1,7 @@
 ## [25.6.0] - Aspose Words Cloud for Dart 25.6 Release Notes
 
 - Added support for SVG images format in Watermark API.
+- Added 'RemoveJavaScriptFromLinks' property for HtmlSaveOptionsData class.
 
 
 ## [25.5.0] - Aspose Words Cloud for Dart 25.5 Release Notes
