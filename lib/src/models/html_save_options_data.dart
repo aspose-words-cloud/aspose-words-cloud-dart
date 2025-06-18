@@ -276,6 +276,16 @@ class HtmlSaveOptionsData extends SaveOptionsData {
   set prettyFormat(bool? val) => _prettyFormat = val;
 
 
+  /// Gets or sets the flag that indicates whether JavaScript will be removed from links.
+  /// Default is false.
+  /// If this option is enabled, all links containing JavaScript (e.g., links with "javascript:" in the href attribute)
+  /// will be replaced with "javascript:void(0)". This can help prevent potential security risks, such as XSS attacks.
+  bool? _removeJavaScriptFromLinks;
+
+  bool? get removeJavaScriptFromLinks => _removeJavaScriptFromLinks;
+  set removeJavaScriptFromLinks(bool? val) => _removeJavaScriptFromLinks = val;
+
+
   /// Gets or sets the flag that indicates whether backslash characters should be replaced with yen signs.
   /// Default value is false.
   /// By default, Aspose.Words mimics MS Word's behavior and doesn't replace backslash characters with yen signs in
@@ -667,6 +677,12 @@ class HtmlSaveOptionsData extends SaveOptionsData {
       prettyFormat = null;
     }
 
+    if (json.containsKey('RemoveJavaScriptFromLinks')) {
+      removeJavaScriptFromLinks = json['RemoveJavaScriptFromLinks'] as bool;
+    } else {
+      removeJavaScriptFromLinks = null;
+    }
+
     if (json.containsKey('ReplaceBackslashWithYenSign')) {
       replaceBackslashWithYenSign = json['ReplaceBackslashWithYenSign'] as bool;
     } else {
@@ -880,6 +896,10 @@ class HtmlSaveOptionsData extends SaveOptionsData {
 
     if (prettyFormat != null) {
       _result['PrettyFormat'] = prettyFormat!;
+    }
+
+    if (removeJavaScriptFromLinks != null) {
+      _result['RemoveJavaScriptFromLinks'] = removeJavaScriptFromLinks!;
     }
 
     if (replaceBackslashWithYenSign != null) {

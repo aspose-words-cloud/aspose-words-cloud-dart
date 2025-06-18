@@ -383,6 +383,12 @@ class MhtmlSaveOptionsData extends HtmlSaveOptionsData {
       prettyFormat = null;
     }
 
+    if (json.containsKey('RemoveJavaScriptFromLinks')) {
+      removeJavaScriptFromLinks = json['RemoveJavaScriptFromLinks'] as bool;
+    } else {
+      removeJavaScriptFromLinks = null;
+    }
+
     if (json.containsKey('ReplaceBackslashWithYenSign')) {
       replaceBackslashWithYenSign = json['ReplaceBackslashWithYenSign'] as bool;
     } else {
