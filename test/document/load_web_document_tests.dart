@@ -59,4 +59,24 @@ class LoadWebDocumentTests
     expect(result.saveResult?.destDocument, isNotNull);
     expect(result.saveResult?.destDocument?.href, 'google.doc');
   }
+
+  /// Test for loading web document online.
+  Future<void> testLoadWebDocumentOnline() async
+  {
+    final requestDataSaveOptions = DocSaveOptionsData();
+    requestDataSaveOptions.fileName = 'google.doc';
+    requestDataSaveOptions.dmlEffectsRenderingMode = SaveOptionsData_DmlEffectsRenderingModeEnum.none;
+    requestDataSaveOptions.dmlRenderingMode = SaveOptionsData_DmlRenderingModeEnum.drawingML;
+    requestDataSaveOptions.zipOutput = false;
+
+    final requestData = LoadWebDocumentData();
+    requestData.loadingDocumentUrl = 'http://google.com';
+    requestData.saveOptions = requestDataSaveOptions;
+
+    final request = LoadWebDocumentOnlineRequest(
+      requestData
+    );
+
+    await context.getApi().loadWebDocumentOnline(request);
+  }
 }
