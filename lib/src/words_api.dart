@@ -1342,6 +1342,11 @@ class WordsApi {
     return await _apiClient.call(request) as SaveResponse;
   }
 
+  /// Downloads a document from the Web using URL and saves it to cloud storage in the specified format.
+  Future< LoadWebDocumentOnlineResponse > loadWebDocumentOnline(LoadWebDocumentOnlineRequest request) async {
+    return await _apiClient.call(request) as LoadWebDocumentOnlineResponse;
+  }
+
   /// Merge the section with the next one.
   Future< void > mergeWithNext(MergeWithNextRequest request) async {
   await _apiClient.call(request);

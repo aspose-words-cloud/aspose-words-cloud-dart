@@ -215,6 +215,7 @@ void main() {
 
   group('LoadWebDocument', () {
     test('LoadWebDocument', () async => await LoadWebDocumentTests(testContext).testLoadWebDocument());
+    test('LoadWebDocumentOnline', () async => await LoadWebDocumentTests(testContext).testLoadWebDocumentOnline());
   });
 
   group('PasswordEncryption', () {
