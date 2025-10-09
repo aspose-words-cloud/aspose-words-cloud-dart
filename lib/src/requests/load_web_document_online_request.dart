@@ -44,7 +44,7 @@ class LoadWebDocumentOnlineRequest implements RequestBase {
   /// Response receive data progress callback
   final ReceiveDataProgressCallback? receiveDataProgressCallback;
 
-  LoadWebDocumentOnlineRequest(this.data{ this.sendDataProgressCallback, this.receiveDataProgressCallback });
+  LoadWebDocumentOnlineRequest(this.data, { this.sendDataProgressCallback, this.receiveDataProgressCallback });
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
