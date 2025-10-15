@@ -270,6 +270,16 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   set zoomFactor(int? val) => _zoomFactor = val;
 
 
+  /// Gets or sets a value determining whether floating shapes are exported as inline tags in the document structure.
+  /// Default value is false and floating shapes will be exported as block-level tags,
+  /// placed after the paragraph in which they are anchored. When the value is true floating shapes will be exported as inline tags,
+  /// placed within the paragraph where they are anchored. This value is ignored when ExportDocumentStructure is false.
+  bool? _exportFloatingShapesAsInlineTag;
+
+  bool? get exportFloatingShapesAsInlineTag => _exportFloatingShapesAsInlineTag;
+  set exportFloatingShapesAsInlineTag(bool? val) => _exportFloatingShapesAsInlineTag = val;
+
+
   /// Gets the format of save.
   String? _saveFormat = 'pdf';
 
@@ -670,6 +680,12 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     } else {
       zoomFactor = null;
     }
+
+    if (json.containsKey('ExportFloatingShapesAsInlineTag')) {
+      exportFloatingShapesAsInlineTag = json['ExportFloatingShapesAsInlineTag'] as bool;
+    } else {
+      exportFloatingShapesAsInlineTag = null;
+    }
   }
 
   @override
@@ -855,6 +871,10 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
       _result['ZoomFactor'] = zoomFactor!;
     }
 
+    if (exportFloatingShapesAsInlineTag != null) {
+      _result['ExportFloatingShapesAsInlineTag'] = exportFloatingShapesAsInlineTag!;
+    }
+
     if (saveFormat != null) {
       _result['SaveFormat'] = saveFormat!;
     }
@@ -893,6 +913,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
 
     outlineOptions?.validate();
+
 
 
 
