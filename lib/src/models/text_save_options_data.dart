@@ -47,6 +47,14 @@ class TextSaveOptionsData extends TxtSaveOptionsBaseData {
   set maxCharactersPerLine(int? val) => _maxCharactersPerLine = val;
 
 
+  /// Gets or sets a value that specifies how OfficeMath will be written to the output file.
+  /// Default value is Text.
+  TextSaveOptionsData_OfficeMathExportModeEnum? _officeMathExportMode;
+
+  TextSaveOptionsData_OfficeMathExportModeEnum? get officeMathExportMode => _officeMathExportMode;
+  set officeMathExportMode(TextSaveOptionsData_OfficeMathExportModeEnum? val) => _officeMathExportMode = val;
+
+
   /// Gets or sets a value indicating whether the program should attempt to preserve layout of tables when saving in the plain text format.
   bool? _preserveTableLayout;
 
@@ -211,6 +219,16 @@ class TextSaveOptionsData extends TxtSaveOptionsBaseData {
       maxCharactersPerLine = null;
     }
 
+    if (json.containsKey('OfficeMathExportMode')) {
+      switch (json['OfficeMathExportMode'] as String) {
+        case 'Text': officeMathExportMode = TextSaveOptionsData_OfficeMathExportModeEnum.text; break;
+        case 'Latex': officeMathExportMode = TextSaveOptionsData_OfficeMathExportModeEnum.latex; break;
+        default: officeMathExportMode = null; break;
+      }
+    } else {
+      officeMathExportMode = null;
+    }
+
     if (json.containsKey('PreserveTableLayout')) {
       preserveTableLayout = json['PreserveTableLayout'] as bool;
     } else {
@@ -234,6 +252,14 @@ class TextSaveOptionsData extends TxtSaveOptionsBaseData {
 
     if (maxCharactersPerLine != null) {
       _result['MaxCharactersPerLine'] = maxCharactersPerLine!;
+    }
+
+    if (officeMathExportMode != null) {
+      switch (officeMathExportMode!) {
+        case TextSaveOptionsData_OfficeMathExportModeEnum.text: _result['OfficeMathExportMode'] = 'Text'; break;
+        case TextSaveOptionsData_OfficeMathExportModeEnum.latex: _result['OfficeMathExportMode'] = 'Latex'; break;
+        default: break;
+      }
     }
 
     if (preserveTableLayout != null) {
@@ -264,4 +290,11 @@ class TextSaveOptionsData extends TxtSaveOptionsBaseData {
   }
 }
 
+/// Gets or sets a value that specifies how OfficeMath will be written to the output file.
+/// Default value is Text.
+enum TextSaveOptionsData_OfficeMathExportModeEnum
+{ 
+  text,
+  latex
+}
 

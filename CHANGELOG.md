@@ -1,3 +1,8 @@
+## [25.11.0] - Aspose Words Cloud for Dart 25.11 Release Notes
+
+- Added 'OfficeMathExportMode' property for TextSaveOptionsData class.
+
+
 ## [25.8.0] - Aspose Words Cloud for Dart 25.8 Release Notes
 
 
