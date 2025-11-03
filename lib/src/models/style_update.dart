@@ -55,7 +55,7 @@ class StyleUpdate implements ModelBase {
 
 
   /// Gets or sets the name of the style.
-  /// Can not be empty string. If there already is a style with such name in the collection, than this style will override it. All affected nodes will reference new style.
+  /// Cannot be an empty string. If there already is a style with such name in the collection, than this style will override it. All affected nodes will reference new style.
   String? _name;
 
   String? get name => _name;

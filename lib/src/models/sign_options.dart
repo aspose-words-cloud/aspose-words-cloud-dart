@@ -31,42 +31,42 @@ import '../../aspose_words_cloud.dart';
 
 /// Container class for digital signature options.
 class SignOptions implements ModelBase {
-  /// Gets or sets comments on the digital signature. Default value is empty string.
+  /// Gets or sets comments on the digital signature. The default value is an empty string.
   String? _comments;
 
   String? get comments => _comments;
   set comments(String? val) => _comments = val;
 
 
-  /// Gets or sets the password to decrypt source document. Default value is empty string.
+  /// Gets or sets the password to decrypt source document. The default value is an empty string.
   String? _decryptionPassword;
 
   String? get decryptionPassword => _decryptionPassword;
   set decryptionPassword(String? val) => _decryptionPassword = val;
 
 
-  /// Gets or sets the class Guid of the signature cryptography provider. Default value is Empty (all zeroes) Guid.
+  /// Gets or sets the class Guid of the signature cryptography provider. The default value is Empty (all zeroes) Guid.
   String? _providerId;
 
   String? get providerId => _providerId;
   set providerId(String? val) => _providerId = val;
 
 
-  /// Gets or sets user defined signature line Guid. Default value is Empty (all zeroes) Guid.
+  /// Gets or sets user defined signature line Guid. The default value is Empty (all zeroes) Guid.
   String? _signatureLineId;
 
   String? get signatureLineId => _signatureLineId;
   set signatureLineId(String? val) => _signatureLineId = val;
 
 
-  /// Gets or sets the image that will be shown in associated SignatureLine. Default value is empty string.
+  /// Gets or sets the image that will be shown in associated SignatureLine. The default value is an empty string.
   String? _signatureLineImageFilename;
 
   String? get signatureLineImageFilename => _signatureLineImageFilename;
   set signatureLineImageFilename(String? val) => _signatureLineImageFilename = val;
 
 
-  /// Gets or sets the date of signing. Default value is current time (Now).
+  /// Gets or sets the date of signing. The default value is current time (Now).
   DateTime? _signTime;
 
   DateTime? get signTime => _signTime;

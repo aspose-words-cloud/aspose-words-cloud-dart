@@ -39,12 +39,12 @@ class WordsApi {
     _apiClient = ApiClient(configuration, getPublicKey);
   }
 
-  /// Accepts all revisions in the document.
+  /// Accepts all the revisions in the document.
   Future< RevisionsModificationResponse > acceptAllRevisions(AcceptAllRevisionsRequest request) async {
     return await _apiClient.call(request) as RevisionsModificationResponse;
   }
 
-  /// Accepts all revisions in the document.
+  /// Accepts all the revisions in the document.
   Future< AcceptAllRevisionsOnlineResponse > acceptAllRevisionsOnline(AcceptAllRevisionsOnlineRequest request) async {
     return await _apiClient.call(request) as AcceptAllRevisionsOnlineResponse;
   }
@@ -903,7 +903,7 @@ class WordsApi {
     return await _apiClient.call(request) as TabStopsResponse;
   }
 
-  /// Get assymetric public key.
+  /// Get asymmetric public key.
   Future< PublicKeyResponse > getPublicKey(GetPublicKeyRequest request) async {
     return await _apiClient.call(request) as PublicKeyResponse;
   }

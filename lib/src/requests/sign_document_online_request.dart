@@ -38,7 +38,7 @@ class SignDocumentOnlineRequest implements RequestBase {
   /// The document.
   final ByteData? document;
 
-  /// certifate file path.
+  /// certificate file path.
   final String? certificatePath;
 
   /// certificate password.

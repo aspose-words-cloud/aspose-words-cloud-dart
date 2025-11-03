@@ -32,7 +32,7 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a document list level.
 class ListLevel extends LinkElement {
   /// Gets or sets the starting number for this list level.
-  /// Default value is 1.
+  /// The default value is 1.
   int? _startAt;
 
   int? get startAt => _startAt;

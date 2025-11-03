@@ -39,7 +39,7 @@ class SignDocumentRequest implements RequestBase {
   /// Name of the document to sign.
   final String? name;
 
-  /// certifate file path.
+  /// certificate file path.
   final String? certificatePath;
 
   /// certificate password.

@@ -48,7 +48,7 @@ class TextSaveOptionsData extends TxtSaveOptionsBaseData {
 
 
   /// Gets or sets a value that specifies how OfficeMath will be written to the output file.
-  /// Default value is Text.
+  /// The default value is Text.
   TextSaveOptionsData_OfficeMathExportModeEnum? _officeMathExportMode;
 
   TextSaveOptionsData_OfficeMathExportModeEnum? get officeMathExportMode => _officeMathExportMode;
@@ -291,7 +291,7 @@ class TextSaveOptionsData extends TxtSaveOptionsBaseData {
 }
 
 /// Gets or sets a value that specifies how OfficeMath will be written to the output file.
-/// Default value is Text.
+/// The default value is Text.
 enum TextSaveOptionsData_OfficeMathExportModeEnum
 { 
   text,

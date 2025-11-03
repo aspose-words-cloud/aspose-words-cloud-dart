@@ -31,7 +31,7 @@ import '../../aspose_words_cloud.dart';
 
 /// DTO for field options.
 class FieldOptions implements ModelBase {
-  /// Gets or sets Curren tUser.
+  /// Gets or sets Current User.
   UserInformation? _currentUser;
 
   UserInformation? get currentUser => _currentUser;

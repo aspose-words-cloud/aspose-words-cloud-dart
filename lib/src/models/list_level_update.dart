@@ -32,7 +32,7 @@ import '../../aspose_words_cloud.dart';
 /// Represents a document list levels.
 class ListLevelUpdate implements ModelBase {
   /// Gets or sets the starting number for this list level.
-  /// Default value is 1.
+  /// The default value is 1.
   int? _startAt;
 
   int? get startAt => _startAt;

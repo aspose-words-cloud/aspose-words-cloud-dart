@@ -32,8 +32,8 @@ import '../../aspose_words_cloud.dart';
 /// DTO container with a StructuredDocumentTagBaseDto.
 abstract class StructuredDocumentTagBase extends NodeLink {
   /// Gets or sets Aspose.Words.Markup.SdtListItemCollection associated with this SDT.
-  /// Accessing this property will only work for Aspose.Words.Markup.SdtType.ComboBox or Aspose.Words.Markup.SdtType.DropDownList SDT types.
-  /// For all other SDT types exception will occur.
+  /// Accessing this property will work only for Aspose.Words.Markup.SdtType.ComboBox or Aspose.Words.Markup.SdtType.DropDownList SDT types.
+  /// For all other SDT types, an exception will occur.
   List<StructuredDocumentTagListItem?>? _listItems;
 
   List<StructuredDocumentTagListItem?>? get listItems => _listItems;
@@ -41,8 +41,8 @@ abstract class StructuredDocumentTagBase extends NodeLink {
 
 
   /// Gets or sets a value indicating whether current state of the Checkbox SDT. Default value for this property.
-  /// Accessing this property will only work for Aspose.Words.Markup.SdtType.Checkbox SDT types.
-  /// For all other SDT types exception will occur.
+  /// Accessing this property will work only for Aspose.Words.Markup.SdtType.Checkbox SDT types.
+  /// For all other SDT types, an exception will occur.
   bool? _checked;
 
   bool? get checked => _checked;
@@ -57,8 +57,8 @@ abstract class StructuredDocumentTagBase extends NodeLink {
 
 
   /// Gets or sets the language format for the date displayed in this SDT.
-  /// Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type.
-  /// For all other SDT types exception will occur.
+  /// Accessing this property will work only for Aspose.Words.Markup.SdtType.Date SDT type.
+  /// For all other SDT types, an exception will occur.
   int? _dateDisplayLocale;
 
   int? get dateDisplayLocale => _dateDisplayLocale;
@@ -66,8 +66,8 @@ abstract class StructuredDocumentTagBase extends NodeLink {
 
 
   /// Gets or sets String that represents the format in which dates are displayed. Can not be null. The dates for English (U.S.) is "mm/dd/yyyy".
-  /// Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type.
-  /// For all other SDT types exception will occur.
+  /// Accessing this property will work only for Aspose.Words.Markup.SdtType.Date SDT type.
+  /// For all other SDT types, an exception will occur.
   String? _dateDisplayFormat;
 
   String? get dateDisplayFormat => _dateDisplayFormat;
@@ -75,8 +75,8 @@ abstract class StructuredDocumentTagBase extends NodeLink {
 
 
   /// Gets or sets the full date and time last entered into this SDT.
-  /// Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type.
-  /// For all other SDT types exception will occur.
+  /// Accessing this property will work only for Aspose.Words.Markup.SdtType.Date SDT type.
+  /// For all other SDT types, an exception will occur.
   DateTime? _fullDate;
 
   DateTime? get fullDate => _fullDate;
@@ -91,9 +91,9 @@ abstract class StructuredDocumentTagBase extends NodeLink {
 
 
   /// Gets or sets format in which the date for a date SDT is stored when the SDT is bound to an XML node in the document's data store.
-  /// Default value is Aspose.Words.Markup.SdtDateStorageFormat.DateTime.
-  /// Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type.
-  /// For all other SDT types exception will occur.
+  /// The default value is Aspose.Words.Markup.SdtDateStorageFormat.DateTime.
+  /// Accessing this property will work only for Aspose.Words.Markup.SdtType.Date SDT type.
+  /// For all other SDT types, an exception will occur.
   StructuredDocumentTagBase_DateStorageFormatEnum? _dateStorageFormat;
 
   StructuredDocumentTagBase_DateStorageFormatEnum? get dateStorageFormat => _dateStorageFormat;
@@ -101,9 +101,9 @@ abstract class StructuredDocumentTagBase extends NodeLink {
 
 
   /// Gets or sets type of building block for this SDT. Can not be null.
-  /// Accessing this property will only work for Aspose.Words.Markup.SdtType.BuildingBlockGallery and Aspose.Words.Markup.SdtType.DocPartObj SDT types.
+  /// Accessing this property will work only for Aspose.Words.Markup.SdtType.BuildingBlockGallery and Aspose.Words.Markup.SdtType.DocPartObj SDT types.
   /// It is read-only for SDT of the document part type.
-  /// For all other SDT types exception will occur.
+  /// For all other SDT types, an exception will occur.
   String? _buildingBlockGallery;
 
   String? get buildingBlockGallery => _buildingBlockGallery;
@@ -111,8 +111,8 @@ abstract class StructuredDocumentTagBase extends NodeLink {
 
 
   /// Gets or sets category of building block for this SDT node. Can not be null.
-  /// Accessing this property will only work for Aspose.Words.Markup.SdtType.BuildingBlockGallery and Aspose.Words.Markup.SdtType.DocPartObj SDT types.
-  /// It is read-only for SDT of the document part type. For all other SDT types exception will occur.
+  /// Accessing this property will work only for Aspose.Words.Markup.SdtType.BuildingBlockGallery and Aspose.Words.Markup.SdtType.DocPartObj SDT types.
+  /// It is read-only for SDT of the document part type. For all other SDT types, an exception will occur.
   String? _buildingBlockCategory;
 
   String? get buildingBlockCategory => _buildingBlockCategory;
@@ -120,8 +120,8 @@ abstract class StructuredDocumentTagBase extends NodeLink {
 
 
   /// Gets or sets a value indicating whether this SDT allows multiple lines of text.
-  /// Accessing this property will only work for Aspose.Words.Markup.SdtType.RichText and Aspose.Words.Markup.SdtType.PlainText SDT type.
-  /// For all other SDT types exception will occur.
+  /// Accessing this property will work only for Aspose.Words.Markup.SdtType.RichText and Aspose.Words.Markup.SdtType.PlainText SDT type.
+  /// For all other SDT types, an exception will occur.
   bool? _multiline;
 
   bool? get multiline => _multiline;
@@ -143,8 +143,8 @@ abstract class StructuredDocumentTagBase extends NodeLink {
 
 
   /// Gets or sets the type of calendar for this SDT. Default is Aspose.Words.Markup.SdtCalendarType.Default.
-  /// Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type.
-  /// For all other SDT types exception will occur.
+  /// Accessing this property will work only for Aspose.Words.Markup.SdtType.Date SDT type.
+  /// For all other SDT types, an exception will occur.
   StructuredDocumentTagBase_CalendarTypeEnum? _calendarType;
 
   StructuredDocumentTagBase_CalendarTypeEnum? get calendarType => _calendarType;
@@ -569,9 +569,9 @@ enum StructuredDocumentTagBase_AppearanceEnum
 }
 
 /// Gets or sets format in which the date for a date SDT is stored when the SDT is bound to an XML node in the document's data store.
-/// Default value is Aspose.Words.Markup.SdtDateStorageFormat.DateTime.
-/// Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type.
-/// For all other SDT types exception will occur.
+/// The default value is Aspose.Words.Markup.SdtDateStorageFormat.DateTime.
+/// Accessing this property will work only for Aspose.Words.Markup.SdtType.Date SDT type.
+/// For all other SDT types, an exception will occur.
 enum StructuredDocumentTagBase_DateStorageFormatEnum
 { 
   date,
@@ -581,8 +581,8 @@ enum StructuredDocumentTagBase_DateStorageFormatEnum
 }
 
 /// Gets or sets the type of calendar for this SDT. Default is Aspose.Words.Markup.SdtCalendarType.Default.
-/// Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type.
-/// For all other SDT types exception will occur.
+/// Accessing this property will work only for Aspose.Words.Markup.SdtType.Date SDT type.
+/// For all other SDT types, an exception will occur.
 enum StructuredDocumentTagBase_CalendarTypeEnum
 { 
   defaultValue,

@@ -39,10 +39,10 @@ class BuildReportRequest implements RequestBase {
   /// The filename of the input document.
   final String? name;
 
-  /// A string providing a data to populate the specified template. The string must be of one of the following types: xml, json, csv.
+  /// A string providing data to populate the specified template. The string must be of one of the following types: xml, json, csv.
   final String? data;
 
-  /// An object providing a settings of report engine.
+  /// An object providing settings of a report engine.
   final ReportEngineSettings? reportEngineSettings;
 
   /// Original document folder.
