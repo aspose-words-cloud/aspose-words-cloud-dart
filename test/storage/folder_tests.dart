@@ -60,7 +60,8 @@ class FolderTests
     await context.uploadFile(localFile, testDeleteFolder + '/TestDeleteFolder.docx');
 
     final request = DeleteFolderRequest(
-      testDeleteFolder
+      testDeleteFolder,
+      recursive: true
     );
 
     await context.getApi().deleteFolder(request);
