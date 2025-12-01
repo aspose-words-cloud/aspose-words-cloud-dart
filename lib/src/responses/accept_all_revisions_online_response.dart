@@ -34,7 +34,7 @@ import '../../aspose_words_cloud.dart';
 import '../api_client.dart';
 import '../body_part_data.dart';
 
-/// Accepts all revisions in the document.
+/// Accepts all the revisions in the document.
 class AcceptAllRevisionsOnlineResponse implements ResponseBase {
   /// The REST response with a result of the modification operations for the revisions collection (now these are acceptAll and rejectAll).
   RevisionsModificationResponse? model;

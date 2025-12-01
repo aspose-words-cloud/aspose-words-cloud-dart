@@ -38,10 +38,10 @@ class BuildReportOnlineRequest implements RequestBase {
   /// File with template.
   final ByteData? template;
 
-  /// A string providing a data to populate the specified template. The string must be of one of the following types: xml, json, csv.
+  /// A string providing data to populate the specified template. The string must be of one of the following types: xml, json, csv.
   final String? data;
 
-  /// An object providing a settings of report engine.
+  /// An object providing settings of a report engine.
   final ReportEngineSettings? reportEngineSettings;
 
   /// The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "template" will be used instead.

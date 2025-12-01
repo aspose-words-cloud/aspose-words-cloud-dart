@@ -39,7 +39,7 @@ abstract class TxtSaveOptionsBaseData extends SaveOptionsData {
 
 
   /// Gets or sets the option that controls whether to output headers and footers when exporting in plain text format.
-  /// default value is TxtExportHeadersFootersMode.PrimaryOnly.
+  /// The default value is TxtExportHeadersFootersMode.PrimaryOnly.
   TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum? _exportHeadersFootersMode;
 
   TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum? get exportHeadersFootersMode => _exportHeadersFootersMode;
@@ -231,7 +231,7 @@ abstract class TxtSaveOptionsBaseData extends SaveOptionsData {
 }
 
 /// Gets or sets the option that controls whether to output headers and footers when exporting in plain text format.
-/// default value is TxtExportHeadersFootersMode.PrimaryOnly.
+/// The default value is TxtExportHeadersFootersMode.PrimaryOnly.
 enum TxtSaveOptionsBaseData_ExportHeadersFootersModeEnum
 { 
   none,

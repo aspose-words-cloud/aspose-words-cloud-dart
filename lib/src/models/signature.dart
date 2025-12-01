@@ -39,7 +39,7 @@ class Signature implements ModelBase {
   set comments(String? val) => _comments = val;
 
 
-  /// Gets or sets the subject distinguished name of the certificate isuuer.
+  /// Gets or sets the subject distinguished name of the certificate issuer.
   String? _issuerName;
 
   String? get issuerName => _issuerName;

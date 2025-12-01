@@ -32,7 +32,7 @@ import '../../aspose_words_cloud.dart';
 /// Container class for pdf save options.
 class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   /// Gets or sets a value determining how attachments are embedded to the PDF document.
-  /// Default value is None and attachments are not embedded.
+  /// The default value is None and attachments are not embedded.
   /// PDF/A-1, PDF/A-2 and regular PDF/A-4 (not PDF/A-4f) standards do not allow embedded files.
   /// None value will be used automatically.
   PdfSaveOptionsData_AttachmentsEmbeddingModeEnum? _attachmentsEmbeddingMode;
@@ -42,7 +42,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
 
   /// Gets or sets a value determining whether or not to cache graphics placed in document's background.
-  /// Default value is true and background graphics are written to the PDF document as an xObject. When the value is false background graphics are not cached. Some shapes are not supported for caching(shapes with fields, bookmarks, HRefs). Document background graphic is various shapes, charts, images placed in the footer or header,
+  /// The default value is true and background graphics are written to the PDF document as an xObject. When the value is false background graphics are not cached. Some shapes are not supported for caching(shapes with fields, bookmarks, HRefs). Document background graphic is various shapes, charts, images placed in the footer or header,
   /// well as background and border of a page.
   bool? _cacheBackgroundGraphics;
 
@@ -98,7 +98,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
 
   /// Gets or sets a value determining whether or not to embed attachments to the PDF document.
-  /// Default value is false and attachments are not embedded.
+  /// The default value is false and attachments are not embedded.
   /// When the value is true attachments are embedded to the PDF document.
   /// Embedding attachments is not supported when saving to PDF/A and PDF/UA compliance.
   /// false value will be used automatically.
@@ -133,7 +133,7 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
 
   /// Gets or sets a value determining whether or not to create a "Span" tag in the document structure to export the text language.
-  /// Default value is false and "Lang" attribute is attached to a marked-content sequence in a page content stream.
+  /// The default value is false and "Lang" attribute is attached to a marked-content sequence in a page content stream.
   /// When the value is true "Span" tag is created for the text with non-default language and "Lang" attribute is attached to this tag.
   /// This value is ignored when Aspose.Words.Saving.PdfSaveOptions.ExportDocumentStructure is false.
   bool? _exportLanguageToSpanTag;
@@ -268,6 +268,16 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
   int? get zoomFactor => _zoomFactor;
   set zoomFactor(int? val) => _zoomFactor = val;
+
+
+  /// Gets or sets a value determining whether floating shapes are exported as inline tags in the document structure.
+  /// The default value is false and floating shapes will be exported as block-level tags,
+  /// placed after the paragraph in which they are anchored. When the value is true floating shapes will be exported as inline tags,
+  /// placed within the paragraph where they are anchored. This value is ignored when ExportDocumentStructure is false.
+  bool? _exportFloatingShapesAsInlineTag;
+
+  bool? get exportFloatingShapesAsInlineTag => _exportFloatingShapesAsInlineTag;
+  set exportFloatingShapesAsInlineTag(bool? val) => _exportFloatingShapesAsInlineTag = val;
 
 
   /// Gets the format of save.
@@ -670,6 +680,12 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     } else {
       zoomFactor = null;
     }
+
+    if (json.containsKey('ExportFloatingShapesAsInlineTag')) {
+      exportFloatingShapesAsInlineTag = json['ExportFloatingShapesAsInlineTag'] as bool;
+    } else {
+      exportFloatingShapesAsInlineTag = null;
+    }
   }
 
   @override
@@ -855,6 +871,10 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
       _result['ZoomFactor'] = zoomFactor!;
     }
 
+    if (exportFloatingShapesAsInlineTag != null) {
+      _result['ExportFloatingShapesAsInlineTag'] = exportFloatingShapesAsInlineTag!;
+    }
+
     if (saveFormat != null) {
       _result['SaveFormat'] = saveFormat!;
     }
@@ -905,11 +925,12 @@ class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
 
 
+
   }
 }
 
 /// Gets or sets a value determining how attachments are embedded to the PDF document.
-/// Default value is None and attachments are not embedded.
+/// The default value is None and attachments are not embedded.
 /// PDF/A-1, PDF/A-2 and regular PDF/A-4 (not PDF/A-4f) standards do not allow embedded files.
 /// None value will be used automatically.
 enum PdfSaveOptionsData_AttachmentsEmbeddingModeEnum

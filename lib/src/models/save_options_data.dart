@@ -98,7 +98,7 @@ abstract class SaveOptionsData implements ModelBase {
 
 
   /// Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.CreatedTime property is updated before saving.
-  /// Default value is false.
+  /// The default value is false.
   bool? _updateCreatedTimeProperty;
 
   bool? get updateCreatedTimeProperty => _updateCreatedTimeProperty;
