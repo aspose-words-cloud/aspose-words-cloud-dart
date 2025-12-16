@@ -51,8 +51,6 @@ abstract class ModelBase {
     'BorderResponse, _': () => BorderResponse(),
     'BordersCollection, _': () => BordersCollection(),
     'BordersResponse, _': () => BordersResponse(),
-    'ClassificationResponse, _': () => ClassificationResponse(),
-    'ClassificationResult, _': () => ClassificationResult(),
     'Comment, _': () => Comment(),
     'CommentInsert, _': () => CommentInsert(),
     'CommentLink, _': () => CommentLink(),
