@@ -1,3 +1,8 @@
+## [25.12.0] - Aspose Words Cloud for Dart 25.12 Release Notes
+
+- Classification API has been removed.
+
+
 ## [25.11.0] - Aspose Words Cloud for Dart 25.11 Release Notes
 
 - Added 'OfficeMathExportMode' property for TextSaveOptionsData class.
