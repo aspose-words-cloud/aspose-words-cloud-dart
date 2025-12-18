@@ -52,6 +52,13 @@ class Document implements ModelBase {
   set fileName(String? val) => _fileName = val;
 
 
+  /// Gets or sets the file size.
+  int? _fileSize;
+
+  int? get fileSize => _fileSize;
+  set fileSize(int? val) => _fileSize = val;
+
+
   /// Gets or sets a value indicating whether the document is encrypted and requires a password to open.
   bool? _isEncrypted;
 
@@ -99,6 +106,12 @@ class Document implements ModelBase {
       fileName = json['FileName'] as String;
     } else {
       fileName = null;
+    }
+
+    if (json.containsKey('FileSize')) {
+      fileSize = json['FileSize'] as int;
+    } else {
+      fileSize = null;
     }
 
     if (json.containsKey('IsEncrypted')) {
@@ -157,6 +170,10 @@ class Document implements ModelBase {
 
     if (fileName != null) {
       _result['FileName'] = fileName!;
+    }
+
+    if (fileSize != null) {
+      _result['FileSize'] = fileSize!;
     }
 
     if (isEncrypted != null) {
@@ -224,6 +241,7 @@ class Document implements ModelBase {
 
 
     documentProperties?.validate();
+
 
 
 

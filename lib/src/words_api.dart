@@ -79,21 +79,6 @@ class WordsApi {
     return await _apiClient.call(request) as ByteData;
   }
 
-  /// Runs a multi-class text classification for the specified raw text.
-  Future< ClassificationResponse > classify(ClassifyRequest request) async {
-    return await _apiClient.call(request) as ClassificationResponse;
-  }
-
-  /// Runs a multi-class text classification for the document.
-  Future< ClassificationResponse > classifyDocument(ClassifyDocumentRequest request) async {
-    return await _apiClient.call(request) as ClassificationResponse;
-  }
-
-  /// Runs a multi-class text classification for the document.
-  Future< ClassificationResponse > classifyDocumentOnline(ClassifyDocumentOnlineRequest request) async {
-    return await _apiClient.call(request) as ClassificationResponse;
-  }
-
   /// Compares two documents.
   Future< DocumentResponse > compareDocument(CompareDocumentRequest request) async {
     return await _apiClient.call(request) as DocumentResponse;

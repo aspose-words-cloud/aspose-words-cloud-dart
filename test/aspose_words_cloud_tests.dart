@@ -38,7 +38,6 @@ import './compatibility/compatibility_tests.dart';
 import './document_properties/document_properties_tests.dart';
 import './document_protection/document_protection_tests.dart';
 import './document/append_document_tests.dart';
-import './document/classification_tests.dart';
 import './document/comment_tests.dart';
 import './document/compare_document_tests.dart';
 import './document/compress_document_tests.dart';
@@ -138,12 +137,6 @@ void main() {
   group('AppendDocument', () {
     test('AppendDocument', () async => await AppendDocumentTests(testContext).testAppendDocument());
     test('AppendDocumentOnline', () async => await AppendDocumentTests(testContext).testAppendDocumentOnline());
-  });
-
-  group('Classification', () {
-    test('Classify', () async => await ClassificationTests(testContext).testClassify());
-    test('ClassifyDocument', () async => await ClassificationTests(testContext).testClassifyDocument());
-    test('ClassifyDocumentOnline', () async => await ClassificationTests(testContext).testClassifyDocumentOnline());
   });
 
   group('Comment', () {
