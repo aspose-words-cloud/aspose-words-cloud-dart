@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="gif_save_options_data.dart">
- *   Copyright (c) 2025 Aspose.Words for Cloud
+ *   Copyright (c) 2026 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
