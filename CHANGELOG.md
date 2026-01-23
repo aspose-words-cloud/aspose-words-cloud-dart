@@ -1,3 +1,8 @@
+## [26.1.0] - Aspose Words Cloud for Dart 26.1 Release Notes
+
+- Add fontsLocation parameter for Compare API.
+
+
 ## [25.12.0] - Aspose Words Cloud for Dart 25.12 Release Notes
 
 - Classification API has been removed.

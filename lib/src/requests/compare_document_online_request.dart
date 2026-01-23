@@ -56,13 +56,16 @@ class CompareDocumentOnlineRequest implements RequestBase {
   /// Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
   final String? destFileName;
 
+  /// Folder in filestorage with custom fonts.
+  final String? fontsLocation;
+
   /// Request send data progress callback
   final SendDataProgressCallback? sendDataProgressCallback;
 
   /// Response receive data progress callback
   final ReceiveDataProgressCallback? receiveDataProgressCallback;
 
-  CompareDocumentOnlineRequest(this.document, this.compareData, {this.loadEncoding, this.password, this.encryptedPassword, this.openTypeSupport, this.destFileName, this.sendDataProgressCallback, this.receiveDataProgressCallback});
+  CompareDocumentOnlineRequest(this.document, this.compareData, {this.loadEncoding, this.password, this.encryptedPassword, this.openTypeSupport, this.destFileName, this.fontsLocation, this.sendDataProgressCallback, this.receiveDataProgressCallback});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -89,6 +92,10 @@ class CompareDocumentOnlineRequest implements RequestBase {
 
     if (destFileName != null) {
       _queryParams['destFileName'] = _apiClient.serializeToString(destFileName) ?? "";
+    }
+
+    if (fontsLocation != null) {
+      _queryParams['fontsLocation'] = _apiClient.serializeToString(fontsLocation) ?? "";
     }
 
     if (document != null) {
