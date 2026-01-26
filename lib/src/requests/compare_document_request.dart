@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="compare_document_request.dart">
- *   Copyright (c) 2025 Aspose.Words for Cloud
+ *   Copyright (c) 2026 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -63,13 +63,16 @@ class CompareDocumentRequest implements RequestBase {
   /// Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
   final String? destFileName;
 
+  /// Folder in filestorage with custom fonts.
+  final String? fontsLocation;
+
   /// Request send data progress callback
   final SendDataProgressCallback? sendDataProgressCallback;
 
   /// Response receive data progress callback
   final ReceiveDataProgressCallback? receiveDataProgressCallback;
 
-  CompareDocumentRequest(this.name, this.compareData, {this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.openTypeSupport, this.destFileName, this.sendDataProgressCallback, this.receiveDataProgressCallback});
+  CompareDocumentRequest(this.name, this.compareData, {this.folder, this.storage, this.loadEncoding, this.password, this.encryptedPassword, this.openTypeSupport, this.destFileName, this.fontsLocation, this.sendDataProgressCallback, this.receiveDataProgressCallback});
 
   @override
   Future<ApiRequestData> createRequestData(final ApiClient _apiClient) async {
@@ -108,6 +111,10 @@ class CompareDocumentRequest implements RequestBase {
 
     if (destFileName != null) {
       _queryParams['destFileName'] = _apiClient.serializeToString(destFileName) ?? "";
+    }
+
+    if (fontsLocation != null) {
+      _queryParams['fontsLocation'] = _apiClient.serializeToString(fontsLocation) ?? "";
     }
 
     if (compareData != null) {
