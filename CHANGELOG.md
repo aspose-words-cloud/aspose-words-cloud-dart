@@ -1,3 +1,8 @@
+## [26.6.0] - Aspose Words Cloud for Dart 26.6 Release Notes
+
+- Download file with chunks was fixed.
+
+
 ## [26.4.0] - Aspose Words Cloud for Dart 26.4 Release Notes
 
 - Implemented jobs system to perform operations without an active connection to the server.
