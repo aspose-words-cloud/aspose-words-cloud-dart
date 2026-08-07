@@ -574,7 +574,7 @@ class ApiClient {
     }
 
     httpRequest.headers['x-aspose-client'] = 'dart sdk';
-    httpRequest.headers['x-aspose-client-version'] = '26.7';
+    httpRequest.headers['x-aspose-client-version'] = '26.8';
     httpRequest.headers['Authorization'] = await _getAuthToken();
     httpRequest.headers.addAll(requestData.headers);
 
